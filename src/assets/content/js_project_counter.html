@@ -1,0 +1,297 @@
+
+      
+
+<h1>Project - localStorage Counter</h1>
+
+<!--start-->
+<div class="ws-info">
+<h2>A Counter with Reset and Save</h2>
+<p>In this project you will build a <b>counter</b> with buttons to:</p>
+<ul>
+<li><b>Increase</b> the counter</li>
+<li><b>Decrease</b> the counter</li>
+<li><b>Reset</b> the counter</li>
+<li><b>Save</b> the counter</li>
+<li><b>Load</b> the counter</li>
+</ul>
+<p id="count" style="font-size:40px;">0</p>
+<button onclick="increaseCount()">+</button>
+<button onclick="decreaseCount()">-</button>
+<button onclick="resetCount()">Reset</button>
+<button onclick="saveCount()">Save</button>
+<button onclick="loadCount()">Load</button>
+</div>
+
+<h2>Project Skills</h2>
+<ul>
+<li>JavaScript Variables</li>
+<li>JavaScript Functions</li>
+<li>JavaScript HTML DOM</li>
+<li>JavaScript Events (onclick attributes)</li>
+<li>JavaScript localStorage (to <b>Save</b> and <b>Restore</b> the counter)</li>
+</ul>
+
+<div class="w3-example">
+<h3>HTML Code</h3>
+<pre class="w3-code"><code class="language-html">&lt;h2&gt;Counter&lt;/h2&gt;
+&lt;p id="count" style="font-size:40px;"&gt;0&lt;/p&gt;
+&lt;button onclick="increaseCount()"&gt;+&lt;/button&gt;
+&lt;button onclick="decreaseCount()"&gt;-&lt;/button&gt;
+&lt;button onclick="resetCount()"&gt;Reset&lt;/button&gt;
+&lt;button onclick="saveCount()"&gt;Save&lt;/button&gt;
+&lt;button onclick="loadCount()"&gt;Load&lt;/button&gt;
+&lt;script&gt;
+// JavaScript code. See below.
+&lt;/script&gt;</code></pre>
+<h3>JavaScript Code</h3>
+<pre class="w3-code"><code class="language-javascript">// Declare the counter
+let count = 0;
+// Function to display the counter
+function updateCount() {
+  document.getElementById("count").innerHTML = count;
+}
+// Function to increase the counter
+function increaseCount() {
+  count++;
+  updateCount();
+}
+// Function to decrease the counter
+function decreaseCount() {
+  count--;
+  updateCount();
+}
+// Function to reset the counter
+function resetCount() {
+  count = 0;
+  updateCount();
+}
+// Function to save the counter
+function saveCount() {
+  localStorage.setItem("count", count);
+}
+// Function to load the counter
+function loadCount() {
+  let saved = localStorage.getItem("count");
+  if (saved !== null) {
+    count = Number(saved);
+  }
+  updateCount();
+}</code></pre>
+
+</div>
+
+<hr>
+<h2>1. Create the HTML</h2>
+<ul>
+<li>Add a <code class="w3-codespan">&lt;h2&gt;</code> header element</li>
+<li>Add a <code class="w3-codespan">&lt;p&gt;</code> element displaying a number</li>
+<li>Add 4 <code class="w3-codespan">&lt;button&gt;</code> elements</li>
+<li>Add an <code class="w3-codespan">onclick</code> attribute to each button</li>
+</ul>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;h2&gt;Counter&lt;/h2&gt;
+&lt;p id="count" style="font-size:40px;"&gt;0&lt;/p&gt;
+&lt;button onclick="increaseCount()"&gt;+&lt;/button&gt;
+&lt;button onclick="decreaseCount()"&gt;-&lt;/button&gt;
+&lt;button onclick="resetCount()"&gt;Reset&lt;/button&gt;
+&lt;button onclick="saveCount()"&gt;Save&lt;/button&gt;
+&lt;button onclick="loadCount()"&gt;Load&lt;/button&gt;</code></pre>
+</div>
+<hr>
+<h2>2. Create a Script</h2>
+<ul>
+<li><code class="w3-codespan">let count = 0</code> declares a counter</li>
+<li><code class="w3-codespan">Function updateCount() {}</code> creates a function to update counter</li>
+<li><code class="w3-codespan">document.getElementById().innerHTML</code> displays the counter
+
+</li></ul>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;script&gt;
+// Declare a counter
+let count = 0;
+// Function to display the counter
+function updateCount() {
+  document.getElementById("count").innerHTML = count;
+}
+&lt;/script&gt;</code></pre>
+</div>
+
+<hr>
+<h2>3: Add an Increase Counter Function</h2>
+<ul>
+<li><code class="w3-codespan">Function increaseCount() {}</code> creates an increase function</li>
+<li><code class="w3-codespan">count++</code> increases the counter</li>
+<li><code class="w3-codespan">updateCount()</code> diplays the counter</li>
+</ul>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Function to increase the counter
+function increaseCount() {
+  count++;
+  updateCount();
+}</code></pre>
+</div>
+
+<hr>
+<h2>4: Add a Decease Counter Function</h2>
+<ul>
+<li><code class="w3-codespan">Function decreaseCount() {}</code> creates a decrease function</li>
+<li><code class="w3-codespan">count--</code> decreases the counter</li>
+<li><code class="w3-codespan">updateCount()</code> diplays the counter</li>
+</ul>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Function to decrease the counter
+function decreaseCount() {
+  count--;
+  updateCount();
+}</code></pre>
+</div>
+
+<hr>
+<h2>5: Add a Reset Counter Funtion</h2>
+<ul>
+<li><code class="w3-codespan">Function resetCount() {}</code> creates a reset function</li>
+<li><code class="w3-codespan">count = 0</code> resets the counter</li>
+<li><code class="w3-codespan">updateCount()</code> diplays the counter</li>
+</ul>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">function resetCount() {
+  count = 0;
+  updateCount();
+}</code></pre>
+</div>
+
+<hr>
+<h2>6: Create a Save Counter Function</h2>
+<ul>
+<li><code class="w3-codespan">Function saveCount() {}</code> creates a save function</li>
+<li><code class="w3-codespan">localStorage.setItem()</code>  saves the value.</li>
+</ul>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">function saveCount() {
+  localStorage.setItem("count", count);
+}</code></pre>
+</div>
+
+<hr>
+<h2>7: Create a Load Counter Function</h2>
+<ul>
+<li><code class="w3-codespan">Function loadCount() {}</code> creates a load function</li>
+<li><code class="w3-codespan">localStorage.getItem()</code>  gets the value</li>
+<li><code class="w3-codespan">Number(saved)</code> converts saved to numberstdisplays the value.</li>
+<li><code class="w3-codespan">updateCount()</code> displays the value.</li>
+</ul>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">function loadCount() {
+  let saved = localStorage.getItem("count");
+  if (saved !== null) {
+    count = <b>Number(saved)</b>;
+  }
+  updateCount();
+}</code></pre>
+<br>
+<div class="w3-container w3-pale-yellow">
+<p><code class="w3-codespan">localStorage</code> stores values as text, so we use
+<code class="w3-codespan">Number()</code> to convert the value back into a number.
+</p></div>
+<br>
+</div>
+
+<hr>
+<h2>What Have You Learned?</h2>
+<ul>
+<li>How to update HTML using JavaScript</li>
+<li>How to use button events (onclick)</li>
+<li>How to store and load values from localStorage</li>
+<li>How to keep your code organized with functions</li>
+</ul>
+
+<hr>
+<h2>Exercises</h2>
+<hr>
+<h3>Exercice 1</h3>
+<p>Make the counter start at 10 instead of 0.</p>
+<h3>Exercice 2</h3>
+<p>Prevent the counter from going below 0.</p>
+<h3>Exercice 3</h3>
+<p>Automatically load the saved counter value when the page opens.</p>
+
+<div class="w3-example">
+<h3>Solutions</h3>
+<pre class="w3-code"><code class="language-javascript">// Declare the counter
+let count = 10;
+// Load the counter when the page opens
+loadCount();
+// Function to display the counter
+function updateCount() {
+  document.getElementById("count").innerHTML = count;
+}
+// Function to increase the counter
+function increaseCount() {
+  count++;
+  updateCount();
+}
+// Function to decrease the counter
+function decreaseCount() {
+  if (count &gt; 0) {
+    count--;
+    updateCount();
+  }
+}
+// Function to reset the counter
+function resetCount() {
+  count = 10;
+  updateCount();
+}
+// Function to save the counter
+function saveCount() {
+  localStorage.setItem("count", count);
+}
+// Function to load the counter
+function loadCount() {
+  let saved = localStorage.getItem("count");
+  if (saved !== null) {
+    count = Number(saved);
+  }
+  updateCount();
+}</code></pre>
+
+</div>
+
+<div class="ws-note">
+<p>Try saving the value, reload the page, and see if it load automatically.</p>
+</div>
+
+<div class="ws-note">
+<h2>JavaScript Projects</h2>
+<ul class="w3-ul">
+<li><a href="js_project_counter.html" class="w3-large">JavaScript Counter</a><br>
+A counter project with restore and save in lovalStorage.
+</li>
+<li><a href="js_project_eventlistener.html" class="w3-large">JavaScript Event Listener</a><br>
+The counter project using event listener instead of onclick.
+</li>
+<li><a href="js_project_todo.html" class="w3-large">JavaScript Do-Do List</a><br>
+A do-do list saved in an array in local storage.
+</li>
+<li><a href="js_project_modal_popup.html" class="w3-large">JavaScript Modal Popup</a><br>
+A modal popup window that appears on top of the page.
+</li>
+</ul>
+</div>
+
+<br>
+
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_htmldom_eventlistener.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_project_eventlistener.html">Next ❯</a>
+</div>
+
+

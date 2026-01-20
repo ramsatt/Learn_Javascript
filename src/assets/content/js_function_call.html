@@ -1,0 +1,198 @@
+
+      
+
+<h1>JavaScript Function call()</h1>
+
+
+<div class="ws-info">
+<h2>The JavaScript call() Method</h2>
+<p>The <b>call()</b> method can be used to call a function with a specific <b>this</b>.</p>
+<p>The <b>call()</b> method lets an object use a method belonging to another object.</p>
+<p>In this way, the same <b>method</b> can be used on <b>different objects</b>.</p>
+</div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p><b>call()</b> is an advanced topic.</p>
+<p>Make sure you understand <b>this</b> before continuing.<br>
+</p><p class="w3-large"><a href="js_function_this.html">Function <b>this</b></a></p>
+</div>
+
+<hr>
+<h2>Basic call() Syntax</h2>
+<p>The <b>call()</b> method can be used to call a method with an object as an argument.</p>
+<p>The <b>call()</b> method takes <b>this</b> as the first argument.</p>
+<p>Additional arguments are passed as a <b>a comma separated list</b>.</p>
+
+<div class="w3-example">
+  <h3>Syntax</h3>
+  <pre class="w3-code"><code class="language-javascript">functionName.call(thisValue, arg1, arg2, ...);</code></pre>
+</div>
+
+<hr>
+<h2>Using call() to Set <b>this</b></h2>
+<p>You can use <b>call()</b> to decide that <b>this</b> should be.</p>
+<p>In the example below, the <b>greet function</b> returns <b>this.name</b>.</p>
+<p>When we use <b>call()</b> we decide that <b>this</b> should be the <b>person3</b> object.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const person1 = { name: "John" };
+const person2 = { name: "Paul" };
+const person3 = { name: "Ringo" };
+function greet(greeting) {
+  return greeting + " " + this.name;
+}
+greet.call(person3, "Hello");</code></pre>
+
+</div>
+
+<hr>
+<h2>Borrowing a Method from Another Object</h2>
+<p>You can use <b>call()</b> to <b>borrow a method</b> from another object:</p>
+<div class="w3-example">
+<h3>Example 1</h3>
+<p>Calls the <b>fullName</b> method of <b>person</b>, using it on <b>person1</b>:</p>
+<pre class="w3-code"><code class="language-javascript">const person = {
+  <b>fullName</b>: function() {
+    return this.firstName + " " + this.lastName;
+  }
+}
+const person1 = {
+  firstName:"John",
+  lastName: "Doe"
+}
+const person2 = {
+  firstName:"Mary",
+  lastName: "Doe"
+}
+// This will return "John Doe":
+person.fullName.call(<b>person1</b>);</code></pre>
+<p>
+
+</p>
+</div>
+
+<div class="w3-example">
+<h3>Example 2</h3>
+<p>Call the <b>fullName</b> method of <b>person</b>, using it on <b>person2</b>:</p>
+
+<pre class="w3-code"><code class="language-javascript">const person = {
+  <b>fullName</b>: function() {
+    return this.firstName + " " + this.lastName;
+  }
+}
+const person1 = {
+  firstName:"John",
+  lastName: "Doe"
+}
+const person2 = {
+  firstName:"Mary",
+  lastName: "Doe"
+}
+// This will return "Mary Doe"
+person.fullName.call(<b>person2</b>);</code></pre>
+<p>
+
+</p>
+</div>
+
+<hr>
+
+<hr>
+
+<h2>The call() Method with Arguments</h2>
+<p>The <b>call()</b> method can accept arguments.</p>
+<p>Arguments are passed normally, separated by commas:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const person = {
+  fullName: function(city, country) {
+    return this.firstName + " " + this.lastName + "," + city + "," + country;
+  }
+}
+const person1 = {
+  firstName:"John",
+  lastName: "Doe"
+}
+person.fullName.call(person1, "Oslo", "Norway");</code></pre>
+<p>
+
+</p>
+</div>
+
+<hr>
+<h2>call() vs Normal Function Call</h2>
+<p>Compare a normal function call with a <b>call()</b> call.</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <pre class="w3-code"><code class="language-javascript">function showName() {
+  return this.name;
+}
+const person = { name: "John" };
+showName();
+showName.call(person);</code></pre>
+</div>
+
+<p>Without <b>call()</b>, <b>this</b> is not the <b>person</b> object.</p>
+<p>With <b>call()</b>, <b>this</b> is set explicitly.</p>
+
+<hr>
+
+<h2>call() Does Not Create a New Function</h2>
+<p>
+The <b>call()</b> method executes the function immediately.<br>
+It does not return a new function.<br>
+</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <pre class="w3-code"><code class="language-javascript">function sayHello() {
+  return "Hello " + this.name;
+}
+const person = { name: "John" };
+sayHello.call(person);</code></pre>
+</div>
+
+<p>
+If you need a new function that remembers <b>this</b>, use <b>bind()</b> instead.<br>
+</p>
+
+<hr>
+<h2>Common Mistakes</h2>
+<ul class="w3-ul">
+<li><h3>Forgetting that call() Runs Immediately</h3>
+<b>call()</b> does not return a reusable function.</li>
+<li><h3>Passing Arguments as an Array</h3>
+<b>call()</b> requires arguments to be listed one by one.
+Use <b>apply()</b> for arrays.</li>
+<li><h3>Using call() Without Understanding <b>this</b></h3>
+Always know what <b>this</b> should refer to.</li>
+</ul>
+
+<hr>
+<div class="w3-panel w3-pale-yellow w3-leftbar w3-border-yellow">
+<h2>Quiz</h2>
+<p>What is the main difference between <b>call()</b> and a normal function call?</p>
+</div>
+<hr>
+
+
+<h2>Next Chapter</h2>
+<p class="w3-large"><a href="js_function_apply.html">JavaScript Function apply()</a></p>
+
+<div class="ws-note">
+<h2>Related Topics</h2>
+<p class="w3-large"><a href="js_function_apply.html">JavaScript Function apply()</a></p>
+<p class="w3-large"><a href="js_function_bind.html">JavaScript Function bind()</a></p>
+<p class="w3-large"><a href="js_function_closures.html">JavaScript Closures</a></p>
+</div>
+
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_function_this.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_function_apply.html">Next ❯</a>
+</div>
+
+

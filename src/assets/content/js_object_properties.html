@@ -1,0 +1,167 @@
+
+      
+
+<h1>JavaScript Object Properties</h1>
+
+<!--start-->
+<div class="ws-info">
+<h3>An Object is an Unordered Collection of Properties</h3>
+<p>Properties are the most important part of JavaScript objects.</p>
+<p>Properties can be changed, added, deleted, and some are read only.</p>
+</div>
+<hr>
+
+<h2>Accessing JavaScript Properties</h2>
+<p>The syntax for accessing the property of an object is:</p>
+
+<pre class="w3-code"><code class="language-javascript">// <i>objectName.property</i>
+let age = person.age;</code></pre>
+<p>or</p>
+<pre class="w3-code"><code class="language-javascript">//<i>objectName</i>["<i>property</i>"]
+let age = person["age"];</code></pre>
+<p>or</p>
+<pre class="w3-code"><code class="language-javascript">//<i>objectName</i>[<i>expression</i>]
+let age = person[x];</code></pre>
+
+<div class="w3-example">
+<h3>Examples</h3>
+<pre class="w3-code"><code class="language-javascript">person.firstname + " is " + person.age + " years old.";</code></pre>
+
+
+<pre class="w3-code"><code class="language-javascript">person["firstname"] + " is " + person["age"] + " years old.";</code></pre>
+
+
+<pre class="w3-code"><code class="language-javascript">let x = "firstname";
+let y = "age";
+person[x] + " is " + person[y] + " years old.";</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+
+<h2>Adding New Properties</h2>
+
+<p>You can add new properties to an existing object by simply giving it a value:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">person.nationality = "English";</code></pre>
+
+</div>
+
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Property Default Values</h2>
+<p>A <b>value</b> given to a property will be a <b>default value</b> for all objects
+created by the constructor:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">function Person(first, last, age, eyecolor) {
+  this.firstName = first;
+  this.lastName = last;
+  this.age = age;
+  this.eyeColor = eyecolor;
+  this.nationality = "English";
+}</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Deleting Properties</h2>
+<p>The <code class="w3-codespan">delete</code> keyword deletes a property from an object:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const person = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 50,
+  eyeColor: "blue"
+};
+delete person.age;</code></pre>
+
+</div>
+<p>or delete person["age"];</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const person = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 50,
+  eyeColor: "blue"
+};
+delete person["age"];</code></pre>
+
+</div>
+
+<div class="ws-note">
+<h2>Note:</h2>
+<p>The <code class="w3-codespan">delete</code> keyword deletes both the value of the property and the property itself.</p>
+<p>After deletion, the property cannot be used before it is added back again.</p>
+</div>
+
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>Nested Objects</h2>
+<p>Property values in an object can be other objects:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">myObj = {
+  name:"John",
+  age:30,
+  myCars: {
+    car1:"Ford",
+    car2:"BMW",
+    car3:"Fiat"
+  }
+}</code></pre>
+</div>
+
+<p>You can access nested objects using the dot notation or the bracket notation:</p>
+
+<div class="w3-example">
+<h3>Examples</h3>
+
+<pre class="w3-code"><code class="language-javascript">myObj.myCars.car2;</code></pre>
+  
+
+<pre class="w3-code"><code class="language-javascript">myObj.myCars["car2"];</code></pre>
+  
+
+<pre class="w3-code"><code class="language-javascript">myObj["myCars"]["car2"];</code></pre>
+  
+
+<pre class="w3-code"><code class="language-javascript">let p1 = "myCars";
+let p2 = "car2";
+myObj[p1][p2];</code></pre>
+  
+</div>
+<!--stop-->
+<hr>
+<div class="ws-note">
+<h2>Learn More:</h2>
+<p class="w3-large"><a href="js_object_definition.html">JavaScript Object Definitions</a></p>
+<p class="w3-large"><a href="js_object_constructors.html">JavaScript Object Constructors</a></p>
+<p class="w3-large"><a href="js_this.html">JavaScript Object this</a></p>
+<p class="w3-large"><a href="js_destructuring.html">JavaScript Object Destructuring</a></p>
+<p class="w3-large"><a href="js_object_prototypes.html">JavaScript Object Prototypes</a></p>
+<p class="w3-large"><a href="js_object_methods.html">JavaScript Object Iterations</a></p>
+<p class="w3-large"><a href="js_object_property.html">JavaScript Object Management</a></p>
+<p class="w3-large"><a href="js_object_accessors.html">JavaScript Object Getters &amp; Setters</a></p>
+<p class="w3-large"><a href="js_object_protection.html">JavaScript Object Protection</a></p>
+<p class="w3-large"><a href="js_object_reference.html">JavaScript Object Reference</a></p>
+</div>
+
+<hr>
+
+<hr>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_objects.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_object_methods.html">Next ❯</a>
+</div>
+
+

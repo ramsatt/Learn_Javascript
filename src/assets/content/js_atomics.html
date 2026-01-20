@@ -1,0 +1,289 @@
+
+      
+
+<h1>JavaScript Atomics</h1>
+
+
+<div class="ws-info">
+<h2>The Atomics Object</h2>
+<p>The <b>Atomics Object</b> provides low-level atomic operations
+on shared memory.</p>
+<p>It is used with <b>SharedArrayBuffer</b> and
+<b>Typed Arrays</b> to share data between workers.</p>
+</div>
+
+<h2 id="intro">What Are Atomics?</h2>
+<p>
+When multiple threads (for example, the main thread and one or more workers)
+access the same data, you can get <b>race conditions</b>. Atomics helps avoid
+these race conditions by providing operations that:
+</p><p>
+</p><ul>
+<li>Work on shared typed arrays</li>
+<li>Are performed atomically (cannot be interrupted halfway)</li>
+<li>Return the previous value of the element</li>
+</ul>
+
+<p>
+The <code>Atomics</code> object is a global object (like <code>Math</code>)
+with static methods such as <code>Atomics.load()</code>, <code>Atomics.store()</code>,
+<code>Atomics.add()</code>, and more.
+</p><p>
+
+</p><hr>
+<div class="ws-note">
+<h2>Note</h2>
+<p>Atomics are an advanced feature.</p>
+<p>You typically use Atomics when you work with:</p>
+<ul>
+<li>Web Workers</li>
+<li>Worker Threads</li>
+<li>Shared memory</li>
+</ul>
+</div>
+
+<hr>
+<h2 id="requirements">Requirements</h2>
+<p>To use Atomics you need:</p>
+<ul>
+<li>A <code>SharedArrayBuffer</code></li>
+<li>A typed array that uses the shared buffer (e.g. <code>Int32Array</code>)</li>
+<li>One or more workers (or threads) that share the same buffer</li>
+</ul>
+
+<div class="w3-panel w3-warning">
+<b>Security:</b> Browsers may require special headers (like COOP/COEP) for
+<code>SharedArrayBuffer</code> to be enabled on the web.
+</div>
+
+<hr>
+<h2 id="basic-usage">Basic Atomics Usage</h2>
+<div class="w3-example">
+<h3>Example: Creating a Shared Typed Array</h3>
+<p>Create a shared buffer and a shared integer array:</p>
+<pre class="w3-code"><code class="language-javascript">const buffer = new SharedArrayBuffer(4 * Int32Array.BYTES_PER_ELEMENT);
+// Shared integer array with 4 elements
+const sharedArray = new Int32Array(buffer);
+// Initialize the array
+sharedArray[0] = 10;
+sharedArray[1] = 20;
+sharedArray[2] = 30;
+sharedArray[3] = 40;</code></pre>
+
+</div>
+
+<hr>
+<h2 id="read-write">Atomic Read and Write</h2>
+<p>Use <code class="w3-codespan">Atomics.load()</code> to <b>read</b> and <code class="w3-codespan">Atomics.store()</code>
+to <b>write</b> an element in a shared <b>typed array</b>.
+</p>
+
+<div class="w3-example">
+<h3>Example: Atomics.load() and Atomics.store()</h3>
+<pre class="w3-code"><code class="language-javascript">var buffer = new SharedArrayBuffer(4 * Int32Array.BYTES_PER_ELEMENT);
+var sharedArray = new Int32Array(buffer);
+// Store a value atomically
+Atomics.store(sharedArray, 0, 123);
+// Load the value atomically
+var value = Atomics.load(sharedArray, 0);
+console.log("Value:", value); // Value: 123</code></pre>
+</div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p><code class="w3-codespan">Atomics.store()</code> returns the value you stored.</p>
+<p><code class="w3-codespan">Atomics.load()</code> returns the current value of the element.</p>
+</div>
+
+<hr>
+<h2 id="add-sub">Atomic Add and Subtract</h2>
+<p>
+  <code>Atomics.add()</code> and <code>Atomics.sub()</code> change a value and
+  return the <b>old</b> value.
+</p>
+
+<div class="w3-example">
+<h3>Example: Atomics.add()</h3>
+<pre class="w3-code"><code class="language-javascript">var buffer = new SharedArrayBuffer(4 * Int32Array.BYTES_PER_ELEMENT);
+var sharedArray = new Int32Array(buffer);
+sharedArray[0] = 5;
+var oldValue = Atomics.add(sharedArray, 0, 3);
+console.log("Old:", oldValue); // Old: 5
+console.log("New:", sharedArray[0]);// New: 8</code></pre>
+</div>
+
+  <div class="w3-example">
+<h3>Example: Atomics.sub()</h3>
+<pre class="w3-code"><code class="language-javascript">var buffer = new SharedArrayBuffer(4 * Int32Array.BYTES_PER_ELEMENT);
+var sharedArray = new Int32Array(buffer);
+sharedArray[0] = 10;
+var oldValue = Atomics.sub(sharedArray, 0, 4);
+console.log("Old:", oldValue); // Old: 10
+console.log("New:", sharedArray[0]);// New: 6</code></pre>
+</div>
+
+<hr>
+<h2 id="exchange">Atomic Exchange and CompareExchange</h2>
+<p>
+<code>Atomics.exchange()</code> sets a new value and returns the old one.
+<code>Atomics.compareExchange()</code> only sets a new value if the current
+value is equal to a given expected value.
+</p>
+
+<div class="w3-example">
+<h3>Example: Atomics.exchange()</h3>
+<pre class="w3-code"><code class="language-javascript">var buffer = new SharedArrayBuffer(4 * Int32Array.BYTES_PER_ELEMENT);
+var sharedArray = new Int32Array(buffer);
+sharedArray[0] = 1;
+var oldValue = Atomics.exchange(sharedArray, 0, 99);
+console.log("Old:", oldValue); // Old: 1
+console.log("New:", sharedArray[0]); // New: 99</code></pre>
+</div>
+
+<div class="w3-example">
+<h3>Example: Atomics.compareExchange()</h3>
+<pre class="w3-code"><code class="language-javascript">var buffer = new SharedArrayBuffer(4 * Int32Array.BYTES_PER_ELEMENT);
+var sharedArray = new Int32Array(buffer);
+sharedArray[0] = 10;
+// Only replace 10 with 20 if the current value is 10
+var oldValue = Atomics.compareExchange(sharedArray, 0, 10, 20);
+console.log("Old:", oldValue); // Old: 10
+console.log("New:", sharedArray[0]); // New: 20
+// Now it will NOT change because the expected value does not match
+oldValue = Atomics.compareExchange(sharedArray, 0, 10, 30);
+console.log("Old:", oldValue); // Old: 20
+console.log("New:", sharedArray[0]); // New: 20</code></pre>
+</div>
+
+<hr>
+<h2>Atomics.wait() and Atomics.notify()</h2>
+<p>
+<code>Atomics.wait()</code> (in workers) can put a thread to sleep until the
+value at a position changes, and <code>Atomics.notify()</code> wakes up one
+or more sleeping threads.
+</p><p>
+
+</p><div class="w3-panel w3-warning">
+<b>Important:</b> <code>Atomics.wait()</code> can only be used in
+worker contexts (not on the main thread) in browsers.
+</div>
+
+<div class="w3-example">
+<h3>Example: Worker Waiting for a Value</h3>
+<p>Main thread (simplified):</p>
+<pre class="w3-code"><code class="language-javascript">// main.js
+var buffer = new SharedArrayBuffer(4);
+var sharedArray = new Int32Array(buffer);
+sharedArray[0] = 0;
+var worker = new Worker("worker.js");
+// Send the shared buffer to the worker
+worker.postMessage(buffer);
+// Simulate some work, then set the value and notify the worker
+setTimeout(function() {
+  Atomics.store(sharedArray, 0, 1);
+  Atomics.notify(sharedArray, 0, 1); // wake 1 worker
+}, 1000);</code></pre>
+
+<p>Worker (worker.js):</p>
+<pre class="w3-code"><code class="language-javascript">// worker.js
+onmessage = function(e) {
+  var buffer = e.data;
+  var sharedArray = new Int32Array(buffer);
+  console.log("Worker waiting...");
+  var result = Atomics.wait(sharedArray, 0, 0); // wait while value is 0
+  console.log("Worker woken, result =", result);
+  console.log("New value:", Atomics.load(sharedArray, 0));
+};</code></pre>
+</div>
+
+<hr>
+<h2>Complete Atomics Reference</h2>
+<h4>Revised December 2025</h4>
+
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="w3-table-all">
+<tbody><tr></tr>
+<tr>
+  <th>Method</th>
+  <th>Description</th>
+</tr>
+<tr>
+  <td>load(typedArray, index)</td>
+  <td>Reads and returns the value at index.</td>
+</tr>
+<tr>
+  <td>store(typedArray, index, value)</td>
+  <td>Stores value at index and returns it.</td>
+</tr>
+<tr>
+  <td>add(typedArray, index, value)</td>
+  <td>Adds value to the element and returns the old value.</td>
+</tr>
+<tr>
+  <td>sub(typedArray, index, value)</td>
+  <td>Subtracts value and returns the old value.</td>
+</tr>
+<tr>
+  <td>and(typedArray, index, value)</td>
+  <td>Performs bitwise AND with value and returns the old value.</td>
+</tr>
+<tr>
+  <td>or(typedArray, index, value)</td>
+  <td>Performs bitwise OR with value and returns the old value.</td>
+</tr>
+<tr>
+  <td>xor(typedArray, index, value)</td>
+  <td>Performs bitwise XOR with value and returns the old value.</td>
+</tr>
+<tr>
+  <td>exchange(typedArray, index, value)</td>
+  <td>Replaces the value at index and returns the old value.</td>
+</tr>
+<tr>
+  <td>compareExchange(typedArray, index, expected, value)</td>
+  <td>
+Replaces the value at index with value if the
+current value is expected. Returns the old value.
+  </td>
+</tr>
+<tr>
+  <td>wait(typedArray, index, value, timeout?)</td>
+  <td>
+(Worker only) Blocks the calling thread until the element changes or timeout.
+  </td>
+</tr>
+<tr>
+  <td>notify(typedArray, index, count)</td>
+  <td>
+Wakes up sleeping threads that are waiting on index.
+  </td>
+</tr>
+</tbody></table></div>
+</div>
+
+<hr>
+<ul>
+<li>Atomics are for communication between threads using shared memory</li>
+<li>You use them with SharedArrayBuffer and Typed Arrays</li>
+<li>Atomics operations can not be interrupted by other threads</li>
+<li>Use Atomics only when you need low-level synchronization</li>
+<li>Most JavaScript code does not need Atomics</li>
+</ul>
+
+<hr>
+<div class="ws-note">
+<h2>Learn More:</h2>
+<p class="w3-large"><a href="js_typed_arrays.html">Typed Array Tutorial</a></p>
+<p class="w3-large"><a href="js_typed_methods.html">Typed Array Methods</a></p>
+<p class="w3-large"><a href="js_typed_reference.html">Typed Array Reference</a></p>
+<p class="w3-large"><a href="js_arraybuffers.html">Array Buffers</a></p>
+<p class="w3-large"><a href="js_dataview.html">DataViews</a></p>
+</div>
+
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_dataview.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_htmldom_navigation.html">Next ❯</a>
+</div>
+
+

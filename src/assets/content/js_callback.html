@@ -1,0 +1,166 @@
+
+      
+
+<h1>JavaScript Callbacks</h1>
+
+<!--start-->
+<div class="w3-panel ws-info w3-center" style="padding:8px">
+<p class="w3-xlarge"><i>"I will call back later!"</i></p>
+<p>A callback is a function passed as an argument to another function</p>
+<p>This technique allows a function to call another function</p>
+<p>A callback function can run after another function has finished</p>
+</div>
+<!--stop-->
+<!--start-->
+<h2>Function Sequence</h2>
+
+<p>JavaScript functions are executed in the sequence they are called.
+Not in the sequence they are defined.</p>
+<p>This example will display "Hello", but end up with "Goodbye"
+because the functions are called in that order:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">function myFirst() {
+  myDisplayer("Hello");
+}
+function mySecond() {
+  myDisplayer("Goodbye");
+}
+myFirst();
+mySecond();</code></pre>
+<p>
+
+</p>
+</div>
+
+<p>This example will display "Goodbye", but end up with "Hello"
+because the functions are called in that order:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">function myFirst() {
+  myDisplayer("Hello");
+}
+function mySecond() {
+  myDisplayer("Goodbye");
+}
+mySecond();
+myFirst();</code></pre>
+<p>
+
+</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Sequence Control</h2>
+<p>Sometimes you would like to have better control over when to execute a function.</p>
+<p>Suppose you want to do a calculation, and then display the result.</p>
+<p>You could call a calculator function (<code class="w3-codespan">myCalculator</code>), save the result,
+and then call another function (<code class="w3-codespan">myDisplayer</code>) to display the result:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">function myDisplayer(some) {
+  document.getElementById("demo").innerHTML = some;
+}
+function myCalculator(num1, num2) {
+  let sum = num1 + num2;
+  return sum;
+}
+let result = myCalculator(5, 5);
+myDisplayer(result);</code></pre>
+<p>
+
+</p>
+</div>
+<p>Or, you could call a calculator function (<code class="w3-codespan">myCalculator</code>),
+and let the calculator function call the display function (<code class="w3-codespan">myDisplayer</code>):</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">function myDisplayer(some) {
+  document.getElementById("demo").innerHTML = some;
+}
+function myCalculator(num1, num2) {
+  let sum = num1 + num2;
+  myDisplayer(sum);
+}
+myCalculator(5, 5);</code></pre>
+<p>
+
+</p>
+</div>
+<p>The problem with the first example above, is that you have to call two functions to display the result.</p>
+<p>The problem with the second example, is that you cannot prevent the calculator function from 
+displaying the result.</p>
+<p>Now it is time to bring in a callback.</p>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>JavaScript Callbacks</h2>
+<div class="w3-panel ws-note">
+<p>A callback is a function passed as an argument to another function.</p>
+</div>
+<p>Using a callback, you could call the calculator function (<code class="w3-codespan">myCalculator</code>)
+with a callback (<code class="w3-codespan">myCallback</code>), and let the calculator function run the callback after the calculation is finished:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">function myDisplayer(some) {
+  document.getElementById("demo").innerHTML = some;
+}
+function myCalculator(num1, num2, myCallback) {
+  let sum = num1 + num2;
+  myCallback(sum);
+}
+myCalculator(5, 5, myDisplayer);</code></pre>
+
+</div>
+
+<p>In the example above, <code class="w3-codespan">myDisplayer</code> is a called a <b>callback function</b>.
+</p><p>It is passed to <code class="w3-codespan">myCalculator()</code> as an <b>argument</b>.</p>
+<div class="w3-panel ws-note">
+<h2>Note</h2>
+<p>When you pass a function as an argument, remember not to use parenthesis.</p>
+<p>Right: myCalculator(5, 5, myDisplayer);</p>
+<p>Wrong: <del>myCalculator(5, 5, myDisplayer())</del>;</p>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an Array
+const myNumbers = [4, 1, -20, -7, 5, 9, -6];
+// Call removeNeg with a callback
+const posNumbers = removeNeg(myNumbers, (x) =&gt; x &gt;= 0);
+// Display Result
+document.getElementById("demo").innerHTML = posNumbers;
+// Keep only positive numbers
+function removeNeg(numbers, callback) {
+  const myArray = [];
+  for (const x of numbers) {
+    if (callback(x)) {
+      myArray.push(x);
+    }
+  }
+  return myArray;
+}</code></pre>
+
+</div>
+<p>In the example above, <code class="w3-codespan">(x) =&gt; x &gt;= 0</code> is a <b>callback function</b>.
+</p><p>It is passed to <code class="w3-codespan">removeNeg()</code> as an <b>argument</b>.</p>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>When to Use a Callback?</h2>
+<p>The examples above are not very exciting.</p>
+<p>They are simplified to teach you the callback syntax.</p>
+<p>Where callbacks really shine are in asynchronous functions, 
+where one function has to wait for another function (like waiting for a file to load).</p>
+<p>Asynchronous functions are covered in the next chapter.</p>
+<!--stop-->
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_control_flow.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_asynchronous.html">Next ❯</a>
+</div>
+
+

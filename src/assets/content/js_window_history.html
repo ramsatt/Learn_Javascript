@@ -1,0 +1,81 @@
+
+      
+
+<h1>JavaScript Window History</h1>
+
+<hr>
+<!--start-->
+<p class="intro">The <code class="w3-codespan">window.history</code> object contains the 
+browsers history.</p>
+<hr>
+
+<h2>Window History</h2>
+<p>The <code class="w3-codespan">window.history</code> object can be written without the window prefix.</p>
+<p>To protect the privacy of the users, there are limitations to how JavaScript 
+can access this object.</p>
+<p>Some methods:</p>
+<ul>
+  <li><code class="w3-codespan">history.back()</code> - same as clicking back in the browser</li>
+  <li><code class="w3-codespan">history.forward()</code> - same as clicking forward in the browser</li>
+</ul>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Window History Back</h2>
+<p>The <code class="w3-codespan">history.back()</code> method loads the previous URL in the history list.</p>
+<p>This is the same as clicking the Back button in the browser.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Create a back button on a page:</p>
+<pre class="w3-code"><code class="language-html">&lt;html&gt;
+&lt;head&gt;
+&lt;script&gt;
+function goBack() {
+  window.history.back()
+}
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;input type="button" value="Back" onclick="goBack()"&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>The output of the code above will be:</p>
+
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>Window History Forward</h2>
+<p>The <code class="w3-codespan">history.forward()</code> method loads the next URL in the history list.</p>
+<p>This is the same as clicking the Forward button in the browser.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Create a forward button on a page:</p>
+<pre class="w3-code"><code class="language-html">&lt;html&gt;
+&lt;head&gt;
+&lt;script&gt;
+function goForward() {
+  window.history.forward()
+}
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;input type="button" value="Forward" onclick="goForward()"&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>The output of the code above will be:</p>
+
+</div>
+<!--stop-->
+<br>
+
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_window_location.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_window_navigator.html">Next ❯</a>
+</div>
+
+

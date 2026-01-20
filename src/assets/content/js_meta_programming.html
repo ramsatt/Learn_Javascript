@@ -1,0 +1,151 @@
+
+      
+
+<h1>JavaScript Meta Programming</h1>
+
+<!--start-->
+<div class="ws-info">
+<h2>Metaprogramming</h2>
+<p>Metaprogramming refers to a number of ways a <b>program can manipulate itself</b>:</p>
+<ul>
+<li>Modify objects at runtime</li>
+<li>Inspect objects at runtime</li>
+<li>Control objects at runtime</li>
+<li>Intercept running operations</li>
+<li>Modify functions, and classes</li>
+<li>Generate dynamic code</li>
+</ul>
+</div>
+<div class="ws-note">
+<h2>The Easy Explanation</h2>
+<p>Normally, <b>code handles data</b>.</p>
+<p>With metaprogramming, <b>code handles code</b>.</p>
+</div>
+<hr>
+<h2>Inspecting Objects</h2>
+<p>With the method <code class="w3-codespan">Object.keys()</code> you can <b>inspect object properties</b>.</p>
+<p>Using <code class="w3-codespan">Object.keys()</code> is a simple example of metaprogramming.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>This code is analyzing another piece of code (an object):</p>
+<pre class="w3-code"><code class="language-javascript">// Create an Object
+const user = {name: "Jan", age: 40};
+// Fill Array with Object keys
+const myArr = Object.keys(user);</code></pre>
+
+</div>
+
+<hr>
+<h2>Modify Objects</h2>
+<p>I typical metaprogramming task is to <b>modify object behaviour</b>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an Object
+const person = {name: "John", age: 41};
+// Define "name" to return "secret"
+Object.defineProperty(person, "name", {
+  get() { return "secret"; }
+});
+let name = person.name;</code></pre>
+
+</div>
+
+<hr>
+<h2>Generate Dynamic Code</h2>
+<p>Metaprogramming involves dynamic code generation.</p>
+<p>JavaScript can <b>generate functions</b> at runtime:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const fn = new Function("a", "b", "return a + b");</code></pre>
+
+</div>
+
+<hr>
+<h2>Metaprogramming Examples</h2>
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Consept</th><th>Description</th></tr>
+<tr><td>Validation</td><td>Restrict the values that can be set to a property</td></tr>
+<tr><td>Logging</td><td>Display property changes using a Proxy</td></tr>
+<tr><td>Debugging</td><td>Intercept an operation using a Proxy</td></tr>
+<tr><td>Frameworks</td><td>Vue, MobX, and Svelte use metaprogramming to detect state changes</td></tr>
+<tr><td>ORM / database mapping</td><td>Wrap objects and creates fields based on database schema</td></tr>
+<tr><td>Dynamic APIs</td><td>Create functions or object structures at runtime</td></tr>
+</tbody></table></div>
+</div>
+
+<hr>
+<h2>Proxy Metaprogramming</h2>
+<p>The two objects <b>Proxy</b> and <b>Reflect</b> allow for programming at the meta level in JavaScript.</p>
+<p><b>Proxy</b> can be used to <b>intercept property operations</b> like reading or writing.</p>
+<p>In the example below:</p>
+<ul>
+<li>A user object is <b>wrapped in a Proxy</b></li>
+<li>The Proxy uses a <b>set() trap</b> to log whenever a property is set</li>
+</ul>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Log changes to property values:</p>
+<pre class="w3-code"><code class="language-javascript">// Create an Object
+const user = {name: "Jan", age: 40};
+// Wrap the Object in a Proxy
+const proxy = new Proxy(user, {
+  // Use a set trap
+  set(target, property, value) {
+    // Log changes
+    log(property + "; " + value);
+    return target[property];
+  }
+});
+// Change Properties
+proxy.name = "John";
+proxy.age = 45;
+proxy.name = "Paul";</code></pre>
+
+</div>
+
+<hr>
+<h2>Proxy with Reflect</h2>
+<p>Reflect makes Proxy behavior match normal object behavior</p>
+
+<p>In the example below:</p>
+<ul>
+<li>A user object is <b>wrapped in a Proxy</b></li>
+<li>The Proxy uses a <b>set() trap</b> to log when a property is set</li>
+<li>The set trap uses <b>Reflect.set()</b> for safe forwarding</li>
+</ul>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Log changes to property values:</p>
+<pre class="w3-code"><code class="language-javascript">// Create an Object
+const user = {name: "Jan", age: 40};
+// Wrap the Object in a Proxy
+const proxy = new Proxy(user, {
+  // Use a set trap
+  set(target, property, value) {
+    // Log changes
+    log(property + ": " + value);
+    // Safe forwarding with Reflect
+    return Reflect.set(target, property, value);
+  }
+});</code></pre>
+
+</div>
+
+<div class="ws-note">
+<h2>Learn More</h2>
+<p class="w3-large"><a href="js_meta_reflect.html">JavaScript Reflect Tutorial</a>
+</p><p class="w3-large"><a href="js_meta_proxy.html">JavaScript Proxy Tutorial</a>
+</p><p class="w3-large"><a href="js_meta_reference.html">JavaScript Meta Reference</a>
+</p></div>
+
+<br><br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_modules_dynamic.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_meta_reflect.html">Next ❯</a>
+</div>
+
+

@@ -1,0 +1,627 @@
+
+      
+
+<h1>JavaScript Proxy</h1>
+
+<!--start-->
+<div class="ws-info">
+<h2>What is a Proxy?</h2>
+<p>A <b>Proxy</b> is an JavaScript object that can <b>wrap other objects</b>.</p>
+<p>A <b>Proxy</b> lets you <b>control operations</b> on other objects.</p>
+<p>A <b>Proxy</b> can <b>trap and intercept code</b> when someone is:</p>
+<ul>
+<li>Reading a property (get)</li>
+<li>Setting a property (set)</li>
+<li>Deleting a property (deleteProperty)</li>
+<li>Checking if a property exists (has)</li>
+<li>Calling a function (apply)</li>
+<li>Constructing an object (construct)</li>
+</ul>
+</div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>A Proxy lets you <b>run your own code</b> when someone interacts with an object.</p>
+<p>A Proxy gan be a <b>middleman</b> between your code and a JavaScript object.</p>
+</div>
+
+<hr>
+<div class="w3-example">
+<h2>Proxy Syntax</h2>
+<pre class="w3-code"><code class="language-javascript">const proxy = new Proxy(target, handler);</code></pre>
+</div>
+<ul>
+<li>target - the original object or function</li>
+<li>handler - an object with trap methods</li>
+</ul>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const myObject = {name: "Jan"};
+const proxy = new Proxy(myObject, {
+  get(target, prop) {
+    return target[prop];
+  }
+});</code></pre>
+</div>
+<hr>
+<h2>Proxy Logging</h2>
+<p>A typical Proxy example is logging of object changes.</p>
+<p>Below is a demo that:</p>
+<ul>
+<li>Wraps an object in a Proxy</li>
+<li>Logs whenever a property is read or written</li>
+<li>Logs each get and set operation in real time</li>
+</ul>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Log all changes to all property values:</p>
+<pre class="w3-code"><code class="language-javascript">// Create an Object
+const user = { name: "Jan", age: 40 };
+//Create a Proxy
+const proxy = new Proxy(user, {
+  get(target, property) {
+    log("Getting: " + property);
+    return target[property];
+  },
+  set(target, property, value) {
+    log("Setting: " + property);
+    return target[property];
+  }
+});
+proxy.name = "John";
+proxy.age = 42;
+let text1 = proxy.name;
+let text2 = proxy.age</code></pre>
+
+</div>
+
+
+<hr>
+<h2>Proxy with Reflect (Most Common)</h2>
+<p>Below is a demo that:</p>
+<ul>
+<li>Wraps an object in a Proxy</li>
+<li>Logs whenever a property is read or written</li>
+<li>Uses Reflect.get() and Reflect.set() inside the Proxy handlers</li>
+<li>get trap uses Reflect.get(target, property, receiver)</li>
+<li>set trap uses Reflect.set(target, property, value, receiver)</li>
+<li>Reflect makes the Proxy behavior match the normal object behavior</li>
+</ul>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Log all changes to all property values:</p>
+<pre class="w3-code"><code class="language-javascript">// Create an Object
+const user = { name: "Jan", age: 40 };
+// Create a Proxy
+const proxy = new Proxy(user, {
+  get(target, property) {
+    log("Getting: " + property);     // safe forwarding
+    return Reflect.get(target, property);
+  },
+  set(target, property, value) {
+    log("Setting: " + property);     // safe forwarding
+    return Reflect.set(target, property, value);
+  }
+});
+proxy.name = "John";
+proxy.age = 42;
+let text1 = proxy.name;
+let text2 = proxy.age</code></pre>
+
+</div>
+<hr>
+<h2>Proxy with Reflect Flow</h2>
+<p>The flow below is the essence of JavaScript metaprogramming with Proxy + Reflect.</p>
+
+<p><img src="assets/images/img_proxy.jpg" style="width:100%;max-width:400px" alt="Proxy"></p>
+<p>Flow Explanation:</p>
+<ul>
+<li>Your code interacts with an object</li>
+<li>Proxy intercepts the operation</li>
+<li>Your trap code decides what to do</li>
+<li>Reflect forwards the operation safely</li>
+<li>The target object receives the real action</li>
+</ul>
+<hr>
+<h2>Why Proxies?</h2>
+<p>Proxies allow you to:</p>
+<ul>
+<li>Add logging</li>
+<li>Validate changes</li>
+<li>Auto-generate properties</li>
+<li>Protect sensitive data</li>
+<li>Create virtual or computed objects</li>
+<li>Intercept function calls</li>
+<li>Create reactive systems (like Vue.js)</li>
+</ul>
+
+<hr>
+<h2>Proxy Validation</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an Object
+const user = { name: "Jan", age: 40 };
+// Create a Proxy
+const proxy = new Proxy(user, {
+  set(target, prop, value) {
+    if (prop === "age" &amp;&amp; value &lt; 0) {
+      text = "Age cannot be negative!";
+      document.getElementById("demo").innerHTML = text;
+    }
+    return Reflect.set(target, prop, value);
+  }
+});
+proxy.age = 45; // OK
+proxy.age = -5; // Error</code></pre>
+
+</div>
+
+<hr>
+<h2>Virtual Properties</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an Object
+const person = {
+first: "John",
+last: "Doe"
+};
+// Create a Proxy
+const virtual = new Proxy(person, {
+  get(target, prop) {
+    if (prop === "fullName") {
+      return target.first + " " + target.last;
+    }
+    return Reflect.get(target, prop);
+  }
+});
+let text = virtual.fullName; // "John Doe"</code></pre>
+
+</div>
+
+<hr>
+<h2>Dynamic Functions</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const fn = new Function("a", "b", "return a + b");
+let result = fn(3, 2);</code></pre>
+
+</div>
+
+<div class="ws-note">
+<h2>Metaprogramming</h2>
+<p>Metaprogramming lets JavaScript:</p>
+<ul>
+<li>Intercept behavior</li>
+<li>Modify behavior</li>
+<li>Define new behavior</li>
+<li>Generate behavior dynamically</li>
+</ul>
+<p>It gives developers deep control over the language's inner workings.</p>
+</div>
+<hr>
+<h2>Proxy Traps</h2>
+<p>A trap is a function inside a Proxy handler.</p>
+<p>It runs whenever a specific operation is performed on the Proxy.</p>
+<p>Below is a complete and accurate explanation of every JavaScript Proxy trap, what triggers them,
+their parameters, and what they are expected to return.</p>
+
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="w3-table-all">
+<tbody><tr><th>Trap Name</th><th>Triggered when</th></tr>
+<tr><td>get</td><td>A property is <b>read</b></td></tr>
+<tr><td>set</td><td>A property is <b>changed</b></td></tr>
+<tr><td>has</td><td>Using the <b>in operator</b></td></tr>
+<tr><td>deleteProperty</td><td>A property is <b>deleted</b></td></tr>
+<tr><td>apply</td><td>A function is <b>called</b></td></tr>
+<tr><td>construct</td><td>An object is <b>cretated</b> (with new)</td></tr>
+<tr><td>getOwnPropertyDescriptor</td><td>A property descriptor is <b>retrieved</b></td></tr>
+<tr><td>defineProperty</td><td>A property is <b>defined</b></td></tr>
+<tr><td>getPrototypeOf</td><td>A prototype is <b>retrieved</b></td></tr>
+<tr><td>setPrototypeOf</td><td>A prototype is <b>set</b></td></tr>
+<tr><td>isExtensible</td><td>Extensibility is <b>checked</b></td></tr>
+<tr><td>preventExtensions</td><td>Existenibility is <b>prevented</b></td></tr>
+<tr><td>ownKeys</td><td>Properties are <b>listed</b></td></tr>
+</tbody></table></div>
+</div>
+
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>The list above is 2025-accurate and includes all 13 Proxy traps defined in ECMAScript.</p>
+<p>Each trap handler is decribed below.</p>
+</div>
+
+<hr>
+<h2>handler.get()</h2>
+<p>Triggered when a <b>property is read</b>:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">get(obj, prop, receiver) {
+  return Reflect.get(obj, prop, receiver);
+}</code></pre>
+<p><b>Triggered by:</b></p>
+<pre class="w3-code"><code class="language-javascript">proxy.property
+proxy["property"]
+object.property()</code></pre>
+</div>
+
+<p><b>Parameters</b></p>
+<ul>
+<li>obj - the target object</li>
+<li>prop - the property being accessed</li>
+<li>receiver - the this value for getters (usually the proxy itself)</li>
+</ul>
+<p><b>Must Return</b></p>
+<ul>
+<li>The property value</li>
+</ul>
+
+<hr>
+<h2>handler.set()</h2>
+<p>Triggered when a <b>property is changed</b>:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">set(obj, prop, value, receiver) {
+  return Reflect.set(obj, prop, value, receiver);
+}</code></pre>
+<p><b>Triggered by:</b></p>
+<pre class="w3-code"><code class="language-javascript">proxy.property = value
+proxy["property"] = value</code></pre>
+</div>
+
+<p><b>Parameters</b></p>
+<ul>
+<li>obj - the target object</li>
+<li>prop - the property being accessed</li>
+<li>value - the new property value</li>
+<li>receiver - the this value for setters (usually the proxy itself)</li>
+</ul>
+<p><b>Must Return</b></p>
+<ul>
+<li>true - if assignment succeeded</li>
+<li>false - to indicate failure</li>
+</ul>
+<p>(Throwing is also allowed.)</p>
+
+<hr>
+<h2>handler.has()</h2>
+<p>Intercepts the <b>in</b> operator.</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">has(obj, prop) {
+  return Reflect.has(obj, prop);
+}</code></pre>
+<p><b>Triggered by:</b></p>
+<pre class="w3-code"><code class="language-javascript">"property" in proxy</code></pre>
+</div>
+
+<p><b>Parameters</b></p>
+<ul>
+<li>obj - the target object</li>
+<li>prop - the property being accessed</li>
+<li>receiver - the value of this for setters (usually the proxy itself)</li>
+</ul>
+<p><b>Must Return</b></p>
+<ul>
+<li>true</li>
+<li>false</li>
+</ul>
+
+<hr>
+<h2>handler.deleteProperty()</h2>
+<p>Intercepts the <b>delete</b> operator.</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">deleteProperty(obj, prop) {
+  return Reflect.deleteProperty(obj, prop);
+}</code></pre>
+<p><b>Triggered by:</b></p>
+<pre class="w3-code"><code class="language-javascript">delete proxy.property</code></pre>
+</div>
+
+<p><b>Parameters</b></p>
+<ul>
+<li>obj - the target object</li>
+<li>prop - the property to delete</li>
+</ul>
+<p><b>Must Return</b></p>
+<ul>
+<li>true - for sucess</li>
+<li>false - for failure</li>
+</ul>
+
+<hr>
+<h2>handler.apply()</h2>
+<p>Triggered when a <b>function is called</b>:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">apply(func, thisArg, args) {
+  return Reflect.apply(func, this, args);
+}</code></pre>
+<p><b>Triggered by:</b></p>
+<pre class="w3-code"><code class="language-javascript">proxy()
+proxy.call()
+proxy.apply()</code></pre>
+</div>
+
+<p><b>Parameters</b></p>
+<ul>
+<li>func - the callable object (function)</li>
+<li>this - the this argument for the call</li>
+<li>args - the function arguments array</li>
+</ul>
+<p><b>Must Return</b></p>
+<ul>
+<li>The return value of the function</li>
+</ul>
+
+<hr>
+<h2>handler.construct</h2>
+<p>Intercepts the <b>new</b> operator.</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">construct(obj, args, newTarget) {
+  return Reflect.construct(obj, args, newTarget);
+}</code></pre>
+<p><b>Triggered by:</b></p>
+<pre class="w3-code"><code class="language-javascript">nex proxy()</code></pre>
+</div>
+
+<p><b>Parameters</b></p>
+<ul>
+<li>obj - the constructor object</li>
+<li>args - the array of arguments passed</li>
+<li>newTarget - the constructor</li>
+</ul>
+<p><b>Must Return</b></p>
+<ul>
+<li>An Object (The new instance)</li>
+</ul>
+
+
+<div class="w3-example">
+<p>The <b>construct</b> trap only runs when you use <b>new</b>.</p>
+<pre class="w3-code"><code class="language-javascript">const obj = {}  // No trap
+Object.create() // No trap
+class User {};
+new User();     // No trap</code></pre>
+</div>
+
+<hr>
+<h2>handler.getOwnPropertyDescriptor()</h2>
+<p>Intercepts property descriptor retrieval.</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">getOwnPropertyDescriptor(obj, prop) {
+  return Reflect.getOwnPropertyDescriptor(obj, prop);
+}</code></pre>
+<p><b>Triggered by:</b></p>
+<pre class="w3-code"><code class="language-javascript">Object.getOwnPropertyDescriptor(obj, prop)</code></pre>
+</div>
+
+<p><b>Parameters</b></p>
+<ul>
+<li>obj - the target object</li>
+<li>prop - the property to describe</li>
+</ul>
+<p><b>Must Return</b></p>
+<ul>
+<li>A property descriptor</li>
+<li>undefined</li>
+</ul>
+
+<hr>
+<h2>handler.defineProperty()</h2>
+<p>Intercepts Object.defineProperty().</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">defineProperty(obj, prop, descriptor) {
+  return Reflect.defineProperty(obj, prop, descriptor);
+}</code></pre>
+<p><b>Triggered by:</b></p>
+<pre class="w3-code"><code class="language-javascript">Object.defineProperty()</code></pre>
+</div>
+
+<p><b>Parameters</b></p>
+<ul>
+<li>obj - the target object</li>
+<li>prop - the property to describe</li>
+<li>descriptor - the property descriptor</li>
+</ul>
+<p><b>Must Return</b></p>
+<ul>
+<li>true - if sucess</li>
+<li>false - if not</li>
+</ul>
+
+<hr>
+<h2>handler.getPrototypeOf()</h2>
+<p>Intercepts prototype lookup.</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">getPrototypeOf(obj) {
+  return Reflect.getPrototypeOf(obj);
+}</code></pre>
+<p><b>Triggered by:</b></p>
+<pre class="w3-code"><code class="language-javascript">Object.getPrototypeOf()</code></pre>
+</div>
+
+<p><b>Parameters</b></p>
+<ul>
+<li>obj - the target object</li>
+</ul>
+<p><b>Must Return</b></p>
+<ul>
+<li>An Object</li>
+<li>null</li>
+</ul>
+
+<hr>
+<h2>handler.setPrototypeOf()</h2>
+<p>Intercepts setting the prototype.</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">setPrototypeOf(obj, prototype) {
+  return Reflect.setPrototypeOf(obj, prototype);
+}</code></pre>
+<p><b>Triggered by:</b></p>
+<pre class="w3-code"><code class="language-javascript">Object.settPrototypeOf()</code></pre>
+</div>
+
+<p><b>Parameters</b></p>
+<ul>
+<li>obj - the target object</li>
+<li>prototype - the new prototype or null</li>
+</ul>
+<p><b>Must Return</b></p>
+<ul>
+<li>An Object</li>
+<li>null</li>
+</ul>
+
+<hr>
+<h2>handler.isExtensible()</h2>
+<p>Intercepts checking if an object is extensible.</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">isExtensible(obj) {
+  return Reflect.isExtensible(obj);
+}</code></pre>
+<p><b>Triggered by:</b></p>
+<pre class="w3-code"><code class="language-javascript">Object.isExtensible()</code></pre>
+</div>
+
+<p><b>Parameters</b></p>
+<ul>
+<li>obj - the target object</li>
+</ul>
+<p><b>Must Return</b></p>
+<ul>
+<li>true - for yes</li>
+<li>false - for no</li>
+</ul>
+
+<hr>
+<h2>handler.preventExtentions()</h2>
+<p>Intercepts making an object non-extensible.</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">preventExtensions(obj) {
+  return Reflect.preventExtensions(obj);
+}</code></pre>
+<p><b>Triggered by:</b></p>
+<pre class="w3-code"><code class="language-javascript">Object.preventExtensions()</code></pre>
+</div>
+
+<p><b>Parameters</b></p>
+<ul>
+<li>obj - the target object</li>
+</ul>
+<p><b>Must Return</b></p>
+<ul>
+<li>true - for success</li>
+<li>false - for failure</li>
+</ul>
+
+<hr>
+<h2>handler.ownKeys()</h2>
+<p>Intercepts operations listing keys (property names or symbols).</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">ownKeys(obj) {
+  return Reflect.ownKeys(obj);
+}</code></pre>
+<p><b>Triggered by:</b></p>
+<pre class="w3-code"><code class="language-javascript">Object.keys()
+Object.getOwnPropertyNames()
+Object.getOwnPropertySymbols()</code></pre>
+</div>
+
+<p><b>Parameters</b></p>
+<ul>
+<li>obj - the target object</li>
+</ul>
+<p><b>Must Return</b></p>
+<ul>
+<li>array of keys with no duplicates</li>
+</ul>
+
+
+<hr>
+<h2>Proxy Traps Map Reflect Methods</h2>
+<p>A Proxy trap represents one of JavaScript's internal operations:</p>
+<ul>
+<li>[[Construct]]</li>
+<li>[[Call]]</li>
+<li>[[Get]]</li>
+<li>[[Set]]</li>
+<li>[[HasProperty]]</li>
+<li>[[Delete]]</li>
+<li>[[DefineProperty]]</li>
+<li>[[GetOwnProperty]]</li>
+<li>[[OwnPropertyKeys]]</li>
+<li>[[GetPrototypeOf]]</li>
+<li>[[SetPrototypeOf]]</li>
+<li>[[PreventExtensions]]</li>
+<li>[[IsExtensible]]</li>
+</ul>
+<p>These internal operations are what JavaScript uses (inside the engine) when you access or modify objects.</p>
+<p>When a Proxy intercepts one of these operations, they should be forwarded correctly:</p>
+
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">get(target, property, receiver) {
+  return Reflect.get(target, property, receiver);
+}</code></pre>
+</div>
+
+<p>Reflect is used because Reflect methods are 1-to-1 mirrors of the internal operations.</p>
+<ul>
+<li>They produce correct return values (true/false/descriptor)</li>
+<li>They avoid throwing errors that would break Proxy rules</li>
+<li>They make the Proxy behave like normal JavaScript objects (unless modified)</li>
+</ul>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>This is why <b>every Proxy trap has a Reflect method</b> with the same name and signature.</p>
+</div>
+
+<hr>
+<h2>JavaScript Internals Became Reflect</h2>
+<p>Before <a href="js_es6.html">ES6 (2015)</a>, many fundamental operations did not exist as functions:</p><p>
+</p><div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Operation </th><th>Before E6</th><th>Problem</th></tr>
+<tr><td>get property</td><td>obj[prop]</td><td>Not callable as a function</td></tr>
+<tr><td>set property</td><td>obj[prop] = value</td><td>Not callable as a function</td></tr>
+<tr><td>delete property</td><td>delete obj[prop]</td><td>Operator, not a function</td></tr>
+<tr><td>check property</td><td>"prop" in obj</td><td>Operator, not a function</td></tr>
+<tr><td>construct (new)</td><td>new Foo()</td><td>Not callable generically</td></tr>
+<tr><td>get prototypes</td><td>Object.getPrototypeOf(obj)</td><td>Throws on non-objects</td></tr>
+<tr><td>define property</td><td>Object.defineProperty()</td><td>Returns object instead of boolean</td></tr>
+<tr><td>own keys</td><td>Object.keys()</td><td>Not complete (misses symbols)</td></tr>
+</tbody></table></div>
+
+<p>These were incomplete and inconsistent for Proxy forwarding.</p>
+<p>So <a href="js_es6.html">ES6 (2015)</a> added Reflect:</p>
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr><th>Internal Operation </th><th>Reflect Method</th></tr>
+<tr><td>[[Construct]]</td><td>Reflect.construct()</td></tr>
+<tr><td>[[Call]]</td><td>Reflect.apply()</td></tr>
+<tr><td>[[Get]]</td><td>Reflect.get()</td></tr>
+<tr><td>[[Set]]</td><td>Reflect.set()</td></tr>
+<tr><td>[[HasProperty]]</td><td>Reflect.has()</td></tr>
+<tr><td>[[Delete]]</td><td>Reflect.deleteProperty()</td></tr>
+<tr><td>[[DefineProperty]]</td><td>Reflect.defineProperty()</td></tr>
+<tr><td>[[GetOwnProperty]]</td><td>Reflect.getOwnProperty()</td></tr>
+<tr><td>[[OwnPropertyKeys]]</td><td>Reflect.ownPropertyKeys()</td></tr>
+<tr><td>[[IsExstensible]]</td><td>Reflect.isExtensible()</td></tr>
+<tr><td>[[PreventExstensions]]</td><td>Reflect.preventExtensions()</td></tr>
+<tr><td>[[GetPrototypeOf]]</td><td>Reflect.getPrototypeOf()</td></tr>
+<tr><td>[[SetPrototypeOf]]</td><td>Reflect.setPrototypeOf()</td></tr>
+</tbody></table></div>
+
+<div class="ws-note">
+<h2>Learn More</h2>
+<p class="w3-large"><a href="js_meta_programming.html">JavaScript Metaprogramming</a>
+</p><p class="w3-large"><a href="js_meta_reflect.html">JavaScript Reflect Tutorial</a>
+</p><p class="w3-large"><a href="js_meta_reference.html">JavaScript Meta Reference</a>
+</p></div>
+
+<br><br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_meta_reflect.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_meta_reference.html">Next ❯</a>
+</div>
+
+

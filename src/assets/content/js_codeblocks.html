@@ -1,0 +1,123 @@
+
+      
+
+<h1>JavaScript Code Blocks</h1>
+
+
+<div class="ws-info">
+<h2>Curly Braces</h2>
+<p>A <b>code block</b> or <b>block statement</b> is a group of statements
+enclosed within curly braces <b>{ }</b>.</p>
+<p>Code blocks are important for controlling the flow of execution and defining variable
+scope within a JavaScript program.</p>
+</div>
+
+<h2>Code Blocks and Statements</h2>
+<p>Code blocks allows for <b>multiple statements</b> to be treated as a single unit.</p>
+
+<p>The body of a JavaScript <b>function</b> is always enclosed within a code block:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">function myFunction() {
+  // This is a code block
+}</code></pre>
+<p>
+
+</p>
+</div>
+
+
+<p>Code blocks are essential for <b>if statements</b>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">if (condition) {
+  // This is a code block
+} else {
+  // This is a code block
+}</code></pre>
+<p>
+
+</p>
+</div>
+
+<p>Code blocks are essential for <b>loop statements</b>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">for (expression 1; expression 2; expression 3) {
+  // This is a code block
+}</code></pre>
+<p>
+
+</p>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">while (condition) {
+  // This is a code block
+}</code></pre>
+<p>
+
+</p>
+</div>
+
+<hr>
+<h2>Defining Scope</h2>
+<p>Variables declared with <code class="w3-codespan">let</code> and <code class="w3-codespan">const</code>
+inside a code block are "block-scoped," meaning they are only accessible within that specific block.</p>
+<p>This helps prevent unintended variable overwrites and promotes better code organization:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">{
+  let x = 10;
+  // x is accessible here
+}
+// x is not accessible here</code></pre>
+<p>
+
+</p>
+</div>
+
+<hr>
+<h2>Standalone Blocks</h2>
+<p>Code blocks can also exist independently without being attached to an if statement,
+a function or a loop.</p>
+<p>This can be used to create a scope for <code class="w3-codespan">let</code>
+and <code class="w3-codespan">const</code> variables.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">{
+  let x = 10;
+  let y = 100;
+  let areal = x * y;
+}</code></pre>
+
+</div>
+
+<p>This example above demonstrates how a standalone block can be used to limit the scope
+of variables.</p>
+
+<h3>Encapsulation</h3>
+<p>Variables inside the block are only available in the block.</p>
+<p>This prevents "polluting" the global scope, keeps the code clean,
+and reduces the risk of name collisions.</p>
+
+<h3>Temporary Use</h3>
+<p>If you only need variables for a calculation,
+a block lets you declare them, use them, and discard them.</p>
+
+<h3>Organized Code</h3>
+<p>You can group related variables and statements in their own scope to avoid accidental name
+conflict without forcing them into a function or an object.</p>
+<p>This improves readability and avoids accidental name conflictre-use of variable names
+outside the block.</p>
+
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_scope.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_hoisting.html">Next ❯</a>
+</div>
+
+

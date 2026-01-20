@@ -1,0 +1,165 @@
+
+      
+
+<h1>ECMAScript 2023</h1>
+
+
+<hr>
+<h2>New Features in JavaScript 2023</h2>
+
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Feature</th><th>Description</th><th></th></tr>
+<tr><td><a href="js_2023d41d.html?#mark_shebang">#! (Shebang)</a></td>
+<td>Tells the operating system which interpreter to use to execute the script</td><td></td></tr>
+</tbody></table></div>
+</div>
+
+<h3>New Array Features in 2023</h3>
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Feature</th><th>Description</th><th></th></tr>
+<tr><td><a href="js_2023d41d.html?#mark_array_findlast">findLast()</a></td>
+<td>Returns the value of the last element that satisfies a condition</td><td></td></tr>
+<tr><td><a href="js_2023d41d.html?#mark_array_findlastindex">findLastIndex()</a></td>
+<td>Returns the index of the last element that satisfies a condition</td><td></td></tr>
+<tr><td><a href="js_2023d41d.html?#mark_array_toreversed">toReversed()</a></td>
+<td>Reverses an array without altering the original array</td><td></td></tr>
+<tr><td><a href="js_2023d41d.html?#mark_array_tosorted">toSorted()</a></td>
+<td>Sorts an array without altering the original array</td><td></td></tr>
+<tr><td><a href="js_2023d41d.html?#mark_array_tospliced">toSpliced()</a></td>
+<td>Splices an array without altering the original array</td><td></td></tr>
+<tr><td><a href="js_2023d41d.html?#mark_array_with">with()</a></td>
+<td>Updates array elements without altering the original array</td><td></td></tr>
+</tbody></table></div>
+</div>
+
+
+<hr>
+<h2>Browser Support</h2>
+<p><b>ECMAScript 2023</b> is supported in all modern browsers since <b>July 2023</b>:</p>
+
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr>
+    <th class="bsChrome" title="Chrome"></th>
+    <th class="bsEdge" title="Edge"></th>
+    <th class="bsFirefox" title="Firefox"></th>
+    <th class="bsSafari" title="Safari"></th>
+    <th class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>110</td>
+    <td>Edge<br>110</td>
+    <td>Firefox<br>115</td>
+    <td>Safari<br>16.4</td>
+    <td>Opera<br>96</td>
+  </tr>
+  <tr>
+    <td>Feb 2023</td>
+    <td>Feb 2023</td>
+    <td>Jul 2023</td>
+    <td>Mar 2023</td>
+    <td>May 2023</td>
+  </tr>
+</tbody></table></div>
+</div>
+
+<hr>
+<a id="mark_array_findlast"></a>
+<h2>JavaScript Array findLast() Method</h2>
+<p>ES2023 added the findLast() method that will start from the end of an array and return
+the value of the first element that satisfies a condition.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const temp = [27, 28, 30, 40, 42, 35, 30];
+let high = temp.findLast(x =&gt; x &gt; 40);</code></pre>
+
+</div>
+
+<hr>
+<a id="mark_array_findlastindex"></a>
+<h2>JavaScript Array findLastIndex() Method</h2>
+<p>The findLastIndex() method finds the index of the last element that satisfies a condition.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const temp = [27, 28, 30, 40, 42, 35, 30];
+let pos = temp.findLastIndex(x =&gt; x &gt; 40);</code></pre>
+
+</div>
+
+<hr>
+<a id="mark_array_toreversed"></a>
+<h2>JavaScript Array toReversed() Method</h2>
+<p>ES2023 added the Array toReversed() method as a safe way to reverse an array without altering the original array.</p>
+<p>The difference between the new <b>toReversed()</b> method and the old <b>reverse()</b> method is that the new method
+creates a new array, keeping the original array unchanged, while the old method altered the original array.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const months = ["Jan", "Feb", "Mar", "Apr"];
+const reversed = months.toReversed();</code></pre>
+
+</div>
+
+<hr>
+<a id="mark_array_tosorted"></a>
+<h2>JavaScript Array toSorted() Method</h2>
+<p>ES2023 added the Array toSorted() method as a safe way to sort an array without altering the original array.</p>
+<p>The difference between the new <b>toSorted()</b> method and the old <b>sort()</b> method is that the new method
+creates a new array, keeping the original array unchanged, while the old method altered the original array.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const months = ["Jan", "Feb", "Mar", "Apr"];
+const sorted = months.toSorted();</code></pre>
+
+</div>
+
+<hr>
+<a id="mark_array_tospliced"></a>
+<h2>JavaScript Array toSpliced() Method</h2>
+<p>ES2023 added the Array toSpliced() method as a safe way to splice an array without altering the original array.</p>
+<p>The difference between the new <b>toSpliced()</b> method and the old <b>splice()</b> method is that the new method
+creates a new array, keeping the original array unchanged, while the old method altered the original array.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const months = ["Jan", "Feb", "Mar", "Apr"];
+const spliced = months.toSpliced(0, 1);</code></pre>
+
+</div>
+
+<hr>
+
+<hr>
+
+<a id="mark_array_with"></a>
+<h2>JavaScript Array with() Method</h2>
+<p>ES2023 added the Array with() method as a safe way to update elements in an array without altering the original array.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const months = ["Januar", "Februar", "Mar", "April"];
+const new = months.with(2, "March");</code></pre>
+
+</div>
+<hr>
+
+<a id="mark_shebang"></a>
+<h2><span style="font-size:48px">#!</span> JavaScript Shebang</h2>
+<p>In operating systems, a shebang (also known as hashbang, pound-bang, sharp-exclamation or hash-pling)
+is a sequence of two characters: a number sign (#) and an exclamation mark (!).</p>
+<p><b>#!</b> at the beginning of a script tells the operating system what interpreter should be used to execute the script:</p>
+<div class="w3-example">
+<h3>Example</h3><pre class="w3-code"><code class="language-javascript"><b>#!</b>/usr/bin/env node</code></pre>
+</div>
+<p>The example above tells the operating system to use the node program to run the script.</p>
+<p>Now, you can run JavaScript code with <code class="w3-codespan">./fileName.js</code> instead 
+of <code class="w3-codespan">node fileName.js</code>.</p>
+
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_2024.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_2022.html">Next ❯</a>
+</div>
+
+

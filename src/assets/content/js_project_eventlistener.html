@@ -1,0 +1,230 @@
+
+      
+
+<h1>Project - Event Listener</h1>
+
+
+<div class="ws-info">
+<h2>Using an Event Listener</h2>
+<p>This is a copy of the previous project.</p>
+<p>Now using <b>Event Listeners</b> instead of <b>Onclick Attributes</b>.</p>
+
+<p id="count" style="font-size:40px;">0</p>
+
+<button id="btnPlus">+</button>
+<button id="btnMinus">-</button>
+<button id="btnReset">Reset</button>
+<button id="btnSave">Save</button>
+<button id="btnLoad">Load</button>
+</div>
+
+<h2>Using Event Listeners</h2>
+<p>Using addEventListener() makes it easier to:</p>
+<ul>
+<li>Keep HTML and JavaScript separated</li>
+<li>Add multiple events to the same element</li>
+<li>Write cleaner code in bigger projects</li>
+</ul>
+
+<div class="w3-example">
+<h3>HTML Code</h3>
+<pre class="w3-code"><code class="language-html">&lt;h2&gt;Counter&lt;/h2&gt;
+&lt;p id="count" style="font-size:40px;"&gt;0&lt;/p&gt;
+&lt;button id="btnPlus"&gt;+&lt;/button&gt;
+&lt;button id="btnMinus"&gt;-&lt;/button&gt;
+&lt;button id="btnReset"&gt;Reset&lt;/button&gt;
+&lt;button id="btnSave"&gt;Save&lt;/button&gt;
+&lt;button id="btnLoad"&gt;Load&lt;/button&gt;
+&lt;script&gt;
+// JavaScript goes here
+&lt;/script&gt;</code></pre>
+</div>
+
+<div class="w3-example">
+<h3>JavaScript Code</h3>
+<pre class="w3-code"><code class="language-javascript">// Add event listeners
+document.getElementById("btnPlus").addEventListener("click", increaseCount);
+document.getElementById("btnMinus").addEventListener("click", decreaseCount);
+document.getElementById("btnReset").addEventListener("click", resetCount);
+document.getElementById("btnSave").addEventListener("click", saveCount);
+document.getElementById("btnLoad").addEventListener("click", loadCount);
+// Declare the counter
+let count = 0;
+// Load counter when the page opens
+loadCount();
+// Function to display the counter
+function updateCount() {
+  document.getElementById("count").innerHTML = count;
+}
+// Function to increase the counter
+function increaseCount() {
+  count++;
+  updateCount();
+}
+// Function to decrease the counter
+function decreaseCount() {
+  if (count &gt; 0) {
+  count--;
+    updateCount();
+  }
+}
+// Function to reset the counter
+function resetCount() {
+  count = 0;
+  updateCount();
+}
+// Function to save the counter
+function saveCount() {
+  localStorage.setItem("count", count);
+}
+// Function to load the counter
+function loadCount() {
+  let saved = localStorage.getItem("count");
+  if (saved !== null) {
+    count = Number(saved);
+  }
+  updateCount();
+}</code></pre>
+
+</div>
+
+<div class="ws-info">
+<ul>
+<h2>Improvements</h2>
+<li>JavaScript is moved to an external file (<b>counter.js</b>)</li>
+<li>Uses <b>DOMContentLoaded</b> so JavaScript runs only after HTML is ready</li>
+<li>Cleaner structure using small functions + element variables</li>
+<li>Shows a short <b>Saved!</b> message</li>
+<li>Shows a short <b>Loaded!</b> message</li>
+</ul>
+</div>
+<div class="w3-example">
+<h3>HTML Code</h3>
+<pre class="w3-code"><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+&lt;h2&gt;Counter&lt;/h2&gt;
+&lt;p id="count" style="font-size:40px;"&gt;0&lt;/p&gt;
+&lt;button id="btnPlus"&gt;+&lt;/button&gt;
+&lt;button id="btnMinus"&gt;-&lt;/button&gt;
+&lt;button id="btnReset"&gt;Reset&lt;/button&gt;
+&lt;button id="btnSave"&gt;Save&lt;/button&gt;
+&lt;button id="btnLoad"&gt;Load&lt;/button&gt;
+&lt;script src="counter.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
+<div class="ws-note">
+<h2>Note</h2>
+<p>Notice that the <code class="w3-codespan">&lt;script&gt;</code> tag is placed at the bottom, before
+<code class="w3-codespan">&lt;/body&gt;</code>.</p>
+</div>
+
+<div class="w3-example">
+<h3>counter.js</h3>
+<pre class="w3-code"><code class="language-javascript">document.addEventListener("DOMContentLoaded", function () {
+// Declare the counter
+let count = 0;
+// Use element variables
+const countEl = document.getElementById("count");
+const msgEl = document.getElementById("message");
+const btnPlus = document.getElementById("btnPlus");
+const btnMinus = document.getElementById("btnMinus");
+const btnReset = document.getElementById("btnReset");
+const btnSave = document.getElementById("btnSave");
+const btnLoad = document.getElementById("btnLoad");
+// Add event listeners
+btnPlus.addEventListener("click", increaseCount);
+btnMinus.addEventListener("click", decreaseCount);
+btnReset.addEventListener("click", resetCount);
+btnSave.addEventListener("click", saveCount);
+btnLoad.addEventListener("click", loadCount);
+// Function to display the counter
+function updateCount() {
+  document.getElementById("count").innerHTML = count;
+}
+// Function to diplay message
+function showMessage(text) {
+  msgEl.innerHTML = text;
+  setTimeout(function () {
+    msgEl.innerHTML = "";
+  }, 3000);
+}
+// Function to increase the counter
+function increaseCount() {
+  count++;
+  updateCount();
+}
+// Function to decrease the counter
+function decreaseCount() {
+  count--;
+  updateCount();
+}
+// Function to reset the counter
+function resetCount() {
+  count = 0;
+  updateCount();
+}
+// Function to save the counter
+function saveCount() {
+  localStorage.setItem("count", count);
+  showMessage("Saved!");
+}
+// Function to load the counter
+function loadCount() {
+  let saved = localStorage.getItem("count");
+  if (saved !== null) {
+    count = Number(saved);
+    showMessage("Loaded!");
+  }
+  updateCount();
+}
+});</code></pre>
+
+</div>
+<hr>
+<h2>JavaScript in External File</h2>
+<p>Using counter.js makes your project:</p>
+<ul>
+<li>More Organized</li>
+<li>Keep HTML and JavaScript separated</li>
+<li>Easier to read and to reuse</li>
+<li>More like real-world projects</li>
+</ul>
+<hr>
+<h2>DOMContentLoaded</h2>
+<p>Why use <code class="w3-codespan">DOMContentLoaded</code>?</p>
+<p>When you use an external JavaScript file, the browser may load the script before the HTML is ready. So we use:
+</p><div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">document.addEventListener("DOMContentLoaded", function() {
+// JavaScript code
+});</code></pre>
+</div>
+<p>This means: Run the JavaScript code after the page has finished loading the HTML.</p>
+
+<hr>
+<div class="ws-note">
+<h2>JavaScript Projects</h2>
+<ul class="w3-ul">
+<li><a href="js_project_counter.html" class="w3-large">JavaScript Counter</a><br>
+A counter project with restore and save in lovalStorage.
+</li>
+<li><a href="js_project_eventlistener.html" class="w3-large">JavaScript Event Listener</a><br>
+The counter project using event listener instead of onclick.
+</li>
+<li><a href="js_project_todo.html" class="w3-large">JavaScript Do-Do List</a><br>
+A do-do list saved in an array in local storage.
+</li>
+<li><a href="js_project_modal_popup.html" class="w3-large">JavaScript Modal Popup</a><br>
+A modal popup window that appears on top of the page.
+</li>
+</ul>
+</div>
+
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_project_counter.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_project_todo.html">Next ❯</a>
+</div>
+
+

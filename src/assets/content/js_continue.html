@@ -1,0 +1,90 @@
+
+      
+
+<h1>JavaScript Continue</h1>
+
+<!--start-->
+<div class="ws-info">
+<h2>The Continue Statement</h2>
+<p>The <code class="w3-codespan">continue</code> statement <b>skips the current iteration</b> in a loop.</p>
+<p>The remaining code in the iteration is skipped and processing moves to the next iteration.</p>.
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Skip the value of 3:</p>
+<pre class="w3-code"><code class="language-javascript">for (let i = 1; i &lt; 10; i++) {
+  if (i === 3) { continue; }
+  text += "The number is " + i + "&lt;br&gt;";
+}</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>JavaScript Labels</h2>
+<p>A label provides a name for a statement, or a block of statements,
+allowing statements to be referenced to, for program flow control,
+particularly in loops.</p>
+
+
+<div class="w3-example">
+<h3>Syntax</h3>
+<p>A label is an identifier followed by a colon (<b>:</b>).</p>
+<pre class="w3-code"><code class="language-javascript"><i>labelname</i>: <i>statement</i>;</code></pre>
+<p>A label precedes a statement or a block of code.</p>
+<pre class="w3-code"><code class="language-javascript"><i>labelname</i>: {
+  <i>statements</i>
+}</code></pre>
+</div>
+
+<hr>
+
+<hr>
+
+<h2>Continue to <i>Labelname</i></h2>
+
+
+<div class="w3-example">
+<h3>Syntax</h3>
+<pre class="w3-code"><code class="language-javascript">continue <em>labelname</em>;</code></pre>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Continue to <b>loop1</b>:</p>
+<pre class="w3-code"><code class="language-javascript">let text = "";
+loop1: for (let j = 1; j &lt; 5; j++) {
+  loop2: for (let i = 1; i &lt; 5; i++) {
+    if (i === 3) { continue loop1; }
+    text += i;
+   }
+}</code></pre>
+
+</div>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Continue to <b>loop2</b>:</p>
+<pre class="w3-code"><code class="language-javascript">let text = "";
+loop1: for (let j = 1; j &lt; 5; j++) {
+  loop2: for (let i = 1; i &lt; 5; i++) {
+    if (i === 3) { continue <b>loop2</b>; }
+    text += i;
+   }
+}</code></pre>
+
+</div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p><code class="w3-codespan">break</code> and <code class="w3-codespan">continue</code>
+are the only JavaScript statements that can "jump out of" a code block.</p>
+</div>
+<!--stop-->
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_break.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_strings.html">Next ❯</a>
+</div>
+
+

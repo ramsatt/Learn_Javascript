@@ -1,0 +1,337 @@
+
+      
+
+<h1>Invoking JavaScript Functions</h1>
+
+
+
+<!--start-->
+<div class="ws-info">
+<h2>Calling a Function</h2>
+<p>A JavaScript function only runs when it is <b>called</b> (also called <b>invoked</b>).</p>
+<p>To <b>invoke a function</b>, write the name followed by parentheses like <b>name()</b>.</p>
+<p>The <b>code inside the function</b> will execute when "something" <b>invokes</b> the function.</p>
+</div>
+
+<h2>Examples</h2>
+<p>The function below returns the text <b>"Hello World"</b>.</p>
+<p>But it will not run before you call it.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">function sayHello() {
+  return "Hello World";
+}</code></pre>
+
+</div>
+
+<p>The code below calls the function.</p>
+<p>But it does not use the result.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">function sayHello() {
+  return "Hello World";
+}
+sayHello();</code></pre>
+
+</div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>To use the returned value, you can store it in a variable or display it.</p>
+</div>
+
+<hr>
+<h2>Using the Returned Value</h2>
+<p>When a function returns a value, you can store the value in a variable.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">function sayHello() {
+  return "Hello World";
+}
+let greeting = sayHello();</code></pre>
+
+</div>
+
+<hr>
+<h2>Displaying the Result</h2>
+<p>You can display the returned value in many ways, for example using console.log() or HTML.</p>
+
+<div class="w3-example">
+<h3>Examples</h3>
+<pre class="w3-code"><code class="language-javascript">function sayHello() {
+  return "Hello World";
+}
+console.log(sayHello());</code></pre>
+
+<pre class="w3-code"><code class="language-html">&lt;p id="demo"&gt;&lt;/p&gt;
+&lt;script&gt;
+function sayHello() {
+  return "Hello World";
+}
+document.getElementById("demo").innerHTML = sayHello();
+&lt;/script&gt;</code></pre>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>Calling a Function Many Times</h2>
+<p>
+You can call the same function whenever you need it.<br>
+</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">function sayHello() {
+  return "Hello World";
+}
+let a = sayHello();
+let b = sayHello();
+let c = sayHello();</code></pre>
+</div>
+
+<hr>
+<h2>Calling vs Referencing a Function</h2>
+<p>This is an important difference:</p>
+<p><code class="w3-codespan">sayHello</code> refers to the <b>function itself</b>. It returns the function.</p>
+<p><code class="w3-codespan">sayHello()</code> refers to the <b>function result</b>. It returns the result</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">function sayHello() {
+  return "Hello World";
+}
+let text = sayHello;</code></pre>
+
+</div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>In the example above, text returns the function itself like:</p>
+<p><b>function sayHello() { return "Hello World"; }</b></p>
+</div>
+
+<hr>
+<h2>Invoking a JavaScript Function</h2>
+<p>The code inside a function is not executed when the function is <strong>defined</strong>.</p>
+<p>The code inside a function is executed when the function is <strong>invoked</strong>.</p>
+<p>It is also common to use the terms:</p>
+<ul><b>
+<li>call a function</li>
+<li>call upon a function</li>
+<li>start a function</li>
+<li>execute a function</li>
+</b></ul>
+<p>In this tutorial, we will use <strong>invoke</strong>, because a 
+JavaScript function can be invoked without being called.</p>
+
+
+<hr>
+<h2>Functions Can Be Called from Anywhere</h2>
+<p>You can call functions from other functions, from events, or from any code block.</p>
+
+<div class="w3-example">
+<h3>Examples</h3>
+<pre class="w3-code"><code class="language-javascript">function sayHello() {
+  return "Hello World";
+}
+function showHello() {
+  document.getElementById("demo").innerHTML = sayHello();
+}</code></pre>
+
+<pre class="w3-code"><code class="language-html">&lt;p id="demo"&gt;&lt;/p&gt;
+&lt;button onclick="showHello()"&gt;Click Me&lt;/button&gt;
+&lt;script&gt;
+function sayHello() {
+  return "Hello World";
+}
+function showHello() {
+  document.getElementById("demo").innerHTML = sayHello();
+}
+&lt;/script&gt;</code></pre>
+
+</div>
+
+
+<hr>
+<h2>Common Mistakes</h2>
+<ul class="w3-ul">
+  <li><h3>Forgetting Parentheses</h3>
+  Writing <b>sayHello</b> does not run the function. Use <b>sayHello()</b>.</li>
+
+  <li><h3>Expecting Output</h3>
+  Calling a function returns a value, but you must display it to see it.</li>
+
+  <li><h3>Expecting Return</h3>
+  If your function does not return a value, storing it in a variable will give <b>undefined</b>.</li>
+</ul>
+
+<hr>
+<div class="w3-panel w3-pale-yellow w3-leftbar w3-border-yellow">
+<h2>Quiz</h2>
+<p>What is the difference between <b>sayHello</b> and <b>sayHello()</b> ?</p>
+</div>
+<hr>
+<h2>Next Chapter</h2>
+<p class="w3-large">Next: <a href="js_function_parameters.html">Function Parameters and Arguments</a><br>
+</p>
+
+
+<!--
+
+<hr>
+
+<h2>Invoking a Function as a Function</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+function myFunction(a, b) {<br>
+&nbsp; 
+  return a * b;<br>
+}<br>
+myFunction(10, 2);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 
+  Will return 20
+</div>
+<a class="w3-btn w3-margin-bottom" href="tryit.asp?filename=tryjs_invoke_function" target="_blank"> &raquo;</a>
+</div>
+
+<p>The function above does not belong to any object. But in JavaScript there 
+is always a default global object.</p>
+<p>In HTML the default global object is the HTML page itself, so the function above &quot;belongs&quot; to the 
+HTML page.</p>
+<p>In a browser the page object is the browser window. The function above 
+automatically becomes a window function.</p>
+
+<div class="w3-panel ws-note">
+<h2>Note</h2>
+<p>This is a common way to invoke a JavaScript function, but not a very good practice.<br>
+Global variables, methods, or functions can easily create name conflicts and bugs in the global object.</p>
+</div>
+
+<p>myFunction() and window.myFunction() is the same function:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+function myFunction(a, b) {<br>
+  &nbsp; return a * b;<br>
+}<br>window.myFunction(10, 2);&nbsp;&nbsp;&nbsp;  // Will also return 20
+</div>
+<a class="w3-btn w3-margin-bottom" href="tryit.asp?filename=tryjs_invoke_function_2" target="_blank"> &raquo;</a>
+</div>
+<hr>
+
+<h2>The Global Object</h2>
+<p>When a function is called without an owner object, the value of <code class="w3-codespan">this</code> 
+becomes the global object.</p>
+<p>In a web browser the global object is the browser window.</p>
+<p>This example returns the window object as the value of <code class="w3-codespan">this</code>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+let x = myFunction();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // x will be the window object<br><br>
+function myFunction() {<br>
+&nbsp;&nbsp;return this;<br>
+}<br>
+</div>
+<a class="w3-btn w3-margin-bottom" href="tryit.asp?filename=tryjs_invoke_function_3" target="_blank"> &raquo;</a>
+</div>
+
+<div class="w3-panel ws-note">
+<p>Invoking a function as a global function, causes the value of <strong>this</strong> to be the global object.<br>
+Using the window object as a variable can easily crash your program.</p>
+</div>
+<hr>
+
+<h2>Invoking a Function as a Method</h2>
+<p>In JavaScript you can define functions as object methods.</p>
+<p>The following example creates an object (<strong>myObject</strong>), with two 
+properties (<strong>firstName</strong> and <strong>lastName</strong>), and a 
+method (<strong>fullName</strong>):</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+const myObject = {<br>
+&nbsp;&nbsp;firstName:&quot;John&quot;,<br>
+  &nbsp; lastName: &quot;Doe&quot;,<br>
+  &nbsp; fullName: function () {<br>
+&nbsp; &nbsp; return this.firstName + &quot; &quot; + this.lastName;<br>
+  &nbsp;&nbsp;}<br>
+}<br>
+myObject.fullName();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Will return &quot;John Doe&quot;
+</div>
+<a class="w3-btn w3-margin-bottom" href="tryit.asp?filename=tryjs_invoke_method" target="_blank"> &raquo;</a>
+</div>
+<p>The <strong>fullName</strong> method is a function. The function belongs to 
+the object. <strong>myObject</strong> is the owner of the function.</p>
+<p>The thing called <code class="w3-codespan">this</code>, is the object that 
+&quot;owns&quot; the JavaScript code. In this case the value of <code class="w3-codespan">this</code> 
+is <strong>myObject</strong>. </p>
+<p>Test it! Change the <strong>fullName</strong> method to return the value of <code class="w3-codespan">this</code>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+const myObject = {<br>&nbsp; firstName:&quot;John&quot;,<br>
+  &nbsp; lastName: &quot;Doe&quot;,<br>
+  &nbsp; fullName: function () {<br>
+  &nbsp; &nbsp; return this;<br>
+  &nbsp;&nbsp;}<br>}<br>
+<br>
+// This will return [object Object] (the owner object)<br>
+myObject.fullName();<br>
+
+</div>
+<a class="w3-btn w3-margin-bottom" href="tryit.asp?filename=tryjs_invoke_method_2" target="_blank"> &raquo;</a>
+</div>
+
+<div class="w3-panel ws-note">
+<p>Invoking a function as an object method, causes the value of <code class="w3-codespan">this</code> 
+to be the object itself.</p>
+</div>
+<hr>
+
+<h2>Invoking a Function with the Constructor</h2>
+<p>If a function invocation is preceded with the <code class="w3-codespan">new</code> keyword, 
+it is a constructor invocation.</p>
+<p>It looks like you create a new function, but since JavaScript functions are 
+objects you actually create a new object:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+// This is a function constructor:<br>function myFunction(arg1, arg2) {<br>
+  &nbsp; this.firstName = arg1;<br>
+&nbsp;&nbsp;this.lastName&nbsp; = arg2;<br>
+}<br>
+<br>
+// This creates a new object<br>
+const myObj = new myFunction(&quot;John&quot;, &quot;Doe&quot;);<br>
+<br>
+// This will return &quot;John&quot;<br>
+myObj.firstName;<br>
+</div>
+<a class="w3-btn w3-margin-bottom" href="tryit.asp?filename=tryjs_invoke_constructor" target="_blank"> &raquo;</a>
+</div>
+
+<p>A constructor invocation creates a new object. The new object inherits the 
+properties and methods from its constructor. </p>
+
+<div class="w3-panel ws-note">
+<p>The <code class="w3-codespan">this</code> keyword in the constructor does not have a value.<br>
+The value of <code class="w3-codespan">this</code> will be the new object created when the function is invoked.</p>
+</div>
+-->
+<!--stop-->
+
+
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_function_intro.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_function_parameters.html">Next ❯</a>
+</div>
+
+

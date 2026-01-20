@@ -1,0 +1,102 @@
+
+      
+
+<h1>JSON Array Literals</h1>
+
+<hr>
+<!--start-->
+<img src="assets/images/img_json_array.jpg" style="width:100%;max-width:612px" alt="JSON Array">
+
+<p>This is a JSON string:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">'["Ford", "BMW", "Fiat"]'</code></pre>
+</div>
+<p>Inside the JSON string there is a JSON array literal:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">["Ford", "BMW", "Fiat"]</code></pre>
+</div>
+
+<p>Arrays in JSON are almost the same as arrays in JavaScript.</p>
+<p>In JSON, array values must be of type string, number, object, array, boolean 
+or <em>null</em>.</p>
+<p>In JavaScript, array values can be all of the above, plus any other valid 
+JavaScript expression, including functions, dates, and <em>undefined.</em></p>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>JavaScript Arrays</h2>
+<p>You can create a JavaScript array from a literal:
+</p><div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">myArray = ["Ford", "BMW", "Fiat"];</code></pre>
+  
+</div>
+
+<p>You can create a JavaScript array by parsing a JSON string:
+</p><div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">myJSON = '["Ford", "BMW", "Fiat"]';
+myArray = JSON.parse(myJSON);</code></pre>
+  
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Accessing Array Values</h2>
+<p>You access array values by index:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">myArray[0];</code></pre>
+  
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Arrays in Objects</h2>
+<p>Objects can contain arrays:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">{
+"name":"John",
+"age":30,
+"cars":["Ford", "BMW", "Fiat"]
+}</code></pre>
+</div>
+
+<p>You access array values by index:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">myObj.cars[0];</code></pre>
+  
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>Looping Through an Array</h2>
+<p>You can access array values by using a <code class="w3-codespan">for in</code> loop:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">for (let i in myObj.cars) {
+  x += myObj.cars[i];
+}</code></pre>
+    
+</div>
+<p>Or you can use a <code class="w3-codespan">for</code> loop:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">for (let i = 0; i &lt; myObj.cars.length; i++) {
+  x += myObj.cars[i];
+}</code></pre>
+    
+</div>
+<!--stop-->
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_json_objects.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_json_server.html">Next ❯</a>
+</div>
+
+
+

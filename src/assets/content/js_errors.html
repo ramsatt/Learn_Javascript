@@ -1,0 +1,190 @@
+
+      
+
+<h1>JavaScript Error Statements</h1>
+
+<!--start-->
+<div class="ws-info">
+<h2>The <b>try</b> Statement</h2>
+<p>In JavaScript, the <code class="w3-codespan">try</code> statement is used to handle errors
+(also called <b>exceptions</b>) that may occur during code execution - without stopping the entire program.</p>
+<p>The <code class="w3-codespan">try</code> statement works together with <code class="w3-codespan">catch</code>.</p>
+<p>Sometimes it works with <code class="w3-codespan">finally</code>.</p>
+<p>And sometimes it works with <code class="w3-codespan">throw</code>.</p>
+</div>
+<!--stop-->
+
+
+<hr>
+<h2>The Try Block</h2>
+<p>The <code class="w3-codespan">try</code> block contains the code that might throw an error.</p>
+<p>If no error occurs, the catch block is skipped.</p>
+<div class="w3-example">
+<h3>Syntax</h3>
+<pre class="w3-code"><code class="language-javascript">try {
+  // Code that may cause an error
+} catch (error) {
+  // Code to handle the error
+}</code></pre>
+</div>
+
+<hr>
+<h2>The Catch Block</h2>
+<p>The <code class="w3-codespan">catch</code> block executes only if an error occurs in the try block.</p>
+<p>The error object provides details about what went wrong.</p>
+<div class="w3-example">
+<h3>Syntax</h3>
+<pre class="w3-code"><code class="language-javascript">try {
+  // Code that may cause an error
+} catch (error) {
+  // Code to handle the error
+}</code></pre>
+</div>
+
+<h2>The Finally Block (Optional)</h2>
+<p>The <code class="w3-codespan">finally</code> block executes after the try and catch blocks,
+whether an error occurred or not.</p>
+<p>It is commonly used for cleanup tasks (e.g., closing files, stopping loaders, etc.).</p>
+<div class="w3-example">
+<h3>Syntax</h3>
+<pre class="w3-code"><code class="language-javascript">try {
+  // Code that may cause an error
+} catch (error) {
+  // Code to handle the error
+} finally {
+  // Code that always runs, no matter what
+}</code></pre>
+</div>
+
+<hr>
+<!--start-->
+<h2>JavaScript Throws Errors</h2>
+<p>When an error occurs, JavaScript will 
+normally stop and generate an error message.</p>
+<p>The technical term for this is: JavaScript will <strong>throw an 
+exception (throw an error)</strong>.</p>
+<div class="w3-panel ws-note">
+<p>JavaScript will actually create an <strong>Error object</strong> with two properties: 
+<strong>name</strong> and <strong>message</strong>.</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The throw Statement</h2>
+<p>The <code class="w3-codespan">throw</code> statement allows you to create a custom error.</p>
+<p>Technically you can <strong>throw an exception (throw an error)</strong>.</p>
+
+<p>The exception can be a JavaScript <code class="w3-codespan">String</code>, a <code class="w3-codespan">Number</code>, a <code class="w3-codespan">Boolean</code> or an <code class="w3-codespan">Object</code>:</p>
+
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">throw "Too big";    // throw a text
+throw 500;          // throw a number</code></pre>
+</div>
+<p>If you use <code class="w3-codespan">throw</code> together with <code class="w3-codespan">try</code> and 
+<code class="w3-codespan">catch</code>, you can control program 
+flow and generate custom error messages.</p>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Input Validation Example</h2>
+<p>This example examines input. If the value is wrong, 
+an exception (err) is thrown.</p>
+<p>The exception (err) is caught by the catch statement and a custom error message is displayed:</p>
+
+<div class="w3-example">
+<pre class="w3-code"><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+&lt;p&gt;Please input a number between 5 and 10:&lt;/p&gt;
+&lt;input id="demo" type="text"&gt;
+&lt;button type="button" onclick="myFunction()"&gt;Test Input&lt;/button&gt;
+&lt;p id="p01"&gt;&lt;/p&gt;
+&lt;script&gt;
+function myFunction() {
+  const message = document.getElementById("p01");
+  message.innerHTML = "";
+  let x = document.getElementById("demo").value;
+  try {
+    if(x.trim() == "") throw "empty";
+    if(isNaN(x)) throw "not a number";
+    x = Number(x);
+    if(x &lt; 5) throw "too low";
+    if(x &gt; 10) throw "too high";
+  } catch(err) {
+    message.innerHTML = "Input is " + err;
+  }
+}
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+
+
+<hr>
+<!--start-->
+<h2>HTML Validation</h2>
+<p>The code above is just an example.</p>
+<p>Modern browsers will often use a combination of JavaScript and built-in HTML 
+validation, using predefined validation rules defined in HTML attributes: </p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-html">&lt;input id="demo" type="number" min="5" max="10" step="1"&gt;</code></pre>
+</div>
+
+<p>You can read more about forms validation in a later chapter of this tutorial.</p>
+
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Finally Example</h2>
+<p>The <code class="w3-codespan">finally</code> statement lets you execute code, after try and 
+catch, regardless of the result:</p>
+
+<div class="w3-example">
+<h3>Syntax</h3>
+<pre class="w3-code"><code class="language-javascript">try {
+  <em>Block of code to try
+</em>} catch(<em>err</em>) {
+  <em>Block of code to handle errors
+</em>} finally {
+  <em>Block of code to be executed regardless of the try / catch result
+</em>}</code></pre></div>
+
+<div class="w3-example">
+ <h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">function myFunction() {
+  const message = document.getElementById("p01");
+  message.innerHTML = "";
+  let x = document.getElementById("demo").value;
+  try {
+    if(x.trim() == "") throw "is empty";
+    if(isNaN(x)) throw "is not a number";
+    x = Number(x);
+    if(x &gt; 10) throw "is too high";
+    if(x &lt; 5) throw "is too low";
+  } catch(err) {
+    message.innerHTML = "Error: " + err + ".";
+  } finally {
+    document.getElementById("demo").value = "";
+  }
+}</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<div class="ws-note">
+<h2>See Also:</h2>
+<p class="w3-large"><a href="js_errors_intro.html">JavaScript Errors</a></p>
+<p class="w3-large"><a href="js_errors_silent.html">JavaScript Silent Errors</a></p>
+<p class="w3-large"><a href="js_error_object.html">JavaScript Error Object</a></p>
+<p class="w3-large"><a href="js_debugging.html">JavaScript Debugging</a></p>
+</div>
+<hr>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_errors_silent.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_error_object.html">Next ❯</a>
+</div>
+
+

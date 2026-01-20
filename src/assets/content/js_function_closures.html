@@ -1,0 +1,236 @@
+
+      
+
+<h1>JavaScript Closures</h1>
+
+<!--start-->
+<div class="ws-info">
+<p class="intro">JavaScript variables can belong to:</p>
+<p>The <b>local scope</b> or The <b>global scope</b></p>
+<p>Global variables can be made local (private) with <strong>closures</strong>.</p>
+<p>Closures makes it possible for a function to have "private" variables.</p>
+</div>
+<!--stop-->
+<!--start-->
+<h2>Local Variables</h2>
+<p>A <b>local variable</b> is a "private" variable defined <b>inside</b> a function.</p>
+<p>A <code class="w3-codespan">function</code> can access all variables in the <b>local scope</b>.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p><b>a</b> is a <b>local variable</b> defined inside the function:</p>
+<pre class="w3-code"><code class="language-javascript">function myFunction() {
+  let a = 4;
+  return a * a;
+}</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Global Variables</h2>
+<p>A <b>global variable</b> is a "public" variable defined <b>outside</b> a function.</p>
+<p>A <code class="w3-codespan">function</code> can access all variables in the <b>global scope</b>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p><b>a</b> is <b>global variable</b> defined outside the function:</p>
+<pre class="w3-code"><code class="language-javascript">let a = 4;
+function myFunction() {
+  return a * a;
+}</code></pre>
+
+</div>
+
+<p>In a web page, global variables belong to the page.</p>
+<p>Global variables can be used (or changed) by all scripts in the page.</p>
+
+<p>A local variable can only be used inside the function where it is defined. It 
+is private and hidden from other functions and other scripting code.</p>
+<p>Global 
+and local variables with the same name are  
+different variables. Modifying one, does not modify the other. </p>
+
+<div class="w3-panel ws-note">
+<h2>Note</h2>
+<p><b>Undeclared variables</b> (created without a keyword <code class="w3-codespan">var</code>,
+<code class="w3-codespan">let</code>, <code class="w3-codespan">const</code>), 
+are <b>always global</b>, even if they are created inside a function.</p>
+</div>
+<div class="w3-example">
+<h3>Example</h3>
+<p>The variable <b>a</b> is a <b>global variable</b> because it is <b>undeclared</b>:</p>
+<pre class="w3-code"><code class="language-javascript">function myFunction() {
+  a = 4;
+}</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>Variable Lifetime</h2>
+<p>Global variables live until the page is discarded, like when you navigate 
+to another page or close the window.</p>
+<p>Local 
+variables have short lives. They are created when the function is 
+invoked, and deleted when the function is finished.</p>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>A Counter Dilemma</h2>
+<p>Suppose you want to use a variable for counting something, and you want this 
+counter to be available to everyone (all functions).</p>
+<p>You could use a global variable, and a <code class="w3-codespan">function</code> to increase the counter:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Initiate counter
+let counter = 0;
+// Function to increment counter
+function add() {
+  counter += 1;
+}
+// Call add() 3 times
+add();
+add();
+add();
+// The counter should now be 3</code></pre>
+  
+</div>
+<h2>Warning !</h2>
+<p>There is a problem with the solution above: Any code on the page can change the counter, <b>without calling add()</b>.</p>
+<p>The counter should be local to the <code class="w3-codespan">add()</code> function, to prevent other code from changing 
+it:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Initiate counter
+let counter = 0;
+// Function to increment counter
+function add() {
+  let counter = 0;
+  counter += 1;
+}
+// Call add() 3 times
+add();
+add();
+add();
+// The counter should now be 3. But it is 0</code></pre>
+
+</div>
+
+
+<p>It did not work because we display the global counter instead of the local 
+counter.</p>
+<p>We can remove the global counter and access the local counter by letting the 
+function return it:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Function to increment counter
+function add() {
+  let counter = 0;
+  counter += 1;
+  return counter;
+}
+let x= 0;
+// Call add() 3 times
+x = add();
+x = add();
+x = add();
+// The counter should now be 3. But it is 1.</code></pre>
+
+</div>
+
+
+<p>It did not work because we reset the local counter every time we call the 
+function.</p>
+
+<div class="w3-panel ws-note">
+<h2>Solution</h2>
+<p>&nbsp;<strong>A JavaScript inner function can solve this.</strong></p>
+</div>
+<!--stop-->
+<!--start-->
+<h2>JavaScript Nested Functions</h2>
+<p>All functions have access to the global scope.&nbsp;&nbsp; </p>
+<p>In fact, in JavaScript, all functions have access to the scope "above" them.</p>
+<p>JavaScript supports nested functions. Nested functions have access to the 
+scope "above" them. </p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>The inner function <code class="w3-codespan">plus()</code> has access 
+to the <code class="w3-codespan">counter</code> variable in the parent function:</p>
+
+<pre class="w3-code"><code class="language-javascript">function add() {
+  let counter = 0;
+  function plus() {counter += 1;}
+  plus();   
+  return counter;
+}</code></pre>
+
+</div>
+
+
+<p>This could have solved the counter dilemma, if we could reach the <code class="w3-codespan">plus()</code> 
+function from the outside.</p>
+<p>We also need to find a way to execute <code class="w3-codespan">counter = 0</code> only once.</p>
+<div class="w3-panel ws-note">
+<h2>Solution</h2>
+<p><strong>We need a closure.</strong></p>
+</div>
+<!--stop-->
+<!--start-->
+<h2>JavaScript Closures</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">function myCounter() {
+  let counter = 0;
+  return function() {
+    counter++;
+    return counter;
+  };
+}
+const add = myCounter();
+add();
+add();
+add();
+// the counter is now 3</code></pre>
+  
+</div>
+
+<h2>Example Explained</h2>
+<p>The variable <code class="w3-codespan">add</code> is assigned to the return value of a function.</p>
+<p>The function only runs once. It sets the counter to zero (0), and returns a function expression.</p>
+<p>This way add becomes a function. The "wonderful" part is that it can access the counter in its parent scope.</p>
+<p>This is called a <strong>closure.</strong> It makes it possible 
+for a function to have "<strong>private</strong>" variables.</p>
+<p>The counter is protected by the scope of the myCounter function, 
+and can only be changed using the add function.</p>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Conclusion</h2>
+<p>A closure is a function that has access to the parent scope, after the parent function has closed.</p>
+<p>Closures has historically been used to:</p>
+<ul>
+<li>Create private variables</li>
+<li>Preserve state between function calls</li>
+<li>Simulate block-scoping before let and const existed</li>
+<li>Implement certain design patterns like currying and memoization</li>
+</ul>
+<hr>
+<h2>Note</h2>
+<p>Old JavaScript code will often contain closures, but modern JavaScript will not use closures as frequently as
+before.</p>
+<p>ECMAScript 2015 and subsequent JavaScript versions have introduced new language features that provide
+alternatives to closures.</p>
+<p>While closures are a powerful concept in JavaScript, new JavaScript features make some use cases for
+closures less necessary.</p>
+<!--stop-->
+<hr>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_function_bind.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_function_reference.html">Next ❯</a>
+</div>
+
+
+

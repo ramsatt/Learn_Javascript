@@ -1,0 +1,308 @@
+
+      
+
+<h1>JavaScript RegExp Patterns</h1>
+
+<hr>
+<h2>Full RegExp Flag Reference</h2>
+<h3>Revised July 2025</h3>
+<p><b>Flags</b> can be added to a regexp pattern to <b>Modify</b> its behavior:</p>
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate">
+<tbody><tr></tr>
+<tr>
+  <th>Flag</th>
+  <th>Description</th>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_regexp_d.html">/d</a></td>
+  <td>Performs substring matches (new 2022)</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_regexp_g.html">/g</a></td>
+  <td>Performs a global match (find all)</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_regexp_i.html">/i</a></td>
+  <td>Performs case-insensitive matching</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_regexp_m.html">/m</a></td>
+  <td>Performs multiline matching</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_regexp_s.html">/s</a></td>
+  <td>Allows . (dot) to match line terminators (new 2018)</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_regexp_u.html">/u</a></td>
+  <td>Enables Unicode support (new 2015)</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_regexp_v.html">/v</a></td>
+  <td>An upgrade to the /u flag for better Unicode support (new 2025)</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_regexp_y.html">/y</a></td>
+  <td>Performs a "sticky" search (new 2015)</td>
+</tr>
+</tbody></table></div>
+</div>
+
+
+<div class="ws-note">
+<h2>See Also:</h2>
+<p class="w3-large"><a href="js_regexp_flags.html">JavaScript RegExp Flags Tutorial</a></p>
+</div>
+
+<hr>
+<h2>Full Character Classes Reference</h2>
+<h3>Revised July 2025</h3>
+<p>A <b>character class</b> is one or more characters enclosed in square brackets <b>[ ]</b>:</p>
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate">
+<tbody><tr></tr>
+<tr>
+  <th>Class</th>
+  <th>Description</th>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_regexp_char_a.html">[a]</a></td>
+  <td>Matches the character between the brackets</td>
+  </tr>
+<tr>
+  <td><a href="../jsref/jsref_regexp_not_char_a.html">[^a]</a></td>
+  <td>Matches all characters NOT between the brackets</td>
+  </tr>
+<tr>
+  <td><a href="../jsref/jsref_regexp_charset.html">[abc]</a></td>
+  <td>Matches all characters between the brackets</td>
+  </tr>
+<tr>
+  <td><a href="../jsref/jsref_regexp_charset_not.html">[^abc]</a></td>
+  <td>Matches all characters NOT between the brackets</td>
+  </tr>
+<tr>
+  <td><a href="../jsref/jsref_regexp_a-z.html">[a-z]</a></td>
+  <td>Matches all characters in the range from a to z</td>
+  </tr>
+<tr>
+  <td><a href="../jsref/jsref_regexp_not_a-z.html">[^a-z]</a></td>
+  <td>Matches all characters NOT in the range from a to z</td>
+  </tr>
+<tr>
+  <td><a href="../jsref/jsref_regexp_0-9.html">[0-9]</a></td>
+  <td>Matches all characters in the range from 0 to 9</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_regexp_not_0-9.html">[^0-9]</a></td>
+  <td>Matches all characters NOT in the range from 0 to 9</td>
+</tr>
+</tbody></table></div>
+</div>
+
+<div class="ws-note">
+<h2>See Also:</h2>
+<p class="w3-large"><a href="js_regexp_characters.html">RegExp Characters Classes Tutorial</a></p>
+</div>
+
+<hr>
+<h2>Full Metacharacter Reference</h2>
+<h3>Revised July 2025</h3>
+<p>Metacharacters are characters with a special meaning:</p>
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate">
+<tbody><tr></tr>
+<tr>
+  <td><a href="../jsref/jsref_regexp_xy.html">a|b</a></td>
+  <td>Matches a or b</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_regexp_dot.html">.</a></td>
+  <td>Matches any (wildcard) character except line terminators</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_regexp_wordchar.html">\w</a></td>
+  <td>Matches word characters (alphanumeric and _)</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_regexp_wordchar_non.html">\W</a></td>
+  <td>Matches non-word characters</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_regexp_digit.html">\d</a></td>
+  <td>Matches digits (0-9)</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_regexp_digit_non.html">\D</a></td>
+  <td>Matches non-digit characters</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_regexp_whitespace.html">\s</a></td>
+  <td>Matches whitespace characters (space, tab, newline)</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_regexp_whitespace_non.html">\S</a></td>
+  <td>Matches non-whitespace character</td>
+</tr>
+<tr>
+<td><a href="../jsref/jsref_regexp_meta_backspace.html">[\b]</a></td>
+<td>Matches backspace characters</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_regexp_nul.html">\0</a></td>
+  <td>Matches NULL characters</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_regexp_newline.html">\n</a></td>
+  <td>Matches new line characters</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_regexp_formfeed.html">\f</a></td>
+  <td>Matches form feed characters</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_regexp_carriagereturn.html">\r</a></td>
+  <td>Matches carriage returns characters</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_regexp_tab.html">\t</a></td>
+  <td>Matches tab characters</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_regexp_vtab.html">\v</a></td>
+  <td>Matches vertical tab characters</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_regexp_meta_p.html">\p{}</a></td>
+  <td>Matches characters with given Unicode Property (new 2018)</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_regexp_meta_not_p.html">\P{}</a></td>
+  <td>Matches character NOT with the given Unicode Property (new 2018)</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_regexp_octal.html">\ddd</a></td>
+  <td>Matches a character by the octal number ddd</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_regexp_hex.html">\xhh</a></td>
+  <td>Matches a character by the hexadecimal number hh</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_regexp_unicode_hex.html">\uhhhh</a></td>
+  <td>Matches a Unicode character by the hex number hhhh</td>
+</tr>
+</tbody></table></div>
+</div>
+
+<div class="ws-note">
+<h2>See Also:</h2>
+<p class="w3-large"><a href="js_regexp_meta_characters.html">RegExp Meta Characters Tutorial</a></p>
+</div>
+
+
+<hr>
+
+<hr>
+<h2>Full RexExp Assertions Reference</h2>
+<h3>Revised July 2025</h3>
+<p><b>Assertions</b> consist of <b>Boundaries</b> and <b>Lookarounds</b>.</p>
+<p>Boundaries matches at the beginning or the end of lines and words,
+Lookarounds mathes previos or subsequent patterns.</p>
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate">
+<tbody><tr></tr>
+<tr>
+  <th style="width:150px">Char</th>
+  <th>Description</th>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_regexp_hat.html">^</a></td>
+  <td>Matches from beginning of a string, or the beginning of a line if the m (multiline) flag is set</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_regexp_dollar.html">$</a></td>
+  <td>Matches from the end of a string, or the end of a line if the m (multiline) flag is set</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_regexp_begin.html">\b</a></td>
+  <td>Matches from the beginning or end of a word</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_regexp_begin_not.html">\B</a></td>
+  <td>Matches NOT from the beginning or end of a word</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_regexp_lookahead.html">(?=...)</a></td>
+  <td>Matches the subsequent string</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_regexp_negative_lookahead.html">(?!...)</a></td>
+  <td>Matches NOT the subsequent string</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_regexp_lookbehind.html">(?&lt;=...)</a></td>
+  <td>Matches the previous string  (new 2018)</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_regexp_negative_lookbehind.html">(?&lt;!...)</a></td>
+  <td>Matches NOT the previous string (new 2018)</td>
+</tr>
+</tbody></table></div>
+</div>
+
+<div class="ws-note">
+<h2>See Also:</h2>
+<p class="w3-large"><a href="js_regexp_assertions.html">RegExp Assertions Tutorial</a></p>
+</div>
+
+<hr>
+<h2>RexExp Quantifiers</h2>
+<p>Quantifiers indicate the numbers of characters or expressions to match:</p>
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate">
+<tbody><tr></tr>
+<tr>
+  <th>Code</th>
+  <th>Description</th>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_regexp_onemore.html">x+</a></td>
+  <td>Matches at least one x</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_regexp_zeromore.html">x*</a></td>
+  <td>Matches zero or more occurrences of x</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_regexp_zeroone.html">x?</a></td>
+  <td>Matches zero or one occurrences of x</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_regexp_nx.html">x{n}</a></td>
+  <td>Matches n occurences of x</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_regexp_nxy.html">x{n,m}</a></td>
+  <td>Matches from n to m occurences of x</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_regexp_nxcomma.html">x{n,}</a></td>
+  <td>Matches n or more occurences of x</td>
+</tr>
+</tbody></table></div>
+</div>
+
+
+<div class="ws-note">
+<h2>See Also:</h2>
+<p class="w3-large"><a href="js_regexp_quantifiers.html">RegExp Quantifiers Tutorial</a></p>
+</div>
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_regexp_quantifiers.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_regexp_objects.html">Next ❯</a>
+</div>
+
+

@@ -1,0 +1,306 @@
+
+      
+
+<h1>JavaScript Use Strict</h1>
+
+<!--start-->
+<div class="ws-info">
+<h2>The "use strict" Directive</h2>
+<p>The <code class="w3-codespan">"use strict"</code> directive was new in ECMAScript version 5.</p>
+<p>It defines that JavaScript code should be executed in "strict mode".</p>
+<p>It is not a statement. It is a literal expression, ignored by earlier versions of JavaScript.</p>
+</div>
+
+<p>The purpose of <code class="w3-codespan">"use strict"</code> is to indicate that the code should be executed in "strict mode".</p>
+<p>With strict mode, you can not, for example, use undeclared variables.</p>
+
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Declaring Strict Mode</h2>
+<p>Strict mode is declared by adding <span class="w3-codespan">"use strict";</span> to the beginning of a 
+script or a function.</p>
+<p>Declared at the beginning of a script, it has global scope (all code 
+in the script will execute in strict mode):</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">"use strict";
+x = 3.14;       // This will cause an error because x is not declared</code></pre>
+
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">"use strict";
+myFunction();
+function myFunction() {
+  y = 3.14;   // This will also cause an error because y is not declared
+}</code></pre>
+
+</div>
+
+<p>Declared inside a function, it has local scope (only the code inside the function is 
+in strict mode):</p>
+
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">x = 3.14;       // This will not cause an error.
+myFunction();
+function myFunction() {
+  "use strict";
+  y = 3.14;   // This will cause an error
+}</code></pre>
+
+</div>
+
+<!--stop-->
+<hr>
+
+<hr>
+
+<!--start-->
+<h2>The "use strict"; Syntax</h2>
+<p>The syntax, for declaring strict mode, was designed to be compatible with 
+older versions of JavaScript.</p>
+<p>Compiling a numeric literal (4 + 5;) or a string literal ("John Doe";) in a 
+JavaScript program has no side effects. It simply compiles to a non existing 
+variable and dies.</p>
+<p>So <code class="w3-codespan">"use strict";</code> only matters to new compilers that "understand" the meaning 
+of it.</p>
+<hr>
+
+<h2>Why Strict Mode?</h2>
+<p>Strict mode makes it easier to write "secure" JavaScript.</p>
+<p>Strict mode changes previously accepted "bad syntax" into real errors.</p>
+<p>As an example, in normal JavaScript, mistyping a variable name creates a new 
+global variable. In strict mode, this will throw an error, making it impossible 
+to accidentally create a global variable.</p>
+<p>In normal JavaScript, a developer will not receive any error feedback 
+assigning values to non-writable properties. </p>
+<p>In strict mode, any assignment to a non-writable property, a getter-only 
+property, a non-existing property, a non-existing variable, or a non-existing 
+object, will throw an error.</p>
+
+<!--stop-->
+<hr>
+
+<!--start-->
+<h2>Not Allowed in Strict Mode</h2>
+<p>Using a variable, without declaring it, is not allowed:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">"use strict";
+x = 3.14;                // This will cause an error</code></pre>
+<p>
+
+</p>
+</div>
+
+<div class="w3-panel ws-note">
+<p>Objects are variables too.</p>
+</div>
+
+<p>Using an object, without declaring it, is not allowed:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">"use strict";
+x = {p1:10, p2:20};      // This will cause an error</code></pre>
+<p>
+
+</p>
+</div>
+
+<p>Deleting a variable (or object) is not allowed.</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">"use strict";
+let x = 3.14;
+delete x;                // This will cause an error</code></pre>
+<p>
+
+</p>
+</div>
+
+<p>Deleting a function is not allowed.</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">"use strict";
+function x(p1, p2) {};
+delete x;                // This will cause an error</code></pre>
+<p>
+
+</p>
+</div>
+
+<p>Duplicating a parameter name is not allowed:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">"use strict";
+function x(p1, p1) {};   // This will cause an error</code></pre>
+<p>
+
+</p>
+</div>
+
+<p>Octal numeric literals are not allowed:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">"use strict";
+let x = 010;             // This will cause an error</code></pre>
+<p>
+
+</p>
+</div>
+
+<p>Octal escape characters are not allowed:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">"use strict";
+let x = "\010";            // This will cause an error</code></pre>
+<p>
+
+</p>
+
+</div>
+
+<p>Writing to a read-only property is not allowed:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">"use strict";
+const obj = {};
+Object.defineProperty(obj, "x", {value:0, writable:false});
+obj.x = 3.14;            // This will cause an error</code></pre>
+<p>
+
+</p>
+</div>
+
+<p>Writing to a get-only property is not allowed:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">"use strict";
+const obj = {get x() {return 0} };
+obj.x = 3.14;            // This will cause an error</code></pre>
+<p>
+
+</p>
+</div>
+
+<p>Deleting an undeletable property is not allowed:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">"use strict";
+delete Object.prototype; // This will cause an error</code></pre>
+<p>
+
+</p>
+</div>
+
+<p>The word <code class="w3-codespan">eval</code> cannot be used as a variable:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">"use strict";
+let eval = 3.14;         // This will cause an error</code></pre>
+<p>
+
+</p>
+</div>
+
+<p>The word <code class="w3-codespan">arguments</code> cannot be used as a variable:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">"use strict";
+let arguments = 3.14;    // This will cause an error</code></pre>
+<p>
+
+</p>
+</div>
+
+<p>The <code class="w3-codespan">with</code> statement is not allowed:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">"use strict";
+with (Math){x = cos(2)}; // This will cause an error</code></pre>
+<p>
+
+</p>
+</div>
+
+<p>For security reasons, <code class="w3-codespan">eval()</code> is not allowed to create  
+variables in the scope from which it was called.</p>
+<div class="w3-example">
+<p>In strict mode, a variable can not be used before it is declared:</p>
+<pre class="w3-code"><code class="language-javascript">"use strict";
+eval ("x = 2");
+alert (x);      // This will cause an error</code></pre>
+<p>
+
+</p>
+</div>
+<div class="w3-example">
+<p>In strict mode, eval() can not declare a variable using the var keyword:</p>
+<pre class="w3-code"><code class="language-javascript">"use strict";
+eval ("var x = 2");
+alert (x);    // This will cause an error</code></pre>
+<p>
+
+</p>
+</div>
+<div class="w3-example">
+<p>eval() can not declare a variable using the let keyword:</p>
+<pre class="w3-code"><code class="language-javascript">eval ("let x = 2");
+alert (x);        // This will cause an error</code></pre>
+<p>
+
+</p>
+</div>
+
+<p>The <code class="w3-codespan">this</code> keyword in functions behaves 
+differently in strict mode.</p>
+<p>The <code class="w3-codespan">this</code> keyword refers to the object that 
+called the function.</p>
+<p>If the object is not specified, functions in strict mode 
+will return <code class="w3-codespan">undefined</code> and functions in normal 
+mode will return the global object (window):</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">"use strict";
+function myFunction() {
+  alert(this); // will alert "undefined"
+}
+myFunction();</code></pre>
+<p>
+
+</p>
+</div>
+
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Future Proof!</h2>
+<p>
+Keywords reserved for future JavaScript versions can NOT be used as variable 
+names in strict mode.</p>
+<p>
+These are:</p>
+<ul>
+  <li>implements</li>
+  <li>interface</li>
+  <li>let</li>
+    <li>package</li>
+  <li>private</li>
+  <li>protected</li>
+  <li>public</li>
+  <li>static</li>
+  <li>yield</li>
+</ul>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">"use strict";
+let public = 1500;      // This will cause an error</code></pre>
+<p>
+
+</p>
+</div>
+
+<div class="w3-panel ws-warning">
+<h2>Watch Out!</h2>
+<p>The "use strict" directive is only recognized at the <strong>beginning</strong> of a script 
+or a function.</p>
+</div>
+
+<!--stop-->
+<hr>
+
+
+<hr>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_hoisting.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_dates.html">Next ❯</a>
+</div>
+
+

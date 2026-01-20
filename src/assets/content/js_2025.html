@@ -1,0 +1,567 @@
+
+      
+
+<h1>ECMAScript 2025</h1>
+
+
+<hr>
+<h2>New Features in JavaScript 2025</h2>
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Feature</th><th>Description</th><th></th></tr>
+<tr><td><a href="js_2025d41d.html?#mark_regexp_vflag">RegExp /v flag</a></td>
+<td>An "upgrade" to the /u (unicode) flag</td><td></td></tr>
+<tr><td><a href="js_2025d41d.html?#mark_regexp_escape">RegExp.escape()</a></td>
+<td>Returns a string where regex characters are escaped</td><td></td></tr>
+<tr><td><a href="js_2025d41d.html?#mark_float16_array">Float16Array</a></td>
+<td>A Typed Array that stores 16-bit floating-point numbers</td><td></td></tr>
+<tr><td><a href="js_2025d41d.html?#mark_math_f16round">Math.f16round()</a></td>
+<td>Returns the nearest 16-bit floating point number</td><td></td></tr>
+<tr><td><a href="js_2025d41d.html?#mark_promise_try">Promise.try()</a></td>
+<td>Starts a promise chain for handling promise rejections</td><td></td></tr>
+<tr><td><a href="js_2025d41d.html?#mark_import_attributes">Import Attributes</a></td>
+<td>Import attributes allowed in import statements</td><td></td></tr>
+</tbody></table></div>
+</div>
+
+<h3>New Set Features in 2025</h3>
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Feature</th><th>Description</th><th></th></tr>
+<tr><td><a href="js_2025d41d.html?#mark_set_union">union()</a></td>
+<td>Returns the union of two sets</td><td></td></tr>
+<tr><td><a href="js_2025d41d.html?#mark_set_intersection">intersection()</a></td>
+<td>Returns the intersection of two sets</td><td></td></tr>
+<tr><td><a href="js_2025d41d.html?#mark_set_difference">difference()</a></td>
+<td>Returns the difference between two sets</td><td></td></tr>
+<tr><td><a href="js_2025d41d.html?#mark_set_symmetric_difference">symmetricDifference()</a></td>
+<td>Returns the symmetric difference between to sets</td><td></td></tr>
+<tr><td><a href="js_2025d41d.html?#mark_set_issubsetof">isSubsetOf()</a></td>
+<td>Returns true if this set is a subset of a given set</td><td></td></tr>
+<tr><td><a href="js_2025d41d.html?#mark_set_issupersetof">isSupersetOf()</a></td>
+<td>Returns true if this set is a superset of a given set</td><td></td></tr>
+<tr><td><a href="js_2025d41d.html?#mark_set_isdisjointfrom">isDisjointFrom()</a></td>
+<td>Returns true if this set has no elements in in a given set</td><td></td></tr>
+</tbody></table></div>
+</div>
+
+<div class="ws-warning">
+<h2>Warning</h2>
+<p>These features are relatively new.</p>
+<p>Older browsers may need an alternative code (Polyfill).</p>
+</div>
+
+<hr>
+<a id="mark_regexp_vflag"></a>
+<h2>The RegExp /v Flag</h2>
+<p>The <b>v</b> flag is an "upgrade" to the <b>u</b> flag.</p>
+<p>The <b>u</b> (unicode) flag enables full Unicode support in regular expressions.</p>
+<p>The <b>v</b> flag enables more Unicode-related features.</p>
+<p>The new features are:</p>
+<ul>
+<li>The \p escape sequence matches strings, instead of just characters.</li>
+<li>The character class is upgraded to allow intersection, union, and subtraction syntaxes,
+as well as matching multiple Unicode characters.</li>
+</ul>
+<div class="w3-example">
+<h3>Examples</h3>
+<pre class="w3-code"><code class="language-javascript">let text = "Hello 😄";
+let pattern = /\p{RGI_Emoji}/v;
+let result = pattern.test(text);</code></pre>
+
+<pre class="w3-code"><code class="language-javascript">let text = "Hello 😄";
+let pattern = /\p{RGI_Emoji}/;
+let result = pattern.test(text);</code></pre>
+
+</div>
+
+<p><code class="w3-codespan">/<i>regexp</i>/v</code> is supported all in modern browsers since May 2025:</p>
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr>
+    <th class="bsChrome" title="Chrome"></th>
+    <th class="bsEdge" title="Edge"></th>
+    <th class="bsFirefox" title="Firefox"></th>
+    <th class="bsSafari" title="Safari"></th>
+    <th class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>136</td>    
+    <td>Edge<br>136</td>
+    <td>Firefox<br>134</td>
+    <td>Safari<br>18.2</td>
+    <td>Opera<br>121</td>
+  </tr>
+  <tr>
+    <td>Apr 2025</td>
+    <td>May 2025</td>    
+    <td>Jan 2025</td>
+    <td>Des 2024</td>
+    <td>Jun 2025</td>
+  </tr>
+</tbody></table></div>
+</div>
+
+<hr>
+<a id="mark_regexp_escape"></a>
+<h2>The RegExp.escape() Method</h2>
+<p>The <code class="w3-codespan">RegExp.escape()</code> method returns a string where characters that belongs
+to the regular expression syntax are escaped.</p>
+<p>This makes it possible to treat characters like +, *, ?, ^, $, (, ), [, ], {, }, |, and \ literally,
+and not as part of a regular expression.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Create a regular expression that matches the string "[*]":
+</p><pre class="w3-code"><code class="language-javascript">// Escape a text for to use as a regular expression
+const safe = RegExp.escape("[*]");
+// Build a new reglar expression
+const regex = new RegExp(safe);
+// Text to replace within
+const oldText = "[*] is a web school.";
+// Perform the replace
+const newText = oldText.match(regex, "W3Schools");</code></pre>
+
+</div>
+<p><code class="w3-codespan">RegExp.escape()</code> is supported all in modern browsers since May 2025:</p>
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr>
+    <th class="bsChrome" title="Chrome"></th>
+    <th class="bsEdge" title="Edge"></th>
+    <th class="bsFirefox" title="Firefox"></th>
+    <th class="bsSafari" title="Safari"></th>
+    <th class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>136</td>    
+    <td>Edge<br>136</td>
+    <td>Firefox<br>134</td>
+    <td>Safari<br>18.2</td>
+    <td>Opera<br>121</td>
+  </tr>
+  <tr>
+    <td>Apr 2025</td>
+    <td>May 2025</td>    
+    <td>Jan 2025</td>
+    <td>Des 2024</td>
+    <td>Jun 2025</td>
+  </tr>
+</tbody></table></div>
+</div>
+
+<hr>
+<a id="mark_float16_array"></a>
+<h2>The Float16Array Method</h2>
+<p>A <code class="w3-codespan">Float16Array</code> is a <b>TypedArray</b> that stores 16-bit (half-precision)
+floating-point numbers in the IEEE 754 half-precision format.</p>
+<p>Float16Array requires half the memory of <code class="w3-codespan">Float32Array</code>
+and a quarter of <code class="w3-codespan">Float64Array</code>.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const myArr = new Float16Array([1.5, 2.5, 3.5, 4.5]);
+let bytes = myArr.BYTES_PER_ELEMENT;
+let length = myArr.length;</code></pre>
+
+</div>
+<p>The <code class="w3-codespan">Float16Array</code> object is supported in all modern browsers since June 2024:</p>
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr>
+    <th class="bsChrome" title="Chrome"></th>
+    <th class="bsEdge" title="Edge"></th>
+    <th class="bsFirefox" title="Firefox"></th>
+    <th class="bsSafari" title="Safari"></th>
+    <th class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>135</td>    
+    <td>Edge<br>135</td>
+    <td>Firefox<br>129</td>
+    <td>Safari<br>18.2</td>
+    <td>Opera<br>120</td>
+  </tr>
+  <tr>
+    <td>Apr 2025</td>
+    <td>Apr 2025</td>    
+    <td>Aug 2024</td>
+    <td>Des 2024</td>
+    <td>May 2025</td>
+  </tr>
+</tbody></table></div>
+</div>
+
+<hr>
+<a id="mark_math_f16round"></a>
+<h2>The Math.f16round Method</h2>
+<p>The static <code class="w3-codespan">Math.f16round()</code> method returns the nearest 16-bit floating point representation of a number.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let a = Math.f16round(2.60);
+let b = Math.f16round(2.50);
+let c = Math.f16round(2.49);
+let d = Math.f16round(-2.60);
+let e = Math.f16round(-2.50);
+let f = Math.f16round(-2.49);</code></pre>
+
+</div>
+<p>The <code class="w3-codespan">Math.f16round()</code> method is supported in all modern browsers since June 2024:</p>
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr>
+    <th class="bsChrome" title="Chrome"></th>
+    <th class="bsEdge" title="Edge"></th>
+    <th class="bsFirefox" title="Firefox"></th>
+    <th class="bsSafari" title="Safari"></th>
+    <th class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>135</td>    
+    <td>Edge<br>135</td>
+    <td>Firefox<br>129</td>
+    <td>Safari<br>18.2</td>
+    <td>Opera<br>120</td>
+  </tr>
+  <tr>
+    <td>Apr 2025</td>
+    <td>Apr 2025</td>    
+    <td>Aug 2024</td>
+    <td>Des 2024</td>
+    <td>May 2025</td>
+  </tr>
+</tbody></table></div>
+</div>
+
+<hr>
+<a id="mark_promise_try"></a>
+<h2>The Promise.try() Method</h2>
+<p>The Promise.try() method starts a promise chain from potentially throwing, synchronous code.</p>
+<p>This ensures exceptions are correctly handled as promise rejections.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">function compute() {
+  return Promise.try(() =&gt; {
+    const v = mayThrowSync();
+    return asyncFunc(v);
+  });
+}</code></pre>
+</div>
+
+<hr>
+<a id="mark_set_union"></a>
+<h2>JavaScript Set union()</h2>
+<p>The <code class="w3-codespan">union()</code> method returns the union of two sets.</p>
+<p>The <code class="w3-codespan">union()</code> method returns a new set containing the elements which are in this set,
+or in the argument set, or in both:</p>
+
+<p><img style="width:40%;max-width:200px" alt="Union" src="assets/images/img_set_union_300.jpg"></p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const A = new Set(['a','b','c']);
+const B = new Set(['b','c','d']);
+const C = A.union(B);</code></pre>
+
+</div>
+<p>The <code class="w3-codespan">union()</code> method is supported in all modern browsers since June 2024:</p>
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr>
+    <th class="bsChrome" title="Chrome"></th>
+    <th class="bsEdge" title="Edge"></th>
+    <th class="bsFirefox" title="Firefox"></th>
+    <th class="bsSafari" title="Safari"></th>
+    <th class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>122</td>    
+    <td>Edge<br>122</td>
+    <td>Firefox<br>127</td>
+    <td>Safari<br>17</td>
+    <td>Opera<br>108</td>
+  </tr>
+  <tr>
+    <td>Feb 2024</td>
+    <td>Feb 2024</td>    
+    <td>Jun 2024</td>
+    <td>Sep 2023</td>
+    <td>Mar 2024</td>
+  </tr>
+</tbody></table></div>
+</div>
+
+<hr>
+<a id="mark_set_intersection"></a>
+<h2>JavaScript Set intersection()</h2>
+<p>The <code class="w3-codespan">intersection()</code> method returns the intersection of two sets.</p>
+<p>The <code class="w3-codespan">intersection()</code> method returns a new set containing the elements which are in this set
+and in the argument set:</p>
+<p><img style="width:40%;max-width:200px" alt="Intersection" src="assets/images/img_set_intersection_300.jpg"></p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const A = new Set(['a','b','c']);
+const B = new Set(['b','c','d']);
+const C = A.intersection(B);</code></pre>
+
+</div>
+
+<p>The <code class="w3-codespan">intersection()</code> method is supported in all modern browsers since June 2024:</p>
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr>
+    <th class="bsChrome" title="Chrome"></th>
+    <th class="bsEdge" title="Edge"></th>
+    <th class="bsFirefox" title="Firefox"></th>
+    <th class="bsSafari" title="Safari"></th>
+    <th class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>122</td>    
+    <td>Edge<br>122</td>
+    <td>Firefox<br>127</td>
+    <td>Safari<br>17</td>
+    <td>Opera<br>108</td>
+  </tr>
+  <tr>
+    <td>Feb 2024</td>
+    <td>Feb 2024</td>    
+    <td>Jun 2024</td>
+    <td>Sep 2023</td>
+    <td>Mar 2024</td>
+  </tr>
+</tbody></table></div>
+</div>
+
+<hr>
+<a id="mark_set_difference"></a>
+<h2>JavaScript Set difference()</h2>
+<p>The <code class="w3-codespan">difference()</code> method returns the difference between two sets.</p>
+<p>The <code class="w3-codespan">difference()</code> method returns a new set containing elements which are in this set
+but not in the argument set:</p>
+<p><img style="width:40%;max-width:200px" alt="Difference" src="assets/images/img_set_difference_300.jpg"></p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const A = new Set(['a','b','c']);
+const B = new Set(['b','c','d']);
+const C = A.difference(B);</code></pre>
+
+</div>
+<p>The <code class="w3-codespan">difference()</code> method is supported in all modern browsers since June 2024:</p>
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr>
+    <th class="bsChrome" title="Chrome"></th>
+    <th class="bsEdge" title="Edge"></th>
+    <th class="bsFirefox" title="Firefox"></th>
+    <th class="bsSafari" title="Safari"></th>
+    <th class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>122</td>    
+    <td>Edge<br>122</td>
+    <td>Firefox<br>127</td>
+    <td>Safari<br>17</td>
+    <td>Opera<br>108</td>
+  </tr>
+  <tr>
+    <td>Feb 2024</td>
+    <td>Feb 2024</td>    
+    <td>Jun 2024</td>
+    <td>Sep 2023</td>
+    <td>Mar 2024</td>
+  </tr>
+</tbody></table></div>
+</div>
+
+<hr>
+<a id="mark_set_symmetric_difference"></a>
+<h2>JavaScript Set symmetricDifference()</h2>
+<p>The <code class="w3-codespan">symmetricDifference()</code> method returns the symmetric difference between to sets.</p>
+<p>The <code class="w3-codespan">symmetricDifference()</code> method returns a new set containing elements which are in this set
+or in the argument set, but not in both:</p>
+<p><img style="width:40%;max-width:200px" alt="Symmetric Difference" src="assets/images/img_set_symmetric_difference_300.jpg"></p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const A = new Set(['a','b','c']);
+const B = new Set(['b','c','d']);
+const C = A.symmetricDifference(B);</code></pre>
+
+</div>
+<p>The <code class="w3-codespan">symmetricDifference()</code> method is supported in all modern browsers since June 2024:</p>
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr>
+    <th class="bsChrome" title="Chrome"></th>
+    <th class="bsEdge" title="Edge"></th>
+    <th class="bsFirefox" title="Firefox"></th>
+    <th class="bsSafari" title="Safari"></th>
+    <th class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>122</td>    
+    <td>Edge<br>122</td>
+    <td>Firefox<br>127</td>
+    <td>Safari<br>17</td>
+    <td>Opera<br>108</td>
+  </tr>
+  <tr>
+    <td>Feb 2024</td>
+    <td>Feb 2024</td>    
+    <td>Jun 2024</td>
+    <td>Sep 2023</td>
+    <td>Mar 2024</td>
+  </tr>
+</tbody></table></div>
+</div>
+
+<hr>
+<a id="mark_set_issubsetof"></a>
+<h2>JavaScript Set isSubsetOf()</h2>
+<p>The <code class="w3-codespan">isSubsetOf()</code> method returns <code class="w3-codespan">true</code>
+if all elements in this set are elements in the argument set:</p>
+<p><img style="width:40%;max-width:200px" alt="Subset" src="assets/images/img_set_subset_300.jpg"></p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const A = new Set(['a','b','c']);
+const B = new Set(['b','c','d']);
+let answer = A.isSubsetOf(B);</code></pre>
+
+</div>
+
+<p>The <code class="w3-codespan">isSubsetOf()</code> method is supported in all modern browsers
+since June 2024:</p>
+
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr>
+    <th class="bsChrome" title="Chrome"></th>
+    <th class="bsEdge" title="Edge"></th>
+    <th class="bsFirefox" title="Firefox"></th>
+    <th class="bsSafari" title="Safari"></th>
+    <th class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>122</td>    
+    <td>Edge<br>122</td>
+    <td>Firefox<br>127</td>
+    <td>Safari<br>17</td>
+    <td>Opera<br>108</td>
+  </tr>
+  <tr>
+    <td>Feb 2024</td>
+    <td>Feb 2024</td>    
+    <td>Jun 2024</td>
+    <td>Sep 2023</td>
+    <td>Mar 2024</td>
+  </tr>
+</tbody></table></div>
+</div>
+
+<hr>
+<a id="mark_set_issupersetof"></a>
+<h2>JavaScript Set isSupersetOf()</h2>
+<p>The <code class="w3-codespan">isSupersetOf()</code> method returns <code class="w3-codespan">true</code> if all elements in the argument set are also in this set:</p>
+<p><img style="width:40%;max-width:200px" alt="Superset" src="assets/images/img_set_superset_300.jpg"></p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const A = new Set(['a','b','c']);
+const B = new Set(['b','c','d']);
+let answer = A.isSupersetOf(B);</code></pre>
+
+</div>
+<p>The <code class="w3-codespan">isSupersetOf()</code> method is supported in all modern browsers since June 2024:</p>
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr>
+    <th class="bsChrome" title="Chrome"></th>
+    <th class="bsEdge" title="Edge"></th>
+    <th class="bsFirefox" title="Firefox"></th>
+    <th class="bsSafari" title="Safari"></th>
+    <th class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>122</td>    
+    <td>Edge<br>122</td>
+    <td>Firefox<br>127</td>
+    <td>Safari<br>17</td>
+    <td>Opera<br>108</td>
+  </tr>
+  <tr>
+    <td>Feb 2024</td>
+    <td>Feb 2024</td>    
+    <td>Jun 2024</td>
+    <td>Sep 2023</td>
+    <td>Mar 2024</td>
+  </tr>
+</tbody></table></div>
+</div>
+
+<hr>
+<a id="mark_set_isdisjointfrom"></a>
+<h2>JavaScript Set isDisjointFrom()</h2>
+<p>The <code class="w3-codespan">isDisjointFrom()</code> method returns <code class="w3-codespan">true</code>
+if this set has no elements in common with the argument set:</p>
+<p><img style="width:40%;max-width:200px" alt="Disjoint" src="assets/images/img_set_disjoint_300.jpg"></p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const A = new Set(['a','b','c']);
+const B = new Set(['b','c','d']);
+let answer = A.isDisjointFrom(B);</code></pre>
+
+</div>
+<p>The <code class="w3-codespan">Set.isDisjointFrom()</code> method is supported in all modern browsers since June 2024:</p>
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr>
+    <th class="bsChrome" title="Chrome"></th>
+    <th class="bsEdge" title="Edge"></th>
+    <th class="bsFirefox" title="Firefox"></th>
+    <th class="bsSafari" title="Safari"></th>
+    <th class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>122</td>    
+    <td>Edge<br>122</td>
+    <td>Firefox<br>127</td>
+    <td>Safari<br>17</td>
+    <td>Opera<br>108</td>
+  </tr>
+  <tr>
+    <td>Feb 2024</td>
+    <td>Feb 2024</td>    
+    <td>Jun 2024</td>
+    <td>Sep 2023</td>
+    <td>Mar 2024</td>
+  </tr>
+</tbody></table></div>
+</div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>Using both flags (u and v) results in a SyntaxError.</p>
+</div>
+
+<hr>
+<a id="mark_import_attributes"></a>
+<h2>Modules with Import Attributes</h2>
+<div class="w3-example">
+<h3>Syntax</h3>
+<pre class="w3-code"><code class="language-javascript">import {names} from "module-name" with {key:"data"};</code></pre>
+</div>
+<div class="w3-example">
+<h3>Examples</h3>
+<pre class="w3-code"><code class="language-javascript">import config from "config.json" with {type:"json"};
+import styles from "styles.css" with {type:"css"};
+import data from "data.json" with {type:"json"};</code></pre>
+</div>
+
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_2026.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_2024.html">Next ❯</a>
+</div>
+
+

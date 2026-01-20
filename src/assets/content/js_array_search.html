@@ -1,0 +1,362 @@
+
+      
+
+<h1>JavaScript Array Search</h1>
+
+<!--start-->
+
+<div class="ws-info">
+<h2>Array Search Methods</h2>
+<div class="table-responsive-wrapper"><table class="w3-table w3-large">
+<tbody><tr>
+<td>
+<a href="#mark_indexof">Array indexOf()</a><br>
+<a href="#mark_lastindexof">Array lastIndexOf()</a><br>
+<a href="#mark_includes">Array includes()</a><br>
+</td>
+<td>
+<a href="#mark_find">Array find()</a><br>
+<a href="#mark_findindex">Array findIndex()</a><br>
+<a href="#mark_findlast">Array findLast()</a><br>
+<a href="#mark_findlastindex">Array findLastIndex()</a><br>
+</td></tr>
+</tbody></table></div>
+<p class="w3-large"><a href="js_array_reference.html">Complete JavaScript Array Reference</a>
+
+</p></div>
+<div class="ws-note">
+<h2>See Also:</h2>
+<p class="w3-large"><a href="js_arrays.html">JavaScript Array Tutorial</a><br>
+</p><p class="w3-large"><a href="js_array_methods.html">JavaScript Basic Array Methods</a><br>
+</p><p class="w3-large"><a href="js_array_sort.html">JavaScript Array Sort Methods</a><br>
+</p><p class="w3-large"><a href="js_array_iteration.html">JavaScript Array Iteration Methods</a><br>
+</p><p class="w3-large"><a href="js_array_reference.html">JavaScript Array Reference</a>
+</p></div>
+<!--stop-->
+<!--start-->
+<hr>
+<a id="mark_indexof"></a>
+<h2>JavaScript Array indexOf()</h2>
+<p>The <code class="w3-codespan">indexOf()</code> method searches an array for an element value and returns its position.</p>
+<div class="ws-note">
+<p><strong>Note:</strong> The first item has position 0, the second item has position 1, and so on.</p>
+</div>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Search an array for the item "Apple":</p>
+<pre class="w3-code"><code class="language-javascript">const fruits = ["Apple", "Orange", "Apple", "Mango"];
+let position = fruits.indexOf("Apple") + 1;</code></pre>
+
+</div>
+
+<h3>Syntax</h3>
+<pre class="w3-code"><code class="language-javascript"><div> <i>array</i>.indexOf(<em>item</em>,<em> start</em>) </div></code></pre>
+
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate"> 
+  <tbody><tr>
+    <td><em>item</em></td>
+    <td>Required. The item to search for.</td>
+  </tr>
+  <tr>
+    <td><em>start</em></td>
+    <td>Optional. Where to start the search. Negative values will start at the given position counting from the end, and search to the end.</td>
+  </tr>
+</tbody></table></div>
+
+<p><code class="w3-codespan">Array.indexOf()</code> returns -1 if the item is not found.</p>
+<p>If the item is present more than once, it returns the position of the first 
+occurrence.</p>
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_lastindexof"></a>
+<h2>JavaScript Array lastIndexOf()</h2>
+<p><code class="w3-codespan">Array.lastIndexOf()</code> is the same as <code class="w3-codespan">Array.indexOf()</code>, but 
+returns the position of the last occurrence of the specified element.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Search an array for the item "Apple":</p>
+<pre class="w3-code"><code class="language-javascript">const fruits = ["Apple", "Orange", "Apple", "Mango"];
+let position = fruits.lastIndexOf("Apple") + 1;</code></pre>
+
+</div>
+
+<h3>Syntax</h3>
+<pre class="w3-code"><code class="language-javascript"><div> <i>array</i>.lastIndexOf(<em>item</em>,<em> start</em>)</div></code></pre>
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate"> 
+  <tbody><tr>
+    <td><em>item</em></td>
+    <td>Required. The item to search for</td>
+  </tr>
+  <tr>
+    <td><em>start</em></td>
+    <td>Optional. Where to start the search. Negative values will start at the given position counting from the end, and search to the beginning</td>
+  </tr>
+</tbody></table></div>
+
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_includes"></a>
+<h2>JavaScript Array includes()</h2>
+<p>ECMAScript 2016 introduced <code class="w3-codespan">Array.includes()</code> to arrays.
+This allows us to check if an element is present in an array (including NaN, unlike indexOf).</p>
+<div class="w3-example">
+
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.includes("Mango"); // is true</code></pre>
+
+</div>
+
+<h3>Syntax</h3>
+<pre class="w3-code"><code class="language-javascript"><i>array</i>.includes(<em>search-item</em>)</code></pre>
+<div class="ws-note">
+<p>Array.includes() allows to check for NaN values. Unlike Array.indexOf().</p>
+</div>
+<h2>Browser Support</h2>
+<p><code class="w3-codespan">includes()</code> is an <a href="js_2016.html">ECMAScript 2016</a> feature.</p>
+<p>ES 2016 is fully supported in all modern browsers since March 2017:</p>
+
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+<tbody><tr>
+  <th class="bsChrome" title="Chrome"></th>
+  <th class="bsEdge" title="Edge"></th>
+  <th class="bsFirefox" title="Firefox"></th>
+  <th class="bsSafari" title="Safari"></th>
+  <th class="bsOpera" title="Opera"></th>                
+</tr>
+<tr>
+  <td>Chrome<br>52</td>
+  <td>Edge<br>15</td>
+  <td>Firefox<br>52</td>
+  <td>Safari<br>10.1</td>
+  <td>Opera<br>39</td>
+</tr>
+<tr>
+  <td>Jul 2016</td>
+  <td>Apr 2017</td>
+  <td>Mar 2017</td>
+  <td>May 2017</td>
+  <td>Aug 2016</td>
+  </tr>
+</tbody></table></div>
+</div>
+
+
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<a id="mark_find"></a>
+<h2>JavaScript Array find()</h2>
+<p>The <code class="w3-codespan">find()</code> method returns the value of the first array element that passes a 
+test function.</p>
+
+<p>This example finds (returns the value of) the first element that is larger 
+than 18:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const numbers = [4, 9, 16, 25, 29];
+let first = numbers.find(myFunction);
+function myFunction(value, index, array) {
+  return value &gt; 18;
+}</code></pre>
+  
+</div>
+<p>Note that the function takes 3 arguments:</p>
+<ul>
+  <li>The item value</li>
+  <li>The item index </li>
+  <li>The array itself</li>
+</ul>
+<!--stop-->
+<h2>Browser Support</h2>
+<p><code class="w3-codespan">find()</code> is an <a href="js_es6.html">ES6  feature</a>.</p>
+<p>ES6 is fully supported in all modern browsers since June 2017:</p>
+
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr style="height:50px">
+    <th style="width:20%;" class="bsChrome" title="Chrome"></th>
+    <th style="width:20%;" class="bsEdge" title="Edge"></th>
+    <th style="width:20%;" class="bsFirefox" title="Firefox"></th>
+    <th style="width:20%;" class="bsSafari" title="Safari"></th>
+    <th style="width:19.9%;" class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>51</td>
+    <td>Edge<br>15</td>
+    <td>Firefox<br>54</td>
+    <td>Safari<br>10</td>
+    <td>Opera<br>38</td>
+  </tr>
+  <tr>
+    <td>May 2016</td>
+    <td>Apr 2017</td>
+    <td>Jun 2017</td>
+    <td>Sep 2016</td>
+    <td>Jun 2016</td>
+  </tr>
+</tbody></table></div>
+</div>
+
+
+<hr>
+<!--start-->
+<a id="mark_findindex"></a>
+<h2>JavaScript Array findIndex()</h2>
+<p>The <code class="w3-codespan">findIndex()</code> method returns the index of the first array element that 
+passes a test function.</p>
+
+<p>This example finds the index of the first element that is larger than 18:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const numbers = [4, 9, 16, 25, 29];
+let first = numbers.findIndex(myFunction);
+function myFunction(value, index, array) {
+  return value &gt; 18;
+}</code></pre>
+  
+</div>
+<p>Note that the function takes 3 arguments:</p>
+<ul>
+  <li>The item value</li>
+<li>The item index </li>
+<li>The array itself</li>
+</ul>
+<!--stop-->
+<h2>Browser Support</h2>
+<p><code class="w3-codespan">findIndex()</code> is an <a href="js_es6.html">ES6  feature</a>.</p>
+<p>ES6 is fully supported in all modern browsers since June 2017:</p>
+
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr style="height:50px">
+    <th style="width:20%;" class="bsChrome" title="Chrome"></th>
+    <th style="width:20%;" class="bsEdge" title="Edge"></th>
+    <th style="width:20%;" class="bsFirefox" title="Firefox"></th>
+    <th style="width:20%;" class="bsSafari" title="Safari"></th>
+    <th style="width:19.9%;" class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>51</td>
+    <td>Edge<br>15</td>
+    <td>Firefox<br>54</td>
+    <td>Safari<br>10</td>
+    <td>Opera<br>38</td>
+  </tr>
+  <tr>
+    <td>May 2016</td>
+    <td>Apr 2017</td>
+    <td>Jun 2017</td>
+    <td>Sep 2016</td>
+    <td>Jun 2016</td>
+  </tr>
+</tbody></table></div>
+</div>
+
+
+<hr>
+<!--start-->
+<a id="mark_findlast"></a>
+<h2>JavaScript Array findLast() Method</h2>
+<p>ES2023 added the findLast() method that will start from the end of an array and return
+the value of the first element that satisfies a condition.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const temp = [27, 28, 30, 40, 42, 35, 30];
+let high = temp.findLast(x =&gt; x &gt; 40);</code></pre>
+
+</div>
+<!--stop-->
+<h2>Browser Support</h2>
+<p><code class="w3-codespan">findLast()</code> is an ES2023 feature.</p>
+<p><a href="js_2023.html">JavaScript 2023</a> is supported in all modern browsers since July 2023:</p>
+
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr>
+    <th class="bsChrome" title="Chrome"></th>
+    <th class="bsEdge" title="Edge"></th>
+    <th class="bsFirefox" title="Firefox"></th>
+    <th class="bsSafari" title="Safari"></th>
+    <th class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>110</td>
+    <td>Edge<br>110</td>
+    <td>Firefox<br>115</td>
+    <td>Safari<br>16.4</td>
+    <td>Opera<br>96</td>
+  </tr>
+  <tr>
+    <td>Feb 2023</td>
+    <td>Feb 2023</td>
+    <td>Jul 2023</td>
+    <td>Mar 2023</td>
+    <td>May 2023</td>
+  </tr>
+</tbody></table></div>
+</div>
+<hr>
+<!--start-->
+<a id="mark_findlastindex"></a>
+<h2>JavaScript Array findLastIndex() Method</h2>
+<p>The findLastIndex() method finds the index of the last element that satisfies a condition.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const temp = [27, 28, 30, 40, 42, 35, 30];
+let pos = temp.findLastIndex(x =&gt; x &gt; 40);</code></pre>
+
+</div>
+<!--stop-->
+<h2>Browser Support</h2>
+<p><code class="w3-codespan">findLastIndex()</code> is an ES2023 feature.</p>
+<p><a href="js_2023.html">JavaScript 2023</a> is supported in all modern browsers since July 2023:</p>
+
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr>
+    <th class="bsChrome" title="Chrome"></th>
+    <th class="bsEdge" title="Edge"></th>
+    <th class="bsFirefox" title="Firefox"></th>
+    <th class="bsSafari" title="Safari"></th>
+    <th class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>110</td>
+    <td>Edge<br>110</td>
+    <td>Firefox<br>115</td>
+    <td>Safari<br>16.4</td>
+    <td>Opera<br>96</td>
+  </tr>
+  <tr>
+    <td>Feb 2023</td>
+    <td>Feb 2023</td>
+    <td>Jul 2023</td>
+    <td>Mar 2023</td>
+    <td>May 2023</td>
+  </tr>
+</tbody></table></div>
+</div>
+<hr>
+<div class="ws-note">
+<h2>Complete JavaScript Reference</h2>
+<p>For a complete reference to all JavaScript properties and methods, with full descriptions and many examples, go to:</p>
+<p class="w3-large"><a href="../jsref/default.html">W3Schools' Full JavaScript Reference</a>.</p>
+<p>The reference inludes all JavaScript updates from 1999 to 2025.</p>
+</div>
+
+<hr>
+
+<hr>
+
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_array_methods.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_array_sort.html">Next ❯</a>
+</div>
+
+

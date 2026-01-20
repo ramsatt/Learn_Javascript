@@ -1,0 +1,271 @@
+
+      
+
+<h1>Project - To-Do List</h1>
+
+
+<div class="ws-info">
+<h2>To-Do List</h2>
+<input id="task" placeholder="New task">
+<button onclick="addTask()">Add</button>
+<ul id="list"></ul>
+<button onclick="clearAll()">Clear All</button>
+
+<p>In this project you will build a <b>To-Do List</b>.</p>
+<p>You will <b>add</b> tasks, <b>remove</b> tasks, and <b>clear all</b> tasks.</p>
+<p>The tasks will be saved in an <b>Array</b> in <b>localStorage</b>.</p>
+</div>
+
+<h2>You Will Learn</h2>
+<ul>
+<li>How to store items in an array</li>
+<li>How to remove items from an array</li>
+<li>How to display a list using JavaScript</li>
+<li>How to save and load data using localStorage</li>
+</ul>
+
+<hr>
+<h2>First: Create the HTML</h2>
+<p>First create an HTML page with:</p>
+<ul class="w3-ul">
+<li>An <b>input field</b> wid id="task"</li>
+<li>A <b>button</b> for calling addTask()</li>
+<li>A <b>unordered list</b> with id="list"</li>
+<li>A <b>button</b> for calling clearAll()</li>
+</ul>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+&lt;h2&gt;To-Do List&lt;/h2&gt;
+&lt;input id="task" placeholder="New task"&gt;
+&lt;button onclick="addTask()"&gt;Add&lt;/button&gt;
+&lt;ul id="list"&gt;&lt;/ul&gt;
+&lt;button onclick="clearAll()"&gt;Clear All&lt;/button&gt;
+&lt;script&gt;
+// Create a task Array
+let tasks = [];
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+</div>
+
+<hr>
+<h2>Add a Display Function</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<p>The displayTasks() function updates and displays the list.</p>
+<pre class="w3-code"><code class="language-javascript">// Function to display the list
+function displayTasks() {
+  let html = "";
+  for (let i = 0; i &lt; tasks.length; i++) {
+    html += "&lt;li&gt;" + tasks[i] +
+    " &lt;button onclick='removeTask(" + i + ")'&gt;x&lt;/button&gt;&lt;/li&gt;";
+  }
+  document.getElementById("list").innerHTML = html;
+}</code></pre>
+</div>
+<div class="ws-note">
+<h2>Note</h2>
+<p>The displayTasks() function should be called whenever the list changes.</p>
+</div>
+
+<hr>
+<h2>Add an Add Task Function</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Function to Add a task
+function addTask() {
+  let taskInput = document.getElementById("task");
+  let text = taskInput.value;
+  if (text === "") {
+    return;
+  }
+  tasks.push(text);
+  taskInput.value = "";
+  saveTasks();
+  displayTasks();
+}</code></pre>
+</div>
+
+<hr>
+<h2>Add a Remove Task Function</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Remove a task by index:</p>
+<pre class="w3-code"><code class="language-javascript">// Function to Remove a task
+function removeTask(i) {
+  tasks.splice(i, 1);
+  saveTasks();
+  displayTasks();
+}</code></pre>
+</div>
+<div class="ws-note">
+<h2>Note</h2>
+<p>The Array method splice(i, 1) removes 1 item at position i.</p>
+</div>
+
+<hr>
+<h2>Add a Crear All Function</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Remove everything:</p>
+<pre class="w3-code"><code class="language-javascript">function removeTask(i) {
+  tasks.splice(i, 1);
+  saveTasks();
+  displayTasks();
+}</code></pre>
+</div>
+
+<hr>
+<h2>Function to Save a Task</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Save in localStorage:</p>
+<pre class="w3-code"><code class="language-javascript">// Function to Save tasks
+function saveTasks() {
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+}</code></pre>
+</div>
+<div class="ws-note">
+<h2>Note</h2>
+<p>To store arrays in localStorage, we convert them to text using JSON.stringify().</p>
+</div>
+
+<hr>
+<h2>Function to Load the Tasks</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Load tasks from localStorage:</p>
+<pre class="w3-code"><code class="language-javascript">function loadTasks() {
+  let saved = localStorage.getItem("tasks");
+  if (saved !== null) {
+    tasks = JSON.parse(saved);
+  }
+}</code></pre>
+</div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>To load arrays, we convert them back using JSON.parse().</p>
+</div>
+
+<hr>
+<h2>Final Project</h2>
+<div class="w3-example">
+<h3>Final HTML</h3>
+<pre class="w3-code"><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+&lt;h2&gt;To-Do List&lt;/h2&gt;
+&lt;input id="task" placeholder="New task"&gt;
+&lt;button onclick="addTask()"&gt;Add&lt;/button&gt;
+&lt;ul id="list"&gt;&lt;/ul&gt;
+&lt;button onclick="clearAll()"&gt;Clear All&lt;/button&gt;
+&lt;script&gt;
+// JavaScript goes here
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+<h3>Final JavaScript</h3>
+<pre class="w3-code"><code class="language-javascript">// Create a task Array
+let tasks = [];
+// Function to Display tasks
+function displayTasks() {
+  let html = "";
+  for (let i = 0; i &lt; tasks.length; i++) {
+    html += "&lt;li&gt;" + tasks[i] +
+    " &lt;button onclick='removeTask(" + i + ")'&gt;x&lt;/button&gt;&lt;/li&gt;";
+  }
+  document.getElementById("list").innerHTML = html;
+}
+// Function to Add a task
+function addTask() {
+  let taskInput = document.getElementById("task");
+  let text = taskInput.value;
+  if (text === "") {
+    return;
+  }
+  tasks.push(text);
+  taskInput.value = "";
+  saveTasks();
+  displayTasks();
+}
+// Function to Remove a task
+function removeTask(i) {
+  tasks.splice(i, 1);
+  saveTasks();
+  displayTasks();
+}
+// Function to Clear all tasks
+function clearAll() {
+  tasks = [];
+  saveTasks();
+  displayTasks();
+}
+// Function to Save tasks
+function saveTasks() {
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+// Function to Load tasks
+function loadTasks() {
+  let saved = localStorage.getItem("tasks");
+  if (saved !== null) {
+    tasks = JSON.parse(saved);
+  }
+}
+// Load and display tasks when page loads
+loadTasks();
+displayTasks()</code></pre>
+
+</div>
+
+<hr>
+<h2>Exercises</h2>
+<hr>
+<h3>Exercise 1</h3>
+Show an alert if the user tries to add an empty task.
+<hr>
+<h3>Exercise 2</h3>
+<p>Allow the user to press Enter to add a task.</p>
+<hr>
+<h3>Exercise 3</h3>
+<p>Save the tasks automatically after every change (already done).</p>
+<p>Add a "Saved!" message to show when saving.</p>
+<hr>
+<h3>Bonus Challenges (Level Up)</h3>
+<p>Try to improve the project:</p>
+<ul><li>Mark tasks as done (✔)</li>
+<li>Filter tasks: All / Active / Done</li>
+<li>Add "Edit task" functionality</li>
+<li>Sort tasks alphabetically</li>
+</ul>
+<hr>
+<div class="ws-note">
+<h2>JavaScript Projects</h2>
+<ul class="w3-ul">
+<li><a href="js_project_counter.html" class="w3-large">JavaScript Counter</a><br>
+A counter project with restore and save in lovalStorage.
+</li>
+<li><a href="js_project_eventlistener.html" class="w3-large">JavaScript Event Listener</a><br>
+The counter project using event listener instead of onclick.
+</li>
+<li><a href="js_project_todo.html" class="w3-large">JavaScript Do-Do List</a><br>
+A do-do list saved in an array in local storage.
+</li>
+<li><a href="js_project_modal_popup.html" class="w3-large">JavaScript Modal Popup</a><br>
+A modal popup window that appears on top of the page.
+</li>
+</ul>
+</div>
+
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_project_eventlistener.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_project_modal_popup.html">Next ❯</a>
+</div>
+
+

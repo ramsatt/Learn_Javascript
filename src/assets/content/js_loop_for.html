@@ -1,0 +1,148 @@
+
+      
+
+<h1>JavaScript For Loop</h1>
+
+<!--start-->
+<div class="ws-info">
+<p><b>For Loops</b> can execute a block of code a number of times.</p>
+<p><b>For Loops</b> are fundamental for tasks like performing an action multiple times.</p>
+</div>
+
+<h2>The For Loop</h2>
+<p>The <code class="w3-codespan">for</code> statement creates a loop with 3 optional expressions:</p>
+
+<pre class="w3-code"><code class="language-javascript"><div> for (<i>exp 1</i>;<i> exp 2</i>;<i> exp 3</i>) {
+  // <i>code block to be executed</i>
+}
+</div></code></pre>
+
+<p><strong>exp 1</strong> is executed (one time) before the execution of the code block.</p>
+<p><strong>exp 2</strong> defines the condition for executing the code block.</p>
+<p><strong>exp 3</strong> is executed (every time) after the code block has been executed.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">for (let i = 0; i &lt; 5; i++) {
+  text += "The number is " + i + "&lt;br&gt;";
+}</code></pre>
+
+</div>
+
+<p>From the example above, you can read:</p>
+<p><b>exp 1</b> sets a variable before the loop starts (let i = 0).</p>
+<p><b>exp 2</b> defines the condition for the loop to run (i must be less than 5).</p>
+<p><b>exp 3</b> increases a value (i++) after the code block has been executed.</p>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Use a <code class="w3-codespan">for</code> loop to collect the car names from the cars array:</p>
+<pre class="w3-code"><code class="language-javascript">const cars = ["BMW", "Volvo", "Saab", "Ford"];
+let len = cars.length;
+let text = "";
+for (let i = 0; i &lt; len; i++) {
+  text += cars[i];
+}</code></pre>
+
+</div>
+
+<h2>How to use exp 1</h2>
+<p><b>exp 1</b> is used to initialize the variable(s) used in the loop (let i = 0).</p>
+<p><b>exp 1</b> is optional.</p>
+<p>You can omit <b>exp 1</b> if the value is set before the loop starts:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const cars = ["BMW", "Volvo", "Saab", "Ford"];
+let len = cars.length;
+let i = 2;
+let text = "";
+for (; i &lt; len; i++) {
+  text += cars[i] + "&lt;br&gt;";
+}</code></pre>
+
+</div>
+
+<!--stop-->
+<hr>
+<!--start-->
+<h2>How to use exp 2</h2>
+<p><b>exp 2</b> is used to evaluate the condition of the initial variable (i &lt; len).</p>
+<p><b>exp 2</b> is also optional.</p>
+<p>If <b>exp 2</b> returns <code class="w3-codespan">false</code>, the loop will end.</p>
+
+<div class="w3-panel ws-note">
+<h2>Note</h2>
+<p>If you omit exp 2, you must provide a <strong>break</strong> inside the loop.</p>
+<p>Otherwise the loop will never end.</p>
+<p>This will crash your browser.</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>How to use exp 3</h2>
+<p><b>exp 3</b> increments the value of the initial variable (i++).</p>
+<p><b>exp 3</b> is optional.</p>
+<p><b>exp 3</b> can do anything like negative increment (i--), positive 
+increment (i = i + 15), or anything else.</p>
+<p><b>exp 3</b> can be omitted (if you increment the value inside the loop):</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const cars = ["BMW", "Volvo", "Saab", "Ford"];
+let len = cars.length;
+let i = 0;
+let text = "";
+for (; i &lt; len; ) {
+  text += cars[i] + "&lt;br&gt;";
+  i++;
+}</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Loop Scope</h2>
+<p>Using <code class="w3-codespan">var</code> in a loop:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">var i = 5;
+for (var i = 0; i &lt; 10; i++) {
+  // some code
+}
+// Here i is 10</code></pre>
+
+</div>
+
+<p>Using <code class="w3-codespan">let</code> in a loop:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let i = 5;
+for (let i = 0; i &lt; 10; i++) {
+  // some code
+}
+// Here i is 5</code></pre>
+ 
+</div>
+<p>In the first example, using <code class="w3-codespan">var</code>, the variable declared in 
+the loop redeclares the variable outside the loop. </p>
+<p>In the second example, using <code class="w3-codespan">let</code>, the variable declared in 
+the loop does not redeclare the variable outside the loop. </p>
+<p>When <code class="w3-codespan">let</code> is used to declare the i variable in a loop, the i 
+variable will only be visible within the loop. </p>
+<!--stop-->
+<hr>
+
+
+<hr>
+
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_loops.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_loop_while.html">Next ❯</a>
+</div>
+
+

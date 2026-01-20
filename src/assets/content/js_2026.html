@@ -1,0 +1,352 @@
+
+      
+
+<h1>ECMAScript 2026</h1>
+
+
+<hr>
+<h2>New Features in JavaScript 2026</h2>
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr><th>Feature</th><th>Description</th></tr>
+<tr><td><a href="js_2026d41d.html?#mark_iserror">Error.isError()</a></td>
+<td>Checks whether a value is an Error object</td></tr>
+<tr><td><a href="js_2026d41d.html?#mark_fromasync">Array.fromAsync()</a></td>
+<td>Copies items from async iterables into a new array</td></tr>
+<tr><td><a href="js_2026d41d.html?#mark_using">The using keyword</a></td>
+<td>Declares block-scoped variables synchronously disposed</td></tr>
+<tr><td><a href="js_2026d41d.html?#mark_using">await using</a></td>
+<td>Automatic cleanup of resources</td></tr>
+<tr><td><a href="js_2026d41d.html?#mark_frombase64">Uint8Array fromBase64()</a></td>
+<td>Creates a Uint8Array object from a base64-encoded string</td></tr>
+<tr><td><a href="js_2026d41d.html?#mark_frombase64">Uint8Array toBase64()</a></td>
+<td>Returns a base64-encoded string from the data in an int8Array</td></tr>
+<tr><td><a href="js_2026d41d.html?#mark_fromhex">Uint8Array fromHex()</a></td>
+<td>Creates a Uint8Array object from a hexadecimal string</td></tr>
+<tr><td><a href="js_2026d41d.html?#mark_fromhex">Uint8Array toHex()</a></td>
+<td>Returns a hex-encoded string from the data in an int8Array</td></tr>
+
+</tbody></table></div>
+</div>
+
+<div class="ws-warning">
+<h2>Warning</h2>
+<p>The 2026 edition is not published yet. It normally ships in June.
+</p><p>As of November 2025, this is a list of the features in the draft, that is likely to be in the ES2026.</p>
+</div>
+
+<hr>
+<a id="mark_iserror"></a>
+<h2>Error.isError()</h2>
+<p>The <code class="w3-codespan">Error.isError()</code> static method checks whether a value is an Error object.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">Error.isError(new TypeError()); // true
+Error.isError({ name: "Error" }); // false</code></pre>
+
+</div>
+
+<p><code class="w3-codespan">Error.isError()</code> is a safe alternative to
+<code class="w3-codespan">instanceof Error</code> which fails across realms.</p>
+<p><b>Realm-safe error check:</b><br>
+An Error from an iframe verifies with <code class="w3-codespan">Error.isError()</code>
+and fails with <code class="w3-codespan">instanceof</code>.</p>
+
+<h3>Browser Support</h3>
+<p><code class="w3-codespan">Error.isError()</code> is already supported in many browsers:</p>
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr>
+    <th class="bsChrome" title="Chrome"></th>
+    <th class="bsEdge" title="Edge"></th>
+    <th class="bsFirefox" title="Firefox"></th>
+    <th class="bsSafari" title="Safari"></th>
+    <th class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>134</td>    
+    <td>Edge<br>134</td>
+    <td>Firefox<br>138</td>
+    <td>Safari<br>❌</td>
+    <td>Opera<br>119</td>
+  </tr>
+  <tr>
+    <td>Mar 2025</td>
+    <td>Mar 2025</td>    
+    <td>Apr 2025</td>
+    <td>❌</td>
+    <td>May 2025</td>
+  </tr>
+</tbody>
+</table></div>
+</div>
+
+<hr>
+<a id="mark_fromasync"></a>
+<h2>Array.fromAsync()</h2>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">async function* asyncGenerator() {
+  yield Promise.resolve(1);
+  yield Promise.resolve(2);
+  yield Promise.resolve(3);
+}
+async function processAsyncData() {
+  const arr = await Array.fromAsync(asyncGenerator());
+}
+processAsyncData();</code></pre>
+
+</div>
+
+<h3>Browser Support</h3>
+<p><code class="w3-codespan">Array.fromAsync()</code> is already supported in many browsers:</p>
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr>
+    <th class="bsChrome" title="Chrome"></th>
+    <th class="bsEdge" title="Edge"></th>
+    <th class="bsFirefox" title="Firefox"></th>
+    <th class="bsSafari" title="Safari"></th>
+    <th class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>121</td>    
+    <td>Edge<br>121</td>
+    <td>Firefox<br>115</td>
+    <td>Safari<br>16.4</td>
+    <td>Opera<br>❌</td>
+  </tr>
+  <tr>
+    <td>Jan 2024</td>
+    <td>Jan 2024</td>    
+    <td>Jul 2023</td>
+    <td>May 2023</td>
+    <td>❌</td>
+  </tr>
+</tbody>
+</table></div>
+</div>
+
+<hr>
+<a id="mark_frombase64"></a>
+<h2>Uint8Array to/fromBase64()</h2>
+
+<div class="w3-example">
+<h3>Examples</h3>
+<pre class="w3-code"><code class="language-javascript">let string = 'W3Schools 123';
+const arr = Uint8Array.fromBase64(string);</code></pre>
+
+
+<pre class="w3-code"><code class="language-javascript">const arr = new Uint8Array([91,116,156,134,138,37,179,93,183]);
+let text = arr.toBase64();</code></pre>
+
+</div>
+
+<h3>Browser Support</h3>
+<p><code class="w3-codespan">to/fromBase64()</code> is already supported in many browsers:</p>
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr>
+    <th class="bsChrome" title="Chrome"></th>
+    <th class="bsEdge" title="Edge"></th>
+    <th class="bsFirefox" title="Firefox"></th>
+    <th class="bsSafari" title="Safari"></th>
+    <th class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>140</td>    
+    <td>Edge<br>140</td>
+    <td>Firefox<br>133</td>
+    <td>Safari<br>18.2</td>
+    <td>Opera<br>❌</td>
+  </tr>
+  <tr>
+    <td>Sep 2025</td>
+    <td>Sep 2025</td>    
+    <td>Nov 2024</td>
+    <td>Des 2024</td>
+    <td>❌</td>
+  </tr>
+</tbody>
+</table></div>
+</div>
+
+<hr>
+<a id="mark_fromhex"></a>
+<h2>Uint8Array to/fromHex()</h2>
+
+<div class="w3-example">
+<h3>Examples</h3>
+<pre class="w3-code"><code class="language-javascript">let text = '5b749c868a25b35db7';
+const arr = Uint8Array.fromHex(text);</code></pre>
+
+<pre class="w3-code"><code class="language-javascript">const arr = new Uint8Array([91,116,156,134,138,37,179,93,183]);
+let text = arr.toHex();</code></pre>
+
+</div>
+
+<h3>Browser Support</h3>
+<p><code class="w3-codespan">to/fromHex()</code> is already supported in many browsers:</p>
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr>
+    <th class="bsChrome" title="Chrome"></th>
+    <th class="bsEdge" title="Edge"></th>
+    <th class="bsFirefox" title="Firefox"></th>
+    <th class="bsSafari" title="Safari"></th>
+    <th class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>140</td>    
+    <td>Edge<br>140</td>
+    <td>Firefox<br>133</td>
+    <td>Safari<br>18.2</td>
+    <td>Opera<br>❌</td>
+  </tr>
+  <tr>
+    <td>Sep 2025</td>
+    <td>Sep 2025</td>    
+    <td>Nov 2024</td>
+    <td>Des 2024</td>
+    <td>❌</td>
+  </tr>
+</tbody>
+</table></div>
+</div>
+
+<hr>
+<a id="mark_using"></a>
+<h2>Explicit Resource Management</h2>
+<h2>The using Keyword</h2>
+<p>The <code class="w3-codespan">using</code> keyword is an addition to JavaScript 2026.
+It provides a mechanism for managing resources that require explicit disposal.</p>
+<p>It <b>declares a block-scoped variable</b>, similar to <code class="w3-codespan">const</code>, but with the difference that
+it guarantees synchronous disposal of the used resource when the variable goes out of scope.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">class MyResource {
+  constructor(name) {
+    this.name = name;
+    myDisplay(`Resource ${this.name} acquired.`);
+  }
+  [Symbol.dispose]() {
+    myDisplay(`Resource ${this.name} disposed.`);
+  }
+}
+function manageResource() {
+using resource = new MyResource("Database Connection");
+// Use the resource here
+myDisplay(`Using resource: ${resource.name}`);
+}</code></pre>
+
+</div>
+
+<p>The <code class="w3-codespan">using</code> keyword simplifies resource management by automatically
+handling the cleanup process, reducing the risk of resource leaks and improving code readability
+compared to manual <code class="w3-codespan">try...finally</code> blocks for disposal.</p>
+
+<ul>
+<li><p><b>Resource Management</b><br>
+<code class="w3-codespan">using</code> is designed for objects that implement the
+<code class="w3-codespan">Symbol.dispose</code> method, which defines the cleanup logic for the resource.</p></li>
+<li><p><b>Synchronous Disposal</b><br>
+When a variable declared with <code class="w3-codespan">using</code> exits its scope
+(at the end of a block or function), its <code class="w3-codespan">Symbol.dispose</code> method is automatically called.</p></li>
+<li><p><b>Asynchronous Disposal</b><br>
+For resources requiring asynchronous cleanup, 
+the <code class="w3-codespan">await using</code> declaration can be employed.
+This ensures that the disposal process is awaited before the variable fully goes out of scope.</p></li>
+<li><p><b>Block-Scoped</b><br>
+Like <code class="w3-codespan">const</code>, variables declared with <code class="w3-codespan">using</code>
+are local to the block in which they are declared, and must be initialized at the time of declaration.</p></li>
+<li><p><b>Immutable</b><br>
+Like to <code class="w3-codespan">const</code>, variables declared with <code class="w3-codespan">using</code>
+cannot be reassigned after initialization.</p></li>
+</ul>
+
+<h3>Browser Support</h3>
+<p><code class="w3-codespan">using</code> is already supported in many browsers:</p>
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr>
+    <th class="bsChrome" title="Chrome"></th>
+    <th class="bsEdge" title="Edge"></th>
+    <th class="bsFirefox" title="Firefox"></th>
+    <th class="bsSafari" title="Safari"></th>
+    <th class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>134</td>    
+    <td>Edge<br>134</td>
+    <td>Firefox<br>141</td>
+    <td>Safari<br>❌</td>
+    <td>Opera<br>119</td>
+  </tr>
+  <tr>
+    <td>Mar 2025</td>
+    <td>Mar 2025</td>    
+    <td>Jul 2025</td>
+    <td>❌</td>
+    <td>May 2025</td>
+  </tr>
+</tbody>
+</table></div>
+</div>
+
+<hr>
+<h2>Explicit Resource Management</h2>
+<h2>await using</h2>
+<p>Inspired by other languages, JavaScript 2026 introduces <code class="w3-codespan">using</code> blocks for automatic cleanup
+of resources like file handles, database connections, or network streams.</p>
+<p>This is especially beneficial for asynchronous operations:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">async function processFile() {
+  using fileHandle = await openFile('data.txt');
+// Work with fileHandle here
+} // fileHandle is automatically closed here</code></pre>
+
+</div>
+
+
+<h3>Browser Support</h3>
+<p><code class="w3-codespan">await using</code> is already supported in many browsers:</p>
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr>
+    <th class="bsChrome" title="Chrome"></th>
+    <th class="bsEdge" title="Edge"></th>
+    <th class="bsFirefox" title="Firefox"></th>
+    <th class="bsSafari" title="Safari"></th>
+    <th class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>134</td>    
+    <td>Edge<br>134</td>
+    <td>Firefox<br>141</td>
+    <td>Safari<br>❌</td>
+    <td>Opera<br>119</td>
+  </tr>
+  <tr>
+    <td>Mar 2025</td>
+    <td>Mar 2025</td>    
+    <td>Jul 2025</td>
+    <td>❌</td>
+    <td>May 2025</td>
+  </tr>
+</tbody>
+</table></div>
+</div>
+
+
+<br><br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_versions.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_2025.html">Next ❯</a>
+</div>
+
+

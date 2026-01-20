@@ -1,0 +1,149 @@
+
+      
+
+<h1>JavaScript Function Expressions</h1>
+
+
+<div class="ws-info">
+<h2>What is a Function Expression?</h2>
+<p>A function expression is a function <b>assigned to a variable</b>.</p>
+<p>A <b>function expression</b> is a way of defining a function within an expression, rather than as a standalone
+declaration.</p>
+<p>A <b>function expression</b> can be assigned to a variable, passed as an argument to another function,
+or returned from a function.</p>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const x = function (a, b) {return a * b};</code></pre>
+
+</div>
+
+<p>After a function expression has been stored in a variable, the variable can 
+be used as a function:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const x = function (a, b) {return a * b};
+let z = x(4, 3);</code></pre>
+
+</div>
+<p>The function above is actually an <strong>anonymous function</strong> (a function without a 
+name).</p>
+<p>Functions stored in variables do not need function names. They are always 
+invoked (called) using the variable name.</p>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>The functions above end with a semicolon because they are a part of an executable statement.</p>
+</div>
+<hr>
+<h2>Later in this Tutorial</h2>
+<p>Function expressions offer high flexibility and are widely used in JavaScript for various purposes,
+and you will see a lot more of function expressions in the following chapters:</p>
+<ul>
+<li><p><b><a href="js_callback.html">Callbacks:</a></b><br>
+Passing functions as arguments to other functions, such as event listeners or asynchronous operations.</p></li>
+<li><p><b><a href="js_function_closures.html">Closures:</a></b><br>Function expressions help create closures,
+which allow functions to remember and access variables from their containing scope.</p></li>
+<li><p><b><a href="js_arrow_function.html">Arrow Functions:</a></b><br>The concise arrow function syntax
+(=&gt;) is a modern way of writing function expressions.</p></li> 
+<li><p><b><a href="js_function_iife.html">Immediately Invoked Function Expressions (IIFEs):</a></b><br>
+Functions that run as soon as they are defined, often used to create private scopes
+and avoid global variable conflicts.</p></li>
+</ul>
+
+<hr>
+<h2>Function vs. Function Expression</h2>
+<p>In JavaScript, <b>function</b> and <b>function expression</b> refer to different ways of defining functions,
+their different syntax and how they are handled.</p>
+
+<hr>
+<h2>Function Declarations</h2>
+<p>A <b>function declaration</b> (or simply a function) is defined using the function keyword followed by a function name,
+parameters, and a code block:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">function add(a, b) {return a + b;}</code></pre>
+</div>
+<p><b>Function declarations</b> are "hoisted" to the top of their scope.
+This means you can call a function before it is defined in the code:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">let sum = add(2, 3);
+function add(a, b) {return a + b;}</code></pre>
+</div>
+<div class="ws-note">
+<h2>Note</h2>
+<p><b>Semicolons</b> are used to separate executable JavaScript statements.</p>
+<p>Since a function <strong>declaration</strong> is not an executable statement, it is 
+not common to end it with a semicolon.</p>
+</div>
+
+<hr>
+<h2>Function Expressions</h2>
+<p>A <b>function expression</b> is defined by assigning an anonymous function to a variable:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">const add = function(a, b) {return a + b;};</code></pre>
+</div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>Function expressions are commonly used to create anonymous functions.</p>
+<p>Anonymous functions are functions without a name.</p>
+</div>
+
+<p>A <b>function expressions</b> can also be a named function assigned to a variable:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">const add = function add(a, b) {return a + b;};</code></pre>
+</div>
+
+<p><b>Function expressions</b> are not hoisted in the same way as function declarations.
+They are created when the execution reaches their definition, and cannot be called before that point:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">let sum = add(2, 3); // ⛔ Will generate error.
+const add = function (a, b) {return a + b;};</code></pre>
+</div>
+
+<hr>
+<h2>Key Differences</h2>
+<ul>
+<li><b>Syntax:</b> Function declarations require a name. Function expressions can be anonymous.</li>
+<li><b>Hoisting:</b> Function declarations are hoisted. Function expressions are not.</li>
+<li><b>Flexibility:</b> Function declarations offer more flexibility in how and where they are used.</li>
+</ul>
+
+<br>
+<div class="w3-stretch w3-margin-top">
+<div class="table-responsive-wrapper"><table class="ws-table-all w3-margin-top">
+<tbody><tr></tr>
+<tr><th>Function Declaration</th><th>Function Expression</th></tr>
+
+<tr>
+<td><b>Syntax:</b> A statement starting with the function keyword, followed by a required name.</td>
+<td><b>Syntax:</b> A part of an expression or assignment, and can be anonymous (without a name).</td>
+</tr>
+
+<tr>
+<td><b>Hoisting:</b> The function is moved to the top of its scope before code execution,
+allowing you to call it from anywhere within that code scope, even before its definition.</td>
+<td><b>Hoisting:</b> The variable holding the function might be hoisted
+(depending on var, let, or const), but the function assignment itself is not.
+You can only call it after it has been defined in the code scope.</td>
+</tr>
+
+<tr>
+<td><b>Flexibility:</b> Primarily used for general-purpose functions that need to be available globally or
+in a specific scope.
+</td>
+<td><b>Flexibility:</b> Can be used in various contexts, such as arguments to other
+functions (callbacks), immediately invoked function expressions, and assigned to object properties.</td>
+</tr>
+</tbody></table></div>
+</div>
+
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_function_definition.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_arrow_function.html">Next ❯</a>
+</div>
+
+

@@ -1,0 +1,365 @@
+
+      
+
+<h1>JavaScript Get Date Methods</h1>
+
+<hr>
+<!--start-->
+<h2>The new Date() Constructor</h2>
+<p>In JavaScript, date objects are created with <code class="w3-codespan">new Date()</code>.</p>
+<p><code class="w3-codespan">new Date()</code> returns a date object with the current date and time.</p>
+
+<div class="w3-example">
+<h3>Get the Current Time</h3>
+<pre class="w3-code"><code class="language-javascript">const date = new Date();</code></pre>
+
+</div>
+
+<hr>
+<h2>Date Get Methods</h2>
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate">
+<tbody><tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>getFullYear()</td>
+<td>Get <strong>year</strong> as a four digit number (yyyy)</td>
+</tr>
+<tr>
+<td>getMonth()</td>
+<td>Get <strong>month</strong> as a number (0-11)</td>
+</tr>
+<tr>
+<td>getDate()</td>
+<td>Get <strong>day</strong> as a number (1-31)</td>
+</tr>
+<tr>
+<td>getDay()</td>
+<td>Get <b>weekday</b> as a number (0-6)</td>
+</tr>
+<tr>
+<td>getHours()</td>
+<td>Get <strong>hour</strong> (0-23)</td>
+</tr>
+<tr>
+<td>getMinutes()</td>
+<td>Get <strong>minute</strong> (0-59)</td>
+</tr>
+<tr>
+<td>getSeconds()</td>
+<td>Get <strong>second</strong> (0-59)</td>
+</tr>
+<tr>
+<td>getMilliseconds()</td>
+<td>Get <strong>millisecond</strong> (0-999)</td>
+</tr>
+<tr>
+<td>getTime()</td>
+<td>Get <b>time</b> (milliseconds since January 1, 1970)</td>
+</tr>
+</tbody></table></div>
+
+<div class="ws-note">
+<h2>Note 1</h2>
+<p>The get methods above return <b>Local time</b>.</p>
+<p><b>Universal time</b> (UTC) is documented at the bottom of this page.</p>
+</div>
+<div class="ws-note">
+<h2>Note 2</h2>
+<p>The get methods return information from existing date objects.</p>
+<p>In a date object, the time is static. The "clock" is not "running".</p>
+<p>The time in a date object is NOT the same as current time.</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The getFullYear() Method</h2>
+<p>The <code class="w3-codespan">getFullYear()</code> method returns the year of a date as a four digit number:</p>
+
+<div class="w3-example">
+<h3>Examples</h3>
+<pre class="w3-code"><code class="language-javascript">const d = new Date("2021-03-25");
+d.getFullYear();</code></pre>
+
+<pre class="w3-code"><code class="language-javascript">const d = new Date();
+d.getFullYear();</code></pre>
+
+</div>
+<div class="ws-warning">
+<h2>Warning !</h2>
+<p>Old JavaScript code might use the non-standard method getYear().</p>
+<p>getYear() is supposed to return a 2-digit year.</p>
+<p>getYear() is deprecated. Do not use it!</p>
+</div>
+<hr>
+<h2>The getMonth() Method</h2>
+<p>The <code class="w3-codespan">getMonth()</code> method returns the month of a date as a number (0-11).</p>
+<div class="w3-panel ws-note">
+<h2>Note</h2>
+<p>In JavaScript, January is month number 0, February is number 1, ...</p>
+<p>Finally, December is month number 11.</p>
+</div>
+
+<div class="w3-example">
+<h3>Examples</h3>
+<pre class="w3-code"><code class="language-javascript">const d = new Date("2021-03-25");
+d.getMonth();</code></pre>
+
+<pre class="w3-code"><code class="language-javascript">const d = new Date();
+d.getMonth();</code></pre>
+
+</div>
+
+<div class="w3-panel ws-note">
+<h2>Note</h2>
+<p>You can use an array of names to return the month as a name:</p>
+</div>
+
+<div class="w3-example">
+<h3>Examples</h3>
+<pre class="w3-code"><code class="language-javascript">const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+const d = new Date("2021-03-25");
+let month = months[d.getMonth()];</code></pre>
+
+<pre class="w3-code"><code class="language-javascript">const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+const d = new Date();
+let month = months[d.getMonth()];</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The getDate() Method</h2>
+<p>The <code class="w3-codespan">getDate()</code> method returns the day of a date as a number (1-31):</p>
+
+<div class="w3-example">
+<h3>Examples</h3>
+<pre class="w3-code"><code class="language-javascript">const d = new Date("2021-03-25");
+d.getDate();</code></pre>
+
+<pre class="w3-code"><code class="language-javascript">const d = new Date();
+d.getDate();</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>The getHours() Method</h2>
+  
+<p>The <code class="w3-codespan">getHours()</code> method returns the hours of a date as a number (0-23):</p>
+
+<div class="w3-example">
+<h3>Examples</h3>
+<pre class="w3-code"><code class="language-javascript">const d = new Date("2021-03-25");
+d.getHours();</code></pre>
+
+<pre class="w3-code"><code class="language-javascript">const d = new Date();
+d.getHours();</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The getMinutes() Method</h2>
+<p>The <code class="w3-codespan">getMinutes()</code> method returns the minutes of a date as a number (0-59):</p>
+<div class="w3-example">
+<h3>Examples</h3>
+<pre class="w3-code"><code class="language-javascript">const d = new Date("2021-03-25");
+d.getMinutes();</code></pre>
+
+<pre class="w3-code"><code class="language-javascript">const d = new Date();
+d.getMinutes();</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The getSeconds() Method</h2>
+<p>The <code class="w3-codespan">getSeconds()</code> method returns the seconds of a date as a number (0-59):</p>
+<div class="w3-example">
+<h3>Examples</h3>
+<pre class="w3-code"><code class="language-javascript">const d = new Date("2021-03-25");
+d.getSeconds();</code></pre>
+
+<pre class="w3-code"><code class="language-javascript">const d = new Date();
+d.getSeconds();</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The getMilliseconds() Method</h2>
+<p>The <code class="w3-codespan">getMilliseconds()</code> method returns the milliseconds of a date as a number (0-999):</p>
+<div class="w3-example">
+<h3>Examples</h3>
+<pre class="w3-code"><code class="language-javascript">const d = new Date("2021-03-25");
+d.getMilliseconds();</code></pre>
+
+<pre class="w3-code"><code class="language-javascript">const d = new Date();
+d.getMilliseconds();</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The getDay() Method</h2>
+  
+<p>The <code class="w3-codespan">getDay()</code> method returns the weekday of a date as a number (0-6).</p>
+<div class="w3-panel ws-note">
+<h2>Note</h2>
+<p>In JavaScript, the first day of the week (day 0) is Sunday.</p>
+<p>Some countries in the world consider the first day of the week to be Monday.</p>
+</div>
+
+<div class="w3-example">
+<h3>Examples</h3>
+<pre class="w3-code"><code class="language-javascript">const d = new Date("2021-03-25");
+d.getDay();</code></pre>
+
+<pre class="w3-code"><code class="language-javascript">const d = new Date();
+d.getDay();</code></pre>
+
+</div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>You can use an array of names, and <code class="w3-codespan">getDay()</code> to return weekday as a name:</p>
+</div>
+
+<div class="w3-example">
+<h3>Examples</h3>
+<pre class="w3-code"><code class="language-javascript">const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+const d = new Date("2021-03-25");
+let day = days[d.getDay()];</code></pre>
+
+<pre class="w3-code"><code class="language-javascript">const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+const d = new Date();
+let day = days[d.getDay()];</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The getTime() Method</h2>
+ 
+<p>The <code class="w3-codespan">getTime()</code> method returns the number of milliseconds since January 1, 1970:</p>
+
+<div class="w3-example">
+<h3>Examples</h3>
+<pre class="w3-code"><code class="language-javascript">const d = new Date("1970-01-01");
+d.getTime();</code></pre>
+
+<pre class="w3-code"><code class="language-javascript">const d = new Date("2021-03-25");
+d.getTime();</code></pre>
+
+<pre class="w3-code"><code class="language-javascript">const d = new Date();
+d.getTime();</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The Date.now() Method</h2>
+<p><code class="w3-codespan">Date.now()</code> returns the number of milliseconds since January 1, 1970.</p>
+<div class="w3-example">
+<h3>Examples</h3>
+<pre class="w3-code"><code class="language-javascript">let ms = Date.now();</code></pre>
+
+<p>Calculate the number of years since 1970/01/01:</p>
+<pre class="w3-code"><code class="language-javascript">const minute = 1000 * 60;
+const hour = minute * 60;
+const day = hour * 24;
+const year = day * 365;
+let years = Math.round(Date.now() / year);</code></pre>
+
+</div>
+
+<p><code class="w3-codespan">Date.now()</code> is a static method of the Date object.</p>
+<p>You cannot use it on a date object like <code class="w3-codespan">myDate.now()</code>.</p>
+<p>The syntax is always <code class="w3-codespan">Date.now()</code>.</p>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>UTC Date Get Methods</h2>
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate">
+<tbody><tr>
+<th>Method</th>
+<th>Same As</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>getUTCDate()</td>
+<td>getDate()</td><td>Returns the UTC date</td>
+</tr>
+<tr>
+<td>getUTCFullYear()</td>
+<td>getFullYear()</td><td>Returns the UTC year</td>
+</tr>
+<tr>
+<td>getUTCMonth()</td>
+<td>getMonth()</td><td>Returns the UTC month</td>
+</tr>
+<tr>
+<td>getUTCDay()</td>
+<td>getDay()</td><td>Returns the UTC day</td>
+</tr>
+<tr>
+<td>getUTCHours()</td>
+<td>getHours()</td><td>Returns the UTC hour</td>
+</tr>
+<tr>
+<td>getUTCMinutes()</td>
+<td>getMinutes()</td><td>Returns the UTC minutes</td>
+</tr>
+<tr>
+<td>getUTCSeconds()</td>
+<td>getSeconds()</td><td>Returns the UTC seconds</td>
+</tr>
+<tr>
+<td>getUTCMilliseconds()</td>
+<td>getMilliseconds()</td><td>Returns the UTC milliseconds</td>
+</tr>
+</tbody></table></div>
+
+<p>UTC methods use UTC time (Coordinated Universal Time).</p>
+<p>UTC time is the same as GMT (Greenwich Mean Time).</p>
+<p>The difference between Local time and UTC time can be up to 24 hours.</p>
+<!--stop-->
+
+<canvas id="canvas" width="200" height="200" style="background-color:#333"></canvas><br><br>
+<button class="w3-btn" style="width:200px" onclick="timeShow(0)">Local Time?</button><br><br>
+<button class="w3-btn" style="width:200px" onclick="timeShow(1)">UTC Time?</button>
+
+<hr>
+<!--start-->
+<h2>The getTimezoneOffset() Method</h2>
+<p>The <code class="w3-codespan">getTimezoneOffset()</code> method returns the difference (in minutes)
+between local time an UTC time:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let diff = d.getTimezoneOffset();</code></pre>
+
+</div>
+<!--stop-->
+<div class="ws-note">
+<h2>Learn More:</h2>
+<p class="w3-large"><a href="js_dates.html">JavaScript Date Tutorial</a></p>
+<p class="w3-large"><a href="js_date_formats.html">JavaScript Date Formats</a></p>
+<p class="w3-large"><a href="js_date_methods_set.html">JavaScript Date Set Methods</a></p>
+<p class="w3-large"><a href="js_date_reference.html">JavaScript Date Reference</a></p>
+</div>
+
+
+<hr>
+
+
+
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_date_formats.html">❮ Previous</a>
+  <a class="w3-right w3-btn" href="js_date_methods_set.html">Next ❯</a>
+</div>
+
+

@@ -1,0 +1,241 @@
+
+      
+
+<h1>JavaScript Let</h1>
+
+<!--start-->
+<div class="ws-info">
+<p>The <code class="w3-codespan">let</code> keyword was introduced in
+<a href="js_es6.html">ES6 (2015)</a></p>
+<p>Variables declared with <code class="w3-codespan">let</code> have <b>Block Scope</b></p>
+<p>Variables declared with <code class="w3-codespan">let</code> must be <b>Declared</b> before use</p>
+<p>Variables declared with <code class="w3-codespan">let</code> cannot be <b>Redeclared</b> in the same scope</p>
+</div>
+
+<h2>Block Scope</h2>
+<p>Before ES6 (2015), JavaScript did not have <b>Block Scope</b>.</p>
+<p>JavaScript had <b>Global Scope</b> and <b>Function Scope</b>.</p>
+<p>ES6 introduced the two new JavaScript keywords: <code class="w3-codespan">let</code> and <code class="w3-codespan">const</code>.</p>
+<p>These two keywords provided <strong>Block Scope</strong> in JavaScript:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Variables declared inside a { } block cannot be accessed 
+from outside the block:</p>
+<pre class="w3-code"><code class="language-javascript">{
+  let x = 2;
+}
+// x can NOT be used here</code></pre>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Global Scope</h2>
+<p>Variables declared with the <code class="w3-codespan">var</code> always have <b>Global Scope</b>.</p>
+<p>Variables declared with the <code class="w3-codespan">var</code> keyword can NOT have block scope:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Variables declared with <code class="w3-codespan">var</code>inside a { } block can be accessed from 
+outside the block:</p>
+<pre class="w3-code"><code class="language-javascript">{
+  var x = 2;
+}
+// x CAN be used here</code></pre>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Cannot be Redeclared</h2>
+<p>Variables defined with <code class="w3-codespan">let</code> <b>can not</b> be redeclared.</p>
+<p>You can not accidentally redeclare a variable declared with <code class="w3-codespan">let</code>.</p>
+
+<div class="w3-example">
+<p>With <code class="w3-codespan">let</code> you <b>can not</b> do this:</p>
+<pre class="w3-code"><code class="language-javascript">let x = "John Doe";
+let x = 0;</code></pre>
+</div>
+<p>Variables defined with <code class="w3-codespan">var</code> <b>can</b> be redeclared.</p>
+<div class="w3-example">
+<p>With <code class="w3-codespan">var</code> you <b>can</b> do this:</p>
+<pre class="w3-code"><code class="language-javascript">var x = "John Doe";
+var x = 0;</code></pre>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Redeclaring Variables</h2>
+
+<p>Redeclaring a variable using the <code class="w3-codespan">var</code> keyword can impose problems.</p>
+<p>Redeclaring a variable inside a block will also redeclare the variable 
+outside the block:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">var x = 10;
+// Here x is 10
+{
+var x = 2;
+// Here x is 2
+}
+// Here x is 2</code></pre>
+
+</div>
+
+<p>Redeclaring a variable using the <code class="w3-codespan">let</code> keyword can solve this problem.</p>
+<p>Redeclaring a variable inside a block will not redeclare the variable outside 
+the block:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 10;
+// Here x is 10
+{
+let x = 2;
+// Here x is 2
+}
+// Here x is 10</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+
+<h2>Difference Between var, let and const</h2>
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><td></td><td>Scope</td><td>Redeclare</td><td>Reassign</td><td>Hoisted</td><td>Binds this</td></tr>
+<tr><td>var</td><td>No</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+<tr><td>let</td><td>Yes</td><td>No</td><td>Yes</td><td>No</td><td>No</td></tr>
+<tr><td>const</td><td>Yes</td><td>No</td><td>No</td><td>No</td><td>No</td></tr>
+</tbody></table></div>
+<h2>What is Good?</h2>
+<p><code class="w3-codespan">let</code> and <code class="w3-codespan">const</code>
+have <b>block scope</b>.</p>
+<p><code class="w3-codespan">let</code> and <code class="w3-codespan">const</code>
+can not be <b>redeclared</b>.</p>
+<p><code class="w3-codespan">let</code> and <code class="w3-codespan">const</code>
+must be <b>declared</b> before use.</p>
+<p><code class="w3-codespan">let</code> and <code class="w3-codespan">const</code>
+does <b>not bind</b> to <code class="w3-codespan">this</code>.</p>
+<p><code class="w3-codespan">let</code> and <code class="w3-codespan">const</code>
+are <b>not hoisted</b>.</p>
+<h2>What is Not Good?</h2>
+<p><code class="w3-codespan">var</code> does not have to be declared.</p>
+<p><code class="w3-codespan">var</code> is hoisted.</p>
+<p><code class="w3-codespan">var</code> binds to this.</p>
+<hr>
+<h2>Browser Support</h2>
+<p>The <code class="w3-codespan">let</code> and <code class="w3-codespan">const</code> keywords are
+not supported in Internet Explorer 11 or earlier.</p>
+<p>The following table defines the first browser versions with full support:</p>
+<div class="w3-responsive">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr>
+    <th style="width:20%;" class="bsChrome" title="Chrome"></th>
+    <th style="width:20%;" class="bsEdge" title="Edge"></th>
+    <th style="width:20%;" class="bsFirefox" title="Firefox"></th>
+    <th style="width:20%;" class="bsSafari" title="Safari"></th>
+    <th style="width:20%;" class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome 49</td>
+    <td>Edge 12</td>    
+    <td>Firefox 36</td>
+    <td>Safari 11</td>
+    <td>Opera 36</td>
+  </tr>
+  <tr>
+    <td>Mar, 2016</td>
+    <td>Jul, 2015</td>    
+    <td>Jan, 2015</td>
+    <td>Sep, 2017</td>
+    <td>Mar, 2016</td>
+  </tr>
+</tbody></table></div>
+</div>
+
+<hr>
+
+<hr>
+<!--start-->
+<h2>Redeclaring</h2>
+<p>Redeclaring a JavaScript variable with <code class="w3-codespan">var</code> is allowed 
+anywhere in a program:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">var x = 2;
+// Now x is 2
+var x = 3;
+// Now x is 3</code></pre>
+
+</div>
+<p>With <code class="w3-codespan">let</code>, redeclaring a variable in the same block is NOT allowed:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">var x = 2;   // Allowed
+let x = 3;   // Not allowed
+{
+let x = 2;   // Allowed
+let x = 3;   // Not allowed
+}
+{
+let x = 2;   // Allowed
+var x = 3;   // Not allowed
+}</code></pre>
+</div>
+
+<p>Redeclaring a variable with <code class="w3-codespan">let</code>, in another block, IS allowed:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 2;   // Allowed
+{
+let x = 3;   // Allowed
+}
+{
+let x = 4;    // Allowed
+}</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Let Hoisting</h2>
+<p>Variables defined with <code class="w3-codespan">var</code> are <strong>hoisted</strong> to the top 
+and can be initialized at any time.
+</p><p>Meaning: You can use the variable before it is declared:</p>
+<div class="w3-example">
+<h3>Example</h3>
+  <p>This is OK:</p>
+<pre class="w3-code"><code class="language-javascript">carName = "Volvo";
+var carName;</code></pre>
+
+</div>
+<p>If you want to learn more about hoisting, study the chapter <a href="js_hoisting.html">JavaScript Hoisting</a>.
+
+
+</p><p>Variables defined with <code class="w3-codespan">let</code> are also hoisted to the top 
+of the block, but not initialized.</p>
+<p>Meaning: Using a <code class="w3-codespan">let</code> variable before it is declared will result in a 
+<code class="w3-codespan">ReferenceError</code>:</p>
+
+<div class="w3-example w3-pale-red">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">carName = "Saab";
+let carName = "Volvo";</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+
+<hr>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_variables.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_const.html">Next ❯</a>
+</div>
+
+

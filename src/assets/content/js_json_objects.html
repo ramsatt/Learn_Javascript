@@ -1,0 +1,114 @@
+
+      
+
+<h1>JSON Object Literals</h1>
+
+<hr>
+<!--start-->
+<img src="assets/images/img_json_object.jpg" style="width:100%;max-width:612px" alt="JSON Object">
+
+<p>This is a JSON string:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">'{"name":"John", "age":30, "car":null}'</code></pre>
+</div>
+
+<p>Inside the JSON string there is a JSON object literal:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">{"name":"John", "age":30, "car":null}</code></pre>
+</div>
+<p>JSON object literals are surrounded by curly braces {}.</p>
+<p>JSON object literals contains key/value pairs.</p>
+<p>Keys and values are separated by a colon.</p>
+<p>Keys must be strings, 
+and values must be a valid JSON data type:
+</p><ul>
+<li>string</li>
+<li>number</li>
+<li>object</li>
+<li>array</li>
+<li>boolean</li>
+<li>null</li>
+</ul>
+<p></p>
+<p>Each key/value pair is separated by a comma.</p>
+<div class="ws-note">
+<p>It is a common mistake to call a JSON object literal "a JSON object".</p>
+<p>JSON cannot be an object. JSON is a string format.</p>
+<p>The data is only JSON when it is in a string format. 
+When it is converted to a JavaScript variable, it becomes a JavaScript object.</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>JavaScript Objects</h2>
+<p>You can create a JavaScript object from a JSON object literal:
+</p><div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">myObj = {"name":"John", "age":30, "car":null};</code></pre>
+  
+</div>
+
+<p>Normally, you create a JavaScript object by parsing a JSON string:
+</p><div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">myJSON = '{"name":"John", "age":30, "car":null}';
+myObj = JSON.parse(myJSON);</code></pre>
+  
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Accessing Object Values</h2>
+<p>You can access object values by using dot (.) notation:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const myJSON = '{"name":"John", "age":30, "car":null}';
+const myObj = JSON.parse(myJSON);
+x = myObj.name;</code></pre>
+  
+</div>
+<p>You can also access object values by using bracket ([]) notation:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const myJSON = '{"name":"John", "age":30, "car":null}';
+const myObj = JSON.parse(myJSON);
+x = myObj["name"];</code></pre>
+  
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>Looping an Object</h2>
+<p>You can loop through object properties with a for-in loop:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const myJSON = '{"name":"John", "age":30, "car":null}';
+const myObj = JSON.parse(myJSON);
+let text = "";
+for (const x in myObj) {
+  text += x + ", ";
+}</code></pre>
+  
+</div>
+<p>In a for-in loop, use the bracket notation to access the property <em>values</em>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const myJSON = '{"name":"John", "age":30, "car":null}';
+const myObj = JSON.parse(myJSON);
+let text = "";
+for (const x in myObj) {
+  text += myObj[x] + ", ";
+}</code></pre>
+  
+</div>
+<!--stop-->
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_json_stringify.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_json_arrays.html">Next ❯</a>
+</div>
+
+
+

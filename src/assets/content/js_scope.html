@@ -1,0 +1,210 @@
+
+      
+
+<h1>JavaScript Scope</h1>
+
+<!--start-->
+<div class="ws-info">
+<h2>Scope = Visibility</h2>
+<p><b>Scope</b> determines the <b>accessibility</b> (visibility) of variables.</p>
+<p>JavaScript variables have 3 types of scope:</p>
+<ul class="w3-large">
+<li>Global scope</li>
+<li>Function scope</li>
+<li>Block scope</li>
+</ul>
+</div>
+
+<!--start-->
+<h2>Global Scope</h2>
+<p>Variables declared <b>Globally</b> (outside any block or function) have
+<b>Global Scope</b>.</p>
+<p><b>Global</b> variables can be accessed from anywhere in a JavaScript program. </p>
+<p>Variables declared with <code class="w3-codespan">var</code>, <code class="w3-codespan">let</code>
+and <code class="w3-codespan">const</code> are 
+quite similar when declared outside a block.</p>
+<p>They all have <b>Global Scope</b>:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">var x = 1;    // Global scope
+let y = 2;    // Global scope
+const z = 3;  // Global scope</code></pre>
+</div>
+<div class="w3-example">
+<h3>Example</h3>
+<p>A variable declared outside a function, becomes <b>GLOBAL</b>.</p>
+<pre class="w3-code"><code class="language-javascript">let carName = "Volvo";
+// code here can use carName
+function myFunction() {
+// code here can also use carName
+}</code></pre>
+
+</div>
+<div class="ws-note">
+<p><b>Global variables</b> has <b>Global Scope</b>:</p>
+<p>All scripts and functions in the same web page can access a variable with global scope.</p>
+</div>
+<!--stop-->
+
+
+<hr>
+<!--start-->
+<h2>Function Scope</h2>
+<p>Each JavaScript function have their own scope.</p>
+<p>Variables defined inside a function are not accessible (visible) from outside the 
+function.</p>
+
+<p>Variables declared with <code class="w3-codespan">var</code>, <code class="w3-codespan">let</code>
+and <code class="w3-codespan">const</code> are 
+quite similar when declared inside a function.</p>
+<p>They all have <b>Function Scope</b>:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">function myFunction1() {
+  var carName = "Volvo";  // Function Scope
+}
+function myFunction2() {
+  let carName = "Volvo";  // Function Scope
+}
+function myFunction3() {
+  const carName = "Volvo";  // Function Scope
+}</code></pre>
+</div>
+
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Variables declared within a JavaScript function, are <b>
+LOCAL</b> to the function:</p>
+<pre class="w3-code"><code class="language-javascript">// code here can NOT use carName
+function myFunction() {
+  let carName = "Volvo";
+  // code here CAN use carName
+}
+// code here can NOT use carName</code></pre>
+
+</div>
+<h3>Local Variables has Function Scope</h3>
+<ul>
+<li>They can only be accessed from within the function</li>
+<li>No scripts or functions outside the function can access them</li>
+<li>Variables with the same name can be used outside the function</li>
+<li>Variables with the same name can be used in different functions</li>
+<li>Local variables are created when a function starts</li>
+<li>Local variables are deleted when the function is completed</li>
+<li>Arguments (parameters) work as local variables inside functions</li>
+</ul>
+<!--stop-->
+
+<hr>
+<h2>Block Scope</h2>
+<p>Before <a href="js_es6.html">ES6</a>, JavaScript variables could only have
+<b>Global Scope</b> or <b>Function Scope</b>.</p>
+<p>ES6 introduced two important new JavaScript keywords: <code class="w3-codespan">let</code> and <code class="w3-codespan">const</code>.</p>
+<p>These two keywords provide <b>Block Scope</b> in JavaScript.</p>
+
+<p>Variables declared with <code class="w3-codespan">let</code> and <code class="w3-codespan">const</code>
+inside a code block are "block-scoped," meaning they are only accessible within that block.</p>
+<p>This helps prevent unintended variable overwrites and promotes better code organization:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">{
+  let x = 2;
+}
+// x can NOT be used here</code></pre>
+</div>
+
+<p>Variables declared with the <code class="w3-codespan">var</code> keyword can NOT have block scope.</p>
+<p>Variables declared with the <code class="w3-codespan">var</code> keyword,
+inside a { } block; can be accessed from outside the block.</p>
+
+<div class="w3-example">
+<h3>Example (Not Recommended)</h3>
+<pre class="w3-code"><code class="language-javascript">{
+  var x = 2;
+}
+// x CAN be used here</code></pre>
+</div>
+<!--stop-->
+
+
+<hr>
+
+<hr>
+
+
+<!--start-->
+<h2>Automatically Global</h2>
+<p>If you assign a value to a variable that has <b>not been declared</b>, it will become a <b>GLOBAL</b> variable.</p>
+<p>This code example will declare a global variable <code class="w3-codespan">carName</code>, even if 
+the value is assigned inside a function.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">myFunction();
+// code here can use carName
+function myFunction() {
+  carName = "Volvo";
+}</code></pre>
+
+</div>
+
+<hr>
+<h2>Strict Mode</h2>
+<p>All modern browsers support running JavaScript in "Strict Mode".</p>
+
+<div class="w3-panel ws-warning">
+<p>In "Strict Mode", undeclared variables are not automatically global.</p>
+</div>
+<!--stop-->
+
+<hr>
+<h2>Global Variables in HTML</h2>
+<p>With JavaScript, the global scope is the JavaScript environment. </p>
+<p>In HTML, the global scope is the window object.</p>
+<p>Global variables defined with the <code class="w3-codespan">var</code> keyword belong to the window object:</p>
+
+<div class="w3-example">
+<h3>Example (Not Recommended)</h3>
+<pre class="w3-code"><code class="language-javascript">var carName = "Volvo";
+// code here can use window.carName</code></pre>
+
+</div>
+
+<p>Global variables defined with the <code class="w3-codespan">let</code> keyword do not belong to the window object:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let carName = "Volvo";
+// code here can NOT use window.carName</code></pre>
+
+</div>
+
+<!--stop-->
+<hr>
+<!--start-->
+<div class="ws-warning">
+<h2>Warning</h2>
+<p>Do NOT create global variables unless you intend to.</p>
+<p>Your global variables (or functions) can overwrite window variables (or 
+functions).<br>Any function, including the window object, can overwrite your global 
+variables and functions.</p>
+</div>
+
+<hr>
+<h2>The Lifetime of JavaScript Variables</h2>
+<p>The lifetime of a JavaScript variable starts when it is declared.</p>
+<p>Function (local) variables are deleted when the function is completed.</p>
+<p>In a web browser, global variables are deleted when you close the browser 
+window (or tab).</p>
+
+<!--stop-->
+<hr>
+
+<hr>
+
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_object_display.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_codeblocks.html">Next ❯</a>
+</div>
+
+

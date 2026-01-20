@@ -1,0 +1,85 @@
+
+      
+
+<h1>JavaScript toString()</h1>
+
+<!--start-->
+<div class="ws-info">
+<p>The JavaScript <code class="w3-codespan">toString()</code> method converts a variable (or a value) to a string.</p>
+<p>It is a built-in method for many data types, including numbers, arrays, dates, and objects.</p>
+<p>The method is useful for:</p>
+<ul>
+<li>Converting data to a readable format for display</li>
+<li>Ensuring type compatibility when a string is required</li>
+<li>Customizing objects other user interfaces</li>
+<li>Customizing objects for debugging</li>
+</ul>
+</div>
+<!--stop-->
+<!--start-->
+<h2>JavaScript Array toString()</h2>
+<p>When used on an array, <code class="w3-codespan">toString()</code> returns the array elements as a comma separated string.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const fruits = ["Banana", "Orange", "Apple", "Mango"];
+let myList = fruits.toString();</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>JavaScript Date toString()</h2>
+<p>When used on a date, <code class="w3-codespan">toString()</code> returns a human-readable date and time string.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Convert a date object to a string:</p>
+<pre class="w3-code"><code class="language-javascript">const d = new Date();
+let text = d.toString();</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>JavaScript Number toString()</h2>
+<p>When used on a number, <code class="w3-codespan">toString()</code> returns the number as a string.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 123;
+let text = x.toString();</code></pre>
+
+</div>
+
+<p>Convert a number to a string, using base 2 (binary):</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 123;
+let text = x.toString(2);</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>JavaScript Function toString()</h2>
+<p>When used on a function, <code class="w3-codespan">toString()</code> returns the source code of the
+function as a string.</p>
+<hr>
+<h2>JavaScript Object toString()</h2>
+<p>When used on an object, <code class="w3-codespan">toString()</code> an object returns "[object Object]".</p>
+<p>To provide a meaningful string representation, it can be overridden in the object definition:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let person = {
+  firstname: "John",
+  lastname: "Doe",
+}
+let text = person.toString();</code></pre>
+
+</div>
+<!--stop-->
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_typeof.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_type_conversion.html">Next ❯</a>
+</div>
+
+

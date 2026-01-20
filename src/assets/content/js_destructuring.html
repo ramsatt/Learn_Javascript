@@ -1,0 +1,242 @@
+
+      
+
+<h1>JavaScript Destructuring</h1>
+
+<!--start-->
+<div class="ws-info">
+<h2>Destructuring Assignment Syntax</h2>
+<p>The destructuring assignment syntax unpack object properties into variables:</p>
+<pre class="w3-code"><code class="language-javascript">let {firstName, lastName} = person;</code></pre>
+<p>It can also unpack arrays and any other iterables:</p>
+<pre class="w3-code"><code class="language-javascript">let [firstName, lastName] = person;</code></pre>
+
+</div>
+
+<h2>Object Destructuring</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an Object
+const person = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 50
+};
+// Destructuring
+let {firstName, lastName} = person;</code></pre>
+
+</div>
+<p>The order of the properties does not matter:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an Object
+const person = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 50
+};
+// Destructuring
+let {lastName, firstName} = person;</code></pre>
+
+</div>
+
+<hr>
+<div class="ws-note">
+<h2>Note:</h2>
+<p>Destructuring is not destructive.</p>
+<p>Destructuring does not change the original object.</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Object Default Values</h2>
+<p>For potentially missing properties we can set default values:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an Object
+const person = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 50
+};
+// Destructuring
+let {firstName, lastName, country = "US"} = person;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Object Property Alias</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an Object
+const person = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 50
+};
+// Destructuring
+let {lastName : name} = person;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>String Destructuring</h2>
+<p>One use for destructuring is unpacking string characters.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create a String
+let name = "W3Schools";
+// Destructuring
+let [a1, a2, a3, a4, a5] = name;</code></pre>
+
+</div>
+
+<div class="ws-note">
+<h2>Note:</h2>
+<p>Destructuring can be used with any iterables.</p>
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>Array Destructuring</h2>
+<p>We can pick up array variables into our own variables:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an Array
+const fruits = ["Bananas", "Oranges", "Apples", "Mangos"];
+// Destructuring
+let [fruit1, fruit2] = fruits;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Skipping Array Values</h2>
+<p>We can skip array values using two or more commas:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an Array
+const fruits = ["Bananas", "Oranges", "Apples", "Mangos"];
+// Destructuring
+let [fruit1,,,fruit2] = fruits;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Array Position Values</h2>
+<p>We can pick up values from specific index locations of an array:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an Array
+const fruits = ["Bananas", "Oranges", "Apples", "Mangos"];
+// Destructuring
+let {[0]:fruit1 ,[1]:fruit2} = fruits;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The Rest Property</h2>
+<p>You can end a destructuring syntax with a rest property.</p>
+<p>This syntax will store all remaining values into a new array:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an Array
+const numbers = [10, 20, 30, 40, 50, 60, 70];
+// Destructuring
+const [a,b, ...rest] = numbers</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Destructuring Maps</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create a Map
+const fruits = new Map([
+  ["apples", 500],
+  ["bananas", 300],
+  ["oranges", 200]
+]);
+// Destructuring
+let text = "";
+for (const [key, value] of fruits) {
+  text += key + " is " + value;
+}</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Swapping JavaScript Variables</h2>
+<p>You can swap the values of two variables using a destructuring assignment:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let firstName = "John";
+let lastName = "Doe";
+// Destructuring
+[firstName, lastName] = [lastName, firstName];</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<h2>Browser Support</h2>
+<p><code class="w3-codespan">Destructuring</code> is an <a href="js_es6.html">ES6  feature</a>.</p>
+<p>ES6 is fully supported in all modern browsers since June 2017:</p>
+
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr style="height:50px">
+    <th style="width:20%;" class="bsChrome" title="Chrome"></th>
+    <th style="width:20%;" class="bsEdge" title="Edge"></th>
+    <th style="width:20%;" class="bsFirefox" title="Firefox"></th>
+    <th style="width:20%;" class="bsSafari" title="Safari"></th>
+    <th style="width:19.9%;" class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>51</td>
+    <td>Edge<br>15</td>
+    <td>Firefox<br>54</td>
+    <td>Safari<br>10</td>
+    <td>Opera<br>38</td>
+  </tr>
+  <tr>
+    <td>May 2016</td>
+    <td>Apr 2017</td>
+    <td>Jun 2017</td>
+    <td>Sep 2016</td>
+    <td>Jun 2016</td>
+  </tr>
+</tbody></table></div>
+</div>
+
+<div class="ws-note">
+<h2>Learn More:</h2>
+<p class="w3-large"><a href="js_object_definition.html">JavaScript Object Definitions</a></p>
+<p class="w3-large"><a href="js_object_constructors.html">JavaScript Object Constructors</a></p>
+<p class="w3-large"><a href="js_this.html">JavaScript Object this</a></p>
+<p class="w3-large"><a href="js_destructuring.html">JavaScript Object Destructuring</a></p>
+<p class="w3-large"><a href="js_object_prototypes.html">JavaScript Object Prototypes</a></p>
+<p class="w3-large"><a href="js_object_methods.html">JavaScript Object Iterations</a></p>
+<p class="w3-large"><a href="js_object_property.html">JavaScript Object Management</a></p>
+<p class="w3-large"><a href="js_object_accessors.html">JavaScript Object Getters &amp; Setters</a></p>
+<p class="w3-large"><a href="js_object_protection.html">JavaScript Object Protection</a></p>
+<p class="w3-large"><a href="js_object_reference.html">JavaScript Object Reference</a></p>
+</div>
+
+
+<hr>
+
+<hr>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_this.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_object_prototypes.html">Next ❯</a>
+</div>
+
+

@@ -1,0 +1,98 @@
+
+      
+
+<h1>JavaScript HTML DOM Node Lists</h1>
+
+<hr>
+<!--start-->
+<h2>The HTML DOM NodeList Object</h2>
+<p>A <code class="w3-codespan">NodeList</code> object is a list (collection) of nodes extracted from a 
+document.</p>
+<p>A <code class="w3-codespan">NodeList</code> object is almost the same as an <code class="w3-codespan">HTMLCollection</code> object.</p>
+<p>Some (older) browsers return a NodeList object instead of an HTMLCollection 
+for methods like <code class="w3-codespan">getElementsByClassName()</code>.</p>
+<p>All browsers return a NodeList object for the property <code class="w3-codespan">childNodes</code>.&nbsp; </p>
+<p>Most browsers return a NodeList object for the method <code class="w3-codespan">querySelectorAll()</code>.</p>
+<p>The following code selects all <code class="w3-codespan">&lt;p&gt;</code> nodes in a document:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const myNodeList = document.querySelectorAll("p");</code></pre>
+<p>The elements in the NodeList can be accessed by an index number.</p>
+  <p>To access the 
+second &lt;p&gt; node you can write:</p>
+<pre class="w3-code"><code class="language-javascript">myNodeList[1]</code></pre>
+
+</div>
+<p><b>Note:</b> The index starts at 0.</p>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>HTML DOM Node List Length</h2>
+<p>The <code class="w3-codespan">length</code> property defines the number of nodes in a node list:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">myNodelist.length</code></pre>
+
+</div>
+<p>The <code class="w3-codespan">length</code> property is useful when you want to loop through the nodes in a node 
+list:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Change the color of all &lt;p&gt; elements in a node 
+list:</p>
+<pre class="w3-code"><code class="language-javascript">const myNodelist = document.querySelectorAll("p");
+for (let i = 0; i &lt; myNodelist.length; i++) {
+  myNodelist[i].style.color = "red";
+}</code></pre>
+
+</div>
+
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>The Difference Between an HTMLCollection and a NodeList</h2>
+
+<p>A <b>NodeList</b> and an <b>HTMLcollection</b> is very much the same thing.</p>
+
+<p>Both are array-like collections (lists) of nodes (elements) extracted from a 
+document. The nodes can be accessed by index numbers. The index starts at 0.</p>
+
+<p>Both have a <b>length</b> property that returns the number of elements in the list (collection).</p>
+
+<p>An HTMLCollection is a collection of <b>document elements</b>.</p>
+<p>A NodeList is a collection of <b>document nodes</b> (element nodes, attribute nodes, and text nodes).</p>
+
+<p>HTMLCollection items can be accessed by their name, id, or index number.</p>
+<p>NodeList items can only be accessed by their index number.</p>
+
+<p>An HTMLCollection is always a <b>live</b> collection. Example: If you add a &lt;li&gt; element to a list in the DOM, the list in the HTMLCollection will also change.</p>
+
+<p>A NodeList is most often a <b>static</b> collection. Example: If you add a &lt;li&gt; element to a list in the DOM, the list in NodeList will not change.</p>
+
+<p>The <code class="w3-codespan">getElementsByClassName()</code> and <code class="w3-codespan">getElementsByTagName()</code>
+methods return a live HTMLCollection.</p> 
+
+<p>The <code class="w3-codespan">querySelectorAll()</code> method returns a static NodeList.</p>
+
+<p>The <code class="w3-codespan">childNodes</code> property returns a live NodeList.</p> 
+<!--stop-->
+<hr>
+<!--start-->
+<div class="w3-panel ws-note">
+<h2>Not an Array!</h2>
+<p>A NodeList may look like an array, but it is not.</p>
+<p>You can loop through a NodeList and refer to its nodes by index.</p>
+<p>But, you cannot use Array methods like push(), pop(), or join() on a NodeList.</p>
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+<div class="w3-clear nextprev">
+  <a class="w3-left w3-btn" href="js_htmldom_collections.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_window.html">Next ❯</a>
+</div>
+
+

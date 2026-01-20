@@ -1,0 +1,232 @@
+
+      
+
+<h1>JavaScript Comparison</h1>
+
+<!--start-->
+<div class="ws-info">
+<h2>Comparison Operators</h2>
+<p>Comparison operators are used to <b>compare two values</b>.</p>
+<p>Comparison operators always return <code class="w3-codespan">true</code> or
+<code class="w3-codespan">false</code>.</p>
+
+</div>
+<p>Given that <code class="w3-codespan">x = 5</code>, the table below explains the comparison operators:</p>
+
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate">
+<tbody><tr>
+<th>Operator</th>
+<th>Description</th>
+<th>Comparing</th>
+<th>Returns</th>
+<th></th>
+</tr>
+<tr class="spes_table_row1">
+<td>==</td>
+<td>equal to</td>
+<td>x == 8</td>
+<td>false</td>
+<td></td> 
+</tr>
+<tr class="spes_table_row1">
+<td></td>
+<td></td>
+<td>x == 5</td>
+<td>true</td>
+<td></td> 
+</tr>
+<tr class="spes_table_row1">
+<td></td>
+<td></td>
+<td>x == "5"</td>
+<td>true</td>
+<td></td> 
+</tr>
+<tr class="spes_table_row2">
+<td>===</td>
+<td>equal value and equal type</td>
+<td>x === 5</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr class="spes_table_row2">
+<td></td>
+<td></td>
+<td>x === "5"</td>
+<td>false</td>
+<td></td>
+</tr>
+<tr class="spes_table_row1">
+<td>!=</td>
+<td>not equal</td>
+<td>x != 8</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr class="spes_table_row2">
+<td>!==</td>
+<td>not equal value or not equal type</td>
+<td>x !== 5</td>
+<td>false</td>
+<td>
+</td>
+</tr>
+<tr class="spes_table_row2">
+<td></td>
+<td></td>
+<td>x !== "5"</td>
+<td>true</td>
+<td>
+</td>
+</tr>
+<tr class="spes_table_row2">
+<td></td>
+<td></td>
+<td>x !== 8</td>
+<td>true</td>
+<td>
+</td>
+</tr>
+<tr class="spes_table_row1">
+<td>&gt;</td>
+<td>greater than</td>
+<td>x &gt; 8</td>
+<td>false</td>
+<td></td>
+</tr>
+<tr class="spes_table_row2">
+<td>&lt;</td>
+<td>less than</td>
+<td>x &lt; 8</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr class="spes_table_row1">
+<td>&gt;=</td>
+<td>greater than or equal to</td>
+<td>x &gt;= 8</td>
+<td>false</td>
+<td></td>
+</tr>
+<tr class="spes_table_row2">
+<td>&lt;=</td>
+<td>less than or equal to</td>
+<td>x &lt;= 8</td>
+<td>true</td>
+<td></td>
+</tr>
+</tbody></table></div>
+</div>
+<!--start-->
+<p>Comparison operators can be used in conditional statements to compare values 
+and take action depending on the result:</p>
+
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">if (age &lt; 18) text = "Too young to buy alcohol";</code></pre></div>
+
+<p>You will learn more about the use of conditional statements in the
+<a href="js_if_else.html">if...else</a> chapter of this tutorial.</p>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>JavaScript String Comparison</h2>
+<p>All the comparison operators above can also be used on strings:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let text1 = "A";
+let text2 = "B";
+let result = text1 &lt; text2;</code></pre>
+
+</div>
+<p>Note that strings are compared alphabetically:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let text1 = "20";
+let text2 = "5";
+let result = text1 &lt; text2;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+
+<!--start-->
+<h2>Comparing Different Types</h2>
+<p>Comparing data of different types may give unexpected results.</p>
+<p>When comparing a string with a number, JavaScript will convert the string to 
+a number when doing the comparison. An empty string converts to 0. A non-numeric 
+string converts to <code class="w3-codespan">NaN</code> which is always <code class="w3-codespan">false</code>.</p>
+
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate">
+ <tbody><tr>
+  <th>Case</th>
+  <th>Value</th>
+  <th style="width:10%">Try</th>
+ </tr>
+ <tr>
+  <td>2 &lt; 12</td>
+  <td>true</td>
+  <td></td>
+ </tr>
+ <tr>
+  <td>2 &lt; "12"</td>
+  <td>true</td>
+  <td></td>
+ </tr>
+ <tr>
+  <td>2 &lt; "John"</td>
+  <td>false</td>
+  <td></td>
+ </tr>
+ <tr>
+  <td>2 &gt; "John"</td>
+  <td>false</td>
+  <td></td>
+ </tr>
+ <tr>
+  <td>2 == "John"</td>
+  <td>false</td>
+  <td></td>
+ </tr>
+ <tr>
+  <td>"2" &lt; "12"</td>
+  <td>false</td>
+  <td></td>
+ </tr>
+ <tr>
+  <td>"2" &gt; "12"</td>
+  <td>true</td>
+  <td></td>
+ </tr>
+ <tr>
+  <td>"2" == "12"</td>
+  <td>false</td>
+  <td></td>
+ </tr>
+</tbody></table></div>
+
+<p>When comparing two strings, "2" will be greater than "12".</p>
+<p>Alphabetically 1 is less than 21.</p>
+<p>To secure a proper result, variables should be converted to the proper type 
+before comparison:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">age = Number(age);
+if (isNaN(age)) {
+  voteable = "Input is not a number";
+} else {
+  voteable = (age &lt; 18) ? "Too young" : "Old enough";
+}</code></pre>
+
+</div>
+<!--stop-->
+
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_assignment.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_conditionals.html">Next ❯</a>
+</div>
+
+

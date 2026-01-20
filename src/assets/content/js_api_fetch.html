@@ -1,0 +1,83 @@
+
+      
+
+<h1>JavaScript Fetch API</h1>
+
+<!--start-->
+<div class="w3panel ws-info">
+<p>The Fetch API interface allows web browser to make HTTP requests to web servers.</p>
+<p><span class="w3-xlarge">😀</span> No need for XMLHttpRequest anymore.</p>
+</div>
+
+<h2>Browser Support</h2>
+<p><code class="w3-codespan">fetch()</code> is an <a href="js_es6.html">ES6  feature</a>.</p>
+<p>ES6 is fully supported in all modern browsers since June 2017:</p>
+
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr style="height:50px">
+    <th style="width:20%;" class="bsChrome" title="Chrome"></th>
+    <th style="width:20%;" class="bsEdge" title="Edge"></th>
+    <th style="width:20%;" class="bsFirefox" title="Firefox"></th>
+    <th style="width:20%;" class="bsSafari" title="Safari"></th>
+    <th style="width:19.9%;" class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>51</td>
+    <td>Edge<br>15</td>
+    <td>Firefox<br>54</td>
+    <td>Safari<br>10</td>
+    <td>Opera<br>38</td>
+  </tr>
+  <tr>
+    <td>May 2016</td>
+    <td>Apr 2017</td>
+    <td>Jun 2017</td>
+    <td>Sep 2016</td>
+    <td>Jun 2016</td>
+  </tr>
+</tbody></table></div>
+</div>
+
+
+
+<!--stop-->
+<hr>
+<!--start-->
+<h2>A Fetch API Example</h2>
+<p>The example below fetches a file and displays the content:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">fetch(file)
+.then(x =&gt; x.text())
+.then(y =&gt; myDisplay(y));</code></pre>
+
+</div>
+<p>Since Fetch is based on async and await, the example above might be easier to understand like this:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">async function getText(file) {
+  let x = await fetch(file);
+  let y = await x.text();
+  myDisplay(y);
+}</code></pre>
+
+</div>
+<p>Or even better: Use understandable names instead of x and y:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">async function getText(file) {
+  let myObject = await fetch(file);
+  let myText = await myObject.text();
+  myDisplay(myText);
+}</code></pre>
+
+</div>
+<!--stop-->
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_api_intro.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_api_geolocation.html">Next ❯</a>
+</div>
+
+

@@ -1,0 +1,171 @@
+
+      
+
+<h1>JavaScript Break</h1>
+
+<!--start-->
+<div class="ws-info">
+<h2>The Break Statement</h2>
+<p class="intro">The <code class="w3-codespan">break</code> statement "jumps out" of loops and switches.</p>
+
+<p class="intro">The <code class="w3-codespan">break</code> statement <b>terminates</b> the execution
+of a <b>loop</b> or a <b>switch</b> statement.</p>
+</div>
+
+<h2>Break in Loops</h2>
+<p>When <code class="w3-codespan">break</code> is encountered in a loop,
+<b>the loop terminates immediately</b>.
+</p><p>The program control is transfered to the statements following the loop.</p>
+<p><b>No more loop iterations</b> are executed.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Terminate the loop (break the loop) when the loop counter (i) is 3:</p>
+<pre class="w3-code"><code class="language-javascript">for (let i = 0; i &lt; 10; i++) {
+  if (i === 3) { break; }
+  text += "The number is " + i + "&lt;br&gt;";
+}</code></pre>
+
+</div>
+<div class="ws-note">
+<h2>Note</h2>
+<p>You have already seen the <code class="w3-codespan">break</code> statement used in an earlier 
+chapter of this tutorial.</p>
+<p>It was used to "jump out" of a <code class="w3-codespan">switch</code> statement.</p>
+</div>
+
+<h2>Break in a Switch</h2>
+<p>In a <code class="w3-codespan">switch</code> statement, a <code class="w3-codespan">break</code> statement
+will exit the switch block after a matching case is executed. Without break, execution would "fall through" to subsequent case blocks.</p>
+<!--stop-->
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Use the weekday number to calculate the weekday name:</p>
+<pre class="w3-code"><code class="language-javascript">switch (new Date().getDay()) {
+  case 0:
+    day = "Sunday";
+    break;
+  case 1:
+    day = "Monday";
+    break;
+  case 2:
+     day = "Tuesday";
+    break;
+  case 3:
+    day = "Wednesday";
+    break;
+  case 4:
+    day = "Thursday";
+    break;
+  case 5:
+    day = "Friday";
+    break;
+  case 6:
+    day = "Saturday";
+}</code></pre>
+
+</div>
+
+<div class="w3-panel ws-note">
+<h2>Note</h2>
+<p>The <code class="w3-codespan">break</code> keyword is crucial for preventing a switch "fall-through."</p>
+<p>Without <code class="w3-codespan">break</code>, the code will continue to execute the next case blocks
+(and the default block if present) <b>even if their values do not match the expression</b>.</p>
+</div>
+
+<hr>
+
+<hr>
+<!--start-->
+<h2>JavaScript Labels</h2>
+<p>A label provides a name for a statement, or a block of statements,
+allowing statements to be referenced to, for program flow control,
+particularly in loops.</p>
+
+
+<div class="w3-example">
+<h3>Syntax</h3>
+<p>A label is an identifier followed by a colon (<b>:</b>).</p>
+<pre class="w3-code"><code class="language-javascript"><i>labelname</i>: <i>statement</i>;</code></pre>
+<p>A label precedes a statement or a block of code.</p>
+<pre class="w3-code"><code class="language-javascript"><i>labelname</i>: {
+  <i>statements</i>
+}</code></pre>
+</div>
+
+<hr>
+<h2>Labeled Break</h2>
+<div class="w3-example">
+<h3>Syntax</h3>
+<pre class="w3-code"><code class="language-javascript">break <em>labelname</em>;</code></pre>
+</div>
+
+<p>The <code class="w3-codespan">break</code> statement exits a loop or block
+and transfers the control to the labeled statement.</p>
+<p>The <code class="w3-codespan">break</code> statement is particularly useful for breaking out of
+inner or outer loops from nested loops.</p>
+
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Break to <b>loop1</b>:</p>
+<pre class="w3-code"><code class="language-javascript">let text = "";
+loop1: for (let j = 1; j &lt; 5; j++) {
+  loop2: for (let i = 1; i &lt; 5; i++) {
+    if (i === 3) { break loop1; }
+    text += i;
+   }
+}</code></pre>
+
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Break to <b>loop2</b>:</p>
+<pre class="w3-code"><code class="language-javascript">let text = "";
+loop1: for (let j = 1; j &lt; 5; j++) {
+  loop2: for (let i = 1; i &lt; 5; i++) {
+    if (i === 3) { break loop2; }
+    text += i;
+   }
+}</code></pre>
+
+</div>
+
+<div class="w3-panel ws-note">
+<h2>Note</h2>
+<p><code class="w3-codespan">break</code> and <code class="w3-codespan">continue</code>
+are the only JavaScript statements that can "jump out of" a code block.</p>
+<p>A code block is a block of code between { and }.</p>
+
+<p>Without a label reference, <code class="w3-codespan">break</code> can only <strong>
+jump out of a loop or a switch</strong>.</p>
+<p>With a label reference, <code class="w3-codespan">break</code> can <strong>jump out 
+of any code block</strong>:</p>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Break out of the block after the second car:</p>
+<pre class="w3-code"><code class="language-javascript">const cars = ["BMW", "Volvo", "Saab", "Ford"];
+list: {
+  text += cars[0] + "&lt;br&gt;";
+  text += cars[1] + "&lt;br&gt;";
+  break list;
+  text += cars[2] + "&lt;br&gt;";
+  text += cars[3] + "&lt;br&gt;";
+}</code></pre>
+
+</div>
+
+<!--stop-->
+<hr>
+
+<hr>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_loop_while.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_continue.html">Next ❯</a>
+</div>
+
+

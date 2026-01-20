@@ -1,0 +1,280 @@
+
+      
+
+<h1>Advanced Functions Quiz</h1>
+
+
+<div class="ws-info">
+<h2>Test Yourself !</h2>
+<p>This quiz builds on the basic functions quiz.</p>
+<p>It focuses on <b>this</b>, <b>call()</b>, <b>apply()</b>, <b>bind()</b>, <b>closures</b>,
+and <b>function references</b>.</p>
+</div>
+
+<div class="w3-panel w3-pale-yellow w3-leftbar w3-border-yellow">
+<h3>Note</h3>
+<p>If you need a refresher, try the basic quiz first:</p>
+<p class="w3-large"><a href="js_function_quiz.html">JavaScript Functions Quiz</a>.</p>
+</div>
+
+<div class="w3-example">
+<h2>Question 1</h2>
+<p>
+What does <b>person.getName()</b> return?<br>
+</p>
+
+<pre class="w3-code"><code class="language-javascript">const person = {
+  name: "John",
+  getName: function() {
+    return this.name;
+  }
+};
+person.getName();</code></pre>
+
+<ul>
+  <li>A. "John"</li>
+  <li>B. undefined</li>
+  <li>C. "person"</li>
+</ul>
+
+</div>
+<div class="w3-example">
+
+<h2>Question 2</h2>
+<p>
+What is the value of <b>this</b> when calling <b>getName()</b> like this?<br>
+</p>
+
+<pre class="w3-code"><code class="language-javascript">const getName = person.getName;
+getName();</code></pre>
+
+<ul>
+  <li>A. It is still the person object</li>
+  <li>B. It depends on how the function is called</li>
+  <li>C. It is always undefined</li>
+</ul>
+</div>
+<div class="w3-example">
+
+<h2>Question 3</h2>
+<p>
+Which line correctly calls <b>getName</b> with <b>person</b> as <b>this</b>?<br>
+</p>
+<pre class="w3-code"><code class="language-javascript">const person = { name: "John" };
+function getName() { return this.name; }</code></pre>
+<ul>
+  <li>A. getName(person)</li>
+  <li>B. getName.call(person)</li>
+  <li>C. getName.apply = person</li>
+</ul>
+</div>
+<div class="w3-example">
+
+<h2>Question 4</h2>
+<p>
+What is the main difference between <b>call()</b> and <b>apply()</b>?<br>
+</p>
+
+<ul>
+  <li>A. call() returns a value, apply() does not</li>
+  <li>B. call() takes arguments as a list, apply() takes arguments as an array</li>
+  <li>C. apply() is faster than call()</li>
+</ul>
+</div>
+
+<div class="w3-example">
+<h2>Question 5</h2>
+<p>
+What does this code return?<br>
+</p>
+<pre class="w3-code"><code class="language-javascript">function add(a, b) {
+  return a + b;
+}
+add.apply(null, [4, 5]);</code></pre>
+<ul>
+  <li>A. 9</li>
+  <li>B. [4, 5]</li>
+  <li>C. null</li>
+</ul>
+</div>
+
+<div class="w3-example">
+<h2>Question 6</h2>
+<p>
+What does <b>bind()</b> do?<br>
+</p>
+<ul>
+  <li>A. Calls a function immediately</li>
+  <li>B. Creates a new function with a fixed <b>this</b> value</li>
+  <li>C. Converts a function into an arrow function</li>
+</ul>
+</div>
+
+<div class="w3-example">
+<h2>Question 7</h2>
+<p>
+What is stored in <b>getJohn</b>?<br>
+</p>
+<pre class="w3-code"><code class="language-javascript">function greet() {
+  return "Hello " + this.name;
+}
+const person = { name: "John" };
+const getJohn = greet.bind(person);</code></pre>
+<ul>
+  <li>A. The string "Hello John"</li>
+  <li>B. A new function</li>
+  <li>C. The person object</li>
+</ul>
+</div>
+
+<div class="w3-example">
+<h2>Question 8</h2>
+<p>
+What does this code return on the second call?<br>
+</p>
+<pre class="w3-code"><code class="language-javascript">function counter() {
+  let count = 0;
+  return function() {
+    count++;
+    return count;
+  };
+}
+const c = counter();
+c();
+c();</code></pre>
+<ul>
+  <li>A. 1</li>
+  <li>B. 2</li>
+  <li>C. 0</li>
+</ul>
+</div>
+<div class="w3-example">
+
+<h2>Question 9</h2>
+<p>
+Which statement best describes a closure?<br>
+</p>
+<ul>
+  <li>A. A function that runs immediately</li>
+  <li>B. A function that remembers variables from its outer scope</li>
+  <li>C. A function that always returns an object</li>
+</ul>
+
+</div>
+<div class="w3-example">
+<h2>Question 10</h2>
+<p>
+What is the difference between passing a function and calling a function?<br>
+</p>
+<pre class="w3-code"><code class="language-javascript">function sayHello() { return "Hello"; }
+function run(fn) { return fn(); }
+run(sayHello);</code></pre>
+<ul>
+  <li>A. sayHello is passed, sayHello() is called</li>
+  <li>B. sayHello() is passed, sayHello is called</li>
+  <li>C. There is no difference</li>
+</ul>
+</div>
+
+<hr>
+<h2>Answers</h2>
+<hr>
+
+<div class="w3-example">
+<h2>Question 1</h2>
+
+<p>
+<b>Answer:</b> A</p>
+<p><b>Explanation:</b> In an object method, <b>this</b> refers to the owner object.</p>
+
+</div>
+<div class="w3-example">
+
+<h2>Question 2</h2>
+<p>
+<b>Answer:</b> B</p>
+<p><b>Explanation:</b> When the method is called as a plain function, <b>this</b> is not the object anymore.</p>
+
+</div>
+<div class="w3-example">
+
+<h2>Question 3</h2>
+<p>
+<b>Answer:</b> B.</p>
+<p><b>Explanation:</b> <b>call()</b> calls the function with a chosen <b>this</b> value.</p>
+
+</div>
+<div class="w3-example">
+
+<h2>Question 4</h2>
+<p>
+<b>Answer:</b> B.</p>
+<p><b>Explanation:</b> Both set <b>this</b>, but they pass arguments differently.</p>
+
+</div>
+<div class="w3-example">
+
+<h2>Question 5</h2>
+<p>
+<b>Answer:</b> A.</p>
+<p><b>Explanation:</b> The array values become the function arguments.</p>
+
+</div>
+<div class="w3-example">
+
+<h2>Question 6</h2>
+<p>
+<b>Answer:</b> B.</p>
+<p><b>Explanation:</b> <b>bind()</b> returns a new function you can call later.</p>
+
+</div>
+<div class="w3-example">
+
+<h2>Question 7</h2>
+<p>
+<b>Answer:</b> B.</p>
+<p><b>Explanation:</b> <b>bind()</b> does not call the function, it returns a new function.</p>
+
+</div>
+<div class="w3-example">
+
+<h2>Question 8</h2>
+<p>
+<b>Answer:</b> B.</p>
+<p><b>Explanation:</b> The inner function remembers <b>count</b> (closure).</p>
+
+</div>
+<div class="w3-example">
+
+<h2>Question 9</h2>
+<p>
+<b>Answer:</b> B.</p>
+<p><b>Explanation:</b> Closures allow functions to remember scope even after the outer function finishes.</p>
+
+</div>
+<div class="w3-example">
+
+<h2>Question 10</h2>
+<p><b>Answer:</b> A.</p>
+<p><b>Explanation:</b> <b>sayHello</b> is a function reference. <b>sayHello()</b> executes the function.</p>
+
+</div>
+<h2>Quiz Result</h2>
+<p>If you answered most questions correctly, you understand advanced function concepts.</p>
+<p>If not, review the advanced chapters and try again.</p>
+
+<p class="w3-large"><a href="js_function_advanced.html">Back to Advanced Functions</a></p>
+
+<hr>
+<div class="w3-panel w3-pale-yellow w3-leftbar w3-border-yellow">
+<h2>Tip:</h2>
+<p>Advanced JavaScript becomes easier when you understand how <b>this</b> works.</p>
+<p>Then <b>call()</b>, <b>apply()</b>, and <b>bind()</b> will make much more sense.</p>
+</div>
+<hr>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_function_reference.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_object_definition.html">Next ❯</a>
+</div>
+
+

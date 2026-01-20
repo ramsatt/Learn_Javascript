@@ -1,0 +1,257 @@
+
+      
+
+<h1>ECMAScript 2018</h1>
+
+
+<hr>
+<h2>New Features in JavaScript 2018</h2>
+
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Feature</th><th>Description</th><th></th></tr>
+<tr><td><a href="js_2018d41d.html?#mark_async_iteration">Asynchronous Iteration</a></td>
+<td>Allows the await keyword in for/of loops</td><td></td></tr>
+<tr><td><a href="js_2018d41d.html?#mark_promise_finally">Promise Finally</a></td>
+<td>Schedules a function to be executed when a promise has been "fulfilled" or "rejected"</td><td></td></tr>
+<tr><td><a href="js_2018d41d.html?#mark_array_rest">Array Rest Elements</a></td>
+<td>Allows to destruct an array and collect the leftovers</td><td></td></tr>
+<tr><td><a href="js_2018d41d.html?#mark_obj_rest">Object Rest Properties</a></td>
+<td>Allows to destruct an object and collect the leftovers</td><td></td></tr>
+<tr><td><a href="js_2018d41d.html?#mark_shared_memory">Shared Memory</a></td>
+<td>Allows different parts of a program to access the same memory</td><td></td></tr>
+</tbody></table></div>
+</div>
+<h2>New RegExp Features in 2018</h2>
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Feature</th><th>Description</th><th></th></tr>
+<tr><td><a href="js_2018d41d.html?#mark_regexp_sflag">/s</a></td>
+<td>Allows the . (dot) metacharacter to match line terminators</td><td></td></tr>
+<tr><td><a href="js_2018d41d.html?#mark_regexp_meta_p">\p{}</a></td>
+<td>Matches character with a Unicode character property</td><td></td></tr>
+<tr><td><a href="js_2018d41d.html?#mark_regexp_lookbehind">(?&lt;=y)</a></td>
+<td>(?&lt;=y)x matches "x" if "x" is preceded by "y"</td><td></td></tr>
+<tr><td><a href="js_2018d41d.html?#mark_regexp_negative_lookbehind">(?&lt;!y)</a></td>
+<td>(?&lt;!y)x matches "x" if "x" is NOT preceded by "y"</td><td></td></tr>
+<tr><td><a href="js_2018d41d.html?#mark_regexp_named_groups">(?&lt;name&gt;)</a></td>
+<td>Captures text and names (labels) it</td><td></td></tr>
+</tbody></table></div>
+</div>
+
+<hr>
+<h2>Browser Support</h2>
+<p><b>ECMAScript 2018</b> is supported in all modern browsers since <b>Jun 2020</b>:</p>
+
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr>
+    <th class="bsChrome" title="Chrome"></th>
+    <th class="bsEdge" title="Edge"></th>
+    <th class="bsFirefox" title="Firefox"></th>
+    <th class="bsSafari" title="Safari"></th>
+    <th class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>64</td>    
+    <td>Edge<br>79</td>
+    <td>Firefox<br>78</td>
+    <td>Safari<br>12</td>
+    <td>Opera<br>51</td>
+  </tr>
+  <tr>
+    <td>Jan 2018</td>
+    <td>Jan 2020</td>    
+    <td>Jun 2020</td>
+    <td>Sep 2018</td>
+    <td>Feb 2018</td>
+  </tr>
+</tbody></table></div>
+</div>
+
+<hr>
+<a id="mark_async_iteration"></a>
+<h2>JavaScript Asynchronous Iteration</h2>
+<p>ECMAScript 2018 added asynchronous iterators and iterables.</p>
+<p>With asynchronous iterables, we can use the <code class="w3-codespan">await</code>
+keyword in <code class="w3-codespan">for/of</code> loops.
+
+</p><div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">for await () {}</code></pre>
+</div>
+
+<hr>
+<a id="mark_promise_finally"></a>
+<h2>JavaScript Promise.finally()</h2>
+<p>ECMAScript 2018 finalizes the full implementation of the Promise object with <code class="w3-codespan">Promise.finally</code>:</p>
+<p>Promise.finally() defines a function to be executed when a promise has either been successfully resolved
+rejected.</p> 
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let myPromise = new Promise();
+myPromise.then();
+myPromise.catch();
+myPromise.finally();</code></pre>
+</div>
+
+<hr>
+
+<a id="mark_array_rest"></a>
+<h2>JavaScript Array Rest Elements</h2>
+<p>ECMAScript 2018 added the rest operator (...).</p>
+<p>The rest operator (...) allows us to destruct an array and collect the leftovers:</p><p>
+</p><div class="w3-example">
+<h3>Example 1</h3>
+<pre class="w3-code"><code class="language-javascript">let a, rest;
+const arr1 = [1,2,3,4,5,6,7,8];
+[a, ...rest] = arr1;</code></pre>
+
+</div>
+<div class="w3-example">
+<h3>Example 2</h3>
+<pre class="w3-code"><code class="language-javascript">let a, b, rest;
+const arr1 = [1,2,3,4,5,6,7,8];
+[a, b, ...rest] = arr1;</code></pre>
+
+</div>
+
+<hr>
+<a id="mark_obj_rest"></a>
+<h2>JavaScript Object Rest Properties</h2>
+<p>ECMAScript 2018 added the rest operator (...).</p>
+<p>This allows us to destruct an object and collect the leftovers onto a new object:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an Object:
+const car = {type:"Fiat", model:"500", color:"white"};
+// Destructure the Object
+let {type, model, color} = car;
+document.getElementById("demo").innerHTML = "The car type is: " + type;</code></pre>
+
+</div>
+
+<hr>
+
+<hr>
+
+<a id="mark_regexp"></a>
+<h2>New JavaScript RegExp Features</h2>
+<p>ECMAScript 2018 added 4 new RegExp features:</p>
+<ul>
+<li>/s (dotAll) Flag</li>
+<li>Unicode Property Escapes (\p{...})</li>
+<li>Lookbehind Assertions (?&lt;=y)x and (?&lt;!y)x</li>
+<li>Named Capture Groups</li>
+</ul>
+
+<hr>
+<a id="mark_regexp_sflag"></a>
+<h1>RegExp /s Flag</h1>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let text = "Line\nLine.";
+let pattern = /Line./gs;
+let result = text.match(pattern);</code></pre>
+
+</div>
+
+<h2>Description</h2>
+<p>The <b>s</b> (dotAll) flag allows the . (dot) metacharacter to match any character,
+including line terminator characters (like \n, \r, \u2028, \u2029).</p>
+<p>Without <b>s</b>, \n does not match line terminators.</p>
+
+<hr>
+<a id="mark_regexp_meta_p"></a>
+<h1>RegExp \p Metacharacter</h1>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let text = "Hello 😄";
+let pattern = /\p{RGI_Emoji}/v;
+let result = pattern.test(text);</code></pre>
+
+</div>
+
+<h2>Description</h2>
+<p>The \p{Unicode Property} metacharacter matches any character with a Unicode character property.</p>
+
+<hr>
+<a id="mark_regexp_lookbehind"></a>
+<h1>RegExp Lookbehind</h1>
+<div class="w3-example">
+<h3>Example (?&lt;=y)x</h3>
+<pre class="w3-code"><code class="language-javascript">let text = "Hello W3Schools";
+let pattern = /(?&lt;=Hello )W3Schools/;
+let result = pattern.test(text);</code></pre>
+
+</div>
+
+<h2>Description</h2>
+<p>(?&lt;=y)x matches "x" if "x" is preceded by "y".</p>
+
+<hr>
+<a id="mark_regexp_negative_lookbehind"></a>
+<h1>Negative Lookbehind</h1>
+<div class="w3-example">
+<h3>Example (?&lt;!y)x</h3>
+<pre class="w3-code"><code class="language-javascript">let text = "Hello W3Schools";
+let pattern = /(?&lt;=Hello )W3Schools/;
+let result = pattern.test(text);</code></pre>
+
+</div>
+
+<h2>Description</h2>
+<p>(?&lt;!y)x matches "x" if "x" is NOT preceded by "y".</p>
+
+
+<hr>
+<a id="mark_regexp_named_groups"></a>
+<h1>RegExp Named Capturing Groups</h1>
+<div class="w3-example">
+<h3>Example (?&lt;name&gt;...)</h3>
+<pre class="w3-code"><code class="language-javascript">const text = "Name: John Doe";
+// Using named capturing groups
+const regex = /(?&lt;firstName&gt;\w+) (?&lt;lastName&gt;\w+)/;
+const match = text.match(regex);
+let fName = match.groups.firstName;
+let lName = match.groups.lastName;</code></pre>
+
+</div>
+
+<h2>Explained</h2>
+<ul>
+<li>(?&lt;firstName&gt;\w+) captures a word and labels it firstName</li>
+<li>(?&lt;lastName&gt;\w+) does the same for lastName</li>
+<li>text.match() returns an array with a groups property</li>
+<li>match.groups() returns an object:<br>
+{firstName:"John", lastName:"Doe" }</li>
+</ul>
+
+<p>When using a regular expression with capturing groups, the match() method of a string
+returns a result array that includes a groups property.
+This groups property is an object that holds the matches for named capturing groups.</p>
+
+<hr>
+<a id="mark_shared_memory"></a>
+<h2>JavaScript Threads</h2>
+<p>In JavaScript you use the Web Workers API to create threads.</p>
+<p>Worker threads are used to execute code in the background so that the main program can continue execution.</p>
+<p>Worker threads run simultaneously with the main program. Simultaneous execution of different parts
+of a program can be time-saving.</p>
+<h2>JavaScript Shared Memory</h2>
+<p>Shared memory is a feature that allows threads (different parts of a program) to
+access and update the same data in the same memory.</p>
+<p>Instead of passing data between threads, you can pass a SharedArrayBuffer object
+that points to the memory where data is saved.</p>
+<h2>SharedArrayBuffer</h2>
+<p>A SharedArrayBuffer object represents a fixed-length raw binary data buffer similar to the ArrayBuffer object.</p>
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_2019.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_2017.html">Next ❯</a>
+</div>
+
+

@@ -1,0 +1,188 @@
+
+      
+
+<h1>JavaScript HTML DOM Elements (Nodes)</h1>
+
+<hr>
+<!--start-->
+<p class="intro">Adding and Removing Nodes (HTML Elements)</p>
+<hr>
+<h2>Creating New HTML Elements (Nodes)</h2>
+<p>To add a new element to the HTML DOM, you must create the element (element node) first, 
+and then append it to an existing element. </p>
+<div class="w3-example">
+<h3>&nbsp;Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;div id="div1"&gt;
+  &lt;p id="p1"&gt;This is a paragraph.&lt;/p&gt;
+  &lt;p id="p2"&gt;This is another paragraph.&lt;/p&gt;
+&lt;/div&gt;
+&lt;script&gt;
+const para = document.createElement("p");
+const node = document.createTextNode("This is new.");
+para.appendChild(node);
+const element = document.getElementById("div1");
+element.appendChild(para);
+&lt;/script&gt;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Example Explained&nbsp;</h2>
+<p>This code creates a new <code class="w3-codespan">&lt;p&gt;</code> element:</p>
+
+<pre class="w3-code"><code class="language-javascript"><div> const para = document.createElement("p");</div></code></pre>
+<p>To add text to the <code class="w3-codespan">&lt;p&gt;</code> element, you must create a text node first. This code creates a text node:</p>
+
+<pre class="w3-code"><code class="language-javascript"><div> const node = document.createTextNode("This is a new paragraph.");</div></code></pre>
+<p>Then you must append the text node to the <code class="w3-codespan">&lt;p&gt;</code> element:</p>
+
+<pre class="w3-code"><code class="language-javascript"><div> para.appendChild(node);</div></code></pre>
+<p>Finally you must append the new element to an existing element.</p>
+<p>This code finds an existing element:</p>
+
+<pre class="w3-code"><code class="language-javascript"><div> const element = document.getElementById("div1");</div></code></pre>
+<p>This code appends the new element to the existing element:</p>
+
+<pre class="w3-code"><code class="language-javascript"><div> element.appendChild(para);</div></code></pre>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>Creating new HTML Elements - insertBefore()</h2>
+<p>The <code class="w3-codespan">appendChild()</code> method in the previous example, appended the new element as 
+the last child of the parent.</p>
+<p>If you don't want that you can use the <code class="w3-codespan">insertBefore()</code> method: </p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;div id="div1"&gt;
+  &lt;p id="p1"&gt;This is a paragraph.&lt;/p&gt;
+  &lt;p id="p2"&gt;This is another paragraph.&lt;/p&gt;
+&lt;/div&gt;
+&lt;script&gt;
+const para = document.createElement("p");
+const node = document.createTextNode("This is new.");
+para.appendChild(node);
+const element = document.getElementById("div1");
+const child = document.getElementById("p1");
+element.insertBefore(para, child);
+&lt;/script&gt;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Removing Existing HTML Elements</h2>
+<p>To remove an HTML element, use the <code class="w3-codespan">remove()</code> 
+method:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;div&gt;
+  &lt;p id="p1"&gt;This is a paragraph.&lt;/p&gt;
+  &lt;p id="p2"&gt;This is another paragraph.&lt;/p&gt;
+&lt;/div&gt;
+&lt;script&gt;
+const elmnt = document.getElementById("p1"); elmnt.remove();
+&lt;/script&gt;</code></pre>
+
+</div>
+<h2>Example Explained&nbsp;</h2>
+<p>The HTML document contains a <code class="w3-codespan">&lt;div&gt;</code> element with two child nodes (two <code class="w3-codespan">&lt;p&gt;</code> 
+elements):</p>
+
+<pre class="w3-code"><code class="language-html"><div> &lt;div&gt;
+  &lt;p id="p1"&gt;This is a paragraph.&lt;/p&gt;
+  &lt;p id="p2"&gt;This is another paragraph.&lt;/p&gt;
+&lt;/div&gt;</div></code></pre>
+<p>Find the element you want to remove:</p>
+
+<pre class="w3-code"><code class="language-javascript"><div> const elmnt = document.getElementById("p1");</div></code></pre>
+<p>Then execute the remove() method on that element:</p>
+
+<pre class="w3-code"><code class="language-javascript"><div> elmnt.remove();</div></code></pre>
+
+<div class="w3-panel ws-warning">
+<p>The <code class="w3-codespan">remove()</code> method does not work in 
+older browsers, see the example below on how to use <code class="w3-codespan">
+removeChild()</code> instead.</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Removing a Child Node</h2>
+
+<p>For browsers that does not support the <code class="w3-codespan">remove()</code> method, you have to find the 
+parent node to remove an element:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;div id="div1"&gt;
+  &lt;p id="p1"&gt;This is a paragraph.&lt;/p&gt;
+  &lt;p id="p2"&gt;This is another paragraph.&lt;/p&gt;
+&lt;/div&gt;
+&lt;script&gt;
+const parent = document.getElementById("div1");
+const child = document.getElementById("p1");
+parent.removeChild(child);
+&lt;/script&gt;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Example Explained&nbsp;</h2>
+<p>This HTML document contains a <code class="w3-codespan">&lt;div&gt;</code> element with two child nodes (two <code class="w3-codespan">&lt;p&gt;</code> 
+elements):</p>
+
+<pre class="w3-code"><code class="language-html"><div> &lt;div id="div1"&gt;
+  &lt;p id="p1"&gt;This is a paragraph.&lt;/p&gt;
+  &lt;p id="p2"&gt;This is another paragraph.&lt;/p&gt;
+&lt;/div&gt;</div></code></pre>
+<p>Find the element with <code class="w3-codespan">id="div1"</code>:</p>
+
+<pre class="w3-code"><code class="language-javascript"><div> const parent = document.getElementById("div1");</div></code></pre>
+<p>Find the <code class="w3-codespan">&lt;p&gt;</code> element with <code class="w3-codespan">id="p1"</code>:</p>
+
+<pre class="w3-code"><code class="language-javascript"><div> const child = document.getElementById("p1");</div></code></pre>
+<p>Remove the child from the parent:</p>
+
+<pre class="w3-code"><code class="language-javascript"><div> parent.removeChild(child);</div></code></pre>
+
+<p>Here is a common workaround: Find the child you want to remove, and use its 
+<code class="w3-codespan">parentNode</code> property to find the parent:</p>
+<pre class="w3-code"><code class="language-javascript"><div> const child = document.getElementById("p1");
+child.parentNode.removeChild(child);</div></code></pre>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Replacing HTML Elements&nbsp;</h2>
+<p>To replace an element to the HTML DOM, use the <code class="w3-codespan">replaceChild()</code> method:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;div id="div1"&gt;
+  &lt;p id="p1"&gt;This is a paragraph.&lt;/p&gt;
+  &lt;p id="p2"&gt;This is another paragraph.&lt;/p&gt;
+&lt;/div&gt;
+&lt;script&gt;
+const para = document.createElement("p");
+const node = document.createTextNode("This is new.");
+para.appendChild(node);
+const parent = document.getElementById("div1");
+const child = document.getElementById("p1");
+parent.replaceChild(para, child);
+&lt;/script&gt;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_htmldom_navigation.html">❮ Previous</a>
+  <a class="w3-right w3-btn" href="js_htmldom_collections.html">Next ❯</a>
+</div>
+
+

@@ -1,0 +1,606 @@
+
+      
+
+<h1>JavaScript Operators Reference</h1>
+
+
+<hr>
+<h2>Complete Operators Reference</h2>
+<h4>Revised July 2025</h4>
+
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Type</th><th>Common Use</th><th>Example</th></tr>
+<tr><td><a href="../jsref/jsref_oper_assignment.html">Assignment</a></td>
+<td>Assigns values to variables</td><td>x = 5</td></tr>
+<tr><td><a href="../jsref/jsref_oper_arithmetic.html">Arithmetic</a></td>
+<td>Performs arithmetic between variables</td><td>x = y + 2</td></tr>
+<tr><td><a href="../jsref/jsref_oper_comparison.html">Comparison</a></td>
+<td>Compares variables</td><td>x &gt; 8</td></tr>
+<tr><td><a href="../jsref/jsref_oper_logical.html">Logical</a></td>
+<td>Defines the logic between variables</td><td>(x&gt;0 || x&gt;0)</td></tr>
+<tr><td><a href="../jsref/jsref_oper_bitwise.html">Bitwise</a></td>
+<td>Performs bitwise operatins on 32 bits numbers</td><td>	x = 5 &amp; 1</td></tr>
+<tr><td><a href="../jsref/jsref_oper_misc.html">Misc</a>
+</td><td>Miscellaneous operators</td><td>void(0)</td></tr>
+</tbody></table></div>
+</div> 
+
+<hr>
+<h2>JavaScript Assignment Operators</h2>
+<p>Assignment operators assign values to JavaScript variables.</p>
+<p>Given that x = 10 and y = 5, the table below explains the assignment operators:</p>
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate">
+<tbody><tr>
+<th>Oper</th>
+<th>Name / Link</th>
+<th>Example</th>
+<th>Same As</th>
+<th>Result</th>
+
+</tr>
+<tr>
+<td>=</td>
+<td><a href="../jsref/jsref_oper_assign_simple.html">Simple</a></td>
+<td>x = y</td>
+<td>x = y</td>
+<td>x = 5</td>
+
+</tr>
+<tr>
+<td>+=</td>
+<td><a href="../jsref/jsref_oper_assign_add.html">Add</a></td>
+<td>x += y</td>
+<td>x = x + y</td>
+<td>x = 15</td>
+
+</tr>
+<tr>
+<td>-=</td>
+<td><a href="../jsref/jsref_oper_assign_subtract.html">Subtract</a></td>
+<td>x -= y</td>
+<td>x = x - y</td>
+<td>x = 5</td>
+
+</tr>
+<tr>
+<td>*=</td>
+<td><a href="../jsref/jsref_oper_assign_multiply.html">Multiply</a></td>
+<td>x *= y</td>
+<td>x = x * y</td>
+<td>x = 50</td>
+
+</tr>
+<tr>
+<td>/=</td>
+<td><a href="../jsref/jsref_oper_assign_divide.html">Divide</a></td>
+<td>x /= y</td>
+<td>x = x / y</td>
+<td>x = 2</td>
+
+</tr>
+<tr>
+<td>%=</td>
+<td><a href="../jsref/jsref_oper_assign_remainder.html">Remainder</a></td>
+<td>x %= y</td>
+<td>x = x % y</td>
+<td>x = 0</td>
+
+</tr>
+<tr>
+<td>:</td>
+<td><a href="../jsref/jsref_oper_assign_colon.html">Colon</a></td>
+<td>x: 45</td>
+<td>x = 45</td>
+<td>x = 45</td>
+
+</tr>
+</tbody></table></div>
+</div>
+
+<h2>Logical Assignment Operators</h2>
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate">
+<tbody><tr>
+<th>Oper</th>
+<th>Name / Link</th>
+<th>Example</th>
+<th>Result</th>
+</tr>
+
+<tr>
+<td>&amp;&amp;=</td>
+<td><a href="../jsref/jsref_oper_assign_and.html">AND</a></td>
+<td>true &amp;&amp;= 10</td>
+<td>x = 10</td>
+</tr>
+
+<tr>
+<td>||=</td>
+<td><a href="../jsref/jsref_oper_assign_or.html">OR</a></td>
+<td>false ||= 10</td>
+<td>x = 10</td>
+
+</tr>
+<tr>
+<td>??=</td>
+<td><a href="../jsref/jsref_oper_assign_nullish.html">Nullish</a></td>
+<td>null ??= 10</td>
+<td>x = 10</td>
+</tr>
+
+</tbody></table></div>
+</div>
+
+
+<div class="ws-note">
+<h2>Learn More:</h2>
+<p class="w3-large">Study our <a href="js_assignment.html"> JavaScript Assignment Tutorial</a>.
+</p></div>
+
+<hr>
+<h2>JavaScript Arithmetic Operators</h2>
+<p>Arithmetic operators are used to perform arithmetic between variables and/or values.</p>
+<p>Given that <b>y = 5</b>, the table below explains the arithmetic operators: </p>
+
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate">
+<tbody><tr>
+<th>Oper</th>
+<th>Name / Link</th>
+<th>Example</th>
+<th>Results</th>
+</tr>
+
+<tr>
+<td>+</td>
+<td><a href="../jsref/jsref_oper_addition.html">Addition</a></td>
+<td>x = y + 2</td>
+<td>y=5, x=7</td>
+</tr>
+
+<tr>
+<td>-</td>
+<td><a href="../jsref/jsref_oper_subtraction.html">Subtraction</a></td>
+<td>x = y - 2</td>
+<td>y=5, x=3</td>
+</tr>
+
+<tr>
+<td>*</td>
+<td><a href="../jsref/jsref_oper_multiplication.html">Multiplication</a></td>
+<td>x=y*2</td>
+<td>y=5, x=10</td>
+</tr>
+
+<tr>
+<td>/</td>
+<td><a href="../jsref/jsref_oper_division.html">Division</a></td>
+<td>x = y / 2</td>
+<td>y=5, x=2.5</td>
+</tr>
+
+<tr>
+<td>**</td>
+<td><a href="../jsref/jsref_oper_exponentiation.html">Exponentiation</a></td>
+<td>x = y ** 2</td>
+<td>y=5, x=25</td>
+</tr>
+
+<tr>
+<td>%</td>
+<td><a href="../jsref/jsref_oper_remainder.html">Remainder</a></td>
+<td>x = y % 2</td>
+<td>y=5, x=1</td>
+</tr>
+
+<tr>
+<td>++</td>
+<td><a href="../jsref/jsref_oper_increment.html">Increment</a></td>
+<td>x = y++</td>
+<td>y=6, x=5</td>
+</tr>
+
+<tr>
+<td>++</td>
+<td><a href="../jsref/jsref_oper_increment.html">Increment</a></td>
+<td>x = ++y</td>
+<td>y=6, x=6</td>
+</tr>
+
+<tr>
+<td>--</td>
+<td><a href="../jsref/jsref_oper_decrement.html">Decrement</a></td>
+<td>x = y--</td>
+<td>y=4, x=5</td>
+</tr>
+
+<tr>
+<td>--</td>
+<td><a href="../jsref/jsref_oper_decrement.html">Decrement</a></td>
+<td>x = --y</td>
+<td>y=4, x=4</td>
+</tr>
+
+<tr>
+<td>+</td>
+<td><a href="../jsref/jsref_oper_unary_plus.html">Unary Plus</a></td>
+<td>x= +y</td>
+<td>x=5</td>
+</tr>
+
+<tr>
+<td>-</td>
+<td><a href="../jsref/jsref_oper_unary_negation.html">Unary Negation</a></td>
+<td>x= -y</td>
+<td>x=-5</td>
+</tr>
+
+</tbody></table></div>
+</div>
+
+
+<div class="ws-note">
+<h2>Learn More:</h2>
+<p class="w3-large">Study our <a href="js_arithmetic.html">
+JavaScript Arithmetic Tutorial</a>.</p>
+</div>
+
+<hr>
+<h2>JavaScript String Operators</h2>
+<p>The + operator, and the += operator can also be used to concatenate (add) 
+strings.</p>
+<p>Given that <b>t1 = "Good "</b>, <b>t2 = "Morning"</b>, 
+<strong>and t3 = ""</strong>, the table below explains the operators:</p>
+
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate">
+<tbody><tr>
+<th>Oper</th>
+<th>Example</th>
+<th>t1</th>
+<th>t2</th>
+<th>t3</th>
+<th class="w3-center"></th>
+</tr>
+<tr>
+<td>+</td>
+<td>t3 = t1 + t2</td>
+<td>"Good "</td>
+<td>"Morning"</td>
+<td>&nbsp;"Good Morning"</td>
+<td></td>
+</tr>
+<tr>
+<td>+=</td>
+<td>t1 += t2</td>
+<td>"Good Morning"</td>
+<td>"Morning"</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table></div>
+</div>
+
+<div class="ws-note">
+<h2>Learn More:</h2>
+<p class="w3-large">Study our <a href="js_strings.html"> JavaScript Strings Tutorial</a>.</p>
+</div>
+
+<hr>
+<h2>Javascript Comparison Operators</h2>
+<p>Comparison operators are used in logical statements to determine equality or difference between variables or values. </p>
+<p>Given that <b>x = 5</b>, the table below explains the comparison operators:</p>
+
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate">
+<tbody><tr>
+<th>Oper</th>
+<th>Name / Link</th>
+<th>Comparing</th>
+<th>Returns</th>
+</tr>
+
+<tr>
+<td>==</td>
+<td><a href="../jsref/jsref_oper_equal.html">Equal to</a></td>
+<td>x == 8</td>
+<td>false</td>
+</tr>
+
+<tr>
+<td>==</td>
+<td><a href="../jsref/jsref_oper_equal.html">Equal to</a></td>
+<td>x == 5</td>
+<td>true</td>
+</tr>
+
+<tr>
+<td>===</td>
+<td><a href="../jsref/jsref_oper_strict_equal.html">Strict Equal</a></td>
+<td>x === "5"</td>
+<td>false</td>
+</tr>
+
+<tr>
+<td>===</td>
+<td><a href="../jsref/jsref_oper_strict_equal.html">Strict Equal</a></td>
+<td>x === 5</td>
+<td>true</td>
+</tr>
+
+<tr>
+<td>!=</td>
+<td><a href="../jsref/jsref_oper_not_equal.html">Not Equal</a></td>
+<td>x != 8</td>
+<td>true</td>
+
+</tr>
+<tr>
+<td>!==</td>
+<td><a href="../jsref/jsref_oper_strict_not_equal.html">Strict not Equal</a></td>
+<td>x !== "5"</td>
+<td>true</td>
+</tr>
+
+<tr>
+<td>!==</td>
+<td><a href="../jsref/jsref_oper_strict_not_equal.html">Strict not Equal</a></td>
+<td>x !== 5</td>
+<td>false</td>
+</tr>
+
+<tr>
+<td>&gt;</td>
+<td><a href="../jsref/jsref_oper_greater_than.html">Greater than</a></td>
+<td>x &gt; 8</td>
+<td>false</td>
+</tr>
+
+<tr>
+<td>&lt;</td>
+<td><a href="../jsref/jsref_oper_less_than.html">Less than</a></td>
+<td>x &lt; 8</td>
+<td>true</td>
+</tr>
+
+<tr>
+<td>&gt;=</td>
+<td><a href="../jsref/jsref_oper_greater_equal.html">Greater or Equal</a></td>
+<td>x &gt;= 8</td>
+<td>false</td>
+</tr>
+
+<tr>
+<td>&lt;=</td>
+<td><a href="../jsref/jsref_oper_less_equal.html">Less or Equal</a></td>
+<td>x &lt;= 8</td>
+<td><em>true</em></td>
+
+</tr>
+</tbody></table></div>
+</div>
+
+
+
+<div class="ws-note">
+<h2>Learn More:</h2>
+<p class="w3-large">Study our <a href="js_comparisons.html">JavaScript Comparisons Tutorial</a>.</p>
+</div>
+
+<hr>
+<h2>JavaScript Logical Operators</h2>
+<p>Logical operators are used to determine the logic between variables or values.</p>
+<p>Given that <b>x = 6 and y = 3</b>, the table below explains the logical operators: </p>
+
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate">
+<tbody><tr>
+<th>Oper</th>
+<th>Name / Link</th>
+<th>Example</th>
+
+</tr>
+<tr>
+<td>&amp;&amp;</td>
+<td><a href="../jsref/jsref_oper_and.html">AND</a></td>
+<td> (x &lt; 10 &amp;&amp; y &gt; 1)</td>
+
+</tr>
+<tr>
+<td>||</td>
+<td><a href="../jsref/jsref_oper_or.html">OR</a></td>
+<td>(x === 5 || y === 5)</td>
+
+</tr>
+<tr>
+<td>!</td>
+<td><a href="../jsref/jsref_oper_not.html">NOT</a></td>
+<td> !(x === y)</td>
+
+</tr>
+<tr>
+<td>??</td>
+<td><a href="../jsref/jsref_oper_nullish.html">Nullish Coalescing</a></td>
+<td>x ?? y</td>
+
+</tr>
+</tbody></table></div>
+</div>
+<div class="ws-note">
+<h2>Learn More:</h2>
+<p class="w3-large">Study our <a href="js_logical.html">
+JavaScript Logical Tutorial</a>.</p>
+</div>
+
+<hr>
+<h2>JavaScript Bitwise Operators</h2>
+<p>Bit operators work on 32 bits numbers.
+Any numeric operand in the operation is converted into a 32 bit number.
+The result is converted back to a JavaScript number.</p>
+
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate">
+<tbody><tr>
+<th>Oper</th>
+<th>Name</th>
+<th>Example</th>
+<th>Same as</th>
+<th>Result</th>
+<th>Dec</th>
+</tr>
+<tr>
+
+<td>&amp;</td>
+<td><a href="../jsref/jsref_oper_bitwise_and.html">AND</a></td>
+<td>x = 5 &amp; 1</td>
+<td>0101 &amp; 0001</td>
+<td>0001</td>
+<td>1</td>
+</tr>
+<tr>
+
+<td>|</td>
+<td><a href="../jsref/jsref_oper_bitwise_or.html">OR</a></td>
+<td>x = 5 | 1</td>
+<td>0101 | 0001</td>
+<td>0101</td>
+<td>5</td>
+</tr>
+<tr>
+
+<td>~</td>
+<td><a href="../jsref/jsref_oper_bitwise_not.html">NOT</a></td>
+<td>x = ~ 5</td>
+<td>~0101</td>
+<td>1010</td>
+<td>10</td>
+</tr>
+<tr>
+
+<td>^</td>
+<td><a href="../jsref/jsref_oper_bitwise_xor.html">XOR</a></td>
+<td>x = 5 ^ 1</td>
+<td>0101 ^ 0001</td>
+<td>0100</td>
+<td>4</td>
+</tr>
+
+<tr>
+<td>&lt;&lt;</td>
+<td><a href="../jsref/jsref_oper_bitwise_left.html">Left Shift</a></td>
+<td>x = 5 &lt;&lt; 1</td>
+<td>0101 &lt;&lt; 1</td>
+<td>1010</td>
+<td>10</td>
+</tr>
+
+<tr>
+<td>&gt;&gt;&gt;</td>
+<td><a href="../jsref/jsref_oper_bitwise_right.html">Right Shift</a></td><td>x = 5 &gt;&gt;&gt; 1</td>
+<td>0101 &gt;&gt;&gt; 1</td>
+<td>0010</td>
+<td>2</td>
+</tr>
+
+<tr>
+<td>&gt;&gt;</td>
+<td><a href="../jsref/jsref_oper_bitwise_right_signed.html">Signed Right</a></td>
+<td>x = 5 &gt;&gt; 1</td>
+<td>0101 &gt;&gt; 1</td>
+<td>0010</td>
+<td>2</td>
+</tr>
+
+</tbody></table></div>
+</div>
+
+
+
+<div class="ws-note">
+<h2>Learn More:</h2>
+<p class="w3-large">Study our <a href="js_bitwise.html"> JavaScript Bitwise Tutorial</a>.</p>
+</div>
+<hr>
+<h2>Miscellaneous JavaScript Operators</h2>
+<p>Some miscellaneous JavaScript operators are described below.</p>
+
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr><th>Operator</th><th>Name / Link</th><th>Example</th></tr>
+<tr><td>:</td><td><a href="../jsref/jsref_oper_colon.html">Colon</a></td>
+<td>age : 45</td>
+
+</tr><tr><td>.</td>
+<td>Member of</td><td>person.age</td>
+</tr>
+
+<tr><td>[ ]</td>
+<td>Member of</td><td>person["age"]</td>
+</tr>
+
+<tr><td>?.</td>
+<td><a href="../jsref/jsref_oper_optional.html">Optional Chaining</a></td><td>x ?. y</td>
+</tr>
+
+<tr><td>...</td>
+<td><a href="../jsref/jsref_oper_spread.html">Spread</a></td><td>...myArray</td>
+</tr>
+
+<tr><td>( ) ? x : y</td>
+<td><a href="../jsref/jsref_oper_conditional.html">Ternary Conditional</a></td><td>(z &lt; 18) ? x : y</td>
+</tr>
+
+<tr><td>( )</td>
+<td>Expression</td><td>( x + y )</td>
+</tr>
+
+<tr><td>( )</td>
+<td>Function Call</td><td>myFunction()</td>
+</tr>
+
+<tr><td>=&gt;</td>
+<td><a href="../jsref/jsref_oper_arrow.html">Arrow Function</a></td><td>(a, b) =&gt; a + b</td>
+</tr>
+
+<tr><td>new</td>
+<td>Constructor</td><td>new Date()</td>
+</tr>
+
+<tr><td>delete</td>
+<td><a href="../jsref/jsref_oper_delete.html">Delete</a></td><td>delete person.age</td>
+</tr>
+
+<tr><td>in</td>
+<td><a href="../jsref/jsref_oper_relational.html">Relational in</a></td><td>"age" in person</td>
+</tr>
+
+<tr><td>instanceof</td>
+<td><a href="../jsref/jsref_oper_instanceof.html">Instance of</a></td><td>x instanceof Array</td>
+</tr>
+
+<tr><td>typeof</td>
+<td><a href="../jsref/jsref_oper_typeof.html">Type of</a></td><td>typeof "John"</td>
+</tr>
+
+<tr><td>void</td>
+<td><a href="../jsref/jsref_oper_void.html">Void</a></td><td>void(0)</td>
+</tr>
+
+<tr><td>yield</td>
+<td>Delegate</td><td>yield.x</td>
+</tr>
+
+</tbody></table></div>
+</div> 
+
+
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_reserved.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_precedence.html">Next ❯</a>
+</div>
+
+

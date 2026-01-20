@@ -1,0 +1,117 @@
+
+      
+
+<h1>JavaScript Mouse Events</h1>
+
+
+<!--start-->
+<div class="ws-info">
+<p class="w3-large"><b>Mouse Events</b> happen when the user interacts with the mouse.</p>
+<p><b>Common Mouse Events:</b></p>
+<ul>
+<li>click</li>
+<li>dblclick</li>
+<li>mouseover / mouseout</li>
+<li>mousemove</li>
+<li>mousedown / mouseup</li>
+</ul>
+</div>
+<div class="ws-note">
+<h2>Note</h2>
+<p>Mouse events are crucial for creating interactive web pages and applications,
+triggering specific functions in response to user actions like mouse clicks, scrolls, and movements.</p>
+</div>
+<hr>
+<h3>Mouseover and Mouseout</h3>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;div id="box" style="width:200px;height:100px;padding:16px;border:1px solid #000;"&gt;
+Move mouse over this box
+&lt;/div&gt;
+&lt;script&gt;
+const box = document.getElementById("box");
+// Let box listen for mouseover
+box.addEventListener("mouseover", function () {
+  box.innerHTML = "Mouse is over me!";
+});
+// Let box listen for mouseout
+box.addEventListener("mouseout", function () {
+  box.innerHTML = "Move is out!";
+});
+&lt;/script&gt;</code></pre>
+
+</div>
+
+<hr>
+<h2>Common Mouse Events</h2>
+<ul style="padding-left:20px">
+<li><p><b>click</b><br>
+Fires after both a mousedown and mouseup event occur on the same element with the main mouse button (usually the left).</p></li>
+
+<li><p><b>dblclick</b><br>
+Fires after two rapid clicks on the same element.</p></li>
+
+<li><p><b>mousedown / mouseup</b><br>
+These events fire when a mouse button is pressed down (mousedown) or released (mouseup) over an element, respectively.</p></li>
+
+<li><p><b>mousemove</b><br>
+Fires continuously as the mouse pointer moves over an element, providing positional information (coordinates) about the cursor.</p></li>
+
+<li><p><b>mouseover</b><br>
+Fires when the pointer moves over an element (or one of its children).</p></li>
+
+<li><p><b>mouseout</b><br>
+Fires when the pointer leaves an element.</p></li>
+
+<li><p><b>mouseenter</b><br>
+Similar to mouseover, but fire when the pointer enters an element, not its descendants,
+making it more sensible for use cases like CSS :hover behavior.</p></li>
+
+<li><p><b>mouseleave</b><br>
+Similar to mouseout, but fire when the pointer leaves an element, not its descendants,
+making it more sensible for use cases like CSS :hover behavior.</p></li>
+
+<li><p><b>contextmenu</b><br>
+Fires when the user attempts to open the context menu, typically by right-clicking.</p></li>
+
+<li><p><b>wheel</b><br>
+Fires when the mouse wheel is rotated, commonly used for scrolling or zooming functionality.</p></li>
+
+<li><p><b>drag events</b><br>
+A series of events (dragstart, dragend, dragover, etc.) used for implementing drag-and-drop interfaces.</p></li>
+</ul>
+
+<hr>
+
+<hr>
+
+<h2>Mouse Position</h2>
+<p>The MouseEvent interface provides an <b>event object</b> which contains useful properties like pointer coordinates,
+which mouse button are pressed, and more.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Using <code class="w3-codespan">event.clientX</code> and <code class="w3-codespan">event.clientY</code></p>
+<pre class="w3-code"><code class="language-html">&lt;p id="demo"&gt;Move the mouse in this window!&lt;/p&gt;
+&lt;script&gt;
+// Let document listen for mousemove
+document.addEventListener("mousemove", function (event) {
+  document.getElementById("demo").innerHTML =
+  "X: " + event.clientX + " Y: " + event.clientY;
+});
+&lt;/script&gt;</code></pre>
+
+</div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>A For modern, device independent input handling that includes touch and pen, developers often use the newer
+<a href="js_api_pointer_events.html">Pointer Events API</a>.</p>
+</div>
+
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_events.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_events_keyboard.html">Next ❯</a>
+</div>
+
+

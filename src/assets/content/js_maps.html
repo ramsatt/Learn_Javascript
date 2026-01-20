@@ -1,0 +1,198 @@
+
+      
+
+<h1>JavaScript Maps</h1>
+
+<!--start-->
+<div class="ws-info">
+<h2>The Map Object</h2>
+<p>A <b>JavaScript Map</b> is an object that can store collections of key-value pairs,
+similar to a <b>dictionary</b> in other programming languages.</p>
+<p>Maps differ from standard objects in that <b>keys can be of any data type</b>.</p>
+</div>
+
+<h2>Map Characteristics</h2>
+<ul>
+<li><p>
+<b>Key Types</b><br>
+Map keys can be any type (strings, numbers, objects, etc).
+</p></li>
+<li><p>
+<b>Insertion Order</b><br>
+The Map remembers the original insertion order of the keys.
+</p></li>
+<li><p><b>Size</b> <br>
+The number of items in a Map is easily retrieved using the size property.
+</p></li>
+<li><p><b>Performance</b><br>
+Maps are optimized for frequent additions and removals of key-value pairs.
+</p></li>
+<li><p><b>Iteration</b><br>
+Maps are iterable, allowing for direct use of for...of loops or methods like forEach().</p><p> 
+</p></li>
+<li><p><b>Iteration Order</b><br>
+The original order is preserved during iteration.</p><p> 
+</p></li>
+</ul>
+<hr>
+<div class="ws-note">
+<h2>Note</h2>
+<p>Maps are similar to both Objects (unique key/value collection) and Arrays (ordered values collection).</p>
+<p>But if you look close, Maps are most similar to Objects.</p>
+</div>
+<hr>
+<h2>How to Create a Map</h2>
+<p>You create a JavaScript Map by:</p>
+<ul>
+<li>Create a new Map and add elements with <code class="w3-codespan">Map.set()</code></li>
+<li>Passing an existing Array to the <code class="w3-codespan">new Map()</code> constructor</li>
+</ul>
+
+<div class="w3-example">
+<h3>Examples</h3>
+<p>Create a new Map and add elements with <code class="w3-codespan">Map.set()</code></p>
+
+<pre class="w3-code"><code class="language-javascript">// Create an empty Map
+const fruits = new Map();
+// Set Map Values
+fruits.set("apples", 500);
+fruits.set("bananas", 300);
+fruits.set("oranges", 200);</code></pre>
+
+
+
+
+<p>Pass an Array to the <code class="w3-codespan">new Map()</code> constructor:</p>
+<pre class="w3-code"><code class="language-javascript">// Create a Map
+const fruits = new Map([
+  ["apples", 500],
+  ["bananas", 300],
+  ["oranges", 200]
+]);</code></pre>
+
+</div>
+<hr>
+
+<h2>Adding Map Values</h2>
+<p>You can add elements to a Map with the <code class="w3-codespan">set()</code> method:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">fruits.set("mangos", 100);</code></pre>
+
+</div>
+
+<hr>
+<h2>Changing Map Values</h2>
+<p>The <code class="w3-codespan">set()</code> method can also be used to change existing Map values:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">fruits.set("apples", 200);</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The get() Method</h2>
+<p>The <code class="w3-codespan">get()</code> method gets the value of a key in a Map:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">fruits.get("apples");    // Returns 500</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>Maps are Objects</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Returns object:
+typeof fruits;</code></pre>
+
+</div>
+
+<p><code class="w3-codespan">instanceof</code> Map returns true:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Returns true:
+fruits instanceof Map;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>JavaScript Objects vs Maps</h2>
+<h4>Differences between JavaScript Objects and Maps:</h4>
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr><th>Object</th><th>Map</th></tr>
+<tr>
+<td>Not directly iterable</td>
+<td>Directly iterable</td></tr>
+<tr>
+<td>Do not have a size property</td>
+<td>Have a size property</td></tr>
+<tr>
+<td>Keys must be Strings (or Symbols)</td>
+<td>Keys can be any datatype</td></tr>
+<tr>
+<td>Keys are not well ordered</td>
+<td>Keys are ordered by insertion</td></tr>
+<tr>
+<td>Have default keys</td>
+<td>Do not have default keys</td></tr>
+</tbody></table></div>
+<!--stop-->
+<hr>
+<div class="ws-note">
+<h2>Learn More:</h2>
+<p class="w3-large"><a href="js_map_methods.html">JavaScript Map Methods</a></p>
+<p class="w3-large"><a href="js_maps_weak.html">JavaScript Weak Maps</a></p>
+<p class="w3-large"><a href="js_map_reference.html">JavaScript Map Reference</a></p>
+<p class="w3-large"><a href="js_sets.html">JavaScript Sets</a></p>
+</div>
+
+<hr>
+<h2>Browser Support</h2>
+<p><code class="w3-codespan">Map</code> is an <a href="js_es6.html">ES6  feature</a>.</p>
+<p>ES6 is fully supported in all modern browsers since June 2017:</p>
+
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr style="height:50px">
+    <th style="width:20%;" class="bsChrome" title="Chrome"></th>
+    <th style="width:20%;" class="bsEdge" title="Edge"></th>
+    <th style="width:20%;" class="bsFirefox" title="Firefox"></th>
+    <th style="width:20%;" class="bsSafari" title="Safari"></th>
+    <th style="width:19.9%;" class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>51</td>
+    <td>Edge<br>15</td>
+    <td>Firefox<br>54</td>
+    <td>Safari<br>10</td>
+    <td>Opera<br>38</td>
+  </tr>
+  <tr>
+    <td>May 2016</td>
+    <td>Apr 2017</td>
+    <td>Jun 2017</td>
+    <td>Sep 2016</td>
+    <td>Jun 2016</td>
+  </tr>
+</tbody></table></div>
+</div>
+
+
+<hr>
+
+<hr>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_set_reference.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_map_methods.html">Next ❯</a>
+</div>
+
+

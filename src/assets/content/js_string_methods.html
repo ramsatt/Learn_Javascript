@@ -1,0 +1,890 @@
+
+      
+
+<h1>JavaScript String Methods</h1>
+
+<!--start-->
+<div class="ws-info">
+<h2>Basic String Methods</h2>
+<p>Javascript strings are primitive and immutable:
+All string methods produce a new string without altering the original string.</p>
+<div bclass="w3-stretch">
+<div class="table-responsive-wrapper"><table class="w3-table">
+<tbody><tr>
+<td>
+<a href="#mark_length">String length</a><br>
+<a href="#mark_charat">String charAt()</a><br>
+<a href="#mark_charcodeat">String charCodeAt()</a><br>
+<a href="#mark_codepointat">String codePointAt()</a><br>
+<a href="#mark_concat">String concat()</a><br>
+<a href="#mark_at">String at()</a><br>
+<a href="#mark_propertyaccess">String [ ]</a><br>
+<a href="#mark_slice">String slice()</a><br>
+<a href="#mark_substring">String substring()</a><br>
+<a href="#mark_substr">String substr()</a><br>
+<a href="#mark_touppercase">String toUpperCase()</a><br>
+<a href="#mark_tolowercase">String toLowerCase()</a><br>
+</td>
+<td>
+<a href="#mark_iswellformed">String isWellFormed()</a><br>
+<a href="#mark_towellformed">String toWellFormed()</a><br>
+<a href="#mark_trim">String trim()</a><br>
+<a href="#mark_trimstart">String trimStart()</a><br>
+<a href="#mark_trimend">String trimEnd()</a><br>
+<a href="#mark_padstart">String padStart()</a><br>
+<a href="#mark_padend">String padEnd()</a><br>
+<a href="#mark_repeat">String repeat()</a><br>
+<a href="#mark_replace">String replace()</a><br>
+<a href="#mark_replaceall">String replaceAll()</a><br>
+<a href="#mark_split">String split()</a><br>
+</td>
+</tr>
+</tbody></table></div>
+</div>
+</div>
+<div class="ws-note">
+<h2>See Also:</h2>
+<a href="js_strings.html">String Tutorial</a><br>
+<a href="js_string_search.html">String Search</a><br>
+<a href="js_string_templates.html">String Templates</a><br>
+<a href="js_string_reference.html">String Reference</a><br>
+</div>
+<!--stop-->
+<!--start-->
+<a id="mark_length"></a>
+<h2>JavaScript String Length</h2>
+<p>The <code class="w3-codespan">length</code> property returns the length of a string:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+let length = text.length;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<a id="propertyaccess"></a>
+<h2>Extracting String Characters</h2>
+<p>There are 4 methods for extracting string characters:</p>
+<ul>
+  <li>The <code class="w3-codespan">at(<em>position</em>)</code> Method</li>
+  <li>The <code class="w3-codespan">charAt(<em>position</em>)</code> Method</li>
+  <li>The <code class="w3-codespan">charCodeAt(<em>position</em>)</code> Method</li>
+  <li>Using property access [] like in arrays</li>
+</ul>
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_charat"></a>
+<h2>JavaScript String charAt()</h2>
+<p>The <code class="w3-codespan">charAt()</code> method returns the character at a specified 
+index (position) in a string:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let text = "HELLO WORLD";
+let char = text.charAt(0);</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_charcodeat"></a>
+<h2>JavaScript String charCodeAt()</h2>
+<p>The <code class="w3-codespan">charCodeAt()</code> method returns the code of the character 
+at a specified index in a string:</p>
+<p>The method returns a UTF-16 code (an integer between 0 and 65535).</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let text = "HELLO WORLD";
+let char = text.charCodeAt(0);</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_codepointat"></a>
+<h2>JavaScript codePointAt()</h2>
+<div class="w3-example">
+<h3>Examples</h3>
+<p>Get code point value at the first position in a string:</p>
+<pre class="w3-code"><code class="language-javascript">let text = "HELLO WORLD";
+let code = text.codePointAt(0);</code></pre>
+
+</div>
+
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_at"></a>
+<h2>JavaScript String at()</h2>
+
+<p><a href="js_2022.html">ES2022</a> introduced the string method <code class="w3-codespan">at()</code>:</p>
+
+<div class="w3-example">
+<h3>Examples</h3>
+<p>Get the third letter of name:</p>
+<pre class="w3-code"><code class="language-javascript">const name = "W3Schools";
+let letter = name.at(2);</code></pre>
+
+<p>Get the third letter of name:</p>
+<pre class="w3-code"><code class="language-javascript">const name = "W3Schools";
+let letter = name[2];</code></pre>
+
+</div>
+<p>The <code class="w3-codespan">at()</code> method returns the character at a specified index (position) in a string.</p>
+<p>The <code class="w3-codespan">at()</code> method is supported in all modern browsers since March 2022:</p>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>The <code class="w3-codespan">at()</code> method is a new addition to JavaScript.</p>
+<p>It allows the use of negative indexes while <code class="w3-codespan">charAt()</code> do not.</p>
+Now you can use <code class="w3-codespan">myString.at(-2)</code> instead of
+<code class="w3-codespan">charAt(myString.length-2)</code>.
+</div>
+<!--stop-->
+<h2>Browser Support</h2>
+<p><code class="w3-codespan">at()</code> is an ES2022 feature.</p>
+<p><a href="js_2022.html">JavaScript 2022</a> is supported in all modern browsers since March 2022:</p>
+
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr>
+    <th class="bsChrome" title="Chrome"></th>
+    <th class="bsEdge" title="Edge"></th>
+    <th class="bsFirefox" title="Firefox"></th>
+    <th class="bsSafari" title="Safari"></th>
+    <th class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>92</td>
+    <td>Edge<br>92</td>
+    <td>Firefox<br>90</td>
+    <td>Safari<br>15.4</td>
+    <td>Opera<br>78</td>
+  </tr>
+  <tr>
+    <td>Apr 2021</td>
+    <td>Jul 2021</td>
+    <td>Jul 2021</td>
+    <td>Mar 2022</td>
+    <td>Aug 2021</td>
+  </tr>
+</tbody></table></div>
+</div>
+
+<hr>
+<!--start-->
+<a id="mark_propertyaccess"></a>
+<h2>Property Access [ ]</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let text = "HELLO WORLD";
+let char = text[0];</code></pre>
+  
+</div>
+<div class="w3-panel ws-note">
+<h2>Note</h2>
+<p>Property access might be a little <strong>unpredictable:</strong> </p>
+<ul>
+  <li>It makes strings look like arrays (but they are not)</li>
+  <li>If no character is found, [ ] returns undefined, while charAt() returns an empty string.</li>
+  <li>It is read only. str[0] = "A" gives no error (but does not work!)</li>
+</ul>
+</div>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let text = "HELLO WORLD";
+text[0] = "A";    // Gives no error, but does not work</code></pre>
+  
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_concat"></a>
+<h2>JavaScript String concat()</h2>
+<p><code class="w3-codespan">concat()</code> joins two or more strings:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let text1 = "Hello";
+let text2 = "World";
+let text3 = text1.concat(" ", text2);</code></pre>
+
+</div>
+<p>The <code class="w3-codespan">concat()</code> method can be used instead of the plus operator. 
+These two lines do the same:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">text = "Hello" + " " + "World!";
+text = "Hello".concat(" ", "World!");</code></pre>
+</div>
+
+<div class="w3-panel ws-note">
+<h2>Note</h2>
+<p>All string methods return a new string. They don't modify the original string.</p>
+<p>Formally said:</p><p>Strings are immutable: Strings cannot be changed, only replaced.</p>
+</div>
+
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_slice"></a>
+<h2>Extracting String Parts</h2>
+<p>There are 3 methods for extracting a part of a string:</p>
+<ul>
+  <li><code class="w3-codespan">slice(<em>start</em>, <em>end</em>)</code></li>
+  <li><code class="w3-codespan">substring(<em>start</em>, <em>end</em>)</code></li>
+  <li><code class="w3-codespan">substr(<em>start</em>, <em>length</em>)</code></li>
+</ul>
+<!--stop-->
+<hr>
+<!--start-->
+
+<h2>JavaScript String slice()</h2>
+<p><code class="w3-codespan">slice()</code> extracts a part of a string and returns the 
+extracted part in a new string.</p>
+<p>The method takes 2 parameters: start position, and end position (end not included).</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Slice out a portion of a string from position 7 to position 13:</p>
+<pre class="w3-code"><code class="language-javascript">let text = "Apple, Banana, Kiwi";
+let part = text.slice(7, 13);</code></pre>
+
+</div>
+<div class="w3-panel ws-note">
+<h2>Note</h2>
+<p>JavaScript counts positions from zero.</p>
+<p>First position is 0.</p>
+<p>Second position is 1.</p>
+</div>
+
+<div class="w3-example">
+<h3>Examples</h3>
+<p>If you omit the second parameter, the method will slice out the rest of the string:</p>
+<pre class="w3-code"><code class="language-javascript">let text = "Apple, Banana, Kiwi";
+let part = text.slice(7);</code></pre>
+
+<p>If a parameter is negative, the position is counted from the end of the string:</p>
+<pre class="w3-code"><code class="language-javascript">let text = "Apple, Banana, Kiwi";
+let part = text.slice(-12);</code></pre>
+
+
+<p>This example slices out a portion of a string from position -12 to position -6: </p>
+
+<pre class="w3-code"><code class="language-javascript">let text = "Apple, Banana, Kiwi";
+let part = text.slice(-12, -6);</code></pre>
+
+
+</div>
+<!--stop-->
+<hr>
+
+
+<hr>
+<!--start-->
+
+<a id="mark_substring"></a>
+<h2>JavaScript String substring()</h2>
+
+<p><code class="w3-codespan">substring()</code> is similar to <code class="w3-codespan">slice()</code>.</p>
+<p>The difference is that start and end values less than 0 are treated as 0 in
+<code class="w3-codespan">substring()</code>.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let str = "Apple, Banana, Kiwi";
+let part = str.substring(7, 13);</code></pre>
+
+</div>
+
+<p>If you omit the second parameter, <code class="w3-codespan">substring()</code> will slice out the rest of the 
+string.</p>
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_substr"></a>
+<h2>JavaScript String substr()</h2>
+<p><code class="w3-codespan">substr()</code> is similar to <code class="w3-codespan">slice()</code>.</p>
+<p>The difference is 
+that the second parameter specifies the <b>length</b> 
+of the extracted part.</p>
+
+<div class="w3-panel ws-warning">
+<h2>Warning</h2>
+<p>The <code class="w3-codespan">substr()</code> method is removed (deprecated) in the latest JavaScript standard.</p>
+<p>Use <code class="w3-codespan">substring()</code> or <code class="w3-codespan">slice()</code> instead.</p>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let str = "Apple, Banana, Kiwi";
+let part = str.substr(7, 6);</code></pre>
+
+</div>
+
+<p>If you omit the second parameter, <code class="w3-codespan">substr()</code> will slice out the rest of the 
+string.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let str = "Apple, Banana, Kiwi";
+let part = str.substr(7);</code></pre>
+
+</div>
+
+<p>If the first parameter is negative, the position counts from the end of the 
+string.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let str = "Apple, Banana, Kiwi";
+let part = str.substr(-4);</code></pre>
+
+</div>
+
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Converting to Upper and Lower Case</h2>
+<p>A string is converted to upper case with <code class="w3-codespan">toUpperCase()</code>:</p>
+<p>A string is converted to lower case with <code class="w3-codespan">toLowerCase()</code>:</p>
+
+<hr>
+<a id="mark_touppercase"></a>
+<h2>JavaScript String toUpperCase()</h2>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let text1 = "Hello World!";
+let text2 = text1.toUpperCase();</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_tolowercase"></a>
+<h2>JavaScript String toLowerCase()</h2>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let text1 = "Hello World!";       // String
+let text2 = text1.toLowerCase();  // text2 is text1 converted to lower</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_iswellformed"></a>
+<h2>JavaScript String isWellFormed()</h2>
+<p>The <code class="w3-codespan">isWellFormed()</code> method returns <code class="w3-codespan">true</code>
+if a string is well formed.</p>
+<p>Otherwise it returns <code class="w3-codespan">false</code>.</p>
+<p>A string is not well formed if it contains <b>lone surrogates</b>.</p>
+
+<div class="w3-example">
+<h3>Examples</h3>
+<pre class="w3-code"><code class="language-javascript">let text = "Hello world!";
+let result = text.isWellFormed();</code></pre>
+
+<pre class="w3-code"><code class="language-javascript">let text = "Hello World \uD800";
+let result = text.isWellFormed();</code></pre>
+
+</div>
+<div class="ws-note">
+<h2>Lone Surrogates</h2>
+<p>A <b>lone surrogate</b> is a Unicode surrogate code point that is not part of a valid surrogate pair
+used to represent characters in UTF-16 encoding.</p>
+</div>
+
+<hr>
+<a id="mark_towellformed"></a>
+<h2>JavaScript String toWellFormed()</h2>
+<p>The String method <code class="w3-codespan">toWellFormed()</code>
+returns a new string where all "lone surrogates" are replaced with the Unicode replacement character (U+FFFD). 
+
+
+</p><div class="w3-example">
+<h3>Examples</h3>
+<pre class="w3-code"><code class="language-javascript">let text = "Hello World \uD800";
+let result = text.toWellFormed();</code></pre>
+
+</div>
+<!--stopt-->
+<hr>
+<!--start-->
+<a id="mark_trim"></a>
+<h2>JavaScript String trim()</h2>
+<p>The <code class="w3-codespan">trim()</code> method removes whitespace from both sides of a string:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let text1 = "      Hello World!      ";
+let text2 = text1.trim();</code></pre>
+
+</div>
+
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_trimstart"></a>
+<h2>JavaScript String trimStart()</h2>
+<p><a href="js_2019.html">ECMAScript 2019</a> added the String method <code class="w3-codespan">trimStart()</code> to JavaScript.
+</p><p>The <code class="w3-codespan">trimStart()</code> method works like <code class="w3-codespan">trim()</code>, but removes whitespace only from the start of a string.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let text1 = "     Hello World!     ";
+let text2 = text1.trimStart();</code></pre>
+
+</div>
+
+<hr>
+<h2>Browser Support</h2>
+<p><code class="w3-codespan">trimStart()</code> is an <a href="js_2019.html">ECMAScript 2019</a> feature.</p>
+<p>ES2019 is supported in all modern browsers since January 2020:</p>
+
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr>
+    <th class="bsChrome" title="Chrome"></th>
+    <th class="bsEdge" title="Edge"></th>
+    <th class="bsFirefox" title="Firefox"></th>
+    <th class="bsSafari" title="Safari"></th>
+    <th class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>66</td>    
+    <td>Edge<br>79</td>
+    <td>Firefox<br>61</td>
+    <td>Safari<br>12</td>
+    <td>Opera<br>50</td>
+  </tr>
+  <tr>
+    <td>Apr 2018</td>
+    <td>Jan 2020</td>    
+    <td>Jun 2018</td>
+    <td>Sep 2018</td>
+    <td>May 2018</td>
+  </tr>
+</tbody>
+</table></div>
+</div>
+
+
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_trimend"></a>
+<h2>JavaScript String trimEnd()</h2>
+<p><a href="js_2019.html">ECMAScript 2019</a> added the string method <code class="w3-codespan">trimEnd()</code> to JavaScript.
+</p><p>The <code class="w3-codespan">trimEnd()</code> method works like <code class="w3-codespan">trim()</code>, but removes whitespace only from the end of a string.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let text1 = "     Hello World!     ";
+let text2 = text1.trimEnd();</code></pre>
+
+</div>
+
+<hr>
+<h2>Browser Support</h2>
+<p><code class="w3-codespan">trimEnd()</code> is an <a href="js_2019.html">ECMAScript 2019</a> feature.</p>
+<p>ES2019 is supported in all modern browsers since January 2020:</p>
+
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr>
+    <th class="bsChrome" title="Chrome"></th>
+    <th class="bsEdge" title="Edge"></th>
+    <th class="bsFirefox" title="Firefox"></th>
+    <th class="bsSafari" title="Safari"></th>
+    <th class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>66</td>    
+    <td>Edge<br>79</td>
+    <td>Firefox<br>61</td>
+    <td>Safari<br>12</td>
+    <td>Opera<br>50</td>
+  </tr>
+  <tr>
+    <td>Apr 2018</td>
+    <td>Jan 2020</td>    
+    <td>Jun 2018</td>
+    <td>Sep 2018</td>
+    <td>May 2018</td>
+  </tr>
+</tbody>
+</table></div>
+</div>
+
+
+<!--stop-->
+<hr>
+<!--start-->
+
+<h2>JavaScript String Padding</h2>
+<p><a href="js_2017.html">ECMAScript 2017</a> added two new string methods to JavaScript: <code class="w3-codespan">padStart()</code>
+and <code class="w3-codespan">padEnd()</code> to support padding at the beginning and at the end of a string.</p>
+
+<hr>
+<a id="mark_padstart"></a>
+<h2>JavaScript String padStart()</h2>
+<p>The <code class="w3-codespan">padStart()</code> method pads a string from the start.</p>
+<p>It pads a string with another string (multiple times) until it reaches a given length.</p>
+<div class="w3-example">
+<h3>Examples</h3>
+<p>Pad a string with "0" until it reaches the length 4:</p>
+<pre class="w3-code"><code class="language-javascript">let text = "5";
+let padded = text.padStart(4,"0");</code></pre>
+
+<p>Pad a string with "x" until it reaches the length 4:</p>
+<pre class="w3-code"><code class="language-javascript">let text = "5";
+let padded = text.padStart(4,"x");</code></pre>
+
+</div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>The <code class="w3-codespan">padStart()</code> method is a string method.</p> 
+<p>To pad a number, convert the number to a string first.</p>
+<p>See the example below.</p>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let numb = 5;
+let text = numb.toString();
+let padded = text.padStart(4,"0");</code></pre>
+
+</div>
+<!--stop-->
+<h2>Browser Support</h2>
+<p><code class="w3-codespan">padStart()</code> is an <a href="js_2017.html">ECMAScript 2017</a> feature.</p>
+<p>ES2017 is supported in all modern browsers since September 2017:</p>
+
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr>
+    <th class="bsChrome" title="Chrome"></th>
+    <th class="bsEdge" title="Edge"></th>
+    <th class="bsFirefox" title="Firefox"></th>
+    <th class="bsSafari" title="Safari"></th>
+    <th class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>58</td>
+    <td>Edge<br>15</td>
+    <td>Firefox<br>52</td>
+    <td>Safari<br>11</td>
+    <td>Opera<br>45</td>
+  </tr>
+  <tr>
+    <td>Apr 2017</td>
+    <td>Apr 2017</td>
+    <td>Mar 2017</td>
+    <td>Sep 2017</td>
+    <td>May 2017</td>
+  </tr>
+</tbody></table></div>
+</div>
+
+
+<hr>
+<!--start-->
+<a id="mark_padend"></a>
+<h2>JavaScript String padEnd()</h2>
+<p>The <code class="w3-codespan">padEnd()</code> method pads a string from the end.</p>
+<p>It pads a string with another string (multiple times) until it reaches a given length.</p>
+
+<div class="w3-example">
+<h3>Examples</h3>
+<pre class="w3-code"><code class="language-javascript">let text = "5";
+let padded = text.padEnd(4,"0");</code></pre>
+
+<pre class="w3-code"><code class="language-javascript">let text = "5";
+let padded = text.padEnd(4,"x");</code></pre>
+
+</div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>The <code class="w3-codespan">padEnd()</code> method is a string method.</p> 
+<p>To pad a number, convert the number to a string first.</p>
+<p>See the example below.</p>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let numb = 5;
+let text = numb.toString();
+let padded = text.padEnd(4,"0");</code></pre>
+
+</div>
+<!--stop-->
+<h2>Browser Support</h2>
+<p><code class="w3-codespan">padEnd()</code> is an <a href="js_2017.html">ECMAScript 2017</a> feature.</p>
+<p>ES2017 is supported in all modern browsers since September 2017:</p>
+
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr>
+    <th class="bsChrome" title="Chrome"></th>
+    <th class="bsEdge" title="Edge"></th>
+    <th class="bsFirefox" title="Firefox"></th>
+    <th class="bsSafari" title="Safari"></th>
+    <th class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>58</td>
+    <td>Edge<br>15</td>
+    <td>Firefox<br>52</td>
+    <td>Safari<br>11</td>
+    <td>Opera<br>45</td>
+  </tr>
+  <tr>
+    <td>Apr 2017</td>
+    <td>Apr 2017</td>
+    <td>Mar 2017</td>
+    <td>Sep 2017</td>
+    <td>May 2017</td>
+  </tr>
+</tbody></table></div>
+</div>
+
+
+<hr>
+<!--start-->
+<a id="mark_repeat"></a>
+<h2>JavaScript String repeat()</h2>
+<p>The <code class="w3-codespan">repeat()</code> method returns a string with a number of copies of a string.</p>
+<p>The <code class="w3-codespan">repeat()</code> method returns a new string.</p>
+<p>The <code class="w3-codespan">repeat()</code> method does not change the original string.</p>
+<div class="w3-example">
+<h3>Examples</h3>
+<p>Create copies of a text:</p>
+<pre class="w3-code"><code class="language-javascript">let text = "Hello world!";
+let result = text.repeat(2);</code></pre>
+
+<pre class="w3-code"><code class="language-javascript">let text = "Hello world!";
+let result = text.repeat(4);</code></pre>
+
+</div>
+
+
+<h2>Syntax</h2>
+<pre class="w3-code"><code class="language-javascript"><div> <i>string</i>.repeat(<em>count</em>)</div></code></pre>
+<h2>Parameters</h2>
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate">
+<tbody><tr></tr>
+<tr>
+ <td style="width:120px">Parameter</td>
+ <td>Description</td>
+</tr>
+
+<tr>
+<td><em>count</em></td><td>Required.<br>
+The number of copies wanted.</td>
+</tr>
+</tbody></table></div>
+
+<h2>Return Value</h2>
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr>
+ <td style="width:120px">Type</td>
+ <td>Description</td>
+</tr>
+<tr>
+<td>String</td><td>A new string containing the copies.</td>
+</tr>
+</tbody></table></div>
+<!--stop-->
+<hr>
+<h2>Browser Support</h2>
+<p><code class="w3-codespan">repeat()</code> is an <a href="js_es6.html">ES6  feature</a>.</p>
+<p>ES6 is fully supported in all modern browsers since June 2017:</p>
+
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr style="height:50px">
+    <th style="width:20%;" class="bsChrome" title="Chrome"></th>
+    <th style="width:20%;" class="bsEdge" title="Edge"></th>
+    <th style="width:20%;" class="bsFirefox" title="Firefox"></th>
+    <th style="width:20%;" class="bsSafari" title="Safari"></th>
+    <th style="width:19.9%;" class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>51</td>
+    <td>Edge<br>15</td>
+    <td>Firefox<br>54</td>
+    <td>Safari<br>10</td>
+    <td>Opera<br>38</td>
+  </tr>
+  <tr>
+    <td>May 2016</td>
+    <td>Apr 2017</td>
+    <td>Jun 2017</td>
+    <td>Sep 2016</td>
+    <td>Jun 2016</td>
+  </tr>
+</tbody></table></div>
+</div>
+
+
+
+<hr>
+<!--start-->
+<a id="mark_replace"></a>
+<h2>Replacing String Content</h2>
+<p>The <code class="w3-codespan">replace()</code> method replaces a specified value with another 
+value in a string:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let text = "Please visit Microsoft!";
+let newText = text.replace("Microsoft", "W3Schools");</code></pre>
+
+</div>
+
+<div class="w3-panel ws-note">
+<h2>Note</h2>
+<p>The <code class="w3-codespan">replace()</code> method does not change the string it is called on.</p>
+<p>The <code class="w3-codespan">replace()</code> method returns a new string.</p>
+<p>The <code class="w3-codespan">replace()</code> method replaces <strong>only the first</strong> match</p>
+<p>If you want to replace all matches, use a regular expression with the /g flag set. See examples below.</p>
+
+</div>
+
+<p>By default, the <code class="w3-codespan">replace()</code> method replaces <strong>only the first</strong> match:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let text = "Please visit Microsoft and Microsoft!";
+let newText = text.replace("Microsoft", "W3Schools");</code></pre>
+<p>
+
+</p>
+</div>
+
+<p>By default, the <code class="w3-codespan">replace()</code> method is case sensitive. Writing MICROSOFT (with 
+upper-case) will not work:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let text = "Please visit Microsoft!";
+let newText = text.replace("MICROSOFT", "W3Schools");</code></pre>
+<p>
+
+</p>
+</div>
+
+<p>To replace case insensitive, use a <strong>regular expression</strong> with an <code class="w3-codespan">/i</code> flag (insensitive):</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let text = "Please visit Microsoft!";
+let newText = text.replace(/MICROSOFT/i, "W3Schools");</code></pre>
+<p>
+
+</p>
+</div>
+
+<div class="w3-panel ws-note">
+<h2>Note</h2>
+<p>Regular expressions are written without quotes.</p>
+</div>
+
+<p>To replace all matches, use a <strong>regular expression</strong> with a <code class="w3-codespan">/g</code> flag (global match):</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let text = "Please visit Microsoft and Microsoft!";
+let newText = text.replace(/Microsoft/g, "W3Schools");</code></pre>
+<p>
+
+</p>
+</div>
+
+<div class="w3-panel ws-note">
+<h2>Note</h2>
+<p>You will learn a lot more about regular expressions in the chapter <a href="js_regexp.html">JavaScript Regular 
+Expressions</a>.</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_replaceall"></a>
+<h2>JavaScript String ReplaceAll()</h2>
+<p>In 2021, JavaScript introduced the string method <code class="w3-codespan">replaceAll()</code>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">text = text.replaceAll("Cats","Dogs");
+text = text.replaceAll("cats","dogs");</code></pre>
+
+</div>
+<p>The <code class="w3-codespan">replaceAll()</code> method allows you to specify a
+regular expression instead of a string to be replaced.</p>
+<p>If the parameter is a regular expression, the global flag (g) must be set, otherwise
+a TypeError is thrown.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">text = text.replaceAll(/Cats/g,"Dogs");
+text = text.replaceAll(/cats/g,"dogs");</code></pre>
+
+</div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p><code class="w3-codespan">replaceAll()</code> is an <a href="js_2021.html">ES2021</a> feature.</p>
+<p><code class="w3-codespan">replaceAll()</code> does not work in Internet Explorer.</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Converting a String to an Array</h2>
+<div class="w3-panel ws-note">
+<p>If you want to work with a string as an array, you can convert it to an array.</p>
+</div>
+<a id="mark_split"></a>
+<h2>JavaScript String split()</h2>
+<p>A string can be converted to an array with the <code class="w3-codespan">split()</code> method:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">text.split(",")    // Split on commas
+text.split(" ")    // Split on spaces
+text.split("|")    // Split on pipe</code></pre>
+
+</div>
+<p>If the separator is omitted, the returned array will contain the whole string 
+in index [0].</p>
+<p>If the separator is "", the returned array will be an array of single 
+characters:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">text.split("")</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<div class="ws-note">
+<h2>Complete JavaScript Reference</h2>
+<p>For a complete reference to all JavaScript properties and methods, with full descriptions and many examples, go to:</p>
+<p class="w3-large"><a href="../jsref/default.html">W3Schools' Full JavaScript Reference</a>.</p>
+<p>The reference inludes all JavaScript updates from 1999 to 2025.</p>
+</div>
+
+<hr>
+
+<hr>
+
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_string_templates.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_string_search.html">Next ❯</a>
+</div>
+
+

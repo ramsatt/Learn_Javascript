@@ -1,0 +1,174 @@
+
+      
+
+<h1>RegExp Meta Characters</h1>
+
+<!--start-->
+<div class="ws-info">
+<h2>Regular Expression Metacharacters</h2>
+<p><strong>Metacharacters</strong> are characters with a special meaning.</p>
+<p>They can be used to match digts, words, spaces, and more:</p>
+<pre class="w3-code"><code class="language-javascript">// Match words
+const pattern = /\w/;</code></pre>
+</div>
+
+<h2>JavaScript Regex Metacharacters</h2>
+<h4>Revised July 2025</h4>
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Meta</th><th>Description</th></tr>
+<tr><td>\d</td><td>Matches Digits</td></tr>
+<tr><td>\D</td><td>Matches None Digits</td></tr>
+<tr><td>\w</td><td>Matches alphanumeric Word characters</td></tr>
+<tr><td>\W</td><td>Matches None alphanumeric Word characters</td></tr>
+<tr><td>\s</td><td>Matches Spaces</td></tr>
+<tr><td>\S</td><td>Matches None Spaces</td></tr>
+<tr><td>\ddd</td><td>Matches characters by the Octal numer ddd</td></tr>
+<tr><td>\xhh</td><td>Matches characters by the HexadecimaL number hh</td></tr>
+<tr><td>\uhhhh</td><td>Matches Unicode characters by the hex number hhhh</td></tr>
+</tbody></table></div>
+</div>
+
+<hr>
+<h2>RegExp \d (digits) Metacharacter</h2>
+<p>The \d metacharacter matches digits.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>A global search for digits in a string:</p>
+<pre class="w3-code"><code class="language-javascript">let text = "Give 100%!";
+const pattern = /\d/g;
+let result = text.match(pattern);</code></pre>
+<p>
+</p>
+</div>
+
+<hr>
+<h2>RegExp \D Metacharacter</h2>
+<p>The \D metacharacter matches non-digit characters.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>A global search for non-digit characters:</p>
+<pre class="w3-code"><code class="language-javascript">let text = "Give 100%!";
+const pattern = /\D/g;
+let result = text.match(pattern);</code></pre>
+
+</div>
+
+<hr>
+<h2>RegExp \w (word) Metacharacter</h2>
+<p>The \w metacharacter matches word characters.</p>
+<p>A word character is a character a-z, A-Z, 0-9, including _ (underscore).</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>A global search for word characters:</p>
+<pre class="w3-code"><code class="language-javascript">let text = "Give 100%!";
+const pattern = /\w/g;
+let result = text.match(pattern);</code></pre>
+
+</div>
+
+<hr>
+<h1>RegExp \W Metacharacter</h1>
+<p>The \W metacharacter matches non-word characters.</p>
+<p>A word character is a character a-z, A-Z, 0-9, including _ (underscore).</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>A global search for non-word characters:</p>
+<pre class="w3-code"><code class="language-javascript">let text = "Give 100%!";
+const pattern = /\W/g;
+let result = text.match(pattern);</code></pre>
+
+</div>
+
+<hr>
+<h2>The \s (space) Metacharacter</h2>
+<p>The \s metacharacter matches whitespace characters like space, tab, and newline.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>A global search for whitespace characters in a string:</p>
+<pre class="w3-code"><code class="language-javascript">let text = "Is this all there is?";
+const pattern = /\s/g;
+let result = text.match(pattern);</code></pre>
+<p>
+</p>
+</div>
+
+<hr>
+<h2>RegExp \xhh (hexadecimal)</h2>
+<p>\xhh matches characters by the hexadecimal number hh.</p>
+<div class="w3-example">
+<p>A global replace of the hexadecimal character 6F (o) in a string:</p>
+<pre class="w3-code"><code class="language-javascript">let text = "Visit W3Schools. Hello World!";
+let pattern = /\x6F/g;
+let result = text.replace(pattern, "*");</code></pre>
+
+</div>
+
+<hr>
+<h2>RegExp \uhhhh (unicode hex)</h2>
+<p>\uhhhh matches a Unicode character by the hex number hhhh.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>A global search for a Unicode character with the hexadecimal code 0057 (W):</p>
+<pre class="w3-code"><code class="language-javascript">let text = "Visit W3Schools. Hello World!";
+const pattern = /\u0057/g;
+let result = text.match(pattern);</code></pre>
+<p>
+</p>
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+<h2>Regular Expression Methods</h2>
+<p>Regular Expression <b>Search</b> and <b>Replace</b> can be done with different methods.</p>
+<p>These are the most common:</p> 
+<h3>String Methods</h3>
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th width="160px">Method</th><th>Description</th> </tr>
+<tr><td><a href="../jsref/jsref_match.html">match(<i>regex</i>)</a></td>
+<td>Returns an Array of results</td></tr>
+<tr><td><a href="../jsref/jsref_string_matchall.html">matchAll(<i>regex</i>)</a></td>
+<td>Returns an Iterator of results</td></tr>
+<tr><td><a href="../jsref/jsref_replace.html">replace(<i>regex</i>)</a></td>
+<td>Returns a new String</td></tr>
+<tr><td><a href="../jsref/jsref_string_replaceall.html">replaceAll(<i>regex</i>)</a></td>
+<td>Returns a new String</td></tr>
+<tr><td><a href="../jsref/jsref_search.html">search(<i>regex</i>)</a></td>
+<td>Returns the index of the first match</td></tr>
+<tr><td><a href="../jsref/jsref_split.html">split(<i>regex</i>)</a></td>
+<td>Returns an Array of results</td></tr>
+</tbody></table></div>
+<h3>RegExp Methods</h3>
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th width="160px">Method</th><th>Description</th> </tr>
+<tr><td><a href="../jsref/jsref_regexp_exec.html"><i>regex</i>.exec()</a></td>
+<td>Returns an Iterator of results</td></tr>
+<tr><td><a href="../jsref/jsref_regexp_test.html"><i>regex</i>.test()</a></td>
+<td>Returns true or false</td></tr>
+</tbody></table></div>
+
+<hr>
+
+<div class="ws-note">
+<h2>See Also:</h2>
+<p class="w3-large"><a href="js_regexp.html">JavaScript RegExp Tutorial</a></p>
+<p class="w3-large"><a href="js_regexp_characters.html">JavaScript RegExp Character Classes</a></p>
+<p class="w3-large"><a href="js_regexp_assertions.html">JavaScript RegExp Assertions</a></p>
+<p class="w3-large"><a href="js_regexp_quantifiers.html">JavaScript RegExp Quantifiers</a></p>
+<p class="w3-large"><a href="js_regexp_patterns.html">JavaScript RegExp Patterns</a></p>
+<p class="w3-large"><a href="js_regexp_objects.html">JavaScript RegExp Objects</a></p>
+<p class="w3-large"><a href="js_regexp_methods.html">JavaScript RegExp Methods</a></p>
+</div>
+
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_regexp_characters.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_regexp_assertions.html">Next ❯</a>
+</div>
+
+

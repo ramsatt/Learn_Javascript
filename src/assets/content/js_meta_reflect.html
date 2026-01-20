@@ -1,0 +1,519 @@
+
+      
+
+<h1>JavaScript Reflect</h1>
+
+<!--start-->
+<div class="ws-info">
+<h2>The Reflect Object</h2>
+<p><b>Reflect</b> is a object with <b>methods for low-level operations</b> on JavaScript objects.</p>
+<p>With the <b>Reflect object</b> you can get, set, delete, and check object properties in a consistent way.</p>
+<p><b>Reflect</b> was added to JavaScript in <a href="js_es6.html">ES6 (2015).</a></p>
+</div>
+
+<div class="ws-note">
+<h2>Yor Toolbox</h2>
+<p>Reflect is a <b>toolbox for working with objects</b> in a safe and consistent way.</p>
+</div>
+
+<hr>
+<h2>Before Reflect</h2>
+<p>Before Reflect, <b>object operations</b> were scattered:</p>
+<ul>
+<li>Using operators like <code class="w3-codespan"><b>in</b></code> and <code class="w3-codespan"><b>delete</b></code></li>
+<li>Using methods like <b> <code class="w3-codespan">Object.defineProperty</code></b></li>
+<li>Using language mechanisms like <code class="w3-codespan">[[<b>Get</b>]]</code> and <code class="w3-codespan">[[<b>Set</b>]]</code></li>
+</ul>
+
+<hr>
+<h2>After Reflect</h2>
+<p>Reflect brings all object operations into <b>clean methods</b>:</p>
+
+<ul>
+<li>Reflect methods unifies object operations</li>
+<li>Reflect methods are more predictable than operators (in/delete)</li>
+<li>Reflect methods provides standard return values instead of errors</li>
+<li>Reflect methods are cleaner and safer for meta-programming</li>
+<li>Reflect methods are tailored for the Proxy object</li>
+</ul>
+
+<hr>
+<h2>Examples</h2>
+<p>With <code class="w3-codespan">Reflect.has()</code>, you get the <code class="w3-codespan"><b>in</b></code> operator as a function.</p>
+<p>With <code class="w3-codespan">Reflect.delete()</code>, you get the <code class="w3-codespan"><b>delete</b></code> operator as a function.</p>
+
+
+<div class="ws-note">
+<h3>Why Reflect</h3>
+<p>Reflect is safe and flexible, especially when used inside a Proxy.</p>
+</div>
+
+<hr>
+<h2>Reflect.has()</h2>
+<p>The <code class="w3-codespan">Reflect.has()</code> method checks if an object has a specific property.</p>
+<p>The <code class="w3-codespan">Reflect.has()</code> method is similar to the <code class="w3-codespan"><b>in</b></code> operator.</p>
+
+<div class="w3-example">
+<h3>Check if Property Exists</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an Object
+const person = {name: "John", lastname: "Doe"};
+let answer = Reflect.has(person, "name");</code></pre>
+
+<p>Same as using the <b>in</b> operator:</p>
+<pre class="w3-code"><code class="language-javascript">let answer = "name" in person;</code></pre>
+
+</div>
+
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Syntax</th></tr>
+<tr><td>Reflect.has(obj, prop)</td></tr>
+<tr><th>Properties</th></tr>
+<tr><td>
+obj - the target object<br>
+prop - the property to check<br>
+</td></tr>
+<tr><th>Returns</th></tr>
+<tr><td>
+true - if true<br>
+false if false
+</td></tr>
+<tr><th>Exeptions</th></tr>
+<tr><td>
+TypeError thrown if obj is not an object
+</td></tr>
+</tbody></table></div>
+</div>
+
+<hr>
+<h2>Reflect.deleteProperty()</h2>
+<p>The <code class="w3-codespan">Reflect.deleteProperty()</code> method deletes a property from an object.</p>
+<p>The <code class="w3-codespan">Reflect.deleteProperty()</code> method is similar to the
+<code class="w3-codespan"><b>delete</b></code> operator.</p>
+
+<div class="w3-example">
+<h3>Deleting a Property</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an Object
+const person = {name: "John", lastname: "Doe"};
+Reflect.deleteProperty(person, "name");</code></pre>
+
+<p>Same as using the <b>delete</b> operator:</p>
+<pre class="w3-code"><code class="language-javascript">delete person.name;</code></pre>
+
+</div>
+
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Syntax</th></tr>
+<tr><td>Reflect.deleteProperty(obj, prop)</td></tr>
+<tr><th>Properties</th></tr>
+<tr><td>
+obj - the target object<br>
+prop - the property to delete<br>
+</td></tr>
+<tr><th>Returns</th></tr>
+<tr><td>
+true - if true<br>
+false if false
+</td></tr>
+<tr><th>Exeptions</th></tr>
+<tr><td>
+TypeError thrown if obj is not an object
+</td></tr>
+</tbody></table></div>
+</div>
+
+
+<hr>
+<h2>Reflect.get()</h2>
+<p>The <code class="w3-codespan">Reflect.get()</code> method retrieves the value of a property:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an Object
+const user = {name: "Jan", age: 40};
+let age = Reflect.get(user, "age");</code></pre>
+
+<p>Same as:</p>
+<pre class="w3-code"><code class="language-javascript">let age = user.age;</code></pre>
+
+</div>
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Syntax</th></tr>
+<tr><td>Reflect.get(obj, prop [,receiver])</td></tr>
+<tr><th>Properties</th></tr>
+<tr><td>
+obj - the target object<br>
+prop - the property to get<br>
+receiver - the this value if it is a getter
+</td></tr>
+<tr><th>Returns</th></tr>
+<tr><td>The value of the property</td></tr>
+<tr><th>Exeptions</th></tr>
+<tr><td>
+TypeError thrown if obj is not an object
+</td></tr>
+</tbody></table></div>
+</div>
+
+<hr>
+<h2>Reflect.set()</h2>
+<p>The <code class="w3-codespan">Reflect.set()</code> method sets the value of a property:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an Object
+const user = {name: "Jan", age: 40};
+Reflect.set(user, "age", 41);
+let age = Reflect.set(user, "age");</code></pre>
+
+<p>Same as:</p>
+<pre class="w3-code"><code class="language-javascript">user.age = 41;</code></pre>
+
+</div>
+
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Syntax</th></tr>
+<tr><td>Reflect.set(obj, prop, value [,receiver])</td></tr>
+<tr><th>Properties</th></tr>
+<tr><td>
+obj - the target object<br>
+prop - the property to set<br>
+value - the value to set<br>
+receiver - the this value if it is a setter 
+</td></tr>
+<tr><th>Returns</th></tr>
+<tr><td>
+true - for success<br>
+false - if not
+</td></tr>
+<tr><th>Exeptions</th></tr>
+<tr><td>
+TypeError thrown if obj is not an object
+</td></tr>
+</tbody></table></div>
+</div>
+
+<hr>
+<h2>Reflect.apply()</h2>
+<p>The <code class="w3-codespan">Reflect.apply()</code> method calls a function with a this value and an argument array.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">function greet(message) {
+  return message + ", " + this.name;
+}
+const person = {name: "Jan"};
+let msg = Reflect.apply(greet, person, ["Hello"]);</code></pre>
+
+<p>Same as using <b>greet.apply()</b>:</p>
+<pre class="w3-code"><code class="language-javascript">let msg = greet.apply(person, ["Hello"]);</code></pre>
+
+</div>
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Syntax</th></tr>
+<tr><td>Reflect.apply(function, this, arguments)</td></tr>
+<tr><th>Properties</th></tr>
+<tr><td>
+function - target object (function)<br>
+this - the value of this calling the target<br>
+arguments - array-like object of function arguments 
+</td></tr>
+<tr><th>Returns</th></tr>
+<tr><td>The return value from the function</td></tr>
+<tr><th>Exeptions</th></tr>
+<tr><td>
+TypeError thrown if function is not a function or arguments is not an object
+</td></tr>
+</tbody></table></div>
+</div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>Reflect.apply() is preferred when:</p>
+<ul>
+<li>You are doing meta-programming</li>
+<li>You are inside a Proxy handler</li>
+<li>You want consistent behaviors (no silent errors)</li>
+<li>You want to mirror JavaScript's internal operations</li>
+</ul>
+</div>
+
+<hr>
+<h2>Reflect.construct()</h2>
+<p>The <code class="w3-codespan">Reflect.construct()</code> method acts like the new operator,
+creating a new instance of target with the provided arguments.
+newTarget allows for custom new.target values for subclassing.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create a new Array
+const colors = Reflect.construct(Array, ["red", "green", "blue"]);</code></pre>
+
+<p>Same as the <b>new</b> keyword:</p>
+<pre class="w3-code"><code class="language-javascript">// Create a new Array
+const colors = new Array(["red", "green", "blue"]));</code></pre>
+
+</div>
+
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Syntax</th></tr>
+<tr><td>Reflect.construct(obj, args [, newTarget])</td></tr>
+<tr><th>Properties</th></tr>
+<tr><td>
+obj - the constructor object<br>
+args - an array-like object of arguments to be passed<br>
+newTarget - the constructor 
+</td></tr>
+<tr><th>Returns</th></tr>
+<tr><td>A new object constructed from the argumets list</td></tr>
+<tr><th>Exeptions</th></tr>
+<tr><td>
+TypeError thrown if obj or newTarget is not a constructor, or if args is not an object
+</td></tr>
+</tbody></table></div>
+</div>
+
+<hr>
+<h2>Reflect.defineProperty()</h2>
+<p>The <code class="w3-codespan">Reflect.defineProperty()</code> defines or modifies a property.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an Object
+const user = {};
+// Add a Property
+Reflect.defineProperty(user, "id", {
+  value: 123,
+  writable: false
+});</code></pre>
+
+<p>Same as using <b>Object.defineProperty()</b>:</p>
+<pre class="w3-code"><code class="language-javascript">// Add a Property
+Object.defineProperty(user, "id", {
+  value: 123,
+  writable: false
+});</code></pre>
+
+</div>
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Syntax</th></tr>
+<tr><td>Reflect.defineProperty(obj, prop, attributes)</td></tr>
+<tr><th>Properties</th></tr>
+<tr><td>
+obj - the target object<br>
+prop - the property to define<br>
+attributes - an array-like object of the property attributes
+</td></tr>
+<tr><th>Returns</th></tr>
+<tr><td></td></tr>
+<tr><th>Exeptions</th></tr>
+<tr><td>
+TypeError thrown if obj is not an object or attributes is not an object
+</td></tr>
+</tbody></table></div>
+</div>
+
+<div class="ws-note">
+<h3>Reflect.defineProperty() in Proxy</h3>
+<p>Reflect.defineProperty() must be used in Proxy</p>
+<p>If used in a Proxy, the <b>defineProperty trap</b> must return <code class="w3-codespan">true</code>
+or <code class="w3-codespan">false</code>.</p>
+<ul>
+<li><code class="w3-codespan">Object.defineProperty()</code> returns the target object
+</li><li><code class="w3-codespan">Reflect.defineProperty()</code> returns <code class="w3-codespan">true</code>
+or <code class="w3-codespan">false</code></li></ul>
+</div>
+
+<hr>
+<h2>Reflect.ownKeys()</h2>
+<p>The <code class="w3-codespan">Reflect.ownKeys(obj)</code> method returns an array of an object's own property
+keys (string and Symbol based), similar to combining Object.getOwnPropertyNames() and Object.getOwnPropertySymbols().</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const sym = Symbol("secret");
+const obj = { a: 1, [sym]: 2 };
+let keys = Reflect.ownKeys(obj);</code></pre>
+
+<p>Almost the same as using <b>Object.keys()</b>:</p>
+<pre class="w3-code"><code class="language-javascript">let keys = Object.keys(obj);</code></pre>
+
+</div>
+
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Syntax</th></tr>
+<tr><td>Reflect.ownKeys(obj)</td></tr>
+<tr><th>Properties</th></tr>
+<tr><td>
+obj - the target object<br>
+</td></tr>
+<tr><th>Returns</th></tr>
+<tr><td>An Array of the object's own property keys, including strings and symbols</td></tr>
+<tr><th>Exeptions</th></tr>
+<tr><td>
+TypeError thrown if obj is not an object
+</td></tr>
+</tbody></table></div>
+</div>
+
+<div class="ws-note">
+<h3>Why Using Reflect?</h3>
+<p><code class="w3-codespan">Reflect.ownKeys()</code> also returns symbols.</p>
+<p><code class="w3-codespan">Object.keys()</code> does not.</p>
+</div>
+
+<hr>
+<h2>Reflect.isExtensible()</h2>
+<p>The <code class="w3-codespan">Reflect.isExtensible()</code> method Checks if an object is extensible
+(can have properties added), similar to Object.isExtensible().</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let answer = Reflect.isExtensible(obj);</code></pre>
+<p>The same as using <b>Object.isExtensible()</b>:</p>
+<pre class="w3-code"><code class="language-javascript">let answer = Object.isExtensible(obj);</code></pre>
+</div>
+
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Syntax</th></tr>
+<tr><td>Reflect.isExtensible(obj)</td></tr>
+<tr><th>Properties</th></tr>
+<tr><td>
+obj - the target object<br>
+</td></tr>
+<tr><th>Returns</th></tr>
+<tr><td>
+true - is extensible<br>
+false - is not
+</td></tr>
+<tr><th>Exeptions</th></tr>
+<tr><td>
+TypeError thrown if obj is not an object
+</td></tr>
+</tbody></table></div>
+</div>
+
+<div class="ws-note">
+<h3>Why Using Reflect?</h3>
+<p><code class="w3-codespan">Object.isExtensible()</code> is a user method - not part of the internal trap machinery.</p>
+<p><code class="w3-codespan">Reflect.isExtensible()</code> maps directly to the internal [[IsExtensible]] method.</p>
+<p><code class="w3-codespan">Reflect.isExtensible()</code> correctly handles primitive targets, which matters when proxied.</p>
+</div>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">Reflect.isExtensible(1); // TypeError
+Object.isExtensible(1);  // false (does not throw)</code></pre>
+</div>
+
+
+<hr>
+<h2>When to Use Reflect?</h2>
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="w3-table-all">
+<tbody><tr></tr>
+<tr><th>Case</th><th width="35px">Use</th><th>Why</th></tr>
+<tr><td>Getting / setting values</td><td class="w3-blue">Yes</td><td>If you need consistent return values</td></tr>
+<tr><td>Creating new objects</td><td class="w3-blue">Yes</td><td>Reflect.construct() works with Proxy</td></tr>
+<tr><td>Calling a function with context</td><td class="w3-blue">Yes</td><td>Reflect.apply() is cleaner than func.apply()</td></tr>
+<tr><td>Meta programming</td><td class="w3-blue">Yes</td><td>Designed for low-level tasks</td></tr>
+<tr><td>Simple object work</td><td class="w3-red">No</td><td>Use normal JS syntax</td></tr>
+</tbody></table></div>
+</div>
+
+<hr>
+<h2>Reflect with Proxy (Very Common)</h2>
+<p>Proxy lets you intercept operations on objects:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an Object
+const user = { name: "Jan", age: 40 };
+// Create a Proxy
+const proxy = new Proxy(user, {
+  set(target, property, value) {
+    log(property + ": " + value);
+    // safe forwarding
+    return Reflect.set(target, property, value);
+  }
+});</code></pre>
+
+</div>
+<div class="ws-note">
+<h2>Note</h2>
+<p>Reflect can provide safe and unified forwarding calls.</p>
+<p>Reflect ensures that a Proxy behaves like a normal object.</p>
+</div>
+<hr>
+<h2>Proxy and Reflect</h2>
+<p><b>Proxy</b> was designed first. <b>Reflect</b> was designed second.</p>
+<p>Proxy was designed to allow JavaScript developers to:</p>
+<ul>
+<li>Intercept property access</li>
+<li>Override default property behaviors</li>
+<li>Validate data</li>
+<li>Wrap functions</li>
+<li>Virtualize objects</li>
+<li>Create <b>reactive</b> objects</li>
+</ul> 
+
+<p>The idea of Proxy was developed during the <a href="js_es6.html">ES6 (2015)</a> design phase before Reflect existed.</p>
+<p>However, Proxy had a big issue:</p>
+<div class="w3-panel w3-leftbar w3-sand">
+  <p class="w3-large">"How to forward an intercepted operations safely?"</p>
+</div>
+<p>JavaScript had no functional equivalents of many operations.</p>
+<p>Because of this limitation, Reflect was invented.</p>
+
+<hr>
+<h2>JavaScript Reflect History</h2>
+<p>Reflect was introduced because Proxy needed it.</p>
+<p>Before Reflect:</p>
+<ul>
+<li>delete, in, new were operators</li>
+<li>some operations threw errors</li>
+<li>object operations returned inconsistent values</li>
+<li>no generic version of property access existed</li>
+<li>no way to forward constructor calls</li>
+</ul>
+
+<p>This made Proxy impossible to implement safely.</p>
+
+<p>So <a href="js_es6.html">ES6 (2015)</a> introduced Reflect to:</p>
+<ul>
+<li>provide clean, function-based versions of every internal operation</li>
+<li>return predictable booleans instead of objects</li>
+<li>avoid unnecessary errors</li>
+<li>mirror the JavaScript engine's behavior</li>
+<li>give Proxy traps a reliable forward-path</li>
+</ul>
+
+<div class="ws-note">
+<h2>Learn More</h2>
+<p class="w3-large"><a href="js_meta_programming.html">JavaScript Metaprogramming</a>
+</p><p class="w3-large"><a href="js_meta_proxy.html">JavaScript Proxy Tutorial</a>
+</p><p class="w3-large"><a href="js_meta_reference.html">JavaScript Meta Reference</a>
+</p></div>
+
+<br><br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_meta_programming.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_meta_proxy.html">Next ❯</a>
+</div>
+
+

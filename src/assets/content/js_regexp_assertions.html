@@ -1,0 +1,285 @@
+
+      
+
+<h1>Regular Expression Assertions</h1>
+
+<!--start-->
+<div class="ws-info">
+<h2>RegExp Assertions</h2>
+<p><b>Assertions</b> matches <b>Boundaries</b> and <b>Lookarounds</b>:</p>
+<p>String Boundaries and Word Boundaries.</p>
+<p>Lookarounds: Lookaheads and Lookbehinds.</p>
+<pre class="w3-code"><code class="language-javascript">// Match beginning of string
+const pattern = /^W3Schools/;
+// Match end of string
+const pattern = /W3Schools$/;</code></pre>
+
+</div>
+
+<h2>JavaScript Regex Assertions</h2>
+<h4>Revised July 2025</h4>
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Syntax</th><th>Name</th><th>Description</th></tr>
+<tr><td>^</td><td>String boundary</td><td>Matches the beginning of a string</td></tr>
+<tr><td>$</td><td>String boundary</td><td>Matches the end of a string</td></tr>
+<tr><td>\b</td><td>Word boundary</td><td>Matches the beginning or end of a word</td></tr>
+<tr><td>\B</td><td>Word boundary</td><td>Matches NOT the beginning or end of a word</td></tr>
+<tr><td>(?=...)</td><td>Lookahead</td><td>Matches the subsequent string</td></tr>
+<tr><td>(?!...)</td><td>Lookahead</td><td>Matches NOT the subsequent string</td></tr>
+<tr><td>(?&lt;=...)</td><td>Lookbehind</td><td>Matches the previous string</td></tr>
+<tr><td>(?&lt;!...)</td><td>Lookbehind</td><td>Matches NOT the previous string</td></tr>
+</tbody></table></div>
+</div>
+
+<hr>
+<h2>RegExp ^ Metacharacter</h2>
+<p>The ^ metacharacter matches the beginning of a string.</p>
+<div class="w3-example">
+<h3>Examples</h3>
+<p>Test if a string starts with W3Schools:</p>
+<pre class="w3-code"><code class="language-javascript">const pattern = /^W3Schools/;
+let text = "W3Schools Tutorial";
+let result = pattern.test(text); // true</code></pre>
+<p>
+</p>
+<pre class="w3-code"><code class="language-javascript">const pattern = /^W3Schools/;
+let text = "Hello W3Schools";
+let result = pattern.test(text); // false</code></pre>
+<p>
+</p>
+</div>
+
+<hr>
+<h2>RegExp $ Metacharacter</h2>
+
+<p>The $ metacharacter matches the end of a string.</p>
+<div class="w3-example">
+<p>Test if a string ends with W3Schools:</p>
+<pre class="w3-code"><code class="language-javascript">const pattern = /W3Schools$/;
+let text = "Hello W3Schools";
+let result = pattern.test(text); // true</code></pre>
+
+<pre class="w3-code"><code class="language-javascript">const pattern = /W3Schools$/;
+let text = "W3Schools tutorial";
+let result = pattern.test(text); // false</code></pre>
+
+</div>
+
+<hr>
+<h2>The \b Metacharacter</h2>
+<p>The \b metacharacter matches the beginning of a word or the end of a word.</p>
+<div class="w3-example">
+<h3>Examples</h3>
+<p>Search for the characters "LO" at the <b>beginning</b> of a word:</p>
+<pre class="w3-code"><code class="language-javascript">let text = "HELLO, LOOK AT YOU!";
+let result = text.search(/\bLO/);</code></pre>
+<p>
+</p>
+<p>Search for the characters "LO" at the <b>end</b> of a word:</p>
+<pre class="w3-code"><code class="language-javascript">let text = "HELLO, LOOK AT YOU!";
+let result = text.search(/LO\b/);</code></pre>
+<p>
+</p>
+</div>
+
+<hr>
+<h2>RegExp Lookahead x(?=y)</h2>
+<p>x(?=y) matches "x" if "x" is followed by "y".</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Match "W3schools" if "W3Schools" is followed by " Tutorials".</p>
+<pre class="w3-code"><code class="language-javascript">let text = "W3Schools Tutorials";
+let pattern = /W3Schools(?= Tutorials)/;
+let result = pattern.test(text);</code></pre>
+
+</div>
+
+<hr>
+<h2>Negative Lookahead x(?!y)</h2>
+<p>x(?!y) matches "x" if "x" is NOT followed by "y".</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let text = "W3Schools Tutorials";
+let pattern = /W3Schools(?! Tutorials)/;
+let result = pattern.test(text);</code></pre>
+
+</div>
+<p><b>Explanation</b></p>
+<p>W3Schools matches the literal word.</p>
+<p>(?! Tutorials) asserts that what follows is not " Tutorials".</p>
+<p>If text = "W3Schools Tutorials", the test returns false.</p>
+<p>If text = "W3Schools Website", the test returns true.</p>
+<hr>
+<h2>RegExp Lookbehind (?&lt;=y)x</h2>
+<p>(?&lt;=y)x matches "x" if "x" is preceded by "y".</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Match "W3Scools" if "W3Schools" is preceded by "Hello ".</p>
+<pre class="w3-code"><code class="language-javascript">let text = "Hello W3Schools";
+let pattern = /(?&lt;=Hello )W3Schools/;
+let result = pattern.test(text);</code></pre>
+
+</div>
+
+<hr>
+<h2>Negative Lookbehind (?&lt;!y)x</h2>
+<p>(?&lt;!y)x matches "x" only if "x" is NOT preceded by "y".</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let text = "Hello W3Schools";
+let pattern = /(?&lt;!Hello ) W3Schools/;
+let result = pattern.test(text);</code></pre>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>Regular Expression Groups</h2>
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate">
+<tbody><tr></tr>
+<tr>
+  <th style="width:150px">Char</th>
+  <th>Description</th>
+</tr>
+<tr>
+  <td>(x)</td>
+  <td>Matches x and saves it</td>
+</tr>
+<tr>
+  <td>(?&lt;n&gt;x)</td>
+  <td>Matches x and labels it n</td>
+</tr>
+<tr>
+  <td>(?flag:x)</td>
+  <td>Enables flag(s) for x</td>
+</tr>
+<tr>
+  <td>(?flag-flag:x)</td>
+  <td>Disables flag(s) for x</td>
+</tr>
+</tbody></table></div>
+</div>
+
+<hr>
+<h2>RegExp Capturing Groups (x)</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let text = "Haha, haha, haha.";
+const pattern = /(haha)+/;
+let result = text.match(pattern);</code></pre>
+
+</div>
+
+<h2>Explained</h2>
+<ul>
+<li>(haha) captures a group of characters</li>
+<li>(haha)+ matches zero or more occurences of the group</li>
+<li>text.match() returns an array of results</li>
+<li>match.groups() returns an array of matches<br>
+</li></ul>
+
+<hr>
+<h2>Named Capturing Groups (?&lt;n&gt;)</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const text = "Name: John Doe";
+// Using named capturing groups
+const regex = /(?&lt;firstName&gt;\w+) (?&lt;lastName&gt;\w+)/;
+const match = text.match(regex);
+let fName = match.groups.firstName;
+let lName = match.groups.lastName;</code></pre>
+
+</div>
+
+<h2>Explained</h2>
+<ul>
+<li>(?&lt;firstName&gt;\w+) captures a word and labels it firstName</li>
+<li>(?&lt;lastName&gt;\w+) does the same for lastName</li>
+<li>text.match() returns an array with a groups property</li>
+<li>match.groups() returns an object:<br>
+{firstName:"John", lastName:"Doe" }</li>
+</ul>
+
+<p>When using capturing groups, the String method match()
+and the RegExp method exec(), return a match object with a groups property.
+This property holds the names and the values of the groups.</p>
+
+<hr>
+<h2>RegExp Group Modifiers (?flag)</h2>
+<p>The (?flag) syntax is a group modifier (inline flag modifier).</p>
+<p>It allows for modifying flags in a part of a pattern, rather than to the entire pattern.</p>
+<p>(?flags:pattern) enables the flags only for the pattern in the group.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>The i flag is only enabled for the W3Schools part of the pattern.</p>
+<pre class="w3-code"><code class="language-javascript">let text = "W3Schools tutorials.";
+const pattern = /(?i:WShools) tutorials/;
+// Returns true:
+let result = pattern.test(text);</code></pre>
+
+
+<p>The i flag is only enabled for the W3Schools part of the pattern.</p>
+<pre class="w3-code"><code class="language-javascript">let text = "W3Schools Tutorials.";
+const pattern = /(?i:W3Sshools) tutorials/;
+// Returns false:
+let result = pattern.test(text);</code></pre>
+
+</div>
+
+<hr>
+<div class="ws-note">
+<h2>See Also:</h2>
+<p class="w3-large"><a href="js_regexp.html">JavaScript RegExp Tutorial</a></p>
+<p class="w3-large"><a href="js_regexp_flags.html">JavaScript RegExp Flags</a></p>
+<p class="w3-large"><a href="js_regexp_characters.html">JavaScript RegExp Character Classes</a></p>
+<p class="w3-large"><a href="js_regexp_meta_characters.html">JavaScript RegExp Meta Characters</a></p>
+<p class="w3-large"><a href="js_regexp_quantifiers.html">JavaScript RegExp Quantifiers</a></p>
+<p class="w3-large"><a href="js_regexp_patterns.html">JavaScript RegExp Patterns</a></p>
+<p class="w3-large"><a href="js_regexp_objects.html">JavaScript RegExp Objects</a></p>
+<p class="w3-large"><a href="js_regexp_methods.html">JavaScript RegExp Methods</a></p>
+</div>
+<!--stop-->
+<hr>
+<h2>Regular Expression Methods</h2>
+<p>Regular Expression <b>Search</b> and <b>Replace</b> can be done with different methods.</p>
+<p>These are the most common:</p> 
+<h3>String Methods</h3>
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th width="160px">Method</th><th>Description</th> </tr>
+<tr><td><a href="../jsref/jsref_match.html">match(<i>regex</i>)</a></td>
+<td>Returns an Array of results</td></tr>
+<tr><td><a href="../jsref/jsref_string_matchall.html">matchAll(<i>regex</i>)</a></td>
+<td>Returns an Iterator of results</td></tr>
+<tr><td><a href="../jsref/jsref_replace.html">replace(<i>regex</i>)</a></td>
+<td>Returns a new String</td></tr>
+<tr><td><a href="../jsref/jsref_string_replaceall.html">replaceAll(<i>regex</i>)</a></td>
+<td>Returns a new String</td></tr>
+<tr><td><a href="../jsref/jsref_search.html">search(<i>regex</i>)</a></td>
+<td>Returns the index of the first match</td></tr>
+<tr><td><a href="../jsref/jsref_split.html">split(<i>regex</i>)</a></td>
+<td>Returns an Array of results</td></tr>
+</tbody></table></div>
+<h3>RegExp Methods</h3>
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th width="160px">Method</th><th>Description</th> </tr>
+<tr><td><a href="../jsref/jsref_regexp_exec.html"><i>regex</i>.exec()</a></td>
+<td>Returns an Iterator of results</td></tr>
+<tr><td><a href="../jsref/jsref_regexp_test.html"><i>regex</i>.test()</a></td>
+<td>Returns true or false</td></tr>
+</tbody></table></div>
+
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_regexp_meta_characters.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_regexp_quantifiers.html">Next ❯</a>
+</div>
+
+

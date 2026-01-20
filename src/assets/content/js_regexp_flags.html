@@ -1,0 +1,430 @@
+
+      
+
+<h1>JavaScript RegExp Flags</h1>
+
+<!--start-->
+<div class="ws-info">
+<h2>RegExp Modifier Flags</h2>
+<p><b> Flags</b> are parameters that can modify how a regex pattern is used,
+such as making it case-insensitive or global.</p>
+<pre class="w3-code"><code class="language-javascript">/pattern/<b>flags</b></code></pre>
+</div>
+
+<h2>JavaScript Regex Flags</h2>
+<h4>Revised July 2025</h4>
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate">
+<tbody><tr></tr>
+<tr>
+  <th>Flag</th>
+  <th>Description</th>
+</tr>
+<tr>
+  <td>/d</td>
+  <td>Performs substring matches (new 2022)</td>
+</tr>
+<tr>
+  <td>/g</td>
+  <td>Performs a global match (find all)</td>
+</tr>
+<tr>
+  <td>/i</td>
+  <td>Performs case-insensitive matching</td>
+</tr>
+<tr>
+  <td>/m</td>
+  <td>Performs multiline matching</td>
+</tr>
+<tr>
+  <td>/s</td>
+  <td>Allows . (dot) to match line terminators (new 2018)</td>
+</tr>
+<tr>
+  <td>/u</td>
+  <td>Enables Unicode support (new 2015)</td>
+</tr>
+<tr>
+  <td>/v</td>
+  <td>An upgrade to the /u flag for better Unicode support (new 2025)</td>
+</tr>
+<tr>
+  <td>/y</td>
+  <td>Performs a "sticky" search (new 2015)</td>
+</tr>
+</tbody></table></div>
+</div>
+
+<hr>
+<h2>Flag Syntax: /pattern/flags</h2>
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="w3-table w3-white w3-bordered w3-border">
+<tbody><tr><td>/</td><td>Opening delimiter for the regular expression</td></tr>
+<tr><td>pattern</td><td>Regular expression (a search criteria)</td></tr>
+<tr><td>/</td><td>Closing delimiter for the regular expression</td></tr>
+<tr><td>flags</td><td>One or more single modifier flags</td></tr>
+</tbody></table></div>
+</div>
+
+<!--start-->
+<hr>
+<h2>RegExp /g Flag (Global)</h2>
+<p>The <b>/g</b> flag matches all occurrences of the pattern, rather than just the first one.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>A global search for "is" in a string:</p>
+<pre class="w3-code"><code class="language-javascript">let text = "Is this all there is?";
+const pattern = /is/g;
+let result = text.match(pattern);</code></pre>
+<p>
+</p>
+</div>
+
+<hr>
+<h2>RegExp /i Flag (Insensitive)</h2>
+<p>The <b>/i</b> flag makes the match case-insensitive: /abc/i matches "abc", "AbC", "ABC".</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>A case-insensitive search for "w3schools" in a string:</p>
+<pre class="w3-code"><code class="language-javascript">let text = "Visit W3Schools";
+const pattern = /is/g;
+let result = text.match(pattern);</code></pre>
+<p>
+</p>
+</div>
+
+<hr>
+<h2>RegExp /d Flag</h2>
+<p>The <b>/d</b> flag specifies the start and the end of a match.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Match every sub text that starts or ends with aa or bb:</p>
+<pre class="w3-code"><code class="language-javascript">let text = "aaaabb";
+const pattern = /(aa)(bb)/d;
+let result = text.match(pattern);</code></pre>
+
+</div>
+
+<hr>
+<h2>RegExp /s Flag (Single line/DotAll)</h2>
+<p>The <b>/s</b> flag allows the . (dot) metacharacter to match newline characters (\n) in addition to any other
+character.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Without the /s flag, \n does not match . (wildchars):</p>
+<pre class="w3-code"><code class="language-javascript">let text = "Line\nLine.";
+const pattern = /Line./gs;
+let result = text.match(pattern);</code></pre>
+
+</div>
+
+<!--stop-->
+<hr>
+
+<h2>RegExp /y Flag (Sticky):</h2>
+<p>The <b>/y</b> flag performs a "sticky" search from the lastIndex property of the RegExp object.</p>
+<p>The <b>/y</b> flag lets a match start at the exact position where the last match ended.</p>
+
+<div class="w3-example">
+<h3>Examples</h3>
+<pre class="w3-code"><code class="language-javascript">let text = "abc def ghi";
+const pattern = /\w+/y;
+// Start match from position 4
+pattern.lastIndex = 4;
+let result = text.match(pattern);</code></pre>
+
+<p>The /y flag must be set to allow match from a position.</p>
+<p>This will not work:</p>
+<pre class="w3-code"><code class="language-javascript">let text = "abc def ghi";
+const pattern = /\w+/;
+// Start match from position 4
+pattern.lastIndex = 4;
+let result = text.match(pattern);</code></pre>
+
+</div>
+<div class="ws-note">
+<h2>Note</h2>
+<p>The example above uses a regex <b>metacharacter</b> /\w+/.</p>
+<p>The meaning of <b>/\w+/</b> is "mach any word".</p> 
+<p>You will learn more about metacharacters in the next chapters.</p>
+</div> 
+
+<hr>
+
+
+
+<hr>
+<h2>RegExp /u Flag (Unicode)</h2>
+<p>The <b>/u</b> flag enables full Unicode support in a regular expression.</p>
+<p>By default, JavaScript RegExp treats 4-byte Unicode characters
+(like emojis or less common symbols) as two separate 2-byte "surrogate" code units.</p>
+<p>The <b>/u</b> flag treats the pattern as a sequence of Unicode code points,
+which is important for correctly handling of characters outside the Basic Multilingual Plane (BMP).</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let text = "䷀";
+const pattern = /\u{04DC0}/u;
+// Returns true:
+let result = pattern.test(text);</code></pre>
+
+</div>
+
+<p>Without the /u flag, regular expressions are not "Unicode-aware".</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let text = "䷀";
+const pattern = /\u{04DC0}/;
+// Returns false:
+let result = pattern.test(text);</code></pre>
+
+</div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p><b>JavaScript 2025</b> introduced the <b>/v</b> flag as an "upgrade" to the <b>/u</b> flag.</p>
+<p><b>The /v Flag</b> enables more Unicode-related features.</p>
+</div>
+
+<hr>
+<h2>RegExp /v Flag (Unicode Sets)</h2>
+<p>The <b>/v</b> flag is an upgrade to the /u flag for better Unicode support.</p>
+
+<p>It enables more Unicode-related features.</p>
+<p>The new features are:</p>
+<ul>
+<li>The \p escape sequence matches strings, instead of just characters.</li>
+<li>The character class is upgraded to allow intersection, union, and subtraction syntaxes,
+as well as matching multiple Unicode characters.</li>
+</ul>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let text = "Hello 😄";
+const pattern = /\p{Emoji}/v;
+// Returns true:
+let result = pattern.test(text);</code></pre>
+
+</div>
+
+<p>Without the /v flag, regular expressions are not "Unicode-aware".</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let text = "Hello 😄";
+const pattern = /\p{Emoji}/;
+// Returns false:
+let result = pattern.test(text);</code></pre>
+
+</div>
+
+<hr>
+<h2>RegExp Group Modifiers (?flag)</h2>
+
+<p>The (?flag) syntax is a group modifier (inline flag modifier).</p>
+<p>It allows for modifying flags in a part of a pattern, rather than to the entire pattern.</p>
+<p>(?flags:pattern) enables the flags only for the pattern in the group.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>The i flag is only enabled for the W3Schools part of the pattern.</p>
+<pre class="w3-code"><code class="language-javascript">let text = "W3Schools tutorials.";
+const pattern = /(?i:WShools) tutorials/;
+// Returns true:
+let result = pattern.test(text);</code></pre>
+
+
+<p>The i flag is only enabled for the W3Schools part of the pattern.</p>
+<pre class="w3-code"><code class="language-javascript">let text = "W3Schools Tutorials.";
+const pattern = /(?i:W3Sshools) tutorials/;
+// Returns false:
+let result = pattern.test(text);</code></pre>
+
+</div>
+
+<hr>
+<h2>JavaScript Regex Flag Properties</h2>
+<h4>Revised July 2025</h4>
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate">
+<tbody><tr></tr>
+<tr>
+  <th>Property</th>
+  <th>Description</th>
+</tr>
+<tr>
+  <td>global</td>
+  <td>Returns <code class="w3-codespan">true</code> if the /g flag is set</td>
+</tr>
+<tr>
+  <td>hasIndices</td>
+  <td>Returns <code class="w3-codespan">true</code> if the /d flag is set</td>
+</tr>
+<tr>
+  <td>ignoreCase</td>
+  <td>Returns <code class="w3-codespan">true</code> if the /i flag is set</td>
+</tr>
+<tr>
+  <td>multiline</td>
+  <td>Returns <code class="w3-codespan">true</code> if the /m flag is set</td>
+</tr>
+<tr>
+  <td>dotAll</td>
+  <td>Returns <code class="w3-codespan">true</code> if the /s flag is set</td>
+</tr>
+<tr>
+  <td>sticky</td>
+  <td>Returns <code class="w3-codespan">true</code> if the /y flag is set</td>
+</tr>
+<tr>
+  <td>unicode</td>
+  <td>Returns <code class="w3-codespan">true</code> if the /u flag is set</td>
+</tr>
+<tr>
+  <td>unicodeSets</td>
+  <td>Returns <code class="w3-codespan">true</code> if the /v flag is set</td>
+</tr>
+</tbody></table></div>
+</div>
+
+<hr>
+<h2>The dotAll Property</h2>
+<p>The <code class="w3-codespan">dotAll</code> property returns <code class="w3-codespan">true</code>
+if the /s flag is set.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const pattern = /W3Schools/s;
+let result = pattern.dotAll;</code></pre>
+
+</div>
+
+<hr>
+<h2>The global Property</h2>
+<p>The <code class="w3-codespan">global</code> property returns <code class="w3-codespan">true</code>
+if the /g flag is set.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const pattern = /W3Schools/g;
+let result = pattern.global;</code></pre>
+
+</div>
+
+<hr>
+<h2>The hasIndices Property</h2>
+<p>The <code class="w3-codespan">hasIndices</code> property returns <code class="w3-codespan">true</code>
+if the /d flag is set.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const pattern = /W3Schools/d;
+let result = pattern.hasIndices;</code></pre>
+
+</div>
+
+<hr>
+<h2>The ignoreCase Property</h2>
+<p>The <code class="w3-codespan">ignoreCase</code> property returns <code class="w3-codespan">true</code>
+if the /i flag is set.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const pattern = /W3Schools/i;
+let result = pattern.ignoreCase;</code></pre>
+
+</div>
+
+<hr>
+<h2>The multiline Property</h2>
+<p>The <code class="w3-codespan">multiline</code> property returns <code class="w3-codespan">true</code>
+if the /m flag is set.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const pattern = /W3Schools/m;
+let result = pattern.multiline;</code></pre>
+
+</div>
+
+<hr>
+<h2>The sticky Property</h2>
+<p>The <code class="w3-codespan">sticky</code> property returns <code class="w3-codespan">true</code>
+if the /y flag is set.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const pattern = /W3Schools/y;
+let result = pattern.sticky;</code></pre>
+
+</div>
+
+<hr>
+<h2>The unicode Property</h2>
+<p>The <code class="w3-codespan">unicode</code> property returns <code class="w3-codespan">true</code>
+if the /u flag is set.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let text = "䷀";
+const pattern = /\u{04DC0}/u;
+let result = pattern.unicode;</code></pre>
+
+</div>
+
+<hr>
+<h2>The unicodeSets Property</h2>
+<p>The <code class="w3-codespan">unicodeSets</code> property returns <code class="w3-codespan">true</code>
+if the /v flag is set.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let text = "Hello 😄";
+const pattern = /\p{Emoji}/v;
+let result = pattern.unicodeSets;</code></pre>
+
+</div>
+
+<hr>
+<h2>Regular Expression Methods</h2>
+<p>Regular Expression <b>Search</b> and <b>Replace</b> can be done with different methods.</p>
+<p>These are the most common:</p> 
+<h3>String Methods</h3>
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th width="160px">Method</th><th>Description</th> </tr>
+<tr><td><a href="../jsref/jsref_match.html">match(<i>regex</i>)</a></td>
+<td>Returns an Array of results</td></tr>
+<tr><td><a href="../jsref/jsref_string_matchall.html">matchAll(<i>regex</i>)</a></td>
+<td>Returns an Iterator of results</td></tr>
+<tr><td><a href="../jsref/jsref_replace.html">replace(<i>regex</i>)</a></td>
+<td>Returns a new String</td></tr>
+<tr><td><a href="../jsref/jsref_string_replaceall.html">replaceAll(<i>regex</i>)</a></td>
+<td>Returns a new String</td></tr>
+<tr><td><a href="../jsref/jsref_search.html">search(<i>regex</i>)</a></td>
+<td>Returns the index of the first match</td></tr>
+<tr><td><a href="../jsref/jsref_split.html">split(<i>regex</i>)</a></td>
+<td>Returns an Array of results</td></tr>
+</tbody></table></div>
+<h3>RegExp Methods</h3>
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th width="160px">Method</th><th>Description</th> </tr>
+<tr><td><a href="../jsref/jsref_regexp_exec.html"><i>regex</i>.exec()</a></td>
+<td>Returns an Iterator of results</td></tr>
+<tr><td><a href="../jsref/jsref_regexp_test.html"><i>regex</i>.test()</a></td>
+<td>Returns true or false</td></tr>
+</tbody></table></div>
+
+<hr>
+<div class="ws-note">
+<h2>See Also:</h2>
+<p class="w3-large"><a href="js_regexp_characters.html">JavaScript RegExp Tutorial</a></p>
+<p class="w3-large"><a href="js_regexp_characters.html">JavaScript RegExp Character Classes</a></p>
+<p class="w3-large"><a href="js_regexp_meta_characters.html">JavaScript RegExp Meta Characters</a></p>
+<p class="w3-large"><a href="js_regexp_assertions.html">JavaScript RegExp Assertions</a></p>
+<p class="w3-large"><a href="js_regexp_quantifiers.html">JavaScript RegExp Quantifiers</a></p>
+<p class="w3-large"><a href="js_regexp_patterns.html">JavaScript RegExp Patterns</a></p>
+<p class="w3-large"><a href="js_regexp_objects.html">JavaScript RegExp Objects</a></p>
+<p class="w3-large"><a href="js_regexp_methods.html">JavaScript RegExp Methods</a></p>
+</div>
+
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_regexp.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_regexp_characters.html">Next ❯</a>
+</div>
+
+

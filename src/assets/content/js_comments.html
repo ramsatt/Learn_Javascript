@@ -1,0 +1,104 @@
+
+      
+
+<h1>JavaScript Comments</h1>
+
+<hr>
+<!--start-->
+<p class="intro">JavaScript comments can be used to explain JavaScript code, and 
+to make it more readable.</p>
+<p class="intro">JavaScript comments can also be used to prevent execution, when 
+testing alternative code.</p>
+<hr>
+
+<h2>Single Line Comments</h2>
+<p>Single line comments start with <code class="w3-codespan">//</code>.</p>
+<p>Any text between <code class="w3-codespan">//</code> and the end of the line will be ignored by JavaScript 
+(will not be executed).</p>
+<p>This example uses a single-line comment before each code line:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Change heading:
+document.getElementById("myH").innerHTML = "My First Page";
+// Change paragraph:
+document.getElementById("myP").innerHTML = "My first paragraph.";</code></pre>
+
+</div>
+<p>This example uses a single line comment at the end of each line 
+to explain the code:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 5;      // Declare x, give it the value of 5
+let y = x + 2;  // Declare y, give it the value of x + 2</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+
+<h2>Multi-line Comments</h2>
+<p>Multi-line comments start with <code class="w3-codespan">/*</code> and end with  <code class="w3-codespan">*/</code>.</p>
+<p>Any text between <code class="w3-codespan">/*</code> and <code class="w3-codespan">*/</code> will be ignored by JavaScript.</p>
+<p>This example uses a multi-line comment (a comment block) to explain the code:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">/*
+The code below will change
+the heading with id = "myH"
+and the paragraph with id = "myP"
+in my web page:
+*/
+document.getElementById("myH").innerHTML = "My First Page";
+document.getElementById("myP").innerHTML = "My first paragraph.";</code></pre>
+
+</div>
+
+<div class="w3-panel ws-note">
+<p>It is most common to use single line comments.<br>Block comments are often 
+used for formal documentation.</p>
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>Using Comments to Prevent Execution</h2>
+<p>Using comments to prevent execution of code is suitable for 
+code testing.</p>
+
+<p>Adding <code class="w3-codespan">//</code> in front of a code line changes the code lines from an executable line to 
+a comment.</p>
+<p>This example uses // to prevent execution of one of the code lines:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">//document.getElementById("myH").innerHTML = "My First Page";
+document.getElementById("myP").innerHTML = "My first paragraph.";</code></pre>
+
+</div>
+
+<p>This example uses a comment block to prevent execution of 
+multiple lines:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">/*
+document.getElementById("myH").innerHTML = "My First Page";
+document.getElementById("myP").innerHTML = "My first paragraph.";
+*/</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+
+<hr>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_statements.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_variables.html">Next ❯</a>
+</div>
+
+

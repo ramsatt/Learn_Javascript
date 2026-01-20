@@ -1,0 +1,198 @@
+
+      
+
+<h1>JavaScript Object Accessors</h1>
+
+<hr>
+<!--start-->
+<h2>JavaScript Getters and Setters</h2>
+<p>Getters and setters allow you to define Object Accessors (Computed 
+Properties).</p>
+
+<hr>
+<h2>JavaScript Getter (The get Keyword)</h2>
+<p>This example uses a <code class="w3-codespan">lang</code> property to <code class="w3-codespan">get</code> 
+the value of the <code class="w3-codespan">language</code> property.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an object:
+const person = {
+  firstName: "John",
+  lastName: "Doe",
+  language: "en",
+  get lang() {
+    return this.language;
+  }
+};
+// Display data from the object using a getter:
+document.getElementById("demo").innerHTML = person.lang;</code></pre>
+
+</div>
+<hr>
+<h2>JavaScript Setter (The set Keyword)</h2>
+<p>This example uses a <code class="w3-codespan">lang</code> property to <code class="w3-codespan">set</code> 
+the value of the <code class="w3-codespan">language</code> property.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const person = {
+  firstName: "John",
+  lastName: "Doe",
+  language: "",
+  set lang(lang) {
+    this.language = lang;
+  }
+};
+// Set an object property using a setter:
+person.lang = "en";
+// Display data from the object:
+document.getElementById("demo").innerHTML = person.language;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>JavaScript Function or Getter?</h2>
+<p>What is the differences between these two examples?</p>
+<div class="w3-example">
+<h3>Example 1</h3>
+<pre class="w3-code"><code class="language-javascript">const person = {
+  firstName: "John",
+  lastName: "Doe",
+  fullName: function() {
+    return this.firstName + " " + this.lastName;
+  }
+};
+// Display data from the object using a method:
+document.getElementById("demo").innerHTML = person.fullName();</code></pre>
+  
+</div>
+<div class="w3-example">
+<h3>Example 2</h3>
+<pre class="w3-code"><code class="language-javascript">const person = {
+  firstName: "John",
+  lastName: "Doe",
+  get fullName() {
+    return this.firstName + " " + this.lastName;
+  }
+};
+// Display data from the object using a getter:
+document.getElementById("demo").innerHTML = person.fullName;</code></pre>
+  
+</div>
+<p>Example 1 access fullName as a function: person.fullName().</p>
+<p>Example 2 access fullName as a property: person.fullName.</p>
+<p>The second example provides a simpler syntax.</p>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Data Quality</h2>
+<p>JavaScript can secure better data quality when using getters and setters.</p>
+
+<p>Using the <code class="w3-codespan">lang</code> property, in this example, returns the value 
+of the <code class="w3-codespan">language</code> property in upper case:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an object:
+const person = {
+  firstName: "John",
+  lastName: "Doe",
+  language: "en",
+  get lang() {
+    return this.language.toUpperCase();
+  }
+};
+// Display data from the object using a getter:
+document.getElementById("demo").innerHTML = person.lang;</code></pre>
+  
+</div>
+<p>Using the <code class="w3-codespan">lang</code> property, in this example, stores an upper case 
+value in the <code class="w3-codespan">language</code> property:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const person = {
+  firstName: "John",
+  lastName: "Doe",
+  language: "",
+  set lang(lang) {
+    this.language = lang.toUpperCase();
+  }
+};
+// Set an object property using a setter:
+person.lang = "en";
+// Display data from the object:
+document.getElementById("demo").innerHTML = person.language;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Why Using Getters and Setters?</h2>
+<ul>
+  <li>It gives simpler syntax</li>
+  <li>It allows equal syntax for properties and methods</li>
+  <li>It can secure better data quality</li>
+  <li>It is useful for doing things behind-the-scenes</li>
+</ul>
+
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Object.defineProperty()</h2>
+<p>The <code class="w3-codespan">Object.defineProperty()</code> method can also be used to add Getters and 
+Setters:</p>
+<div class="w3-example">
+<h3>A Counter Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Define object
+const obj = {counter : 0};
+// Define setters and getters
+Object.defineProperty(obj, "reset", {
+  get : function () {this.counter = 0;}
+});
+Object.defineProperty(obj, "increment", {
+  get : function () {this.counter++;}
+});
+Object.defineProperty(obj, "decrement", {
+  get : function () {this.counter--;}
+});
+Object.defineProperty(obj, "add", {
+  set : function (value) {this.counter += value;}
+});
+Object.defineProperty(obj, "subtract", {
+  set : function (value) {this.counter -= value;}
+});
+// Play with the counter:
+obj.reset;
+obj.add = 5;
+obj.subtract = 1;
+obj.increment;
+obj.decrement;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<div class="ws-note">
+<h2>Learn More:</h2>
+<p class="w3-large"><a href="js_object_definition.html">JavaScript Object Definitions</a></p>
+<p class="w3-large"><a href="js_object_constructors.html">JavaScript Object Constructors</a></p>
+<p class="w3-large"><a href="js_this.html">JavaScript Object this</a></p>
+<p class="w3-large"><a href="js_destructuring.html">JavaScript Object Destructuring</a></p>
+<p class="w3-large"><a href="js_object_prototypes.html">JavaScript Object Prototypes</a></p>
+<p class="w3-large"><a href="js_object_methods.html">JavaScript Object Iterations</a></p>
+<p class="w3-large"><a href="js_object_property.html">JavaScript Object Management</a></p>
+<p class="w3-large"><a href="js_object_accessors.html">JavaScript Object Getters &amp; Setters</a></p>
+<p class="w3-large"><a href="js_object_protection.html">JavaScript Object Protection</a></p>
+<p class="w3-large"><a href="js_object_reference.html">JavaScript Object Reference</a></p>
+</div>
+
+<hr>
+
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_object_property.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_object_protection.html">Next ❯</a>
+</div>
+
+

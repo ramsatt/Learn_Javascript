@@ -1,0 +1,85 @@
+
+      
+
+<h1>JavaScript else</h1>
+
+<hr>
+<!--start-->
+
+<h2>The else Statement</h2>
+<p>Use the <code class="w3-codespan">else</code> statement to specify a <b>block of code</b> to be 
+executed if a <b>condition</b> is <code class="w3-codespan">false</code>.</p>
+<pre class="w3-code"><code class="language-javascript"><div> if (<i>condition</i>) {
+  //<em>  block of code to be executed if the condition is true
+</em>} else {
+  //<em>  block of code to be executed if the condition is false
+</em>}</div></code></pre>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>If the hour is less than 18, create a "Good day" 
+greeting, otherwise "Good evening":</p>
+<pre class="w3-code"><code class="language-javascript">if (hour &lt; 18) {
+  greeting = "Good day";
+} else {
+  greeting = "Good evening";
+}</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>The else if&nbsp;Statement</h2>
+<p>Use the <code class="w3-codespan">else if</code> statement to specify a <b>new condition</b>
+if the first is <code class="w3-codespan">false</code>.</p>
+
+<h3>Syntax</h3>
+<pre class="w3-code"><code class="language-javascript"><div> if (<i>condition1</i>) {
+  //<em>  block of code to be executed if condition1 is true
+</em>} else if (<i>condition2</i>) {
+  //<em>  block of code to be executed if the condition1 is false and condition2 is true</em>
+} else {
+  //<em>  block of code to be executed if the condition1 is false and condition2 is false
+</em>}</div></code></pre>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>If time is less than 10:00, create a "Good 
+morning" 
+greeting, if not, but time is less than 20:00, create a "Good day" greeting, 
+otherwise a "Good evening":</p>
+<pre class="w3-code"><code class="language-javascript">if (time &lt; 10) {
+  greeting = "Good morning";
+} else if (time &lt; 20) {
+  greeting = "Good day";
+} else {
+  greeting = "Good evening";
+}</code></pre>
+
+</div>
+<hr>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>This example will write a link to either W3Schools or to the World Wildlife 
+Foundation (WWF). By using a random number, there is a 50% chance for each of the 
+links.</p>
+<pre class="w3-code"><code class="language-javascript">let text;
+if (Math.random() &lt; 0.5) {
+  text = "&lt;a href='https://w3schools.com'&gt;Visit W3Schools&lt;/a&gt;";
+} else {
+  text = "&lt;a href='https://wwf.org'&gt;Visit WWF&lt;/a&gt;";
+}
+document.getElementById("demo").innerHTML = text;</code></pre>
+
+</div>
+<!--stop-->
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_if.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_if_ternary.html">Next ❯</a>
+</div>
+
+

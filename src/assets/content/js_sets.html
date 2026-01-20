@@ -1,0 +1,164 @@
+
+      
+
+<h1>JavaScript Sets</h1>
+
+<!--start-->
+<div class="ws-info">
+<p>A JavaScript Set is a collection of unique values.</p>
+<p>Each value can only occur once in a Set.</p>
+<p>The values can be of any type, primitive values or objects.</p>
+</div>
+
+<hr>
+<h2>How to Create a Set</h2>
+<p>You can create a JavaScript Set by:</p>
+<ul>
+<li>Passing an array to <code class="w3-codespan">new Set()</code></li>
+<li>Create an empty set and use <code class="w3-codespan">add()</code> to add values</li>
+</ul>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The new Set() Method</h2>
+<p>Pass an array to the <code class="w3-codespan">new Set()</code> constructor:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create a Set
+const letters = new Set(["a","b","c"]);</code></pre>
+
+</div>
+
+<p>Create a Set and add values:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create a Set
+const letters = new Set();
+// Add Values to the Set
+letters.add("a");
+letters.add("b");
+letters.add("c");</code></pre>
+
+</div>
+
+<p>Create a Set and add variables:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create a Set
+const letters = new Set();
+// Create Variables
+const a = "a";
+const b = "b";
+const c = "c";
+// Add Variables to the Set
+letters.add(a);
+letters.add(b);
+letters.add(c);</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The add() Method</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">letters.add("d");
+letters.add("e");</code></pre>
+
+</div>
+<p>If you add equal elements, only the first will be saved:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">letters.add("a");
+letters.add("b");
+letters.add("c");
+letters.add("c");
+letters.add("c");
+letters.add("c");
+letters.add("c");
+letters.add("c");</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>Listing the Elements</h2>
+<p>You can list all Set elements (values) with a <b>for..of</b> loop:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create a Set
+const letters = new Set(["a","b","c"]);
+// List all Elements
+let text = "";
+for (const x of letters) {
+  text += x;
+}</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Sets are Objects</h2>
+<div class="w3-example">
+<p><code class="w3-codespan">typeof</code> returns object:</p>
+<pre class="w3-code"><code class="language-javascript">typeof letters;      // Returns object</code></pre>
+
+<p><code class="w3-codespan">instanceof Set</code> returns true:</p>
+<pre class="w3-code"><code class="language-javascript">letters instanceof Set;  // Returns true</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<div class="ws-note">
+<h2>Learn More:</h2>
+<p class="w3-large"><a href="js_set_methods.html">JavaScript Set Methods</a></p>
+<p class="w3-large"><a href="js_set_logic.html">JavaScript Set Logic</a></p>
+<p class="w3-large"><a href="js_sets_weak.html">JavaScript Weak Sets</a></p>
+<p class="w3-large"><a href="js_set_reference.html">JavaScript Set Reference</a></p>
+<p class="w3-large"><a href="js_maps.html">JavaScript Maps</a></p>
+</div>
+
+<hr>
+<h2>Browser Support</h2>
+<p><code class="w3-codespan">Set</code> is an <a href="js_es6.html">ES6  feature</a>.</p>
+<p>ES6 is fully supported in all modern browsers since June 2017:</p>
+
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr style="height:50px">
+    <th style="width:20%;" class="bsChrome" title="Chrome"></th>
+    <th style="width:20%;" class="bsEdge" title="Edge"></th>
+    <th style="width:20%;" class="bsFirefox" title="Firefox"></th>
+    <th style="width:20%;" class="bsSafari" title="Safari"></th>
+    <th style="width:19.9%;" class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>51</td>
+    <td>Edge<br>15</td>
+    <td>Firefox<br>54</td>
+    <td>Safari<br>10</td>
+    <td>Opera<br>38</td>
+  </tr>
+  <tr>
+    <td>May 2016</td>
+    <td>Apr 2017</td>
+    <td>Jun 2017</td>
+    <td>Sep 2016</td>
+    <td>Jun 2016</td>
+  </tr>
+</tbody></table></div>
+</div>
+
+
+<hr>
+
+<hr>
+
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_array_const.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_set_methods.html">Next ❯</a>
+</div>
+
+

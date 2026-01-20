@@ -1,0 +1,151 @@
+
+      
+
+<h1>JavaScript Logical Operators</h1>
+
+<div class="ws-info">
+<h2>Logical Operators</h2>
+<p>Logical operators are used to <b>combine boolean expressions</b>.</p>
+<p>Logical operators can be used to modify the results of comparisons.</p>
+<p>Typically, you will use a comparison operator to check a condition,
+and a logical operator to combine conditions into more complex logic.</p>
+</div>
+
+<h2>JavaScript Logical Operators</h2>
+<p>Logical operators are used to determine the logic between variables or values.</p>
+<p>Given that <b>x = 6 and y = 3</b>, the table below explains the logical operators: </p>
+
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate">
+<tbody><tr>
+<th>Oper</th>
+<th>Name</th>
+<th>Example</th>
+<th></th>
+</tr>
+<tr>
+<td>&amp;&amp;</td>
+<td>AND</td>
+<td> (x &lt; 10 &amp;&amp; y &gt; 1) is true</td>
+<td></td>
+</tr>
+<tr>
+<td>||</td>
+<td>OR</td>
+<td>(x === 5 || y === 5) is false</td>
+<td></td>
+</tr>
+<tr>
+<td>!</td>
+<td>NOT</td>
+<td> !(x === y) is true</td>
+<td></td>
+</tr>
+</tbody></table></div>
+</div>
+
+
+<hr>
+<h2>JavaScript Logical AND</h2>
+<p>The <b>&amp;&amp; operator</b> returns <code class="w3-codespan">true</code>
+if <b>both expressions</b> are <code class="w3-codespan">true</code>,
+otherwise <code class="w3-codespan">false</code>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 6;
+let y = 3;
+let z = (x &lt; 10 &amp;&amp; y &gt; 1)</code></pre>
+
+</div>
+
+<hr>
+<h2>JavaScript Logical OR</h2>
+<p>The <b>|| operator</b> returns <code class="w3-codespan">true</code> if <b>one or both expressions</b>
+are <code class="w3-codespan">true</code>, otherwise <code class="w3-codespan">false</code>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 6;
+let y = -3;
+let z = (x &gt; 0 || y &gt; 0)</code></pre>
+
+</div>
+
+<hr>
+<h2>JavaScript Logical NOT</h2>
+<p>The NOT operator (!) returns <code class="w3-codespan">true</code> for <b>false expressions</b>
+and <code class="w3-codespan">false</code> for <b>true expressions</b>.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = (5 == 8);
+let y = !(5 == 8)</code></pre>
+
+</div>
+<hr>
+<!--start-->
+<h2>The Nullish Coalescing Operator (??)</h2>
+<p>The <code class="w3-codespan">??</code> operator returns the right operand when the left operand is 
+<b>nullish</b> (<code class="w3-codespan">null</code> or <code class="w3-codespan">undefined</code>),
+otherwise it returns the left operand.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let name = null;
+let text = "missing";
+let result = name ?? text;</code></pre>
+
+</div>
+<p>When programming, a lot of values can be <b>falsey</b> (like 0, empty strings, false,
+undefined, null, NaN).</p>
+<p>However, sometimes you want to check if a variable is <b>nullish</b> 
+(either <code class="w3-codespan">undefined</code> or <code class="w3-codespan">null</code>),
+like when it is okay for a variable to be an empty string, or a false value.
+Then you can use the <b>nullish coalescing operator</b>.</p>
+<hr>
+<h2>Browser Support</h2>
+<p><code class="w3-codespan">??</code> is an <a href="js_2020.html">ES2020</a> feature.</p>
+<p>ES2020 is fully supported in all modern browsers since September 2020:</p>
+<div class="w3-responsive">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr style="height:50px">
+    <th style="width:20%;" class="bsChrome" title="Chrome"></th>
+    <th style="width:20%;" class="bsEdge" title="Edge"></th>
+    <th style="width:20%;" class="bsFirefox" title="Firefox"></th>
+    <th style="width:20%;" class="bsSafari" title="Safari"></th>
+    <th style="width:19%;" class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>85</td>    
+    <td>Edge<br>85</td>
+    <td>Firefox<br>79</td>
+    <td>Safari<br>14</td>
+    <td>Opera<br>71</td>
+  </tr>
+  <tr>
+    <td>Aug 2020</td>
+    <td>Aug 2020</td>    
+    <td>Mar 2020</td>
+    <td>Sep 2020</td>
+    <td>Sep 2020</td>
+  </tr>
+</tbody>
+</table></div>
+</div>
+
+
+<!--stop-->
+
+
+<div class="ws-note">
+<h2>See Also:</h2>
+<p class="w3-large"><a href="js_comparisons.html">JavaScript Comparisons</a>.</p>
+</div>
+
+<hr>
+
+<hr>
+
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_booleans.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_loops.html">Next ❯</a>
+</div>
+
+

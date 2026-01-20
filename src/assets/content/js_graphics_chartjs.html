@@ -1,0 +1,294 @@
+
+      
+
+<h1>Chart.js</h1>
+
+<div class="w3-panel ws-info">
+<p><b>Chart.js</b> is an free JavaScript library for making HTML-based charts.
+It is one of the simplest visualization libraries for JavaScript, and 
+comes with the many built-in chart types:</p>
+<ul>
+<li>Scatter Plot</li>
+<li>Line Chart</li>
+<li>Bar Chart</li>
+<li>Pie Chart</li>
+<li>Donut Chart</li>
+<li>Bubble Chart</li>
+<li>Area Chart</li>
+<li>Radar Chart</li>
+<li>Mixed Chart</li>
+</ul>
+</div>
+
+<h2>How to Use Chart.js?</h2>
+
+<div class="w3-example">
+<p><b>1.</b> Add a link to the providing CDN (Content Delivery Network):</p>
+<pre class="w3-code"><code class="language-html">&lt;script
+src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0"&gt;
+&lt;/script&gt;</code></pre>
+</div>
+<div class="w3-example">
+<p><b>2.</b> Add a &lt;canvas&gt; to where in the HTML you want to draw the chart:</p>
+<pre class="w3-code"><code class="language-html">&lt;canvas&gt;
+id="myChart" style="width:100%;max-width:700px"
+&lt;/canvas&gt;</code></pre>
+<p>The canvas element must have a unique id.</p>
+</div>
+
+<div class="w3-example">
+<h4>Typical Bar Chart Syntax:</h4>
+<pre class="w3-code"><code class="language-javascript">const myChart = new Chart("myChart", {
+  type: "bar",
+  data: {},
+  options: {}
+});</code></pre>
+<h4>Typical Line Chart Syntax:</h4>
+<pre class="w3-code"><code class="language-javascript">const myChart = new Chart("myChart", {
+  type: "line",
+  data: {},
+  options: {}
+});</code></pre>
+</div>
+
+<hr>
+<h2>Bar Charts</h2>
+<canvas id="myPlot13" style="width:100%;max-width:700px"></canvas>
+
+
+
+<div class="w3-example">
+<h3>Source Code</h3>
+<pre class="w3-code"><code class="language-javascript">const xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
+const yValues = [55, 49, 44, 24, 15];
+const barColors = ["red", "green","blue","orange","brown"];
+new Chart("myChart", {
+  type: "bar",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {...}
+});</code></pre>
+<p></p>
+</div>
+
+<div class="w3-example">
+<p>Only Blue Bars:</p>
+<pre class="w3-code"><code class="language-javascript">const barColors = ["blue"];</code></pre>
+<p></p>
+</div>
+
+<div class="w3-example">
+<p>Color Shades:</p>
+<pre class="w3-code"><code class="language-javascript">const barColors = [
+  "rgba(0,0,255,1.0)",
+  "rgba(0,0,255,0.8)",
+  "rgba(0,0,255,0.6)",
+  "rgba(0,0,255,0.4)",
+  "rgba(0,0,255,0.2)",
+];</code></pre>
+<p></p>
+</div>
+
+<div class="w3-example">
+<h3>Horizontal Bars</h3>
+<p>Set Index axiss to y:</p>
+<pre class="w3-code"><code class="language-javascript">indexAxis: 'y',</code></pre>
+<p></p>
+</div>
+
+<hr>
+<h2>Pie Charts</h2>
+<canvas id="myPlot14" style="width:100%;max-width:700px"></canvas>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">new Chart("myChart", {
+  type: "pie",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "World Wide Wine Production"
+    }
+  }
+});</code></pre>
+<p></p>
+</div>
+
+<hr>
+<h2>Doughnut Charts</h2>
+
+<canvas id="myPlot15" style="width:100%;max-width:700px"></canvas>
+
+
+<div class="w3-example">
+<p>Just change type from "pie" to "doughnut":</p>
+<pre class="w3-code"><code class="language-javascript">type: "doughnut";</code></pre>
+<p></p>
+</div>
+
+<hr>
+<h2>Scatter Plots</h2>
+<p><b>House Prices vs. Size</b></p>
+
+<canvas id="myPlot11" style="width:100%;max-width:700px"></canvas>
+
+
+<div class="w3-example">
+<h3>Source Code</h3>
+<pre class="w3-code"><code class="language-javascript">const xyValues = [
+  {x:50, y:7},
+  {x:60, y:8},
+  {x:70, y:8},
+  {x:80, y:9},
+  {x:90, y:9},
+  {x:100, y:9},
+  {x:110, y:10},
+  {x:120, y:11},
+  {x:130, y:14},
+  {x:140, y:14},
+  {x:150, y:15}
+];
+new Chart("myChart", {
+  type: "scatter",
+  data: {
+    datasets: [{
+      pointRadius: 4,
+      pointBackgroundColor: "rgba(0,0,255,1)",
+      data: xyValues
+    }]
+  },
+  options:{...}
+});</code></pre>
+<p></p>
+</div>
+<hr>
+
+<hr>
+<h2>Line Graphs</h2>
+<p><b>House Prices vs. Size</b></p>
+
+<canvas id="myPlot12" style="width:100%;max-width:700px"></canvas>
+
+
+<div class="w3-example">
+<h3>Source Code</h3>
+<pre class="w3-code"><code class="language-javascript">const xValues = [50,60,70,80,90,100,110,120,130,140,150];
+const yValues = [7,8,8,9,9,9,10,11,14,14,15];
+new Chart("myChart", {
+  type: "line",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor:"rgba(0,0,255,1.0)",
+      borderColor: "rgba(0,0,255,0.1)",
+      data: yValues
+    }]
+  },
+  options:{...}
+});</code></pre>
+<p></p>
+</div>
+<p>If you set the borderColor to zero, you can <b>scatter plot</b> the line graph:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">borderColor: "rgba(0,0,0,0)",</code></pre>
+<p></p>
+</div>
+
+
+<hr>
+<h2>Multiple Lines</h2>
+
+<canvas id="myChart13" style="width:100%;max-width:600px"></canvas>
+
+
+<div class="w3-example">
+<h3>Source Code</h3>
+<pre class="w3-code"><code class="language-javascript">const xValues = [100,200,300,400,500,600,700,800,900,1000];
+new Chart("myChart", {
+  type: "line",
+  data: {
+    labels: xValues,
+    datasets: [{
+      data: [860,1140,1060,1060,1070,1110,1330,2210,7830,2478],
+      borderColor: "red",
+      fill: false
+    },{
+      data: [1600,1700,1700,1900,2000,2700,4000,5000,6000,7000],
+      borderColor: "green",
+      fill: false
+    },{
+      data: [300,700,2000,5000,6000,4000,2000,1000,200,100],
+      borderColor: "blue",
+      fill: false
+    }]
+  },
+  options: {
+    legend: {display: false}
+  }
+});</code></pre>
+<p></p>
+</div>
+<hr>
+<h2>Linear Graphs</h2>
+
+<canvas id="myFunc1" style="width:100%;max-width:600px"></canvas>
+
+
+<div class="w3-example">
+<h3>Source Code</h3>
+<pre class="w3-code"><code class="language-javascript">const xValues = [];
+const yValues = [];
+generateData("x * 2 + 7", 0, 10, 0.5);
+const ctx = document.getElementById('myChart');
+new Chart(ctx, {
+  type: "line",
+  data: {
+    labels: xValues,
+    datasets: [{
+      fill: false,
+      pointRadius: 1,
+      borderColor: "rgba(255,0,0,0.5)",
+      data: yValues
+    }]
+  },
+  options: {...}
+});
+function generateData(value, i1, i2, step = 1) {
+  for (let x = i1; x &lt;= i2; x += step) {
+    yValues.push(eval(value));
+    xValues.push(x);
+  }
+}</code></pre>
+<p></p>
+</div>
+<hr>
+<h2>Function Graphs</h2>
+
+
+<canvas id="myFunc2" style="width:100%;max-width:600px"></canvas>
+
+
+<div class="w3-example">
+<p>Same as Linear Graph. Just change the generateData parameter(s):</p>
+<pre class="w3-code"><code class="language-javascript">generateData("Math.sin(x)", 0, 10, 0.5);</code></pre>
+<p></p>
+</div>
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_graphics_plotly.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_graphics_google_chart.html">Next ❯</a>
+</div>
+
+

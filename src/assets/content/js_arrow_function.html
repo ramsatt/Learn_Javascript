@@ -1,0 +1,295 @@
+
+      
+
+<h1>JavaScript Arrow Functions</h1>
+
+<!--start-->
+<div class="ws-info">
+<p><b>Arrow Functions</b> were introduced in <a href="js_es6.html">ES6</a> and are commonly
+used in modern JavaScript.</p>
+<p><b>Arrow Functions</b> allow a shorter syntax for <b>function expressions</b>.</p>
+<p>You can skip the <b>function</b> keyword, the <b>return</b> keyword, and the 
+<b>curly brackets</b>:</p>
+<pre class="w3-code"><code class="language-javascript">let myFunction = (a, b) =&gt; a * b;</code></pre>
+
+</div>
+
+<h2>Arrow Function Syntax</h2>
+<p>An arrow function uses the <b>=&gt;</b> symbol.</p>
+<p>An arrow function is always written as a function expression.</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <pre class="w3-code"><code class="language-javascript">const add = (a, b) =&gt; {
+  return a + b;
+};</code></pre>
+</div>
+
+<p>
+This arrow function does the same thing as a regular function expression.<br>
+</p>
+
+<hr>
+<h2>Shorter Syntax</h2>
+<p>If the function body contains only one statement:</p>
+<p>You can remove the word <b>function</b>, the <b>curly brackets</b> and the <b>return</b> keyword.</p>
+
+<div class="w3-example">
+<h3>Before Arrow</h3>
+<p>Function to compute the product of a and b:</p>
+<pre class="w3-code"><code class="language-javascript">let add = function(a, b) {return a * b}</code></pre>
+<p>
+
+</p>
+</div>
+
+<div class="w3-example">
+<h3>With Arrow</h3>
+<pre class="w3-code"><code class="language-javascript">let add = (a, b) =&gt; a * b;</code></pre>
+<p>
+
+</p>
+</div>
+
+<div class="w3-example">
+<h3>With Arrow</h3>
+<pre class="w3-code"><code class="language-javascript">let hello = () =&gt; "Hello World!";</code></pre>
+<p>
+
+</p>
+</div>
+
+<div class="w3-example">
+<h3>Before Arrow</h3>
+<pre class="w3-code"><code class="language-javascript">let hello = function() {return "Hello World!";}</code></pre>
+<p>
+
+</p>
+</div>
+
+<hr>
+<h2>Arrow Functions with One Parameter</h2>
+<p>If a function has only one parameter, you can omit the parentheses:</p>
+
+<div class="w3-example">
+<h3>With Paranthesis</h3>
+<pre class="w3-code"><code class="language-javascript">let square = (x) =&gt; x * x;</code></pre>
+
+<h3>Without Paranthesis</h3>
+<pre class="w3-code"><code class="language-javascript">let square = x =&gt; x * x;</code></pre>
+
+</div>
+<div class="w3-example">
+
+<h3>With Paranthesis</h3>
+<pre class="w3-code"><code class="language-javascript">let hello = (val) =&gt; "Hello " + val;</code></pre>
+
+<h3>Without Paranthesis</h3>
+<pre class="w3-code"><code class="language-javascript">let hello = val =&gt; "Hello " + val;</code></pre>
+
+</div>
+
+<hr>
+<h2>Arrow Functions Return Value by Default</h2>
+<p>If the function has only one statement that returns a value:</p>
+<p>You can remove the <b>brackets</b> and the <b>return</b> keyword:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let hello = () =&gt; "Hello World!";</code></pre>
+<p>
+
+</p>
+</div>
+<div class="w3-panel ws-note">
+<h2>Note</h2>
+<p>This works only if the function has only one statement.</p>
+</div>
+
+<hr>
+<h2>Arrow Function Parameters</h2>
+<p>If you have parameters, you pass them inside the parentheses:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let hello = (val) =&gt; "Hello " + val;</code></pre>
+<p>
+
+</p>
+</div>
+
+<p>If you have only one parameter, you can skip the parentheses as well:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let hello = val =&gt; "Hello " + val;</code></pre>
+<a name="arrowthis"><span style="display:none">this</span></a>
+<p>
+
+</p>
+</div>
+
+<hr>
+<h2>Arrow Functions with No Parameters</h2>
+<p>If there are no parameters, parentheses are required.</p>
+
+<div class="w3-example">
+<h3>With Arrow Function:</h3>
+<pre class="w3-code"><code class="language-javascript">let hello = () =&gt; "Hello World!";</code></pre>
+<p>
+
+</p>
+</div>
+
+<p>You can only omit the <b>return</b> keyword and the <b>curly brackets</b> if the function is a single
+statement. Because of this, it might be a good habit to always keep them:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// This will not work
+let myFunction = (x, y) =&gt; { x * y } ;
+// This will not work
+let myFunction = (x, y) =&gt; return x * y ;
+// Only this will work
+let myFunction = (x, y) =&gt; { return x * y };</code></pre>
+
+</div>
+
+
+
+<hr>
+
+<hr>
+
+<h2>Arrow Functions Are Not Declarations</h2>
+<p>Arrow functions are always expressions and must be assigned to a variable.</p>
+<p>They cannot be used before they are defined.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">hello(); // Error
+let hello = () =&gt; "Hello";</code></pre>
+</div>
+
+<hr>
+<div class="ws-note">
+<h2>Note</h2>
+<p>Arrow functions must be defined <strong>before</strong> they are used.</p>
+</div>
+
+<hr>
+<h2>Arrow Functions and the this Keyword</h2>
+<p>Arrow functions do not have their own <b>this</b> value.</p>
+<p>They inherit <b>this</b> from the surrounding code.</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <pre class="w3-code"><code class="language-javascript">const person = {
+  name: "John",
+  greet: function() {
+    return this.name;
+  }
+};</code></pre>
+</div>
+
+<p>
+Using an arrow function as a method often gives unexpected results.<br>
+</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <pre class="w3-code"><code class="language-javascript">const person = {
+  name: "John",
+  greet: () =&gt; {
+    return this.name;
+  }
+};</code></pre>
+</div>
+
+<p>In this case, <b>this</b> does not refer to the <b>person</b> object.</p>
+
+<hr>
+<h2>When to Use Arrow Functions</h2>
+<ul>
+  <li>For short functions</li>
+  <li>For callbacks and array methods</li>
+  <li>When you do not need your own <b>this</b></li>
+</ul>
+
+<hr>
+<h2>When Not to Use Arrow Functions</h2>
+<ul>
+  <li>As object methods</li>
+  <li>When you need your own <b>this</b></li>
+  <li>When using function declarations</li>
+</ul>
+
+<hr>
+<div class="w3-panel w3-pale-yellow w3-leftbar w3-border-yellow">
+<h2>Quiz</h2>
+<p>What is one important difference between arrow functions and regular functions?</p>
+</div>
+<hr>
+
+<h2>Common Mistakes</h2>
+<ul class="w3-ul">
+<li><h3>Forgetting Parentheses Rules</h3>
+Parentheses are required for zero or multiple parameters.
+</li>
+<li><h3>Using Arrow Functions as Methods</h3>
+Arrow functions do not bind <b>this</b>.</li>
+
+<li><h3>Expecting Hoisting</h3>
+Arrow functions are not hoisted.
+</li>
+</ul>
+
+<hr>
+<h2>Next Chapter</h2>
+<p class="w3-large">Next: <a href="js_function_this.html">The this Keyword</a></p>
+
+
+
+<hr>
+<h2>Browser Support</h2>
+<p><code class="w3-codespan">= () =&gt; {}</code> is an <a href="js_es6.html">ES6  feature</a>.</p>
+<p>ES6 is fully supported in all modern browsers since June 2017:</p>
+
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr style="height:50px">
+    <th style="width:20%;" class="bsChrome" title="Chrome"></th>
+    <th style="width:20%;" class="bsEdge" title="Edge"></th>
+    <th style="width:20%;" class="bsFirefox" title="Firefox"></th>
+    <th style="width:20%;" class="bsSafari" title="Safari"></th>
+    <th style="width:19.9%;" class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>51</td>
+    <td>Edge<br>15</td>
+    <td>Firefox<br>54</td>
+    <td>Safari<br>10</td>
+    <td>Opera<br>38</td>
+  </tr>
+  <tr>
+    <td>May 2016</td>
+    <td>Apr 2017</td>
+    <td>Jun 2017</td>
+    <td>Sep 2016</td>
+    <td>Jun 2016</td>
+  </tr>
+</tbody></table></div>
+</div>
+
+
+
+<!--stop-->
+<hr>
+
+
+<hr>
+
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_function_expressions.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_function_iife.html">Next ❯</a>
+</div>
+
+

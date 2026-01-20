@@ -1,0 +1,61 @@
+
+      
+
+<h1>JavaScript Static Methods</h1>
+
+<!--start-->
+<div class="ws-info">
+<p>Static class methods are defined on the class itself.</p>
+<p>You cannot call a <code class="w3-codespan">static</code> method on an object, only on an object class.</p>
+</div>
+
+<p></p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">class Car {
+  constructor(name) {
+    this.name = name;
+  }
+  static hello() {
+    return "Hello!!";
+  }
+}
+const myCar = new Car("Ford");
+// You can call 'hello()' on the Car Class:
+document.getElementById("demo").innerHTML = Car.hello();
+// But NOT on a Car Object:
+// document.getElementById("demo").innerHTML = myCar.hello();
+// this will raise an error.</code></pre>
+<p>
+
+</p>
+</div>
+
+<p>If you want to use the myCar object inside the <code class="w3-codespan">static</code> method, you can send it 
+as a parameter:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">class Car {
+  constructor(name) {
+    this.name = name;
+  }
+  static hello(x) {
+    return "Hello " + x.name;
+  }
+}
+const myCar = new Car("Ford");
+document.getElementById("demo").innerHTML = Car.hello(myCar);</code></pre>
+<p>
+
+</p>
+</div>
+<!--stop-->
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_class_inheritance.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_control_flow.html">Next ❯</a>
+</div>
+
+

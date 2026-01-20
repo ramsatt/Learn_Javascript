@@ -1,0 +1,336 @@
+
+      
+
+<h1>JavaScript ArrayBuffer</h1>
+
+
+<div class="ws-info">
+<p>An <b>ArrayBuffer</b> is fixed a block of memory,
+often used to store <b>typed arrays</b>.</p>
+<p>On top of this block, you can create different 
+<b>views</b> that interpret the bits as numbers, bytes, or other data types.</p>
+</div>
+
+<h2>Creating an ArrayBuffer</h2>
+<p>Use <code class="w3-codespan">new ArrayBuffer()</code> to create a new ArrayBuffer.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Create a 16-byte ArrayBuffer:</p>
+<pre class="w3-code"><code class="language-javascript">// Create an ArrayBuffer
+const myBuf = new ArrayBuffer(16);
+// Get the length in bytes
+let len = myBuf.byteLength;</code></pre>
+
+</div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>The <b>size</b> of an ArrayBuffer is specified in <b>bytes</b>.</p>
+<p>The <b>byteLength</b> property represents the size.</p>
+<p>Once created, the size can not be changed.</p>
+</div>
+
+<hr>
+
+<h2>Accessing an ArrayBuffer</h2>
+<p>The ArrayBuffer does not have methods to <b>read</b> and <b>write</b> data.</p>
+<p>You must always use a <b>view</b> to access the data.</p>
+<p><b>Typed Arrays</b> and <b>DataViews</b> provide a way to read and write numeric values to an
+ArrayBuffer.</p>
+<p>Common typed arrays are:</p>
+
+<ul>
+<li>Uint8Array - 8-bit unsigned integers</li>
+<li>Int16Array - 16-bit signed integers</li>
+<li>Int32Array - 32-bit signed integers</li>
+<li>Float32Array - 32-bit floating point numbers</li>
+<li>Float64Array - 64-bit floating point numbers</li>
+</ul>
+
+<hr>
+<h2>Using an Uint8Array</h2>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Each Uint8 uses 1 byte.</p>
+<pre class="w3-code"><code class="language-javascript">// Create an ArrayBuffer
+const myBuf = new ArrayBuffer(8);
+// Create a Uint8Array view
+const view = new Uint8Array(myBuf);
+// Write max 8 values
+view[0] = 10;
+view[2] = 128;
+view[1] = 255;
+// Read values
+let v0 = view[0];
+let v1 = view[1];
+let v2 = view[2];</code></pre>
+
+</div>
+
+<h2>Using an Int32Array</h2>
+<div class="w3-example">
+<h3>Example</h3>
+
+<p>Each Int32 uses 4 bytes.</p>
+<pre class="w3-code"><code class="language-javascript">// Create an ArrayBuffer
+const myBuf = new ArrayBuffer(12);
+// Create an Int32Array view
+const view = new Int32Array(myBuf);
+// 12 bytes = max 3 Int32 values
+view[0] = 100000;
+view[1] = 200000;
+view[2] = 300000;
+// Read values
+let v0 = view[0];
+let v1 = view[1];
+let v2 = view[2];</code></pre>
+
+</div>
+
+<hr>
+<h2>Using a DataView</h2>
+<p>A <b>DataView</b> is a more flexible view for an ArrayBuffer.</p>
+<p>A <b>DataView</b> lets you read and write values of different types (Int8, Uint16, Float32, etc.).</p>
+<p>A <b>DataView</b> also lets you read and write values at any byte offset.</p>
+<div class="w3-example">
+<h3>Example: Reading and Writing with DataView</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an ArrayBuffer
+const myBuf = new ArrayBuffer(8);
+// Create a DataView
+const view = new DataView(myBuf);
+// Write a 32-bit integer at byte offset 0
+view.setInt32(0, 123456);
+// Write a 16-bit integer at byte offset 4
+view.setInt16(4, 32000);
+// Read the values
+let v1 view.getInt32(0);
+let v2 = view.getInt16(4);</code></pre>
+
+</div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>The <b>DataView methods</b> have an optional <b>littleEndian</b> parameter (true/false)
+to control the byte order.</p>
+</div>
+
+<hr>
+<h2 id="slicing">Slicing an ArrayBuffer</h2>
+<p>
+You can make a copy of a part of an <code class="w3-codespan">ArrayBuffer</code> using
+the <code class="w3-codespan">slice()</code> method. It returns a new <code class="w3-codespan">ArrayBuffer</code>
+with bytes from the specified range.
+</p>
+
+<div class="w3-example">
+<h3>Example: ArrayBuffer.slice()</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an ArrayBuffer
+const myBuf = new ArrayBuffer(8);
+// Create a Uint8Array
+const view = new Uint8Array(myBuf);
+// Fill with values 0 to 7
+for (let i = 0; i &lt; view.length; i++) {
+  view[i] = i;
+}
+// Create a copy of bytes from 2 to 5 (not including 5)
+const sliced = myBuf.slice(2, 5);
+const slicedView = new Uint8Array(sliced);</code></pre>
+
+</div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>The <code class="w3-codespan">slice()</code> method creates a new buffer.</p>
+<p>The <code class="w3-codespan">slice()</code> method does not share memory with the original buffer.</p>
+</div>
+
+<hr>
+<h2>Converting Strings</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Converting a String to an ArrayBuffer (UTF-8)</p>
+<pre class="w3-code"><code class="language-javascript">function stringToArrayBuffer(str) {
+  const encoder = new TextEncoder();
+  return encoder.encode(str).buffer;
+}
+const myBuf = stringToArrayBuffer("Hello");
+let len1 = myBuf.byteLength;</code></pre>
+
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Converting an ArrayBuffer to a String (UTF-8)</p>
+<pre class="w3-code"><code class="language-javascript">function arrayBufferToString(buffer) {
+  const decoder = new TextDecoder();
+  return decoder.decode(new Uint8Array(buffer));
+}
+const encoder = new TextEncoder();
+const myBuf = encoder.encode("Hello ArrayBuffer").buffer;
+let text = arrayBufferToString(myBuf);</code></pre>
+
+</div>
+
+<hr>
+<h2>Sharing ArrayBuffer (SharedArrayBuffer)</h2>
+<p>An <code class="w3-codespan">ArrayBuffer</code> is not shared between threads by default.</p>
+<p>To share memory between workers, JavaScript provides <code class="w3-codespan">SharedArrayBuffer</code>.</p>
+<p>It behaves like <code class="w3-codespan">ArrayBuffer</code>, but its contents can be shared and
+used with <code class="w3-codespan">Atomics</code>.</p>
+
+<div class="w3-example">
+<h3>Example: Creating a SharedArrayBuffer</h3>
+<pre class="w3-code"><code class="language-javascript">if (Window.crossOriginIsolated) {
+  buffer = new SharedArrayBuffer(16);
+} else {
+  buffer = new ArrayBuffer(16);
+}
+const sharedView = new Int32Array(buffer);
+buffer[0] = 42;
+let numb = sharedView[0];</code></pre>
+
+</div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>Browsers may require special security headers to enable
+<code class="w3-codespan">SharedArrayBuffer</code> (COOP/COEP).
+</p></div>
+
+<hr>
+<h2>Summary</h2>
+<ul>
+<li>ArrayBuffer is a low-level object representing a fixed-size block of memory</li>
+<li>You cannot read or write directly to an ArrayBuffer</li>
+<li>You use views (typed arrays or DataView) to access an ArrayBuffer</li>
+<li>Typed arrays are good for uniform numeric data</li>
+<li>DataView is good for mixed or structured data</li>
+<li>Use slice() to copy parts of an ArrayBuffer</li>
+<li>Use a SharedArrayBuffer and Atomics for shared-memory concurrency</li>
+</ul>
+<hr>
+<h2>Common Use Cases</h2>
+<ul>
+<li>Working with binary data from files (e.g., images, videos, audio).</li>
+<li>Handling binary network protocols (WebSockets, WebRTC, etc.).</li>
+<li>Performing performance-critical numeric computations.</li>
+<li>Interoperability with WebAssembly or other low-level APIs.</li>
+</ul>
+
+<hr>
+<h2>ArrayBuffer Reference</h2>
+<h4>Revised December 2025</h4>
+
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="w3-table-all">
+<tbody><tr></tr>
+<tr>
+<td>Property / Method</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>new ArrayBuffer()</td>
+<td>Creates a new ArrayBuffer</td>
+</tr>
+<tr>
+<td>arrayBuffer.byteLength</td>
+<td>The length of the buffer in bytes</td>
+</tr>
+<tr>
+<td>arrayBuffer.slice()</td>
+<td>
+Returns a new ArrayBuffer as a copy of a portion of this buffer
+</td>
+</tr>
+<tr>
+<td>ArrayBuffer.isView()</td>
+<td>
+Returns true if argument is a view on an ArrayBuffer
+</td>
+</tr>
+</tbody></table></div>
+</div>
+
+<h3>Common Views</h3>
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="w3-table-all">
+<tbody><tr></tr>
+<tr>
+<td>View</td>
+<td>Description</td>
+<td>Bytes</td>
+</tr>
+<tr>
+<td>Int8Array</td>
+<td>8-bit signed integer</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Uint8Array</td>
+<td>8-bit unsigned integer</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Uint8ClampedArray</td>
+<td>8-bit clamped integer</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Int16Array</td>
+<td>16-bit signed integer</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Uint16Array</td>
+<td>16-bit unsigned integer</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Int32Array</td>
+<td>32-bit signed integer</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Uint32Array</td>
+<td>32-bit unsigned integer</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Float32Array</td>
+<td>32-bit floating point</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Float64Array</td>
+<td>64-bit floating point</td>
+<td>8</td>
+</tr>
+<tr>
+<td>DataView</td>
+<td>Generic view (all types)</td>
+<td>&nbsp;</td>
+</tr>
+</tbody></table></div>
+</div>
+
+
+
+<hr>
+<div class="ws-note">
+<h2>Learn More:</h2>
+<p class="w3-large"><a href="js_typed_arrays.html">Typed Array Tutorial</a></p>
+<p class="w3-large"><a href="js_typed_methods.html">Typed Array Methods</a></p>
+<p class="w3-large"><a href="js_typed_reference.html">Typed Array Reference</a></p>
+<p class="w3-large"><a href="js_dataview.html">DataViews</a></p>
+<p class="w3-large"><a href="js_atomics.html">Atomics</a></p>
+</div>
+
+
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_typed_reference.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_dataview.html">Next ❯</a>
+</div>
+
+

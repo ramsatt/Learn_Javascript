@@ -1,0 +1,203 @@
+
+      
+
+<h1>JavaScript Number Properties</h1>
+
+<!--start-->
+<div class="ws-info">
+<h2>Number Properties</h2>
+<div class="table-responsive-wrapper"><table class="w3-table">
+<tbody><tr><td>
+<a href="#mark_epsilon">Number.EPSILON</a><br>
+<a href="#mark_max_value">Number.MAX_VALUE</a><br>
+<a href="#mark_min_value">Number.MIN_VALUE</a><br>
+</td><td>
+<a href="#mark_max_safe">Number.MAX_SAFE_INTEGER</a><br>
+<a href="#mark_min_safe">Number.MIN_SAFE_INTEGER</a><br>
+<a href="#mark_positive_infinity">Number.POSITIVE_INFINITY</a><br>
+<a href="#mark_negative_infinity">Number.NEGATIVE_INFINITY</a><br>
+<a href="#mark_nan">Number.NaN</a><br>
+</td></tr>
+</tbody></table></div>
+</div>
+<div class="ws-note w3-large">
+<h2>See Also:</h2>
+<a href="js_numbers.html">Numbers Tutorial</a><br>
+<a href="js_number_methods.html">Number Methods</a><br>
+<a href="js_number_reference.html">Number Reference</a><br>
+</div>
+
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_epsilon"></a>
+<h2>JavaScript EPSILON</h2>
+<p><code class="w3-codespan">Number.EPSILON</code> is the difference between
+the smallest floating point number greater than 1 and 1.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = Number.EPSILON;</code></pre>
+<a class="w3-btn w3-margin-bottom" href="tryitaf3d.html?filename=tryjs_number_epsilon">Try 
+it Yourself »</a>
+</div>
+<div class="ws-note">
+<h2>Note</h2>
+<p><code class="w3-codespan">Number.EPSILON</code> is an <a href="js_es6.html">ES6</a> feature.</p>
+<p>It does not work in Internet Explorer.</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_max_value"></a>
+<h2>JavaScript MAX_VALUE</h2>
+<p><code class="w3-codespan">Number.MAX_VALUE</code> is a constant representing the largest possible number in JavaScript.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = Number.MAX_VALUE;</code></pre>
+<a class="w3-btn w3-margin-bottom" href="tryit00fd.html?filename=tryjs_number_max">Try 
+it Yourself »</a>
+</div>
+
+<div class="ws-note">
+<h2>Number Properties Cannot be Used on Variables</h2>
+<p>Number properties belong to the JavaScript <strong>Number Object</strong>.</p>
+<p>These properties can only be accessed as <code class="w3-codespan">Number.MAX_VALUE</code>.</p>
+<p>Using x.MAX_VALUE, where x is a variable or a value,
+will return <code class="w3-codespan">undefined</code>:</p>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 6;
+x.MAX_VALUE</code></pre>
+<a class="w3-btn w3-margin-bottom" href="tryit75c1.html?filename=tryjs_number_max_undefined">Try 
+it Yourself »</a>
+</div>
+
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_min_value"></a>
+<h2>JavaScript MIN_VALUE</h2>
+<p><code class="w3-codespan">Number.MIN_VALUE</code> is a constant representing the lowest possible number in JavaScript.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = Number.MIN_VALUE;</code></pre>
+<a class="w3-btn w3-margin-bottom" href="tryit27ac.html?filename=tryjs_number_min">Try 
+it Yourself »</a>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Minimum and Maximum Safe Integers</h2>
+<p><a href="js_es6.html">ES6</a> added max and min properties to the Number object:</p>
+<ul>
+<li><code class="w3-codespan">Number.MAX_SAFE_INTEGER</code></li>
+<li><code class="w3-codespan">Number.MIN_SAFE_INTEGER</code></li>
+</ul>
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_min_safe"></a>
+<h2>JavaScript MIN_SAFE_INTEGER</h2>
+<p><code class="w3-codespan">Number.MIN_SAFE_INTEGER</code> represents the minimum safe integer in JavaScript.</p>
+<p><code class="w3-codespan">Number.MIN_SAFE_INTEGER</code> is -(2<sup>53</sup> - 1).</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = Number.MIN_SAFE_INTEGER;</code></pre>
+<a class="w3-btn w3-margin-bottom" href="tryit0ebb.html?filename=tryjs_number_min_safe">Try 
+it Yourself »</a>
+</div>
+
+<hr>
+<!--start-->
+<a id="mark_max_safe"></a>
+<h2>JavaScript MAX_SAFE_INTEGER</h2>
+<p><code class="w3-codespan">Number.MAX_SAFE_INTEGER</code> represents the maximum safe integer in JavaScript.</p>
+<p><code class="w3-codespan">Number.MAX_SAFE_INTEGER</code> is (2<sup>53</sup> - 1).</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = Number.MAX_SAFE_INTEGER;</code></pre>
+<a class="w3-btn w3-margin-bottom" href="tryitf2ce.html?filename=tryjs_number_max_safe">Try 
+it Yourself »</a>
+</div>
+<!--stop-->
+
+<hr>
+
+<hr>
+<!--start-->
+<a id="mark_positive_infinity"></a>
+<h2>JavaScript POSITIVE_INFINITY</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = Number.POSITIVE_INFINITY;</code></pre>
+<a class="w3-btn w3-margin-bottom" href="tryit5e81.html?filename=tryjs_number_pos_infinity">Try 
+it Yourself »</a>
+<p><code class="w3-codespan">POSITIVE_INFINITY</code> is returned on overflow:</p>
+<pre class="w3-code"><code class="language-javascript">let x = 1 / 0;</code></pre>
+<a class="w3-btn w3-margin-bottom" href="tryit68bd.html?filename=tryjs_number_pos_infinity2">Try 
+it Yourself »</a>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_negative_infinity"></a>
+<h2>JavaScript NEGATIVE_INFINITY</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = Number.NEGATIVE_INFINITY;</code></pre>
+<a class="w3-btn w3-margin-bottom" href="tryit37b0.html?filename=tryjs_number_neg_infinity">Try 
+it Yourself »</a>
+<p><code class="w3-codespan">NEGATIVE_INFINITY</code> is returned on overflow:</p>
+<pre class="w3-code"><code class="language-javascript">let x = -1 / 0;</code></pre>
+<a class="w3-btn w3-margin-bottom" href="tryit6e7e.html?filename=tryjs_number_neg_infinity2">Try 
+it Yourself »</a>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_nan"></a>
+<h2>JavaScript NaN - Not a Number</h2>
+<p><code class="w3-codespan">NaN</code> is a JavaScript reserved word for a number that is not a legal number.</p>
+<div class="w3-example">
+<h3>Examples</h3>
+<pre class="w3-code"><code class="language-javascript">let x = Number.NaN;</code></pre>
+<a class="w3-btn w3-margin-bottom" href="tryitc128.html?filename=tryjs_number_nan">Try 
+it Yourself »</a>
+<p>Trying to do arithmetic with a non-numeric string will result in <code class="w3-codespan">NaN</code> (Not a 
+Number):</p>
+<pre class="w3-code"><code class="language-javascript">let x = 100 / "Apple";</code></pre>
+<p>
+
+</p>
+</div>
+<!--stop-->
+
+
+<div class="w3-container ws-note">
+<p>Safe integers are all integers from -(2<sup>53</sup> - 1) to +(2<sup>53</sup> - 1).<br>
+This is safe: 9007199254740991. This is not safe: 9007199254740992.</p>
+</div>
+<!--stop-->
+
+<hr>
+<div class="ws-note">
+<h2>Complete JavaScript Reference</h2>
+<p>For a complete reference to all JavaScript properties and methods, with full descriptions and many examples, go to:</p>
+<p class="w3-large"><a href="../jsref/default.html">W3Schools' Full JavaScript Reference</a>.</p>
+<p>The reference inludes all JavaScript updates from 1999 to 2025.</p>
+</div>
+
+<hr>
+
+<hr>
+
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_number_methods.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_number_reference.html">Next ❯</a>
+</div>
+
+

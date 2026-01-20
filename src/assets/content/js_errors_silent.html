@@ -1,0 +1,86 @@
+
+      
+
+<h1>JavaScript Silent Errors</h1>
+
+<div class="ws-info">
+<h2>Silent Errors</h2>
+<p>JavaScript can fail siently.</p>
+<p>A silent error will not stop your program. The execution will continue.</p>
+<p>The reason for silent errors is historical:</p>
+<p>The first version of JavaScript did not have catch...try exceptions.</p>
+</div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p><b>Silent errors</b> are issues that do not throw exceptions or stop execution,
+but still cause logic bugs, unexpected behavior, or failures that are easy to miss.</p>
+</div>
+<p>Below are some examples of common silent errors, with examples to try:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Silent errors will not stop your program.</p>
+<pre class="w3-code"><code class="language-javascript">let x = 1 / 0;</code></pre>
+
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Assignment, not comparison</p>
+<pre class="w3-code"><code class="language-javascript">let result = "Not Active.";
+let isActive = false;
+// ❌ Assignment, not comparison
+if (isActive = true) {
+  let result = "Active!";
+}</code></pre>
+
+</div>
+<h3>Explanation</h3>
+<p>The (isActive = true) assigns true to isActive, instead of checking equality with (isActive == true).</p>
+<p>The next line runs silently and prints "Active!", even though isActive is false.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Many numeric operations that fail produce NaN (not an exception).</p>
+<p>JavaScript will not crash. It just quietly gives you NaN and keeps going.</p>
+<pre class="w3-code"><code class="language-javascript">// NaN - no error, just wrong data
+const result = parseInt("abc");</code></pre>
+
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Accessing a missing property just returns undefined silently.</p>
+<pre class="w3-code"><code class="language-javascript">const user = {};
+let result = user.name;</code></pre>
+
+</div>
+<hr>
+
+<hr>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>JavaScript coerces types differently per operator.</p>
+<p>Type coercion hides bugs. Program continues, but logic is wrong.</p>
+<pre class="w3-code"><code class="language-javascript">let result1 = ('5' + '2');
+let result2 = ('5' - '2');</code></pre>
+
+</div>
+
+<hr>
+<div class="ws-note">
+<h2>See Also:</h2>
+<p class="w3-large"><a href="js_errors_intro.html">JavaScript Errors</a></p>
+<p class="w3-large"><a href="js_errors.html">JavaScript Error Statemets</a></p>
+<p class="w3-large"><a href="js_error_object.html">JavaScript Error Object</a></p>
+<p class="w3-large"><a href="js_debugging.html">JavaScript Debugging</a></p>
+</div>
+<hr>
+
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_errors_intro.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_errors.html">Next ❯</a>
+</div>
+
+

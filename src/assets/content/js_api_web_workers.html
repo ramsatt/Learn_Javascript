@@ -1,0 +1,163 @@
+
+      
+
+<h1>Web Workers API</h1>
+
+<hr>
+<!--start-->
+<p class="intro">A web worker is a JavaScript running in the background, without affecting the performance of the page.</p>
+<hr>
+
+<h2>What is a Web Worker?</h2>
+<p>When executing scripts in an HTML page, the page becomes unresponsive until the script is finished.</p>
+<p>A web worker is a JavaScript that runs in the background, independently 
+of other scripts, without affecting the performance of the page. You can continue to do whatever you want: 
+clicking, selecting things, etc., while the web worker runs in the background.</p>
+<!--stop-->
+<!--start-->
+<h2>Browser Support</h2>
+<p>The numbers in the table specify the first browser versions that fully support Web Workers:</p>
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr>
+    <th class="bsChrome" title="Chrome"></th>
+    <th class="bsEdge" title="Internet Explorer / Edge"></th>
+    <th class="bsFirefox" title="Firefox"></th>
+    <th class="bsSafari" title="Safari"></th>
+    <th class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome 4</td>
+    <td>IE 10</td>
+    <td>Firefox 3.5</td>
+    <td>Safari 4</td>
+    <td>Opera 11.5</td>
+  </tr>
+  <tr>
+    <td>Jan 2010</td>
+    <td>Sep 2012</td>
+    <td>Jun 2009</td>
+    <td>Jun 2009</td>
+    <td>Jun 2011</td>
+  </tr>
+
+</tbody></table></div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Web Workers Example</h2>
+<p>The example below creates a simple web worker that count numbers in the background:</p>
+<div class="w3-example">
+<h3>Example</h3>
+
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Check Web Worker Support</h2>
+<p>Before creating a web worker, check whether the user's browser supports it:</p>
+<pre class="w3-code"><code class="language-javascript"><div> if (typeof(Worker) !== "undefined") {
+  // Yes! Web worker support!
+  // <i>Some code.....</i>
+} else {
+  // Sorry! No Web Worker support..
+} </div></code></pre>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>Create a Web Worker File</h2>
+<p>Now, let's create our web worker in an external JavaScript.</p>
+<p>Here, we create a script that counts. The script is stored in the "demo_workers.js" file:</p>
+<pre class="w3-code"><code class="language-javascript"><div> let i = 0;
+function timedCount() {
+  i ++;
+  postMessage(i);
+  setTimeout("timedCount()",500);
+}
+timedCount(); </div></code></pre>
+<p>The important part of the code above is the <code class="w3-codespan">postMessage()</code> method - which is used to post a message back to the HTML page.</p>
+<p><b>Note:</b> Normally web workers are not used for such simple scripts, but for more CPU intensive tasks.</p>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Create a Web Worker Object</h2>
+<p>Now that we have the web worker file, we need to call it from an HTML page.</p>
+<p>The following lines checks if the worker already exists, if not - it creates a new web worker object and runs the code in 
+"demo_workers.js":</p>
+<pre class="w3-code"><code class="language-javascript"><div> if (typeof(w) == "undefined") {
+  w = new Worker("demo_workers.js");
+}</div></code></pre>
+<p>Then we can send and receive messages from the web worker.</p>
+<p>Add an "onmessage" event listener to the web worker.</p>
+<pre class="w3-code"><code class="language-javascript"><div> w.onmessage = function(event){
+  document.getElementById("result").innerHTML = event.data;
+}; </div></code></pre>
+<p>When the web worker posts a message, the code within the event listener is executed. The data 
+from the web worker is stored in event.data.</p>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Terminate a Web Worker</h2>
+<p>When a web worker object is created, it will continue to listen for messages (even after the external script is finished) until it is terminated.</p>
+<p>To terminate a web worker, and free browser/computer resources, use the 
+<code class="w3-codespan">terminate()</code> method:</p>
+<pre class="w3-code"><code class="language-javascript"><div> w.terminate();</div></code></pre>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Reuse the Web Worker</h2>
+<p>If you set the worker variable to undefined, after it has been terminated, 
+you can reuse the code:</p>
+<pre class="w3-code"><code class="language-javascript"><div> w = undefined;</div></code></pre>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Full Web Worker Example Code</h2>
+<p>We have already seen the Worker code in the .js file. Below is the code for the HTML page:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+&lt;p&gt;Count numbers: &lt;output id="result"&gt;&lt;/output&gt;&lt;/p&gt;
+&lt;button onclick="startWorker()"&gt;Start Worker&lt;/button&gt;
+&lt;button onclick="stopWorker()"&gt;Stop Worker&lt;/button&gt;
+&lt;script&gt;
+let w;
+function startWorker() {
+  if (typeof(w) == "undefined") {
+    w = new Worker("demo_workers.js");
+  }
+  w.onmessage = function(event) {
+    document.getElementById("result").innerHTML = event.data;
+  };
+}
+function stopWorker() {
+  w.terminate();
+  w = undefined;
+}
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Web Workers and the DOM</h2>
+<p>Since web workers are in external files, they do not have access to the following JavaScript objects:</p>
+<ul>
+  <li>The window object</li>
+  <li>The document object</li>
+  <li>The parent object</li>
+</ul>
+<!--stop-->
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_validation_api.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_ajax_intro.html">Next ❯</a>
+</div>
+
+

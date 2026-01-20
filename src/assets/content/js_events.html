@@ -1,0 +1,196 @@
+
+      
+
+<h1>JavaScript Events</h1>
+
+<!--start-->
+<div class="ws-info">
+<h2>HTML Events</h2>
+<p>HTML events are <b>things that happen</b> to HTML elements.</p>
+<p><b>Examples of events:</b></p>
+<ul>
+<li>An HTML button is clicked</li>
+<li>A web page has finished loading</li>
+<li>The mouse moves over an element</li>
+<li>A keyboard key is pressed</li>
+<li>An HTML input field is changed</li>
+</ul>
+</div>
+<!--start-->
+<p class="intro">HTML DOM allows JavaScript to react to HTML events:</p>
+
+<div class="w3-example">
+<div style="width:100%;height:120px;">
+<div style="background-color:#D94A38;width:170px;height:80px;margin:20px;padding-top:20px;color:#ffffff;font-weight:bold;font-size:18px;float:left;text-align:center;" onmouseover="this.innerHTML='Thank You'" onmouseout="this.innerHTML='Mouse Over Me'">Mouse Over Me</div>
+<div style="background-color:#D94A38;width:170px;height:80px;margin:20px;padding-top:20px;color:#ffffff;font-weight:bold;font-size:18px;float:left;text-align:center;" onclick="clickMeEvent(this)">Click Me</div>
+</div> 
+</div>
+<!--stop-->
+
+
+<h2>JavaScript Events</h2>
+<p>Often, when events happen, you may want to do something.</p>
+<p class="intro">When JavaScript is used in HTML pages, <b>JavaScript can react on events</b>.</p>
+<p>JavaScript lets you execute code when events are detected.</p>
+<p>HTML allows event handler attributes, <strong>with JavaScript code</strong>, to be added to HTML elements.</p>
+<div class="w3-example">
+<h3>Syntax</h3>
+<p>With single quotes:</p>
+
+<pre class="w3-code"><code class="language-html">&lt;<em>element</em> <em>event</em>=<strong>'</strong><em><strong>some JavaScript</strong></em><strong>'</strong>&gt;</code></pre>
+
+<p>With double quotes:</p>
+<pre class="w3-code"><code class="language-html">&lt;<em>element</em> <em>event</em>=<strong>"</strong><em><strong>some JavaScript</strong></em><strong>"</strong>&gt;</code></pre>
+</div>
+
+<p>In the following example, an <code class="w3-codespan">onclick</code> attribute (with code), is added to a 
+<code class="w3-codespan">&lt;button&gt;</code> element:</p>
+
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;button onclick="document.getElementById('demo').innerHTML = Date()"&gt;The time is?&lt;/button&gt;</code></pre>
+
+</div>
+<p>In the example above, the JavaScript code changes the content of 
+the element with id="demo".</p>
+<p>In the next example, the code changes the content of 
+its own element using <code class="w3-codespan"><b>this</b>.innerHTML</code>: </p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;button onclick="this.innerHTML = Date()"&gt;The time is?&lt;/button&gt;</code></pre>
+
+</div>
+
+<hr>
+<h2>Calling a JavaScript Function</h2>
+<p>JavaScript code can often be several lines long.</p>
+<p>It is more common to use the event attribute to call a functions:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;button onclick="displayDate()"&gt;The time is?&lt;/button&gt;
+&lt;script&gt;
+function displayDate() {
+  document.getElementById("demo").innerHTML = Date();
+}
+&lt;/script&gt;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>Common HTML Events</h2>
+<p>Here is a list of some common HTML events:</p>
+<div class="table-responsive-wrapper"><table class="ws-table-all" style="width: 100%">
+<tbody><tr>
+  <th>Event</th>
+  <th>Description</th>
+</tr>
+<tr>
+  <td>onchange</td>
+  <td>An HTML element has been changed</td>
+</tr>
+<tr>
+  <td>onclick</td>
+  <td>The user clicks an HTML element</td>
+</tr>
+<tr>
+  <td>onmouseover</td>
+  <td>The user moves the mouse over an HTML element</td>
+</tr>
+<tr>
+  <td>onmouseout</td>
+  <td>The user moves the mouse away from an HTML element</td>
+</tr>
+<tr>
+  <td>onkeydown</td>
+  <td>The user pushes a keyboard key</td>
+</tr>
+<tr>
+  <td>onload</td>
+  <td>The browser has finished loading the page</td>
+</tr>
+</tbody></table></div>
+<p>The list is much longer: <a href="../jsref/dom_obj_event.html">W3Schools JavaScript Reference HTML DOM Events</a>.</p>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>JavaScript Event Handlers</h2>
+<p>An event handler is JavaScript code that runs when an event happens.</p>
+<p>Event handlers can be used to handle and verify user input, user actions, 
+and browser actions:</p>
+<ul>
+  <li>Things that should be done every time a page loads</li>
+  <li>Things that should be done when the page is closed</li>
+  <li>Action that should be performed when a user clicks a button</li>
+  <li>Content that should be verified when a user inputs data</li>
+  <li>And more ...</li>
+</ul>
+<p>Many different methods can be used to let JavaScript work with events:</p>
+<ul>
+  <li>HTML event attributes can execute JavaScript code directly</li>
+  <li>HTML event attributes can call JavaScript functions</li>
+  <li>You can assign your own event handler functions to HTML elements</li>
+  <li>You can prevent events from being sent or being handled</li>
+  <li>And more ...</li>
+</ul>
+
+<hr>
+<h2>Using an Event Listener</h2>
+
+<p>Using event attributes like <code class="w3-codespan">onclick</code> are easy to use.</p>
+<p>Nevertheless, using <code class="w3-codespan">addEventListener()</code> is the recommended way to handle events.</p>
+
+
+<div class="w3-example">
+<h3>Not Recommended</h3>
+<p>Using the <code class="w3-codespan">onclick</code> attribute:</p> 
+<pre class="w3-code"><code class="language-html">&lt;button onclick="displayDate()"&gt;Time is?&lt;/button&gt;
+&lt;p id="demo"&gt;&lt;/p&gt;
+&lt;script&gt;
+// Function to displat date
+function displayDate() {
+  document.getElementById("demo").innerHTML = Date();
+}
+&lt;/script&gt;</code></pre>
+
+</div>
+
+<p>The <code class="w3-codespan">addEventListener()</code> method keeps HTML and JavaScript separated.</p>
+
+<div class="w3-example">
+<h3>Highly Recommended</h3>
+<p>Using <code class="w3-codespan">addEventListener()</code> method:</p>
+<pre class="w3-code"><code class="language-html">&lt;button id="myBtn"&gt;Click me&lt;/button&gt;
+&lt;p id="demo"&gt;&lt;/p&gt;
+&lt;script&gt;
+const btn = document.getElementById("myBtn");
+// Add EventListener to btn
+btn.addEventListener("click", function () {
+  document.getElementById("demo").innerHTML = Date();
+});
+&lt;/script&gt;</code></pre>
+
+</div>
+
+<div class="w3-panel ws-note">
+<h2>Note</h2>
+<p>You will learn a lot more about events and event handlers in the HTML DOM chapters.</p>
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+
+
+
+
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_htmldom_element_reference.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_events_mouse.html">Next ❯</a>
+</div>
+
+

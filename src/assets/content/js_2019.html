@@ -1,0 +1,247 @@
+
+      
+
+<h1>ECMAScript 2019</h1>
+
+
+<hr>
+<h2>New Features in JavaScript 2019</h2>
+
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Feature</th><th>Description</th><th></th></tr>
+<tr><td><a href="js_2019d41d.html?#mark_trim_start">String trimStart()</a></td>
+<td>Removes whitespace from the start of a string</td><td></td></tr>
+<tr><td><a href="js_2019d41d.html?#mark_trim_end">String trimEnd()</a></td>
+<td>Removes whitespace from the end of a string</td><td></td></tr>
+<tr><td><a href="js_2019d41d.html?#mark_from_entries">Object.fromEntries</a></td>
+<td>Creates an object from key/value pairs</td><td></td></tr>
+<tr><td><a href="js_2019d41d.html?#mark_omit_catch">Optional catch binding</a></td>
+<td>Allows to omit the catch parameter if it is not needed</td><td></td></tr>
+<tr><td><a href="js_2019d41d.html?#mark_array_flat">Array flat()</a></td>
+<td>Creates a new array by flattening a nested array</td><td></td></tr>
+<tr><td><a href="js_2019d41d.html?#mark_array_flatmap">Array flatMap()</a></td>
+<td>Maps all array elements and creates a new array by flattening the array</td><td></td></tr>
+<tr><td><a href="js_2019d41d.html?#mark_array_sort">Revised Array sort()</a></td>
+<td>Browsers must now use a stable sorting algorithm</td><td></td></tr>
+<tr><td><a href="js_2019d41d.html?#mark_json_stringify">Revised JSON.stringify()</a></td>
+<td>Strings with UTF-8 code points now convert safely</td><td></td></tr>
+<tr><td><a href="js_2019d41d.html?#mark_separator_symbols">Separator symbols in strings</a></td>
+<td>Line and paragraph separators (\u2028 and \u2029) are now allowed in strings</td><td></td></tr>
+<tr><td><a href="js_2019d41d.html?#mark_function_tostring">Revised Function.toString()</a></td>
+<td>Now returns source code including comments and spaces and syntax details</td><td></td></tr>
+</tbody></table></div>
+</div>
+
+<hr>
+<h2>Browser Support</h2>
+<p><b>ECMAScript 2019</b> is supported in all modern browsers since <b>January 2020</b>:</p>
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr>
+    <th class="bsChrome" title="Chrome"></th>
+    <th class="bsEdge" title="Edge"></th>
+    <th class="bsFirefox" title="Firefox"></th>
+    <th class="bsSafari" title="Safari"></th>
+    <th class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>66</td>    
+    <td>Edge<br>79</td>
+    <td>Firefox<br>61</td>
+    <td>Safari<br>12</td>
+    <td>Opera<br>50</td>
+  </tr>
+  <tr>
+    <td>Apr 2018</td>
+    <td>Jan 2020</td>    
+    <td>Jun 2018</td>
+    <td>Sep 2018</td>
+    <td>May 2018</td>
+  </tr>
+</tbody>
+</table></div>
+</div>
+
+<hr>
+<a id="mark_trim_start"></a>
+<h2>JavaScript String trimStart()</h2>
+<p>ES2019 added the String method <code class="w3-codespan">trimStart()</code> to JavaScript.
+</p><p>The <code class="w3-codespan">trimStart()</code> method works like <code class="w3-codespan">trim()</code>, but removes whitespace only from the start of a string.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let text1 = "     Hello World!     ";
+let text2 = text1.trimStart();</code></pre>
+
+</div>
+
+<hr>
+<a id="mark_trim_end"></a>
+<h2>JavaScript String trimEnd()</h2>
+<p>ES2019 added the String method <code class="w3-codespan">trimEnd()</code> to JavaScript.
+</p><p>The <code class="w3-codespan">trimEnd()</code> method works like <code class="w3-codespan">trim()</code>, but removes whitespace only from the end of a string.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let text1 = "     Hello World!     ";
+let text2 = text1.trimEnd();</code></pre>
+
+</div>
+
+<hr>
+<a id="mark_from_entries"></a>
+<h2>JavaScript Object fromEntries()</h2>
+<p>ES2019 added the Object method <code class="w3-codespan">fromEntries()</code> to JavaScript.
+</p><p>The <code class="w3-codespan">fromEntries()</code> method creates an object from iterable key / value pairs.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const fruits = [
+["apples", 300],
+["pears", 900],
+["bananas", 500]
+];
+const myObj = Object.fromEntries(fruits);</code></pre>
+
+</div>
+
+<hr>
+
+<hr>
+
+<a id="mark_omit_catch"></a>
+<h2>Optional catch Binding</h2>
+<p>From ES2019 you can omit the catch parameter if you don't need it:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Before 2019:</p>
+<pre class="w3-code"><code class="language-javascript">try {
+// code
+} catch (err) {
+// code
+}</code></pre>
+<p>After 2019:</p>
+<pre class="w3-code"><code class="language-javascript">try {
+// code
+} catch {
+// code
+}</code></pre>
+</div>
+
+<hr>
+<a id="mark_array_flat"></a>
+<h2>JavaScript Array flat()</h2>
+<p>ES2019 added the Array <code class="w3-codespan">flat()</code> method to JavaScript.</p>
+<p>The <code class="w3-codespan">flat()</code> method creates a new array by flattening a nested array.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const myArr = [[1,2],[3,4],[5,6]];
+const newArr = myArr.flat();</code></pre>
+
+</div>
+
+<hr>
+<a id="mark_array_flatmap"></a>
+<h2>JavaScript Array flatMap()</h2>
+<p>ES2019 added the Array <code class="w3-codespan">flatMap()</code> method to JavaScript.</p>
+<p>The <code class="w3-codespan">flatMap()</code> method first maps all elements of an array
+and then creates a new array by flattening the array.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const myArr = [1, 2, 3, 4, 5, 6];
+const newArr = myArr.flatMap(x =&gt; [x, x * 10]);</code></pre>
+
+</div>
+<hr>
+<a id="mark_array_sort"></a>
+<h2>Stable Array sort()</h2>
+<p>ES2019 <b>revised</b> the Array <code class="w3-codespan">sort()</code> method.</p>
+<p>Before 2019, the specification allowed unstable sorting algorithms such as QuickSort.</p>
+<p>After ES2019, browsers must use a stable sorting algorithm:</p>
+<p>When sorting elements on a value, the elements must keep their relative position to other elements with the same value.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const myArr = [
+  {name:"X00",price:100 },
+  {name:"X01",price:100 },
+  {name:"X02",price:100 },
+  {name:"X03",price:100 },
+  {name:"X04",price:110 },
+  {name:"X05",price:110 },
+  {name:"X06",price:110 },
+  {name:"X07",price:110 }
+];</code></pre>
+
+</div>
+<p>In the example above, when sorting on price, the result should not have names in a different relative position, such as this:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">X01 100
+X03 100
+X00 100
+X03 100
+X05 110
+X04 110
+X06 110
+X07 110</code></pre>
+</div>
+
+<hr>
+<a id="mark_json_stringify"></a>
+<h2>Revised JSON.stringify()</h2>
+<p>ES2019 <b>revised</b> the JSON <code class="w3-codespan">stringify()</code> method.</p>
+<p>Before 2019, JSON could not stringify character encoded with \.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let text = JSON.stringify("\u26D4");</code></pre>
+
+</div>
+<p>Before ES2019, using <code class="w3-codespan">JSON.stringify()</code>JSON on UTF-8 code points (U+D800 to U+DFFF)
+returned broken Unicode characters like ���.</p>
+<p>After this revision, strings with UTF-8 code points convert safely with <code class="w3-codespan">JSON.stringify()</code>,
+and back to the original using <code class="w3-codespan">JSON.parse()</code>.
+
+</p><hr>
+<a id="mark_separator_symbols"></a>
+<h2>Separator Symbols</h2>
+<p>Line separators and paragraph separator symbols (\u2028 and \u2029) are now allowed in string literals.</p>
+<p>Before 2019, these were treated as line terminators and resulted in error exceptions:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// This is valid in ES2019:
+let text = "\u2028";</code></pre>
+
+</div>
+<div class="ws-note">
+<h2>Note</h2>
+<p>Now, JavaScript and JSON have equal rules.</p>
+<p>Before ES2019:</p>
+<p>text = JSON.parse('"\u2028"') would parse to ''.</p>
+<p>text = '"\u2028"' would give <b>syntax error</b>.</p>
+</div>
+
+<hr>
+<a id="mark_function_tostring"></a>
+<h2>Revised Function toString()</h2>
+<p>ES2019 <b>revised</b> the Function <code class="w3-codespan">toString()</code> method.</p>
+<p>The <code class="w3-codespan">toString()</code> method returns a string representing the source code of a function.</p>
+<p>From 2019, toString() must return the source code of the function including comments,
+spaces, and syntax details.</p>
+<p>Before 2019, different browsers returned different variants of the function (like without comments and spaces).
+From 2019 the function should be returned exactly as it is written.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">function myFunction(p1, p2) {
+  return p1 * p2;
+}
+let text = myFunction.toString();</code></pre>
+
+</div>
+
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_2020.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_2018.html">Next ❯</a>
+</div>
+
+

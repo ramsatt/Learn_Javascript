@@ -1,0 +1,247 @@
+
+      
+
+<h1>ECMAScript 2024</h1>
+
+
+<hr>
+<h2>New Features in JavaScript 2024</h2>
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Feature</th><th>Description</th><th></th></tr>
+<tr><td><a href="js_2024d41d.html?#mark_object_groupby">Object.groupBy()</a></td>
+<td>Groups object elements according to values returned from a callback function</td><td></td></tr>
+<tr><td><a href="js_2024d41d.html?#mark_map_groupby">Map.groupBy()</a></td>
+<td>Groups map elements according to values returned from a callback function</td><td></td></tr>
+<tr><td><a href="js_2024d41d.html?#mark_string_iswellformed">String isWellFormed()</a></td>
+<td>Returns true if a string is well formed</td><td></td></tr>
+<tr><td><a href="js_2024d41d.html?#mark_string_towellformed">String.toWellFormed()</a></td>
+<td>Returns a new string where "lone surrogates" are replaced with Unicode U+FFFD</td><td></td></tr>
+<tr><td><a href="js_2024d41d.html?#mark_withresolvers">Promise.withResolvers()</a></td><td></td><td></td></tr>
+<tr><td>Atomics<br>
+waitAsync</td><td></td><td></td></tr>
+</tbody></table></div>
+</div>
+
+<div class="ws-warning">
+<h2>Warning</h2>
+<p>These features are relatively new.</p>
+<p>Older browsers may need an alternative code (Polyfill)</p>
+</div>
+
+<hr>
+<a id="mark_object_groupby"></a>
+<h2>JavaScript Object.groupBy()</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an Array
+const fruits = [
+  {name:"apples", quantity:300},
+  {name:"bananas", quantity:500},
+  {name:"oranges", quantity:200},
+  {name:"kiwi", quantity:150}
+];
+// Callback function to Group Elements
+function myCallback({ quantity }) {
+  return quantity &gt; 200 ? "ok" : "low";
+}
+// Group by Quantity
+const result = Object.groupBy(fruits, myCallback);</code></pre>
+
+</div>
+
+<hr>
+<h2>Description</h2>
+<p>The <code class="w3-codespan">Object.groupBy()</code> method groups elements of an object
+according to string values returned from a callback function.</p>
+<p>The <code class="w3-codespan">Object.groupBy()</code> method return a new object.</p>
+<p>The <code class="w3-codespan">Object.groupBy()</code> method does not change the original object.</p>
+
+<div class="ws-note">
+<h2>Note:</h2>
+<p>The elements in the original and in the returned object are the same.</p>
+<p>Future changes will be reflected in both the original and in the returned object.</p>
+</div>
+
+<hr>
+<a id="mark_map_groupby"></a>
+<h2>JavaScript Map.groupBy()</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create a Map
+const fruits = [
+  {name:"apples", quantity:300},
+  {name:"bananas", quantity:500},
+  {name:"oranges", quantity:200},
+  {name:"kiwi", quantity:150}
+];
+// Callback function to Group Elements
+function myCallback({ quantity }) {
+  return quantity &gt; 200 ? "ok" : "low";
+}
+// Group by Quantity
+const result = Map.groupBy(fruits, myCallback);</code></pre>
+
+</div>
+
+<hr>
+<h2>Description</h2>
+<p>The <code class="w3-codespan">Map.groupBy()</code> method groups elements of a map
+according to string values returned from a callback function.</p>
+<p>The <code class="w3-codespan">Map.groupBy()</code> method returns a new map.</p>
+<p>The <code class="w3-codespan">Map.groupBy()</code> method does not change the original object.</p>
+
+<div class="ws-note">
+<h2>Note:</h2>
+<p>The elements in the original and in the returned object are the same.</p>
+<p>Future changes will be reflected in both the original and in the returned object.</p>
+</div>
+<hr>
+<h2>Object.groupBy() vs Map.groupBy()</h2>
+<p>The difference between Object.groupBy() and Map.groupBy() is:</p>
+<p>Object.groupBy() groups elements into a JavaScript object.</p>
+<p>Map.groupBy() groups elements into a Map object.</p>
+
+<hr>
+
+<hr>
+
+<a id="mark_string_iswellformed"></a>
+<h2>JavaScript String isWellFormed()</h2>
+<p>The <code class="w3-codespan">isWellFormed()</code> method returns <code class="w3-codespan">true</code>
+if a string is well formed.</p>
+<p>Otherwise it returns <code class="w3-codespan">false</code>.</p>
+<p>A string is not well formed if it contains <b>lone surrogates</b>.</p>
+
+<div class="w3-example">
+<h3>Examples</h3>
+<pre class="w3-code"><code class="language-javascript">let text = "Hello world!";
+let result = text.isWellFormed();</code></pre>
+
+<pre class="w3-code"><code class="language-javascript">let text = "Hello World \uD800";
+let result = text.isWellFormed();</code></pre>
+
+</div>
+<div class="ws-note">
+<h2>Lone Surrogates</h2>
+<p>A <b>lone surrogate</b> is a Unicode surrogate code point that is not part of a valid surrogate pair
+used to represent characters in UTF-16 encoding.</p>
+</div>
+
+<hr>
+<a id="mark_string_towellformed"></a>
+<h2>JavaScript String toWellFormed()</h2>
+<p>The String method <code class="w3-codespan">toWellFormed()</code>
+returns a new string where all "lone surrogates" are replaced with the Unicode replacement character (U+FFFD). 
+
+
+</p><div class="w3-example">
+<h3>Examples</h3>
+<pre class="w3-code"><code class="language-javascript">let text = "Hello World \uD800";
+let result = text.toWellFormed();</code></pre>
+
+</div>
+
+<hr>
+<a id="mark_withresolvers"></a>
+<h2>JavaScript Promise.withResolvers()</h2>
+
+<p><code class="w3-codespan">Promise.withResolvers()</code>
+is a static method that simplifies the creation and management of Promises.</p>
+<p><code class="w3-codespan">Promise.withResolvers()</code> provides a more convenient way to access
+the resolve and reject functions associated with a Promise outside of its executor function.</p>
+<p>Instead of the traditional <code class="w3-codespan">new Promise((resolve, reject) =&gt; { ... })</code> constructor pattern,
+Promise.withResolvers() returns an object containing:</p>
+<ul>
+<li><b>promise:</b> The newly created Promise instance</li>
+<li><b>resolve:</b> A function to fulfill the promise with a value</li>
+<li><b>reject:</b> A function to reject the promise with a reason (error)</li>
+</ul>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;p id="demo"&gt;Waiting...&lt;/p&gt;
+&lt;script&gt;
+const {promise, resolve, reject} = Promise.withResolvers();
+// You can now use 'resolve' and 'reject' anywhere
+// in your code to control the state of 'promise'.
+// Simulate async work
+setTimeout(() =&gt; {
+  const success = Math.random() &gt; 0.5;
+  if (success) {
+    resolve("Operation successful!");
+  } else {
+    reject("Operation failed!");
+  }
+}, 1000);
+// Update the UI when the promise finishes
+promise
+  .then((message) =&gt; {
+    document.getElementById("demo").innerHTML = message;
+  })
+  .catch((error) =&gt; {
+    document.getElementById("demo").innerHTML = error; ;
+  });
+&lt;/script&gt;</code></pre>
+
+</div>
+<h3>Example Explained</h3>
+<ul>
+<li>The &lt;p id="demo"&gt; initially shows "Waiting..."</li>
+<li>After 1 second, the promise resolves or rejects</li>
+<li>The result is written into "demo"</li>
+</ul>
+
+<!--
+<a id="mark_plaindate"></a>
+<h2>JavaScript Temporal.PlainDate()</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+const date = Temporal.PlainDate(2024, 5, 1);
+</div>
+<a class="w3-btn w3-margin-bottom" href="tryit.asp?filename=tryjs_temporal_plaindate" target="_blank"> &raquo;</a>
+</div>
+
+<hr>
+<a id="mark_plaintime"></a>
+<h2>JavaScript Temporal.PlainTime()</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+const date = new Temporal.PlainTime(10, 30);
+</div>
+<a class="w3-btn w3-margin-bottom" href="tryit.asp?filename=tryjs_temporal_plaintime" target="_blank"> &raquo;</a>
+</div>
+
+<hr>
+<h2>JavaScript Temporal.PlainMonthDay()</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+const date = new Temporal.PlainMonthDay(5, 1);
+</div>
+<a class="w3-btn w3-margin-bottom" href="tryit.asp?filename=tryjs_temporal_plainmonthday" target="_blank"> &raquo;</a>
+</div>
+<a id="mark_plainmonthday"></a>
+
+<hr>
+<a id="mark_plainyearmonth"></a>
+<h2>JavaScript Temporal.YearMonth()</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+const date = new Temporal.PlainYearMonth(2024, 5);
+</div>
+<a class="w3-btn w3-margin-bottom" href="tryit.asp?filename=tryjs_temporal_plainyearmonth" target="_blank"> &raquo;</a>
+</div>
+-->
+
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_2025.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_2023.html">Next ❯</a>
+</div>
+
+

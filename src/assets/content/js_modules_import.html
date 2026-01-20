@@ -1,0 +1,136 @@
+
+      
+
+<h1>JavaScript Modules Import</h1>
+
+
+<div class="ws-info">
+<h2>Import</h2>
+<p>You can <b>import modules</b> in two ways, based on if they are
+<b>named exports</b> or <b>default exports</b>.</p>
+<div class="w3-example">
+<p>Named imports are constructed using curly braces:
+</p><pre class="w3-code"><code class="language-javascript">import { name, age } from "./person.js";</code></pre>
+</div>
+
+
+<div class="w3-example">
+<p>Default exports are not:</p>
+<pre class="w3-code"><code class="language-javascript">import message from "./message.js";</code></pre>
+</div>
+</div>
+
+<hr>
+<h2>Named Imports</h2>
+<p><b>Named imports</b> match named exports in a module.</p>
+<p>They let you import one or more <b>explicitly named variables or functions</b> from a module.</p>
+<p>You must use the <b>exact names</b> enclosed <b>in curly { } braces</b>:</p>
+<div class="w3-example">
+<h3>Examples</h3>
+<p>Import the named exports <b>name</b> and <b>age</b> from the file person.js:</p>
+<pre class="w3-code"><code class="language-javascript">import { name, age } from "./person.js";</code></pre>
+<p>
+
+</p>
+<p>Import the named exports <b>add</b>, <b>subtract</b>, and <b>PI</b> from the file math.js:</p>
+<pre class="w3-code"><code class="language-html">import { add, subtract, PI } from './math.js';</code></pre>
+
+</div>
+
+<h2>Named Import Rules</h2>
+<p>Import <b>names must match</b> export names:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">import { addd } from './math.js'; // ❌ Error (name mismatch)</code></pre>
+</div>
+<p>You can import <b>multiple items</b> at once:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">import { add, PI } from './math.js';</code></pre>
+</div>
+<p>You can <b>rename</b> them using <b>as</b>:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">import { add as addition } from './math.js';</code></pre>
+</div>
+
+<hr>
+<h2>Default Import</h2>
+<p><b>Default import</b> is the way to import the primary exported value from a module -
+the one that was exported using export default.</p>
+<p>Defalt imports are the counterpart to default exports.</p>
+<p>You can give a default export any name you like, during import, without using curly braces:</p>
+<div class="w3-example">
+<h3>Examples</h3>
+<p>Import a default export from the file message.js:</p>
+<pre class="w3-code"><code class="language-javascript">import text from "./message.js";</code></pre>
+<p>
+
+</p>
+<pre class="w3-code"><code class="language-javascript">import message from "./message.js";</code></pre>
+<p>
+
+</p>
+</div>
+
+<hr>
+<h2>Default Import Rules</h2>
+<p>Default import imports single default exports</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">import message from "./message.js";</code></pre>
+</div>
+<p>There is no required name. Renaming is allowed.</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">import text from "./message.js";</code></pre>
+</div>
+
+
+<hr>
+
+<hr>
+
+<h2>Default + Named Import</h2>
+<p>A module can provide one main function plus some helpers:</p>
+<div class="w3-example">
+<h3>Module File</h3>
+<pre class="w3-code"><code class="language-javascript">export default function parse() { ... }
+export function validate() { ... }
+export function format() { ... }</code></pre>
+<h3>Module Script</h3>
+<pre class="w3-code"><code class="language-javascript">import parse, { validate, format } from './parser.js';</code></pre>
+</div>
+
+<hr>
+<h2>Importing All</h2>
+<p>You can import all named exports from a module as a single object using the * syntax.</p>
+<div class="w3-example">
+<h3>Examples</h3>
+<pre class="w3-code"><code class="language-javascript">// Import all named exports from person.js
+import * as person from "./person.js";</code></pre>
+<p>
+
+</p>
+<pre class="w3-code"><code class="language-javascript">// Import all named exports from math.js
+import * as math from "./math.js";</code></pre>
+<p>
+
+</p>
+</div>
+
+<hr>
+<h2>Default Import vs Named</h2>
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Feature </th><th>Default Import</th><th>Named Import</th></tr>
+<tr><td>Typical use case</td><td>One main feature per module</td><td>Multiple features</td></tr>
+<tr><td>Matches export name?</td><td>No (you choose)</td><td>Yes (must match)</td></tr>
+<tr><td>Can rename freely?</td><td>Always</td><td>Only with as</td></tr>
+<tr><td>Export count</td><td>Only one default export allowed</td><td>Multiple exports allowed</td></tr>
+</tbody></table></div>
+</div>
+
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_modules_export.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_modules_namespace.html">Next ❯</a>
+</div>
+
+

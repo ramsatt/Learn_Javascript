@@ -1,0 +1,150 @@
+
+      
+
+<h1>Reflect &amp; Proxy Reference</h1>
+
+
+<hr>
+<h2>Complete Reflect Reference</h2>
+<h4>Revised December 2025</h4>
+
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Method</th><th>Description</th></tr>
+<tr><td><a href="../jsref/jsref_reflect_apply.html">Reflect.apply()</a>
+</td><td>Call a function</td></tr>
+<tr><td><a href="../jsref/jsref_reflect_construct.html">Reflect.construct()</a>
+</td><td>Create object (like new)</td></tr>
+<tr><td><a href="../jsref/jsref_reflect_defineproperty.html">Reflect.defineProperty()</a>
+</td><td>Define a property</td></tr>
+<tr><td><a href="../jsref/jsref_reflect_deleteproperty.html">Reflect.deleteProperty()</a>
+</td><td>Delete a property</td></tr>
+<tr><td><a href="../jsref/jsref_reflect_get.html">Reflect.get()</a>
+</td><td>Get a property</td></tr>
+<tr><td><a href="../jsref/jsref_reflect_getownproperty.html">Reflect.getOwnPropertyDescriptor()</a>
+</td><td>Get property descriptor</td></tr>
+<tr><td><a href="../jsref/jsref_reflect_getprototypeof.html">Reflect.getPrototypeOf()</a>
+</td><td>Get the prototype of an object</td></tr>
+<tr><td><a href="../jsref/jsref_reflect_has.html">Reflect.has()</a>
+</td><td>Check if property exists</td></tr>
+<tr><td><a href="../jsref/jsref_reflect_isextensible.html">Reflect.isExtensible()</a>
+</td><td>Check if object can grow</td></tr>
+<tr><td><a href="../jsref/jsref_reflect_ownkeys.html">Reflect.ownKeys()</a>
+</td><td>Get all keys (incl. symbols)</td></tr>
+<tr><td><a href="../jsref/jsref_reflect_preventextentions.html">Reflect.preventExtensions()</a>
+</td><td>Stop object from growing</td></tr>
+<tr><td><a href="../jsref/jsref_reflect_set.html">Reflect.set()</a>
+</td><td>Set a property</td></tr>
+<tr><td><a href="../jsref/jsref_reflect_setprototypeof.html">Reflect.setPrototypeOf()</a>
+</td><td>Set the prototype of an object</td></tr>
+</tbody></table></div>
+</div>
+
+
+
+<div class="ws-note">
+<h3>Why Reflect</h3>
+<p>Reflect is safe and flexible, especially when used inside a Proxy.</p>
+</div>
+
+<h2>Complete Proxy Handler Reference</h2>
+<h4>Revised December 2025</h4>
+
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Method</th><th>Description</th></tr>
+<tr><td><a href="../jsref/jsref_proxy_apply.html">handler.apply()</a>
+</td><td>Call a function</td></tr>
+<tr><td><a href="../jsref/jsref_proxy_construct.html">handler.construct()</a>
+</td><td>Create object (like new)</td></tr>
+<tr><td><a href="../jsref/jsref_proxy_defineproperty.html">handler.defineProperty()</a>
+</td><td>Define a property</td></tr>
+<tr><td><a href="../jsref/jsref_proxy_deleteproperty.html">handler.deleteProperty()</a>
+</td><td>Delete a property</td></tr>
+<tr><td><a href="../jsref/jsref_proxy_get.html">handler.get()</a>
+</td><td>Get a property</td></tr>
+<tr><td><a href="../jsref/jsref_proxy_getownproperty.html">handler.getOwnPropertyDescriptor()</a>
+</td><td>Get property descriptor</td></tr>
+<tr><td><a href="../jsref/jsref_proxy_getprototypeof.html">handler.getPrototypeOf()</a>
+</td><td>Get the prototype of an object</td></tr>
+<tr><td><a href="../jsref/jsref_proxy_has.html">handler.has()</a>
+</td><td>Check if property exists</td></tr>
+<tr><td><a href="../jsref/jsref_proxy_isextensible.html">handler.isExtensible()</a>
+</td><td>Check if object can grow</td></tr>
+<tr><td><a href="../jsref/jsref_proxy_ownkeys.html">handler.ownKeys()</a>
+</td><td>Get all keys (incl. symbols)</td></tr>
+<tr><td><a href="../jsref/jsref_proxy_preventextentions.html">handler.preventExtensions()</a>
+</td><td>Stop object from growing</td></tr>
+<tr><td><a href="../jsref/jsref_proxy_set.html">handler.set()</a>
+</td><td>Set a property</td></tr>
+<tr><td><a href="../jsref/jsref_proxy_setprototypeof.html">handler.setPrototypeOf()</a>
+</td><td>Set the prototype of an object</td></tr>
+</tbody></table></div>
+</div>
+
+
+<hr>
+<h2>JavaScript Internal Methods</h2>
+<p>All JavaScript objects have 13 internal methods.</p>
+<p>Each method has a corresponding Proxy trap:</p>
+<div class="w3-stretch"> 
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Internal Operation </th><th>Proxy trap</th></tr>
+<tr><td>[[Construct]]</td><td>construct()</td></tr>
+<tr><td>[[Call]]</td><td>apply()</td></tr>
+<tr><td>[[Get]]</td><td>get()</td></tr>
+<tr><td>[[Set]]</td><td>set()</td></tr>
+<tr><td>[[HasProperty]]</td><td>has()</td></tr>
+<tr><td>[[Delete]]</td><td>deleteProperty()</td></tr>
+<tr><td>[[DefineProperty]]</td><td>defineProperty()</td></tr>
+<tr><td>[[GetOwnProperty]]</td><td>getOwnProperty()</td></tr>
+<tr><td>[[OwnPropertyKeys]]</td><td>ownPropertyKeys()</td></tr>
+<tr><td>[[IsExstensible]]</td><td>isExtensible()</td></tr>
+<tr><td>[[PreventExstensions]]</td><td>preventExtensions()</td></tr>
+<tr><td>[[GetPrototypeOf]]</td><td>getPrototypeOf()</td></tr>
+<tr><td>[[SetPrototypeOf]]</td><td>setPrototypeOf()</td></tr>
+</tbody></table></div>
+</div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p><b>Every Proxy trap has a Reflect method</b> with the same name and signature.</p>
+</div>
+<div class="w3-stretch"> 
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Internal Operation </th><th>Reflect Method</th></tr>
+<tr><td>[[Construct]]</td><td>Reflect.construct()</td></tr>
+<tr><td>[[Call]]</td><td>Reflect.apply()</td></tr>
+<tr><td>[[Get]]</td><td>Reflect.get()</td></tr>
+<tr><td>[[Set]]</td><td>Reflect.set()</td></tr>
+<tr><td>[[HasProperty]]</td><td>Reflect.has()</td></tr>
+<tr><td>[[Delete]]</td><td>Reflect.deleteProperty()</td></tr>
+<tr><td>[[DefineProperty]]</td><td>Reflect.defineProperty()</td></tr>
+<tr><td>[[GetOwnProperty]]</td><td>Reflect.getOwnProperty()</td></tr>
+<tr><td>[[OwnPropertyKeys]]</td><td>Reflect.ownPropertyKeys()</td></tr>
+<tr><td>[[IsExstensible]]</td><td>Reflect.isExtensible()</td></tr>
+<tr><td>[[PreventExstensions]]</td><td>Reflect.preventExtensions()</td></tr>
+<tr><td>[[GetPrototypeOf]]</td><td>Reflect.getPrototypeOf()</td></tr>
+<tr><td>[[SetPrototypeOf]]</td><td>Reflect.setPrototypeOf()</td></tr>
+</tbody></table></div>
+</div>
+
+
+<div class="ws-note">
+<h2>Learn More</h2>
+<p class="w3-large"><a href="js_meta_programming.html">JavaScript Metaprogramming</a>
+</p><p class="w3-large"><a href="js_meta_reflect.html">JavaScript Reflect Tutorial</a>
+</p><p class="w3-large"><a href="js_meta_proxy.html">JavaScript Proxy Tutorial</a>
+</p></div>
+
+<br><br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_meta_proxy.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_typed_arrays.html">Next ❯</a>
+</div>
+
+

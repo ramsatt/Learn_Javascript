@@ -1,0 +1,73 @@
+
+      
+
+<h1>JavaScript Function Reference</h1>
+
+<br>
+<h2>Function Object Methods &amp; Properties</h2>
+<h4>Revised December 2025</h4>
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate">
+<tbody><tr>
+  <th>Name</th>
+  <th>Description</th>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_function_apply.html">apply()</a></td>
+  <td>Calls a function with a specified <code class="w3-codespan">this</code>
+ value and an array of arguments</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_function_bind.html">bind()</a></td>
+  <td>Returns a function with a specified <code class="w3-codespan">this</code> value</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_function_call.html">call()</a></td>
+  <td>Calls a function with a specified <code class="w3-codespan">this</code>
+ value and individual arguments</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_function_length.html">length</a></td>
+  <td>Returns the number of (expected) parameters of a function</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_function_name.html">name</a></td>
+  <td>Returns the name of the function</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_function_tostring.html">toString()</a></td>
+  <td>Returns the name of the function</td>
+</tr>
+</tbody></table></div>
+</div>
+
+<hr>
+<h2><b>this</b> Precedence</h2>
+<p>Use the following precedence of order to determine which object
+<code class="w3-codespan">this</code> refers to:</p>
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><td>Order</td><td>Object</td><th>Because</th></tr>
+<tr><td>1</td><td>bind()</td>
+<td><code class="w3-codespan">this</code> is in a function being called using bind()</td>
+</tr>
+<tr><td>2</td><td>apply()</td>
+<td><code class="w3-codespan">this</code> is in a function being called using apply()</td>
+</tr>
+<tr><td>2</td><td>call()</td>
+<td><code class="w3-codespan">this</code> in is a function being called using call()</td>
+</tr>
+<tr><td>3</td><td>Object method</td>
+<td><code class="w3-codespan">this</code> in is an object function (method)</td></tr>
+<tr><td>4</td><td>Global scope</td>
+<td><code class="w3-codespan">this</code> in isa function in the global scope</td>
+</tr>
+</tbody></table></div>
+
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_function_bind.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_function_advanced_quiz.html">Next ❯</a>
+</div>
+
+

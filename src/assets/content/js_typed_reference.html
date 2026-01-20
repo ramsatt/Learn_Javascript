@@ -1,0 +1,298 @@
+
+      
+
+
+<h1>Typed Array Reference</h1>
+
+<hr>
+<h2>Typed Array Types</h2>
+<h4>Revised July 2025</h4>
+
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate">
+
+<tbody><tr></tr>
+<tr>
+<th>Name</th>
+<th>Range</th>
+<th>Type</th>
+</tr>
+
+<tr>
+<td><a href="../jsref/jsref_typed_int8array.html">Int8Array</a></td>
+<td>-128 / 127</td>
+<td>1 byte signed integer</td>
+</tr>
+<tr>
+<td><a href="../jsref/jsref_typed_uint8array.html">Uint8Array</a></td>
+<td>0 / 255</td>
+<td>1 byte unsigned integer</td>
+</tr>
+<tr>
+<td><a href="../jsref/jsref_typed_uint8clampedarray.html">Uint8ClampedArray</a></td>
+<td>0 / 255</td>
+<td>1 byte unsigned integer</td>
+</tr>
+<tr>
+<td><a href="../jsref/jsref_typed_int16array.html">Int16Array</a></td>
+<td>-32768 / 32767</td>
+<td>2 bytes signed short</td>
+</tr>
+<tr>
+<td><a href="../jsref/jsref_typed_uint16array.html">Uint16Array</a></td>
+<td>0 / 65535</td>
+<td>2 bytes unsigned short</td>
+</tr>
+<tr>
+<td><a href="../jsref/jsref_typed_int32array.html">Int32Array</a></td>
+<td>-2<sup>31</sup> / 2<sup>31</sup> - 1</td>
+<td>4 bytes signed long</td>
+</tr>
+<tr>
+<td><a href="../jsref/jsref_typed_uint32array.html">Uint32Array</a></td>
+<td>0 / 2<sup>32</sup> - 1</td>
+<td>4 bytes unsigned long</td>
+</tr>
+<tr>
+<td><a href="../jsref/jsref_typed_bigint64array.html">BigInt64Array</a></td>
+<td>-2<sup>63</sup> / 2<sup>63</sup> - 1</td>
+<td>8 bytes signed big integer</td>
+</tr>
+<tr>
+<td><a href="../jsref/jsref_typed_biguint64array.html">BigUint64Array</a></td>
+<td>0 / 2<sup>64</sup> - 1</td>
+<td>8 bytes unsigned big integer</td>
+</tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr>
+<td><a href="../jsref/jsref_typed_float16array.html">Float16Array</a></td>
+<td>-65504 / 65504</td>
+<td>2 bytes floating point</td>
+</tr>
+<tr>
+<td><a href="../jsref/jsref_typed_float32array.html">Float32Array</a></td>
+<td>-3.4e38 / 3.4e38</td>
+<td>4 bytes floating point</td>
+</tr>
+<tr>
+<td><a href="../jsref/jsref_typed_float64array.html">Float64Array</a></td>
+<td>-1.8e308 / 1.8e308</td>
+<td>8 bytes floating point</td>
+</tr>
+</tbody></table></div>
+</div>
+
+<hr>
+<h2>Typed Array Methods</h2>
+<h4>Revised July 2025</h4>
+
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate">
+<tbody><tr>
+  <th>Method</th>
+  <th>Description</th>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_typed_at.html">at()</a></td>
+  <td>Returns one indexed element from a typed array</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_typed_bytelength.html">byteLength</a></td>
+  <td>Returns the length (in bytes) of a typed array.</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_typed_byteoffset.html">byteOffset</a></td>
+  <td>Returns the offset (in bytes) of a typed array from the start of its ArrayBuffer</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_typed_bytesperelement.html">BYTES_PER_<br>ELEMENT</a></td>
+  <td>Returns the number of bytes used to store one element in a typed array</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_typed_copywithin.html">copyWithin()</a></td>
+  <td>Copies array elements to another position in the array</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_typed_entries.html">entries()</a></td>
+  <td>Returns an iterator object with the key/value pairs from the array</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_typed_every.html">every()</a></td>
+  <td>Executes a function for each typed array element</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_typed_fill.html">fill()</a></td>
+  <td>Fill all array elements with a value</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_typed_filter.html">filter()</a></td>
+  <td>Returns a new array filled with elements that pass a test</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_typed_find.html">find()</a></td>
+  <td>Returns the first element that satisfies a condition</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_typed_findindex.html">findIndex()</a></td>
+  <td>Returns the index of the first element that satisfies a condition</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_typed_findLast-2.html">findLast()</a></td>
+  <td>Returns the last element that satisfies a condition</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_typed_findlastindex.html">findLastIndex()</a></td>
+  <td>Returns the index of the last element that satisfies a condition</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_typed_foreach.html">forEach()</a></td>
+  <td>Executes a function for each typed array element</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_typed_from.html">from()</a></td>
+  <td>Returns a typed array from any object with a length property</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_typed_includes.html">includes()</a></td>
+  <td>Returns true if an array includes a specified value</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_typed_indexof.html">indexOf()</a></td>
+  <td>Returns the first index (position) of a specified value</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_typed_join.html">join()</a></td>
+  <td>Returns the elements of an array as a string</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_typed_keys.html">keys()</a></td>
+  <td>Returns the keys of a typed array</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_typed_lastindexof.html">lastIndexOf()</a></td>
+  <td>Returns the last index (position) of a specified value</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_typed_length.html">length</a></td>
+  <td>Returns the lenth of the typed array</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_typed_map.html">map()</a></td>
+  <td>Returns a new array from calling a function for every array element</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_typed_name.html">name</a></td>
+  <td>Returns the name of the typed array</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_typed_of.html">of()</a></td>
+  <td>Returns a new typed array from an existing array</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_typed_reduce.html">reduce()</a></td>
+  <td>Reduce the values of an array to a single value</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_typed_reduceRight-2.html">reduceRight()</a></td>
+  <td>Reduce the values of an array to a single value (right-to-left)</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_typed_reverse.html">reverse()</a></td>
+  <td>Reverses a typed array in place</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_typed_set.html">set()</a></td>
+  <td>Stores values in a typed array from another array</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_typed_slice.html">slice()</a></td>
+  <td>Reurns a new typed array sliced out of a typed array</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_typed_some.html">some()</a></td>
+  <td>Reurns true if one element satisfies a condition</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_typed_sort.html">sort()</a></td>
+  <td>Sorts an array in place</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_typed_subarray.html">subarray()</a></td>
+  <td>Returns a subarray in the same memory space</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_typed_tolocalestring.html">toLocaleString()</a></td>
+  <td>Returns all elements converted with their toLocaleString methods</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_typed_toreversed.html">toReversed()</a></td>
+  <td>Reverses an array into a new array.</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_typed_tosorted.html">toSorted()</a></td>
+  <td>Sorts an array into a new array.</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_typed_tostring.html">toString()</a></td>
+  <td>Returns a string of all typed array elements</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_typed_values.html">values()</a></td>
+  <td>Returns an iterator object with the values of an typed array</td>
+</tr>
+<tr>
+  <td><a href="../jsref/jsref_typed_with.html">with()</a></td>
+  <td>Returns a new typed array with an updated array element</td>
+</tr>
+</tbody></table></div>
+</div>
+
+<hr>
+<div class="ws-note">
+<h2>Learn More:</h2>
+<p class="w3-large"><a href="js_typed_arrays.html">Typed Array Tutorial</a></p>
+<p class="w3-large"><a href="js_typed_methods.html">Typed Array Methods</a></p>
+<p class="w3-large"><a href="js_arraybuffers.html">Array Buffers</a></p>
+<p class="w3-large"><a href="js_dataview.html">DataViews</a></p>
+<p class="w3-large"><a href="js_atomics.html">Atomics</a></p>
+</div>
+
+<hr>
+<h2>Browser Support</h2>
+<p><code class="w3-codespan">Typed Arrays</code> is an <a href="js_es6.html">ES6  feature</a>.</p>
+<p>ES6 is fully supported in all modern browsers since June 2017:</p>
+
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr style="height:50px">
+    <th style="width:20%;" class="bsChrome" title="Chrome"></th>
+    <th style="width:20%;" class="bsEdge" title="Edge"></th>
+    <th style="width:20%;" class="bsFirefox" title="Firefox"></th>
+    <th style="width:20%;" class="bsSafari" title="Safari"></th>
+    <th style="width:19.9%;" class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>51</td>
+    <td>Edge<br>15</td>
+    <td>Firefox<br>54</td>
+    <td>Safari<br>10</td>
+    <td>Opera<br>38</td>
+  </tr>
+  <tr>
+    <td>May 2016</td>
+    <td>Apr 2017</td>
+    <td>Jun 2017</td>
+    <td>Sep 2016</td>
+    <td>Jun 2016</td>
+  </tr>
+</tbody></table></div>
+</div>
+
+
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_typed_methods.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_arraybuffers.html">Next ❯</a>
+</div>
+
+

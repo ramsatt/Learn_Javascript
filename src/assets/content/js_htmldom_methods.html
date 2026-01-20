@@ -1,0 +1,181 @@
+
+      
+
+<h1>HTML DOM API</h1>
+
+
+<!--start-->
+<div class="ws-info">
+<h2>Application Programming Interface</h2>
+<p>The <b>DOM API</b> (Application Programming Interface) is a set of <b>Methods</b> and <b>Properties</b>
+that allow JavaScript to change the content, structure, and style of any HTML elements.</p>
+<img style="width:100%;border:1px solid lightgrey" src="assets/images/img_htmltree_800.png" alt="DOM HTML tree">
+<div class="w3-container w3-center w3-light-grey">
+<p>An <b>API Method</b> is an <b>Action</b> that you can do on an HTML element.</p>
+<p>An <b>API Property</b> is a <b>Value</b> that you can access on an HTML element.</p>
+</div>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;html&gt;
+&lt;body&gt;
+&lt;p id="demo"&gt;&lt;/p&gt;
+&lt;script&gt;
+// Access a paragraph Element
+const myPara = document.getElementById("demo");
+// Change the content of the Element
+myPara.innerHTML = "Hello World!";
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+</div>
+<hr>
+<h2>Example Explained</h2>
+<p><code class="w3-codespan">document</code> is the <b>HTML document</b>.</p>
+<p><code class="w3-codespan">getElementById()</code> is a <b>document method</b>.</p>
+<p><code class="w3-codespan">myPara = getElementById("demo")</code> <b>retrieves the "demo" element</b>.</p>
+<p><code class="w3-codespan">innerHTML</code> is an <b>element property</b>.</p>
+<p><code class="w3-codespan">myPara.innerHTML = "Hello World!"</code> <b>changes the property</b>.
+
+</p><hr>
+
+<h2>HTML DOM API Abilities</h2>
+<p>The DOM API provides us with the ability to:</p>
+<ul>
+<li>Find and select elements</li>
+<li>Change element content and attributes</li>
+<li>Add, remove, or modify elements</li>
+<li>Change CSS styles</li>
+<li>Add event listeners to react to user input</li>
+</ul>
+
+<hr>
+<div class="ws-note">
+<h2>JavaScript is the Language</h2>
+<p>The <b>DOM API</b> is a standard for how to get, change, add, or delete HTML DOM elements.</p>
+<p><b>JavaScript is the language</b> used in browsers to access the DOM through the API.</p>
+</div>
+
+<hr>
+<h2>API Methods and Properties</h2>
+<p>Developers use global objects like <b>document</b> and <b>window</b> as entry points to any API.</p>
+<p>If you want to access any element in an HTML page, you always start with accessing the 
+document object. The <b>document object</b> represents your <b>web page</b>.</p>
+<p>To manipulate HTML with JavaScript, you first need to <b>select an element</b>.</p>
+<p>Below are some examples of how you can use the document object to access HTML:</p>
+
+
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Selecting HTML Elements</h2>
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate">
+<tbody><tr>
+<th style="width:50%">Method</th>
+<th>Description</th>
+</tr>
+<tr>
+  <td>document.getElementById(<em>id</em>)</td>
+  <td>Find an element by element id</td>
+</tr>
+<tr>
+  <td>document.getElementsByTagName(<em>name</em>)</td>
+  <td>Find elements by tag name</td>
+</tr>
+<tr>
+  <td>document.getElementsByClassName(<em>name</em>)</td>
+  <td>Find elements by class name</td>
+</tr>
+<tr><td>document.querySelector(<i>selector</i>)</td><td>Find the first element that matches a CSS selector</td></tr>
+<tr><td>document.querySelectorAll(<i>selector</i>)</td><td>Find all elements that match a CSS selector</td></tr>
+
+</tbody></table></div>
+<!--stop-->
+<hr>
+<div class="ws-note">
+<h2>Note</h2>
+<p>The <b>document object is the owner</b> of all other objects in your web page.</p>
+</div>
+</div>
+<hr>
+
+<hr>
+<!--start-->
+<h2>Accessing Element Content</h2>
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr><th>Property</th><th>Description</th></tr>
+<tr><td><em>element</em>.innerHTML</td><td>The HTML content of an element</td></tr>
+<tr><td><i>element</i>.textContent</td><td>The text content of an element</td></tr>
+</tbody></table></div>
+</div>
+
+<hr>
+<h2>Accessing Element Attributes</h2>
+<div class="w3-stretch">
+<div class="w3-stretch">
+</div><div class="table-responsive-wrapper"><table class="ws-table-all">
+</table></div><div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Property</th><th>Description</th></tr>
+<tr><td><em>element</em>.<em>attribute</em></td><td>Change the attribute value of an HTML element</td></tr>
+<tr><td><em>element</em>.style.<em>property</em></td><td>The style of an HTML element</td></tr>
+</tbody></table></div>
+</div>
+
+<hr>
+<h2>Changing Element Attributes</h2>
+<div class="w3-stretch">
+<div class="w3-stretch">
+</div><div class="table-responsive-wrapper"><table class="ws-table-all">
+</table></div><div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Method</th><th>Description</th></tr>
+<tr><td><i>element</i>.setAttribute()</td><td>Create or set a new attribute</td></tr>
+</tbody></table></div>
+</div>
+
+<hr>
+<h2>Manipulating Structure</h2>
+<div class="w3-stretch">
+<div class="w3-stretch">
+</div><div class="table-responsive-wrapper"><table class="ws-table-all">
+</table></div><div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Method</th><th>Description</th></tr>
+<tr><td>document.createElement()</td><td>Creates a new HTML element</td></tr>
+<tr><td>document.removeChild()</td><td>Remove an HTML element</td></tr>
+<tr><td>document.appendChild()</td><td>Add an HTML element</td></tr>
+<tr><td>document.replaceChild()</td><td>Replace an HTML element</td>
+</tr>
+</tbody></table></div>
+<!--stop-->
+<!--start-->
+<h2>Adding Event Handlers</h2>
+
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate">
+<tbody><tr>
+<th style="width:50%">Method</th>
+<th>Description</th>
+</tr>
+<tr>
+  <td>document.getElementById(<em>id</em>).onclick = function(){<em>code</em>}</td>
+  <td>Adding event handler code to an onclick event</td>
+</tr>
+</tbody></table></div>
+<!--stop-->
+<hr>
+
+<hr>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_htmldom.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_htmldom_elements.html">Next ❯</a>
+</div>
+
+
+</div>
+
+

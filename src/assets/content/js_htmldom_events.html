@@ -1,0 +1,181 @@
+
+      
+
+<h1>JavaScript HTML DOM Events</h1>
+
+<hr>
+<!--start-->
+<h2>Reacting to Events</h2>
+<p>A JavaScript can be executed when an event occurs, like when a user clicks on an HTML element.</p>
+
+<p>To execute code when a user clicks on an element, add JavaScript code to an HTML event attribute:</p>
+<pre class="w3-code"><code class="language-javascript"><div> onclick=<i>JavaScript</i> </div></code></pre>
+
+<p>Examples of HTML events:</p>
+<ul>
+  <li>When a user clicks the mouse</li>
+  <li>When a web page has loaded</li>
+  <li>When an image has been loaded</li>
+  <li>When the mouse moves over an element</li>
+  <li>When an input field is changed</li>
+  <li>When an HTML form is submitted</li>
+  <li>When a user strokes a key </li>
+</ul>
+
+<p>In this example, the content of the <code class="w3-codespan">&lt;h1&gt;</code> element is changed when a user clicks on it:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+&lt;h1 onclick="this.innerHTML = 'Ooops!'"&gt;Click on this text!&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+</div>
+<!--stop-->
+<!--start-->
+<p>In this example, a function is called from the event handler:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+&lt;h1 onclick="changeText(this)"&gt;Click on this text!&lt;/h1&gt;
+&lt;script&gt;
+function changeText(id) {
+  id.innerHTML = "Ooops!";
+}
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>HTML Event Attributes</h2>
+<p>To assign events to HTML elements you can use event attributes.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Assign an onclick event to a button element:</p>
+<pre class="w3-code"><code class="language-html">&lt;button onclick="displayDate()"&gt;&lt;/button&gt;</code></pre>
+
+</div>
+<p>In the example above, a function named <code class="w3-codespan">displayDate</code> will be executed 
+when the button is clicked.</p>
+<hr>
+<h2>Assign Events Using the HTML DOM</h2>
+<p>The HTML DOM allows you to assign events to HTML elements using JavaScript: </p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Assign an onclick event to a button element:</p>
+<pre class="w3-code"><code class="language-html">&lt;script&gt;
+document.getElementById("myBtn").onclick = displayDate;
+&lt;/script&gt;</code></pre>
+
+</div>
+<p>In the example above, a function named <code class="w3-codespan">displayDate</code> is assigned to 
+an HTML element with the <code class="w3-codespan">id="myBtn"</code>.</p>
+<p>The function will be executed 
+when the button is clicked.</p>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The onload and onunload Events</h2>
+<p>The <code class="w3-codespan">onload</code> and <code class="w3-codespan">onunload</code> events are triggered when the user enters or leaves the page.</p>
+<p>The <code class="w3-codespan">onload</code> event can be used to check the visitor's browser type and browser version, and load the proper version of the web page based on the information.</p>
+<p>The <code class="w3-codespan">onload</code> and <code class="w3-codespan">onunload</code> events can be used to deal with cookies.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;body onload="checkCookies()"&gt;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The oninput Event</h2>
+<p>The <code class="w3-codespan">oninput</code> event is often to some action while the user input data.</p>
+<p>Below is an example of how to use the oninput to change the content of an input field.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;input type="text" id="fname" oninput="upperCase()"&gt;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The onchange Event</h2>
+<p>The <code class="w3-codespan">onchange</code> event is often used in combination with validation of input fields.</p>
+<p>Below is an example of how to use the onchange. The <code class="w3-codespan">upperCase()</code> 
+function will be called when a user changes the content of an input field.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;input type="text" id="fname" onchange="upperCase()"&gt;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The onmouseover and onmouseout Events</h2>
+<p>The <code class="w3-codespan">onmouseover</code> and <code class="w3-codespan">onmouseout</code> events can be used to trigger a function when the user mouses 
+over, or out of, an HTML element:</p>
+
+
+
+<p>
+
+</p>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The onmousedown, onmouseup and onclick Events</h2>
+<p>The <code class="w3-codespan">onmousedown</code>, <code class="w3-codespan">onmouseup</code>, and <code class="w3-codespan">onclick</code> events are all parts of a 
+mouse-click. First when a mouse-button is clicked, the onmousedown event is 
+triggered, then, when the mouse-button 
+is released, the onmouseup event is triggered, finally, when the mouse-click is completed, the onclick event is triggered.</p>
+
+
+
+ 
+ 
+<p>
+
+</p>
+<!--stop-->
+<hr>
+
+<h2>More Examples</h2>
+
+<p><a href="tryit3844.html?filename=tryjs_event_onmousedown">onmousedown and onmouseup</a><br>
+Change an image when a user holds down the mouse button.</p>
+
+<p><a href="tryit8199.html?filename=tryjs_event_onload">onload</a><br>
+Display an alert box when the page has finished loading.</p>
+ 
+<p><a href="tryit4d36.html?filename=tryjs_event_onfocus">onfocus</a><br>
+Change the background-color of an input field when it gets focus.</p>
+
+<p><a href="tryitdc84.html?filename=tryjs_event_onmouse">Mouse Events</a><br>
+Change the color of an element when the cursor moves over it.</p>
+
+<hr>
+
+<h2>HTML DOM Event Object Reference</h2>
+
+<p>For a list of all HTML DOM events, look at our complete <a href="../jsref/dom_obj_event.html">HTML DOM Event Object Reference</a>.</p>
+<hr>
+
+<hr>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_htmldom_document.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_htmldom_eventlistener.html">Next ❯</a>
+</div>
+
+

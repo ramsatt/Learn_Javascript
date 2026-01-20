@@ -1,0 +1,182 @@
+
+      
+
+<h1>JavaScript Set Logic</h1>
+
+
+<!--start-->
+<div class="ws-info">
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="w3-table">
+<tbody><tr>
+<td>
+<h2>Logic Methods</h2>
+<p>In JavaScript 2025, 7 new logical methods were added to the Set object:</p> 
+<a href="#mark_set_union">union()</a><br>
+<a href="#mark_set_difference">difference()<br>
+</a><a href="#mark_set_intersection">intersection()</a><br>
+<a href="#mark_set_isdisjointfrom">isDisjointFrom()</a><br>
+<a href="#mark_set_issubsetof">isSubsetOf()</a><br>
+<a href="#mark_set_issupersetof">isSupersetOf()</a><br>
+<a href="#mark_set_symmetric_difference">symmetricDifference()</a><br>
+</td>
+</tr></tbody></table></div>
+</div>
+</div>
+<!--start-->
+
+<h2>Browser Support</h2>
+<p><code class="w3-codespan">Set Logic</code> is an ES2025 feature.</p>
+<p><a href="js_2025.html">JavaScript 2025</a> is fully supported in all modern browsers since May 2025:</p>
+
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr>
+    <th class="bsChrome" title="Chrome"></th>
+    <th class="bsEdge" title="Edge"></th>
+    <th class="bsFirefox" title="Firefox"></th>
+    <th class="bsSafari" title="Safari"></th>
+    <th class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>136</td>
+    <td>Edge<br>136</td>
+    <td>Firefox<br>129</td>
+    <td>Safari<br>18.2</td>
+    <td>Opera<br>120</td>
+  </tr>
+  <tr>
+    <td>Apr 2025</td>
+    <td>Apr 2025</td>
+    <td>Aug 2024</td>
+    <td>Des 2024</td>
+    <td>May 2025</td>
+  </tr>
+</tbody></table></div>
+</div>
+
+<hr>
+<a id="mark_set_union"></a>
+<h2>The union() Method</h2>
+<p>The <code class="w3-codespan">union()</code> method returns the union of two sets.</p>
+<p>The <code class="w3-codespan">union()</code> method returns a new set containing the elements which are in this set,
+or in the argument set, or in both:</p>
+
+<p><img style="width:40%;max-width:200px" alt="Union" src="assets/images/img_set_union_300.jpg"></p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const A = new Set(['a','b','c']);
+const B = new Set(['b','c','d']);
+const C = A.union(B);</code></pre>
+
+</div>
+
+<hr>
+<a id="mark_set_intersection"></a>
+<h2>The intersection() Method</h2>
+<p>The <code class="w3-codespan">intersection()</code> method returns the intersection of two sets.</p>
+<p>The <code class="w3-codespan">intersection()</code> method returns a new set containing the elements which are in this set
+and in the argument set:</p>
+<p><img style="width:40%;max-width:200px" alt="Intersection" src="assets/images/img_set_intersection_300.jpg"></p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const A = new Set(['a','b','c']);
+const B = new Set(['b','c','d']);
+const C = A.intersection(B);</code></pre>
+
+</div>
+
+<hr>
+<a id="mark_set_difference"></a>
+<h2>The difference() Method</h2>
+<p>The <code class="w3-codespan">difference()</code> method returns the difference between two sets.</p>
+<p>The <code class="w3-codespan">difference()</code> method returns a new set containing elements which are in this set
+but not in the argument set:</p>
+<p><img style="width:40%;max-width:200px" alt="Difference" src="assets/images/img_set_difference_300.jpg"></p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const A = new Set(['a','b','c']);
+const B = new Set(['b','c','d']);
+const C = A.difference(B);</code></pre>
+
+</div>
+
+<hr>
+<a id="mark_set_symmetric_difference"></a>
+<h2>The symmetricDifference() Method</h2>
+<p>The <code class="w3-codespan">symmetricDifference()</code> method returns the symmetric difference between to sets.</p>
+<p>The <code class="w3-codespan">symmetricDifference()</code> method returns a new set containing elements which are in this set
+or in the argument set, but not in both:</p>
+<p><img style="width:40%;max-width:200px" alt="Symmetric Difference" src="assets/images/img_set_symmetric_difference_300.jpg"></p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const A = new Set(['a','b','c']);
+const B = new Set(['b','c','d']);
+const C = A.symmetricDifference(B);</code></pre>
+
+</div>
+
+<hr>
+
+<hr>
+
+<a id="mark_set_issubsetof"></a>
+<h2>The isSubsetOf() Method</h2>
+<p>The <code class="w3-codespan">isSubsetOf()</code> method returns <code class="w3-codespan">true</code> if all elements in this set
+is also elements in the argument set:</p>
+<p>
+<img style="width:40%;max-width:200px" alt="Subset" src="assets/images/img_set_subset_300.jpg"></p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const A = new Set(['a','b','c']);
+const B = new Set(['b','c','d']);
+let answer = A.isSubsetOf(B);</code></pre>
+
+</div>
+
+<hr>
+<a id="mark_set_issupersetof"></a>
+<h2>The isSupersetOf() Method</h2>
+<p>The <code class="w3-codespan">isSupersetOf()</code> method returns <code class="w3-codespan">true</code> if all elements in the argument set are also in this set:</p>
+<p><img style="width:40%;max-width:200px" alt="Superset" src="assets/images/img_set_superset_300.jpg"></p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const A = new Set(['a','b','c']);
+const B = new Set(['b','c','d']);
+let answer = A.isSupersetOf(B);</code></pre>
+
+</div>
+
+<hr>
+<a id="mark_set_isdisjointfrom"></a>
+<h2>The isDisjointFrom() Method</h2>
+<p>The <code class="w3-codespan">isDisjointFrom()</code> method returns <code class="w3-codespan">true</code>
+if this set has no elements in common with the argument set:</p>
+<p>
+<img style="width:40%;max-width:200px" alt="Disjoint" src="assets/images/img_set_disjoint_300.jpg"></p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const A = new Set(['a','b','c']);
+const B = new Set(['b','c','d']);
+let answer = A.isDisjointFrom(B);</code></pre>
+
+</div>
+<hr>
+<!--stop-->
+
+<div class="ws-note">
+<h2>Learn More:</h2>
+<p class="w3-large"><a href="js_sets.html">JavaScript Sets</a></p>
+<p class="w3-large"><a href="js_set_methods.html">JavaScript Set Methods</a></p>
+<p class="w3-large"><a href="js_sets_weak.html">JavaScript Weak Sets</a></p>
+<p class="w3-large"><a href="js_set_reference.html">JavaScript Set Reference</a></p>
+<p class="w3-large"><a href="js_maps.html">JavaScript Maps</a></p>
+</div>
+
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_set_methods.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_sets_weak.html">Next ❯</a>
+</div>
+
+

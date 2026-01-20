@@ -1,0 +1,97 @@
+
+      
+
+<h1>JavaScript Keyboard Events</h1>
+
+
+<!--start-->
+<div class="ws-info">
+<p class="w3-large"><b>Keyboard Events</b> happen when the user presses a key on the keyboard:</p>
+<ul class="w3-large">
+<li>keydown (key is pressed down)</li>
+<li>keyup (key is released)</li>
+<li>keypress (deprecated)</li>
+</ul>
+</div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p><code class="w3-codespan">keypress</code> only fires for character keys (a or 5),
+not for control keys (alt or backspace).</p>
+<p>Developers are advised to use <code class="w3-codespan">keydown</code> or <code class="w3-codespan">keyup</code> instead. </p>
+</div>
+
+<hr>
+<h2>The keydown Event</h2>
+<h3>Using event.key</h3>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Show which key was pressed:</p>
+<pre class="w3-code"><code class="language-html">&lt;input id="k" type="text" placeholder="Press a key"&gt;
+&lt;p id="demo"&gt;&lt;/p&gt;
+&lt;script&gt;
+const k = document.getElementById("k");
+// Let k listen for keydown
+k.addEventListener("keydown", function (event) {
+// Then display the event.key
+  document.getElementById("demo").innerHTML = "You pressed: " + event.key;
+});
+&lt;/script&gt;</code></pre>
+
+</div>
+
+<hr>
+<h2>Key Properties</h2>
+<p>The KeyboardEvent object provides useful properties to determine which key was involved in the event:</p>
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="= ws-table-all">
+<tbody><tr></tr>
+<tr><th>Property</th><th>Description</th><th>When pressing Z</th></tr>
+<tr><td>event.key</td>
+<td>Returns the value of the key.<br>Can vary based on language settings.</td>
+<td>Returns z<br>(or Z if shift is held)</td></tr>
+<tr><td>event.code</td><td>Returns the key code.<br>Constant, regardless of language settings.</td>
+<td>Always returns "KeyZ"</td></tr>
+</tbody></table></div>
+</div>
+
+<hr>
+<div class="ws-note">
+<h2>Note</h2>
+<p>You can also detect modifier keys using properties like event.ctrlKey, event.shiftKey, event.altKey,
+and event.metaKey to implement key combinations (e.g., Ctrl + S). </p>
+</div>
+
+<hr>
+<h2>Detect Enter</h2><h2>
+</h2><h3>Using event.code</h3>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-html">&lt;input id="in01" type="text" placeholder="Press Enter"&gt;
+&lt;p id="demo"&gt;&lt;/p&gt;
+&lt;script&gt;
+const in01 = document.getElementById("in01");
+// Let in01 listen for keydown
+in01.addEventListener("keydown", function (event) {
+// If event.code was "enter", then display text
+  if (event.code === "Enter") {
+    document.getElementById("demo").innerHTML = "Enter was pressed!";
+  }
+});
+&lt;/script&gt;</code></pre>
+
+</div>
+
+<hr>
+<div class="ws-note">
+<h2>Summary</h2>
+<p>JavaScript provides keyboard events to detect and handle user input from the keyboard, 
+enabling interactive web experiences like form validation, game controls, and keyboard shortcuts.</p>
+</div>
+
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_events_mouse.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_events_load.html">Next ❯</a>
+</div>
+
+

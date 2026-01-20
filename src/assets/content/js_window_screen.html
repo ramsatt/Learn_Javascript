@@ -1,0 +1,138 @@
+
+      
+
+<h1>JavaScript Window Screen</h1>
+
+<hr>
+<!--start-->
+<p class="intro">The window.screen object contains information 
+about the user's screen.</p>
+<hr>
+
+<h2>Window Screen</h2>
+<p>The <code class="w3-codespan">window.screen</code> object can be written without the window prefix.</p>
+<p>Properties:</p>
+<ul>
+  <li><code class="w3-codespan">screen.width</code></li>
+  <li><code class="w3-codespan">screen.height</code></li>
+  <li><code class="w3-codespan">screen.availWidth</code></li>
+  <li><code class="w3-codespan">screen.availHeight</code></li>
+  <li><code class="w3-codespan">screen.colorDepth</code></li>
+  <li><code class="w3-codespan">screen.pixelDepth</code></li>
+</ul>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Window Screen Width</h2>
+<p>The <code class="w3-codespan">screen.width</code> property returns the width of the visitor's screen in 
+pixels.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Display the width of the screen in pixels:</p>
+<pre class="w3-code"><code class="language-javascript">document.getElementById("demo").innerHTML =
+"Screen Width: " + screen.width;</code></pre>
+<p>Result will be:</p>
+
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Window Screen Height</h2>
+<p>The <code class="w3-codespan">screen.height</code> property returns the height of the visitor's screen in pixels.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Display the height of the screen in pixels:</p>
+<pre class="w3-code"><code class="language-javascript">document.getElementById("demo").innerHTML =
+"Screen Height: " + screen.height;</code></pre>
+<p>Result will be:</p>
+
+
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>Window Screen Available Width</h2>
+<p>The <code class="w3-codespan">screen.availWidth</code> property returns the width of the visitor's screen, in 
+pixels, 
+minus interface features like the Windows Taskbar.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Display the available width of the screen in pixels:</p>
+<pre class="w3-code"><code class="language-javascript">document.getElementById("demo").innerHTML =
+"Available Screen Width: " + screen.availWidth;</code></pre>
+<p>Result will be:</p>
+
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Window Screen Available Height</h2>
+<p>The <code class="w3-codespan">screen.availHeight</code> property returns the height of the visitor's screen, 
+in pixels, minus interface features like the Windows Taskbar.</p>
+
+<div class="w3-example">
+ <h3>Example</h3>
+<p>Display the available height of the screen in pixels:</p>
+<pre class="w3-code"><code class="language-javascript">document.getElementById("demo").innerHTML =
+"Available Screen Height: " + screen.availHeight;</code></pre>
+<p>Result will be:</p>
+
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Window Screen Color Depth</h2>
+<p>The <code class="w3-codespan">screen.colorDepth</code> property returns the number of bits used to display one color.</p>
+<p>All modern computers use 24 bit or 32 bit hardware for color resolution:</p>
+<ul>
+ <li>24 bits =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 16,777,216 different "True Colors"</li>
+ <li>32 bits = 4,294,967,296 different "Deep Colors"</li>
+</ul>
+<p>Older computers used 16 bits: 65,536 different "High Colors" resolution.</p>
+<p>Very old computers, and old cell phones used 8 bits: 256 different "VGA colors".</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Display the color depth of the screen in bits:</p>
+<pre class="w3-code"><code class="language-javascript">document.getElementById("demo").innerHTML =
+"Screen Color Depth: " + screen.colorDepth;</code></pre>
+<p>Result will be:</p>
+
+
+</div>
+
+<div class="w3-panel ws-note">
+<p>The #rrggbb (rgb) values used in HTML represents "True Colors" (16,777,216 different colors)</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Window Screen Pixel Depth</h2>
+<p>The <code class="w3-codespan">screen.pixelDepth</code> property returns the pixel depth of the screen.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Display the pixel depth of the screen in bits:</p>
+<pre class="w3-code"><code class="language-javascript">document.getElementById("demo").innerHTML =
+"Screen Pixel Depth: " + screen.pixelDepth;</code></pre>
+<p>Result will be:</p>
+
+
+</div>
+
+<div class="w3-panel ws-note">
+<p>For modern computers, Color Depth and Pixel Depth are equal.</p>
+</div>
+
+<!--stop-->
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_window.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_window_location.html">Next ❯</a>
+</div>
+
+

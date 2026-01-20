@@ -1,0 +1,132 @@
+
+      
+
+<h1>AJAX PHP Example</h1>
+
+<hr>
+<!--start-->
+<p class="intro">AJAX is used to create more interactive applications.</p>
+<hr>
+
+<h2>AJAX PHP Example</h2>
+<p>The following example demonstrates how a web page can communicate with a 
+web server while a user types characters in an input field:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+
+<br>
+</div>
+<hr>
+
+<h2>Example Explained</h2>
+<p>In the example above, when a user types a character in the input field, a function 
+called <code class="w3-codespan">showHint()</code> is executed.</p>
+<p>The function is triggered by the <code class="w3-codespan">onkeyup</code> event.</p>
+<p>Here is the code:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;p&gt;Start typing a name in the input field below:&lt;/p&gt;
+&lt;p&gt;Suggestions: &lt;span id="txtHint"&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;form&gt;
+First name: &lt;input type="text" onkeyup="showHint(this.value)"&gt;
+&lt;/form&gt;
+&lt;script&gt;
+function showHint(str) {
+  if (str.length == 0) {
+    document.getElementById("txtHint").innerHTML = "";
+    return;
+  } else {
+    const xmlhttp = new XMLHttpRequest();
+    xmlhttp.onload = function() {
+      document.getElementById("txtHint").innerHTML = this.responseText;
+    }
+  xmlhttp.open("GET", "gethint.php?q=" + str);
+  xmlhttp.send();
+  }
+}
+&lt;/script&gt;</code></pre>
+
+</div>
+
+<p>Code explanation:</p>
+<p>First, check if the input field is empty (str.length == 0). If it is, clear the 
+content of the txtHint placeholder and exit the function.</p>
+<p>However, if the input field is not empty, do the following:</p>
+<ul>
+  <li>Create an XMLHttpRequest object</li>
+  <li>Create the function to be executed when the server response is ready</li>
+  <li>Send the request off to a PHP file (gethint.php) on the server</li>
+  <li>Notice that q parameter is added gethint.php?q="+str</li>
+  <li>The str variable holds the content of the input field</li>
+</ul>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>The PHP File - "gethint.php"</h2>
+<p>The PHP file checks an array of names, and returns the corresponding name(s) to the 
+browser:</p>
+
+<pre class="w3-code"><code class="language-html">&lt;?php
+// Array with names
+$a[] = "Anna";
+$a[] = "Brittany";
+$a[] = "Cinderella";
+$a[] = "Diana";
+$a[] = "Eva";
+$a[] = "Fiona";
+$a[] = "Gunda";
+$a[] = "Hege";
+$a[] = "Inga";
+$a[] = "Johanna";
+$a[] = "Kitty";
+$a[] = "Linda";
+$a[] = "Nina";
+$a[] = "Ophelia";
+$a[] = "Petunia";
+$a[] = "Amanda";
+$a[] = "Raquel";
+$a[] = "Cindy";
+$a[] = "Doris";
+$a[] = "Eve";
+$a[] = "Evita";
+$a[] = "Sunniva";
+$a[] = "Tove";
+$a[] = "Unni";
+$a[] = "Violet";
+$a[] = "Liza";
+$a[] = "Elizabeth";
+$a[] = "Ellen";
+$a[] = "Wenche";
+$a[] = "Vicky";
+// get the q parameter from URL
+$q = $_REQUEST["q"];
+$hint = "";
+// lookup all hints from array if $q is different from ""
+if ($q !== "") {
+  $q = strtolower($q);
+  $len=strlen($q);
+  foreach($a as $name) {
+    if (stristr($q, substr($name, 0, $len))) {
+      if ($hint === "") {
+        $hint = $name;
+      } else {
+        $hint .= ", $name";
+      }
+    }
+  }
+}
+// Output "no suggestion" if no hint was found or output correct values
+echo $hint === "" ? "no suggestion" : $hint;
+?&gt;</code></pre>
+<!--stop-->
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_ajax_xmlfile.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_ajax_asp.html">Next ❯</a>
+</div>
+
+

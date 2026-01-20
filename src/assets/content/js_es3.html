@@ -1,0 +1,148 @@
+
+      
+
+<h1>JavaScript 1999 (ES3)</h1>
+
+
+<div class="ws-info">
+<h2>ECMAScript 3 (1999)</h2>
+<p><b>The first revision to JavaScript</b>.</p>
+<p>ECMAScript 1999 is also known as ES3.</p> 
+
+</div>
+
+
+<h2>ES3 Features</h2>
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Feature</th><th>Description</th></tr>
+<tr><td><a href="js_es3d41d.html?#mark_regexp">Regular expressions</a></td>
+<td>Sequence of characters that forms a search pattern</td></tr>
+<tr><td><a href="js_es3d41d.html?#mark_try_catch">Error handling (try...catch)</a></td>
+<td>Statement to define code blocks to be tested in case of an error</td></tr>
+<tr><td><a href="js_es3d41d.html?#mark_switch">The switch keyword</a></td>
+<td>Selects code blocks to be executed based on a conditions</td></tr>
+<tr><td><a href="js_es3d41d.html?#mark_do_while">The do...while loop</a></td>
+<td>A variant of the while loop</td></tr>
+</tbody></table></div>
+</div>
+
+<hr>
+<h2>Browser Support</h2>
+<p><b>JavaScript 1999</b> is supported in all browsers:</p>
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+<tbody><tr>
+  <th class="bsChrome" title="Chrome"></th>
+  <th class="bsEdge" title="Edge"></th>
+  <th class="bsFirefox" title="Firefox"></th>
+  <th class="bsSafari" title="Safari"></th>
+  <th class="bsOpera" title="Opera"></th>   
+</tr>
+<tr>
+  <td>Chrome</td>
+  <td>IE/Edge</td>
+  <td>Firefox</td>
+  <td>Safari</td>
+  <td>Opera</td>
+</tr>
+</tbody></table></div>
+</div>
+
+
+<hr>
+<a id="mark_regexp"></a>
+<h2>Regular Expressions</h2>
+<p>A sequence of characters that forms a search pattern.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Do a case-insensitive search for "w3schools" in a string:</p>
+<pre class="w3-code"><code class="language-javascript">let text = "Visit W3Schools";
+let n = text.search(/w3schools/i);</code></pre>
+
+<a href="js_regexp.html" class="w3-btn w3-margin-bottom">Learn More ...</a>
+</div>
+
+
+<hr>
+<a id="mark_try_catch"></a>
+<h2>The try...catch Keywords</h2>
+<p>Statement to define code blocks to be tested in case of an error.</p>
+<div class="w3-example">
+<h3>Examples</h3>
+<p>You cannot use a non-existing variable:</p>
+<pre class="w3-code"><code class="language-javascript">let x = 5;
+try {
+  x = y + 1;
+} catch(err) {
+  let text = err.name;
+}</code></pre>
+
+<a href="js_errors_intro.html" class="w3-btn w3-margin-bottom">Learn More ...</a>
+</div>
+
+<hr>
+<a id="mark_switch"></a>
+<h2>The switch Keyword</h2>
+<p>Based on a condition, <code class="w3-codespan">switch</code> selects one or more code blocks to be executed.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>This example uses the weekday number to calculate the weekday name:</p>
+<pre class="w3-code"><code class="language-javascript">switch (new Date().getDay()) {
+  case 0:
+    day = "Sunday";
+    break;
+  case 1:
+    day = "Monday";
+    break;
+  case 2:
+     day = "Tuesday";
+    break;
+  case 3:
+    day = "Wednesday";
+    break;
+  case 4:
+    day = "Thursday";
+    break;
+  case 5:
+    day = "Friday";
+    break;
+  case 6:
+    day = "Saturday";
+}</code></pre>
+
+<a href="js_switch.html" class="w3-btn w3-margin-bottom">Learn More ...</a>
+</div>
+
+<a id="mark_do_while"></a>
+<hr>
+<h2>The <b>do...while</b> Loop</h2>
+<p>The <code class="w3-codespan">do while</code> runs at least once, even if the condition is false from the start.</p>
+<p>This is because the code block is executed before the condition is tested:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">do {
+  text += "The number is " + i;
+  i++;
+}
+while (i &lt; 10);</code></pre>
+
+<a href="js_loop_while.html" class="w3-btn w3-margin-bottom">Learn More ...</a>
+</div>
+<div class="ws-note">
+<h2>Note</h2>
+<p>Do not forget to increase the variable used in the condition, otherwise 
+the loop will never end!</p>
+</div>
+
+
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_es5.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_ie_edge.html">Next ❯</a>
+</div>
+
+

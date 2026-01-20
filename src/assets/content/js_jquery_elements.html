@@ -1,0 +1,96 @@
+
+      
+
+<h1>JavaScript / jQuery HTML Elements</h1>
+
+<hr>
+<h2>jQuery vs JavaScript</h2>
+<p><a href="../jquery/default.html">jQuery</a> was created in 2006 by John Resig. 
+It was designed to handle Browser Incompatibilities and to simplify HTML DOM Manipulation, Event Handling, Animations, and Ajax.</p>
+For more than 10 years, jQuery has been the most popular JavaScript library in the world.
+<p>However, after JavaScript <a href="js_es5.html">Version 5</a> (2009), most of the jQuery utilities can be solved with a few lines of standard JavaScript:</p>
+<hr>
+
+
+<h2>Set Text Content</h2>
+<p>Set the inner text of an HTML element:</p>
+<div class="w3-example">
+<h3>jQuery</h3>
+<pre class="w3-code"><code class="language-javascript">myElement.text("Hello Sweden!");</code></pre>
+<p>
+
+</p>
+</div>
+<div class="w3-example">
+<h3>JavaScript</h3>
+<pre class="w3-code"><code class="language-javascript">myElement.textContent = "Hello Sweden!";</code></pre>
+<p>
+
+</p>
+</div>
+<hr>
+
+<h2>Get Text Content</h2>
+<p>Get the inner text of an HTML element:</p>
+<div class="w3-example">
+<h3>jQuery</h3>
+<pre class="w3-code"><code class="language-javascript">myText = $("#02").text();</code></pre>
+<p>
+
+</p>
+</div>
+<div class="w3-example">
+<h3>JavaScript</h3>
+<pre class="w3-code"><code class="language-javascript">myText = document.getElementById("02").textContent;</code></pre>
+<p>
+
+</p>
+</div>
+
+<hr>
+
+<hr>
+
+<h2>Set HTML Content</h2>
+<p>Set the HTML content of an element:</p>
+<div class="w3-example">
+<h3>jQuery</h3>
+<pre class="w3-code"><code class="language-javascript">myElement.html("&lt;p&gt;Hello World&lt;/p&gt;");</code></pre>
+<p>
+
+</p>
+</div>
+<div class="w3-example">
+<h3>JavaScript</h3>
+<pre class="w3-code"><code class="language-javascript">myElement.innerHTML = "&lt;p&gt;Hello World&lt;/p&gt;";</code></pre>
+<p>
+
+</p>
+</div>
+<hr>
+
+<h2>Get HTML Content</h2>
+<p>Get the HTML content of an element:</p>
+<div class="w3-example">
+<h3>jQuery</h3>
+<pre class="w3-code"><code class="language-javascript">content = myElement.html();</code></pre>
+<p>
+
+</p>
+</div>
+<div class="w3-example">
+<h3>JavaScript</h3>
+<pre class="w3-code"><code class="language-javascript">content = myElement.innerHTML;</code></pre>
+<p>
+
+</p>
+</div>
+<br>
+
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_jquery_selectors.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_jquery_css.html">Next ❯</a>
+</div>
+
+
+

@@ -1,0 +1,321 @@
+
+      
+
+<h1>JavaScript Booleans</h1>
+
+<!--start-->
+<div class="ws-info">
+<h2>The Boolean Data Type</h2>
+<p>In JavaScript, a Boolean is a primitive data type that can only have one of two values:</p>
+<p class="w3-large"><strong>true</strong> or <strong>false</strong></p>
+<p>The Boolean value of an expression is the basis for all JavaScript <b>comparisons</b> and 
+<b>conditions</b>.</p>
+
+</div>
+<h2>Key Boolean Characteristics</h2>
+<ul>
+<li>true and false are <b>boolean data types</b></li>
+<li><b>true and false</b> are the only possible boolean values</li>
+<li>true and false must be written in <b>lowercase</b></li>
+<li>true and false must be written <b>without quotes</b></li>
+</ul>
+
+<hr>
+<h2>Boolean Use Cases</h2>
+<p>Very often, in programming, you will need a data type that can represent one 
+of two values, like:</p>
+<ul>
+  <li>yes or no</li>
+  <li>on or off</li>
+  <li>true or false</li>
+</ul>
+<p>Boolean values are fundamental for logical operations and control flow in JavaScript programming.</p>
+
+<hr>
+<h2>Comparisons</h2>
+<p>All JavaScript comparison operators (like ==, !=, &lt;, &gt;)
+return <b>true</b> or <b>false</b> from the comparison.</p>
+<p>Given that <b>x = 5</b>, the table below explains comparison:</p>
+
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate">
+<tbody><tr></tr>
+<tr>
+<th>Description</th>
+<th>Example</th>
+<th>Returns</th>
+</tr>
+<tr>
+<td>Equal to</td>
+<td>(x == 8)</td>
+<td><b>false</b></td>
+</tr>
+<tr>
+<td>Not equal to</td>
+<td>(x != 8)</td>
+<td><b>true</b></td>
+</tr>
+<tr>
+<td>Greater than</td>
+<td>(x &gt; 8)</td>
+<td><b>false</b></td>
+</tr>
+<tr>
+<td>Less than</td>
+<td>(x &lt; 8)</td>
+<td><b>true</b></td>
+</tr>
+</tbody></table></div>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 5;
+(x == 8); // equals false
+(x != 8); // equals true</code></pre>
+
+</div>
+
+<div class="ws-note">
+<h2>See Also:</h2>
+<p class="w3-large"><a href="js_comparisons.html">JavaScript Comparisons</a></p>
+</div>
+
+<hr>
+<h2>Conditions</h2>
+<p>Booleans are extensively used in <b>if statements</b> to determine the code blocks to execute based on the logic.</p>
+
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate">
+<tbody><tr></tr>
+<tr>
+<th>Example</th>
+<th>Result</th>
+</tr>
+<tr>
+<td>if (day == "Monday")</td>
+<td><b>true</b> or <b>false</b></td>
+</tr>
+<tr>
+<td>if (salary &gt; 9000)</td>
+<td><b>true</b> or <b>false</b></td>
+</tr>
+<tr>
+<td>if (age &lt; 18)</td>
+<td><b>true</b> or <b>false</b></td>
+</tr>
+</tbody></table></div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">if (hour &lt; 18) {
+  greeting = "Good day";
+} else {
+  greeting = "Good evening";
+}</code></pre>
+
+</div>
+
+<div class="ws-note">
+<h2>See Also:</h2>
+<p class="w3-large"><a href="js_if.html">JavaScript if</a></p>
+<p class="w3-large"><a href="js_if_else.html">JavaScript if else</a></p>
+</div>
+
+<hr>
+<h2>Loops</h2>
+<p>Booleans are extensively used in loops to determine conditions for looping.</p>
+
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate">
+<tbody><tr></tr>
+<tr>
+<th>Description</th>
+<th>Example</th>
+</tr>
+<tr>
+<td>For loop</td>
+<td>for (i = 0; i &lt; 5; i++)</td>
+</tr>
+<tr>
+<td>While loop</td>
+<td>while (i &lt; 10)</td>
+</tr>
+<tr>
+<td>For in loop</td>
+<td>for (x in person)</td>
+</tr>
+<tr>
+<td>For of loop</td>
+<td>for (x of cars)</td>
+</tr>
+</tbody></table></div>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">while (i &lt; 10) {
+  text += i;
+  i++;
+}</code></pre>
+
+</div>
+
+<div class="ws-note">
+<h2>See Also:</h2>
+<p class="w3-large"><a href="js_loop_for.html">JavaScript Loops</a></p>
+</div>
+
+<!--stop-->
+
+<hr>
+<!--start-->
+<h2>The Boolean() Function</h2>
+<p>You can use the <code class="w3-codespan">Boolean()</code> function to find out if an expression (or a variable) is 
+true:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">Boolean(10 &gt; 9)</code></pre>
+
+</div>
+<p>Or even easier:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">(10 &gt; 9)</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+
+
+<hr>
+<!--start-->
+<h2>Everything With a "Value" is True</h2>
+<div class="w3-example">
+<h3>Examples</h3>
+<pre class="w3-code"><code class="language-javascript">100 is true
+3.14 is true
+-15 is true
+true is true
+"Hello" is true
+"false" is true
+(7 + 1 + 3.14) is true</code></pre>
+
+</div>
+<hr>
+
+<h2>Everything Without a "Value" is False</h2>
+<div class="w3-example">
+<h3>Examples</h3>
+<pre class="w3-code"><code class="language-javascript">0 is false
+"" is false
+undefined is false
+null is false
+NaN is false
+false is false</code></pre>
+</div>
+
+<div class="w3-example">
+<p>The Boolean value of <strong>0</strong> (zero) is <strong>false</strong>:</p>
+<pre class="w3-code"><code class="language-javascript">let x = 0;
+Boolean(x);</code></pre>
+
+</div>
+
+<div class="w3-example">
+<p>The Boolean value of <strong>-0</strong> (minus zero) is <strong>false</strong>:</p>
+<pre class="w3-code"><code class="language-javascript">let x = -0;
+Boolean(x);</code></pre>
+
+</div>
+
+<div class="w3-example">
+<p>The Boolean value of <strong>"" </strong>(empty string) is <strong>false</strong>:</p>
+<pre class="w3-code"><code class="language-javascript">let x = "";
+Boolean(x);</code></pre>
+
+</div>
+
+<div class="w3-example">
+<p>The Boolean value of <strong>undefined</strong> is <strong>false</strong>:</p>
+<pre class="w3-code"><code class="language-javascript">let x;
+Boolean(x);</code></pre>
+
+</div>
+
+<div class="w3-example">
+<p>The Boolean value of <strong>null</strong> is <strong>false</strong>:</p>
+<pre class="w3-code"><code class="language-javascript">let x = null;
+Boolean(x);</code></pre>
+
+</div>
+
+<div class="w3-example">
+<p>The Boolean value of <strong>false</strong> is (you guessed it) <strong>false</strong>:</p>
+<pre class="w3-code"><code class="language-javascript">let x = false;
+Boolean(x);</code></pre>
+
+</div>
+
+<div class="w3-example">
+<p>The Boolean value of <strong>NaN</strong> is <strong>false</strong>:</p>
+<pre class="w3-code"><code class="language-javascript">let x = 10 / "Hallo";
+Boolean(x);</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>JavaScript Booleans as Objects</h2>
+
+<p>Normally JavaScript booleans are primitive values created from literals:</p>
+
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">let x = false;</code></pre>
+</div>
+
+<p>But booleans can also be defined as objects with the keyword <code class="w3-codespan">new</code>:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">let y = new Boolean(false);</code></pre>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = false;
+let y = new Boolean(false);
+// typeof x returns boolean
+// typeof y returns object</code></pre>
+  <a class="w3-btn w3-margin-bottom" href="tryit5be7.html?filename=tryjs_booleans_object">Try 
+it yourself »</a>
+</div>
+
+<div class="ws-warning">
+<h2>Warning</h2>
+<p>Do not create Boolean objects.</p>
+<p>The <code class="w3-codespan">new</code> keyword complicates the code and slows down execution speed.</p>
+<p>Boolean objects can produce unexpected results:</p>
+</div>
+
+<div class="w3-example">
+<p>Booleans and boolean objects cannot be safely compared:</p>
+<pre class="w3-code"><code class="language-javascript">let x = Boolean(false);
+let y = new Boolean(false);
+(x == y) returns true
+(y === y) returns false</code></pre>
+
+</div>
+
+<div class="ws-warning">
+<p>Comparing two JavaScript objects <b>always</b> returns <b>false</b>.</p>
+</div>
+<!--stop-->
+<div class="ws-note">
+<h2>Complete Boolean Reference</h2>
+<p>For a complete reference, go to our <a href="../jsref/jsref_obj_boolean.html">Complete 
+JavaScript Boolean Reference</a>.</p>
+<p>The reference contains descriptions and examples of all Boolean properties and methods.</p>
+</div>
+<hr>
+
+<hr>
+
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_bitwise.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_logical.html">Next ❯</a>
+</div>
+
+

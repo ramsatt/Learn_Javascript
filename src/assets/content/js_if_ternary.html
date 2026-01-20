@@ -1,0 +1,117 @@
+
+      
+
+<h1>The Conditional (Ternary) Operator</h1>
+
+
+<hr>
+<!--start-->
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>If the <b>value of age</b> is <b>&lt; 18</b>, set the value of <b>text</b> to
+<b>"Minor"</b>, otherwise to <b>"Adult"</b>:</p>
+
+<pre class="w3-code"><code class="language-javascript">let text = (age &lt; 18) ? "Minor" : "Adult";</code></pre>
+
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let isMember = true;
+let discount = isMember ? 0.2 : 0;</code></pre>
+
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let isMember = false;
+let discount = isMember ? 0.2 : 0;</code></pre>
+
+</div>
+
+<hr>
+<h2>Description</h2>
+<p>The conditional operator is a shorthand for writing conditional
+<code class="w3-codespan">if...else</code> statements.</p>
+<p>It is called a ternary operator because it takes three operands.</p>
+
+<div class="w3-example">
+<h3>Syntax</h3>
+<pre class="w3-code"><code class="language-javascript">(<em>condition</em>) ?<em> expression1</em> : <em>expression2</em></code></pre>
+</div>
+
+<h2>Parameters</h2>
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Parameter</th><th>Description</th></tr>
+<tr><td><i>condition</i></td>
+<td>Required.<br>
+The condition to be tested.<br>
+An expression that evaluates to <code class="w3-codespan">true</code>
+or <code class="w3-codespan">false</code>.</td></tr>
+<tr><td>?</td>
+<td>Required.<br>
+The operator separating the condition from the expressions.</td></tr>
+<tr><td><i>expression1</i></td>
+<td>Required.<br>
+The value to return if the condition is <code class="w3-codespan">true</code>.</td></tr>
+<tr><td>:</td>
+<td>Required.<br>
+The operator separating the expressions.</td></tr>
+<tr><td><i>expression2</i></td>
+<td>Required.<br>
+The value to return if the condition is <code class="w3-codespan">false</code>.</td></tr>
+</tbody></table></div>
+</div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>The conditional (ternary) operator is the only JavaScript
+operator that takes three operands.</p>
+</div>
+<!--stop-->
+
+<hr>
+<h2>Browser Support</h2>
+<p><code class="w3-codespan">() ? x : y</code> is an ES1  feature (JavaScript 1997).</p>
+<p>It is fully supported in all browsers:</p>
+
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr style="height:50px">
+    <th style="width:16.6%;" class="bsChrome" title="Chrome"></th>
+    <th style="width:16.6%;" class="bsIE" title="Internet Explorer"></th>
+    <th style="width:16.6%;" class="bsEdge" title="Edge"></th>
+    <th style="width:16.6%;" class="bsFirefox" title="Firefox"></th>
+    <th style="width:16.6%;" class="bsSafari" title="Safari"></th>
+    <th style="width:16.6%;" class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome</td>
+    <td>IE</td>
+    <td>Edge</td>
+    <td>Firefox</td>
+    <td>Safari</td>
+    <td>Opera</td>
+  </tr>
+  <tr>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+  </tr>
+</tbody></table></div>
+</div>
+
+
+<br><br>
+<div class="w3-clear w3-center nextprev">
+<a class="w3-left w3-btn" href="js_if_else.html">❮<span class="w3-hide-small"> Previous</span></a>
+<a class="w3-right w3-btn" href="js_switch.html"><span class="w3-hide-small">Next </span>❯</a>
+</div>
+
+

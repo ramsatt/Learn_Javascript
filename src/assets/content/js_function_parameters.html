@@ -1,0 +1,329 @@
+
+      
+
+<h1>JavaScript Function Parameters</h1>
+
+
+<div class="ws-info">
+<h2>Parameters and Arguments</h2>
+<p><b>Parameters</b> allow you to pass (send) values to a function.</p>
+<p><b>Parameters</b> are listed inside the parentheses in the <b>function definition</b>.</p>
+<p><b>Arguments</b> are the real values passed to, and <b>received by the function</b>.</p>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">function multiply(a, b) {
+  return a * b;
+}
+let result = multiply(4, 5);</code></pre>
+
+</div>
+
+<p>Function <b>parameters</b> are the <b>names</b> listed in 
+the function definition.</p>
+<p>Function <b>arguments</b> are the real <b>values</b> 
+passed to (and received by) the function.</p>
+
+<p>In the example above:</p>
+
+<ul>
+  <li><b>a</b> and <b>b</b> are parameters</li>
+  <li><b>4</b> and <b>5</b> are arguments</li>
+</ul>
+<p>The argument <b>4</b> is assigned to the parameter <b>a</b>.</p>
+<p>The argument <b>5</b> is assigned to the parameter <b>b</b>.</p>
+
+
+<hr>
+<h2>Functions with One Parameter</h2>
+<p>A function can have one parameter.</p>
+
+<div class="w3-example">
+<h3>Examples</h3>
+<pre class="w3-code"><code class="language-javascript">function sayHello(name) {
+  return "Hello " + name;
+}
+let greeting = sayHello("John");</code></pre>
+
+<pre class="w3-code"><code class="language-javascript">function toCelsius(fahrenheit) {
+  return (5 / 9) * (fahrenheit - 32);
+}
+let value = toCelsius(77);</code></pre>
+
+</div>
+
+<hr>
+
+<h2>Functions with Multiple Parameters</h2>
+<p>You can add as many parameters as you want, separated by commas.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">function fullName(firstName, lastName) {
+  return firstName + " " + lastName;
+}
+let name = fullName("John", "Doe");</code></pre>
+
+</div>
+
+<hr>
+<h2>The Order of Arguments Matters</h2>
+<p>
+Arguments are assigned to parameters in the order they appear.<br>
+</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">function subtract(a, b) {
+  return a - b;
+}
+let x1 = subtract(10, 5);
+let x2 = subtract(5, 10);</code></pre>
+
+</div>
+
+<div class="ws-note">
+<p>The two calls above return different results because the order is different.</p>
+</div>
+
+<hr>
+
+<hr>
+
+<h2>Incorrect Parameters</h2>
+<p>Accessing a function with incorrect parameters can return an incorrect answer:</p>
+<div class="w3-example">
+<h3>Examples</h3>
+<pre class="w3-code"><code class="language-javascript">function toCelsius(fahrenheit) {
+  return (5/9) * (fahrenheit-32);
+}
+let value = toCelsius("John");</code></pre>
+
+<pre class="w3-code"><code class="language-javascript">function toCelsius(fahrenheit) {
+  return (5/9) * (fahrenheit-32);
+}
+let value = toCelsius();</code></pre>
+
+</div>
+
+<p>Accessing a function without (), returns the function itself and not the result:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">function toCelsius(fahrenheit) {
+  return (5/9) * (fahrenheit-32);
+}
+let value = toCelsius;</code></pre>
+
+</div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>In the examples above:</p>
+<p><code class="w3-codespan">toCelsius</code> refers to the <b>function itself</b>.</p>
+<p><code class="w3-codespan">toCelsius()</code> refers to the <b>function result</b>.</p>
+</div>
+
+<hr>
+<h2>Missing Arguments</h2>
+<p>
+If a function is called with fewer arguments than parameters, the missing values become <b>undefined</b>.<br>
+</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <pre class="w3-code"><code class="language-javascript">function multiply(a, b) {
+  return a * b;
+}
+multiply(4);</code></pre>
+</div>
+
+<p>
+In the example above, <b>b</b> is <b>undefined</b>, so the result is <b>NaN</b>.<br>
+</p>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>A JavaScript function does not perform any checking on parameter values (arguments).</p>
+</div>
+
+<hr>
+<h2>Parameter Rules</h2>
+<p>JavaScript function definitions do not specify data types for 
+parameters.</p>
+<p>JavaScript functions do not perform type checking on the passed 
+arguments.</p>
+<p>JavaScript functions do not check the number of arguments received.</p>
+
+<hr>
+
+<h2>Default Parameters</h2>
+<p>If a function is called with <b>missing arguments</b> (less than declared), the missing values are set to
+<code class="w3-codespan">undefined</code>.</p>
+<p>Sometimes this is acceptable, but sometimes it is better to assign a default 
+value to the parameter:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">function myFunction(x, y) {
+  if (y === undefined) {
+    y = 2;
+  }
+}</code></pre>
+
+</div>
+
+
+<hr>
+<h2>Default Parameter Values</h2>
+<p>
+You can set a default value for a parameter.<br>
+This value is used if no argument is provided.<br>
+</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <pre class="w3-code"><code class="language-javascript">function greet(name = "Guest") {
+  return "Hello " + name;
+}
+greet();
+greet("Anna");</code></pre>
+</div>
+
+<br>
+<h2>Functions Can Be Called with Variables</h2>
+<p>
+Arguments do not have to be values. They can also be variables.<br>
+</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <pre class="w3-code"><code class="language-javascript">let x = 5;
+let y = 6;
+function multiply(a, b) {
+  return a * b;
+}
+multiply(x, y);</code></pre>
+</div>
+
+<hr>
+<h2>Common Mistakes</h2>
+<ul class="w3-ul">
+  <li><h3>Confusing Parameters and Arguments</h3>
+  Parameters are names. Arguments are values.</li>
+
+  <li><h3>Forgetting the Order</h3>
+  Arguments are assigned to parameters by position.</li>
+
+  <li><h3>Missing Arguments</h3>
+  Use default values to avoid <b>undefined</b>.</li>
+</ul>
+
+<hr>
+<div class="w3-panel w3-pale-yellow w3-leftbar w3-border-yellow">
+<h2>Quiz</h2>
+<p>What happens when a function is called with fewer arguments than parameters?</p>
+</div>
+
+<hr>
+<h2>Next Chapter</h2>
+<p class="w3-large">Next: <a href="js_function_return.html">Returning Values from Functions</a></p>
+
+
+<!--
+
+<h2>Default Parameter Values</h2>
+<p><a href="js_es6.asp">ES6</a> allows function parameters to have default values.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>If y is not passed or undefined, then y = 10.</p>
+<div class="w3-code notranslate jsHigh">
+function myFunction(x, y = 10) {<br>&nbsp;
+  return x + y;<br>}<br>myFunction(5);
+</div>
+<a class="w3-btn w3-margin-bottom" href="tryit.asp?filename=tryjs_function_default" target="_blank"> &raquo;</a>
+</div>
+<hr>
+
+<a id="mark_rest"></a>
+<h2>Function Rest Parameter</h2>
+<p>The rest parameter (...) allows a function to treat an indefinite number of arguments as an array:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+function sum(...args) {<br>
+&nbsp; let sum = 0;<br>
+&nbsp; for (let arg of args) sum += arg;<br>
+&nbsp; return sum;<br>
+}<br><br>
+let x = sum(4, 9, 16, 25, 29, 100, 66, 77);
+</div>
+<a class="w3-btn w3-margin-bottom" href="tryit.asp?filename=tryjs_rest" target="_blank"> &raquo;</a>
+</div>
+
+<h2>The Arguments Object</h2>
+<p>JavaScript functions have a built-in object called the arguments 
+object.</p>
+<p>The argument object contains an array of the arguments used when the function 
+was called (invoked).</p>
+<p>This way you can simply use a function to find (for instance) the highest 
+value in a list of numbers:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+x = findMax(1, 123, 500, 115, 44, 88);<br><br>function findMax() {<br>
+&nbsp;&nbsp;let max = -Infinity;<br>
+  &nbsp; for (let i = 0; i &lt; arguments.length; i++) {<br>
+  &nbsp;&nbsp;&nbsp; if (arguments[i] &gt; max) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;max = arguments[i];<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+  &nbsp;&nbsp;}<br>
+  &nbsp; return max;<br>
+}
+</div>
+<a class="w3-btn w3-margin-bottom" href="tryit.asp?filename=tryjs_function_arguments" target="_blank"> &raquo;</a>
+</div>
+<p>Or create a function to sum all input values:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+x = sumAll(1, 123, 500, 115, 44, 88);<br>
+<br>
+function sumAll() {<br>
+&nbsp; let sum = 0;<br>
+  &nbsp; for (let i = 0; i &lt; arguments.length; i++) {<br>
+&nbsp;&nbsp;&nbsp; sum += arguments[i];<br>
+  &nbsp; }<br>
+  &nbsp; return sum;<br>
+}
+</div>
+<a class="w3-btn w3-margin-bottom" href="tryit.asp?filename=tryjs_function_arguments_sum" target="_blank"> &raquo;</a>
+</div>
+<div class="w3-panel ws-note">
+<p>If a function is called with <b>too many arguments</b> (more than declared),
+these arguments can be reached using <b>the arguments object</b>.</p>
+</div>
+<hr>
+<h2>Arguments are Passed by Value</h2>
+<p>The parameters, in a function call, are the function's arguments.</p>
+<p>JavaScript arguments are passed by <b>value</b>: The function only 
+gets to know the values, not the argument's locations.</p>
+<p>If a function changes an argument's value, it does not change the parameter's 
+original value.</p>
+<p><b>Changes to arguments are not visible (reflected) outside the function.</b></p>
+<hr>
+
+<h2>Objects are Passed by Reference</h2>
+<p>In JavaScript, object references are values.</p>
+<p>Because of this, objects will behave like they are passed by <b>reference:</b></p>
+<p>If a function changes an object property, it changes the original value.</p>
+<p><b>Changes to object properties are visible (reflected) outside the function.</b></p>
+<br>
+<!--stop-->
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_function_invocation.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_function_return.html">Next ❯</a>
+</div>
+
+

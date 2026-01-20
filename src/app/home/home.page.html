@@ -1,20 +1,86 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary">
     <ion-title>
-      Blank
+      <div class="app-logo">
+        <span class="logo-icon">JS</span>
+        <span class="logo-text">Mastery</span>
+      </div>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+<ion-content [fullscreen]="true" class="home-content">
+  <div class="welcome-banner">
+    <h1>Learn JavaScript</h1>
+    <p>From zero to hero. Master the web's language.</p>
   </div>
+
+  <div class="course-container grid-layout" *ngIf="menuData.length > 0; else loadingTpl">
+    
+    <!-- Main Dashboard Loop - 2 Column Grid -->
+    <div class="category-card" *ngFor="let section of menuData" (click)="toggleSection(section)">
+      <div class="card-inner">
+        <div class="card-header">
+            <div class="category-icon-wrapper">
+                <ion-icon name="grid-outline"></ion-icon>
+            </div>
+            <!-- Optional: Could add a 'New' or 'Hot' badge here -->
+        </div>
+
+        <div class="card-body">
+            <h2>{{ section.title }}</h2>
+            <p>{{ section.items.length }} Tutorials</p>
+        </div>
+
+        <div class="card-footer">
+             <div class="footer-row">
+                 <div class="progress-text-col">
+                     <span class="label">Progress</span>
+                     <span class="value">{{ section.progress || 0 }}%</span>
+                 </div>
+                 
+                 <div class="circular-chart">
+                     <svg viewBox="0 0 36 36" class="circular-chart-svg">
+                        <path class="circle-bg"
+                          d="M18 2.0845
+                             a 15.9155 15.9155 0 0 1 0 31.831
+                             a 15.9155 15.9155 0 0 1 0 -31.831"
+                        />
+                        <path class="circle"
+                          [attr.stroke-dasharray]="(section.progress || 0) + ', 100'"
+                          d="M18 2.0845
+                             a 15.9155 15.9155 0 0 1 0 31.831
+                             a 15.9155 15.9155 0 0 1 0 -31.831"
+                        />
+                      </svg>
+                 </div>
+             </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Modal or overlay to show actual chapters? Or navigate to a detail page? 
+       For now, let's just make the list toggleable or visible below if expanded?
+       User asked for "dashboard content in two column layout". 
+       Implies text: "Main dash board cont in two column layout" -> "Categories" are the dashboard items.
+       
+       Let's create a Modal or a separate page for the Chapter List to keep the Dashboard clean.
+       OR, we can expand the card in place. 
+       Let's use a Modal for clean "Dashboard" feel, OR navigate to a 'Course Details' page.
+       However, simplest first step: Toggle an inline list? No, grid makes inline expansion messy.
+       
+       Let's use an <ion-modal> or navigate. Let's start by modifying the controller to handle the click.
+       See 'home.page.ts' update needed.
+  -->
+
+  <ng-template #loadingTpl>
+    <div class="ion-padding ion-text-center loading-state">
+      <ion-spinner color="primary"></ion-spinner>
+      <p>Loading course structure...</p>
+    </div>
+  </ng-template>
 </ion-content>

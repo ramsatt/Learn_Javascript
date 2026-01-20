@@ -1,0 +1,65 @@
+
+      
+
+<h1>AJAX XML Example</h1>
+
+<hr>
+<!--start-->
+<p class="intro">AJAX can be used for interactive communication with an XML file.</p>
+<hr>
+<h2>AJAX XML Example</h2>
+<p>The following example will demonstrate how a web page can fetch information 
+from an XML file with AJAX:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+
+<p>
+
+</p>
+</div>
+<hr>
+
+<h2>Example Explained</h2>
+<p>When a user clicks on the "Get CD info" button above, the <code class="w3-codespan">loadDoc()</code> 
+function is executed.</p>
+<p>The <code class="w3-codespan">loadDoc()</code> function creates an <code class="w3-codespan">XMLHttpRequest</code> object, adds the function 
+to be executed when the server response is ready, and sends the request off to the server.</p>
+<p>When the server response is ready, an HTML 
+table is built, nodes (elements) are extracted from the XML file, and it finally updates the 
+element "demo" with the HTML table filled with XML data:</p> 
+
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">function loadDoc() {
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {myFunction(this);}
+  xhttp.open("GET", "cd_catalog.xml");
+  xhttp.send();
+}
+function myFunction(xml) {
+  const xmlDoc = xml.responseXML;
+  const x = xmlDoc.getElementsByTagName("CD");
+  let table="&lt;tr&gt;&lt;th&gt;Artist&lt;/th&gt;&lt;th&gt;Title&lt;/th&gt;&lt;/tr&gt;";
+  for (let i = 0; i &lt;x.length; i++) {
+    table += "&lt;tr&gt;&lt;td&gt;" +
+    x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue +
+    "&lt;/td&gt;&lt;td&gt;" +
+    x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue +
+    "&lt;/td&gt;&lt;/tr&gt;";
+  }
+  document.getElementById("demo").innerHTML = table;
+}</code></pre>
+</div>
+<!--stop-->
+<hr>
+
+<h2>The XML File</h2>
+<p>The XML file used in the example above looks like this: "<a href="cd_catalog.xml">cd_catalog.xml</a>".</p>
+
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_ajax_http_response.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_ajax_php.html">Next ❯</a>
+</div>
+
+

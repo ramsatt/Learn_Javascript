@@ -1,0 +1,221 @@
+
+      
+
+<h1>JSON PHP</h1>
+
+<hr>
+<!--start-->
+<p class="intro">A common use of JSON is to read data from a web server, 
+and display the data in a web page.</p>
+<p class="intro">This chapter will teach you how to exchange JSON data between 
+the client and a PHP server.</p>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The PHP File</h2>
+
+<p>PHP has some built-in functions to handle JSON.</p>
+<p>Objects in PHP can be converted into JSON by using the PHP function
+<span class="w3-codespan">json_encode()</span>:</p>
+<div class="w3-example">
+  <h3>PHP file</h3>
+<pre class="w3-code"><code class="language-html">&lt;?php
+$myObj-&gt;name = "John";
+$myObj-&gt;age = 30;
+$myObj-&gt;city = "New York";
+$myJSON = json_encode($myObj);
+echo $myJSON;
+?&gt;</code></pre>
+<a class="w3-btn w3-margin-bottom" href="showphpfef7.html?filename=demo_file">Show PHP file »</a>
+</div>
+<!--stop-->
+<!--start-->
+<h2>The Client JavaScript</h2>
+<p>Here is a JavaScript on the client, using an AJAX call to request the PHP 
+file from the example above:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Use JSON.parse() to convert the result into a JavaScript object:</p>
+<pre class="w3-code"><code class="language-javascript">const xmlhttp = new XMLHttpRequest();
+xmlhttp.onload = function() {
+  const myObj = JSON.parse(this.responseText);
+  document.getElementById("demo").innerHTML = myObj.name;
+}
+xmlhttp.open("GET", "demo_file.php");
+xmlhttp.send();</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>PHP Array</h2>
+<p>Arrays in PHP will also be converted into JSON when using the PHP function
+<span class="w3-codespan">json_encode()</span>:</p>
+<div class="w3-example">
+  <h3>PHP file</h3>
+<pre class="w3-code"><code class="language-html">&lt;?php
+$myArr = array("John", "Mary", "Peter", "Sally");
+$myJSON = json_encode($myArr);
+echo $myJSON;
+?&gt;</code></pre>
+  <a class="w3-btn w3-margin-bottom" href="showphp26b9.html?filename=demo_file_array">Show PHP file »</a>
+</div>
+<!--stop-->
+
+<!--start-->
+<h2>The Client JavaScript</h2>
+<p>Here is a JavaScript on the client, using an AJAX call to request the PHP 
+file from the array example above:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Use JSON.parse() to convert the result into a JavaScript array:</p>
+<pre class="w3-code"><code class="language-javascript">var xmlhttp = new XMLHttpRequest();
+xmlhttp.onload = function() {
+  const myObj = JSON.parse(this.responseText);
+  document.getElementById("demo").innerHTML = myObj[2];
+}
+xmlhttp.open("GET", "demo_file_array.php", true);
+xmlhttp.send();</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>PHP Database</h2>
+
+<p>PHP is a server side programming language, and can be used to access a database.</p>
+<p>Imagine you have a database on your server, and you want to send a request to 
+it from the client where you ask for the 10 first rows in a table called 
+"customers".</p>
+<p>On the client, make a JSON object that describes the numbers of rows you want to return.</p>
+<p>Before you send the request to the server, convert the JSON object into a 
+string and send it as a parameter to the url of the PHP page:</p>
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Use JSON.stringify() to convert the JavaScript object into JSON:</p>
+<pre class="w3-code"><code class="language-javascript">const limit = {"limit":10};
+const dbParam = JSON.stringify(limit);
+xmlhttp = new XMLHttpRequest();
+xmlhttp.onload = function() {
+  document.getElementById("demo").innerHTML = this.responseText;
+}
+xmlhttp.open("GET","json_demo_db.php?x=" + dbParam);
+xmlhttp.send();</code></pre>
+
+</div>
+<!--stop-->
+
+<!--start-->
+<h3>Example explained:</h3>
+<ul>
+  <li>Define an object containing a "limit" property and value.</li>
+  <li>Convert the object into a JSON string.</li>
+  <li>Send a request to the PHP file, with the JSON string as a parameter.<br></li>
+  <li>Wait until the request returns with the result (as JSON)</li>
+  <li>Display the result received from the PHP file.</li>
+</ul>
+<p>Take a look at the PHP file:</p>
+<div class="w3-example">
+  <h3>PHP file</h3>
+<pre class="w3-code"><code class="language-html">&lt;?php
+header("Content-Type: application/json; charset=UTF-8");
+$obj = json_decode($_GET["x"], false);
+$conn = new mysqli("myServer", "myUser", "myPassword", "Northwind");
+$stmt = $conn-&gt;prepare("SELECT name FROM customers LIMIT ?");
+$stmt-&gt;bind_param("s", $obj-&gt;limit);
+$stmt-&gt;execute();
+$result = $stmt-&gt;get_result();
+$outp = $result-&gt;fetch_all(MYSQLI_ASSOC);
+echo json_encode($outp);
+?&gt;</code></pre>
+
+</div>
+<!--stop-->
+
+<!--start-->
+<h3>PHP File explained:</h3>
+<ul>
+  <li>Convert the request into an object, using the PHP function
+  <span class="w3-codespan">json_decode()</span>.</li>
+  <li>Access the database, and fill an array with the requested data.</li>
+  <li>Add the array to an object, and return the object as JSON using 
+the <span class="w3-codespan">json_encode()</span> function.</li>
+</ul>
+<!--stop-->
+<hr>
+<!--start-->
+
+
+<h2>Use the Data</h2>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">xmlhttp.onload = function() {
+  const myObj = JSON.parse(this.responseText);
+  let text = "";
+  for (let x in myObj) {
+    text += myObj[x].name + "&lt;br&gt;";
+  }
+  document.getElementById("demo").innerHTML = text;
+}</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>PHP Method = POST</h2>
+
+<p>When sending data to the server, it is often best to use the HTTP <code class="w3-codespan">POST</code> method.</p>
+<p>To send AJAX requests using the <code class="w3-codespan">POST</code> method, specify the method, and the correct header.</p>
+<p>The data sent to the server must now be an argument to the <code class="w3-codespan">send()</code> method:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const dbParam = JSON.stringify({"limit":10});
+const xmlhttp = new XMLHttpRequest();
+xmlhttp.onload = function() {
+  const myObj = JSON.parse(this.responseText);
+  let text ="";
+  for (let x in myObj) {
+    text += myObj[x].name + "&lt;br&gt;";
+  }
+  document.getElementById("demo").innerHTML = text;
+}
+<strong>xmlhttp.open("POST", "json_demo_db_post.php");
+</strong> <strong>xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+</strong><strong>xmlhttp.send("x=" + dbParam);</strong></code></pre>
+
+</div>
+
+<p>The only difference in the PHP file is the method for getting the transferred data.</p>
+
+<div class="w3-example">
+<h3>PHP file</h3>
+<p>Use $_POST instead of $_GET:</p>
+<pre class="w3-code"><code class="language-html">&lt;?php
+header("Content-Type: application/json; charset=UTF-8");
+<strong>$obj = json_decode($_POST["x"], false);
+</strong>
+$conn = new mysqli("myServer", "myUser", "myPassword", "Northwind");
+$stmt = $conn-&gt;prepare("SELECT name FROM customers LIMIT ?");
+$stmt-&gt;bind_param("s", $obj-&gt;limit);
+$stmt-&gt;execute();
+$result = $stmt-&gt;get_result();
+$outp = $result-&gt;fetch_all(MYSQLI_ASSOC);
+echo json_encode($outp);
+?&gt;</code></pre>
+
+</div>
+<!--stop-->
+
+<br>
+
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_json_server.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_json_html.html">Next ❯</a>
+</div>
+
+

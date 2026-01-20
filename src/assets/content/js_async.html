@@ -1,0 +1,196 @@
+
+      
+
+<h1>JavaScript Async</h1>
+
+<!--start-->
+<div class="w3-panel ws-info w3-center" style="padding:8px">
+<p class="w3-large"><i>"async and await make promises easier to write"</i></p>
+<p><b>async</b> makes a function return a Promise</p>
+<p><b>await</b> makes a function wait for a Promise</p>
+
+</div>
+
+<h2>Async Syntax</h2>
+<p>The keyword <code class="w3-codespan">async</code> before a function makes the function return a promise:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">async function myFunction() {
+  return "Hello";
+}</code></pre>
+
+<p>Is the same as:</p>
+<pre class="w3-code"><code class="language-javascript">function myFunction() {
+  return Promise.resolve("Hello");
+}</code></pre>
+</div>
+
+<p>Here is how to use the Promise:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">myFunction().then(
+  function(value) { /* code if successful */ },
+  function(error) { /* code if some error */ }
+);</code></pre>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">async function myFunction() {
+  return "Hello";
+}
+myFunction().then(
+  function(value) {myDisplayer(value);},
+  function(error) {myDisplayer(error);}
+);</code></pre>
+<p>
+
+</p>
+</div>
+<p>Or simpler, since you expect a normal value (a normal response, not an error):</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">async function myFunction() {
+  return "Hello";
+}
+myFunction().then(
+  function(value) {myDisplayer(value);}
+);</code></pre>
+<p>
+
+</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Await Syntax</h2>
+<p>The <code class="w3-codespan">await</code> keyword can only be used inside an
+<code class="w3-codespan">async</code> function.</p>
+
+<p>The <code class="w3-codespan">await</code> keyword makes the function pause the execution 
+and wait for a resolved promise before it continues:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">let value = await promise;</code></pre>
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>Example</h2>
+<p>Let's go slowly and learn how to use it.</p>
+
+<div class="w3-example">
+<h3>Basic Syntax</h3>
+<pre class="w3-code"><code class="language-javascript">async function myDisplay() {
+  let myPromise = new Promise(function(resolve, reject) {
+    resolve("I love You !!");
+  });
+  document.getElementById("demo").innerHTML = await myPromise;
+}
+myDisplay();</code></pre>
+<p>
+
+</p>
+</div>
+<div class="ws-note">
+<p>The two arguments (resolve and reject) are pre-defined by JavaScript.</p>
+<p>We will not create them, but call one of them when the executor function is ready.</p>
+<p>Very often we will not need a reject function.</p>
+</div>
+<!--stop-->
+<!--start-->
+
+<div class="w3-example">
+<h3>Example without reject</h3>
+<pre class="w3-code"><code class="language-javascript">async function myDisplay() {
+  let myPromise = new Promise(function(resolve) {
+    resolve("I love You !!");
+  });
+  document.getElementById("demo").innerHTML = await myPromise;
+}
+myDisplay();</code></pre>
+<p>
+
+</p>
+</div>
+<!--stop-->
+<!--start-->
+<div class="w3-example">
+<h3>Waiting for a Timeout</h3>
+<pre class="w3-code"><code class="language-javascript">async function myDisplay() {
+  let myPromise = new Promise(function(resolve) {
+    setTimeout(function() {resolve("I love You !!");}, 3000);
+  });
+  document.getElementById("demo").innerHTML = await myPromise;
+}
+myDisplay();</code></pre>
+<p>
+
+</p>
+</div>
+<!--stop-->
+<!--start-->
+<div class="w3-example">
+<h3>Waiting for a File</h3>
+<pre class="w3-code"><code class="language-javascript">async function getFile() {
+  let myPromise = new Promise(function(resolve) {
+    let req = new XMLHttpRequest();
+    req.open('GET', "mycar.html");
+    req.onload = function() {
+      if (req.status == 200) {
+        resolve(req.response);
+      } else {
+        resolve("File not Found");
+      }
+    };
+    req.send();
+  });
+  document.getElementById("demo").innerHTML = await myPromise;
+}
+getFile();</code></pre>
+<p>
+
+</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+
+<h2>Browser Support</h2>
+<p>ECMAScript 2017 introduced the JavaScript keywords
+<code class="w3-codespan">async</code> and <code class="w3-codespan">await</code>.</p>
+<p>The following table defines the first browser version with full support for both:</p>
+<div class="w3-responsive">
+<div class="table-responsive-wrapper"><table class="browserref notranslate ws-table-all">
+  <tbody><tr style="height:50px;">
+    <th style="width:20%;" class="bsChrome" title="Chrome"></th>
+    <th style="width:20%;" class="bsEdge" title="Edge"></th>
+    <th style="width:20%;" class="bsFirefox" title="Firefox"></th>
+    <th style="width:20%;" class="bsSafari" title="Safari"></th>
+    <th style="width:20%;" class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome 55</td>
+    <td>Edge 15</td>    
+    <td>Firefox 52</td>
+    <td>Safari 11</td>
+    <td>Opera 42</td>
+  </tr>
+  <tr>
+    <td>Dec, 2016</td>
+    <td>Apr, 2017</td>    
+    <td>Mar, 2017</td>
+    <td>Sep, 2017</td>
+    <td>Dec, 2016</td>
+  </tr></tbody>
+</table></div>
+</div>
+<br>
+<!--stop-->
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_promise.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_promise_reference.html">Next ❯</a>
+</div>
+
+

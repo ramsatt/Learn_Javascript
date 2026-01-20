@@ -1,0 +1,279 @@
+
+      
+
+<h1>Project - Modal Popup</h1>
+
+
+<div class="ws-info">
+<h2>Modal Popup</h2>
+<p>A <b>modal is a popup window</b> that appears on top of the page.</p>
+<p>The project will build a modal that can be closed in three ways:</p>
+<ul>
+<li>Click the close button (x)</li>
+<li>Click outside the modal</li>
+<li>Press the Escape key</li>
+</ul>
+
+<button id="openBtn">Open Modal</button>
+
+<div id="modal" class="modal-overlay">
+  <div class="modal-box">
+    <button id="closeBtn" class="modal-close">×</button>
+
+    <h3>Hello!</h3>
+    <p>This is a modal popup.</p>
+  </div>
+</div>
+
+</div>
+
+<h2>What You Will Learn</h2>
+<ul>
+<li>How to show and hide elements</li>
+<li>How to use CSS classes with JavaScript</li>
+<li>How to handle click and keydown events</li>
+<li>How to detect clicks outside an element</li>
+</ul>
+
+<hr>
+<h2>First: Create the HTML</h2>
+<p>First create the HTML page</p>
+<ul class="w3-ul">
+<li>Add a <b>button</b> with id="openBth"</li>
+<li>Add a Modal structure:</li>
+<ul>
+<li>Add a <b>div</b> with class="modal-overlay"</li>
+<li>Add a <b>div</b> with class="modal-box"</li>
+<li>Add a <b>button</b> with id="closeBtn" and class="modal-close"</li>
+</ul>
+</ul>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;style&gt;
+/* CSS will go here */
+&lt;/style&gt;
+&lt;body&gt;
+&lt;h2&gt;Modal Popup&lt;/h2&gt;
+&lt;button id="openBtn"&gt;Open Modal&lt;/button&gt;
+&lt;div id="modal" class="modal-overlay"&gt;
+  &lt;div class="modal-box"&gt;
+    &lt;button id="closeBtn" class="modal-close"&gt;×&lt;/button&gt;
+    &lt;h3&gt;Hello!&lt;/h3&gt;
+    &lt;p&gt;This is a modal popup.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;script&gt;
+// JavaScript will go here
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
+<div class="ws-note">
+<h2>Note</h2>
+<p>The modal has two parts:</p>
+<ul>
+<li>The overlay (background)</li>
+<li>The modal box (content)</li>
+</ul>
+</div>
+<hr>
+<h2>Then: Create the CSS</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;style&gt;
+/* The overlay (background) */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+/* Show the modal */
+.modal-overlay.show {
+  display: block;
+}
+/* The modal box */
+.modal-box {
+  background: white;
+  width: 90%;
+  max-width: 400px;
+  margin: 100px auto;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+}
+/* Close button */
+.modal-close {
+  position: absolute;
+  right: 12px;
+  top: 8px;
+  font-size: 24px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+&lt;/style&gt;</code></pre>
+
+</div>
+
+<hr>
+<h2>CSS Explained</h2>
+<h4>Hide the modal by default:</h4>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-css">.modal-overlay { display: none; }</code></pre>
+</div>
+
+<h4>Show the modal using a class:</h4>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-css">.modal-overlay.show { display: block; }</code></pre>
+</div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>JavaScript will add and remove the show class.</p>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">function openModal() {
+  modal.classList.add("show");
+}
+function closeModal() {
+  modal.classList.remove("show");
+}</code></pre>
+</div>
+
+<hr>
+<h2>Then: Create the JavaScript</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const modal = document.getElementById("modal");
+const openBtn = document.getElementById("openBtn");
+const closeBtn = document.getElementById("closeBtn");
+function openModal() {
+  modal.classList.add("show");
+}
+function closeModal() {
+  modal.classList.remove("show");
+}
+openBtn.addEventListener("click", openModal);
+closeBtn.addEventListener("click", closeModal);
+/* Close when clicking outside the modal box */
+modal.addEventListener("click", function (event) {
+  if (event.target === modal) {
+    closeModal();
+  }
+});
+/* Close when pressing Escape */
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape") {
+    closeModal();
+  }
+});</code></pre>
+
+</div>
+
+<hr>
+<h2>JavaScript Explained</h2>
+<ul>
+<li>Connect the open button to the openModal() function</li>
+<li>Connect the open close button to the closeModal() function</li>
+<li>Connect clocking outside the modal to the closeModal() function</li>
+<li>Connect the open escape key to the closeModal() function</li>
+</ul>
+
+<hr>
+<h2>Connect Functions to Buttons</h2>
+<p>Connect the open button to the <b>openModal() function</b>, with addEventListener().</p>
+<p>Connect the close button to the <b>closeModal() function</b>, with addEventListener().</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">openBtn.addEventListener("click", openModal);
+closeBtn.addEventListener("click", closeModal);</code></pre>
+</div>
+
+<hr>
+<h2>Connect Function to Clicking Outside.</h2>
+<p>Check if the click happened on the overlay. Connect it to <b>closeModal()</b>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">modal.addEventListener("click", function (event) {
+  if (event.target === modal) {
+    closeModal();
+  }
+});</code></pre>
+</div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>event.target === modal means:<br>
+The user clicked on the overlay, not inside the modal box.</p>
+</div>
+
+<hr>
+<h2>Connect Function to Escape Key</h2>
+<p>Listen for "Escape" key presses. Connect it to <b>closeModal()</b>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape") {
+    closeModal();
+  }
+});</code></pre>
+</div>
+
+<hr>
+<h2>Common Mistakes</h2>
+<ul class="w3-ul">
+<li><b>Modal never closes when clicking outside:</b><br>
+&nbsp;&nbsp;Make sure you check <b>event.target === modal</b>.</li>
+<li><b>Escape closes even when modal is hidden:</b><br>
+&nbsp;&nbsp;This is OK, but you can add a check to close only if it is open.</li>
+<li><b>Using display: none with animation:</b><br>
+&nbsp;&nbsp;If you want fade effects, use opacity instead (bonus challenge).</li>
+</ul>
+
+<h2>Bonus Challenges (Level Up)</h2>
+<ul>
+<li>Add a fade-in / fade-out effect using CSS</li>
+<li>Move focus to the modal when it opens (accessibility)</li>
+<li>Trap focus inside the modal (advanced)</li>
+<li>Close the modal with the Enter key when a button is focused</li>
+</ul>
+<hr>
+<div class="ws-note">
+<h2>JavaScript Projects</h2>
+<ul class="w3-ul">
+<li><a href="js_project_counter.html" class="w3-large">JavaScript Counter</a><br>
+A counter project with restore and save in lovalStorage.
+</li>
+<li><a href="js_project_eventlistener.html" class="w3-large">JavaScript Event Listener</a><br>
+The counter project using event listener instead of onclick.
+</li>
+<li><a href="js_project_todo.html" class="w3-large">JavaScript Do-Do List</a><br>
+A do-do list saved in an array in local storage.
+</li>
+<li><a href="js_project_modal_popup.html" class="w3-large">JavaScript Modal Popup</a><br>
+A modal popup window that appears on top of the page.
+</li>
+</ul>
+</div>
+
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_project_todo.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_function_advanced.html">Next ❯</a>
+</div>
+
+
+
+
+

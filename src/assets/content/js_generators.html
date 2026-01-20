@@ -1,0 +1,118 @@
+
+      
+
+<h1>JavaScript Generators</h1>
+
+<!--start-->
+<div class="ws-info">
+<p>A JavaScript Function can only return <b>one value</b>.</p>
+<p>A JavaScript Generator can <b>return multiple values</b>, one by one.</p>
+<p>A JavaScript Generator can yield a <b>stream of data</b>.</p>
+<p>A JavaScript Generator can be <b>paused</b> and <b>resumed</b>.</p>
+</div>
+
+<h2>Generator Functions</h2>
+<p>A Generator Function is defined using the <b>function*</b> syntax:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">function* myGenerator() {}</code></pre>
+</div>
+<p>When called, a generator function returns a <b>Generator Object</b>, not a direct value:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">{value:1, done:false}</code></pre>
+</div>
+
+<h2>Generator Objects</h2>
+<p>A <b>Generator Object</b> is returned by the generator function.</p>
+<p>It conforms to both the iterable and iterator protocols,
+meaning it can be iterated over using <b>for...of loops</b>.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">function* myStream() {
+// return {value:1, done:false}
+yield 1;
+// return {value:2, done:false}
+yield 2;
+// return {value:3, done:true}
+return 3;
+}
+// Create a Generator
+let myGenerator = myStream();
+// Iterate over the Generator
+for (let value of myGenerator) { // code }</code></pre>
+
+</div>
+
+
+<hr>
+<h2>The yield Keyword</h2>
+<p>The <b>yield</b> keyword pauses execution and <b>yield a value</b> back to the caller.</p>
+<p>The generator's state is preserved, and can be <b>resumed</b> from the point of the yield
+when <b>next()</b> is called.</p>
+<p>Generators maintain their internal state between yield calls,
+allowing them to continue execution from where they left off.</p>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>The code example above returns 1 and 2. Not 3!
+</p><p>The for..of loop exits when <b>done:true</b>.
+</p><p>To get all the values, return them with yield.</p>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">function* myStream() {
+// return {value:1, done:false}
+yield 1;
+// return {value:2, done:false}
+yield 2;
+// return {value:3, done:false}
+yeald 3;
+}
+// Create a Generator
+let myGenerator = myStream();
+// Iterate over the Generator
+for (let value of myGenerator) { // code }</code></pre>
+
+</div>
+
+<hr>
+<h2>Generator Object Methods</h2>
+<p>A Generator Object conforms to the <b>iterable and iterator protocols</b>.</p>
+<p>It can be iterated over with <b>for...of loops</b>.</p>
+<p>It also has <b>methods</b>:</p>
+ 
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr><th>Method</th><th>Description</th></tr>
+<tr><td>next()</td><td>Resumes the next execution of a generator function</td></tr>
+<tr><td>return()</td><td>Finishes this execution and returns a given value</td></tr>
+<tr><td>throw()</td><td>Throws an exeption in this execution</td></tr>
+</tbody></table></div>
+
+<hr>
+<h2>The next() Method</h2>
+<p>When called on the Generator object it <b>resumes</b> execution of the generator function.</p>
+<p>It returns an object with and value and a boolean, indicating if the generator has finished:</p>
+<p>{ <b>value</b>: <i>value</i>, <b>done</b>: <code class="w3-codespan">true|false</code>}</p>
+
+<hr>
+<h2>Custom Iterators</h2>
+<p>Generators simplify the creation of <b>custom iterators</b> for complex data structures or sequences.</p>
+<p>They can efficiently generate values on demand, making them suitable for potentially
+<b>infinite data streams</b>.</p>
+<p>They can <b>pause and resume</b> execution, which can be useful for fine-grained control over program flow.</p>
+<p><b>Before async/await</b>, generators were used with Promises to manage asynchronous
+operations in a more sequential-looking manner.</p>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>Generators bring the <b>iteration concept</b> directly into the core JavaScript language
+and provide a mechanism for customizing the behavior of for...of.</p>
+</div>
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_iterators.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_math.html">Next ❯</a>
+</div>
+
+

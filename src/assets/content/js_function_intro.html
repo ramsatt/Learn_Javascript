@@ -1,0 +1,280 @@
+
+      
+
+<h1>JavaScript Functions</h1>
+
+<!--start-->
+<div class="ws-info">
+<h2>Reusable Code Blocks</h2>
+<p>
+</p><p>Functions are <b>reusable code blocks</b> designed to perform a particular task.</p>
+<p>Functions <b>are executed</b> when they are <b>called</b> or <b>invoked</b>.</p>
+<p>Functions are <b>fundamental</b> in all programming.</p>
+</div>
+
+<h2>Why Use Functions?</h2>
+<p>
+Functions help you to:<br>
+</p>
+
+<ul>
+  <li>Reuse code (write once, run many times)</li>
+  <li>Organize code into smaller parts</li>
+  <li>Make code easier to read and maintain</li>
+</ul>
+
+<hr>
+<h2>What Does a Function Look Like?</h2>
+<p>A function can be created with the <b>function</b> keyword, a <b>name</b>, and <b>parentheses</b>.</p>
+<p>The code to run is written inside <b>curly brackets</b>.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>A one liner:</p>
+<pre class="w3-code"><code class="language-javascript">function sayHello() { return "Hello World"; }</code></pre>
+or more common:
+<pre class="w3-code"><code class="language-javascript">function sayHello() {
+  return "Hello World";
+}</code></pre>
+</div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>The function above does not do anything.</p>
+<p>It has to be called first.</p>
+</div>
+
+<hr>
+<h2>Functions Run When You Call Them</h2>
+<p>
+To run a function, you call it by using its name followed by parentheses like <b>sayHello()</b>:<br>
+</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">function sayHello() {
+  return "Hello World";
+}
+let message = sayHello();</code></pre>
+
+</div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>Note that the value returned from the function can be stored in a variable.</p>
+</div>
+<!--stop-->
+
+<hr>
+
+<hr>
+
+<!--start-->
+<h2>JavaScript Function Syntax</h2>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">function <em>name</em>( <em>p1, p2, ...</em> ) {
+  // code to be executed
+}</code></pre>
+</div>
+
+<p>Functions are defined with the <code class="w3-codespan">function</code> keyword:</p>
+<ul>
+<li>followed by the function <b>name</b></li>
+<li>followed by <b>parentheses ( )</b></li>
+<li>followed by <b>brackets { }</b></li>
+</ul>
+<p><b>Optional parameters</b> are listed inside parentheses: <b>(</b><em> p1, p2, ...</em> <b>)</b></p>
+<p><b>Code to be executed</b> is listed inside curly brackets: <b>{ }</b></p>
+<p>Functions can <b>return an optional value</b> back to the caller.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Function to multiply two numbers:</p>
+<pre class="w3-code"><code class="language-javascript">function multiply(a, b) {
+  return a * b;
+}</code></pre>
+
+</div>
+<div class="ws-note">
+<h2>Note</h2>
+<p>The <b>function name</b> follows the naming rules for variables.</p>
+</div>
+<!--stop-->
+
+<hr>
+<h2>A Function Can Be Used Many Times</h2>
+<p>
+A big benefit is that you can call the same function whenever you need it.<br>
+</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">function add(a, b) {
+  return a + b;
+}
+let sum1 = add(5, 5);
+let sum2 = add(50, 50);</code></pre>
+
+</div>
+
+<hr>
+<h2>Function Input and Output</h2>
+<p>The most useful functions work like this:</p>
+<ul>
+<li><b>Input</b> - some parameters go in</li>
+<li><b>Function</b> - some work is done</li>
+<li><b>Output</b> - some value is returned</li>
+</ul>
+
+<p>In the next three chapters, you will learn more about <b>input</b> and <b>return</b> values.</p>
+
+<hr>
+<h2>Common Mistakes</h2>
+<ul class="w3-ul">
+  <li><h4>Forgetting to Call the Function</h4>
+  Writing <b>sayHello</b> does not run the function. You must write <b>sayHello()</b>.</li>
+  <li><h4>Expecting Output</h4>
+  If a function does not return a value, storing it in a variable will give <b>undefined</b>.</li>
+</ul>
+
+<hr>
+<div class="ws-note">
+<h2>Why Functions?</h2>
+<p>Functions enable <b>better code organization</b> and efficiency.</p>
+<p>With functions you can <b>reuse code</b>.</p>
+<p>You can write code that can be <b>used many times</b>.</p>
+<p>The same code, with different input, can <b>produce different results</b>.</p>
+</div>
+<hr>
+<h2>Next Chapter</h2>
+<p class="w3-large">Next: <a href="js_function_invocation.html">Calling JavaScript Functions</a></p>
+
+<!--
+<hr>
+<h2>Function Invocation ()</h2>
+<p>The code inside the function will execute when "something" <strong>invokes</strong> (calls) the 
+function:</p>
+<ul>
+<li>When it is invoked (called) from JavaScript code</li>
+<li>When an event occurs (a user clicks a button)</li>
+<li>Automatically (self invoked)</li>
+</ul>
+
+<p><b>The () operator invokes a the function</b>.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>toCelsius() invokes the toCelsius function:</p>
+<div class="w3-code notranslate jsHigh">
+// Convert Fahrenheit to Celsius:<br>
+function toCelsius(fahrenheit) {<br>
+  &nbsp; return (5/9) * (fahrenheit-32);<br>
+}<br>
+<br>
+// Call the toCelcius() function<br>
+let value = toCelsius(77);
+</div>
+<a target="_blank" href="tryit.asp?filename=tryjs_farenheit_to_celsius" class="w3-btn w3-margin-bottom"> &raquo;</a>
+</div>
+
+
+<h2>Arrow Functions</h2>
+<p>Arrow functions were introduced in <a href="js_es6.asp">ES6</a>.</p>
+<p>Arrow functions allow us to write shorter function syntax:</p>
+
+<div class="w3-example">
+<h3>Before Arrow:</h3>
+<p>Function to compute the product of a and b</p>
+<div class="w3-code notranslate jsHigh">
+let myFunction = function(a, b) {return a * b}<br>
+</div>
+<p>
+<a target="_blank" class="w3-btn" href="tryit.asp?filename=tryjs_arrow_before"> &raquo;</a>
+</p>
+</div>
+
+<div class="w3-example">
+<h3>With Arrow</h3>
+<div class="w3-code notranslate jsHigh">
+let myFunction = (a, b) =&gt; a * b;
+</div>
+<p>
+<a target="_blank" class="w3-btn" href="tryit.asp?filename=tryjs_arrow_function"> &raquo;</a>
+</p>
+</div>
+<div class="ws-note">
+<h2>Learn More:</h2>
+<p class="w3-large"><a href="js_arrow_function.asp">JavaScript Arrow Functions</a></p>
+</div>
+<hr>
+<h2>Local Variables</h2>
+<p>Variables declared <b>within</b> a JavaScript function, become <strong>
+LOCAL</strong> to 
+the function.</p>
+<p>Local variables can only be accessed 
+from within the function.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+// code here can NOT use carName<br><br>
+function myFunction() {<br>
+&nbsp;&nbsp;let carName = &quot;Volvo&quot;;<br>
+&nbsp;&nbsp;// code here CAN use carName<br>
+}<br><br>
+// code here can NOT use carName
+</div>
+<a class="w3-btn w3-margin-bottom" href="tryit.asp?filename=tryjs_function_scope" target="_blank"> &raquo;</a>
+</div>
+<p>Since local variables are only recognized inside their functions, variables with the same name can be used in different functions.</p>
+<p>Local variables are created when a function starts, and deleted when the function is completed.</p>
+
+<hr>
+<h2>Parameters vs. Arguments</h2>
+<p>In JavaScript, function parameters and arguments are distinct concepts:</p>
+<p><b>Parameters</b> are the <b>names</b> listed in the function definition.</p>
+<p><b>Arguments</b> are the <b>values</b> received by the function.</p>
+
+<div class="w3-example">
+<h3>Examples</h3>
+<p>"name" and "age" are <b>parameters</b>:</p>
+<div class="w3-code notranslate jsHigh">
+function greet(name, age) {<br>
+&nbsp; return `Hello ${name}! You are ${age} years old.`;<br>
+}
+</div>
+<p>"John" and 21 are <b>arguments</b>:</p>
+<div class="w3-code notranslate jsHigh">
+greet("John", 21);
+</div>
+<a class="w3-btn w3-margin-bottom" href="tryit.asp?filename=tryjs_function_hello_name2" target="_blank"> &raquo;</a>
+</div>
+<hr>
+
+<h2>Functions Used as Variables</h2>
+<p>Functions can be used as variables, in all types of formulas, assignments, and calculations.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+ <p>Instead of using a variable to store the return value of a function:</p>
+<div class="w3-code notranslate jsHigh">
+let x = toCelsius(77);<br>
+let text = &quot;The temperature is &quot; + x + &quot; Celsius&quot;;
+</div>
+ <p>You can use the function directly, as a variable value:</p>
+<div class="w3-code notranslate jsHigh">
+let text = &quot;The temperature is &quot; + toCelsius(77) + &quot; Celsius&quot;;
+</div>
+<a class="w3-btn w3-margin-bottom" href="tryit.asp?filename=tryjs_function_variable" target="_blank"> &raquo;</a>
+</div>
+
+-->
+<hr>
+
+
+<hr>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_functions.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_function_invocation.html">Next ❯</a>
+</div>
+
+

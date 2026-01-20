@@ -1,0 +1,253 @@
+
+      
+
+<h1>JavaScript Cookies</h1>
+
+<hr>
+<!--start-->
+<p class="intro">Cookies let you store user information in web pages.</p>
+<hr>
+
+<h2>What are Cookies?</h2>
+<p>Cookies are data, stored in small text files, on your computer.</p>
+<p>When a web server has sent a web page to a browser, the connection is 
+shut down, and the server forgets everything about the user.</p>
+<p>Cookies were invented to solve the problem "how to remember information about 
+the user":</p>
+<ul>
+<li>When a user visits a web page, his/her name can be stored in a cookie.</li>
+<li>Next time the user visits the page, the cookie "remembers" his/her name.</li>
+</ul>
+<p>Cookies are saved in name-value pairs like:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">username = John Doe</code></pre>
+</div>
+
+<p>When a browser requests a web page from a server, cookies belonging to the page are added to the request. This way the server 
+gets the necessary data to "remember" information about users.</p>
+<div class="w3-panel ws-note">
+<p>None of the examples below will work if your browser has local cookies support turned off.</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Create a Cookie with JavaScript</h2>
+<p>JavaScript can create, read, and delete cookies with the <code class="w3-codespan">document.cookie</code> 
+property.</p>
+<p>With JavaScript, a cookie can be created like this:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">document.cookie = "username=John Doe";</code></pre>
+</div>
+
+<p>You can also add an expiry date (in UTC time).
+By default, the cookie is deleted when the browser is closed:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">document.cookie = "username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 UTC";</code></pre>
+</div>
+
+<p>With a path parameter, you can tell the browser what path the cookie belongs to.
+By default, the cookie belongs to the current page.</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">document.cookie = "username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/";</code></pre>
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>Read a Cookie with JavaScript</h2>
+<p>With JavaScript, cookies can be read like this:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">let x = document.cookie;</code></pre>
+</div>
+
+<div class="w3-panel ws-note">
+<p><code class="w3-codespan">document.cookie</code> will return all cookies in one string much like: cookie1=value; cookie2=value; cookie3=value;</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Change a Cookie with JavaScript</h2>
+<p>With JavaScript, you can change a cookie the same way as you create it:</p>
+
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">document.cookie = "username=John Smith; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/";</code></pre>
+</div>
+<p>The old cookie is overwritten.</p>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Delete a Cookie with JavaScript</h2>
+<p>Deleting a cookie is very simple.</p>
+<p>You don't have to specify a cookie value when you delete a cookie.</p>
+<p>Just set the expires parameter to a past date:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";</code></pre>
+</div>
+
+<div class="w3-panel ws-note">
+<p>You should define the cookie path to ensure that you delete the right cookie.</p>
+<p>Some browsers will not let you delete a cookie if you don't specify the path.</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The Cookie String</h2>
+<p>The <code class="w3-codespan">document.cookie</code> property looks like a normal text string. But it is not.</p>
+<p>Even if you write a whole cookie string to document.cookie, when you read it out again, you can only see the 
+name-value pair of it.</p>
+<p>If you set a new cookie, older cookies are not overwritten.
+The new cookie is added to document.cookie, so if you read document.cookie 
+again you will get something like:</p>
+<p>cookie1 = value; cookie2 = value;</p>
+<p>
+<button type="button" onclick="displayCookies()">Display All Cookies</button>&nbsp;
+<button type="button" onclick="document.cookie=&quot;firstname=John;expires=Wed, 18 Dec 2026 12:00:00 GMT&quot;">Create Cookie 1</button>&nbsp;
+<button type="button" onclick="document.cookie=&quot;lastname=Smith;expires=Wed, 18 Dec 2026 12:00:00 GMT&quot;">Create Cookie 2</button>
+<button type="button" onclick="document.cookie=&quot;firstname=;expires=Thu, 01 Jan 1970&quot;">Delete Cookie 1</button>&nbsp;
+<button type="button" onclick="document.cookie=&quot;lastname=;expires=Thu, 01 Jan 1970&quot;">Delete Cookie 2</button>
+
+</p>
+<p>If you want to find the value of one specified cookie, you must write a JavaScript 
+function that searches for the cookie value in the cookie string.</p>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>JavaScript Cookie Example</h2>
+<p>In the example to follow, we will create a cookie that stores the name of a visitor.</p>
+<p>The first time a visitor arrives to the web page, he/she will be asked to fill in his/her name. The name is then stored in a cookie.</p>
+<p>The next time the visitor arrives at the same page, he/she will get a welcome message.</p>
+<p>For the example we will create 3 JavaScript functions:</p>
+<ol>
+  <li>A function to set a cookie value</li>
+  <li>A function to get a cookie value</li>
+  <li>A function to check a cookie value</li>
+</ol>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>A Function to Set a Cookie</h2>
+<p>First, we create a <code class="w3-codespan">function</code> that stores the name of the visitor in a cookie variable:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">function setCookie(cname, cvalue, exdays) {
+  const d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  let expires = "expires="+ d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}</code></pre></div>
+
+<p><strong>Example explained:</strong></p>
+<p>The parameters of the function above are the name of the cookie (cname), the value of the cookie 
+(cvalue), and the number of days until the cookie should expire (exdays).</p>
+<p>The function sets a cookie by adding together the cookiename, the cookie 
+value, and the expires string.</p>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>A Function to Get a Cookie</h2>
+<p>Then, we create a <code class="w3-codespan">function</code> that returns the value of a specified cookie:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i &lt;ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}</code></pre>
+</div>
+
+<p><strong>Function explained:</strong></p>
+<p>Take the cookiename as parameter (cname).</p>
+<p>Create a variable (name) with the text to search for (cname + "=").</p>
+<p>Decode the cookie string, to handle cookies with special characters, e.g. '$'</p>
+<p>Split document.cookie on semicolons into an array called ca (ca = 
+decodedCookie.split(';')).</p>
+<p>Loop through the ca array (i = 0; i &lt; ca.length; i++), and read out each value 
+c = ca[i]).</p>
+<p>If the cookie is found (c.indexOf(name) == 0), return the value of the cookie 
+(c.substring(name.length, c.length).</p>
+<p>If the cookie is not found, return "".</p>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>A Function to Check a Cookie</h2>
+<p>Last, we create the function that checks if a cookie is set.</p>
+<p>If the cookie is set it will display a greeting.</p>
+<p>If the cookie is not set, it will display a prompt box, asking for the name of the user,
+and stores the username cookie for 365 days, by calling the <code class="w3-codespan">setCookie</code> function:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">function checkCookie() {
+  let username = getCookie("username");
+  if (username != "") {
+   alert("Welcome again " + username);
+  } else {
+    username = prompt("Please enter your name:", "");
+    if (username != "" &amp;&amp; username != null) {
+      setCookie("username", username, 365);
+    }
+  }
+}</code></pre>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>All Together Now</h2>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">function setCookie(cname, cvalue, exdays) {
+  const d = new Date();
+  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+  let expires = "expires="+d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+function getCookie(cname) {
+  let name = cname + "=";
+  let ca = document.cookie.split(';');
+  for(let i = 0; i &lt; ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+function checkCookie() {
+  let user = getCookie("username");
+  if (user != "") {
+    alert("Welcome again " + user);
+  } else {
+    user = prompt("Please enter your name:", "");
+    if (user != "" &amp;&amp; user != null) {
+      setCookie("username", user, 365);
+    }
+  }
+}</code></pre>
+
+</div>
+<p>The example above runs the <code class="w3-codespan">checkCookie()</code> function when the page loads.</p>
+<!--stop-->
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_timing.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_api_intro.html">Next ❯</a>
+</div>
+
+

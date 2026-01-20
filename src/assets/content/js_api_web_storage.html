@@ -1,0 +1,169 @@
+
+      
+
+<h1>Web Storage API</h1>
+
+<hr>
+<!--start-->
+<p>The Web Storage API is a simple syntax for storing and retrieving data in the browser.
+It is very easy to use:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">localStorage.setItem("name", "John Doe");
+localStorage.getItem("name");</code></pre>
+
+</div>
+<p>The Web Storage API is supported in all browsers:</p>
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr>
+    <th class="bsChrome" title="Chrome"></th>
+    <th class="bsEdge" title="Internet Explorer / Edge"></th>
+    <th class="bsFirefox" title="Firefox"></th>
+    <th class="bsSafari" title="Safari"></th>
+    <th class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome</td>
+    <td>IE/Edge</td>
+    <td>Firefox</td>
+    <td>Safari</td>
+    <td>Opera</td>
+  </tr>
+  <tr>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+  </tr>
+</tbody></table></div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The localStorage Object</h2>
+<p>The localStorage object provides access to a local storage for a particular Web Site.
+It allows you to store, read, add, modify, and delete data items for that domain.</p>
+<p>The data is stored with no expiration date, and will not be deleted when the browser is closed.</p>
+<p>The data will be available for days, weeks, and years.</p>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The setItem() Method</h2>
+<p>The localStorage.setItem() method stores a data item in a storage.</p>
+<p>It takes a name and a value as parameters:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">localStorage.setItem("name", "John Doe");</code></pre>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The getItem() Method</h2>
+<p>The localStorage.getItem() method retrieves a data item from the storage.</p>
+<p>It takes a name as parameter:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">localStorage.getItem("name");</code></pre>
+</div>
+
+
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+
+<h2>The sessionStorage Object</h2>
+<p>The sessionStorage object is identical to the localStorage object.</p>
+<p>The difference is that the sessionStorage object stores data for one session.</p>
+<p>The data is deleted when the browser is closed.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">sessionStorage.getItem("name");</code></pre>
+
+</div>
+
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The setItem() Method</h2>
+<p>The sessionStorage.setItem() method stores a data item in a storage.</p>
+<p>It takes a name and a value as parameters:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">sessionStorage.setItem("name", "John Doe");</code></pre>
+</div>
+
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The getItem() Method</h2>
+<p>The sessionStorage.getItem() method retrieves a data item from the storage.</p>
+<p>It takes a name as parameter:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">sessionStorage.getItem("name");</code></pre>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Storage Object Properties and Methods</h2>
+
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate">
+  <tbody><tr>
+    <th style="width:30%">Property/Method</th>
+    <th>Description</th>
+  </tr>
+    <tr>
+    <td><a href="../jsref/met_storage_key.html">key(<em>n</em>)</a></td>
+    <td>Returns the name of the <em>n</em>th key in the storage</td>
+    </tr>
+    <tr>
+    <td><a href="../jsref/prop_storage_length.html">length</a></td>
+    <td>Returns the number of data items stored in the Storage object</td>
+    </tr>
+  <tr>
+    <td><a href="../jsref/met_storage_getitem.html">getItem(<em>keyname</em>)</a></td>
+    <td>Returns the value of the specified key name</td>
+    </tr>
+  <tr>
+    <td><a href="../jsref/met_storage_setitem.html">setItem(<em>keyname</em>, <em>value</em>)</a></td>
+    <td>Adds a key to the storage, or updates a key value (if it already exists)</td>
+    </tr>
+  <tr>
+    <td><a href="../jsref/met_storage_removeitem.html">removeItem(<em>keyname</em>)</a></td>
+    <td>Removes that key from the storage</td>
+    </tr>
+  <tr>
+    <td><a href="../jsref/met_storage_clear.html">clear()</a></td>
+    <td>Empty all key out of the storage</td>
+    </tr>
+</tbody></table></div>
+<!--stop-->
+<h2>Related Pages for Web Storage API</h2>
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate">
+  <tbody><tr>
+    <th style="width:30%">Property</th>
+    <th>Description</th>
+  </tr>
+    <tr>
+    <td><a href="../jsref/prop_win_localstorage.html">window.localStorage</a></td>
+    <td>Allows to save key/value pairs in a web browser. Stores the data with no 
+    expiration date</td>
+    </tr>
+  <tr>
+    <td><a href="../jsref/prop_win_sessionstorage.html">window.sessionStorage</a></td>
+    <td>Allows to save key/value pairs in a web browser. Stores the data for one 
+    session</td>
+    </tr>
+</tbody></table></div>
+
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_api_pointer_events.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_validation_api.html">Next ❯</a>
+</div>
+
+

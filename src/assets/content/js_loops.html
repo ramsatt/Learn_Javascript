@@ -1,0 +1,161 @@
+
+      
+
+<h1>JavaScript Loops</h1>
+
+<hr>
+<!--start-->
+<p class="intro">Loops can execute a block of code a number of times.</p>
+<hr>
+
+<h2>JavaScript Loops</h2>
+<p>Loops are handy, if you want to run the same code over and over again, each 
+time with a different value.</p>
+<p>Often this is the case when working with arrays:</p>
+
+<div class="w3-example">
+<h3>Instead of writing:</h3>
+<pre class="w3-code"><code class="language-javascript">text += cars[0] + "&lt;br&gt;";
+text += cars[1] + "&lt;br&gt;";
+text += cars[2] + "&lt;br&gt;";
+text += cars[3] + "&lt;br&gt;";
+text += cars[4] + "&lt;br&gt;";
+text += cars[5] + "&lt;br&gt;";</code></pre>
+<h3>You can write:</h3>
+<pre class="w3-code"><code class="language-javascript">for (let i = 0; i &lt; cars.length; i++) {
+  text += cars[i] + "&lt;br&gt;";
+}</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The For Loop</h2>
+<p>The <code class="w3-codespan">for</code> statement creates a loop with 3 optional expressions:</p>
+
+<pre class="w3-code"><code class="language-javascript"><div> for (<i>expr1</i>;<i> expr2</i>;<i> expr</i>) {
+  // <i>code block to be executed</i>
+}
+</div></code></pre>
+
+<p><strong>exp1</strong> is executed <b>one time</b> before the execution of the code block.</p>
+<p><strong>exp2</strong> defines <b>the condition</b> for executing the code block.</p>
+<p><strong>exp3</strong> is executed <b>every time</b> the code block has been executed.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">for (let i = 0; i &lt; 5; i++) {
+  text += "The number is " + i + "&lt;br&gt;";
+}</code></pre>
+
+</div>
+
+<p><b>exp1</b> sets a variable before the loop starts (let i = 0).</p>
+<p><b>exp2</b> defines the condition for the loop to run (i must be less than 5).</p>
+<p><b>exp3</b> increases a value (i++) each time the code block has been executed.</p>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Loop Scope</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let i = 5;
+for (i = 0; i &lt; 10; i++) {
+  // some code
+}
+// Here i is 10</code></pre>
+
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let i = 5;
+for (let i = 0; i &lt; 10; i++) {
+  // some code
+}
+// Here i is 5</code></pre>
+ 
+</div>
+<p>In the first example, <code class="w3-codespan">let i = 5;</code> is declared outside the loop.</p>
+<p>In the second example, <code class="w3-codespan">let i = 0;</code>, is declared inside the loop.</p>
+<p>When a variable is declared with <code class="w3-codespan">let</code> or <code class="w3-codespan">const</code>
+inside a loop, it will only be visible within the loop.</p>
+<!--stop-->
+<hr>
+<!--start-->
+<hr>
+
+<hr>
+<h2>The While Loop</h2>
+<p>The <code class="w3-codespan">while</code> loop loops through a block of code as long as a specified condition is true.</p>
+
+<div class="w3-example">
+<h3>Syntax</h3>
+<pre class="w3-code"><code class="language-javascript">while (<em>condition</em>) {
+<i>  // code block to be executed</i>
+}</code></pre>
+</div>
+
+<h3>Example</h3>
+<p>In the following example, the code in the loop will run, over and over again, as long as 
+a variable (i) is less than 10:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">while (i &lt; 10) {
+  text += "The number is " + i;
+  i++;
+}</code></pre>
+
+</div>
+
+<div class="w3-panel ws-note">
+<h2>Note</h2>
+<p>If you forget to increase the variable used in the condition, the loop will never end.</p>
+<p>This will crash your browser.</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The Do While Loop</h2>
+<p>The <code class="w3-codespan">do while</code> loop is a variant of the while loop.</p>
+<p>The <code class="w3-codespan">do while</code> loop will 
+execute the code block once, before checking if the condition is true, then it will
+repeat the loop as long as the condition is true.</p>
+
+<div class="w3-example">
+<h3>Syntax</h3>
+<pre class="w3-code"><code class="language-javascript">do {
+<i>// code block to be executed
+</i>}
+while (<em>condition</em>);</code></pre>
+</div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>The <code class="w3-codespan">do while</code> runs at least once, even if the condition is false from the start.</p>
+<p>This is because the code block is executed before the condition is tested:</p>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">do {
+  text += "The number is " + i;
+  i++;
+}
+while (i &lt; 10);</code></pre>
+
+</div>
+<div class="ws-note">
+<p>Do not forget to increase the variable used in the condition, otherwise 
+the loop will never end!</p>
+</div>
+<!--stop-->
+
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_logical.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_loop_for.html">Next ❯</a>
+</div>
+
+

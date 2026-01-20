@@ -1,0 +1,103 @@
+
+      
+
+<h1>Web APIs - Introduction</h1>
+
+<!--start-->
+<div class="ws-info">
+<p class="w3-large">A Web API is a developer's dream.</p>
+<ul class="w3-large">
+<li>It can extend the functionality of the browser</li>
+<li>It can greatly simplify complex functions</li>
+<li>It can provide easy syntax to complex code</li>
+</ul>
+</div>
+
+<h2>What is Web API?</h2>
+<p>API stands for <b>A</b>pplication <b>P</b>rogramming <b>I</b>nterface.</p>
+<p>A Web API is an application programming interface for the Web.</p>
+<p>A Browser API can extend the functionality of a web browser.</p>
+<p>A Server API can extend the functionality of a web server.</p>
+<!--stop-->
+<hr>
+
+<h2>Browser APIs</h2>
+<p>All browsers have a set of built-in Web APIs 
+to support complex operations, and to help accessing data.</p>
+<p>For example, the Geolocation API can return the coordinates of where the browser is located.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Get the latitude and longitude of the user's position:</p>
+<pre class="w3-code"><code class="language-javascript">const myElement = document.getElementById("demo");
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else {
+    myElement.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+function showPosition(position) {
+  myElement.innerHTML = "Latitude: " + position.coords.latitude +
+  "&lt;br&gt;Longitude: " + position.coords.longitude;
+}</code></pre>
+
+</div>
+
+<hr>
+<h2>Most Important APIs</h2>
+<p>The most important APIs in HTML/JavaScript development are.</p>
+<ul>
+<li><b>The DOM API</b> for HTML and XML documents</li>
+<li><b>The Fetch API</b> for networking</li>
+<li><b>The Web Storage API</b> for client-side data</li>
+</ul> 
+<p>These APIs are fundamental to nearly all modern web development.</p>
+
+<hr>
+<h2><a href="js_htmldom.html">The DOM API</a></h2>
+<p>
+The DOM (Document Object Model) is the core API for HTML and XML documents.
+It provides a structured representation of a webpage, allowing JavaScript to access and manipulate elements,
+attributes, and content dynamically, creating interactive user interfaces.</p>
+
+<hr>
+<h2><a href="js_api_fetch.html">The Fetch API</a></h2>
+<p>
+The modern standard for making network requests to servers and retrieving resources (like data from a database or a third-party service). It provides a more robust and flexible alternative to older methods like XMLHttpRequest.
+</p>
+
+<hr>
+<h2><a href="js_api_web_storage.html">Web Storage API</a></h2>
+<p>
+Offers mechanisms (localStorage and sessionStorage) to store key/value pairs of data in the browser more intuitively than cookies, allowing data to persist across sessions or page reloads.
+</p>
+
+<hr>
+<h2><a href="js_api_history.html">History API</a></h2>
+<p>
+Enables manipulation of the browser's session history, allowing single-page applications (SPAs) to change the URL and provide a seamless navigation experience without full page reloads. 
+</p>
+
+
+<hr>
+
+<hr>
+<!--start-->
+<h2>Third Party APIs</h2>
+<p>Third party APIs are not built into your browser.</p>
+<p>To use these APIs, you will have to download the code from the Web.</p>
+<p>Examples:</p>
+<ul>
+<li>YouTube API - Allows you to display videos on a web site.</li>
+<li>Twitter API - Allows you to display Tweets on a web site.</li>
+<li>Facebook API - Allows you to display Facebook info on a web site.</li>
+</ul>
+<!--stop-->
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_cookies.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_api_fetch.html">Next ❯</a>
+</div>
+
+

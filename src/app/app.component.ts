@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Platform } from '@ionic/angular';
+import { AdmobService } from './services/admob.service';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +9,16 @@ import { Component } from '@angular/core';
   standalone: false,
 })
 export class AppComponent {
-  constructor() {}
+  constructor(
+      private platform: Platform,
+      private admobService: AdmobService
+  ) {
+    this.initializeApp();
+  }
+
+  async initializeApp() {
+    await this.platform.ready();
+    // Initialize Ads and Show Banner
+    this.admobService.showBanner();
+  }
 }

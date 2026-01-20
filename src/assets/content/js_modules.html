@@ -1,0 +1,163 @@
+
+      
+
+<h1>JavaScript Modules</h1>
+
+
+<!--start-->
+<div class="ws-info">
+<h2>What are Modules?</h2>
+<p>Modules are <b>code blocks</b> that can <b>export</b> and/or <b>import</b> functions and values.</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">// Export an "add" function
+export function add(a, b) {
+  return a + b;
+}</code></pre>
+<pre class="w3-code"><code class="language-javascript">// Import an "add" function
+import { add } from './math.js';
+let result = add(2, 3);</code></pre>
+</div>
+<p>Modules let you to break up code into <b>separate files</b>.</p>
+<p>Modules is a fundamental feature in <b>modern JavaScript</b>.
+
+</p></div>
+<h2>Module Files</h2>
+<p>A JavaScript module is <b>usually a file</b>, but it can also be <b>an HTML script</b>.</p>
+<p><b>A module file</b> is a .js file using import / export.</p>
+<p><b>A module script</b> is an HTML script using import / export.</p>
+
+<hr>
+<h2>How to Use Modules</h2>
+<p>Mudules use <code class="w3-codespan">export</code> and <code class="w3-codespan">import</code> to interchange functionalities between modules.</p>
+<p>An HTML script using <code class="w3-codespan">type="module"</code> is treated as a module:</p>
+
+<div class="w3-example">
+<h3>Module File "math.js:</h3>
+<pre class="w3-code"><code class="language-javascript">// Export an "add" function
+export function add(a, b) {
+  return a + b;
+}</code></pre>
+<h3>Module Script:</h3>
+<pre class="w3-code"><code class="language-html">&lt;script type="module"&gt;
+// Import the add function
+import { add } from './math.js';
+let result = add(2, 3);
+&lt;/script&gt;</code></pre>
+
+</div>
+<div class="ws-note">
+<h2>Note</h2>
+<p>Module files must be <b>stored on a server</b>.</p>
+<p>Modules only work with the <b>HTTP(s) protocol</b>.</p>
+<p>A web-page opened via the file:// protocol cannot use import / export.</p>
+</div>
+
+<div class="w3-example">
+<h3>Module File "person.js"</h3>
+<pre class="w3-code"><code class="language-javascript">// Export name and age
+export const name = "Jesse";
+export const age = 40;</code></pre>
+<h3>Module Script</h3>
+<pre class="w3-code"><code class="language-javascript">&lt;script type="module"&gt;
+// Import name and age
+import { name, age } from "./person.js";
+&lt;/script&gt;</code></pre>
+<p>
+
+</p>
+</div>
+
+<hr>
+<h2>Modules Can Export</h2>
+<ul>
+<li>Variables</li>
+<li>Functions</li>
+<li>Objects</li>
+<li>Classes</li>
+</ul>
+
+<div class="w3-example">
+<h3>Module File "message.js"</h3>
+<pre class="w3-code"><code class="language-javascript">const message = () =&gt; {
+  const name = "Jesse";
+  const age = 40;
+  return name + ' is ' + age + 'years old.';
+};
+export default message;</code></pre>
+<h3>Module Script:</h3>
+<pre class="w3-code"><code class="language-html">&lt;script type="module"&gt;
+import message from "./message.js";
+&lt;/script&gt;</code></pre>
+<p>
+
+</p>
+
+</div>
+
+<!--stop-->
+<hr>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>Modules operate in <b>strict mode</b> by default.</p>
+</div>
+
+
+<hr>
+<h2>Why Modules?</h2>
+<ul>
+<li>
+<p>Modules help <b>organizing code</b>.</p>
+<p>Modules let you break down large codebases into small self-contained files, each focused on a specific task.
+Modules are essential for large and complex applications.</p>
+</li>
+<li>
+<p>Modules <b>prevent naming conflicts</b>.</p>
+<p>Before modules, developers had only the global scope, which can lead to "namespace pollution"
+where unrelated code can accidentally overwrite other global variables.
+Modules has a private scope. Variables and functions are not exposed globally,
+unless explicitly exported.</p>
+</li>
+<li>
+<p>Modules have <b>better readability</b></p>
+<p>Modules improves code organization, making it easier to navigate, understand, and manage,
+especially in larger projects or team environments.</p>
+</li>
+<li><p>Modules are <b>easily reused</b> across different parts of an application and in entirely new projects.</p>
+<p>Modules promote reusability by enabling the export of functions, variables, or objects from one
+file and their import into other files or projects. This eliminates redundant code and fosters
+a more efficient development process.</p>
+<p>A module can be easily reused across different parts of a project or in entirely new projects.
+This promotes the "Don't Repeat Yourself" (DRY) principle, reducing code duplication and saving time.</p>
+</li>
+<li><p>Modules are <b>easier to maintain and debug</b>.</p>
+<p>By dividing code into distinct modules, modifications or bug fixes in one part of the application
+can be isolated to a specific module, minimizing the impact on other parts of the system.
+this makes the codebase easier to maintain and scale as the project grows.</p>
+<p>Modules allow multiple developers to work on different parts of the codebase simultaneously
+with less risk of conflicts. Clear module boundaries enhance communication and make it easier
+to add new features with minimal impact on existing code.</p>
+</li>
+<li><p>Modules have <b>better encapsulation and isolation</b></p>
+<p>Variables and functions defined within a module are private by default,
+only becoming accessible to other modules when explicitly exported.
+This enhances code isolation, reduces the risk of unintended side effects, and makes code easier to reason about.</p>
+</li>
+<li><p>Modules have <b>better dependency management</b>.</p>
+<p>Modules use explicit import and export statements to manage dependencies.
+This makes it easier to understand the relationships between different parts
+of the application and to manage external libraries or components.</p>
+<p>Modules are much more reliable than the older, manual process of ensuring scripts were loaded
+in the correct order.</p>
+</li>
+</ul>
+
+<hr>
+
+<hr>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_async.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_modules_export.html">Next ❯</a>
+</div>
+
+

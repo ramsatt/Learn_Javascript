@@ -1,0 +1,222 @@
+
+      
+
+<h1>JavaScript Iterables</h1>
+
+<!--start-->
+<div class="ws-info">
+<h2>An Iterable is an Iterable Object</h2>
+<p class="w3-large">Iterable can be iterated over with <code class="w3-codespan">for...of</code> loops</p>
+</div>
+
+<h2>The for...of Loop</h2>
+<p>The JavaScript <code class="w3-codespan">for..of</code> statement loops 
+through the elements of an iterable object.</p>
+<div class="w3-example">
+ <h3>Syntax</h3>
+<pre class="w3-code"><code class="language-javascript">for (variable of iterable) {
+  // <i>code block to be executed</i>
+}</code></pre>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Iterating</h2>
+<p>Iterating means looping over a sequence of elements.</p> 
+<p>Here are some examples:</p>
+<ul>
+<li>Iterating over a String</li>
+<li>Iterating over an Array</li>
+<li>Iterating over a Set</li>
+<li>Iterating over a Map</li>
+</ul>
+
+<hr>
+<h2>Iterating Over a String</h2>
+<p>You can use a <code class="w3-codespan">for...of</code> loop to iterate over the elements of a string:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const name = "W3Schools";
+for (const x of name) {
+  // <i>code block to be executed</i>
+}</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Iterating Over an Array</h2>
+<p>You can use a <code class="w3-codespan">for...of</code> loop to iterate over the elements of an Array:</p>
+<div class="w3-example">
+<h3>Example 1</h3>
+<pre class="w3-code"><code class="language-javascript">const letters = ["a","b","c"];
+for (const x of letters) {
+  // <i>code block to be executed</i>
+}</code></pre>
+
+</div>
+
+<div class="w3-example">
+<h3>Example 2</h3>
+<pre class="w3-code"><code class="language-javascript">const numbers = [2,4,6,8];
+for (const x of numbers) {
+  // <i>code block to be executed</i>
+}</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Iterating Over a Set</h2>
+<p>You can use a <code class="w3-codespan">for...of</code> loop to iterate over the elements of a Set:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const letters = new Set(["a","b","c"]);
+for (const x of letters) {
+  // <i>code block to be executed</i>
+}</code></pre>
+
+</div>
+
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Iterating Over a Map</h2>
+<p>You can use a <code class="w3-codespan">for...of</code> loop to iterate over the elements of a Map:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const fruits = new Map([
+  ["apples", 500],
+  ["bananas", 300],
+  ["oranges", 200]
+]);
+for (const x of fruits) {
+  // <i>code block to be executed</i>
+}</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>JavaScript Iterators</h2>
+<p>The <b>iterator protocol</b> defines how to produce a <b>sequence of values</b> from an object.</p> 
+<p>An object becomes an <b>iterator</b> when it implements a <code class="w3-codespan">next()</code> method.</p>
+<p>The <code class="w3-codespan">next()</code> method must return an object with two properties:
+</p><ul>
+<li>value (the next value)</li>
+<li>done (true or false)</li>
+</ul>
+
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr>
+<th>value</th>
+<td>The value returned by the iterator<br>
+(Can be omitted if done is true)</td>
+</tr>
+<tr>
+<th>done</th>
+<td>
+<i>true</i> if the iterator has completed<br>
+<i>false</i> if the iterator has produced a new value</td>
+</tr>
+</tbody></table></div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>Technically, iterables must implement the <code class="w3-codespan">Symbol.iterator</code> method.</p>
+<p>In JavaScript the following are iterables:</p>
+<ul>
+<li>Strings</li>
+<li>Arrays</li>
+<li>Typed Arrays</li>
+<li>Sets</li>
+<li>Maps</li>
+</ul>
+<p>Because their prototype objects have a
+<code class="w3-codespan">Symbol.iterator</code> method:</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Home Made Iterable</h2>
+<p>This iterable returns never ending number: 10,20,30,40,.... when <code class="w3-codespan"> the
+next()</code> method is called:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Home Made Iterable
+function myNumbers() {
+  let n = 0;
+  return {
+    next: function() {
+      n += 10;
+      return {value:n, done:false};
+    }
+  };
+}
+// Run the Iterable
+const n = myNumbers();
+n.next(); // Returns 10
+n.next(); // Returns 20
+n.next(); // Returns 30</code></pre>
+
+</div>
+<div class="ws-note">
+<h2>Note</h2>
+<p>Home made iterables do not support the JavaScript <code class="w3-codespan">for...of</code> statement.</p> 
+</div>
+
+<p>A JavaScript iterable is an object that has a <b>Symbol.iterator</b>.</p>
+<p>The <code class="w3-codespan">Symbol.iterator</code> is a function that returns a <code class="w3-codespan">next()</code> function.</p>
+<p>An iterable can be iterated over with the code: <code class="w3-codespan">for (const x of iterable) { }</code>
+</p><div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an Object
+myNumbers = {};
+// Make it Iterable
+myNumbers[Symbol.iterator] = function() {
+  let n = 0;
+  done = false;
+  return {
+    next() {
+      n += 10;
+      if (n == 100) {done = true}
+      return {value:n, done:done};
+    }
+  };
+}</code></pre>
+<p>Now you can use <code class="w3-codespan">for..of</code></p>
+<pre class="w3-code"><code class="language-javascript">for (const num of myNumbers) {
+  // Any Code Here
+}</code></pre>
+
+</div>
+<p>The Symbol.iterator method is called automatically by <code class="w3-codespan">for..of</code>.
+</p><p>But we can also do it "manually":
+</p><div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let iterator = myNumbers[Symbol.iterator]();
+while (true) {
+  const result = iterator.next();
+  if (result.done) break;
+  // Any Code Here
+}</code></pre>
+
+</div>
+<div class="ws-note">
+<h2>Note</h2>
+<p>Iterators provide a controlled way to work with <b>data sequences</b>,
+enabling <b>custom iteration logic</b> for various data structures.</p>
+<p>In the next chapter you will learn about the new <b>Iterator Helper Functions</b> introduced in ECMAScript 2025.</p>
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_looping.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_iterators.html">Next ❯</a>
+</div>
+
+

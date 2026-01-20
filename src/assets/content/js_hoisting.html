@@ -1,0 +1,143 @@
+
+      
+
+<h1>JavaScript Hoisting</h1>
+
+<hr>
+<!--start-->
+<p class="intro">Hoisting is JavaScript's default behavior of moving declarations to the 
+top.</p>
+<hr>
+
+<h2>JavaScript Declarations are Hoisted</h2>
+<p>In JavaScript, a variable can be declared after it has been used.</p>
+<p>In other words; a variable can be used before it has been declared.</p>
+<p><strong>Example 1</strong> gives the same result as <strong>Example 2</strong>:</p>
+<div class="w3-example">
+<h3>Example 1</h3>
+<pre class="w3-code"><code class="language-javascript">x = 5; // Assign 5 to x
+elem = document.getElementById("demo"); // Find an element
+elem.innerHTML = x;                     // Display x in the element
+var x; // Declare x</code></pre>
+
+</div>
+<div class="w3-example">
+<h3>Example 2</h3>
+<pre class="w3-code"><code class="language-javascript">var x; // Declare x
+x = 5; // Assign 5 to x
+elem = document.getElementById("demo"); // Find an element
+elem.innerHTML = x;                     // Display x in the element</code></pre>
+
+</div>
+
+<p>To understand this, you have to understand the term "hoisting".</p>
+<p>Hoisting is JavaScript's default behavior of moving all declarations to the 
+top of the current scope (to the top of the current script or the current function).</p>
+
+<!--stop-->
+<hr>
+
+<!--start-->
+<h2>The let and const Keywords</h2>
+
+<p>Variables defined with <code class="w3-codespan">let</code> and <code class="w3-codespan">const</code> are hoisted to the top 
+of the block, but not <em>initialized</em>.</p><p>Meaning: The block of code is aware of the 
+variable, but it cannot be used until it has been declared.
+</p><p>Using a <code class="w3-codespan">let</code> variable before it is declared will result in a
+<code class="w3-codespan">ReferenceError</code>.</p> 
+<p>The variable is in a "temporal dead zone" from the start 
+of the block until it is declared:</p>
+
+<div class="w3-example w3-pale-red">
+<h3>Example</h3>
+This will result in a <code class="w3-codespan">ReferenceError</code>:
+<pre class="w3-code"><code class="language-javascript">carName = "Volvo";
+let carName;</code></pre>
+
+</div>
+
+<p>Using a <code class="w3-codespan">const</code> variable before it is declared, is a syntax error,
+so the code will simply not run.</p> 
+
+<div class="w3-example w3-pale-red">
+<h3>Example</h3>
+<p>This code will not run.</p>
+<pre class="w3-code"><code class="language-javascript">carName = "Volvo";
+const carName;</code></pre>
+
+</div>
+
+<p>Read more about let and const in <a href="js_let.html">JS Let / Const</a>.</p>
+
+<!--stop-->
+<hr>
+
+<hr>
+
+<!--start-->
+<h2>JavaScript Initializations are Not Hoisted</h2>
+<p>JavaScript only hoists declarations, not initializations.</p>
+<p><strong>Example 1</strong> does <strong>not</strong> give the same result as
+<strong>Example 2</strong>:</p>
+
+<div class="w3-example">
+<h3>Example 1</h3>
+<pre class="w3-code"><code class="language-javascript">var x = 5; // Initialize x
+var y = 7; // Initialize y
+elem = document.getElementById("demo"); // Find an element
+elem.innerHTML = x + " " + y;           // Display x and y</code></pre>
+ 
+</div>
+<div class="w3-example">
+<h3>Example 2</h3>
+<pre class="w3-code"><code class="language-javascript">var x = 5; // Initialize x
+elem = document.getElementById("demo"); // Find an element
+elem.innerHTML = x + " " + y;           // Display x and y
+var y = 7; // Initialize y</code></pre>
+
+</div>
+
+<p>Does it make sense that y is undefined in the last example?</p>
+<p>This is because only the declaration (var y), not the initialization (=7) is hoisted to the top.</p>
+<p>Because of hoisting, y has been declared before it is used, but because 
+initializations are not hoisted, the value of y is undefined.</p>
+<p>Example 2 is the same as writing:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">var x = 5; // Initialize x
+var y;     // Declare y
+elem = document.getElementById("demo"); // Find an element
+elem.innerHTML = x + " " + y;           // Display x and y
+y = 7;    // Assign 7 to y</code></pre>
+
+</div>
+
+<!--stop-->
+<hr>
+
+<!--start-->
+<h2>Declare Your Variables At the Top !</h2>
+<p>Hoisting is (to many developers) an unknown or overlooked behavior of  
+JavaScript.</p><p>
+If a developer doesn't understand hoisting, programs may contain bugs (errors).</p><p>
+To avoid bugs, always declare all variables at the beginning of 
+every scope.</p><p>
+Since this is how JavaScript interprets the 
+code, it is always a good rule.
+</p>
+
+<div class="w3-panel ws-note">
+<p>JavaScript in strict mode does not allow variables to be used if they are 
+not declared.<br>Study <strong>"use strict"</strong> in the next chapter.</p>
+</div>
+
+<!--stop-->
+<hr>
+
+<hr>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_codeblocks.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_strict.html">Next ❯</a>
+</div>
+
+

@@ -1,0 +1,175 @@
+
+      
+
+<h1>HTML DOM - Changing HTML</h1>
+
+
+<!--start-->
+<div class="ws-info">
+<h2>Changing HTML Content</h2>
+<p>The HTML DOM allows JavaScript to change both the text and the content of HTML elements.</p>
+<p>The easiest way to modify the content is by using the <code class="w3-codespan">innerHTML</code> property:</p>
+<pre class="w3-code"><code class="language-javascript">document.getElementById(<i>id</i>).<b>innerHTML</b> =<i> new HTML</i></code></pre>
+</div>
+
+<!--start-->
+<h2>The innerHTML Property</h2>
+<p>The easiest way to get the content of an element is by using the <code class="w3-codespan">innerHTML</code> property.</p>
+<p>The <code class="w3-codespan">innerHTML</code> property is useful for getting or replacing the content of HTML elements.</p>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>The <code class="w3-codespan">innerHTML</code> property can be used to get or change any HTML element, 
+including <code class="w3-codespan">&lt;html&gt;</code> and <code class="w3-codespan">&lt;body&gt;</code>.</p>
+</div>
+
+<hr>
+<h2>Common Mistakes</h2>
+<ul>
+<li>Trying to access a DOM element before it exists</li>
+<li>Forgetting the quotes in an id like "demo"</li>
+</ul>
+<hr>
+
+<!--stop-->
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Change the content of a <code class="w3-codespan">&lt;p&gt;</code> element:</p>
+<pre class="w3-code"><code class="language-html">&lt;html&gt;
+&lt;body&gt;
+&lt;p id="p1"&gt;Hello World!&lt;/p&gt;
+&lt;script&gt;
+document.getElementById("p1").innerHTML = "New text!";
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+</div>
+
+<p>Example explained:</p>
+<ul>
+  <li>The HTML document above contains a <code class="w3-codespan">&lt;p&gt;</code> element with <code class="w3-codespan">id="p1"</code></li>
+  <li>We use the HTML DOM to get the element with <code class="w3-codespan">id="p1"</code></li>
+  <li>A JavaScript changes the content (<code class="w3-codespan">innerHTML</code>) of that element to "New 
+  text!"</li>
+</ul>
+<!--stop-->
+<!--start-->
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Change the content of an <code class="w3-codespan">&lt;h1&gt;</code> element:</p>
+<pre class="w3-code"><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+&lt;h1 id="id01"&gt;Old Heading&lt;/h1&gt;
+&lt;script&gt;
+const element = document.getElementById("id01");
+element.innerHTML = "New Heading";
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+</div>
+
+<p>Example explained:</p>
+<ul>
+  <li>The HTML document above contains an <code class="w3-codespan">&lt;h1&gt;</code> element with <code class="w3-codespan">id="id01"</code></li>
+  <li>We use the HTML DOM to get the element with <code class="w3-codespan">id="id01"</code></li>
+  <li>A JavaScript changes the content (<code class="w3-codespan">innerHTML</code>) of that element to "New 
+  Heading"</li>
+</ul>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>Changing an Attribute</h2>
+
+<p>To change the value of an HTML attribute, use this syntax: </p>
+<pre class="w3-code"><code class="language-html"><div> document.getElementById(<i>id</i>).<i>attribute = new value</i> </div></code></pre>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Changes the value of the <code class="w3-codespan">src</code> attribute of an <code class="w3-codespan">&lt;img&gt;</code> element:</p>
+<pre class="w3-code"><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+&lt;img id="myImage" src="smiley.gif"&gt;
+&lt;script&gt;
+document.getElementById("myImage").src = "landscape.jpg";
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+</div>
+
+<p>Example explained:</p>
+<ul>
+  <li>The HTML document above contains an <code class="w3-codespan">&lt;img&gt;</code> element with <code class="w3-codespan">id="myImage"</code></li>
+  <li>We use the HTML DOM to get the element with <code class="w3-codespan">id="myImage"</code></li>
+  <li>A JavaScript changes the <code class="w3-codespan">src</code> attribute of that element from "smiley.gif" to "landscape.jpg"</li>
+</ul>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Dynamic HTML content</h2>
+
+<p>JavaScript can create dynamic HTML content:</p>
+<p id="today"></p> 
+
+
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+&lt;script&gt;
+document.getElementById("demo").innerHTML = "Date : " + Date();
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>document.write()</h2>
+
+<p>In JavaScript, <code class="w3-codespan">document.write()</code> can be used to write directly to the HTML 
+output stream:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+&lt;p&gt;Bla bla bla&lt;/p&gt;
+&lt;script&gt;
+document.write(Date());
+&lt;/script&gt;
+&lt;p&gt;Bla bla bla&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+</div>
+
+<div class="ws-warning">
+<h2>Warning !</h2>
+<p>Never use <code class="w3-codespan">document.write()</code> after the document is loaded. It will 
+overwrite the document.</p>
+</div>
+
+<!--stop-->
+<hr>
+
+<hr>
+
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_htmldom_elements.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_htmldom_css.html">Next ❯</a>
+</div>
+
+

@@ -1,0 +1,197 @@
+
+      
+
+<h1>JavaScript WeakSet</h1>
+
+<!--start-->
+<div class="ws-info">
+<h2>The WeakSet Object</h2>
+<p>A JavaScript <b>WeakSet</b> is a collection of values where the 
+<b><b>values must be objects</b></b>.</p>
+<p>A WeakSet holds <b>weak references</b> to its values.</p>
+</div>
+
+<div class="w3-example">
+<h3>Examples</h3>
+<pre class="w3-code"><code class="language-javascript">// Create a WeakSet
+let mySet = new WeakSet();
+// Create an Object
+let myObj = {fname:"John", lname:"Doe"};
+// Add the Object
+mySet.add(myObj);
+// Do I have myObj in the mySet?
+let answer = mySet.has(myObj);</code></pre>
+
+<pre class="w3-code"><code class="language-javascript">// Create a WeakSet
+let mySet = new WeakSet();
+// Create an Object
+let myObj = {fname:"John", lname:"Doe"};
+// Add the Object
+mySet.add(myObj);
+// Delete the Object
+mySet.delete(myObj);
+// Do I have myObj in the mySet?
+let answer = mySet.has(myObj);</code></pre>
+
+</div>
+
+<hr>
+<h2>Garbage Collection</h2>
+<p>JavaScript employs a memory management mechanism known as <b>Garbage Collection</b>.</p>
+<p>The primary functions are:
+</p><ul>
+<li>Ensuring efficient use of memory resources</li>
+<li>Reclaim memory occupied by variables that are no longer in use</li>
+<li>Preventing memory leaks</li>
+</ul>
+
+<hr>
+<h2>Weak References</h2>
+<p>Unlike a regular Set, a WeakSet does not prevent its values from being garbage collected.</p>
+<p>If a value (an object) has no references in a program, it becomes eligible for garbage collection.</p>
+<p>When the value is garbage collected, its is removed from the WeakSet.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create a WeakSet
+let mySet = new WeakSet();
+// Create an Object
+let myObj = {fname:"John", lname:"Doe"};
+// Add the Object
+mySet.add(myObj);
+// Remove the Object from memory
+myObj = null;
+// Now myObj in mySet will be garbage collected</code></pre>
+</div>
+
+<hr>
+<h2>Values Must Be Objects</h2>
+<p>Primitive values cannot be values in a WeakSet.</p>
+<p>The <b>values must be objects</b>.</p>
+<p>This restriction is tied to the garbage collection mechanism;
+primitives are not garbage collected in the same way as objects.</p>
+
+<hr>
+<h2>Tracking Objects</h2>
+<p>A WeakSet is similar to a Set, but it only stores objects,
+and holds them weakly. If there are no other references to an object,
+it gets garbage collected automatically.</p>
+<p>This makes it handy for tracking objects without storing extra data (like counts).</p>
+<div class="w3-example">
+<h3>Tracking Visitors:</h3>
+<pre class="w3-code"><code class="language-javascript">let text = "";
+// Create a WeakSet to track persons
+const persons = new WeakSet();
+// Visitor Objects
+const John = {name:"John", age:40};
+const Paul = {name:"Paul", age:41};
+const Ringo = {name:"Ringo", age:42};
+const George = {name:"George", age:43};
+// Track visits
+track(Paul);
+track(Ringo);
+track(Paul);
+// Function to track visitors
+function track(visitor) {
+  if (persons.has(visitor)) {
+    text += visitor.name + " is visiting again.&lt;br&gt;";
+  } else {
+    persons.add(visitor);
+    text += visitor.name + ", age" + visitor.age +", is visiting for the first time&lt;br&gt;";
+  }
+}</code></pre>
+
+</div>
+<div class="ws-note">
+<h2>Note</h2>
+<p>If you want to count the visits as well:</p>
+<p><a href="js_maps_weak.html">Try to use a WeakMap instead</a>.</p>
+</div>
+<h2>Automatic Cleanup</h2>
+<p>If you remove all references to a visitor object:</p>
+<div class="w3-example">
+<h3>Tracking Visitors:</h3>
+<pre class="w3-code"><code class="language-javascript">John = null;
+// The entry for John is now removed from the WeakMap (persons)</code></pre>
+</div>
+
+<hr>
+<h2>Not Iterable</h2>
+<p>WeakSets are <b>not enumerable</b>.</p>
+<p>You <b>cannot iterate</b> over the values with for loops, forEach(), or values().</p>
+<p>You cannot access the size. WeakSets have <b>no size property</b>.</p>
+
+<hr>
+<h2>Limited Methods</h2>
+<p>A WeakSet is minimal, memory-safe, and purpose-built for tracking objects privately and efficiently.</p>
+
+<p>WeakSet provides a limited set of methods:</p>
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr><td>new WeakSet()</td><td>Creates a new WeakSet object</td></tr>
+<tr><td>add(object)</td><td>Adds an Object to a WeakSet</td></tr>
+<tr><td>delete(object)</td><td>Removes a WeakSet object</td></tr>
+<tr><td>has(object)</td><td>Returns true if an object exists in a WeakSet</td></tr>
+</tbody></table></div>
+
+<p>WeakSet <b>does not have</b>:
+</p><ul>
+<li>A size property</li>
+<li>A spread operator (...)</li>
+<li>A clear() method</li>
+<li>Any logic methods (union, difference, intersection)</li>
+<li>Any iteration methods (forEach, keys, values, entries)</li>
+</ul>
+
+<p>The above is by design: Objects may disappear in garbage collection,
+it makes no sense to iterate over or count them.</p>
+
+<hr>
+<div class="ws-note">
+<h2>Learn More:</h2>
+<p class="w3-large"><a href="js_sets.html">JavaScript Sets</a></p>
+<p class="w3-large"><a href="js_set_methods.html">JavaScript Set Methods</a></p>
+<p class="w3-large"><a href="js_set_logic.html">JavaScript Set Logic</a></p>
+<p class="w3-large"><a href="js_set_reference.html">JavaScript Set Reference</a></p>
+<p class="w3-large"><a href="js_maps.html">JavaScript Maps</a></p>
+</div>
+
+<hr>
+<h2>Browser Support</h2>
+<p><code class="w3-codespan">WeakSet</code> is an <a href="js_es6.html">ES6  feature</a>.</p>
+<p>ES6 is fully supported in all modern browsers since June 2017:</p>
+
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr style="height:50px">
+    <th style="width:20%;" class="bsChrome" title="Chrome"></th>
+    <th style="width:20%;" class="bsEdge" title="Edge"></th>
+    <th style="width:20%;" class="bsFirefox" title="Firefox"></th>
+    <th style="width:20%;" class="bsSafari" title="Safari"></th>
+    <th style="width:19.9%;" class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>51</td>
+    <td>Edge<br>15</td>
+    <td>Firefox<br>54</td>
+    <td>Safari<br>10</td>
+    <td>Opera<br>38</td>
+  </tr>
+  <tr>
+    <td>May 2016</td>
+    <td>Apr 2017</td>
+    <td>Jun 2017</td>
+    <td>Sep 2016</td>
+    <td>Jun 2016</td>
+  </tr>
+</tbody></table></div>
+</div>
+
+
+<br><br>
+
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_set_logic.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_set_reference.html">Next ❯</a>
+</div>
+
+

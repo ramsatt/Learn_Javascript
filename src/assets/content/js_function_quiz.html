@@ -1,0 +1,233 @@
+
+      
+
+<h1>JavaScript Functions Quiz</h1>
+
+
+<div class="ws-info">
+<h2>Test Yourself</h2>
+<p>Test your knowledge of JavaScript functions.</p>
+<p>This quiz uses the same examples you learned in the tutorial chapters.</p>
+</div>
+
+
+<div class="w3-example">
+<h2>Question 1</h2>
+<p>
+What is returned in the text variable?<br>
+</p>
+<pre class="w3-code"><code class="language-javascript">function sayHello() {
+  return "Hello World";
+}
+let text = sayHello();</code></pre>
+<ul>
+  <li>A. sayHello</li>
+  <li>B. Hello World</li>
+  <li>C. undefined</li>
+</ul>
+</div>
+
+<div class="w3-example">
+<h2>Question 2</h2>
+<p>
+Which line calls the function?<br>
+</p>
+<pre class="w3-code"><code class="language-javascript">function test() {
+  return 5;
+}
+let x = test;
+let y = test();</code></pre>
+<ul>
+  <li>A. function test() { }</li>
+  <li>B. let x = test;</li>
+  <li>C. let y = test();</li>
+</ul>
+</div>
+
+<div class="w3-example">
+<h2>Question 3</h2>
+<p>In the function below, what are <b>a</b> and <b>b</b>?</p>
+<pre class="w3-code"><code class="language-javascript">function multiply(a, b) {
+  return a * b;
+}</code></pre>
+<ul>
+  <li>A. Arguments</li>
+  <li>B. Parameters</li>
+  <li>C. Return values</li>
+</ul>
+</div>
+
+<div class="w3-example">
+<h2>Question 4</h2>
+<p>What is returned by this function call?</p>
+<pre class="w3-code"><code class="language-javascript">function add(a, b) {
+  return a + b;
+}
+add(2, 3) * 10;</code></pre>
+<ul>
+  <li>A. 5</li>
+  <li>B. 10</li>
+  <li>C. 50</li>
+</ul>
+</div>
+
+<div class="w3-example">
+<h2>Question 5</h2>
+<p>What value is returned if a function has no <b>return</b> statement?</p>
+<ul>
+  <li>A. null</li>
+  <li>B. false</li>
+  <li>C. undefined</li>
+</ul>
+</div>
+
+<div class="w3-example">
+<h2>Question 6</h2>
+<p>Which type of function can be called before it is defined?</p>
+<ul>
+  <li>A. Function declaration</li>
+  <li>B. Function expression</li>
+  <li>C. Arrow function</li>
+</ul>
+</div>
+
+<div class="w3-example">
+<h2>Question 7</h2>
+<p>Which arrow function is correct?</p>
+<ul>
+  <li>A. const add = (a, b) =&gt; return a + b;</li>
+  <li>B. const add = a, b =&gt; a + b;</li>
+  <li>C. const add = (a, b) =&gt; a + b;</li>
+</ul>
+</div>
+
+<div class="w3-example">
+<h2>Question 8</h2>
+<p>What does <b>this</b> refer to inside an object method?</p>
+<pre class="w3-code"><code class="language-javascript">const person = {
+  name: "John",
+  getName: function() {
+    return this.name;
+  }
+};</code></pre>
+<ul>
+  <li>A. The function itself</li>
+  <li>B. The global object</li>
+  <li>C. The object that owns the method</li>
+</ul>
+</div>
+
+<div class="w3-example">
+<h2>Question 9</h2>
+<p>Why does this code not work as expected?</p>
+<pre class="w3-code"><code class="language-javascript">const person = {
+  name: "John",
+  greet: () =&gt; this.name
+};</code></pre>
+<ul>
+  <li>A. Arrow functions cannot return values</li>
+  <li>B. Arrow functions do not have their own <b>this</b></li>
+  <li>C. The object syntax is wrong</li>
+</ul>
+</div>
+
+<div class="w3-example">
+<h2>Question 10</h2>
+<p>What is an IIFE used for?</p>
+<ul>
+  <li>A. To delay code execution</li>
+  <li>B. To create a private scope</li>
+  <li>C. To repeat code automatically</li>
+</ul>
+</div>
+
+<hr>
+<h2>Answers</h2>
+<hr>
+
+<div class="w3-example">
+<h3>Question 1</h3>
+<p><b>Answer:</b> B.</p>
+<p><b>Explanation:</b> The function returns the string <b>"Hello World"</b>.</p>
+</div>
+
+<div class="w3-example">
+<h3>Question 2</h3>
+<p><b>Answer:</b> C.</p>
+<p><b>Explanation:</b> Parentheses <b>()</b> execute the function.</p>
+</div>
+
+<div class="w3-example">
+<h3>Question 3</h3>
+<p><b>Answer:</b> B.</p>
+<p><b>Explanation:</b> Parameters are the names listed in the function definition.</p>
+</div>
+
+<div class="w3-example">
+<h3>Question 4</h3>
+<p><b>Answer:</b> C.</p>
+<p><b>Explanation:</b> The function returns 5, then it is multiplied by 10.</p>
+</div>
+
+<div class="w3-example">
+<h3>Question 5</h3>
+<p><b>Answer:</b> C.</p>
+<p><b>Explanation:</b> Functions without <b>return</b> return <b>undefined</b>.</p>
+</div>
+
+<div class="w3-example">
+<h3>Question 6</h3>
+<p><b>Answer:</b> A.</p>
+<p><b>Explanation:</b> Function declarations are hoisted.</p>
+</div>
+
+<div class="w3-example">
+<h3>Question 7</h3>
+<p><b>Answer:</b> C.</p>
+<p><b>Explanation:</b> Arrow functions return expressions without <b>return</b> when written on one line.</p>
+</div>
+
+<div class="w3-example">
+<h3>Question 8</h3>
+<p><b>Answer:</b> C.</p>
+<p><b>Explanation:</b> In a method, <b>this</b> refers to the owner object.</p>
+</div>
+
+<div class="w3-example">
+<p><b>Answer:</b> C.</p>
+<p><b>Explanation:</b> In a method, <b>this</b> refers to the owner object.</p>
+</div>
+
+<div class="w3-example">
+<h3>Question 9</h3>
+<p><b>Answer:</b> B.</p>
+<p><b>Explanation:</b> Arrow functions inherit <b>this</b> from their surrounding scope.</p>
+</div>
+
+<div class="w3-example">
+<h3>Question 10</h3>
+<p><b>Answer:</b> B.</p>
+<p><b>Explanation:</b> IIFEs were commonly used to avoid global variables.</p>
+</div>
+
+<hr>
+
+<h2>Quiz Result</h2>
+<p>If you answered most questions correctly, you have a solid understanding of JavaScript functions.</p>
+<p>If not, revisit the chapters and try again.</p>
+<p class="w3-large"><a href="js_functions.html">Back to JavaScript Functions</a>.</p>
+
+<hr>
+<div class="w3-panel w3-pale-yellow w3-leftbar w3-border-yellow">
+<h2>Note</h2>
+<p>Understanding functions is essential for mastering JavaScript.</p>
+<p>Practice writing your own functions to improve faster.</p>
+</div>
+
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_function_iife.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_objects.html">Next ❯</a>
+</div>
+
+

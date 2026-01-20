@@ -1,0 +1,123 @@
+
+      
+
+<h1>JavaScript RegExp Objects</h1>
+
+<!--start-->
+<div class="ws-info">
+<h2>The RegExp Object</h2>
+<p>In JavaScript, <b>RegExp</b> is a regular expression object with 
+predefined properties and methods.</p>
+</div>
+
+<!--start-->
+
+<h2>Using test()</h2>
+<p>The <code class="w3-codespan">test()</code> method is a RegExp expression method.</p>
+<p>It searches a string for a pattern, and returns true 
+or false, depending on the result.</p>
+<p>The following example searches a string for the character "e":</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const pattern = /e/;
+pattern.test("The best things in life are free!");</code></pre>
+<p>Since there is an "e" in the string, the output of the code above will be:</p>
+
+<p>
+
+</p>
+</div>
+<div class="w3-example">
+<p>You don't have to put the regular expression in a variable first. The two 
+lines above can be shortened to one:</p>
+<pre class="w3-code"><code class="language-javascript">/e/.test("The best things in life are free!");</code></pre>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Using exec()</h2>
+<p>The <code class="w3-codespan">exec()</code> method is a RegExp expression method.</p>
+<p>It searches a string for a specified pattern, and returns the found text as 
+an object. </p>
+<p>If no match is found, it returns an empty <i>(null)</i> object.</p>
+<p>The following example searches a string for the character "e":</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">/e/.exec("The best things in life are free!");</code></pre>
+  
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The RegExp.escape() Method</h2>
+<p>The <code class="w3-codespan">RegExp.escape()</code> method returns string where characters that belongs
+to the regular expression syntax are escaped.</p>
+<p>This makes it possible to treat characters like +, *, ?, ^, $, (, ), [, ], {, }, |, and \ literally,
+and not as part of a regular expression.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Create a regular expression that matches the string "[*]":
+</p><pre class="w3-code"><code class="language-javascript">// Escape a text for to use as a regular expression
+const safe = RegExp.escape("[*]";
+// Build a new reglar expression
+const regex = new RegExp(safe);
+// Text to replace within
+const oldText = "[*] is a web school.";
+// Perform the replace
+const newText = oldText.replace(regex, "W3Schools");</code></pre>
+
+</div>
+
+<hr>
+<h2>Browser Support</h2>
+<p><code class="w3-codespan">RegExp.escape()</code> is an ES2025 feature.</p>
+<p><a href="js_2025.html">JavaScript 2025</a> is fully supported in all modern browsers since May 2025:</p>
+
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr>
+    <th class="bsChrome" title="Chrome"></th>
+    <th class="bsEdge" title="Edge"></th>
+    <th class="bsFirefox" title="Firefox"></th>
+    <th class="bsSafari" title="Safari"></th>
+    <th class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>136</td>
+    <td>Edge<br>136</td>
+    <td>Firefox<br>129</td>
+    <td>Safari<br>18.2</td>
+    <td>Opera<br>120</td>
+  </tr>
+  <tr>
+    <td>Apr 2025</td>
+    <td>Apr 2025</td>
+    <td>Aug 2024</td>
+    <td>Des 2024</td>
+    <td>May 2025</td>
+  </tr>
+</tbody></table></div>
+</div>
+
+<!--stop-->
+<div class="ws-note">
+<h2>See Also:</h2>
+<p class="w3-large"><a href="js_regexp.html">JavaScript RegExp Tutorial</a></p>
+<p class="w3-large"><a href="js_regexp_flags.html">JavaScript RegExp Flags</a></p>
+<p class="w3-large"><a href="js_regexp_characters.html">JavaScript RegExp Character Classes</a></p>
+<p class="w3-large"><a href="js_regexp_meta_characters.html">JavaScript RegExp Meta Characters</a></p>
+<p class="w3-large"><a href="js_regexp_assertions.html">JavaScript RegExp Assertions</a></p>
+<p class="w3-large"><a href="js_regexp_quantifiers.html">JavaScript RegExp Quantifiers</a></p>
+<p class="w3-large"><a href="js_regexp_patterns.html">JavaScript RegExp Patterns</a></p>
+<p class="w3-large"><a href="js_regexp_methods.html">JavaScript RegExp Methods</a></p>
+</div>
+
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_regexp_patterns.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_regexp_methods.html">Next ❯</a>
+</div>
+
+

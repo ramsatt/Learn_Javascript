@@ -1,0 +1,147 @@
+
+      
+
+<h1>JSONP</h1>
+
+<hr>
+<!--start-->
+<p class="intro">JSONP is a method for sending JSON data without worrying about cross-domain issues.</p>
+<p class="intro">JSONP does not use the <code class="w3-codespan">XMLHttpRequest</code> object.</p>
+<p class="intro">JSONP uses the <code class="w3-codespan">&lt;script&gt;</code> tag instead.</p>
+<hr>
+<h2>JSONP Intro</h2>
+<div class="w3-panel ws-note">
+<p>JSONP stands for JSON with Padding.</p>
+</div>
+
+<p>Requesting a file from another domain can cause problems, due to cross-domain policy.</p>
+<p>Requesting an external <em>script</em> from another domain does not have this problem.</p>
+<p>JSONP uses this advantage, and request files using the script tag 
+instead of the <code class="w3-codespan">XMLHttpRequest</code> object.</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-html">&lt;script src="demo_jsonp.php"&gt;</code></pre>
+</div>
+<!--stop-->
+<!--start-->
+<h2>The Server File</h2>
+
+<p>The file on the server wraps the result inside a 
+function call:</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;?php
+$myJSON = '{ "name":"John", "age":30, "city":"New York" }';
+echo "myFunc(".$myJSON.");";
+?&gt;</code></pre>
+  <a class="w3-btn w3-margin-bottom" href="showphp284b.html?filename=demo_jsonp">Show PHP file »</a>
+</div>
+<p>The result returns a call to a function named "myFunc" with the JSON data as 
+a parameter.</p>
+<p>Make sure that the function exists on the client.</p>
+<h2>The JavaScript function</h2>
+<p>The function named "myFunc" is located on the client, and ready to handle 
+JSON data:</p>
+<div class="w3-example">
+  <h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">function myFunc(myObj) {
+  document.getElementById("demo").innerHTML = myObj.name;
+}</code></pre>
+  
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>Creating a Dynamic Script Tag</h2>
+<p>The example above will execute the "myFunc" function when the page is 
+loading, based on where you put the script tag, which is not very satisfying.</p>
+<p>The script tag should only be created when needed:</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <p>Create and insert the &lt;script&gt; tag when a button is clicked:</p>
+<pre class="w3-code"><code class="language-javascript">function clickButton() {
+  let s = document.createElement("script");
+  s.src = "demo_jsonp.php";
+  document.body.appendChild(s);
+}</code></pre>
+  
+</div>
+<hr>
+<h2>Dynamic JSONP Result</h2>
+
+<p>The examples above are still very static.</p>
+<p>Make the example dynamic by sending JSON to the php file, and let the php file return a JSON object based on 
+the information it gets.</p>
+
+<div class="w3-example">
+  <h3>PHP file</h3>
+<pre class="w3-code"><code class="language-html">&lt;?php
+header("Content-Type: application/json; charset=UTF-8");
+$obj = json_decode($_GET["x"], false);
+$conn = new mysqli("myServer", "myUser", "myPassword", "Northwind");
+$result = $conn-&gt;query("SELECT name FROM ".$obj-&gt;$table." LIMIT ".$obj-&gt;$limit);
+$outp = array();
+$outp = $result-&gt;fetch_all(MYSQLI_ASSOC);
+echo "myFunc(".json_encode($outp).")";
+?&gt;</code></pre>
+
+</div>
+
+<!--stop-->
+<!--start-->
+<h3>PHP File explained:</h3>
+<ul>
+  <li>Convert the request into an object, using the PHP function
+  <span class="w3-codespan">json_decode()</span>.</li>
+  <li>Access the database, and fill an array with the requested data.</li>
+  <li>Add the array to an object.</li>
+  <li>Convert the array into JSON using 
+the <span class="w3-codespan">json_encode()</span> function.</li>
+  <li>Wrap "myFunc()" around the return object.</li>
+</ul>
+
+<div class="w3-example">
+<h3>JavaScript Example</h3>
+<p>The "myFunc" function will be called from the php file:</p>
+<pre class="w3-code"><code class="language-javascript">const obj = { table: "products", limit: 10 };
+let s = document.createElement("script");
+s.src = "jsonp_demo_db.php?x=" + JSON.stringify(obj);
+document.body.appendChild(s);
+function myFunc(myObj) {
+  let txt = "";
+  for (let x in myObj) {
+    txt += myObj[x].name + "&lt;br&gt;";
+  }
+  document.getElementById("demo").innerHTML = txt;
+}</code></pre>
+  
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Callback Function</h2>
+
+<p>When you have no control over the server file, how do you get the server file 
+to call the correct function?</p>
+<p>Sometimes the server file offers a callback function as 
+a parameter:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>The php file will call the function you pass as a callback parameter:</p>
+<pre class="w3-code"><code class="language-javascript">let s = document.createElement("script");
+s.src = "jsonp_demo_db.php?callback=<strong>myDisplayFunction</strong>";
+document.body.appendChild(s);</code></pre>
+
+</div>
+<!--stop-->
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_json_html.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_jquery_selectors.html">Next ❯</a>
+</div>
+
+
+

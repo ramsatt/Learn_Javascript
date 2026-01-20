@@ -1,0 +1,262 @@
+
+      
+
+<h1>JavaScript Errors</h1>
+
+<div class="ws-info">
+<h2>Errors Will Happen!</h2>
+<p>When executing JavaScript code, different errors can 
+occur. </p>
+<p>Errors can be coding errors made by the programmer, errors due to wrong 
+input, and other unforeseeable things:</p>
+<ul class="w3-ul w3-large">
+<li>Reference Errors</li>
+<li>Type Errors</li>
+<li>Range Errors</li>
+<li>URI Errors</li>
+<li>Syntax Errors</li>
+<li>Eval Error (deprecated)</li>
+<li>Silent Errors (next chapter)</li>
+</ul>
+</div>
+<hr>
+<!--start-->
+<h2>How to Handle JavaScript Errors</h2>
+<p>The <code class="w3-codespan">try</code> statement allows you to define a block of code to be 
+tested for errors while it is being executed.</p>
+<p>The <code class="w3-codespan">catch</code> statement allows you to define a block of code to 
+be executed, if an error occurs in the try block.</p>
+<p>The JavaScript statements <code class="w3-codespan">try</code> and <code class="w3-codespan">catch</code> 
+come in pairs:</p>
+
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">try {
+  <em>Block of code to try
+</em>} catch(<em>err</em>) {
+  <em>Block of code to handle errors
+</em>}</code></pre></div>
+<!--stop-->
+
+
+<hr>
+<h2>Reference Errors</h2>
+<p>A <code class="w3-codespan">ReferenceError</code> occurs if you use (reference) a variable that does not exist.</p>
+
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr><th>Error Type</th><th>Example</th><th>Error</th></tr>
+<tr><th>ReferenceError</th><td>fname = foo;</td>
+<td>foo is not defined</td></tr>
+<tr><th>ReferenceError</th><td>let x = y;<br>let y = 5;</td>
+<td>Cannot access y before initialization</td></tr>
+</tbody></table></div>
+</div>
+
+<div class="w3-example">
+<h3>Examples</h3>
+<p>You cannot use a non-existing variable:</p>
+<pre class="w3-code"><code class="language-javascript">let x = 5;
+try {
+  x = y + 1;
+} catch(err) {
+  let text = err.name;
+}</code></pre>
+
+<p>Cannot access a variable before initialization:</p>
+<pre class="w3-code"><code class="language-javascript">try {
+  let x = y;
+  let y = 5;
+} catch(err) {
+  let text = err.name;
+}</code></pre>
+
+
+</div>
+
+
+<hr>
+<h2>JavaScript Type Errors</h2>
+<p>A <code class="w3-codespan">Type Error</code> occurs when a value is of the wrong type or an operation
+is invalid on that type.</p>
+
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Error</th><th>Example</th><th>Error Message</th></tr>
+<tr><th>TypeError</th><td>Anna(5);</td><td>Anna is not a function</td></tr>
+<tr><th>Type Error</th><td>let num = 1;<br>num.toUpperCase();<br>
+</td>
+<td>num.toUpperCase is not a function</td></tr>
+</tbody></table></div>
+</div>
+
+<div class="w3-example">
+<h3>Examples</h3>
+<p>Anna() is not a function:</p>
+<pre class="w3-code"><code class="language-javascript">try {
+  Anna(5);
+} catch(err) {
+  let text = err.name;
+}</code></pre>
+
+<p>You cannot convert a number to upper case:</p>
+<pre class="w3-code"><code class="language-javascript">let num = 1;
+try {
+  num.toUpperCase();
+} catch(err) {
+  let text = err.name;
+}</code></pre>
+
+</div>
+<hr>
+
+<hr>
+
+<h2>JavaScript Range Errors</h2>
+<p>A <code class="w3-codespan">RangeError</code> occurs when a value is out of its valid range.</p>
+
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Error Type</th><th>Example</th><th>Error Message</th></tr>
+<tr><th>RangeError</th><td>new Array(-1);</td><td>Invalid array length</td></tr>
+<tr><th>RangeError</th><td>num.toPrecision(500);</td><td>toPrecision() argument must be between 1 and 100</td></tr>
+</tbody></table></div>
+</div>
+
+<div class="w3-example">
+<h3>Examples</h3>
+<p>You cannot set the number of array elements to -1:</p>
+<pre class="w3-code"><code class="language-javascript">try {
+new Array(-1);
+} catch(err) {
+  let text = err.name;
+}</code></pre>
+
+<p>You cannot set the number of significant digits of a number to 500:</p>
+<pre class="w3-code"><code class="language-javascript">let num = 1;
+try {
+  num.toPrecision(500);   // A number cannot have 500 significant digits
+} catch(err) {
+  let text = err.name;
+}</code></pre>
+
+</div>
+
+<hr>
+<!--start-->
+<h2>JavaScript URI Errors</h2>
+<h4>(Uniform Resource Identifier Errors)</h4>
+<p>An <code class="w3-codespan">URIError</code> occurs if you use illegal characters in a URI function:</p><div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Error Type</th><th>Example</th><th>Error Message</th></tr>
+<tr><th>URIError</th><td>decodeURI("%%%");</td><td>URI malformed</td></tr>
+</tbody></table></div>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">try {
+  decodeURI("%%%");   // You cannot URI decode percent signs
+} catch(err) {
+  document.getElementById("demo").innerHTML = err.name;
+}</code></pre>
+
+</div>
+<!--stop-->
+
+<hr>
+<h2>JavaScript Syntax Errors</h2>
+<p>A  <code class="w3-codespan">Syntax Error</code> occurs when the code violates JavaScript's grammar rules.</p>
+
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr><th>Error</th><th>Example</th><th>Error</th></tr>
+<tr><th>SyntaxError</th><td>fname = "John);</td><td>Invalid or unexpected token )</td></tr>
+<tr><th>SyntaxError</th><td>Math.round(4.6;</td><td>Missing ) after argument list</td></tr>
+</tbody></table></div>
+</div>
+<div class="w3-example">
+<h3>Example</h3>
+<p>In this example we have made the mistake of not closing the string:</p>
+<pre class="w3-code"><code class="language-html">// This line cannot be parsed by JavaScript
+let fName = "John);
+// Execution stops here</code></pre>
+
+</div>
+
+<p>The statement above will generate the error: <b>Invalid or unexpected token</b></p>
+<p><b>Execution of the program will stop!</b></p>
+
+<div class="ws-note">
+<h2>Syntax Errors are Not Catchable</h2>
+<ul class="w3-large">
+<li>Syntax errors are not catchable by try...catch</li>
+<li>Syntax errors happen before runtime</li>
+</ul>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>The code below should produce an error, but <b>it does not</b>:</p>
+<pre class="w3-code"><code class="language-html">try {
+  let x = Math.round(4.6;)
+} catch(err) {
+  let text = err.name + " " + err.description;
+}</code></pre>
+
+</div>
+
+<h2>Syntax Issue</h2>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-html">Math.round(4.6;)</code></pre>
+</div>
+
+<p>The line above is syntactically invalid JavaScript. There is an extra semicolon inside the parentheses.
+The correct syntax should be:
+
+</p><div class="w3-example">
+<pre class="w3-code"><code class="language-html">Math.round(4.6);</code></pre>
+</div>
+
+<h2>Why</h2>
+<p>The point is how the browser handles syntax errors:</p>
+<p>The JavaScript engine throws a SyntaxError before running the script.</p>
+<p>Syntax errors are caught before the try...catch block executes.</p>
+<p>This means the try block never starts.
+The script just fails to run (no let text = update).</p>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>The browser console (F12 → Console tab) would show something like:</p><p>
+</p><p>Uncaught SyntaxError: missing ) after argument list.</p><p>
+</p></div>
+
+<hr>
+<!--start-->
+<h2>JavaScript Eval Error</h2>
+<p>An <code class="w3-codespan">EvalError</code> indicates an error in the eval() function.</p>
+<div class="w3-panel ws-warning">
+<p>Newer versions of JavaScript do not throw EvalError.</p>
+<p>Use SyntaxError instead.</p>
+</div>
+<hr>
+<!--stop-->
+<div class="ws-note">
+<h2>See Also:</h2>
+<p class="w3-large"><a href="js_errors_silent.html">JavaScript Silent Errors</a></p>
+<p class="w3-large"><a href="js_errors.html">JavaScript Error Statements</a></p>
+<p class="w3-large"><a href="js_error_object.html">JavaScript Error Object</a></p>
+<p class="w3-large"><a href="js_debugging.html">JavaScript Debugging</a></p>
+</div>
+<hr>
+
+<hr>
+
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_type_conversion.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_errors_silent.html">Next ❯</a>
+</div>
+
+

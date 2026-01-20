@@ -1,0 +1,523 @@
+
+      
+
+<h1>JavaScript Operator Precedence</h1>
+
+<!--start-->
+<div class="ws-info">
+<h2>Order of Operation</h2>
+<p>Operator precedence describes the order in which operations are performed in 
+an arithmetic expression.</p>
+<p>Multiplication (<code class="w3-codespan">*</code>) and division (<code class="w3-codespan">/</code>) have higher <strong>precedence</strong> than 
+addition (<code class="w3-codespan">+</code>) and subtraction (<code class="w3-codespan">-</code>).</p>
+</div>
+<div class="w3-example">
+<h3>Examples</h3>
+<p>As in traditional mathematics, multiplication is done first:</p>
+<pre class="w3-code"><code class="language-javascript">let x = 100 + 50 * 3;</code></pre>
+
+<p>When using parentheses, operations inside the parentheses are computed first:</p>
+<pre class="w3-code"><code class="language-javascript">let x = (100 + 50) * 3;</code></pre>
+
+<p>Operations with the same precedence (like * and /) are computed from left to right:</p>
+<pre class="w3-code"><code class="language-javascript">let x = 100 / 50 * 3;</code></pre>
+
+</div>
+<!--stop-->
+<!--start-->
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="w3-table w3-bordered w3-border">
+<tbody><tr>
+<td colspan="4" class="w3-pale-yellow w3-center">
+<h2>Operator Precedence Values</h2>
+Expressions in parentheses are computed <b>before</b> the rest of the expression<br>
+Function are executed <b>before</b> the result is used in the rest of the expression
+</td>
+</tr>
+ <tr class="ws-grey">
+  <td>Val</td>
+  <td>Operator</td>
+  <td>Description</td>
+  <td>Example</td>
+ </tr>
+ <tr>
+  <td>18</td>
+  <td>( )</td>
+  <td><a href="tryit1d4f.html?filename=tryjs_arithmetic_precedence2">Expression Grouping</a></td>
+  <td>(100 + 50) * 3</td>
+ </tr>
+ <tr>
+  <td>17</td>
+  <td>.</td>
+  <td><a href="tryit91ff.html?filename=tryjs_oper_member_of">Member Of</a></td>
+  <td>person.name</td>
+ </tr>
+ <tr>
+  <td>17</td>
+  <td>[]</td>
+  <td><a href="tryit8a66.html?filename=tryjs_oper_member_of2">Member Of</a></td>
+  <td>person["name"]</td>
+ </tr>
+ <tr>
+  <td>17</td>
+  <td>?.</td>
+  <td><a href="tryit3dab.html?filename=tryjs_oper_optional_chaining">Optional Chaining</a>
+  <a href="js_2019.html">ES2020</a></td>
+  <td>x ?. y</td>
+ </tr>
+ <tr>
+  <td>17</td>
+  <td>()</td>
+  <td><a href="tryitde8f.html?filename=tryjs_functions">Function Call</a></td>
+  <td>myFunction()</td>
+ </tr>
+ <tr>
+  <td>17</td>
+  <td>new</td>
+  <td><a href="tryit1efa.html?filename=tryjs_date_new_arguments">New with Arguments</a></td>
+  <td>new Date("June 5,2022")</td>
+ </tr>
+ <tr>
+  <td>16</td>
+  <td>new</td>
+  <td><a href="tryitf925.html?filename=tryjs_date_current">New without Arguments</a></td>
+  <td>new Date()</td>
+ </tr>
+<tr>
+<td colspan="4" class="w3-pale-yellow w3-center">
+<span class="w3-xlarge">Increment Operators</span><br>
+Postfix increments are executed <b>before</b> prefix increments</td>
+</tr>
+ <tr>
+  <td>15</td>
+  <td>++</td>
+  <td><a href="tryit7e94.html?filename=tryjs_oper_incr2">Postfix Increment</a></td>
+  <td>i++</td>
+ </tr>
+ <tr>
+  <td>15</td>
+  <td>--</td>
+  <td><a href="tryit49bd.html?filename=tryjs_oper_decr2">Postfix Decrement</a></td>
+  <td>i--</td>
+ </tr>
+ <tr>
+  <td>14</td>
+  <td>++</td>
+  <td><a href="tryit9918.html?filename=tryjs_oper_incr">Prefix Increment</a></td>
+  <td>++i</td>
+ </tr>
+ <tr>
+  <td>14</td>
+  <td>--</td>
+  <td><a href="tryit220a.html?filename=tryjs_oper_decr">Prefix Decrement</a></td>
+  <td>--i</td>
+ </tr>
+
+<tr>
+<td colspan="4" class="w3-pale-yellow w3-center">
+<span class="w3-xlarge">NOT Operators</span>
+</td>
+</tr>
+
+ <tr>
+  <td>14</td>
+  <td>!</td>
+  <td><a href="tryitdffd.html?filename=tryjs_oper_not">Logical NOT</a></td>
+  <td>!(x==y)</td>
+ </tr>
+ <tr>
+  <td>14</td>
+  <td>~</td>
+  <td><a href="tryit7e0f.html?filename=tryjs_bitwise_not">Bitwise NOT</a></td>
+  <td>~x</td>
+ </tr>
+
+<tr>
+<td colspan="4" class="w3-pale-yellow w3-center">
+<span class="w3-xlarge">Unary Operators</span>
+</td>
+ </tr><tr>
+  <td>14</td>
+  <td>+</td>
+  <td><a href="tryitf6bc.html?filename=tryjs_oper_unary_plus">Unary Plus</a></td>
+  <td>+x</td>
+ </tr>
+ <tr>
+  <td>14</td>
+  <td>-</td>
+  <td><a href="tryit8178.html?filename=tryjs_oper_unary_minus">Unary Minus</a></td>
+  <td>-x</td>
+ </tr>
+ <tr>
+  <td>14</td>
+  <td>typeof</td>
+  <td><a href="tryit5a63.html?filename=tryjs_typeof_all">Data Type</a></td>
+  <td>typeof x</td>
+ </tr>
+ <tr>
+  <td>14</td>
+  <td>void</td>
+  <td><a href="tryitc20d.html?filename=tryjs_oper_void">Evaluate Void</a></td>
+  <td>void(0)</td>
+ </tr>
+ <tr>
+  <td>14</td>
+  <td>delete</td>
+  <td><a href="tryit5bca.html?filename=tryjs_oper_delete">Property Delete</a></td>
+  <td>delete myCar.color</td>
+ </tr>
+
+<tr>
+<td colspan="4" class="w3-pale-yellow w3-center">
+<span class="w3-xlarge">Arithmetic Operators</span><br>
+Exponentiations are executed <b>before</b> multiplications<br>
+Multiplications and divisions are executed <b>before</b> additions and subtractions
+</td>
+
+</tr>
+ <tr>
+  <td>13</td>
+  <td>**</td>
+  <td><a href="tryit24c5.html?filename=tryjs_arithmetric_exponent1">Exponentiation</a>
+  <a href="js_2016.html">ES2016</a></td>
+  <td>10 ** 2</td>
+ </tr>
+ <tr>
+  <td>12</td>
+  <td>*</td>
+  <td><a href="tryit6924.html?filename=tryjs_oper_mult">Multiplication</a></td>
+  <td>10 * 5</td>
+ </tr>
+ <tr>
+  <td>12</td>
+  <td>/</td>
+  <td><a href="tryit1fe2.html?filename=tryjs_oper_div">Division</a></td>
+  <td>10 / 5</td>
+ </tr>
+ <tr>
+  <td>12</td>
+  <td>%</td>
+  <td><a href="tryit4fef.html?filename=tryjs_oper_mod">Division Remainder</a></td>
+  <td>10 % 5</td>
+ </tr>
+ <tr>
+  <td>11</td>
+  <td>+</td>
+  <td><a href="tryita2d2.html?filename=tryjs_oper_add">Addition</a></td>
+  <td>10 + 5</td>
+ </tr>
+ <tr>
+  <td>11</td>
+  <td>-</td>
+  <td><a href="tryit686e.html?filename=tryjs_oper_sub">Subtraction</a></td>
+  <td>10 - 5</td>
+ </tr>
+ <tr>
+  <td>11</td>
+  <td>+</td>
+  <td><a href="tryit826e.html?filename=tryjs_oper_concatenate">Concatenation</a></td>
+  <td>"John" + "Doe"</td>
+ </tr>
+
+<tr>
+<td colspan="4" class="w3-pale-yellow w3-xlarge w3-center">
+Shift Operators</td>
+</tr>
+
+ <tr>
+  <td>10</td>
+  <td>&lt;&lt;</td>
+  <td><a href="tryit9bd0.html?filename=tryjs_bitwise_left">Shift Left</a></td>
+  <td>x &lt;&lt; 2</td>
+ </tr>
+ <tr>
+  <td>10</td>
+  <td>&gt;&gt;</td>
+  <td><a href="tryit610f.html?filename=tryjs_bitwise_right_sign">Shift Right (signed)</a></td>
+  <td>x &gt;&gt; 2</td>
+ </tr>
+ <tr>
+  <td>10</td>
+  <td>&gt;&gt;&gt;</td>
+  <td><a href="tryit8730.html?filename=tryjs_bitwise_right">Shift Right (unsigned)</a></td>
+  <td>x &gt;&gt;&gt; 2</td>
+ </tr>
+
+<tr>
+<td colspan="4" class="w3-pale-yellow w3-xlarge w3-center">
+Relational Operators</td>
+</tr>
+
+ <tr>
+  <td>9</td>
+  <td>in</td>
+  <td><a href="tryit8f26.html?filename=tryjs_oper_in">Property in Object</a></td>
+  <td>"PI" in Math</td>
+ </tr>
+ <tr>
+  <td>9</td>
+  <td>instanceof</td>
+  <td><a href="tryit9dce.html?filename=tryjs_oper_instanceof">Instance of Object</a></td>
+  <td>x instanceof Array</td>
+ </tr>
+
+<tr>
+<td colspan="4" class="w3-pale-yellow w3-xlarge w3-center">
+Comparison Operators</td>
+</tr>
+
+ <tr>
+  <td>9</td>
+  <td>&lt;</td>
+  <td><a href="tryitd86f.html?filename=tryjs_comparison9">Less than</a></td>
+  <td>x &lt; y&nbsp;</td>
+ </tr>
+ <tr>
+  <td>9</td>
+  <td>&lt;=</td>
+  <td><a href="tryit74aa.html?filename=tryjs_comparison11">Less than or equal</a></td>
+  <td>x &lt;= y</td>
+ </tr>
+ <tr>
+  <td>9</td>
+  <td>&gt;</td>
+  <td><a href="tryit748c.html?filename=tryjs_comparison8">Greater than</a></td>
+  <td>x &gt; y</td>
+ </tr>
+ <tr>
+  <td>9</td>
+  <td>&gt;=</td>
+  <td><a href="tryitd809.html?filename=tryjs_comparison10">Greater than or equal</a></td>
+  <td>x &gt;= Array</td>
+ </tr>
+ <tr>
+  <td>8</td>
+  <td>==</td>
+  <td><a href="tryit8852.html?filename=tryjs_comparison1">Equal</a></td>
+  <td>x == y</td>
+ </tr>
+ <tr>
+  <td>8</td>
+  <td>===</td>
+  <td><a href="tryit9265.html?filename=tryjs_comparison4">Strict equal</a></td>
+  <td>x === y</td>
+ </tr>
+ <tr>
+  <td>8</td>
+  <td>!=</td>
+  <td><a href="tryit7331.html?filename=tryjs_comparison5">Unequal</a></td>
+  <td>x != y</td>
+ </tr>
+ <tr>
+  <td>8</td>
+  <td>!==</td>
+  <td><a href="tryit247e.html?filename=tryjs_comparison6">Strict unequal</a></td>
+  <td>x !== y</td>
+ </tr>
+<tr>
+<td colspan="4" class="w3-pale-yellow w3-xlarge w3-center">
+Bitwise Operators</td>
+</tr>
+ <tr>
+  <td>7</td>
+  <td>&amp;</td>
+  <td><a href="tryita957-2.html?filename=tryjs_bitwise_and">Bitwise AND</a></td>
+  <td>x &amp; y</td>
+ </tr>
+ <tr>
+  <td>6</td>
+  <td>^</td>
+  <td><a href="tryit2c7d.html?filename=tryjs_bitwise_xor">Bitwise XOR</a></td>
+  <td>x ^ y</td>
+ </tr>
+ <tr>
+  <td>5</td>
+  <td>|</td>
+  <td><a href="tryit08c0.html?filename=tryjs_bitwise_or">Bitwise OR</a></td>
+  <td>x | y</td>
+ </tr>
+
+<tr>
+<td colspan="4" class="w3-pale-yellow w3-xlarge w3-center">
+Logical Operators</td>
+</tr>
+
+ <tr>
+  <td>4</td>
+  <td>&amp;&amp;</td>
+  <td><a href="tryit70ff.html?filename=tryjs_comparison_and">Logical AND</a></td>
+  <td>x &amp;&amp; y</td>
+ </tr>
+ <tr>
+  <td>3</td>
+  <td>||</td>
+  <td><a href="tryit2e5f.html?filename=tryjs_comparison_or">Logical OR</a></td>
+  <td>x || y</td>
+ </tr>
+ <tr>
+  <td>3</td>
+  <td>??</td>
+  <td><a href="tryitb80d.html?filename=tryjs_nullish">Nullish Coalescing</a>
+  <a href="js_2019.html">ES2020</a></td>
+  <td>x ?? y</td>
+ </tr>
+
+<tr>
+<td colspan="4" class="w3-pale-yellow w3-center">
+<span class="w3-xlarge">Conditional (ternary) Operator</span>
+</td>
+</tr>
+
+ <tr>
+  <td>2</td>
+  <td>? :</td>
+  <td><a href="tryit70e7.html?filename=tryjs_comparison">Condition</a></td>
+  <td>? "yes" : "no"</td>
+ </tr>
+
+<tr>
+<td colspan="4" class="w3-pale-yellow w3-center">
+<span class="w3-xlarge">Assignment Operators</span><br>
+Assignments are executed <b>after</b> other operations
+</td>
+</tr>
+
+ <tr>
+  <td>2</td>
+  <td>=</td>
+  <td><a href="tryiteb9c.html?filename=tryjs_assign_equal">Simple Assignment</a></td>
+  <td>x = y</td>
+ </tr>
+ <tr>
+  <td>2</td>
+  <td>:</td>
+  <td><a href="tryitc736.html?filename=tryjs_assign_colon">Colon Assignment</a></td>
+  <td>x: 5</td>
+ </tr>
+ <tr>
+  <td>2</td>
+  <td>+=</td>
+  <td><a href="tryit822d.html?filename=tryjs_assign_plusequal">Addition Assignment</a></td>
+  <td>x += y</td>
+ </tr>
+ <tr>
+  <td>2</td>
+  <td>-=</td>
+  <td><a href="tryit75f6.html?filename=tryjs_assign_minequal">Subtraction Assignment</a></td>
+  <td>x -= y</td>
+ </tr>
+ <tr>
+  <td>2</td>
+  <td>*=</td>
+  <td><a href="tryitc9e6.html?filename=tryjs_assign_multequal">Multiplication Assignment</a></td>
+  <td>x *= y</td>
+ </tr>
+ <tr>
+  <td>2</td>
+  <td>**=</td>
+  <td><a href="tryit9f97.html?filename=tryjs_assign_exponential">Exponentiation Assignment</a></td>
+  <td>x **= y</td>
+ </tr>
+ <tr>
+  <td>2</td>
+  <td>/=</td>
+  <td><a href="tryit9beb.html?filename=tryjs_assign_divequal">Division Assignment</a></td>
+  <td>x /= y</td>
+ </tr>
+ <tr>
+  <td>2</td>
+  <td>%=</td>
+  <td><a href="tryite5f5.html?filename=tryjs_assign_modequal">Remainder Assignment</a></td>
+  <td>x %= y</td>
+ </tr>
+ <tr>
+  <td>2</td>
+  <td>&lt;&lt;=</td>
+  <td><a href="tryite69e.html?filename=tryjs_assign_left_shift">Left Shift Assignment</a></td>
+  <td>x &lt;&lt;= y</td>
+ </tr>
+ <tr>
+  <td>2</td>
+  <td>&gt;&gt;=</td>
+  <td><a href="tryitd475.html?filename=tryjs_assign_right_shift">Right Shift Assignment</a></td>
+  <td>x &gt;&gt;= y</td>
+ </tr>
+ <tr>
+  <td>2</td>
+  <td>&gt;&gt;&gt;=</td>
+  <td><a href="tryit3c0e.html?filename=tryjs_assign_unsigned_right_shift">Unsigned Right Shift</a></td>
+  <td>x &gt;&gt;&gt;= y</td>
+ </tr>
+ <tr>
+  <td>2</td>
+  <td>&amp;=</td>
+  <td><a href="tryitb278.html?filename=tryjs_assign_bitwise_and">Bitwise AND Assignment</a></td>
+  <td>x &amp;= y</td>
+ </tr>
+ <tr>
+  <td>2</td>
+  <td>|=</td>
+  <td><a href="tryit5e01.html?filename=tryjs_assign_bitwise_or">Bitwise OR Assignment</a></td>
+  <td>x |= y</td>
+ </tr>
+ <tr>
+  <td>2</td>
+  <td>^=</td>
+  <td><a href="tryit9346.html?filename=tryjs_assign_bitwise_xor">Bitwise XOR Assignment</a></td>
+  <td>x ^= y</td>
+ </tr>
+ <tr>
+  <td>2</td>
+  <td>&amp;&amp;=</td>
+  <td><a href="tryit974d.html?filename=tryjs_assign_logical_and">Logical AND Assignment</a></td>
+  <td>x &amp;&amp;= y</td>
+ </tr>
+ <tr>
+  <td>2</td>
+  <td>||=</td>
+  <td><a href="tryit70a8.html?filename=tryjs_assign_logical_or">Logical OR Assignment</a></td>
+  <td>x ||= y</td>
+ </tr>
+
+ <tr>
+  <td>2</td>
+  <td>=&gt;</td>
+  <td><a href="tryit1df2.html?filename=tryjs_arrow_function4">Arrow</a></td>
+  <td>x =&gt; y</td>
+ </tr>
+ <tr>
+  <td>2</td>
+  <td>yield</td>
+  <td>Pause / Resume</td>
+  <td>yield x</td>
+ </tr>
+ <tr>
+  <td>2</td>
+  <td>yield*</td>
+  <td>Delegate</td>
+  <td>yield* x</td>
+ </tr>
+ <tr>
+  <td>2</td>
+  <td>...</td>
+  <td><a href="tryit17bd.html?filename=tryjs_oper_spread_arguments">Spread</a></td>
+  <td>... x</td>
+ </tr>
+ <tr>
+  <td>1</td>
+  <td>,</td>
+  <td>Comma</td>
+  <td>x , y</td>
+ </tr>
+</tbody></table></div>
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_operators_reference.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_versions.html">Next ❯</a>
+</div>
+
+

@@ -1,0 +1,49 @@
+
+.tutorial-page-content {
+    --background: var(--ion-background-color);
+}
+
+.content-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding-bottom: 60px;
+}
+
+.tutorial-title {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.loading-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+    color: #64748b;
+    gap: 16px;
+}
+
+.tutorial-meta {
+    margin-bottom: 16px;
+    
+    .badge {
+        background: rgba(var(--ion-color-secondary-rgb), 0.1);
+        color: var(--ion-color-secondary);
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+}
+
+.tutorial-footer {
+    margin-top: 60px;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    padding-top: 32px;
+    text-align: center;
+    color: #94a3b8;
+    font-size: 0.9rem;
+}

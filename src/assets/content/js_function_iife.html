@@ -1,0 +1,262 @@
+
+      
+
+<h1>Immediately Invoked Expressions</h1>
+
+
+<div class="ws-info">
+<h2>Self-Invoking Functions</h2>
+<p>An <b>IIFE</b> is short for an <b>Immediately Invoked Function Expression</b>.</p>
+<p>An <b>IIFE</b> is a function that <b>invokes itself</b> when defined.</p>
+</div>
+
+<h2>What Is an IIFE?</h2>
+<p>Normally, a function runs only when it is called.</p>
+<p>An IIFE runs automatically when the JavaScript engine reads it (compiles it).</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">(function () {
+  // Code to run immediately
+})();</code></pre>
+
+</div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>The function above is defined and executed at the same time.</p>
+</div>
+
+<hr>
+<h2>When is IIFE Used?</h2>
+<ul>
+  <li>To create a private scope</li>
+  <li>To run setup code once</li>
+  <li>In older JavaScript code</li>
+</ul>
+
+<hr>
+<h2>Avoid Polluting the Global Scope</h2>
+<p>Everything inside an IIFE is private to that function.</p>
+<p>Variables inside an IIFE cannot be accessed from outside.</p>
+<div class="w3-example">
+<h3>Examples</h3>
+<pre class="w3-code"><code class="language-javascript">(function () {
+  let x = 10;
+})();
+// x is not accessible here</code></pre>
+<br>
+<pre class="w3-code"><code class="language-javascript">(function () {
+  let hidden = 42;
+})();
+let result = hidden; // ⛔ Error: hidden is not defined</code></pre>
+</div>
+
+<hr>
+<h2>Simple IIFE</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">(function () {
+  let text = "Hello! I called myself.";
+})();</code></pre>
+
+</div>
+<p>The function above is also called an <strong>anonymous self-invoking function</strong> (function 
+without name).</p>
+
+
+<hr>
+<h2>How an IIFE Works</h2>
+
+<p><b>Function expressions</b> can be made <b>self-invoking</b>.</p>
+<p>A self-invoking function expression is <b>invoked (started) automatically</b>, without being called.</p>
+<div class="w3-example">
+<h3>Function</h3>
+<pre class="w3-code"><code class="language-javascript">function () {
+  // Code to run
+};</code></pre>
+</div>
+
+<p>Parentheses around the function tell JavaScript to treat the function as an expression.</p>
+<div class="w3-example">
+<h3>Expression</h3>
+<pre class="w3-code"><code class="language-javascript">(function () {
+  // Code to run
+});</code></pre>
+<p>The function is wrapped in <b>parentheses</b> to turn it into an <b>expression</b>.</p>
+</div>
+
+Function expressions will execute automatically if the expression is followed by ().
+
+<div class="w3-example">
+<h3>Final Syntax</h3>
+<pre class="w3-code"><code class="language-javascript">(function () {
+  // Code to run
+})();</code></pre>
+<p>The final <b>()</b> executes the function immediately.</p>
+</div>
+
+<hr>
+<div class="ws-note">
+<h2>Note</h2>
+<p>You can only self-invoke a function expression.</p>
+<p>You can not self-invoke a function declaration.</p>
+</div>
+
+<hr>
+<h2>IIFE with Parameters</h2>
+<p>You can pass arguments into an IIFE.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">(function (name) {
+  let text = "Hello " + name;
+})("John Doe");</code></pre>
+
+</div>
+
+<hr>
+<h2>IIFE with Return Value</h2>
+<p>
+An IIFE can return a value, which can be stored in a variable.<br>
+</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <pre class="w3-code"><code class="language-javascript">let result = (function () {
+  return 5 + 5;
+})();</code></pre>
+</div>
+
+<hr>
+<h2>Arrow Function IIFE</h2>
+<p>Arrow functions can also be used as IIFEs.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">(() =&gt; {
+  let text = "Hello! I called myself.";
+})();</code></pre>
+
+</div>
+
+<hr>
+<h2>Arrow Function IIFE with Parameter</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">((name) =&gt; {
+  let text = "Hello " + name;
+})("John Doe");</code></pre>
+
+</div>
+
+<hr>
+<h2>IIFE in Modern JavaScript</h2>
+<p>
+Today, JavaScript modules often replace the need for IIFEs.<br>
+Modules have their own scope by default.<br>
+</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <pre class="w3-code"><code class="language-html">&lt;script type="module"&gt;
+let x = 10;
+&lt;/script&gt;</code></pre>
+</div>
+
+<p>The variable <b>x</b> is scoped to the module and not global.</p>
+
+
+<hr>
+<h2>Named Function Expression IIFE</h2>
+<p>You can give an IIFE a name:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">(function greet() {
+  let text = "Hello! I called myself.";
+})();
+greet(); // ⛔ ReferenceError</code></pre>
+</div>
+<p>But, the name greet exists only inside the function itself, not in the outer/global scope.</p>
+<p>Why use a named IIFE?</p>
+<p>For self-recursion functions (calling itself repeatedly):</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">(function factorial(n) {
+  if (n &lt;= 1) return 1;
+  return n * factorial(n - 1); // recursive call
+})(5);</code></pre>
+</div>
+
+<hr>
+<h2>IIFE as a Module (Private Variables)</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const counter = (function () {
+  let value = 0;
+  return {
+    increment() { value++; },
+    get() { return value; }
+  };
+})();
+counter.increment();
+let x = counter.get();</code></pre>
+
+</div>
+
+<hjr></hjr>
+<div class="ws-note">
+<h2>Notes</h2>
+<p><b>Self Invocing Functions</b> were heavily used before <a href="js_es6.html">ECMAScript 6</a><b></b></p>
+<p>Today, JavaScript <b><a href="js_let.html">let</a></b>, <b><a href="js_const.html">const</a></b>,
+and <b><a href="js_modules.html">modules</a></b> have reduced the need for them.</p>
+
+<p>But they can still be useful for:</p>
+<ul>
+<li>Running setup code that should immediately</li>
+<li>Creating private variables and private scope</li>
+<li>Avoiding global scope pollution</li>
+<li>Working with older JavaScript code that rely on them</li>
+</ul>
+</div>
+
+<hr>
+<h2>When Not to Use IIFE</h2>
+<ul>
+  <li>When using modern JavaScript modules</li>
+  <li>When simpler code is sufficient</li>
+</ul>
+
+<hr>
+<div class="w3-panel w3-pale-yellow w3-leftbar w3-border-yellow">
+<h2>Quiz</h2>
+<p>Why were IIFEs commonly used before JavaScript modules existed?</p>
+</div>
+
+<hr>
+<h2>Common Mistakes</h2>
+<ul class="w3-ul">
+<li><h3>Forgetting the Final Parentheses</h3>
+Without <b>()</b>, the function will not run.
+</li>
+<li><h3>Confusing IIFE with Normal Functions</h3>
+IIFEs cannot be called again.
+</li>
+<li><h3>Overusing IIFEs</h3>
+Modern JavaScript often does not need them.</li>
+</ul>
+
+<hr>
+<h2>End of Functions Section</h2>
+<p>
+You have now learned the most important concepts about JavaScript functions.<br>
+Try the quiz to test your knowledge.<br>
+</p>
+<p class="w3-large"><a href="js_function_quiz.html">JavaScript Functions Quiz</a></p>
+
+
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_arrow_function.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_function_quiz.html">Next ❯</a>
+</div>
+
+

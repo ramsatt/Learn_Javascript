@@ -1,0 +1,87 @@
+
+      
+
+<h1>Pointer Events API</h1>
+
+
+<div class="ws-info">
+<p><b>The Pointer Events API</b> is a modern web standard that provides a unified input model for handling various
+pointing devices, such as a mouse, pen/stylus, and touch (finger).</p>
+<p>It simplifies development by consolidating separate mouse and touch event models into a single,
+hardware-agnostic system.</p>
+</div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>For the modern web, pointer events is <b>the recommended approach</b> to create
+interactive interfaces that provide a consistent experience for all users, regardless of hardware.</p>
+</div>
+
+<hr>
+<h2>Event Types</h2>
+<p>Pointer event names are <b>similar to mouse events</b>.</p>
+<p>Just <b>replace</b> "mouse" with "pointer":</p>
+<ul style="padding-left:24px;">
+<li><p><b>pointerdown</b><br>
+Fired when a pointer becomes active (button pressed, physical contact).</p></li>
+<li><p><b>pointerup</b><br>
+Fired when a pointer is no longer active (button released, contact ended).</p></li>
+<li><p><b>pointermove</b><br>
+Fired when a pointer changes coordinates.</p></li>
+<li><p><b>pointerover</b><br>
+Fired when a pointer is moved into an element.</p></li>
+<li><p><b>pointerout</b><br>
+Fired when a pointer moves out of an element.</p></li>
+<li><p><b>pointerenter</b><br>
+Similar to pointerover, but does not bubble up through the DOM hierarchy.</p></li>
+<li><p><b>pointerleave</b><br>
+Similar to pointerout, but does not bubble.</p></li>
+<li><p><b>pointercancel</b><br>
+Fired when the system cancels the pointer interaction (interrupted by the OS opening a system menu).</p></li>
+</ul>
+
+<hr>
+<h2>Event Properties</h2>
+<p>The PointerEvent interface inherits properties from MouseEvent and adds specific ones:</p>
+<ul style="padding-left:24px;">
+<li><p><b>pointerId</b><br>
+A unique ID for each pointer, allowing tracking in multi-touch scenarios.</p></li>
+<li><p><b>pointerType</b><br>
+A string indicating the device type: "mouse", "pen", or "touch".</p></li>
+<li><p><b>isPrimary</b><br>
+A boolean true for the primary pointer (the first finger in a multi-touch).</p></li>
+<li><p><b>pressure</b><br>
+A normalized value (0 to 1) indicating the pressure applied by the pointer.</p></li>
+</ul>
+
+<hr>
+<h2>Pointer Events API Benefits</h2>
+<p>Developers can write a single set of event listeners (<b>a unified model</b>) that work across multiple input types,
+reducing code duplication and complexity.</p>
+
+<p>In addition to standard mouse event properties (like client coordinates),
+PointerEvent objects include <b>new properties specific to other inputs</b>, such as pressure, tiltX, tiltY, width, and height,
+(useful for pen and touch interactions).</p>
+
+<p>Methods like <b>setPointerCapture()</b> allow an element to receive pointer events when the pointer
+moves outside its boundaries (useful for sliding or dragging).</p>
+
+<p>The API can track <b>multiple simultaneous touch points</b>, unlike traditional mouse events.</p>
+
+
+<hr>
+<h2>CSS pointer-events Property</h2>
+<p>The <code class="w3-codespan">pointer-events</code> CSS property is a separate feature that controls whether
+or not an element can be the target of any pointer interactions.</p> 
+<p>The <code class="w3-codespan">style="pointer-events: none;</code> in CSS, disables all mouse
+and touch interactions on an HTML element and its descendants.</p>
+<p>The <code class="w3-codespan">style="pointer-events: auto;</code> in CSS, restores the default behavior.</p>
+<p>This CSS property is useful for creating layered interfaces, or temporarily disabling interactions
+on certain elements without modifying the underlying JavaScript logic.</p>
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_api_history.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_api_web_storage.html">Next ❯</a>
+</div>
+
+

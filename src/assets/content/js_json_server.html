@@ -1,0 +1,87 @@
+
+      
+
+<h1>JSON Server</h1>
+
+<hr>
+<!--start-->
+<p class="intro">A common use of JSON is to exchange data to/from a web server.</p>
+<p class="intro">When receiving data from a web server, the data is always a string.</p>
+<p class="intro">Parse the data with <code class="w3-codespan">JSON.parse()</code>, and the data becomes a JavaScript object.</p>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Sending Data</h2>
+<p>If you have data stored in a JavaScript object, you can convert the object 
+into JSON, and send it to a server:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const myObj = {name: "John", age: 31, city: "New York"};
+const myJSON = JSON.stringify(myObj);
+window.location = "demo_json.php?x=" + myJSON;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Receiving Data</h2>
+<p>If you receive data in JSON format, you can easily convert it into a JavaScript 
+object:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const myJSON = '{"name":"John", "age":31, "city":"New York"}';
+const myObj = JSON.parse(myJSON);
+document.getElementById("demo").innerHTML = myObj.name;</code></pre>
+  
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>JSON From a Server</h2>
+<p>You can request JSON from the server by using an AJAX request</p>
+<p>As long as the response from the server is written in JSON format, you can 
+parse the string into a JavaScript object.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Use the XMLHttpRequest to get data from the server:</p>
+<pre class="w3-code"><code class="language-javascript">const xmlhttp = new XMLHttpRequest();
+xmlhttp.onload = function() {
+  const myObj = JSON.parse(this.responseText);
+  document.getElementById("demo").innerHTML = myObj.name;
+};
+xmlhttp.open("GET", "json_demo.txt");
+xmlhttp.send();</code></pre>
+
+<p>Take a look at <a href="json_demo.txt">json_demo.txt</a></p>
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>Array as JSON</h2>
+<p>When using the <code class="w3-codespan">JSON.parse()</code> on JSON derived from an array, the method will 
+return a JavaScript array, instead of a JavaScript object.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>JSON returned from a server as an array:</p>
+<pre class="w3-code"><code class="language-javascript">const xmlhttp = new XMLHttpRequest();
+xmlhttp.onload = function() {
+  const myArr = JSON.parse(this.responseText);
+  document.getElementById("demo").innerHTML = myArr[0];
+  }
+}
+xmlhttp.open("GET", "json_demo_array.txt", true);
+xmlhttp.send();</code></pre>
+
+<p>Take a look at <a href="json_demo_array.txt">json_demo_array.txt</a></p>
+</div>
+<!--stop-->
+<br>
+
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_json_arrays.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_json_php.html">Next ❯</a>
+</div>
+
+

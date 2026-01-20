@@ -1,0 +1,294 @@
+
+      
+
+<h1>The JavaScript this Keyword</h1>
+
+
+<div class="ws-info">
+<p>
+</p><h2>What is this?</h2>
+<p>When the <b>this</b> keyword is used in a function, it refers to an <b>Object</b>.</p>
+<p><b>Which Object</b>, is not decided when the function is written.</p>
+<p>The <b>value of this</b> is decided when the function is <b>called</b>.</p>
+</div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>This chapter contains an advanced topic.</p>
+<p>Make sure you understand basic JavaScript functions before continuing.</p>
+<p class="w3-large"><a href="js_functions.html">JavaScript Functions Tutorial</a></p>
+</div>
+
+<hr>
+<h2>Functions are Methods</h2>
+<p>In JavaScript <b>all functions are object methods</b>.</p>
+<p>A function can be:</p>
+<ul>
+<li>A method of a JavaScript object</li>
+<li>A method of the global object</li>
+</ul>
+
+<hr>
+<h2><b>this</b> in an Object Method</h2>
+<p>When a function is an <b>object method</b>:</p>
+<p><b>this</b> refers to the <b>object</b> that owns the method.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>An object with 3 properties, firstName, lastName, fullName.</p>
+
+<pre class="w3-code"><code class="language-javascript">const person = {
+  firstName: "John",
+  lastName: "Doe",
+  fullName: function() {
+    return this.firstName + " " + this.lastName;
+  }
+};
+person.fullName();</code></pre>
+
+</div>
+
+<p>In the example above, <b>this</b> refers to the <b>person object</b>.</p>
+<p><b>this.firstName</b> means the <b>firstName</b> property of <b>person</b>.</p>  
+<p><b>this.firstName</b> is the same as <b>person.firstName</b>.</p>  
+
+<hr>
+<h2><b>this</b> in a Function (Default)</h2>
+
+<p>By default, when <b>this</b> is used in a regular function,
+<b>this</b> refers to the <b>global object</b>.</p>
+<p>In a browser window, the global object is <b>[object Window]</b>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">function myFunction() {
+  return this;
+}</code></pre>
+
+</div>
+<div class="ws-note">
+<h2>Note</h2>
+<p>In the example above, <b>this</b> is the <b>global</b> object.</p>
+</div>
+
+<hr>
+<h2><b>this</b> in a Function (Strict Mode)</h2>
+<p>JavaScript <b>strict mode</b> does not allow default binding.</p>
+<p>In strict mode, <b>this</b> used inside a function is <b>undefined</b>.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">"use strict";
+function myFunction() {
+  return this;
+}</code></pre>
+
+</div>
+<div class="ws-note">
+<h2>Note</h2>
+<p>In the example above, <b>this</b> is <b>undefined</b>.</p>
+</div>
+
+
+<hr>
+<h2><b>this</b> Alone</h2>
+<p>When used <b>outside a function</b>, <b>this</b> always refers to the <b>global object</b>.</p>
+<p>In a browser window the global object is <b>[object Window]</b>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = this;</code></pre>
+
+</div>
+<p>In a regular function in <b>strict mode</b>, when used outside a function, <b>this</b> also refers to the <b>global object</b>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">"use strict";
+let x = this;</code></pre>
+  
+</div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>In both the examples above, <b>this</b> is the <b>global object</b>.</p>
+<p>It is so because , <b>this</b> is in the <b>global scope</b>.</p>
+</div>
+
+<hr>
+
+<hr>
+
+<h2><b>this</b> in Event Handlers</h2>
+<p>In HTML event handlers, <b>this</b> refers to the HTML element that received the 
+event:</p>
+<div class="w3-example">
+<h3>Examples</h3>
+<pre class="w3-code"><code class="language-html">&lt;button onclick="this.innerHTML='Clicked!'"&gt;Click Me&lt;/button&gt;</code></pre>
+
+<pre class="w3-code"><code class="language-html">&lt;button onclick="this.style.display='none'"&gt;
+  Click to Remove Me!
+&lt;/button&gt;</code></pre>
+
+</div>
+
+<hr>
+<h2><b>this</b> in Arrow Functions</h2>
+<p>Arrow functions do not have their own <b>this</b>.
+They inherit <b>this</b> from the surrounding scope.</p>
+
+<p>In regular functions the <b>this</b> keyword represented the object that called the 
+function, which could be the window, the document, a button or whatever.</p>
+<p>With arrow functions the <b>this</b> keyword <em>always</em> represents the 
+object that defined the arrow function.</p>
+
+
+<hr>
+<h2>What is <b>this</b>?</h2>
+<p>In JavaScript, the <code class="w3-codespan">this</code> keyword refers to an <b>object</b>.</p>
+
+<p>The <code class="w3-codespan">this</code> keyword refers to <b>different objects</b> depending on how it is used:</p>
+
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr><td>Alone, <code class="w3-codespan">this</code> refers to the <b>global object</b>.</td></tr>
+<tr><td>In a function, <code class="w3-codespan">this</code> refers to the <b>global object</b>.</td></tr>
+<tr><td>In a function, in strict mode, <code class="w3-codespan">this</code> is <code class="w3-codespan">undefined</code>.</td></tr>
+<tr><td>In an object method, <code class="w3-codespan">this</code> refers to the <b>object</b>.</td></tr>
+<tr><td>In an event, <code class="w3-codespan">this</code> refers to the <b>element</b> that received the event.</td></tr>
+<tr><td>in methods like <code class="w3-codespan">call()</code>, <code class="w3-codespan">apply()</code>,
+and <code class="w3-codespan">bind()</code>, <code class="w3-codespan">this</code> can refer to <b>any object</b>.</td></tr>
+</tbody></table></div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p><code class="w3-codespan">this</code> is not a variable.</p>
+<p><code class="w3-codespan">this</code> is a keyword.</p>
+<p>You cannot change the value of <code class="w3-codespan">this</code>.</p>
+
+</div>
+
+<hr>
+
+<h2>Examples to Understand</h2>
+<p>Below are two examples that call the same method twice:</p>
+<ul>
+<li>When the page loads</li>
+<li>When the user clicks a button</li>
+</ul>
+<p>The first example uses <b>a regular function</b>, and the second example uses <b>an arrow function</b>.</p>
+<p>The result shows that the first example returns two different objects (window and button), 
+and the 
+second example returns the window object twice, because the window object is the 
+"owner" of the function.</p>
+<div class="w3-example">
+<h3>Examples</h3>
+<p>With a regular function <b>this</b> represents the 
+object that <em>calls</em> the function:</p>
+<pre class="w3-code"><code class="language-javascript">// Regular Function:
+hello = function() {
+  document.getElementById("demo").innerHTML += this;
+}
+// The window object calls the function:
+window.addEventListener("load", hello);
+// A button object calls the function:
+document.getElementById("btn").addEventListener("click", hello);</code></pre>
+<p>
+
+</p>
+<p>With an arrow function <b>this</b> represents the 
+<em>owner</em> of the function:</p>
+<pre class="w3-code"><code class="language-javascript">// Arrow Function:
+hello = () =&gt; {
+  document.getElementById("demo").innerHTML += this;
+}
+// The window object calls the function:
+window.addEventListener("load", hello);
+// A button object calls the function:
+document.getElementById("btn").addEventListener("click", hello);</code></pre>
+<p>
+
+</p>
+</div>
+
+<hr>
+<h2>Arrow Functions in Methods</h2>
+<div class="ws-note">
+<h2>Note</h2>
+<p>With arrow functions there are no binding of
+<b>this</b>.</p>
+<p>They are not well suited for defining <b>object methods</b>.</p>
+</div>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <pre class="w3-code"><code class="language-javascript">const person = {
+  firstName: "John",
+  sayHello: () =&gt; {
+    return this.firstName;
+  }
+};
+person.sayHello();</code></pre>
+
+
+</div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>The example above does not work as expected because <b>this</b>does not refer to the <b>person object</b>.</p>
+</div>
+<p>Arrow functions can be useful inside methods when you want to keep the same
+ <b>this</b> value.<br>
+</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+  <pre class="w3-code"><code class="language-javascript">const person = {
+  firstName: "John",
+  sayHello: function() {
+    return () =&gt; this.firstName;
+  }
+};
+let hello = person.sayHello();
+hello();</code></pre>
+</div>
+
+<hr>
+<div class="w3-panel w3-pale-yellow w3-leftbar w3-border-yellow">
+<h2>Quiz</h2>
+<p>What does <b>this</b> refer to inside an object method?</p>
+</div>
+
+<hr>
+<h2>Common Mistakes</h2>
+<ul class="w3-ul">
+<li><h3>Arrow Functions as Object Methods</h3>
+Arrow functions do not bind their own <b>this</b>.
+</li>
+<li><h3>Assuming this Refers to an Object</h3>
+The value of <b>this</b> depends on how the function is called.
+</li>
+<li><h3>Forgetting Strict Mode Behavior</h3>
+In strict mode, <b>this</b> can be <b>undefined</b>.
+</li>
+</ul>
+
+<hr>
+<div class="ws-note">
+<h2>What's Next?</h2>
+<p>Now you understand how <b>this</b> works naturally.</p>
+<p>Are you ready to learn how to <b>control</b> it manually?</p>
+
+<p class="w3-large"><a href="js_function_call.html">The JavaScript call() Function</a></p>
+<p class="w3-large"><a href="js_function_apply.html">The JavaScript apply() Function</a></p>
+<p class="w3-large"><a href="js_function_bind.html">The JavaScript bind() Function</a></p>
+</div>
+<hr>
+
+
+<hr>
+
+
+<hr>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_function_advanced.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_function_call.html">Next ❯</a>
+</div>
+
+

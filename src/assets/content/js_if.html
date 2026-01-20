@@ -1,0 +1,89 @@
+
+      
+
+<h1>JavaScript if</h1>
+
+<!--start-->
+<div class="ws-info">
+<h2>The JavaScript if Statement</h2>
+<p>Use the JavaScript if statement to execute a block of code <b>when a condition is true</b>.</p>
+</div>
+<!--start-->
+<h2>Syntax</h2>
+<pre class="w3-code"><code class="language-javascript"><div> if (<i>condition</i>) {
+  //<em>  block of code to be executed if the condition is true
+</em>} </div></code></pre>
+
+<div class="w3-panel ws-note">
+<p>Note that <code class="w3-codespan">if</code> is in lowercase letters. Uppercase letters (If or IF) will generate a JavaScript error.</p>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Make a "Good day" greeting if the hour is less than 
+18:00:</p>
+<pre class="w3-code"><code class="language-javascript">if (hour &lt; 18) {
+  greeting = "Good day";
+}</code></pre>
+<p>The result of greeting will be:</p>
+
+
+</div>
+<!--stop-->
+
+<div class="w3-example">
+<h3>Examples</h3>
+<pre class="w3-code"><code class="language-javascript">let age = 18;
+let text = "You can Not drive";
+if (age &gt;= 18) {
+  text = "You can drive");
+}</code></pre>
+
+<pre class="w3-code"><code class="language-javascript">let age = 16;
+let text = "You can Not drive";
+if (age &gt;= 18) {
+  text = "You can drive");
+}</code></pre>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>Nested if</h2>
+<p>You can use an <code class="w3-codespan">if</code> statement inside another
+<code class="w3-codespan">if</code> statement:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let age = 16;
+let country = "USA";
+let text = "You can Not drive!";
+if (country == "USA") {
+  if (age &gt;= 16) {
+    text = "You can drive!";
+  }
+}</code></pre>
+
+</div>
+<p>Nested if statements can make your code more complex.</p>
+<p>A better solution is to use the logical AND operator:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let age = 16;
+let country = "USA";
+let text = "You can Not drive!";
+if (country == "USA" &amp;&amp; age &gt;= 16) {
+  text = "You can drive!";
+}</code></pre>
+
+</div>
+
+<hr>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_conditionals.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_if_else.html">Next ❯</a>
+</div>
+
+

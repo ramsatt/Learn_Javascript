@@ -1,0 +1,240 @@
+
+      
+
+<h1>JavaScript Iterators</h1>
+
+<!--start-->
+
+<div class="ws-info">
+<h2>The Iterator Object</h2>
+<p>An <b>Iterator</b> is an object that provides a standard way to access elements <b>sequentially</b>.</p>
+<p>An Iterator must adheres to the <b>Iterator Protocol</b>: It must have a <b>next()</b> method.</p>
+</div>
+
+<hr>
+<h2>The next() Method</h2>
+<p>The <b>next()</b> method returns an object with two properties:</p>
+<ul>
+<li>The <b>value</b> property holds the <b>next value</b> in the iteration sequence.</li>
+<li>The <b>done</b> property returns <code class="w3-codespan">false</code> if there are more elements to iterate over,
+otherwise it returns <code class="w3-codespan">true</code>.</li>
+</ul>
+
+<hr>
+<h2>The For Of Loop</h2>
+<p>The JavaScript <code class="w3-codespan">for..of</code> statement loops 
+through the elements of an iterable object.</p>
+<div class="w3-example">
+ <h3>Syntax</h3>
+<pre class="w3-code"><code class="language-javascript">for (variable of iterable) {
+  // <i>code block to be executed</i>
+}</code></pre>
+</div>
+<div class="ws-note">
+<h2>Note</h2>
+<p>Technically, iterables must implement the <code class="w3-codespan">Symbol.iterator</code> method.</p>
+<p>In JavaScript the following are iterables:</p>
+<ul>
+<li>Strings</li>
+<li>Arrays</li>
+<li>Typed Arrays</li>
+<li>Sets</li>
+<li>Maps</li>
+</ul>
+<p>Because their prototype objects have a
+<code class="w3-codespan">Symbol.iterator</code> method:</p>
+</div>
+
+<p>Iterators provide a controlled way to work with data sequences, enabling custom iteration logic
+for various data structures.</p>
+<p>They are particularly useful for handling streams of data,
+lazy computation of values, and building custom data structures with defined iteration behaviors.</p>
+
+<hr>
+<h2>Helper Functions</h2>
+<p>JavaScript 2025 (ECMAScript 2025) officially approved a set of new Iterator Helper methods that
+significantly enhance the functionality of iterators in JavaScript.</p>
+<p>The methods provide a more functional and efficient way to work with iterable objects, including generators,
+by allowing direct manipulation and transformation without first converting them to arrays:</p>
+
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Function</th><th>Description</th></tr>
+<tr><td>drop()</td><td>Returns an iterator that skips a specified number of elements before yielding the rest</td></tr>
+<tr><td>every()</td><td>Returns <code class="w3-codespan">true</code> if all elements satisfy a test function</td></tr>
+<tr><td>filter()</td><td>Returns an iterator containing elements that satisfy a filter function</td></tr>
+<tr><td>find()</td><td>Returns the first element that satisfies a test function</td></tr>
+<tr><td>flatMap()</td><td>Returns an iterator by mapping each element and then flattening the results</td></tr>
+<tr><td>forEach()</td><td>Executes a function once for each element in the iterator.</td></tr>
+<tr><td>from()</td><td>creates an iterator object from an iterable</td></tr>
+<tr><td>map()</td><td>Returns an iterator with all elements transformed by a map function</td></tr>
+<tr><td>reduce()</td><td>Applies a reducer function against each element to reduce it to a single value</td></tr>
+<tr><td>some()</td><td>Returns <code class="w3-codespan">true</code> if at least one element satisfy a test function</td></tr>
+<tr><td>take()</td><td>Returns an iterator that yields a specified number of elements</td></tr>
+</tbody></table></div>
+
+<hr>
+<h2>The Iterator.from() Method</h2>
+<p>The <code class="w3-codespan">Iterator.from()</code>
+creates an iterator object from an existing iterable or iterator object.</p> 
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an iterator
+const myIterator = Iterator.from([1, 2, 3]);
+// Iterate over the elements
+let text = "";
+for (const x of myIterator) {
+  text += x;
+}</code></pre>
+
+</div>
+
+<hr>
+<h2>The filter() Method</h2>
+<p>The <code class="w3-codespan">filter()</code> method
+returns a new iterator containing elements that satisfy a filter function.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an iterator
+const myIterator = Iterator.from([32, 33, 16, 40]);
+// Filter the iterator
+const filteredIterator = myIterator.filter(x =&gt; x &gt; 18);</code></pre>
+
+</div>
+
+<hr>
+<h2>The map() Method</h2>
+<p>The <code class="w3-codespan">map()</code> method
+returns a new iterator with all elements transformed by a map function.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an iterator
+const myIterator = Iterator.from("123456789");
+// Now you can use the map method
+const mappedIterator = myIterator.map(x =&gt; x * 2);</code></pre>
+
+</div>
+
+<hr>
+<h2>The flatMap() Method</h2>
+<p>The <code class="w3-codespan">flatMap()</code> method
+returns a new iterator by mapping each element and then flattening
+the results into a single iterator.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an iterator
+const myIterator = Iterator.from([1, 2, 3, 4, 5, 6]);
+// Map the Iterator
+const mappedIterator = myIterator.flatMap(x =&gt; [x, x * 10]);</code></pre>
+
+</div>
+
+<hr>
+<h2>The take() Method</h2>
+<p>The <code class="w3-codespan">take()</code> method
+returns a new iterator that yields at most a specified number of elements.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const myIterator = Iterator.from([1, 2, 3, 4, 5, 6]);
+// Take the first five elements
+const firstFive = myIterator.take(5);</code></pre>
+
+</div>
+
+<hr>
+<h2>The drop() Method</h2>
+<p>The <code class="w3-codespan">drop()</code> method
+returns a new iterator that skips a specified number of elements before yielding the rest.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an iterator
+const myIterator = Iterator.from([1, 2, 3, 4, 5, 6]);
+// Remove the first five
+const firstFive = myIterator.drop(5);</code></pre>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>The find() Method</h2>
+<p>The <code class="w3-codespan">find(fn)</code> method
+returns the first element that satisfies a test function.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an iterator
+const myIterator = Iterator.from([3, 10, 18, 30, 20]);
+// Find first greater than 18
+let result = myIterator.find(x =&gt; x &gt; 18);</code></pre>
+
+</div>
+
+<hr>
+<h2>The reduce() Method</h2>
+<p>The <code class="w3-codespan">reduce()</code> method
+applies a reducer function against an accumulator and each element to reduce it to a single value.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an Iterator
+const myIterator = Iterator.from([175, 50, 25]);
+// Reduce the Iterator
+let result = myIterator.reduce(myFunc);</code></pre>
+
+</div>
+
+<hr>
+<h2>The every() Method</h2>
+<p>The <code class="w3-codespan">every(fn)</code> method
+returns <code class="w3-codespan">true</code> if all elements in the iterator satisfy the provided test function.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an Iterator
+const myIterator = Iterator.from("123456789");
+// Is every Element greater than 7?
+let result = myIterator.every(x =&gt; x &gt; 7);</code></pre>
+
+</div>
+
+<hr>
+<h2>The some() Method</h2>
+<p>The <code class="w3-codespan">some()</code> method
+returns <code class="w3-codespan">true</code> if at least one element in the iterator satisfies the provided test function.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an Iterator
+const myIterator = Iterator.from("123456789");
+// Is some Element greater than 7?
+let result = myIterator.some(x =&gt; x &gt; 7);</code></pre>
+
+</div>
+
+<hr>
+<h2>The forEach() Method</h2>
+<p>The <code class="w3-codespan">forEach()</code> method
+executes a provided function once for each element in the iterator.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an iterator
+const myIterator = Iterator.from("123456789");
+// Iterate over all elements
+let text = "";
+myIterator.forEach (x =&gt; text += x);</code></pre>
+
+</div>
+<div class="ws-note">
+<h2>Note</h2>
+<p>Iterators bring the <b>iteration concept</b> directly into the core JavaScript language
+and provide a mechanism for customizing the behavior of for...of.</p>
+</div>
+
+<!--stop-->
+
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_iterables.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_generators.html">Next ❯</a>
+</div>
+
+

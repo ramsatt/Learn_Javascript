@@ -1,0 +1,139 @@
+
+      
+
+<h1>ECMAScript 2021</h1>
+
+
+<hr>
+<h2>New Features in JavaScript 2021</h2>
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Feature</th><th>Description</th><th></th><th></th></tr>
+<tr><td><a href="js_2021d41d.html?#mark_promise_any">Promise.any()</a></td>
+<td>Takes promises as input and returns a single promise</td><td></td></tr>
+<tr><td><a href="js_2021d41d.html?#mark_string_replaceall">String replaceAll()</a></td>
+<td>Replaces all occurrences of a substring in a string</td>
+<td></td><td></td></tr>
+<tr><td><a href="js_2021d41d.html?#mark_numeric_separators">Numeric Separator</a></td>
+<td>New numeric separator (_) makes numbers more readable</td><td></td></tr>
+</tbody></table></div>
+</div>
+
+<hr>
+<h2>Browser Support</h2>
+<p><b>ECMAScript 2021</b> is supported in all modern browsers since <b>April 2021</b>:</p>
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr>
+    <th class="bsChrome" title="Chrome"></th>
+    <th class="bsEdge" title="Edge"></th>
+    <th class="bsFirefox" title="Firefox"></th>
+    <th class="bsSafari" title="Safari"></th>
+    <th class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>85</td>    
+    <td>Edge<br>85</td>
+    <td>Firefox<br>79</td>
+    <td>Safari<br>14.1</td>
+    <td>Opera<br>71</td>
+  </tr>
+  <tr>
+    <td>Aug 2020</td>
+    <td>Aug 2020</td>    
+    <td>Jul 2020</td>
+    <td>Apr 2021</td>
+    <td>Sep 2020</td>
+  </tr>
+</tbody></table></div>
+</div>
+
+<hr>
+
+<a id="mark_promise_any"></a>
+<h2>JavaScript Promise.any()</h2>
+<p>Promise.any() is a static method in JavaScript that takes an iterable of Promises as input and returns
+a single Promise.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create a Promise
+const myPromise1 = new Promise((resolve, reject) =&gt; {
+  setTimeout(resolve, 200, "King");
+});
+// Create another Promise
+const myPromise2 = new Promise((resolve, reject) =&gt; {
+  setTimeout(resolve, 100, "Queen");
+});
+// Run when any promise fulfill
+Promise.any([myPromise1, myPromise2]).then((x) =&gt; {
+  myDisplay(x);
+});</code></pre>
+
+</div>
+
+<hr>
+<a id="mark_string_replaceall"></a>
+<h2>JavaScript String ReplaceAll()</h2>
+<p>ES2021 introduced the string method <code class="w3-codespan">replaceAll()</code>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">text = text.replaceAll("Cats","Dogs");
+text = text.replaceAll("cats","dogs");</code></pre>
+
+</div>
+<p>The <code class="w3-codespan">replaceAll()</code> method allows you to specify a
+regular expression instead of a string to be replaced.</p>
+<p>If the parameter is a regular expression, the global flag (g) must be set, otherwise
+a TypeError is thrown.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">text = text.replaceAll(/Cats/g,"Dogs");
+text = text.replaceAll(/cats/g,"dogs");</code></pre>
+
+</div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p><a href="js_2020.html">ES2020</a> introduced the string method matchAll().</p>
+</div>
+<hr>
+
+<hr>
+<a id="mark_numeric_separators"></a>
+<h2>JavaScript Numeric Separator (_)</h2>
+<p>ES2021 intoduced the numeric separator (_) to make numbers more readable:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const num = 1_000_000_000;</code></pre>
+
+</div>
+<p>The numeric separator is only for visual use.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const num1 = 1_000_000_000;
+const num2 = 1000000000;
+(num1 === num2);</code></pre>
+
+</div>
+
+<p>The numeric separator can be placed anywhere in a number:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const num1 = 1_2_3_4_5;</code></pre>
+
+</div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>The numeric separator is not allowed at the beginning or at the end of a number.</p>
+<p>In JavaScript only variables can start with _.</p>
+</div>
+
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_2022.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_2020.html">Next ❯</a>
+</div>
+
+

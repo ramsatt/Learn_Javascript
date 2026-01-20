@@ -1,0 +1,180 @@
+
+      
+
+<h1>RegExp Quantifiers</h1>
+
+
+<!--start-->
+<div class="ws-info">
+<h2>RegExp Quantifiers</h2>
+<p><strong>Quantifiers</strong> define the numbers of characters or expressions to match.</p>
+<pre class="w3-code"><code class="language-javascript">// Match at least one zero
+const pattern = /0+/;</code></pre>
+</div>
+
+<h2>JavaScript RexExp Quantifiers</h2>
+<h4>Revised July 2025</h4>
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate">
+<tbody><tr></tr>
+<tr>
+  <th>Code</th>
+  <th>Description</th>
+</tr>
+<tr>
+  <td>x+</td>
+  <td>Matches at least one x</td>
+</tr>
+<tr>
+  <td>x*</td>
+  <td>Matches zero or more occurrences of x</td>
+</tr>
+<tr>
+  <td>x?</td>
+  <td>Matches zero or one occurrences of x</td>
+</tr>
+<tr>
+  <td>x{n}</td>
+  <td>Matches n occurences of x</td>
+</tr>
+<tr>
+  <td>x{n,m}</td>
+  <td>Matches from n to m occurences of x</td>
+</tr>
+<tr>
+  <td>x{n,}</td>
+  <td>Matches n or more occurences of x</td>
+</tr>
+</tbody></table></div>
+</div>
+
+<hr>
+<h2>RegExp + Quantifier</h2>
+<p><b><i>x</i></b>+ matches matches at least one <i>x</i>.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>A global search for at least one "o":</p>
+<pre class="w3-code"><code class="language-javascript">let text = "Hellooo World! Hello W3Schools!";
+const pattern = /lo+/g;
+let result = text.match(pattern);</code></pre>
+<p>
+</p>
+</div>
+
+<hr>
+<h2>RegExp * Quantifier</h2>
+<p><b><i>x</i></b>* matches zero or more occurrences of <i>x</i>.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>A global search for an "l", followed by zero or more "o" characters:</p>
+<pre class="w3-code"><code class="language-javascript">let text = "Hellooo World! Hello W3Schools!";
+const pattern = /lo*/g;
+let result = text.match(pattern);</code></pre>
+<p>
+</p>
+</div>
+
+<hr>
+<h2>RegExp ? Quantifier</h2>
+<p><b><i>x</i>?</b> matches zero or one occurrences of x.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>A global search for "1", followed by zero or more "0" characters:</p>
+<pre class="w3-code"><code class="language-javascript">let text = "1, 100 or 1000?";
+const pattern = /10?/g;
+let result = text.match(pattern);</code></pre>
+<p>
+</p>
+</div>
+<!--stop-->
+
+<hr>
+
+<hr>
+
+<h2>RegExp {n} Quantifier</h2>
+<p><b><i>x</i>{<i>n</i>}</b> matches <i>n</i> occurences of <i>x</i>.</p>
+<div class="w3-example">
+<p>A global search for a string that contains a sequence of four digits:</p>
+<pre class="w3-code"><code class="language-javascript">let text = "100, 1000 or 10000?";
+let pattern = /\d{4}/g;
+let result = text.match(pattern);</code></pre>
+
+</div>
+
+<hr>
+<h2>RegExp {n,m} Quantifier</h2>
+<p><b><i>x</i>{<i>n</i>,<i>m</i>}</b> matches from <i>n</i> to <i>m</i> occurences of <i>x</i>.</p>
+<div class="w3-example">
+<p>A global search for a substring that contains a sequence of three to four digits:</p>
+<pre class="w3-code"><code class="language-javascript">let text = "100, 1000 or 10000?";
+let pattern = /\d{3,4}/g;
+let result = text.match(pattern);</code></pre>
+
+</div>
+
+<hr>
+<h2>RegExp {n,} Quantifier</h2>
+<p><b><i>x</i>{<i>n</i>,}</b> matches <i>n</i> or more occurences of <i>x</i>.</p>
+<div class="w3-example">
+<p>A global search for a sequence of at least three digits:</p>
+<pre class="w3-code"><code class="language-javascript">let text = "100, 1000 or 10000?";
+let pattern = /\d{3,}/g;
+let result = text.match(pattern);</code></pre>
+
+</div>
+
+
+
+
+
+<hr>
+<h2>Regular Expression Methods</h2>
+<p>Regular Expression <b>Search</b> and <b>Replace</b> can be done with different methods.</p>
+<p>These are the most common:</p> 
+<h3>String Methods</h3>
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th width="160px">Method</th><th>Description</th> </tr>
+<tr><td><a href="../jsref/jsref_match.html">match(<i>regex</i>)</a></td>
+<td>Returns an Array of results</td></tr>
+<tr><td><a href="../jsref/jsref_string_matchall.html">matchAll(<i>regex</i>)</a></td>
+<td>Returns an Iterator of results</td></tr>
+<tr><td><a href="../jsref/jsref_replace.html">replace(<i>regex</i>)</a></td>
+<td>Returns a new String</td></tr>
+<tr><td><a href="../jsref/jsref_string_replaceall.html">replaceAll(<i>regex</i>)</a></td>
+<td>Returns a new String</td></tr>
+<tr><td><a href="../jsref/jsref_search.html">search(<i>regex</i>)</a></td>
+<td>Returns the index of the first match</td></tr>
+<tr><td><a href="../jsref/jsref_split.html">split(<i>regex</i>)</a></td>
+<td>Returns an Array of results</td></tr>
+</tbody></table></div>
+<h3>RegExp Methods</h3>
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th width="160px">Method</th><th>Description</th> </tr>
+<tr><td><a href="../jsref/jsref_regexp_exec.html"><i>regex</i>.exec()</a></td>
+<td>Returns an Iterator of results</td></tr>
+<tr><td><a href="../jsref/jsref_regexp_test.html"><i>regex</i>.test()</a></td>
+<td>Returns true or false</td></tr>
+</tbody></table></div>
+
+<hr>
+<div class="ws-note">
+<h2>See Also:</h2>
+<p class="w3-large"><a href="js_regexp.html">JavaScript RegExp Tutorial</a></p>
+<p class="w3-large"><a href="js_regexp_flags.html">JavaScript RegExp Flags</a></p>
+<p class="w3-large"><a href="js_regexp_characters.html">JavaScript RegExp Character Classes</a></p>
+<p class="w3-large"><a href="js_regexp_meta_characters.html">JavaScript RegExp Meta Characters</a></p>
+<p class="w3-large"><a href="js_regexp_assertions.html">JavaScript RegExp Assertions</a></p>
+<p class="w3-large"><a href="js_regexp_patterns.html">JavaScript RegExp Patterns</a></p>
+<p class="w3-large"><a href="js_regexp_objects.html">JavaScript RegExp Objects</a></p>
+<p class="w3-large"><a href="js_regexp_methods.html">JavaScript RegExp Methods</a></p>
+</div>
+<hr>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_regexp_assertions.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_regexp_patterns.html">Next ❯</a>
+</div>
+
+

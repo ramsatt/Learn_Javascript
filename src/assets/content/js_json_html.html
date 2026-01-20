@@ -1,0 +1,113 @@
+
+      
+
+<h1>JSON HTML</h1>
+
+<hr>
+<!--start-->
+<p class="intro">JSON can very easily be translated into JavaScript.</p>
+<p class="intro">JavaScript can be used to make HTML in your web pages.</p>
+<hr>
+<h2>HTML Table</h2>
+
+<p>Make an HTML table with data received as JSON:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const dbParam = JSON.stringify({table:"customers",limit:20});
+const xmlhttp = new XMLHttpRequest();
+xmlhttp.onload = function() {
+  myObj = JSON.parse(this.responseText);
+  let text = "&lt;table border='1'&gt;"
+  for (let x in myObj) {
+    text += "&lt;tr&gt;&lt;td&gt;" + myObj[x].name + "&lt;/td&gt;&lt;/tr&gt;";
+  }
+  text += "&lt;/table&gt;"
+  document.getElementById("demo").innerHTML = text;
+}
+xmlhttp.open("POST", "json_demo_html_table.php");
+xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+xmlhttp.send("x=" + dbParam);</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+
+<h2>Dynamic HTML Table</h2>
+<p>Make the HTML table based on the value of a drop down menu:
+
+<select id="myselect" onchange="change_myselect(this.value)">
+<option value="">Choose an option:</option>
+<option value="customers">Customers</option>
+<option value="products">Products</option>
+<option value="suppliers">Suppliers</option>
+</select>
+</p>
+<div id="demo"></div>
+
+
+
+<div class="w3-example">
+  <h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;select id="myselect" onchange="change_myselect(this.value)"&gt;
+  &lt;option value=""&gt;Choose an option:&lt;/option&gt;
+  &lt;option value="customers"&gt;Customers&lt;/option&gt;
+  &lt;option value="products"&gt;Products&lt;/option&gt;
+  &lt;option value="suppliers"&gt;Suppliers&lt;/option&gt;
+&lt;/select&gt;
+&lt;script&gt;
+function change_myselect(sel) {
+  const dbParam = JSON.stringify({table:sel,limit:20});
+  const xmlhttp = new XMLHttpRequest();
+  xmlhttp.onload = function() {
+    const myObj = JSON.parse(this.responseText);
+    let text = "&lt;table border='1'&gt;"
+    for (let x in myObj) {
+      text += "&lt;tr&gt;&lt;td&gt;" + myObj[x].name + "&lt;/td&gt;&lt;/tr&gt;";
+    }
+    text += "&lt;/table&gt;"
+    document.getElementById("demo").innerHTML = text;
+  }
+  xmlhttp.open("POST", "json_demo_html_table.php");
+  xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xmlhttp.send("x=" + dbParam);
+}
+&lt;/script&gt;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>HTML Drop Down List</h2>
+
+<p>Make an HTML drop down list with data received as JSON:</p>
+<div class="w3-example">
+  <h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const dbParam = JSON.stringify({table:"customers",limit:20});
+const xmlhttp = new XMLHttpRequest();
+xmlhttp.onload = function() {
+  const myObj = JSON.parse(this.responseText);
+  let text = "&lt;select&gt;"
+  for (let x in myObj) {
+    text += "&lt;option&gt;" + myObj[x].name + "&lt;/option&gt;";
+  }
+  text += "&lt;/select&gt;"
+  document.getElementById("demo").innerHTML = text;
+  }
+}
+xmlhttp.open("POST", "json_demo_html_table.php", true);
+xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+xmlhttp.send("x=" + dbParam);</code></pre>
+
+</div>
+<!--stop-->
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_json_php.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_json_jsonp.html">Next ❯</a>
+
+</div>
+
+

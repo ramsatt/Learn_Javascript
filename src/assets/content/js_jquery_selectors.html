@@ -1,0 +1,91 @@
+
+      
+
+<h1>JavaScript / jQuery DOM Selectors</h1>
+
+<hr>
+<h2>jQuery vs JavaScript</h2>
+<p><a href="../jquery/default.html">jQuery</a> was created in 2006 by John Resig. 
+It was designed to handle Browser Incompatibilities and to simplify HTML DOM Manipulation, Event Handling, Animations, and Ajax.</p>
+For more than 10 years, jQuery has been the most popular JavaScript library in the world.
+<p>However, after JavaScript <a href="js_es5.html">Version 5</a> (2009), most of the jQuery utilities can be solved with a few lines of standard JavaScript:</p>
+<hr>
+
+<h2>Finding HTML Element by Id</h2>
+<p>Return the element with id="id01":</p>
+<div class="w3-example">
+<h3>jQuery</h3>
+<pre class="w3-code"><code class="language-javascript">myElement = $("#id01");</code></pre>
+<p>
+
+</p>
+</div>
+<div class="w3-example">
+<h3>JavaScript</h3>
+<pre class="w3-code"><code class="language-javascript">myElement = document.getElementById("id01");</code></pre>
+<p>
+
+</p>
+</div>
+<hr>
+<h2>Finding HTML Elements by Tag Name</h2>
+<p>Return all &lt;p&gt; elements:</p>
+<div class="w3-example">
+<h3>jQuery</h3>
+<pre class="w3-code"><code class="language-javascript">myElements = $("p");</code></pre>
+<p>
+
+</p>
+</div>
+<div class="w3-example">
+<h3>JavaScript</h3>
+<pre class="w3-code"><code class="language-javascript">myElements = document.getElementsByTagName("p");</code></pre>
+<p>
+
+</p>
+</div>
+<hr>
+
+<hr>
+<h2>Finding HTML Elements by Class Name</h2>
+<p>Return all elements with class="intro".</p>
+<div class="w3-example">
+<h3>jQuery</h3>
+<pre class="w3-code"><code class="language-javascript">myElements = $(".intro");</code></pre>
+<p>
+
+</p>
+</div>
+<div class="w3-example">
+<h3>JavaScript</h3>
+<pre class="w3-code"><code class="language-javascript">myElements = document.getElementsByClassName("intro");</code></pre>
+<p>
+
+</p>
+</div>
+<hr>
+<h2>Finding HTML Elements by CSS Selectors</h2>
+
+<p>Return a list of all &lt;p&gt; elements with class="intro".</p>
+<div class="w3-example">
+<h3>jQuery</h3>
+<pre class="w3-code"><code class="language-javascript">myElements = $("p.intro");</code></pre>
+<p>
+
+</p>
+</div>
+<div class="w3-example">
+<h3>JavaScript</h3>
+<pre class="w3-code"><code class="language-javascript">myElements = document.querySelectorAll("p.intro");</code></pre>
+<p>
+
+</p>
+</div>
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_json_jsonp.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_jquery_elements.html">Next ❯</a>
+</div>
+
+
+

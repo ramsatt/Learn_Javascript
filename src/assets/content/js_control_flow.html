@@ -1,0 +1,197 @@
+
+      
+
+<h1>JavaScript Control Flow</h1>
+
+<!--start-->
+<div class="ws-info">
+<p><b>Control Flow</b> is the order in which statements are executed in a program.</p>
+<p>By default, JavaScript runs code <b>from top to bottom</b> and left to right.</p>
+<p>Control flow statements let you <b>change that order</b>, based on conditions, loops or keywords.</p>
+</div>
+
+<h2>Default Flow</h2>
+<p>Default flow executes code <b>sequentially</b>
+(from top to bottom / from left to right).</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Flow sequentially: let x → let y → let z.</p>
+<pre class="w3-code"><code class="language-javascript">let x = 5;
+let y = 6;
+let z = x + y;</code></pre>
+
+</div>
+
+<hr>
+<h2>Conditional Control Flow</h2>
+<p>Conditions let you <b>make decisions</b> using:</p>
+<ul>
+<li>if</li>
+<li>if...else</li>
+<li>switch</li>
+<li>ternary (? :)</li>
+</ul>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Flow branches depending on conditions:</p>
+<pre class="w3-code"><code class="language-javascript">let text = "Unknown";
+if (age &gt;= 18) {
+  text = "Adult";
+} else {
+  text = "Minor";
+}</code></pre>
+
+</div>
+
+<hr>
+<h2>Loops (Repetition Control Flow)</h2>
+<p>Loops let you <b>run code multiple times</b> using:
+</p><ul>
+<li>for</li>
+<li>while</li>
+<li>do...while</li>
+</ul>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Repeat flow until a condition (i &lt; 5) is false.</p>
+<pre class="w3-code"><code class="language-javascript">for (let i = 0; i &lt; 5; i++) {
+  text += "The number is " + i + "&lt;br&gt;";
+}</code></pre>
+
+</div>
+
+<hr>
+<h2>Jump Statements</h2>
+<p>Jump statements let you <b>change the flow</b> abruptly using:</p>
+<ul>
+<li>break - exits a loop or switch</li>
+<li>continue - skips the current loop iteration</li>
+<li>return - exits from a function</li>
+<li>throw - jumps to error handling</li>
+</ul>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Terminate (break) the loop when the loop counter (i) is 3:</p>
+<pre class="w3-code"><code class="language-javascript">for (let i = 0; i &lt; 10; i++) {
+  if (i === 3) { break; }
+  text += "The number is " + i + "&lt;br&gt;";
+}</code></pre>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>Function Flow</h2>
+<p>Functions are <b>callable</b> and reusable <b>code blocks</b>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Function to compute the product of two numbers:</p>
+<pre class="w3-code"><code class="language-javascript">function myFunction(p1, p2) {
+  return p1 * p2;
+}</code></pre>
+
+</div>
+
+<hr>
+<h2>JavaScript Is Single-Threaded</h2>
+<p>JavaScript runs on a <b>single thread</b>.</p>
+<p>It can only do <b>one thing at a time</b>.</p>
+<p>Every task has to wait for the previous one to finish.</p>
+<p>This can freeze an application during slow operations (like file requests).</p>
+
+<hr>
+<h2>Asynchronus Flow</h2>
+<p><b>JavaScript Asynchronous Flow</b> refers to how JavaScript handles tasks that take time to
+complete, like reading files, or waiting for user input,
+without blocking the execution of other code.</p>
+
+<p>To prevent blocking, JavaScript can use <b>asynchronous programming</b>.</p>
+<p>This allows certain operations to run in the background,
+and their results are handled later, when they are ready.</p>
+
+<hr>
+<h2>Asynchronus Patterns</h2>
+<ul>
+<li>Events</li>
+<li>Callbacks</li>
+<li>Promises</li>
+<li>Async/Await</li>
+</ul>
+<hr>
+<h3>JavaScript Events</h3>
+<p><b>Events</b> are actions or occurrences that happen in the browser,
+often triggered by user interactions (like clicks, keypresses, or form submissions)
+or by the browser itself (like page loading or resizing).</p>
+<div class="w3-example">
+<h3>Example (Events)</h3>
+<pre class="w3-code"><code class="language-html">&lt;button onclick="displayDate()"&gt;The time is?&lt;/button&gt;</code></pre>
+
+</div>
+
+<h3>JavaScript Callbacks</h3>
+<p>A <b>callback</b> is a function that is passed as an argument to another function,
+and is intended to be executed at a later point in time, typically
+when a specific event occurs or an asynchronous operation completes.</p>
+<p>In the example below, <code class="w3-codespan">myDisplayer</code> is a called a <b>callback function</b>.
+</p><p>It is passed to <code class="w3-codespan">myCalculator()</code> as an <b>argument</b>.</p>
+
+<div class="w3-example">
+<h3>Example (Callbacks)</h3>
+<pre class="w3-code"><code class="language-javascript">function myDisplayer(some) {
+  document.getElementById("demo").innerHTML = some;
+}
+function myCalculator(num1, num2, myCallback) {
+  let sum = num1 + num2;
+  myCallback(sum);
+}
+myCalculator(5, 5, myDisplayer);</code></pre>
+
+</div>
+
+<h3>JavaScript Promises</h3> 
+<p><b>Promises</b> represent a value that may be available now, later, or never.</p>
+<div class="w3-example">
+<h3>Example (Promises)</h3>
+<pre class="w3-code"><code class="language-javascript">fetch("https://api.example.com")
+  then(response =&gt; response.json())
+  .then(data =&gt; console.log(data))
+  .catch(error =&gt; console.error(error));</code></pre>
+</div>
+
+<h3>JavaScript Async/Await</h3>
+<p><b>Async/Await</b> is a modern, cleaner way to handle asynchronous code.</p>
+<p>It makes asynchronous code look synchronous and easier to read.</p>
+
+<div class="w3-example">
+<h3>Example (Async/Await)</h3>
+<pre class="w3-code"><code class="language-javascript">async function getData() {
+  try {
+    const res = await fetch("https://api.example.com");
+    const data = await res.json();
+    console.log(data);
+  } catch (err) {
+  console.error(err);
+  }
+}</code></pre>
+</div>
+<hr>
+
+<h2>Asynchronous Summary</h2>
+<div class="table-responsive-wrapper"><table class="w3-table-all">
+<tbody><tr><th>Flow Concept</th><th>Description</th></tr>
+<tr><th>Synchronus</th><td>Executes line by line, blocking the next task.</td></tr>
+<tr><th>Asynchonus</th><td>Allows other code to run while waiting for tasks to finish.</td></tr>
+<tr><th>Events</th><td>Stores callback function waiting to be executed.</td></tr>
+<tr><th>Promises</th><td>Tools to handle asynchronous operations cleanly.</td></tr>
+<tr><th>Async/Await</th><td>A modern, cleaner way to handle asynchronous code.</td></tr>
+</tbody></table></div>
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_class_static.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_callback.html">Next ❯</a>
+</div>
+
+

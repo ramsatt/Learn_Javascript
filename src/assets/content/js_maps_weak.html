@@ -1,0 +1,198 @@
+
+      
+
+<h1>JavaScript WeakMap</h1>
+
+<!--start-->
+<div class="ws-info">
+<h2>The WeakMap Object</h2>
+<p>A JavaScript <b>WeakMap</b> is a collection of key/value pairs where the 
+<b>keys must be objects</b>.</p>
+<p>A WeakMap holds <b>weak references</b> to its keys.</p>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create a WeakMap
+let myMap = new WeakMap();
+// Create an Object
+let myObj = {fname:"John", lname:"Doe"};
+// Set a WeakMap value
+myMap.set(myObj, "player");
+// Get the WeakMap value
+let type = myMap.get(myObj);</code></pre>
+
+</div>
+
+<hr>
+<h2>Garbage Collection</h2>
+<p>JavaScript employs a memory management mechanism known as <b>Garbage Collection</b>.</p>
+<p>The primary functions are:
+</p><ul>
+<li>Ensuring efficient use of memory resources</li>
+<li>Reclaim memory occupied by variables that are no longer in use</li>
+<li>Preventing memory leaks</li>
+</ul>
+
+<hr>
+<h2>Weak References</h2>
+<p>Unlike a regular Map, a WeakMap does not prevent its keys from being garbage collected.</p>
+<p>If a key (an object) has no references to it in a program, it becomes eligible for garbage collection.</p>
+<p>When the key is garbage collected, its key-value pair is removed from the WeakMap.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let myMap = new WeakMap();
+let myObj = {fname:"John", lname:"Doe"};
+myMap.set(myObj, "secret");
+myObj = null;
+// now myObj (and its values) in myMap can be garbage collected</code></pre>
+</div>
+
+<hr>
+<h2>Keys Must Be Objects</h2>
+<p>Primitive values cannot be used as keys in a WeakMap.</p>
+<p>The <b>keys must be objects</b> or non-registered symbols.</p>
+<p>This restriction is tied to the garbage collection mechanism;
+primitives are not garbage collected in the same way as objects.</p>
+
+<hr>
+<h2>Tracking Objects</h2>
+<p>The entries in a WeakMap are weakly held: if the object key becomes unreachable,
+its mapping is removed automatically.</p>
+<p>This is perfect for tracking data about objects without preventing garbage collection.</p>
+
+<div class="w3-example">
+<h3>Tracking Visitors</h3>
+
+<pre class="w3-code"><code class="language-javascript">let text = "";
+// Create a WeakMap to store visit counts
+const visitsCount = new WeakMap();
+// Create Visitor Objects
+const John = {name:"John", age:40};
+const Paul = {name:"Paul", age:41};
+const Ringo = {name:"Ringo", age:42};
+const George = {name:"George", age:43};
+// Track visits
+track(Paul);
+track(Ringo);
+track(Paul);
+track(Paul);
+track(John);
+// Function to track visitors
+function track(visitor) {
+  let count = visitsCount.get(visitor) || 0;
+  count++;
+  visitsCount.set(visitor, count);
+  text += visitor.name + ", age " + visitor.age + ", has visited " + count + " time(s).&lt;br&gt;";
+}</code></pre>
+
+</div>
+<hr>
+<h2>Automatic Cleanup</h2>
+<p>If you remove all references to a visitor object:</p>
+<div class="w3-example">
+<h3>Tracking Visitors:</h3>
+<pre class="w3-code"><code class="language-javascript">John = null;
+// The entry for John is now removed from the WeakMap (persons)</code></pre>
+</div>
+
+<hr>
+<h2>Not Iterable</h2>
+<p>WeakMaps are <b>not enumerable</b>.</p>
+<p>You <b>cannot iterate</b> over the keys and values with for loops, forEach(), or keys().</p>
+<p>You cannot access the size.</p>
+
+<hr>
+<h2>Limited Methods</h2>
+<p>WeakMap provides a limited set of methods:</p>
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr><td>new WeakMap()</td><td>Creates a new WeakMap object</td></tr>
+<tr><td>get(key)</td><td>Gets the value for a key in a WeakMap</td></tr>
+<tr><td>set(key, value)</td><td>Sets the value for a key in a WeakMap</td></tr>
+<tr><td>delete(key)</td><td>Removes an element specified by a key</td></tr>
+<tr><td>has(key)</td><td>Returns true if a key exists in a WeakMap</td></tr>
+</tbody></table></div>
+
+<hr>
+<h2>Weak Map Secret Data</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create WeakMap
+const myMap = new WeakMap();
+// Private Fields Simulation
+class User {
+  constructor(name) {
+  myMap.set(this, {secret:"hidden data"});
+  this.name = name;
+ }
+ getSecret() {
+  return myMap.get(this).secret;
+  }
+}
+const user1 = new User("John");
+secret = user1.getSecret();</code></pre>
+
+</div>
+<h3>Example Explained</h3>
+<p>A WeakMap does not allow iteration.</p>
+<p>Outside code can not "discover" what objects are stored inside a WeakMap.</p>
+<p>To get the secret, you need the <b>this</b> reference that was used in the constructor.</p>
+<p>External code has access to user1 and myMap, bot not to the <b>this</b> reference inside myMap,
+unless you explicitly expose it, like via getSecret(), the secret value is unreachable.</p>
+
+<hr>
+<h2>Privacy</h2>
+<p>WeakMap was intentionally designed for privacy:
+you can set, get, has, and delete using an object key, but not inspect what is inside.</p>
+<p>This was a great tool for simulating private properties in JavaScript classes
+(before #private fields were added to the language).</p>
+<hr>
+<div class="ws-note">
+<h2>Learn More:</h2>
+<p class="w3-large"><a href="js_maps.html">JavaScript Maps</a></p>
+<p class="w3-large"><a href="js_map_methods.html">JavaScript Map Methods</a></p>
+<p class="w3-large"><a href="js_map_reference.html">JavaScript Map Reference</a></p>
+<p class="w3-large"><a href="js_sets.html">JavaScript Sets</a></p>
+</div>
+
+<hr>
+<h2>Browser Support</h2>
+<p><code class="w3-codespan">WeakMap</code> is an <a href="js_es6.html">ES6  feature</a>.</p>
+<p>ES6 is fully supported in all modern browsers since June 2017:</p>
+
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr style="height:50px">
+    <th style="width:20%;" class="bsChrome" title="Chrome"></th>
+    <th style="width:20%;" class="bsEdge" title="Edge"></th>
+    <th style="width:20%;" class="bsFirefox" title="Firefox"></th>
+    <th style="width:20%;" class="bsSafari" title="Safari"></th>
+    <th style="width:19.9%;" class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>51</td>
+    <td>Edge<br>15</td>
+    <td>Firefox<br>54</td>
+    <td>Safari<br>10</td>
+    <td>Opera<br>38</td>
+  </tr>
+  <tr>
+    <td>May 2016</td>
+    <td>Apr 2017</td>
+    <td>Jun 2017</td>
+    <td>Sep 2016</td>
+    <td>Jun 2016</td>
+  </tr>
+</tbody></table></div>
+</div>
+
+
+<br><br>
+
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_map_methods.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_map_reference.html">Next ❯</a>
+</div>
+
+

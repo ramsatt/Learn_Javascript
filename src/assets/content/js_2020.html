@@ -1,0 +1,371 @@
+
+      
+
+<h1>ECMAScript 2020</h1>
+
+
+<hr>
+<h2>New Features in JavaScript 2020</h2>
+
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Feature</th><th>Description</th></tr>
+
+<tr><td><a href="js_2020d41d.html?#mark_bigint">BigInt</a></td>
+<td>Stores values too big to store in a JavaScript number</td></tr>
+
+<tr><td><a href="js_2020d41d.html?#mark_string_matchall">String matchAll()</a></td>
+<td>Searchs for all occurrences of a string in a string</td></tr>
+
+<tr><td><a href="js_2020d41d.html?#mark_promise_allsettled">Promise.allSettled()</a></td>
+<td>Takes promises as input and returns a single promise</td></tr>
+
+<tr><td><a href="js_2020d41d.html?#mark_dynamic_import">Dynamic Import</a></td>
+<td>Loads JavaScript modules at runtime</td></tr>
+
+<tr><td><a href="js_2020d41d.html?#mark_globalthis">globalThis</a></td>
+<td>Refers to the global object independent of code environment</td></tr>
+
+<tr><td><a href="js_2020d41d.html?#mark_importmeta">import.meta</a></td>
+<td>Returns an object indicating the base URL of a module</td></tr>
+
+<tr><td><a href="js_2020d41d.html?#mark_module_namespace_export">Namespace Exports</a></td>
+<td>Export a full namespace from a module without having to import it first</td></tr>
+
+</tbody></table></div>
+</div>
+<h3>New JavaScript Operators in 2020</h3>
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Oper</th><th>Description</th><th></th></tr>
+<tr><td><a href="js_2020d41d.html?#mark_nullish_coalescing">??</a></td>
+<td>Nullish coalescing returns the first argument not nullish</td><td></td></tr>
+<tr><td><a href="js_2020d41d.html?#mark_optional_chaining">?.</a></td>
+<td>Optional chaining returns undefined if an object is undefined or null</td><td></td></tr>
+<tr><td><a href="js_2020d41d.html?#mark_assign_logical_and">&amp;&amp;=</a></td>
+<td>Logical AND assignment assigns the second value if the first value is true</td><td></td></tr>
+<tr><td><a href="js_2020d41d.html?#mark_assign_logical_or">||=</a></td>
+<td>Logical OR assignment assigns the second value if the first value is false</td><td></td></tr>
+<tr><td><a href="js_2020d41d.html?#mark_assign_nullish">??=</a></td>
+<td>Nullish coalescing assignment assigns the second value if the first value is undefined or null</td><td></td></tr>
+</tbody></table></div>
+</div>
+
+<hr>
+<h2>Browser Support</h2>
+<p><b>ECMAScript 2020</b> is supported in all modern browsers since <b>April 2021</b>.</p>
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr>
+    <th class="bsChrome" title="Chrome"></th>
+    <th class="bsEdge" title="Edge"></th>
+    <th class="bsFirefox" title="Firefox"></th>
+    <th class="bsSafari" title="Safari"></th>
+    <th class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>80</td>    
+    <td>Edge<br>80</td>
+    <td>Firefox<br>80</td>
+    <td>Safari<br>14.1</td>
+    <td>Opera<br>67</td>
+  </tr>
+  <tr>
+    <td>Feb 2020</td>
+    <td>Feb 2020</td>    
+    <td>Aug 2020</td>
+    <td>Apr 2021</td>
+    <td>Mar 2020</td>
+  </tr>
+</tbody></table></div>
+</div>
+
+<hr>
+<a id="mark_bigint"></a>
+<h2>JavaScript BigInt</h2>
+<p>JavaScript <code class="w3-codespan">BigInt</code> variables are used to store big integer values
+that are too big to be represented by a a normal JavaScript <code class="w3-codespan">Number</code>.</p>
+
+<p>JavaScript integers are only accurate up to about 15 digits.</p>
+<div class="w3-example">
+<h3>Integer Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 999999999999999;
+let y = 9999999999999999; // too big</code></pre>
+
+<h3>BigInt Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 9999999999999999;
+let y = 9999999999999999n;</code></pre>
+
+</div>
+
+<p>To create a <code class="w3-codespan">BigInt</code>, append n to the end of an integer or call
+<code class="w3-codespan">BigInt()</code>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 1234567890123456789012345n;
+let y = BigInt(1234567890123456789012345)</code></pre>
+
+</div>
+
+<p>The JavaScript <code class="w3-codespan">typeof</code> a <code class="w3-codespan">BigInt</code> is "bigint":</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = BigInt(999999999999999);
+let type = typeof x;</code></pre>
+
+</div>
+
+<hr>
+<a id="mark_string_matchall"></a>
+<h2>JavaScript String matchAll()</h2>
+
+<p>Before ES2020 there was no string method that could be used to search for all occurrences
+of a string in a string.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const iterator = text.matchAll("Cats");</code></pre>
+
+</div>
+<p>If the parameter is a regular expression, the global flag (g) must be set set, otherwise
+a TypeError is thrown.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const iterator = text.matchAll(/Cats/g);</code></pre>
+
+</div>
+<p>If you want to search case insensitive, the insensitive flag (i) must be set:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const iterator = text.matchAll(/Cats/gi);</code></pre>
+
+</div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p><a href="js_2021.html">ES2021</a> introduced the string method replaceAll().</p>
+</div>
+
+<hr>
+
+<hr>
+
+<a id="mark_nullish_coalescing"></a>
+<h2>The Nullish Coalescing Operator (??)</h2>
+<p>The <code class="w3-codespan">??</code> operator returns the <b>first operand</b> if it is not <b>nullish</b>.
+Otherwise it returns the <b>second</b>.</p>
+<p>The <code class="w3-codespan">??</code> operator returns the <b>second operand</b> if the first operand is <b>nullish</b>.</p>
+<p>Nullish is a word for describing <code class="w3-codespan">null</code> or <code class="w3-codespan">undefined</code>.</p>
+
+<p>The <code class="w3-codespan">??</code> operator is used to provide default values and is distinct from the logical OR operator <code class="w3-codespan">||</code>
+because it only treats <code class="w3-codespan">null</code> and <code class="w3-codespan">undefined</code> as "nullish" and ignores other "falsy" values
+like 0 or an empty string.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let name = null;
+let text = "missing";
+let result = name ?? text;</code></pre>
+
+</div>
+
+<hr>
+<a id="mark_optional_chaining"></a>
+<h2>The Optional Chaining Operator (?.)</h2>
+<p>The <b>Optional Chaining Operator</b> returns <code class="w3-codespan">undefined</code> if an object property is
+<code class="w3-codespan">undefined</code> or <code class="w3-codespan">null</code> (instead of throwing an error).</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const car = {type:"Fiat", model:"500", color:"white"};
+let name = car?.name;</code></pre>
+
+</div>
+<p>Optional chaining not only works on object properties,
+but also on function calls and arrays.</p>
+<h3>Function Calls</h3>
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Use Case</th><th>Syntax</th><th>Behavior</th></tr>
+<tr><td>Safe function call</td><td>obj.method?.()</td>
+<td>Returns <code class="w3-codespan">undefined</code> if method does not exist</td></tr>
+<tr><td>Return handling</td><td>let x = fn?.()</td><td>x is <code class="w3-codespan">undefined</code> if fn does not exist</td></tr>
+</tbody></table></div>
+<h3>Arrays</h3>
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Use Case</th><th>Syntax</th><th>Returns</th></tr>
+<tr><td>Safe element access</td><td>arr?.[2]</td>
+<td><code class="w3-codespan">undefined</code> if arr is <code class="w3-codespan">null</code>
+or <code class="w3-codespan">undefined</code></td></tr>
+<tr><td>Safe property on element</td><td>arr?.[1]?.name</td>
+<td>Returns <code class="w3-codespan">undefined</code> safely</td></tr>
+<tr><td>Safe method call</td><td>arr?.map(fn)</td>
+<td>Returns <code class="w3-codespan">undefined</code> if arr does not exist</td></tr>
+<tr><td>Default value fallback</td><td>arr?.[0] ?? "N/A"</td>
+<td>Returns "N/A" if arr or element is missing</td></tr>
+</tbody></table></div>
+<hr>
+<a id="mark_assign_logical_and"></a>
+<h2>The &amp;&amp;= Operator</h2>
+<p>The <b>Logical AND Assignment Operator</b> is used between two values.</p>
+<p>If the first value is <code class="w3-codespan">true</code>, the second value is assigned.</p>
+<div class="w3-example">
+<h3>Logical AND Assignment Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 10;
+x &amp;&amp;= 5;</code></pre>
+
+</div>
+
+<hr>
+<a id="mark_assign_logical_or"></a>
+<h2>The ||= Operator</h2>
+<p>The <b>Logical OR Assignment Operator</b> is used between two values.</p>
+<p>If the first value is <code class="w3-codespan">false</code>, the second value is assigned.</p>
+<div class="w3-example">
+<h3>Logical OR Assignment Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 10;
+x ||= 5;</code></pre>
+
+</div>
+
+<hr>
+<a id="mark_assign_nullish"></a>
+<h2>The ??= Operator</h2>
+<p>The <b>Nullish Coalescing Assignment Operator</b> is used between two values.</p>
+<p>If the first value is <code class="w3-codespan">undefined</code> or <code class="w3-codespan">null</code>, the second value is assigned.</p>
+<div class="w3-example">
+<h3>Nullish Coalescing Assignment Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x;
+x ??= 10;</code></pre>
+
+</div>
+
+<hr>
+<a id="mark_promise_allsettled"></a>
+<h2>JavaScript Promise.allSettled()</h2>
+<p>The <code class="w3-codespan">Promise.allSettled()</code> method returns a single Promise from a list of promises.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create a Promise
+const myPromise1 = new Promise((resolve, reject) =&gt; {
+  setTimeout(resolve, 200, "King");
+});
+// Create another Promise
+const myPromise2 = new Promise((resolve, reject) =&gt; {
+  setTimeout(resolve, 100, "Queen");
+});
+// Settle All
+Promise.allSettled([myPromise1, myPromise2]).then((results) =&gt;
+  results.forEach((x) =&gt; myDisplay(x.status)),
+);</code></pre>
+
+</div>
+<div class="ws-note">
+<h2>Note</h2>
+<p>Promise.allSettled() means "Just run all promises. I don't care about the results".</p>
+</div>
+
+<hr>
+<a id="mark_dynamic_import"></a>
+<h2>JavaScript Dynamic Import</h2>
+<p><b>Dynamic Import</b> is a way to <b>load JavaScript modules at runtime</b>,
+rather than at the start of your program.</p>
+<div class="w3-example">
+<h3>Syntax</h3>
+<pre class="w3-code"><code class="language-javascript">import("./module.js")</code></pre>
+</div>
+
+<ul>
+<li>The argument must be a string or expression that <b>resolves to a path</b></li>
+<li>You must run the import <b>inside a module</b> script (&lt;script type="module"&gt;)</li>
+</ul>
+
+<p>Unlike static imports (which must appear at the top of a file), dynamic imports can be used anywhere 
+- inside functions, conditionals, event handlers, etc.</p>
+
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Type</th><th>Example</th><th>When Loaded</th></tr>
+<tr><th>Static</th><td><code class="w3-codespan">import { add } from './math.js';</code></td>
+<td>At load time</td></tr>
+<tr><th>Dynamic</th><td><code class="w3-codespan">const math = await import('./math.js');</code></td>
+<td>When needed</td> </tr>
+</tbody></table></div>
+
+<hr>
+<a id="mark_globalthis"></a>
+<h2>JavaScript Global This</h2>
+<p><code class="w3-codespan">globalThis</code> provides a standard way to access the global object,
+regardless of the environment your the code runs in: In the browser, Node.js, in a Web Worker, or another JS runtime.</p>
+
+<p>The global object is the top-level object in a JavaScript environment:</p><p>
+</p><ul>
+<li>In browsers, it is <b>window</b>.</li>
+<li>In Node.js, it is <b>global</b>.</li>
+<li>In Web Workers, it is <b>self</b>.</li>
+</ul>
+
+<p>Many environments have their own name for the <b>this object</b>.
+This caused compatibility issues for code meant to run everywhere.</p>
+
+<p><code class="w3-codespan">globalThis</code> was introduced in <a href="js_2020.html">ECMAScript 2020</a>
+(ES11) to solve that problem. It is a unified reference to the global object, no matter the environment.</p>
+
+<div class="w3-example">
+<h3>Examples</h3>
+<pre class="w3-code"><code class="language-javascript">globalThis === window); // true in browsers
+globalThis === global); // true in Node.js</code></pre>
+
+<h3>Example</h3>
+<p>Defining a truly global variable:</p>
+<pre class="w3-code"><code class="language-javascript">globalThis.appName = "W3Schools Demo";</code></pre>
+
+</div>
+<p>Previously, developers had to use workarounds like:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const getGlobal = function() {
+  if (typeof self !== 'undefined') return self;
+  if (typeof window !== 'undefined') return window;
+  if (typeof global !== 'undefined') return global;
+  throw new Error('Cannot find global object');
+};</code></pre>
+</div>
+<p>With <code class="w3-codespan">globalThis</code>, that is no longer needed.</p>
+<hr>
+<a id="mark_importmeta"></a>
+<h2>JavaScript import.meta</h2>
+<p><code class="w3-codespan">import.meta</code> returns an object containing the base URL of a module.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const myObject = import.meta;</code></pre>
+
+</div>
+
+<hr>
+<a id="mark_module_namespace_export"></a>
+<h2>Module Namespace Exports</h2>
+<p>With module namespace exports, you can re-export an entire namespace from your own module, without having to import it first.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Before:</p>
+<pre class="w3-code"><code class="language-javascript">// re-export all named exports directly
+export * from "./utils.js";
+// consumers can use:
+import { add } from "./math.js";</code></pre>
+<p>Now:</p>
+<pre class="w3-code"><code class="language-javascript">// re-export all as a namespace
+export * as utils from "./utils.js";
+// consumers can use:
+import { utils } from "./math.js";</code></pre>
+</div>
+
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_2021.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_2019.html">Next ❯</a>
+</div>
+
+

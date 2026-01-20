@@ -1,0 +1,131 @@
+
+      
+
+<h1>XML Applications</h1>
+
+<hr>
+<!--start-->
+<p class="intro">This chapter demonstrates some HTML applications using 
+XML, HTTP, DOM, and JavaScript.</p>
+<hr>
+
+<h2>The XML Document Used</h2>
+<p>In this chapter we will use the XML file called <a href="cd_catalog.xml">"cd_catalog.xml"</a>.</p>
+<hr>
+
+<h2>Display XML Data in an HTML Table</h2>
+<p>This example loops through each &lt;CD&gt; element, and displays the values of the &lt;ARTIST&gt; and the 
+&lt;TITLE&gt; elements in an HTML table:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;table id="demo"&gt;&lt;/table&gt;
+&lt;script&gt;
+function loadXMLDoc() {
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+    const xmlDoc = xhttp.responseXML;
+    const cd = xmlDoc.getElementsByTagName("CD");
+    myFunction(cd);
+  }
+  xhttp.open("GET", "cd_catalog.xml");
+  xhttp.send();
+}
+function myFunction(cd) {
+  let table="&lt;tr&gt;&lt;th&gt;Artist&lt;/th&gt;&lt;th&gt;Title&lt;/th&gt;&lt;/tr&gt;";
+  for (let i = 0; i &lt; cd.length; i++) {
+    table += "&lt;tr&gt;&lt;td&gt;" +
+    cd[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue +
+    "&lt;/td&gt;&lt;td&gt;" +
+    cd[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue +
+    "&lt;/td&gt;&lt;/tr&gt;";
+  }
+  document.getElementById("demo").innerHTML = table;
+}
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+</div>
+<!--stop-->
+<p>For more information about using JavaScript and the XML DOM, go to
+<a href="../xml/dom_intro.html">DOM Intro.</a></p>
+
+<hr>
+
+<hr>
+<!--start-->
+<h2>Display the First CD in an HTML div Element</h2>
+<p>This example uses a function to display the first CD element in an HTML element with id="showCD":</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const xhttp = new XMLHttpRequest();
+xhttp.onload = function() {
+  const xmlDoc = xhttp.responseXML;
+  const cd = xmlDoc.getElementsByTagName("CD");
+  myFunction(cd, 0);
+}
+xhttp.open("GET", "cd_catalog.xml");
+xhttp.send();
+function myFunction(cd, i) {
+  document.getElementById("showCD").innerHTML =
+  "Artist: " +
+  cd[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue +
+  "&lt;br&gt;Title: " +
+  cd[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue +
+  "&lt;br&gt;Year: " +
+  cd[i].getElementsByTagName("YEAR")[0].childNodes[0].nodeValue;
+}</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Navigate Between the CDs</h2>
+<p>To navigate between the CDs in the example above, create a 
+<code class="w3-codespan">next()</code> and <code class="w3-codespan">previous()</code> function:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">function next() {
+  // display the next CD, unless you are on the last CD
+  if (i &lt; len-1) {
+    i++;
+    displayCD(i);
+  }
+}
+function previous() {
+  // display the previous CD, unless you are on the first CD
+  if (i &gt; 0) {
+    i--;
+    displayCD(i);
+  }
+}</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Show Album Information When Clicking On a CD</h2>
+<p>
+The last example shows how you can show album information when the user clicks on a CD:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">function displayCD(i) {
+  document.getElementById("showCD").innerHTML =
+  "Artist: " +
+  cd[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue +
+  "&lt;br&gt;Title: " +
+  cd[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue +
+  "&lt;br&gt;Year: " +
+  cd[i].getElementsByTagName("YEAR")[0].childNodes[0].nodeValue;
+}</code></pre>
+ 
+</div>
+
+<!--stop-->
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_ajax_database.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_ajax_examples.html">Next ❯</a>
+</div>
+
+

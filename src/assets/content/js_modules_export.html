@@ -1,0 +1,214 @@
+
+      
+
+<h1>JavaScript Modules Export</h1>
+
+
+<!--start-->
+<div class="ws-info">
+
+<h2>The Export Keyword</h2>
+<p>A module uses the <code class="w3-codespan"><b>export</b></code> keyword
+to <b>share values</b> with other files.</p>
+<p>A module can have <b>many <b>named exports</b></b>.</p>
+<p>A module can (optionally) have <b>one <b>default export</b></b>.</p>
+</div>
+
+
+<h2>Named Exports</h2>
+<p>A named export gives a <b>name to each item</b>.</p>
+<p>Items can be exported <b>individually</b>, or <b>wrapped in { }</b> at the bottom:</p>
+
+<div class="w3-example">
+<h3>Module File "person.js"</h3>
+<p><b>name</b> and <b>age</b> exported individually:</p>
+<pre class="w3-code"><code class="language-javascript">// export name and age
+export const name = "Jesse";
+export const age = 40;</code></pre>
+<p><b>name</b> and <b>age</b> exported at once at the bottom:</p>
+<pre class="w3-code"><code class="language-javascript">const name = "Jesse";
+const age = 40;
+// export name and age
+export { name, age };</code></pre>
+</div>
+
+<p>You import named exports by <b>wrapping them in { }</b>.</p>
+<p>The <b>names must match</b> exactly.</p>
+
+<div class="w3-example">
+<h3>Module Script</h3>
+<pre class="w3-code"><code class="language-html">&lt;script type="module"&gt;
+// Import name and age
+import { name, age } from "./person.js";
+&lt;/script&gt;</code></pre>
+<p>
+
+</p>
+</div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p><b>Named exports</b> enforce correct naming. If you misspell a name, you get an error.</p>
+</div>
+
+<div class="w3-example">
+<h3>Module File "math.js"</h3>
+<p>Here, <b>PI</b>, <b>add</b>, <b>subtract</b>, <b>multiply</b>, and <b>divide</b> are named exports:</p>
+<pre class="w3-code"><code class="language-javascript">export const PI = 3.14159;
+export function add(a, b) {
+  return a + b;
+}
+export function subtract(a, b) {
+  return a - b;
+}
+export function multiply(a, b) {
+  return a * b;
+}
+export function divide(a, b) {
+  return a / b;
+}</code></pre>
+<h3>Module Script</h3>
+<pre class="w3-code"><code class="language-html">&lt;script type="module"&gt;
+import { add, subtract, PI } from './math.js';
+&lt;/script&gt;</code></pre>
+
+</div>
+
+<hr>
+<h2>Name Strictness</h2>
+<p>With named exports, the imported names must match exactly.</p>
+<p>Name exports avoid mistakes caused by typos or renaming.</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">import { calcluate } from './math.js'; // ❌ error thrown</code></pre>
+</div>
+
+<hr>
+<h2>Toolbox Utilities (Helpers)</h2>
+<p>Utilities work best with named exports if they contain multiple helpers:</p>
+<ul>
+<li>math.js</li>
+<li>stringUtils.js</li>
+<li>domHelpers.js</li>
+<li>dateHelpers.js</li>
+</ul>
+<hr>
+<div class="ws-note">
+<h2>Note</h2>
+<p><b>Named exports</b> are perfect for "toolbox" modules containing many utilities.</p>
+</div>
+
+<hr>
+<h2>Tree-Shaking</h2>
+<p>Named exports enable bundlers to remove unused code (tree-shaking).</p>
+<p>In this example PI, subract, multiply, and divide is removed:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">import { add } from './math.js';</code></pre>
+</div>
+<hr>
+<h2>When to Use Named Export?</h2>
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Cases</th><th>Why Named Export</th></tr>
+<tr><td>Many functions</td><td>Clearly lists all functions</td></tr>
+<tr><td>Strictness needed </td><td>Prevents name typos</td></tr>
+<tr><td>Big projects</td><td>Improves consistency</td></tr>
+<tr><td>Utility sets</td><td>Matches module structure</td></tr>
+<tr><td>Tree-shaking</td><td>Removes unused code automatically</td></tr>
+</tbody></table></div>
+</div>
+
+<hr>
+
+<hr>
+
+<h2>Default Exports</h2>
+<p><b>Default Export</b> exports <b>one main value</b> from a module.</p>
+<p>This gives a clear intent about what the module's primary functionality is.</p>
+<p>If a file is meant to expose one primary function, class, or value, default export makes that explicit:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">export default function calculateSum() { ... }</code></pre>
+</div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>You can have <b>only one default export</b> in a file.</p>
+</div>
+
+<hr>
+<h2>Default is Flexible</h2>
+<p>Default exports let you import <b>using any name</b>:</p>
+
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">import calc from './calculateSum.js';</code></pre>
+</div>
+
+<p>The name calc does not need to match the original.</p>
+<p>Compared to named exports, where the name must match exactly:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">import { calculateSum } from './calculateSum.js';</code></pre>
+</div>
+<p> using the module file named <code class="w3-codespan">message.js</code>:</p>
+<div class="w3-example">
+<h3>Module File "message.js"</h3>
+
+<pre class="w3-code"><code class="language-javascript">const message = () =&gt; {
+  const name = "Jesse";
+  const age = 40;
+  return name + ' is ' + age + 'years old.';
+};
+export default message;</code></pre>
+<h3>Module Script 1</h3>
+<pre class="w3-code"><code class="language-html">&lt;script type="module"&gt;
+import message from "./message.js";
+&lt;/script&gt;</code></pre>
+<p>
+
+</p>
+<h3>Module Script 2</h3>
+<pre class="w3-code"><code class="language-html">&lt;script type="module"&gt;
+import text from "./message.js";
+&lt;/script&gt;</code></pre>
+<p>
+
+</p>
+
+</div>
+
+<hr>
+<h2>Default is Clean</h2>
+<p>Many libraries expose a single feature as the default:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">import React from 'react';</code></pre>
+</div>
+
+<hr>
+<h2>Combining Default + Named</h2>
+<p>A module can provide one main function plus some helpers:</p>
+<div class="w3-example">
+<h3>Module File</h3>
+<pre class="w3-code"><code class="language-javascript">export default function parse() { ... }
+export function validate() { ... }
+export function format() { ... }</code></pre>
+<h3>Module Script</h3>
+<pre class="w3-code"><code class="language-javascript">import parse, { validate, format } from './parser.js';</code></pre>
+</div>
+
+<hr>
+<h2>When to Use Default Export?</h2>
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>When</th><th>Why</th></tr>
+<tr><td>One main purpose</td><td>Good for modules with a primary function</td></tr>
+<tr><td>Flexible naming</td><td>Importers can choose any name</td></tr>
+<tr><td>Cleaner imports</td><td>Shorter and simpler import syntax</td></tr>
+<tr><td>Common pattern</td><td>Frameworks use it for the main API</td></tr>
+</tbody></table></div>
+
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_modules.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_modules_import.html">Next ❯</a>
+</div>
+
+

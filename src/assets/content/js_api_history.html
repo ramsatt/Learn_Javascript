@@ -1,0 +1,107 @@
+
+      
+
+<h1>Web History API</h1>
+
+<!--start-->
+<div class="w3-panel ws-info intro">
+<p>The Web History API provides easy methods to access the windows.history object.</p>
+<p>The window.history object contains the URLs (Web Sites) visited by the user.</p>
+</div>
+<p>The Web History API is supported in all browsers:</p>
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr>
+    <th class="bsChrome" title="Chrome"></th>
+    <th class="bsEdge" title="Internet Explorer / Edge"></th>
+    <th class="bsFirefox" title="Firefox"></th>
+    <th class="bsSafari" title="Safari"></th>
+    <th class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+  </tr>
+</tbody></table></div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The History back() Method</h2>
+<p>The back() method loads the previous URL in the windows.history list.</p>
+<p>It is the same as clicking the "back arrow" in your browser.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;button onclick="myFunction()"&gt;Go Back&lt;/button&gt;
+&lt;script&gt;
+function myFunction() {
+  window.history.back();
+}
+&lt;/script&gt;</code></pre>
+</div>
+
+<p>
+<button onclick="goBack()">Go Back</button></p>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>The History go() Method</h2>
+<p>The go() method loads a specific URL from the history list:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;button onclick="myFunction()"&gt;Go Back 2 Pages&lt;/button&gt;
+&lt;script&gt;
+function myFunction() {
+  window.history.go(-2);
+}
+&lt;/script&gt;</code></pre>
+</div>
+
+
+<p><button onclick="goBack()">Go Back 2 Pages</button></p>
+<hr>
+
+<h2>History Object Properties</h2>
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate">
+  <tbody><tr>
+    <th style="width:20%">Property</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><a href="../jsref/prop_his_length.html">length</a></td>
+    <td>Returns the number of URLs in the history list</td>
+  </tr>
+</tbody></table></div>
+
+<h2>History Object Methods</h2>
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate">
+  <tbody><tr>
+    <th style="width:20%">Method</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><a href="../jsref/met_his_back.html">back()</a></td>
+    <td>Loads the previous URL in the history list</td>
+    </tr>
+  <tr>
+    <td><a href="../jsref/met_his_forward.html">forward()</a></td>
+    <td>Loads the next URL in the history list</td>
+    </tr>
+  <tr>
+    <td><a href="../jsref/met_his_go.html">go()</a></td>
+    <td>Loads a specific URL from the history list</td>
+    </tr>
+</tbody></table></div>
+<!--stop-->
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_api_geolocation.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_api_pointer_events.html">Next ❯</a>
+</div>
+
+

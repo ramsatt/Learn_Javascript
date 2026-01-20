@@ -1,0 +1,311 @@
+
+      
+
+<h1>JavaScript Objects</h1>
+
+
+<!--start-->
+<div class="ws-info">
+<p>An <strong>Object</strong> is a variable that can hold many variables.</p>
+<p>Objects are collections of <strong>key-value pairs</strong>, where each key (known as 
+<strong>property names</strong>) has a value.</p>
+<p>Objects can describe anything like houses, cars, people, animals, or any other subjects.</p>
+</div>
+
+
+<!--stop-->
+<!--start-->
+<p>Different cars have the same <b>properties</b>, but the <b>property values</b> can differ from car to car.</p>
+<p>Different cars have the same <b>methods</b>, but the methods can be performed <b>at different times</b>.</p>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>JavaScript Objects</h2>
+<p>This code assigns <b>many values</b> (Fiat, 500, white) to an <b>object</b> named car:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const car = {type:"Fiat", model:"500", color:"white"};</code></pre>
+
+</div>
+
+<div class="ws-note">
+<h2>Note:</h2>
+<p>You should declare objects with the <span class="w3-codespan">const</span> keyword.</p>
+<p>When an object is declared with const, you cannot later reassign it to point to a different variable.</p>
+<p>It does not make the object unchangeable.
+You can still modify its properties and values.</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>How to Create a JavaScript Object</h2>
+<p>An <strong>object literal</strong> is a concise way to create an object.</p>
+<p>An object literal is a list of <b>key : value</b> pairs inside curly braces <b>{ }</b>:</p>
+
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">{firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"}</code></pre>
+</div>
+<p>In object terms, the <b>key : value</b> pairs are the <b>object properties</b>.</p>
+
+<div class="w3-example">
+<h3>Examples</h3>
+<p>All the examples below, create a JavaScript object with <b>4 properties</b>.</p>
+<pre class="w3-code"><code class="language-javascript">// Create an Object
+const person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};</code></pre>
+
+
+<p><b>Spaces and line breaks</b> are not important. An object literal can span multiple lines: </p>
+
+<pre class="w3-code"><code class="language-javascript">// Create an Object
+const person = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 50,
+  eyeColor: "blue"
+};</code></pre>
+
+
+<p>You can also create an <b>empty object</b>, and add the properties later:</p>
+<pre class="w3-code"><code class="language-javascript">// Create an Object
+const person = {};
+// Add Properties
+person.firstName = "John";
+person.lastName = "Doe";
+person.age = 50;
+person.eyeColor = "blue";</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Using the new Keyword</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Create a new JavaScript object using <code class="w3-codespan">new Object()</code>:</p>
+<pre class="w3-code"><code class="language-javascript">// Create an Object
+const person = new Object({
+  firstName: "John",
+  lastName: "Doe",
+  age: 50,
+  eyeColor: "blue"
+});</code></pre>
+
+</div>
+
+
+<div class="w3-panel ws-note">
+<h2>Note:</h2>
+<p>All the examples above do exactly the same.</p>
+<p>There is no need to use <code class="w3-codespan">new Object()</code>.</p>
+<p>For readability, simplicity and speed, use an <b>object literal</b> instead.</p>
+</div>
+<!--stop-->
+<hr>
+
+
+<hr>
+<!--start-->
+<h2>Object Properties</h2>
+
+<p>You can access object properties in two ways: </p>
+
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript"><i>objectName.propertyName</i></code></pre>
+<pre class="w3-code"><code class="language-javascript"><i>objectName["propertyName"]</i></code></pre>
+</div>
+
+<div class="w3-example">
+<h3>Examples</h3>
+<pre class="w3-code"><code class="language-javascript">person.lastName;</code></pre>
+
+<pre class="w3-code"><code class="language-javascript">person["lastName"];</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>JavaScript Object Methods</h2>
+<p>Object methods are <b>actions</b> that can be performed on objects.</p>
+<p>Object methods are <b>function definitions</b> stored as <b>property values</b>:</p>
+
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+ <tbody><tr>
+  <th style="width:20%">Property</th>
+  <th>Property Value</th>
+ </tr>
+ <tr>
+  <td>firstName</td>
+  <td>John</td>
+ </tr>
+ <tr>
+  <td>lastName</td>
+  <td>Doe</td>
+ </tr>
+ <tr>
+  <td>age</td>
+  <td>50</td>
+ </tr>
+ <tr>
+  <td>eyeColor</td>
+  <td>blue</td>
+ </tr>
+ <tr>
+  <td>fullName</td>
+  <td>function() {return this.firstName + " " + this.lastName;}</td>
+ </tr>
+</tbody></table></div>
+
+<hr>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const person = {
+  firstName: "John",
+  lastName : "Doe",
+  id       : 5566,
+  fullName : function() {
+    return this.firstName + " " + this.lastName;
+  }
+};</code></pre>
+
+</div>
+
+<p>In the example above, <code class="w3-codespan">this</code> refers to the <b>person object</b>:</p>
+<p><b>this.firstName</b> means the <b>firstName</b> property of <b>person</b>.</p>  
+<p><b>this.lastName</b> means the <b>lastName</b> property of <b>person</b>.</p>  
+<!--stop-->
+<hr>
+<!--start-->
+<h2>How to Display JavaScript Objects?</h2>
+<p>Displaying a JavaScript object will output <b>[object Object]</b>.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an Object
+const person = {
+  name: "John",
+  age: 30,
+  city: "New York"
+};
+let text = person;</code></pre>
+
+</div>
+<hr>
+<h2>Displaying Object Properties</h2>
+<p>The properties of an object can be added in a string:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an Object
+const person = {
+  name: "John",
+  age: 30,
+  city: "New York"
+};
+// Add Properties
+let text = person.name + "," + person.age + "," + person.city;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Object Constructor Functions</h2>
+<p>Sometimes we need to create many objects of the same <b>type</b>.</p>
+<p>To create an <b>object type</b> we use an <strong>object constructor function</strong>.</p>
+<p>It is considered good practice to name constructor functions with an upper-case first letter.</p>
+
+<div class="w3-example">
+<h3>Object Type Person</h3>
+<pre class="w3-code"><code class="language-javascript">function Person(first, last, age, eye) {
+  this.firstName = first;
+  this.lastName = last;
+  this.age = age;
+  this.eyeColor = eye;
+}</code></pre>
+<a class="w3-btn w3-margin-bottom" href="tryit9bae.html?filename=tryjs_object_constructor">Try 
+it yourself »</a></div>
+
+<div class="w3-panel ws-note">
+<h2>Note:</h2>
+<p>In the constructor function, <code class="w3-codespan">this</code> has no value.</p>
+<p>The value of <code class="w3-codespan">this</code> will become the new object when 
+a new object is created.</p>
+</div>
+
+<p>Now we can use <code class="w3-codespan">new Person()</code>
+to create many new Person objects:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const myFather = new Person("John", "Doe", 50, "blue");
+const myMother = new Person("Sally", "Rally", 48, "green");
+const mySister = new Person("Anna", "Rally", 18, "green");
+const mySelf = new Person("Johnny", "Rally", 22, "green");</code></pre>
+<a class="w3-btn w3-margin-bottom" href="tryite17e.html?filename=tryjs_object_constructor1">Try 
+it yourself »</a>
+</div>
+<!--stop-->
+<!--start-->
+<div class="ws-note">
+<h2>Summary</h2>
+<p><b>Objects</b> are containers for <b>Properties</b> and <b>Methods</b>.</p>
+<p><b>Properties</b> are named <b>Values</b>.</p>
+<p><b>Methods</b> are <b>Functions</b> stored as <b>Properties</b>.</p>
+<p><b>Properties</b> can be primitive values, functions, or even other objects.</p>
+<p><b>Constructors</b> are Object <b>Prototypes.</b></p>
+</div>
+
+<hr>
+<h2>In JavaScript, Objects are King.</h2>
+<h4>If you Understand Objects, you Understand JavaScript.</h4>
+
+<p>In JavaScript, almost "everything" is an object.</p>
+<ul>
+<li>Objects are objects</li>
+<li>Maths are objects</li>
+<li>Functions are objects</li>
+<li>Dates are objects</li>
+<li>Arrays are objects</li>
+<li>Maps are objects</li>
+<li>Sets are objects</li>
+</ul>
+<p>All JavaScript values, except primitives, are objects.</p>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>JavaScript Primitives</h2>
+<p>A <b>primitive data type</b> is data type that can only store a single primitive value.</p>
+<p>JavaScript defines 7 types of primitive data types:</p>
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr><th>Type</th><th>Example value</th></tr>
+<tr><td><code class="w3-codespan">string</code></td><td>"Hello"</td></tr>
+<tr><td><code class="w3-codespan">number</code></td><td>3.14</td></tr>
+<tr><td><code class="w3-codespan">boolean</code></td><td>true</td></tr>
+<tr><td><code class="w3-codespan">bigint</code></td><td>12345678901234</td></tr>
+<tr><td><code class="w3-codespan">null</code></td><td>null</td></tr>
+<tr><td><code class="w3-codespan">undefined</code></td><td>undefined</td></tr>
+<tr><td><code class="w3-codespan">symbol</code></td><td>symbol</td></tr>
+</tbody></table></div>
+
+<!--stop-->
+
+<div class="ws-note">
+<h2>Learn More:</h2>
+<p class="w3-large"><a href="js_object_definition.html">JavaScript Object Definitions</a></p>
+<p class="w3-large"><a href="js_object_constructors.html">JavaScript Object Constructors</a></p>
+<p class="w3-large"><a href="js_this.html">JavaScript Object this</a></p>
+<p class="w3-large"><a href="js_destructuring.html">JavaScript Object Destructuring</a></p>
+<p class="w3-large"><a href="js_object_prototypes.html">JavaScript Object Prototypes</a></p>
+<p class="w3-large"><a href="js_object_methods.html">JavaScript Object Iterations</a></p>
+<p class="w3-large"><a href="js_object_property.html">JavaScript Object Management</a></p>
+<p class="w3-large"><a href="js_object_accessors.html">JavaScript Object Getters &amp; Setters</a></p>
+<p class="w3-large"><a href="js_object_protection.html">JavaScript Object Protection</a></p>
+<p class="w3-large"><a href="js_object_reference.html">JavaScript Object Reference</a></p>
+</div>
+
+
+<hr>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_function_quiz.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_object_properties.html">Next ❯</a>
+</div>
+
+

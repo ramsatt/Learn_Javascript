@@ -1,0 +1,243 @@
+
+      
+
+<h1>JavaScript Set Methods</h1>
+
+
+<!--start-->
+<div class="ws-info">
+<h2>Basic Set Methods</h2>
+<a href="#mark_set_new">new Set()</a><br>
+<a href="#mark_set_add">add()</a><br>
+<a href="#mark_set_clear">clear()</a><br>
+<a href="#mark_set_delete">delete()</a><br>
+<a href="#mark_set_entries">entries()</a><br>
+<a href="#mark_set_foreach">forEach()</a><br>
+<a href="#mark_set_has">has()</a><br>
+<a href="#mark_set_keys">keys()</a><br>
+<a href="#mark_set_values">values()</a><br>
+<h2>Set Properties</h2>
+<p><a href="#mark_set_size">size</a></p>
+</div>
+<a id="mark_set_new"></a>
+<h2>The new Set() Method</h2>
+<p>Pass an array to the <code class="w3-codespan">new Set()</code> constructor:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create a new Set
+const letters = new Set(["a","b","c"]);</code></pre>
+
+</div>
+
+<hr>
+<a id="mark_set_add"></a>
+<h2>The add() Method</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">letters.add("d");
+letters.add("e");</code></pre>
+
+</div>
+<p>If you add equal elements, only the first will be saved:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">letters.add("a");
+letters.add("b");
+letters.add("c");
+letters.add("c");
+letters.add("c");
+letters.add("c");
+letters.add("c");
+letters.add("c");</code></pre>
+
+</div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>The primary feature of Set objects is that they only store unique values.</p>
+<p>If an attempt is made to add an element that already exists in the set, the <code class="w3-codespan">add()</code> method will have no effect,
+and the set will remain unchanged.</p>
+</div>
+
+<a id="mark_set_size"></a>
+<hr>
+<h2>The size Property</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create a new Set
+const mySet = new Set(["a","b","c"]);
+// The number of elements are
+mySet.size;</code></pre>
+
+</div>
+
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Listing Set Elements</h2>
+<p>You can list all Set elements (values) with a <b>for..of</b> loop:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create a Set
+const letters = new Set(["a","b","c"]);
+// List all Elements
+let text = "";
+for (const x of letters) {
+  text += x;
+}</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_set_has"></a>
+<h2>The has() Method</h2>
+<p>The <code class="w3-codespan">has()</code> method returns <code class="w3-codespan">true</code> if a specified value exists in a set.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create a Set
+const letters = new Set(["a","b","c"]);
+// Does the Set contain "d"?
+answer = letters.has("d");</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<a id="mark_set_foreach"></a>
+<h2>The forEach() Method</h2>
+<p>The <code class="w3-codespan">forEach()</code> method invokes a function for each Set element:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create a Set
+const letters = new Set(["a","b","c"]);
+// List all entries
+let text = "";
+letters.forEach (function(value) {
+  text += value;
+})</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_set_values"></a>
+<h2>The values() Method</h2>
+<p>The <code class="w3-codespan">values()</code> method returns an Iterator object with the values in a Set:</p>
+<div class="w3-example">
+<h3>Example 1</h3>
+<pre class="w3-code"><code class="language-javascript">// Create a Set
+const letters = new Set(["a","b","c"]);
+// Get all Values
+const myIterator = letters.values();
+// List all Values
+let text = "";
+for (const entry of myIterator) {
+  text += entry;
+}</code></pre>
+
+</div>
+<div class="w3-example">
+<h3>Example 2</h3>
+<pre class="w3-code"><code class="language-javascript">// Create a Set
+const letters = new Set(["a","b","c"]);
+// List all Values
+let text = "";
+for (const entry of letters.values()) {
+  text += entry;
+}</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_set_keys"></a>
+<h2>The keys() Method</h2>
+<p>The <code class="w3-codespan">keys()</code> method returns an Iterator object with the values in a Set:</p>
+<div class="ws-note">
+<h2>Note</h2>
+<p>A Set has no keys, so <code class="w3-codespan">keys()</code> returns the same as <code class="w3-codespan">values()</code>.</p>
+<p>This makes Sets compatible with Maps.</p>
+</div>
+<div class="w3-example">
+<h3>Example 1</h3>
+<pre class="w3-code"><code class="language-javascript">// Create a Set
+const letters = new Set(["a","b","c"]);
+// Create an Iterator
+const myIterator = letters.keys();
+// List all Elements
+let text = "";
+for (const x of myIterator) {
+  text += x;
+}</code></pre>
+
+</div>
+
+<div class="w3-example">
+<h3>Example 2</h3>
+<pre class="w3-code"><code class="language-javascript">// Create a Set
+const letters = new Set(["a","b","c"]);
+// List all Elements
+let text = "";
+for (const x of letters.keys()) {
+  text += x;
+}</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_set_entries"></a>
+<h2>The entries() Method</h2>
+<p>The <code class="w3-codespan">entries()</code> method returns an Iterator with [value,value] pairs from a Set.</p>
+<div class="ws-note">
+<h2>Note</h2>
+<p>The <code class="w3-codespan">entries()</code> method is supposed to return a [key,value] pair from an object.</p>
+<p>A Set has no keys, so the <code class="w3-codespan">entries()</code> method returns [value,value].</p>
+<p>This makes Sets compatible with Maps.</p>
+</div>
+<div class="w3-example">
+<h3>Example 1</h3>
+<pre class="w3-code"><code class="language-javascript">// Create a Set
+const letters = new Set(["a","b","c"]);
+// Get all Entries
+const myIterator = letters.entries();
+// List all Entries
+let text = "";
+for (const entry of myIterator) {
+  text += entry;
+}</code></pre>
+
+</div>
+<div class="w3-example">
+<h3>Example 2</h3>
+<pre class="w3-code"><code class="language-javascript">// Create a Set
+const letters = new Set(["a","b","c"]);
+// List all Entries
+let text = "";
+for (const entry of letters.entries()) {
+  text += entry;
+}</code></pre>
+
+</div>
+<hr>
+<!--stop-->
+<div class="ws-note">
+<h2>Learn More:</h2>
+<p class="w3-large"><a href="js_sets.html">JavaScript Sets</a></p>
+<p class="w3-large"><a href="js_set_logic.html">JavaScript Set Logic</a></p>
+<p class="w3-large"><a href="js_sets_weak.html">JavaScript Weak Sets</a></p>
+<p class="w3-large"><a href="js_set_reference.html">JavaScript Set Reference</a></p>
+<p class="w3-large"><a href="js_maps.html">JavaScript Maps</a></p>
+</div>
+<hr>
+
+<hr>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_sets.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_set_logic.html">Next ❯</a>
+</div>
+
+

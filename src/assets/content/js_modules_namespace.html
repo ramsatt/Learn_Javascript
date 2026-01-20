@@ -1,0 +1,138 @@
+
+      
+
+<h1>JS Module Namespace</h1>
+
+
+<!--start-->
+<div class="ws-info">
+<h2>The Module Namespace Object</h2>
+<p>When you use the syntax:
+</p><div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">import * as <i>name</i> from "<i>module</i>";</code></pre>
+</div>
+<p>JavaScript creates a module <b>namespace object</b>.</p>
+<p>This is an immutable object that contains all the exported bindings from that module.</p>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+The math module namespace object bundles all the exports (PI, add, multiply):
+<pre class="w3-code"><code class="language-javascript">// math_module.js
+export const PI = 3.14159;
+export function add(a, b) {
+  return a + b;
+}
+export function multiply(a, b) {
+  return a * b;
+}</code></pre>
+<p>Import math_module.js into a namespace object:</p>
+<pre class="w3-code"><code class="language-javascript">import * as math from "./math_module.js";
+// Now you can use the math namespace object:
+let myPi = math.PI
+let result1 = math.add(2, 3));
+let result2 = math.multiply(2, 3));</code></pre>
+<p></p>
+</div>
+
+<hr>
+<h2>Module Namespace Support</h2>
+<p><b>Module namespace support</b> refers to the mechanism that allows you to import all exports from a module
+into a single <b>namespace object</b>.</p>
+<hr>
+<div class="ws-note">
+<p>The <b>Module Namespace</b> feature is a part of the ES Modules introduced in <a href="js_es6.html">ECMAScript 2015</a>
+to help organize and access modules in a consistent way.</p>
+</div>
+<hr>
+
+<h2>Module Namespace Features</h2>
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Feature</th><th>Description</th></tr>
+<tr><th>Namespace</th><td>A special object containing all exports from a module</td></tr>
+<tr><th>Syntax</th><td>import * as <i>name</i> from <i>module</i></td></tr>
+<tr><th>Purpose</th><td>Organize, access, and reference module exports safely</td></tr>
+<tr><th>Read Only</th><td>You can access exports but not reassign them</td></tr>
+<tr><th>Live&nbsp;Binding</th><td>If an exported value changes in the module, the namespace reflects that change automatically</td></tr>
+<tr><th>Enumerable</th><td>Its properties are enumerable and correspond to named exports</td></tr>
+<tr><th>Prototype</th><td>The namespace is a plain object with no prototype<br>(Object.getPrototypeOf(math) === null).</td></tr>
+
+</tbody></table></div>
+</div>
+
+<h2>Related Syntax</h2>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">import { add } from "./math_module.js";</code></pre>
+</div>
+
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">import math from "./math_module.js";</code></pre>
+</div>
+
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">import * as math from "./math_module.js";</code></pre>
+</div>
+<h2>Module Namespace Export</h2>
+<p>Module namespace export refers to exporting an entire imported module namespace object from another module.</p>
+
+<h2>Namespace Export</h2>
+<p>Normally, you import all of a module's exports into a module namespace object like this:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">import * as math from "./math_module.js";
+let myPi = math.PI;
+let result = math.add(2, 3);</code></pre>
+The math module namespace object bundles all the exports (PI, add, multiply):
+<pre class="w3-code"><code class="language-javascript">// math_module.js
+export const PI = 3.14159;
+export function add(a, b) {
+  return a + b;
+}
+export function multiply(a, b) {
+  return a * b;
+}</code></pre>
+<p></p>
+</div>
+
+<p>With module namespace exports, you can re-export that entire namespace from your own module - without having to import it first:</p>
+Now, you can create a new module that re-exports this whole namespace:
+<div class="w3-example">
+<h3>utilities.js</h3>
+<pre class="w3-code"><code class="language-javascript">export * from "./math_module.js";</code></pre>
+</div>
+
+Then, in another file:
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">import * as math from "./utilities.js";</code></pre>
+<p></p>
+</div>
+<div class="ws-note">
+<h2>Note</h2>
+<p>The syntax <b>export * as name from "module"</b> was added in <a href="js_2020.html">ECMAScript 2020</a>.</p>
+</div>
+<hr>
+<h2>Syntax Overview</h2>
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Syntax</th><th>Result</th></tr>
+<tr><td>export * from "module"</td><td>Re-export all named exports individually (not as a namespace)</td></tr>
+<tr><td>export * as name from "module"</td><td>Re-export all exports grouped under a single namespace</td></tr>
+<tr><td>export { name } from "module"</td><td>Re-export specific exports</td></tr>
+</tbody></table></div>
+</div>
+<hr>
+<h2>Aggregator Scripts</h2>
+<p>An <b>aggregator script</b> is a script used only to import and re-export items from other modules.</p>
+<p>Instead of filling your top module with many import statements, you can use a single aggregator script to do it all.</p>
+
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_modules_export.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_modules_dynamic.html">Next ❯</a>
+</div>
+
+

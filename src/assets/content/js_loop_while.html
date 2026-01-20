@@ -1,0 +1,122 @@
+
+      
+
+<h1>JavaScript While Loops</h1>
+
+<!--start-->
+<div class="ws-info">
+<h2>While Loops</h2>
+<p>While loops execute a block of code as long as a specified condition is true.</p>
+<p>JavaScript have two types of while loops:</p>
+<ul>
+<li>The while loop</li>
+<li>The do while loop</li>
+</ul>
+</div>
+
+<h2>The While Loop</h2>
+<p>The <code class="w3-codespan">while</code> loop loops through a block of code as long as a specified condition is true.</p>
+
+<div class="w3-example">
+<h3>Syntax</h3>
+<pre class="w3-code"><code class="language-javascript">while (<em>condition</em>) {
+<i>  // code block to be executed</i>
+}</code></pre>
+</div>
+
+<p>In the following example, the code in the loop will run, over and over again, as long as 
+a variable (i) is less than 10:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">while (i &lt; 10) {
+  text += "The number is " + i;
+  i++;
+}</code></pre>
+
+</div>
+
+<div class="w3-panel ws-note">
+<h2>Note</h2>
+<p>If you forget to increase the variable used in the condition, the loop will never end.</p>
+<p>This will crash your browser.</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The Do While Loop</h2>
+<p>The <code class="w3-codespan">do while</code> loop is a variant of the while loop. This loop will 
+execute the code block once, before checking if the condition is true, then it will
+repeat the loop as long as the condition is true.</p>
+
+<div class="w3-example">
+<h3>Syntax</h3>
+<pre class="w3-code"><code class="language-javascript">do {
+<i>  // code block to be executed
+</i>}
+while (<em>condition</em>);</code></pre>
+</div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>The <code class="w3-codespan">do while</code> runs at least once, even if the condition is false from the start.</p>
+<p>This is because the code block is executed before the condition is tested:</p>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">do {
+  text += "The number is " + i;
+  i++;
+}
+while (i &lt; 10);</code></pre>
+
+</div>
+<div class="ws-note">
+<p>Do not forget to increase the variable used in the condition, otherwise 
+the loop will never end!</p>
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>Comparing For and While</h2>
+<p>A while loop is much the same as a for loop, with statement 1 and statement 3 omitted.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Uses a <code class="w3-codespan">for</code> loop to collect the car names from the cars array:</p>
+<pre class="w3-code"><code class="language-javascript">const cars = ["BMW", "Volvo", "Saab", "Ford"];
+let i = 0;
+let text = "";
+for (;cars[i];) {
+  text += cars[i];
+  i++;
+}</code></pre>
+
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Use a <code class="w3-codespan">while</code> loop to collect the car names from the cars array:</p>
+<pre class="w3-code"><code class="language-javascript">const cars = ["BMW", "Volvo", "Saab", "Ford"];
+let i = 0;
+let text = "";
+while (cars[i]) {
+  text += cars[i];
+  i++;
+}</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_loop_for.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_break.html">Next ❯</a>
+</div>
+
+

@@ -1,0 +1,427 @@
+
+      
+
+<h1>JavaScript Array Sort</h1>
+
+<!--start-->
+<div class="ws-info">
+<div class="table-responsive-wrapper"><table class="w3-table w3-large">
+<tbody><tr><td>
+<h2>Alphabetic Sort</h2>
+<a href="#mark_sort">Array sort()</a><br>
+<a href="#mark_reverse">Array reverse</a>()<br>
+<a href="#mark_tosorted">Array toSorted()</a><br>
+<a href="#mark_toreversed">Array toReversed()</a><br>
+<a href="#mark_objects">Sorting Objects</a><br>
+
+</td>
+<td>
+<h2>Numeric Sort</h2>
+<a href="#mark_numeric">Numeric Sort</a><br>
+<a href="#mark_random">Random Sort</a><br>
+<a href="#mark_mathmin">Math.min()</a><br>
+<a href="#mark_mathmax">Math.max()</a><br>
+<a href="#mark_homemin">Home made Min()</a><br>
+<a href="#mark_homemin">Home made Max()</a><br>
+</td>
+</tr>
+</tbody></table></div>
+<p class="w3-large"><a href="js_array_reference.html">Complete JavaScript Array Reference</a>
+
+</p></div>
+
+<div class="ws-note w3-large">
+<h2>See Also:</h2>
+<p class="w3-large"><a href="js_arrays.html">Array Tutorial</a><br>
+</p><p class="w3-large"><a href="js_array_methods.html">Array Basic Methods</a><br>
+</p><p class="w3-large"><a href="js_array_search.html">Array Search Methods</a><br>
+</p><p class="w3-large"><a href="js_array_iteration.html">Array Iteration Methods</a><br>
+</p><p class="w3-large"><a href="js_array_reference.html">Array Reference</a>
+</p></div>
+<!--stop-->
+<!--start-->
+<a id="mark_sort"></a>
+<h2>Sorting an Array</h2>
+<p>The <code class="w3-codespan">sort()</code> method sorts an array alphabetically:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.sort();</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_reverse"></a>
+<h2>Reversing an Array</h2>
+<p>The <code class="w3-codespan">reverse()</code> method reverses the elements in an array:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.reverse();</code></pre>
+
+</div>
+
+<p>By combining <code class="w3-codespan">sort()</code> and <code class="w3-codespan">reverse()</code>,
+you can sort an array in descending order:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.sort();
+fruits.reverse();</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_tosorted"></a>
+<h2>JavaScript Array toSorted() Method</h2>
+<p><a href="js_2023.html">ES2023</a> added the <code class="w3-codespan">toSorted()</code> method as a safe way
+to sort an array without altering the original array.</p>
+<p>The difference between <code class="w3-codespan">toSorted()</code> and <code class="w3-codespan">sort()</code>
+is that the first method creates a new array, keeping the original array unchanged, while the last method alters the original array.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const months = ["Jan", "Feb", "Mar", "Apr"];
+const sorted = months.toSorted();</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_toreversed"></a>
+<h2>JavaScript Array toReversed() Method</h2>
+<p><a href="js_2023.html">ES2023</a> added the <code class="w3-codespan">toReversed()</code> method as a safe way
+to reverse an array without altering the original array.</p>
+<p>The difference between <code class="w3-codespan">toReversed()</code> and <code class="w3-codespan">reverse()</code> is that the first method
+creates a new array, keeping the original array unchanged, while the last method alters the original array.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const months = ["Jan", "Feb", "Mar", "Apr"];
+const reversed = months.toReversed();</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_numeric"></a>
+<h2>Numeric Sort</h2>
+<p>By default, the <code class="w3-codespan">sort()</code> function sorts values as <strong>strings</strong>.</p>
+<p>This works well for strings ("Apple" comes before "Banana").</p>
+<p>If numbers are sorted as strings, "25" is bigger than "100", 
+because "2" is bigger than "1".</p>
+<p>Because of this, the <code class="w3-codespan">sort()</code> method will produce incorrect result when sorting 
+numbers.</p>
+<p>You can fix this by providing a <strong>compare function</strong>:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const points = [40, 100, 1, 5, 25, 10];
+points.sort(function(a, b){return a - b});</code></pre>
+
+</div>
+<p>Use the same trick to sort an array descending:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const points = [40, 100, 1, 5, 25, 10];
+points.sort(function(a, b){return b - a});</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<a id="mark_function"></a>
+<h2>The Compare Function</h2>
+<p>The purpose of the compare function is to define an alternative sort 
+order.</p>
+<p>The compare function should return a negative, zero, or positive value, depending on 
+the arguments:</p>
+
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">function(a, b){return a - b}</code></pre>
+</div>
+<p>When the <code class="w3-codespan">sort()</code> function compares two values, it sends the values to the 
+compare function, and sorts the values according to the returned (negative, 
+zero, positive) value.</p>
+<p>If the result is negative, <code class="w3-codespan">a</code> is sorted before
+<code class="w3-codespan">b</code>.</p>
+<p>If the result is positive, <code class="w3-codespan">b</code> is sorted 
+before <code class="w3-codespan">a</code>.</p>
+<p>If the result is 0, no changes are done with the sort order of the two 
+values.</p>
+<p><strong>Example:</strong></p>
+<p>The compare function compares all the values in the array, two values at a 
+time <code class="w3-codespan">(a, b)</code>.</p>
+<p>When comparing 40 and 100, the <code class="w3-codespan">sort()</code> method calls the compare function(40, 100).</p>
+<p>The function calculates 40 - 100 <code class="w3-codespan">(a - b)</code>, and 
+since the result is negative (-60),&nbsp; the sort function will sort 40 as a value lower than 100.</p>
+<p>You can use this code snippet to experiment with numerically and 
+alphabetically sorting:</p>
+
+<div class="w3-example">
+<pre class="w3-code"><code class="language-html">&lt;button onclick="myFunction1()"&gt;Sort Alphabetically&lt;/button&gt;
+&lt;button onclick="myFunction2()"&gt;Sort Numerically&lt;/button&gt;
+&lt;p id="demo"&gt;&lt;/p&gt;
+&lt;script&gt;
+const points = [40, 100, 1, 5, 25, 10];
+document.getElementById("demo").innerHTML = points;
+function myFunction1() {
+  points.sort();
+  document.getElementById("demo").innerHTML = points;
+}
+function myFunction2() {
+  points.sort(function(a, b){return a - b});
+  document.getElementById("demo").innerHTML = points;
+}
+&lt;/script&gt;</code></pre>
+ 
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_random"></a>
+<h2>Sorting an Array in Random Order</h2>
+<p>Using a sort function, like explained above, you can sort an numeric array in random order</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const points = [40, 100, 1, 5, 25, 10];
+points.sort(function(){return 0.5 - Math.random()});</code></pre>
+<p>
+
+</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The Fisher Yates Method</h2>
+<p>The points.sort() method in the example above is not accurate. It will favor some 
+numbers over others.</p>
+<p>The most popular correct method, is called the Fisher Yates shuffle, and was 
+introduced in data science as early as 1938!</p>
+<p>In JavaScript the method can be translated to this:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const points = [40, 100, 1, 5, 25, 10];
+for (let i = points.length -1; i &gt; 0; i--) {
+  let j = Math.floor(Math.random() * (i+1));
+  let k = points[i];
+  points[i] = points[j];
+  points[j] = k;
+}</code></pre>
+<p>
+
+</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Find the Lowest (or Highest) Array Value</h2>
+<p>There are no built-in functions for finding the max or min 
+value in an array.</p>
+<p>To find the lowest or highest value you have 3 options:</p>
+<ul>
+<li>Sort the array and read the first or last element</li>
+<li>Use Math.min() or Math.max()</li>
+<li>Write a home made function</li>
+</ul>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Find Min or Max with sort()</h2>
+<p>After you have sorted an array, you can use the 
+index to obtain the highest and lowest values.</p>
+<h4>Sort Ascending:</h4>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const points = [40, 100, 1, 5, 25, 10];
+points.sort(function(a, b){return a - b});
+// now points[0] contains the lowest value
+// and points[points.length-1] contains the highest value</code></pre>
+
+</div>
+<h4>Sort Descending:</h4>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const points = [40, 100, 1, 5, 25, 10];
+points.sort(function(a, b){return b - a});
+// now points[0] contains the highest value
+// and points[points.length-1] contains the lowest value</code></pre>
+
+</div>
+
+<div class="w3-panel ws-note">
+<h2>Note</h2>
+<p>Sorting a whole array is a very inefficient method if you only want to find the highest (or lowest) value.</p>
+</div>
+
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_mathmin"></a>
+<h2>Using Math.min() on an Array</h2>
+<p>You can use <code class="w3-codespan">Math.min.apply</code> to find the lowest number in an array:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">function myArrayMin(arr) {
+  return Math.min.apply(null, arr);
+}</code></pre>
+<p>
+
+</p>
+</div>
+<p><code class="w3-codespan">Math.min.apply(null, [1, 2, 3])</code> is equivalent to <code class="w3-codespan">Math.min(1, 2, 3)</code>.</p>
+
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_mathmax"></a>
+<h2>Using Math.max() on an Array</h2>
+<p>You can use <code class="w3-codespan">Math.max.apply</code> to find the highest number in an array:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">function myArrayMax(arr) {
+  return Math.max.apply(null, arr);
+}</code></pre>
+<p>
+
+</p>
+</div>
+<p><code class="w3-codespan">Math.max.apply(null, [1, 2, 3])</code> is equivalent to <code class="w3-codespan">Math.max(1, 2, 3)</code>.</p>
+
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_homemin"></a>
+<h2>JavaScript Array Minimum Method</h2>
+<p>There is no built-in function for finding the lowest value in a JavaScript array.</p>
+<p>The fastest code to find the lowest number is to use a <b>home made</b> method.</p>
+<p>This function loops through an array comparing each value with the lowest value found:</p>
+<div class="w3-example">
+<h3>Example (Find Min)</h3>
+<pre class="w3-code"><code class="language-javascript">function myArrayMin(arr) {
+  let len = arr.length;
+  let min = Infinity;
+  while (len--) {
+    if (arr[len] &lt; min) {
+      min = arr[len];
+    }
+  }
+  return min;
+}</code></pre>
+<p>
+
+</p>
+</div>
+<h2>JavaScript Array Maximum Method</h2>
+<p>There is no built-in function for finding the highest value in a JavaScript array.</p>
+<p>The fastest code to find the highest number is to use a <b>home made</b> method.</p>
+<p>This function loops through an array comparing each value with the highest value found:</p>
+<div class="w3-example">
+<h3>Example (Find Max)</h3>
+<pre class="w3-code"><code class="language-javascript">function myArrayMax(arr) {
+  let len = arr.length;
+  let max = -Infinity;
+  while (len--) {
+    if (arr[len] &gt; max) {
+      max = arr[len];
+    }
+  }
+  return max;
+}</code></pre>
+<p>
+
+</p>
+</div>
+
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_objects"></a>
+<h2>Sorting Object Arrays</h2>
+<p>JavaScript arrays often contain objects:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const cars = [
+  {type:"Volvo", year:2016},
+  {type:"Saab", year:2001},
+  {type:"BMW", year:2010}
+];</code></pre>
+</div>
+<p>Even if objects have properties of different data types, the <code class="w3-codespan">sort()</code> method 
+can be used to sort the array. </p>
+<p>The solution is to write a compare function to compare the property values:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">cars.sort(function(a, b){return a.year - b.year});</code></pre>
+ 
+</div>
+<p>Comparing string properties is a little more complex:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">cars.sort(function(a, b){
+  let x = a.type.toLowerCase();
+  let y = b.type.toLowerCase();
+  if (x &lt; y) {return -1;}
+  if (x &gt; y) {return 1;}
+  return 0;
+});</code></pre>
+ 
+</div>
+
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Stable Array sort()</h2>
+<p><a href="js_2019.html">ES2019</a> <b>revised</b> the Array <code class="w3-codespan">sort()</code> method.</p>
+<p>Before 2019, the specification allowed unstable sorting algorithms such as QuickSort.</p>
+<p>After ES2019, browsers must use a stable sorting algorithm:</p>
+<p>When sorting elements on a value, the elements must keep their relative position to other elements with the same value.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const myArr = [
+  {name:"X00",price:100 },
+  {name:"X01",price:100 },
+  {name:"X02",price:100 },
+  {name:"X03",price:100 },
+  {name:"X04",price:110 },
+  {name:"X05",price:110 },
+  {name:"X06",price:110 },
+  {name:"X07",price:110 }
+];</code></pre>
+
+</div>
+<p>In the example above, when sorting on price, the result is not allowed to come out with the names
+in an other relative position like this:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">X01 100
+X03 100
+X00 100
+X02 100
+X05 110
+X04 110
+X06 110
+X07 110</code></pre>
+</div>
+<!--stop-->
+<hr>
+<div class="ws-note">
+<h2>Complete JavaScript Reference</h2>
+<p>For a complete reference to all JavaScript properties and methods, with full descriptions and many examples, go to:</p>
+<p class="w3-large"><a href="../jsref/default.html">W3Schools' Full JavaScript Reference</a>.</p>
+<p>The reference inludes all JavaScript updates from 1999 to 2025.</p>
+</div>
+
+<hr>
+
+<hr>
+<hr>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_array_search.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_array_iteration.html">Next ❯</a>
+</div>
+
+

@@ -1,0 +1,276 @@
+
+      
+
+<h1>JavaScript Function apply()</h1>
+
+<!--start-->
+<div class="ws-info">
+<h2>Method Reuse</h2>
+<p>The <b>apply()</b> method lets you write a method that can be used on different objects.</p>
+<p>The <b>apply()</b> method is used to call a function with a specific <b>this</b> value.<br>
+</p><p>The <b>apply()</b> method is similar to <b>call()</b>, but it passes <b>arguments in an array</b>.</p>
+</div>
+
+
+<div class="ws-note">
+<h2>Note</h2>
+<p><b>apply()</b> is an advanced topic.</p>
+<p>Make sure you understand <b>this</b> and <b>call()</b> before continuing.<br>
+</p><p class="w3-large"><a href="js_function_this.html">Function <b>this</b></a></p>
+<p class="w3-large"><a href="js_function_call.html">Function <b>call()</b></a></p>
+</div>
+
+<hr>
+<h2>Basic apply() Syntax</h2>
+<p>The <b>apply()</b> method takes <b>this</b> as the first argument.</p>
+<p>The second argument is <b>an array of values</b> passed to the function.</p>
+
+<div class="w3-example">
+<h3>Syntax</h3>
+<pre class="w3-code"><code class="language-javascript">functionName.apply(thisValue, [arg1, arg2, ...]);</code></pre>
+</div>
+
+<hr>
+<h2>Using apply() to Set this</h2>
+<p>Just like <b>call()</b>, <b>apply()</b> lets you decide what <b>this</b> should be.</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <pre class="w3-code"><code class="language-javascript">function greet(greeting) {
+  return greeting + " " + this.name;
+}
+const person = { name: "John" };
+greet.apply(person, ["Hello"]);</code></pre>
+</div>
+
+<p>
+Here, <b>this</b> inside <b>greet()</b> refers to the <b>person</b> object.<br>
+</p>
+
+<h2>apply() with Multiple Arguments</h2>
+<p>
+All arguments must be placed inside an array, in the correct order.<br>
+</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <pre class="w3-code"><code class="language-javascript">function introduce(age, city) {
+  return this.name + " is " + age + " from " + city;
+}
+const person = { name: "John" };
+introduce.apply(person, [30, "Oslo"]);</code></pre>
+</div>
+
+<h2>apply() vs call()</h2>
+<p>
+The only difference between <b>apply()</b> and <b>call()</b> is how arguments are passed.<br>
+</p>
+
+<ul>
+  <li><b>call()</b> takes arguments one by one</li>
+  <li><b>apply()</b> takes arguments as an array</li>
+</ul>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <pre class="w3-code"><code class="language-javascript">greet.call(person, "Hello");
+greet.apply(person, ["Hello"]);</code></pre>
+</div>
+
+<h2>Using apply() with Math Methods</h2>
+<p>
+A common use case for <b>apply()</b> is working with arrays and Math functions.<br>
+</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <pre class="w3-code"><code class="language-javascript">const numbers = [4, 5, 1, 8];
+Math.max.apply(null, numbers);</code></pre>
+</div>
+
+<p>
+In the example above, <b>null</b> is used because <b>Math.max()</b> does not need a <b>this</b> value.<br>
+</p>
+
+<h2>apply() Does Not Create a New Function</h2>
+<p>
+Like <b>call()</b>, <b>apply()</b> runs the function immediately.<br>
+It does not return a new function.<br>
+</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <pre class="w3-code"><code class="language-javascript">function sum(a, b) {
+  return a + b;
+}
+sum.apply(null, [4, 5]);</code></pre>
+</div>
+
+<p>
+If you want a function that can be called later with the same <b>this</b>, use <b>bind()</b>.<br>
+</p>
+
+<h2>Common Mistakes</h2>
+<ul>
+  <li><b>Forgetting to use an array</b><br>
+  The second argument to <b>apply()</b> must be an array.</li>
+
+  <li><b>Confusing apply() with bind()</b><br>
+  <b>apply()</b> runs immediately. <b>bind()</b> returns a new function.</li>
+
+  <li><b>Using apply() when call() is simpler</b><br>
+  If you do not have an array, <b>call()</b> is often clearer.</li>
+</ul>
+
+<h2>Related Topics</h2>
+<p>
+<a href="js_function_call.html">JavaScript Function call()</a><br>
+<a href="js_function_bind.html">JavaScript Function bind()</a><br>
+<a href="js_function_closures.html">JavaScript Closures</a><br>
+</p>
+
+<h2>Next Chapter</h2>
+<p class="w3-large"><a href="js_function_bind.html">JavaScript Function bind()</a></p>
+
+<div class="ws-note">
+<p>Use <b>apply()</b> when your arguments are already stored in an array.</p>
+</div>
+
+
+<hr>
+<h2>The JavaScript apply() Method</h2>
+<p>The <b>apply()</b> method is similar to the <code class="w3-codespan">call()</code> method (previous chapter).</p>
+<p>In this example the <strong>fullName</strong> method of <strong>person</strong> is <b>applied</b> on <strong>person1</strong>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const person = {
+  fullName: function() {
+    return this.firstName + " " + this.lastName;
+  }
+}
+const person1 = {
+  firstName: "Mary",
+  lastName: "Doe"
+}
+// This will return "Mary Doe":
+person.fullName.apply(person1);</code></pre>
+<p>
+
+</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The Difference Between call() and apply()</h2>
+<p>The <code class="w3-codespan">call()</code> method takes arguments <strong>separately</strong>.</p>
+<p>The <b>apply()</b> method takes arguments as an <strong>array</strong>.</p>
+<div class="ws-note">
+<p>The apply() method is very handy if you want to use an array instead of an argument list.</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The apply() Method with Arguments</h2>
+<p>The <b>apply()</b> method accepts arguments in an array:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const person = {
+  fullName: function(city, country) {
+    return this.firstName + " " + this.lastName + "," + city + "," + country;
+  }
+}
+const person1 = {
+  firstName:"John",
+  lastName: "Doe"
+}
+person.fullName.apply(person1, ["Oslo", "Norway"]);</code></pre>
+<p>
+
+</p>
+</div>
+<!--stop-->
+<!--start-->
+<p>Compared with the <code class="w3-codespan">call()</code> method:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const person = {
+  fullName: function(city, country) {
+    return this.firstName + " " + this.lastName + "," + city + "," + country;
+  }
+}
+const person1 = {
+  firstName:"John",
+  lastName: "Doe"
+}
+person.fullName.call(person1, "Oslo", "Norway");</code></pre>
+<p>
+
+</p>
+</div>
+<!--stop-->
+
+<hr>
+
+<hr>
+<!--start-->
+<h2>Simulate a Max Method on Arrays</h2>
+<p>You can find the largest number (in a list of numbers) using the <code class="w3-codespan">Math.max()</code> method:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">Math.max(1,2,3);  // Will return 3</code></pre>
+<p>
+
+</p>
+</div>
+<p>Since JavaScript <strong>arrays</strong> do not have a max() method, you can apply the 
+<code class="w3-codespan">Math.max()</code> method instead.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">Math.max.apply(null, [1,2,3]); // Will also return 3</code></pre>
+<p>
+
+</p>
+</div>
+
+<p>The first argument (null) does not matter. It is not used in this example.</p>
+<p>These examples will give the same result:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">Math.max.apply(Math, [1,2,3]); // Will also return 3</code></pre>
+<p>
+
+</p>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">Math.max.apply(" ", [1,2,3]); // Will also return 3</code></pre>
+<p>
+
+</p>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">Math.max.apply(0, [1,2,3]); // Will also return 3</code></pre>
+<p>
+
+</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>JavaScript Strict Mode</h2>
+<p>In JavaScript strict mode, if the first argument of the <b>apply()</b> method is not an object,
+it becomes the owner (object) of the invoked function.
+In "non-strict" mode, it becomes the global object.</p>
+<!--stop-->
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_function_call.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_function_bind.html">Next ❯</a>
+</div>
+
+

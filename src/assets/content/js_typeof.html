@@ -1,0 +1,311 @@
+
+      
+
+<h1>JavaScript typeof</h1>
+
+<!--start-->
+<div class="ws-info">
+<h2>The typeof Operator</h2>
+<p>The <b>typeof</b> operator returns the <b>data type</b> of a JavaScript variable.</p>
+</div>
+
+<h2>Primitive Data Types</h2>
+<p>In JavaScript, a primitive value is a single value with no properties or methods.</p>
+<p>JavaScript has 7 primitive data types:</p>
+<ul>
+  <li>string</li>
+  <li>number</li>
+  <li>boolean</li>
+  <li>bigint</li>
+  <li>symbol</li>
+  <li>null</li>
+  <li>undefined</li>
+</ul>
+<p>The <code class="w3-codespan">typeof</code> operator returns the type of a variable or an expression.</p>
+
+<div class="w3-example">
+<h3>Examples</h3>
+<pre class="w3-code"><code class="language-javascript">typeof "John"         // Returns string
+typeof ("John"+"Doe") // Returns string
+typeof 3.14           // Returns number
+typeof 33             // Returns number
+typeof (33 + 66)      // Returns number
+typeof true           // Returns boolean
+typeof false          // Returns boolean
+typeof 1234n          // Returns bigint
+typeof Symbol()       // Returns symbol
+typeof x              // Returns undefined</code></pre>
+
+<pre class="w3-code"><code class="language-javascript">typeof null           // Returns object</code></pre>
+
+</div>
+<div class="ws-note">
+<h2>Note:</h2>
+<p>In JavaScript, <code class="w3-codespan">null</code> is  a primitive value.</p>
+<p>However, <code class="w3-codespan">typeof</code> returns object.</p>
+<p>This is a <b>well-known bug</b> in JavaScript and has historical reasons.</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Complex Data Types</h2>
+<p>A complex data type can store multiple values
+and/or different data types together.</p>
+ 
+<p>JavaScript has one complex data type:</p>
+<ul>
+<li>object</li>
+</ul>
+
+<p>All other complex types like arrays, functions, sets, and maps are just different types of objects.</p>
+
+<p>The <code class="w3-codespan">typeof</code> operator returns only two types:</p>
+<ul>
+  <li>object</li>
+  <li>function</li>
+</ul>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">typeof {name:'John'}   // Returns object
+typeof [1,2,3,4]       // Returns object
+typeof new Map()       // Returns object
+typeof new Set()       // Returns object
+typeof function (){}   // Returns function</code></pre>
+
+</div>
+
+<hr>
+<div class="w3-panel ws-note">
+<h2>Note:</h2>
+<p>The <code class="w3-codespan">typeof</code> operator returns object for all types of objects:
+</p><ul>
+<li>objects</li>
+<li>arrays</li>
+<li>dates</li>
+<li>sets</li>
+<li>maps</li>
+</ul>
+<p>You cannot use <code class="w3-codespan">typeof</code> to determine if a JavaScript object is an array or a date.</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>How to Recognize an Array</h2>
+<p>How to know if a variable is an array?</p>
+<p>ECMAScript 5 (2009) defined a new method for this: <code class="w3-codespan">Array.isArray()</code>:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an Array
+const fruits = ["apples", "bananas", "oranges"];
+Array.isArray(fruits);</code></pre>
+ 
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The instanceof Operator</h2>
+<p>The <code class="w3-codespan">instanceof</code> operator returns <code class="w3-codespan">true</code>
+if an object is an instance of a specified object type:</p>
+<div class="w3-example">
+<h3>Examples</h3>
+<pre class="w3-code"><code class="language-javascript">// Create a Date
+const time = new Date();
+(time instanceof Date);</code></pre>
+
+
+<pre class="w3-code"><code class="language-javascript">// Create an Array
+const fruits = ["apples", "bananas", "oranges"];
+(fruits instanceof Array);</code></pre>
+
+<pre class="w3-code"><code class="language-javascript">// Create a Map
+const fruits = new Map([
+  ["apples", 500],
+  ["bananas", 300],
+  ["oranges", 200]
+]);
+(fruits instanceof Map);</code></pre>
+
+<pre class="w3-code"><code class="language-javascript">// Create a Set
+const fruits = new Set(["apples", "bananas", "oranges"]);
+(fruits instanceof Set);</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>Undefined Variables</h2>
+<p>The <code class="w3-codespan">typeof</code> of an undefined variable is
+<code class="w3-codespan">undefined</code>.
+</p><div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">typeof car;</code></pre>
+
+</div>
+
+<p>The <code class="w3-codespan">typeof</code> of a variable with no value is
+<code class="w3-codespan">undefined</code>. The value is also <code class="w3-codespan">undefined</code>.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let car;
+typeof car;</code></pre>
+
+</div>
+
+<p>Any variable can be emptied, by setting the value to <code class="w3-codespan">undefined</code>.</p>
+<p>The type will also be <code class="w3-codespan">undefined</code>.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let car = "Volvo";
+car = undefined;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Empty Values </h2>
+<p>An empty value has nothing to do with <code class="w3-codespan">undefined</code>.</p>
+<p>An empty string has both a legal value and a type.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let car = "";
+typeof car;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Null</h2>
+<p>In JavaScript <code class="w3-codespan">null</code> is "nothing". It is supposed to be something that doesn't exist.</p>
+<p>Unfortunately, in JavaScript, the data type of <code class="w3-codespan">null</code> is an object.</p>
+
+<p>You can empty an object by setting it to <code class="w3-codespan">null</code>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an Object
+let person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+person = null;
+// Now value is null, but type is still an object</code></pre>
+
+</div>
+<p>You can also empty an object by setting it to <code class="w3-codespan">undefined</code>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+person = undefined;
+// Now both value and type is undefined</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Difference Between Undefined and Null</h2>
+<p><code class="w3-codespan">undefined</code> and <code class="w3-codespan">null</code> are equal in value but different in type:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">typeof undefined      // undefined
+typeof null           // object
+null === undefined    // false
+null == undefined     // true</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The constructor Property</h2>
+<p>The <code class="w3-codespan">constructor</code> property returns the constructor 
+function for all JavaScript variables.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Returns function Object() {[native code]}:
+{name:'John',age:34}.constructor
+// Returns function Array() {[native code]}:
+[1,2,3,4].constructor
+// Returns function Date() {[native code]}:
+new Date().constructor
+// Returns function Set() {[native code]}:
+new Set().constructor
+// Returns function Map() {[native code]}:
+new Map().constructor
+// Returns function Function() {[native code]}:
+function () {}.constructor</code></pre>
+
+</div>
+
+<p>With the constructor, you can check if an object is an <strong>Array</strong>:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">(myArray.constructor === Array);</code></pre>
+<p></p>
+</div>
+
+<p>With the constructor, you can check if an object is a <strong>Date</strong>:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">(myDate.constructor === Date);</code></pre>
+<p></p>
+</div>
+
+<hr>
+<div class="w3-example">
+<h3>All Together</h3>
+<pre class="w3-code"><code class="language-javascript">typeof "John"          // Returns "string"
+typeof ("John"+"Doe")  // Returns "string"
+typeof 3.14            // Returns "number"
+typeof (33 + 66)       // Returns "number"
+typeof NaN             // Returns "number"
+typeof 1234n           // Returns "bigint"
+typeof true            // Returns "boolean"
+typeof false           // Returns "boolean"
+typeof {name:'John'}   // Returns "object"
+typeof [1,2,3,4]       // Returns "object"
+typeof {}              // Returns "object"
+typeof []              // Returns "object"
+typeof new Object()    // Returns "object"
+typeof new Array()     // Returns "object"
+typeof new Date()      // Returns "object"
+typeof new Set()       // Returns "object"
+typeof new Map()       // Returns "object"
+typeof function () {}  // Returns "function"
+typeof x               // Returns "undefined"
+typeof null            // Returns "object"</code></pre>
+
+</div>
+<div class="w3-panel ws-note">
+<h2>Note:</h2>
+<p>The data type of <b>NaN</b> (Not a Number) is <b>number</b> !</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The void Operator</h2>
+<p>The <strong>void</strong> operator evaluates an expression and returns 
+<strong>undefined</strong>. This operator is often used to obtain the undefined 
+primitive value, using "void(0)" (useful when evaluating an expression without 
+using the return value).</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;a href="javascript:void(0);"&gt;
+  Useless link
+&lt;/a&gt;
+&lt;a href="javascript:void(document.body.style.backgroundColor='red');"&gt;
+  Click me to change the background color of body to red
+&lt;/a&gt;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+
+
+<hr>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_datatypes.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_tostring.html">Next ❯</a>
+</div>
+
+

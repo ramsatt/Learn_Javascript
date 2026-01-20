@@ -1,0 +1,118 @@
+
+      
+
+<h1>JavaScript Function bind()</h1>
+
+
+<hr>
+<!--start-->
+<h2>Function Borrowing</h2>
+<p>With the <code class="w3-codespan">bind()</code> method, an object can borrow a method from another object.</p>
+
+<p>The example below creates 2 objects (person and member).</p>
+<p>The member object borrows the fullname method from the person object:</p> 
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const person = {
+  firstName:"John",
+  lastName: "Doe",
+  fullName: function () {
+    return this.firstName + " " + this.lastName;
+  }
+}
+const member = {
+  firstName:"Hege",
+  lastName: "Nilsen",
+}
+let fullName = person.fullName.bind(member);</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Preserving <b>this</b></h2>
+
+<p>Sometimes the <code class="w3-codespan">bind()</code> method has to be used to prevent losing <b>this</b>.</p>
+<p>In the following example, the person object has a display method. In the display method, <b>this</b> refers to the person object:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const person = {
+  firstName:"John",
+  lastName: "Doe",
+  display: function () {
+    let x = document.getElementById("demo");
+    x.innerHTML = this.firstName + " " + this.lastName;
+  }
+}
+person.display();</code></pre>
+
+</div>
+<p>When a function is used as a callback, <b>this</b> is lost.</p>
+<p>This example will try to display the person name after 3 seconds, but it will display <b>undefined</b> instead:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const person = {
+  firstName:"John",
+  lastName: "Doe",
+  display: function () {
+    let x = document.getElementById("demo");
+    x.innerHTML = this.firstName + " " + this.lastName;
+  }
+}
+setTimeout(person.display, 3000);</code></pre>
+
+</div>
+<p>The <code class="w3-codespan">bind()</code> method solves this problem.</p>
+<p>In the following example, the <code class="w3-codespan">bind()</code> method is used to bind person.display to person.</p>
+<p>This example will display the person name after 3 seconds:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const person = {
+  firstName:"John",
+  lastName: "Doe",
+  display: function () {
+    let x = document.getElementById("demo");
+    x.innerHTML = this.firstName + " " + this.lastName;
+  }
+}
+let display = person.display.bind(person);
+setTimeout(display, 3000);</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+<h2>What is <b>this</b>?</h2>
+<p>In JavaScript, the <code class="w3-codespan">this</code> keyword refers to an <b>object</b>.</p>
+
+<p>The <code class="w3-codespan">this</code> keyword refers to <b>different objects</b> depending on how it is used:</p>
+
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr><td>Alone, <code class="w3-codespan">this</code> refers to the <b>global object</b>.</td></tr>
+<tr><td>In a function, <code class="w3-codespan">this</code> refers to the <b>global object</b>.</td></tr>
+<tr><td>In a function, in strict mode, <code class="w3-codespan">this</code> is <code class="w3-codespan">undefined</code>.</td></tr>
+<tr><td>In an object method, <code class="w3-codespan">this</code> refers to the <b>object</b>.</td></tr>
+<tr><td>In an event, <code class="w3-codespan">this</code> refers to the <b>element</b> that received the event.</td></tr>
+<tr><td>in methods like <code class="w3-codespan">call()</code>, <code class="w3-codespan">apply()</code>,
+and <code class="w3-codespan">bind()</code>, <code class="w3-codespan">this</code> can refer to <b>any object</b>.</td></tr>
+</tbody></table></div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p><code class="w3-codespan">this</code> is not a variable.</p>
+<p><code class="w3-codespan">this</code> is a keyword.</p>
+<p>You cannot change the value of <code class="w3-codespan">this</code>.</p>
+
+</div>
+
+
+
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_function_apply.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_function_closures.html">Next ❯</a>
+</div>
+
+

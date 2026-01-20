@@ -1,0 +1,167 @@
+
+      
+
+<h1>JavaScript HTML DOM EventListener</h1>
+
+<hr>
+<!--start-->
+<h2>The addEventListener() method</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Add an event listener that fires when a user clicks a button:</p>
+<pre class="w3-code"><code class="language-javascript">document.getElementById("myBtn").addEventListener("click", displayDate);</code></pre>
+
+</div>
+<p>The <code class="w3-codespan">addEventListener()</code> method attaches an event handler to the specified element.</p>
+<p>The <code class="w3-codespan">addEventListener()</code> method attaches an event handler to an element without overwriting existing event handlers.</p>
+<p>You can add many event handlers to one element.</p>
+<p>You can add many event handlers of the same type to one element, i.e two "click" events.</p>
+<p>You can add event listeners to any DOM object not only HTML elements. i.e the window object.</p>
+<p>The <code class="w3-codespan">addEventListener()</code> method makes it easier to control how the event reacts to bubbling.</p>
+<p>When using the <code class="w3-codespan">addEventListener()</code> method, the JavaScript is separated from the HTML markup, for better readability 
+and allows you to add event listeners even when you do not control the HTML markup.</p>
+<p>You can easily remove an event listener by using the <code class="w3-codespan">removeEventListener()</code> method.<br></p>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Syntax</h2>
+<pre class="w3-code"><code class="language-javascript"><div> <em>element</em>.addEventListener(<em>event, function, useCapture</em>);</div></code></pre>
+<p>The first parameter is the type of the event (like "<code class="w3-codespan">click</code>" or "<code class="w3-codespan">mousedown</code>" 
+or any other <a href="../jsref/dom_obj_event.html">HTML DOM Event</a>.)</p>
+<p>The second parameter is the function we want to call when the event occurs. </p>
+<p>The third parameter is a boolean value specifying whether to use event bubbling or event capturing. This parameter is optional.</p>
+
+<div class="w3-panel ws-note">
+<p>Note that you don't use the 
+"on" prefix for the event; use "<code class="w3-codespan">click</code>" instead of "<code class="w3-codespan">onclick</code>".</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Add an Event Handler to an Element</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Alert "Hello World!" when the user clicks on an element:</p>
+<pre class="w3-code"><code class="language-javascript"><em>element</em>.addEventListener("click", function(){ alert("Hello World!"); });</code></pre>
+
+</div>
+
+<p>You can also refer to an external "named" function:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Alert "Hello World!" when the user clicks on an element:</p>
+<pre class="w3-code"><code class="language-javascript"><em>element</em>.addEventListener("click", myFunction);
+function myFunction() {
+  alert ("Hello World!");
+}</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>Add Many Event Handlers to the Same Element</h2>
+
+<p>The <code class="w3-codespan">addEventListener()</code> method allows you to add many events to the same 
+element, without overwriting existing events:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript"><em>element</em>.addEventListener("click", myFunction);
+<em>element</em>.addEventListener("click", mySecondFunction);</code></pre>
+
+</div>
+
+<p>You can add events of different types to the same element:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript"><em>element</em>.addEventListener("mouseover", myFunction);
+<em>element</em>.addEventListener("click", mySecondFunction);
+<em>element</em>.addEventListener("mouseout", myThirdFunction);</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Add an Event Handler to the window Object</h2>
+<p>The <code class="w3-codespan">addEventListener()</code> method allows you to add event listeners on any HTML 
+DOM object such as HTML elements, the HTML document, the window object, or other 
+objects that support events, like the <code class="w3-codespan">xmlHttpRequest</code> object.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+
+<p>Add an event listener that fires when a user resizes the window:</p>
+
+<pre class="w3-code"><code class="language-javascript">window.addEventListener("resize", function(){
+  document.getElementById("demo").innerHTML = <em>sometext</em>;
+});</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Passing Parameters</h2>
+<p>When passing parameter values, use 
+an "anonymous function" that calls the specified function with the parameters:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript"><em>element</em>.addEventListener("click", function(){ myFunction(p1, p2); });</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Event Bubbling or Event Capturing?</h2>
+<p>There are two ways of event propagation in the HTML DOM, bubbling and capturing.</p>
+<p>Event propagation is a way of defining the element order when an event occurs.
+If you have a &lt;p&gt; element inside a &lt;div&gt; element, and the user clicks on the &lt;p&gt; element, which element's
+"click" event should be handled first?</p>
+
+<p>In <em>bubbling </em>the inner most element's event is handled first and then the outer:
+the &lt;p&gt; element's click event is handled first, then the &lt;div&gt; element's click event.</p>
+
+<p>In <em>capturing </em>the outer most element's event is handled first and then the inner:
+the &lt;div&gt; element's click event will be handled first, then the &lt;p&gt; element's click event.</p>
+
+<p>With the addEventListener() method you can specify the propagation type by using the "useCapture" parameter:</p>
+
+<pre class="w3-code"><code class="language-javascript"><div> addEventListener(<em>event</em>, <em>function</em>, <span class="marked"><em>useCapture</em></span>);</div></code></pre>
+
+<p>The default value is false, which will use the bubbling propagation, when the value is set to true, the event uses the capturing propagation.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">document.getElementById("myP").addEventListener("click", myFunction, true);
+document.getElementById("myDiv").addEventListener("click", myFunction, true);</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The removeEventListener() method</h2>
+<p>The <code class="w3-codespan">removeEventListener()</code> method removes event handlers that have been 
+attached with the addEventListener() method:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript"><em>element</em>.removeEventListener("mousemove", myFunction);</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<h2>HTML DOM Event Object Reference</h2>
+<p>For a list of all HTML DOM events, look at our complete <a href="../jsref/dom_obj_event.html">HTML DOM Event Object Reference</a>.</p>
+
+<hr>
+
+<hr>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_htmldom_events.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_project_counter.html">Next ❯</a>
+</div>
+
+

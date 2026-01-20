@@ -1,0 +1,196 @@
+
+      
+
+<h1>JavaScript Dynamic Modules</h1>
+
+
+<!--start-->
+<div class="ws-info">
+<a id="mark_dynamic_import"></a>
+<h2>JavaScript Dynamic Import</h2>
+<p><b>Dynamic Import</b> uses the syntax:</p>
+<pre class="w3-code"><code class="language-javascript">import(<i>module</i>);</code></pre>
+
+</div>
+
+<div class="ws-note">
+<p><b>Dynamic Import</b> was introduced in <a href="js_2020.html">ECMAScript 2020</a></p>
+<p><b>Dynamic Import</b> is a way to <b>load JavaScript modules at runtime</b>,
+rather than at the start of your program.</p>
+</div>
+
+<h2>Modern Software</h2>
+<p>Modern software splits imports into separate chunks.</p>
+<p>Modules are downloaded only when requested - this method has many names:.</p>
+<ul>
+<li>Dynamic Import</li>
+<li>Code Splitting</li>
+<li>Lazy Loading</li>
+<li>Conditional Loading</li>
+</ul>
+
+<p><b>Dynamic import</b> is one of the most powerful features for modular and efficient code.</p>
+
+<p>Unlike <b>Static Import</b> (which must appear at the top of a file),
+<b>Dynamic Import</b> can be used anywhere - inside functions, conditionals, event handlers, etc.</p>
+
+<div class="w3-example">
+<h3>Syntax</h3>
+<pre class="w3-code"><code class="language-javascript">import("./module.js")</code></pre>
+</div>
+
+<ul>
+<li>The argument must be a string or expression that <b>resolves to a path</b></li>
+<li>You must run the import <b>inside a module</b> script (&lt;script type="module"&gt;)</li>
+</ul>
+
+
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Type</th><th>Example</th><th>When Loaded</th></tr>
+<tr><th>Static</th><td><code class="w3-codespan">import { add } from './math.js';</code></td>
+<td>At load time</td></tr>
+<tr><th>Dynamic</th><td><code class="w3-codespan">const math = await import('./math.js');</code></td>
+<td>When needed</td> </tr>
+</tbody></table></div>
+
+<hr>
+<h2>Improved Performance</h2>
+<p>Modules can improve performance by allowing tools to implement "code splitting".
+This means that a user's browser only needs to load the JavaScript modules required for
+the specific features they are using at a given moment, rather than the entire application's code at once.
+</p>
+
+<p>While modules themselves are a language feature, when combined with bundlers like Webpack or Rollup,
+they can lead to performance improvements through optimizations like tree-shaking (eliminating unused code),
+code splitting, and minification.</p>
+
+<hr>
+<h2>How Dynamic Import Works</h2>
+<p>Dynamic Modules use modern <b>async/await</b>:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">async function run() {
+  const module = await import("./math.js");
+  let result = module.add(2, 3);
+}
+run();</code></pre>
+<p></p>
+<h3>math.js</h3>
+<pre class="w3-code"><code class="language-javascript">// Export an "add" function
+export function add(a, b) {
+  return a + b;
+}</code></pre>
+</div>
+<hr>
+<h2>Example Explained</h2>
+<ul>
+<li>The script starts running</li>
+<li>It defines and calls run()</li>
+<li>Inside run(), it dynamically loads math.js</li>
+<li>Once loaded, it gets access to the exported function add()</li>
+<li>It calls add(2, 3) and gets 5</li>
+<li>It displays the result</li>
+</ul>
+
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Step</th><th>Code</th><th>Explained</th></tr>
+<tr><td>1</td><td>async function run()</td><td>Define a function that can use await</td></tr>
+<tr><td>2</td><td>await import("./math.js")</td><td>Load the module file only when needed</td></tr>
+<tr><td>3</td><td>module.add(2, 3)</td><td>Use the exported function from the module</td></tr>
+<tr><td>4</td><td>run()</td><td>Start the process</td></tr>
+</tbody></table></div>
+</div>
+<div class="w3-example">
+<p>Step 1. Define a function that can use await:</p>
+<pre class="w3-code"><code class="language-javascript">async function run() {</code></pre>
+</div>
+<ul>
+<li>This line defines an <b>asynchronous function called run()</b></li>
+<li>The <b>async</b> keyword means the function can use <b>await</b> inside it</li>
+<li>The <b>await</b> keyword pauses the function until a <b>Promise is resolved</b></li>
+<li>In this case, the Promise is the <b>import of the module</b></li>
+</ul>
+<div class="w3-example">
+<p>Step 2. Load the module file only when needed:</p>
+<pre class="w3-code"><code class="language-javascript">const module = await import("./math.js");</code></pre>
+</div>
+<ul>
+<li><b>import("./math.js")</b> defines a <b>dynamic import</b></li>
+<li>The module <b>math.js is loaded on demand</b></li>
+<li>math.js returns a <b>Promise</b> that resolves to its <b>exported content</b></li>
+<li>The <b>await</b> keyword waits until the module is <b>fully loaded</b></li>
+<li>Once loaded, the variable <b>module</b> contains the <b>data exported from math.js</b></li>
+</ul>
+<div class="w3-example">
+<p>Step 3. Use the exported function from the module:</p>
+<pre class="w3-code"><code class="language-javascript">let result = module.add(2, 3);</code></pre>
+</div>
+<ul>
+<li>Calls the exported function add() from the imported module</li>
+<li>Passes in 2 and 3 as arguments</li>
+<li>The function adds them and returns 5</li>
+<li>The result is stored in result</li>
+</ul>
+<div class="w3-example">
+<p>Step 4. Start the process - Call the Function:</p>
+<pre class="w3-code"><code class="language-javascript">run();</code></pre>
+</div>
+<p>When it runs:</p>
+<ol>
+<li>It loads the module math.js dynamically</li>
+<li>It waits for the module to finish loading</li>
+<li>It calls the add() function of the module</li>
+<li>It displays the result</li>
+</ol>
+
+<hr>
+
+<hr>
+
+<h2>Another Example</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">async function run(x) {
+  const module = await import("./temperatures.js");
+  let celsius = module.toCelsius(x);
+  document.getElementById("demo").textContent = celsius + " Celcius";
+}
+run(50);</code></pre>
+<p></p>
+<h3>temperatures.js</h3>
+<pre class="w3-code"><code class="language-javascript">// Convert Fahrenheit to Celsius
+export function toCelsius(farenheit) {
+  return (farenheit - 32) * 5 / 9;
+}
+// Convert Celsius to Fahrenheit
+export function toFahrenheit(celsius) {
+  return (celsius * 9 / 5) + 32;
+}</code></pre>
+</div>
+
+<hr>
+<h2>Dynamic Import Key Features</h2>
+<ul>
+<li>Lazy Loading - Load code only when it is needed</li>
+<li>Performance Optimization - Reduce initial load size for faster page load</li>
+<li>Conditional Imports - Import different modules based on conditions.</li>
+</ul>
+<hr>
+<h2>Conditional Loading</h2>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">if (user.isAdmin) {
+  const adminTools = await import("./admin-tools.js");
+  adminTools.init();
+}</code></pre>
+</div>
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_modules_namespace.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_meta_programming.html">Next ❯</a>
+</div>
+
+

@@ -1,0 +1,182 @@
+
+      
+
+
+<h1>Typed Array Methods</h1>
+
+
+<hr>
+<h2>The from() Method</h2>
+<p>The <code class="w3-codespan">from()</code>method creates a new typed array from any iterable object:</p>
+<div class="w3-example">
+<h3>Examples</h3>
+<p>Create a typed array from a string:</p>
+<pre class="w3-code"><code class="language-javascript">const myArr = Int16Array.from("1234567890");</code></pre>
+
+<p>Create a typed array from an array:</p>
+<pre class="w3-code"><code class="language-javascript">const myArr = Int16Array.from([1,2,3,4,5,6,7,8,9,0]);</code></pre>
+
+</div>
+
+<hr>
+<h2>The of() Method</h2>
+<p>The <code class="w3-codespan">of()</code> method creates a new typed array from a number of arguments:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const myArr = Int16Array.of(1,2,3,4,5,6,7,8,9,0);</code></pre>
+
+</div>
+
+<hr>
+<h2>The constructor.name Property</h2>
+<p>The <code class="w3-codespan">constructor.name</code> property returns the name (type) of a typed array:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">myArr.constructor.name</code></pre>
+
+</div>
+
+<hr>
+<h2>The BYTES_PER_ELEMENT Property</h2>
+<p><code class="w3-codespan">BYTES_PER_ELEMENT</code> returns the number of bytes used to store each array element:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">myArr.BYTES_PER_ELEMENT</code></pre>
+
+</div>
+
+<hr>
+
+<h2>Common Array Methods</h2>
+<p><b>Typed Arrays</b> share many methods with <b>Standard Arrays</b>:</p>
+<ul>
+<li><p><b>Iteration</b>: forEach(), map(), filter(), reduce(), reduceRight(), every(), some(), find(),
+findIndex(), findLast(), findLastIndex().</p></li>
+<li><p><b>Searching</b>: includes(), indexOf(), lastIndexOf().</p></li>
+<li><p><b>Manipulation</b>: at(), copyWithin(), fill(), reverse(), set(), slice(), sort(), subarray().</p></li>
+<li><p><b>Conversion</b>: join(), toLocaleString(), toString().</p></li>
+<li><p><b>Non-mutating methods</b>: toReversed(), toSorted(), with().</p></li>
+</ul>
+
+<hr>
+<h2>The fill() Method</h2>
+<p>The <code class="w3-codespan">fill()</code> method changes all elements in a typed array to a value:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Fill <b>all</b> array elements with a value:</p>
+<pre class="w3-code"><code class="language-javascript">myArr.fill(200);</code></pre>
+
+</div>
+<p>The <code class="w3-codespan">fill()</code> method takes two optional arguments: start index and end index:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Fill <b>some</b> array elements with a value:</p>
+<pre class="w3-code"><code class="language-javascript">myArr.fill(200, 0, 3);</code></pre>
+
+</div>
+
+<hr>
+<h2>The find() Method</h2>
+<p>The <code class="w3-codespan">find()</code> method returns the first element that satisfies a test:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">myArr.find((x) =&gt; x &gt; 18)</code></pre>
+
+</div>
+
+<hr>
+<h2>The some() Method</h2>
+<p>The <code class="w3-codespan">some()</code> method returns true if an element for which a provided function returns true:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">myArr.some((x) =&gt; x &gt; 18)</code></pre>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>Not Available Array Methods</h2>
+<p>Some array methods are NOT available for typed array.</p>
+<p>This is due to the fixed-length nature and the lack of fixed structure.</p>
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr><th>Method</th><th>Array</th><th>Typed Array</th></tr>
+<tr><td>pop()</td><td>Yes</td><td>NO</td></tr>
+<tr><td>push()</td><td>Yes</td><td>NO</td></tr>
+<tr><td>shift()</td><td>Yes</td><td>NO</td></tr>
+<tr><td>unshift()</td><td>Yes</td><td>NO</td></tr>
+<tr><td>splice()</td><td>Yes</td><td>NO</td></tr>
+<tr><td>flat()</td><td>Yes</td><td>NO</td></tr>
+<tr><td>flatMap()</td><td>Yes</td><td>NO</td></tr>
+<tr><td>concat()</td><td>Yes</td><td>NO</td></tr>
+<tr><td>toSpliced()</td><td>Yes</td><td>NO</td></tr>
+</tbody></table></div>
+
+<hr>
+<h2>Browser APIs Supporting Typed Arrays</h2>
+
+<div class="w3-example">
+<h3>Fetch API Example</h3>
+<pre class="w3-code"><code class="language-javascript">fetch(url)
+.then(request =&gt; request.arrayBuffer())
+.then(arrayBuffer =&gt;...);</code></pre>
+</div>
+
+<div class="w3-example">
+<h3>Canvas Example</h3>
+<pre class="w3-code"><code class="language-javascript">const canvas = document.getElementById('my_canvas');
+const context = canvas.getContext('2d');
+const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+const uint8ClampedArray = imageData.data;</code></pre>
+</div>
+
+<hr>
+<div class="ws-note">
+<h2>Learn More:</h2>
+<p class="w3-large"><a href="js_typed_arrays.html">Typed Array Tutorial</a></p>
+<p class="w3-large"><a href="js_typed_reference.html">Typed Array Reference</a></p>
+<p class="w3-large"><a href="js_arraybuffers.html">Array Buffers</a></p>
+<p class="w3-large"><a href="js_dataview.html">DataViews</a></p>
+<p class="w3-large"><a href="js_atomics.html">Atomics</a></p>
+</div>
+
+<hr>
+<h2>Browser Support</h2>
+<p><code class="w3-codespan">Typed Arrays</code> is an <a href="js_es6.html">ES6  feature</a>.</p>
+<p>ES6 is fully supported in all modern browsers since June 2017:</p>
+
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr style="height:50px">
+    <th style="width:20%;" class="bsChrome" title="Chrome"></th>
+    <th style="width:20%;" class="bsEdge" title="Edge"></th>
+    <th style="width:20%;" class="bsFirefox" title="Firefox"></th>
+    <th style="width:20%;" class="bsSafari" title="Safari"></th>
+    <th style="width:19.9%;" class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>51</td>
+    <td>Edge<br>15</td>
+    <td>Firefox<br>54</td>
+    <td>Safari<br>10</td>
+    <td>Opera<br>38</td>
+  </tr>
+  <tr>
+    <td>May 2016</td>
+    <td>Apr 2017</td>
+    <td>Jun 2017</td>
+    <td>Sep 2016</td>
+    <td>Jun 2016</td>
+  </tr>
+</tbody></table></div>
+</div>
+
+
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_typed_arrays.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_typed_reference.html">Next ❯</a>
+</div>
+
+

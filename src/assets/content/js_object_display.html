@@ -1,0 +1,165 @@
+
+      
+
+<h1>JavaScript Display Objects</h1>
+
+
+<hr>
+<!--start-->
+<h2>How to Display JavaScript Objects?</h2>
+<p>Displaying a JavaScript object will output <b>[object Object]</b>.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an Object
+const person = {
+  name: "John",
+  age: 30,
+  city: "New York"
+};
+let text = person;</code></pre>
+
+</div>
+
+<p>Some solutions to display JavaScript objects are:
+</p><ul>
+<li>Displaying the Object Properties by name</li>
+<li>Displaying the Object Properties in a Loop</li>
+<li>Displaying the Object using Object.values()</li>
+<li>Displaying the Object using JSON.stringify()</li>
+</ul>
+<p></p>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Displaying Object Properties</h2>
+<p>The properties of an object can be added in a string:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an Object
+const person = {
+  name: "John",
+  age: 30,
+  city: "New York"
+};
+// Add Properties
+let text = person.name + "," + person.age + "," + person.city;</code></pre>
+
+</div>
+
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Using a For .. In Loop</h2>
+<p>The properties of an object can be collected in a loop:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an Object
+const person = {
+  name: "John",
+  age: 30,
+  city: "New York"
+};
+// Build a Text
+let text = "";
+for (let x in person) {
+  text += person[x] + " ";
+};</code></pre>
+
+</div>
+<div class="w3-panel ws-note">
+<h2>Note:</h2>
+<p>You must use <b>person[x]</b> in the loop.</p>
+<p><b>person.x</b> will not work (Because <b>x</b> is the loop variable).</p>
+</div>
+
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>Using Object.values()</h2>
+<p><code class="w3-codespan">Object.values()</code> creates an array from the property values:</p>
+ 
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">// Create an Object
+const person = {
+  name: "John",
+  age: 30,
+  city: "New York"
+};
+// Create an Array
+const myArray = Object.values(person);
+// Stringify the Array
+let text = myArray.toString();</code></pre>
+
+</div>
+
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Using Object.entries()</h2>
+<p><code class="w3-codespan">Object.entries()</code> makes it simple to use objects in loops:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const fruits = {Bananas:300, Oranges:200, Apples:500};
+let text = "";
+for (let [fruit, value] of Object.entries(fruits)) {
+  text += fruit + ": " + value + "&lt;br&gt;";
+}</code></pre>
+
+</div>
+
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Using JSON.stringify()</h2>
+<p>JavaScript objects can be converted to a string with JSON method
+<code class="w3-codespan">JSON.stringify()</code>.</p>
+<p><code class="w3-codespan">JSON.stringify()</code> is included in JavaScript and supported in all browsers.</p>
+
+<div class="w3-panel ws-note">
+<h2>Note:</h2>
+<p>The result will be a string written in JSON notation:</p>
+<p>{"name":"John","age":50,"city":"New York"}</p>
+</div>
+ 
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an Object
+const person = {
+  name: "John",
+  age: 30,
+  city: "New York"
+};
+// Stringify Object
+let text = JSON.stringify(person);</code></pre>
+
+</div>
+
+<!--stop-->
+<hr>
+<div class="ws-note">
+<h2>Learn More:</h2>
+<p class="w3-large"><a href="js_object_definition.html">JavaScript Object Definitions</a></p>
+<p class="w3-large"><a href="js_object_constructors.html">JavaScript Object Constructors</a></p>
+<p class="w3-large"><a href="js_this.html">JavaScript Object this</a></p>
+<p class="w3-large"><a href="js_destructuring.html">JavaScript Object Destructuring</a></p>
+<p class="w3-large"><a href="js_object_prototypes.html">JavaScript Object Prototypes</a></p>
+<p class="w3-large"><a href="js_object_methods.html">JavaScript Object Iterations</a></p>
+<p class="w3-large"><a href="js_object_property.html">JavaScript Object Management</a></p>
+<p class="w3-large"><a href="js_object_accessors.html">JavaScript Object Getters &amp; Setters</a></p>
+<p class="w3-large"><a href="js_object_protection.html">JavaScript Object Protection</a></p>
+<p class="w3-large"><a href="js_object_reference.html">JavaScript Object Reference</a></p>
+</div>
+
+<hr>
+
+<hr>
+
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_object_methods.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_scope.html">Next ❯</a>
+</div>
+
+

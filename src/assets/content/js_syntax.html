@@ -1,0 +1,182 @@
+
+      
+
+<h1>JavaScript Syntax</h1>
+
+<!--start-->
+<div class="ws-info">
+<h2>Syntax Rules</h2>
+<h4>Syntax are the rules how programs must be constructed:</h4>
+
+<pre class="w3-code"><code class="language-javascript">// How to Declare variables:
+let x = 5;
+let y = 6;
+// How to Compute values:
+let z = x + y;
+// I am a Comment. I do Nothing</code></pre>
+</div>
+
+<hr>
+<h2>JavaScript Values</h2>
+<p>The JavaScript syntax defines two types of values:</p>
+<ul>
+<li><b>Literals</b> (Fixed values)</li>
+<li><b>Variables</b> (Variable values)</li>
+</ul>
+<hr>
+<h2>JavaScript Literals</h2>
+<p>The most important syntax rules for <b>literals</b> (fixed values) are:</p>
+<p><b>Numbers</b> are written with or without decimals:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">10.50
+1001</code></pre>
+
+</div>
+<p><b>Strings</b> are text, written within double or single quotes:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">"John Doe"
+'John Doe'</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>JavaScript Keywords</h2>
+<p>JavaScript <b>keywords</b> are used to defines <b>actions</b> to be performed.</p>
+<p>The
+<code class="w3-codespan">let</code> and <code class="w3-codespan">const</code> keywords create variables:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 5;
+const fname = "John";</code></pre>
+
+</div>
+<div class="ws-note">
+<h2>Note</h2>
+<p>JavaScript keywords are <b>case-sensitive</b>.</p>
+<p>JavaScript does not interpret <b>LET</b> or <b>Let</b> as the keyword <b>let</b>.</p>
+</div>
+
+<!--stop-->
+
+<hr>
+<!--start-->
+
+<h2>JavaScript Variables</h2>
+<p><b>Variables</b> are containers for <b>storing data values</b>.</p>
+<p>Variables must be <b>identified</b> with <b>unique names</b>.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Define x as a variable
+let x;
+// Assign the value 6 to x
+x = 6;</code></pre>
+
+</div>
+
+<hr>
+<h2>JavaScript Identifiers</h2>
+<p>An <b>identifier</b> is the <b>name</b> you give to a variable.</p>
+<p>Rules for identifiers:</p>
+<ul>
+<li>Must start with a letter, _, or $</li>
+<li>Can contain digits after the first character</li>
+<li>Cannot be a reserved keyword (let, const, if, etc.)</li>
+<li>Are case-sensitive</li>
+</ul>
+<hr>
+<!--start-->
+
+<h2>JavaScript Operators</h2>
+
+<p>JavaScript <b>assignment operators</b> (=) assign values to variables:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 5;
+let y = 6;
+let sum = x + y;</code></pre>
+
+</div>
+<p>JavaScript uses <b>arithmetic operators</b> ( <code class="w3-codespan">+</code> <code class="w3-codespan">-</code> <code class="w3-codespan">*</code> <code class="w3-codespan">/</code> ) to 
+<b>compute</b> values: </p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">5 * 10</code></pre>
+
+</div>
+
+<!--stop-->
+<hr>
+<!--start-->
+
+<h2>JavaScript Expressions</h2>
+<p>An expression is a combination of values, variables, and operators, 
+which computes to a value.</p>
+
+<div class="w3-example">
+<h3>Examples</h3>
+<p>(5 + 6) * 10 evaluates to 110:</p>
+<pre class="w3-code"><code class="language-javascript">(5 + 6) * 10</code></pre>
+
+<p>Expressions can also contain variable:</p>
+<pre class="w3-code"><code class="language-javascript">x * 10</code></pre>
+
+<p>"John" + " " + "Doe", evaluates to "John Doe":</p>
+ <pre class="w3-code"><code class="language-javascript">"John" + " " + "Doe"</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+
+<h2>JavaScript is Case Sensitive</h2>
+<p>JavaScript identifiers are <b>case sensitive</b>.</p>
+<p>The variables <code class="w3-codespan">lastName</code> and <code class="w3-codespan">lastname</code>, 
+are different variables:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let lastName = "Doe";
+let lastname = "Peterson";</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+
+<h2>JavaScript and Camel Case</h2>
+<p>Historically, programmers have used different ways of joining multiple words into one variable name:</p>
+<p><b>Hyphens:</b></p>
+<p>first-name, last-name, master-card, inter-city.</p>
+
+<div class="ws-note">
+<p>Hyphens are not allowed in JavaScript. They are reserved for subtractions.</p>
+</div>
+
+<p><b>Underscore:</b></p>
+<p>first_name, last_name, master_card, inter_city.</p>
+<p><b>Upper Camel Case (Pascal Case):</b></p>
+<p>FirstName, LastName, MasterCard, InterCity.</p>
+<p>
+</p><p><b>Lower Camel Case:</b></p>
+<p>firstName, lastName, masterCard, interCity.</p>
+
+<div class="ws-note">
+<p>JavaScript programmers tend to use lower camel case.</p>
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+
+<hr>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_output.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_statements.html">Next ❯</a>
+</div>
+
+

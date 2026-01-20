@@ -1,0 +1,178 @@
+
+      
+
+<h1>JavaScript Array Const</h1>
+
+
+<hr>
+<!--start-->
+<h2>ECMAScript 2015 (ES6)</h2>
+<p>In 2015, JavaScript introduced an important new keyword: <code class="w3-codespan">const</code>.</p>
+<p>It has become a common practice to declare arrays using <code class="w3-codespan">const</code>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const cars = ["Saab", "Volvo", "BMW"];</code></pre>
+
+</div>
+<hr>
+<h2>Cannot be Reassigned</h2>
+<p>An array declared with <code class="w3-codespan">const</code> cannot be reassigned:</p>
+
+<div class="w3-example  w3-pale-red">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const cars = ["Saab", "Volvo", "BMW"];
+cars = ["Toyota", "Volvo", "Audi"];    // ERROR</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Arrays are Not Constants</h2>
+<p>The keyword <code class="w3-codespan">const</code> is a little misleading.</p>
+<p>It does NOT define a constant array. It defines a constant reference to an array.</p>
+<p>Because of this, we can still change the elements of a constant array.</p>
+
+<hr>
+<h2>Elements Can be Reassigned</h2>
+<p>You can change the elements of a constant array:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// You can create a constant array:
+const cars = ["Saab", "Volvo", "BMW"];
+// You can change an element:
+cars[0] = "Toyota";
+// You can add an element:
+cars.push("Audi");</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Assigned when Declared</h2>
+<p>JavaScript <code class="w3-codespan">const</code> variables must be assigned a value when they are declared:
+</p><p>Meaning: An array declared with <code class="w3-codespan">const</code> must be initialized when it is declared.</p>
+<p>Using <code class="w3-codespan">const</code> without initializing the array is a syntax 
+error:</p> 
+
+<div class="w3-example w3-pale-red">
+<h3>Example</h3>
+<p>This will not work:</p>
+<pre class="w3-code"><code class="language-javascript">const cars;
+cars = ["Saab", "Volvo", "BMW"];</code></pre>
+</div>
+
+<p>Arrays declared with <code class="w3-codespan">var</code> can be initialized at any time.</p>
+<p>You can even use the array before it is declared:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>This is OK:</p>
+<pre class="w3-code"><code class="language-javascript">cars = ["Saab", "Volvo", "BMW"];
+var cars;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Const Block Scope</h2>
+<p>An array declared with <code class="w3-codespan">const</code> has <b>Block Scope</b>.</p>
+<p>An array declared in a block is not the same as an array declared outside the block:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const cars = ["Saab", "Volvo", "BMW"];
+// Here cars[0] is "Saab"
+{
+  const cars = ["Toyota", "Volvo", "BMW"];
+  // Here cars[0] is "Toyota"
+}
+// Here cars[0] is <b>"Saab"</b></code></pre>
+
+</div>
+<p>An array declared with <code class="w3-codespan">var</code> does not have block scope:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">var cars = ["Saab", "Volvo", "BMW"];
+// Here cars[0] is "Saab"
+{
+  var cars = ["Toyota", "Volvo", "BMW"];
+  // Here cars[0] is "Toyota"
+}
+// Here cars[0] is <b>"Toyota"</b></code></pre>
+
+</div>
+<!--stop-->
+<p>You can learn more about Block Scope in the chapter: <a href="js_scope.html">JavaScript Scope</a>.</p>
+
+<hr>
+
+<hr>
+<!--start-->
+<h2>Redeclaring Arrays</h2>
+<p>Redeclaring an array declared with <code class="w3-codespan">var</code> is allowed anywhere in a program:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">var cars = ["Volvo", "BMW"];   // Allowed
+var cars = ["Toyota", "BMW"];  // Allowed
+cars = ["Volvo", "Saab"];      // Allowed</code></pre>
+</div>
+<p>Redeclaring or reassigning an array to <code class="w3-codespan">const</code>, in the same scope, or in 
+the same block, is not allowed:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">var cars = ["Volvo", "BMW"];     // Allowed
+const cars = ["Volvo", "BMW"];   // Not allowed
+{
+  var cars = ["Volvo", "BMW"];   // Allowed
+  const cars = ["Volvo", "BMW"]; // Not allowed
+}</code></pre>
+</div>
+
+<p>Redeclaring or reassigning an existing <code class="w3-codespan">const</code> array, in the same scope, or in 
+the same block, is not allowed:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const cars = ["Volvo", "BMW"];   // Allowed
+const cars = ["Volvo", "BMW"];   // Not allowed
+var cars = ["Volvo", "BMW"];     // Not allowed
+cars = ["Volvo", "BMW"];         // Not allowed
+{
+  const cars = ["Volvo", "BMW"]; // Allowed
+  const cars = ["Volvo", "BMW"]; // Not allowed
+  var cars = ["Volvo", "BMW"];   // Not allowed
+  cars = ["Volvo", "BMW"];       // Not allowed
+}</code></pre>
+</div>
+
+<p>Redeclaring an array with <code class="w3-codespan">const</code>, in another scope, or in another block, is allowed:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const cars = ["Volvo", "BMW"];   // Allowed
+{
+  const cars = ["Volvo", "BMW"]; // Allowed
+}
+{
+  const cars = ["Volvo", "BMW"]; // Allowed
+}</code></pre>
+</div>
+<!--stop-->
+<div class="ws-note">
+<h2>Complete Array Reference</h2>
+<p>For a complete Array reference, go to our:</p>
+<p class="w3-large"><a href="js_array_reference.html">Complete JavaScript Array Reference</a></p>
+<p>The reference contains descriptions and examples of all Array 
+properties and methods.</p>
+</div>
+
+<hr>
+
+<hr>
+
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_array_reference.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_sets.html">Next ❯</a>
+</div>
+
+

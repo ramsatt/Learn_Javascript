@@ -1,0 +1,162 @@
+
+      
+
+<h1>RegExp Character Classes</h1>
+
+<!--start-->
+<div class="ws-info">
+<p><b>Character Classes</b> are characters enclosed in square brackets <b>[]</b>.</p>
+<p>A character class matches any character from a set within brackets:</p>
+<pre class="w3-code"><code class="language-javascript">// Match Digits
+const pattern = /[0-9]/;</code></pre>
+
+</div>
+
+<h2>JavaScript Regex Character Classes</h2>
+<h4>Revised July 2025</h4>
+
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate">
+<tbody><tr></tr>
+<tr>
+  <th>Class</th>
+  <th>Description</th>
+</tr>
+<tr>
+  <td>[a]</td>
+  <td>Matches the character between the brackets</td>
+  </tr>
+<tr>
+  <td>[^a]</td>
+  <td>Matches all characters NOT between the brackets</td>
+  </tr>
+<tr>
+  <td>[abc]</td>
+  <td>Matches all characters between the brackets</td>
+  </tr>
+<tr>
+  <td>[^abc]</td>
+  <td>Matches all characters NOT between the brackets</td>
+  </tr>
+<tr>
+  <td>[a-z]</td>
+  <td>Matches all characters in the range from a to z</td>
+  </tr>
+<tr>
+  <td>[^a-z]</td>
+  <td>Matches all characters NOT in the range from a to z</td>
+  </tr>
+<tr>
+  <td>[0-9]</td>
+  <td>Matches all characters in the range from 0 to 9</td>
+</tr>
+<tr>
+  <td>[^0-9]</td>
+  <td>Matches all characters NOT in the range from 0 to 9</td>
+</tr>
+</tbody></table></div>
+</div>
+
+<div class="w3-example">
+<h3>Example [HW]</h3>
+<p>A global search for the characters "H" and "W" in a string:</p>
+<pre class="w3-code"><code class="language-javascript">let text = "Hello World!";
+const pattern = /[HW]/g;
+let result = text.match(pattern);</code></pre>
+<p>
+</p>
+</div>
+
+<div class="w3-example">
+<h3>Example [A-Z]</h3>
+<p>A global search for the upper case characters "A" to "Z" in a string:</p>
+<pre class="w3-code"><code class="language-javascript">let text = "This is W3School";
+const pattern = /[A-Z]/g;
+let result = text.match(pattern);</code></pre>
+<p>
+</p>
+</div>
+
+<div class="w3-example">
+<h3>Example [1234]</h3>
+<p>A global search for the characters "1", "2", "3" and "4" in a string:</p>
+<pre class="w3-code"><code class="language-javascript">let text = "123456789";
+const pattern = /[1234]/g;
+let result = text.match(pattern);</code></pre>
+<p>
+</p>
+</div>
+
+<div class="w3-example">
+<h3>Example [1-4]</h3>
+<p>A global search for the characters "1" to "4" in a string:</p>
+<pre class="w3-code"><code class="language-javascript">let text = "123456789";
+const pattern = /[1-4]/g;
+let result = text.match(pattern);</code></pre>
+<p>
+</p>
+</div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>[01234] is the same as [0-4]</p>
+<p>[abcde] is the same as [a-e]</p>
+</div>
+
+
+<!--stop-->
+<hr>
+<!--stop-->
+<hr>
+
+<hr>
+
+<h2>Regular Expression Methods</h2>
+<p>Regular Expression <b>Search</b> and <b>Replace</b> can be done with different methods.</p>
+<p>These are the most common:</p> 
+<h3>String Methods</h3>
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th width="160px">Method</th><th>Description</th> </tr>
+<tr><td><a href="../jsref/jsref_match.html">match(<i>regex</i>)</a></td>
+<td>Returns an Array of results</td></tr>
+<tr><td><a href="../jsref/jsref_string_matchall.html">matchAll(<i>regex</i>)</a></td>
+<td>Returns an Iterator of results</td></tr>
+<tr><td><a href="../jsref/jsref_replace.html">replace(<i>regex</i>)</a></td>
+<td>Returns a new String</td></tr>
+<tr><td><a href="../jsref/jsref_string_replaceall.html">replaceAll(<i>regex</i>)</a></td>
+<td>Returns a new String</td></tr>
+<tr><td><a href="../jsref/jsref_search.html">search(<i>regex</i>)</a></td>
+<td>Returns the index of the first match</td></tr>
+<tr><td><a href="../jsref/jsref_split.html">split(<i>regex</i>)</a></td>
+<td>Returns an Array of results</td></tr>
+</tbody></table></div>
+<h3>RegExp Methods</h3>
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th width="160px">Method</th><th>Description</th> </tr>
+<tr><td><a href="../jsref/jsref_regexp_exec.html"><i>regex</i>.exec()</a></td>
+<td>Returns an Iterator of results</td></tr>
+<tr><td><a href="../jsref/jsref_regexp_test.html"><i>regex</i>.test()</a></td>
+<td>Returns true or false</td></tr>
+</tbody></table></div>
+
+<hr>
+<div class="ws-note">
+<h2>See Also:</h2>
+<p class="w3-large"><a href="js_regexp.html">JavaScript RegExp Tutorial</a></p>
+<p class="w3-large"><a href="js_regexp_flags.html">JavaScript RegExp Flags</a></p>
+<p class="w3-large"><a href="js_regexp_meta_characters.html">JavaScript RegExp Meta Characters</a></p>
+<p class="w3-large"><a href="js_regexp_assertions.html">JavaScript RegExp Assertions</a></p>
+<p class="w3-large"><a href="js_regexp_quantifiers.html">JavaScript RegExp Quantifiers</a></p>
+<p class="w3-large"><a href="js_regexp_patterns.html">JavaScript RegExp Patterns</a></p>
+<p class="w3-large"><a href="js_regexp_objects.html">JavaScript RegExp Objects</a></p>
+<p class="w3-large"><a href="js_regexp_methods.html">JavaScript RegExp Methods</a></p>
+</div>
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_regexp_flags.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_regexp_meta_characters.html">Next ❯</a>
+</div>
+
+

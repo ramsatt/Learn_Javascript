@@ -1,0 +1,216 @@
+
+      
+
+<h1><b>this</b> in JavaScript Objects</h1>
+
+<hr>
+<h2>What is <b>this</b>?</h2>
+<p>In JavaScript, the <code class="w3-codespan">this</code> keyword refers to an <b>object</b>.</p>
+
+<p>The <code class="w3-codespan">this</code> keyword refers to <b>different objects</b> depending on how it is used:</p>
+
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr><td>Alone, <code class="w3-codespan">this</code> refers to the <b>global object</b>.</td></tr>
+<tr><td>In a function, <code class="w3-codespan">this</code> refers to the <b>global object</b>.</td></tr>
+<tr><td>In a function, in strict mode, <code class="w3-codespan">this</code> is <code class="w3-codespan">undefined</code>.</td></tr>
+<tr><td>In an object method, <code class="w3-codespan">this</code> refers to the <b>object</b>.</td></tr>
+<tr><td>In an event, <code class="w3-codespan">this</code> refers to the <b>element</b> that received the event.</td></tr>
+<tr><td>in methods like <code class="w3-codespan">call()</code>, <code class="w3-codespan">apply()</code>,
+and <code class="w3-codespan">bind()</code>, <code class="w3-codespan">this</code> can refer to <b>any object</b>.</td></tr>
+</tbody></table></div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p><code class="w3-codespan">this</code> is not a variable.</p>
+<p><code class="w3-codespan">this</code> is a keyword.</p>
+<p>You cannot change the value of <code class="w3-codespan">this</code>.</p>
+
+</div>
+
+<hr>
+<!--start-->
+<h2><b>this</b> in a Method</h2>
+<p>When used in an object method, <code class="w3-codespan">this</code> refers to the <b>object</b>.</p>
+<p>In the example on top of this page, <code class="w3-codespan">this</code> refers to the <b>person</b> object.</p>
+<p>Because the <b>fullName</b> method is a method of the <b>person</b> object.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const <b>person</b> = {
+  firstName: "John",
+  lastName : "Doe",
+  id       : 5566,
+  fullName : function() {
+    return <b>this</b>.firstName + " " + <b>this</b>.lastName;
+  }
+};</code></pre>
+
+</div>
+<!--stop-->
+
+<hr>
+
+<hr>
+
+<!--start-->
+<h2>Object Method Binding</h2>
+<p>In these examples, <code class="w3-codespan">this</code> is the <b>person object</b>:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const <b>person</b> = {
+  firstName  : "John",
+  lastName   : "Doe",
+  id         : 5566,
+  myFunction : function() {
+    return <b>this</b>;
+  }
+};</code></pre>
+
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const <b>person</b> = {
+  firstName: "John",
+  lastName : "Doe",
+  id       : 5566,
+  fullName : function() {
+    return <b>this</b>.firstName + " " + <b>this</b>.lastName;
+  }
+};</code></pre>
+
+</div>
+<p>i.e. <b>this.firstName</b> is the <b>firstName</b> property of <b>this</b> (the person object).</p>  
+
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Explicit Function Binding</h2>
+<p>The <code class="w3-codespan">call()</code> and <code class="w3-codespan">apply()</code> methods are predefined JavaScript methods.</p>
+<p>They can both be used to call an object method with another object as argument.</p>
+
+<div class="w3-panel ws-note">
+<h2>See Also:</h2>
+<p><a href="js_function_call.html">The Function call() Method </a></p>
+<p><a href="js_function_apply.html">The Function apply() Method</a></p>
+<p><a href="js_function_bind.html">The Function bind() Method</a></p>
+</div>
+
+<p>The example below calls person1.fullName with person2 as an argument, <b>this</b> refers to person2,
+even if fullName is a method of person1:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const person1 = {
+  fullName: function() {
+    return this.firstName + " " + this.lastName;
+  }
+}
+const person2 = {
+  firstName:"John",
+  lastName: "Doe",
+}
+// Return "John Doe":
+person1.fullName.call(person2);</code></pre>
+<p>
+
+</p>
+</div>
+
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Function Borrowing</h2>
+<p>With the <code class="w3-codespan">bind()</code> method, an object can borrow a method from another object.</p>
+
+<p>This example creates 2 objects (person and member).</p>
+<p>The member object borrows the fullname method from the person object:</p> 
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const person = {
+  firstName:"John",
+  lastName: "Doe",
+  fullName: function () {
+    return this.firstName + " " + this.lastName;
+  }
+}
+const member = {
+  firstName:"Hege",
+  lastName: "Nilsen",
+}
+let fullName = person.fullName.bind(member);</code></pre>
+
+</div>
+
+<!--stop-->
+<hr>
+<!--start-->
+<h2><b>This</b> Precedence</h2>
+<p>Use the following precedence of order to determine which object
+<code class="w3-codespan">this</code> refers to:</p>
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><td>Order</td><td>Object</td><th>Because</th></tr>
+<tr><td>1</td><td>bind()</td>
+<td><code class="w3-codespan">this</code> is in a function being called using bind()</td>
+</tr>
+<tr><td>2</td><td>apply()</td>
+<td><code class="w3-codespan">this</code> is in a function being called using apply()</td>
+</tr>
+<tr><td>2</td><td>call()</td>
+<td><code class="w3-codespan">this</code> is in a function being called using call()</td>
+</tr>
+<tr><td>3</td><td>Object method</td>
+<td><code class="w3-codespan">this</code> is in an object function (method)</td></tr>
+<tr><td>4</td><td>Global scope</td>
+<td><code class="w3-codespan">this</code> is in a function in the global scope</td>
+</tr>
+</tbody></table></div>
+<!--stop-->
+<h2>JavaScript Global This</h2>
+<p>In JavaScript, <code class="w3-codespan">globalThis</code> is a special built-in object that provides a standard way to access the global object,
+regardless of the environment your code runs in - whether it is a browser, Node.js, a Web Worker,
+or another JS runtime.</p>
+
+<p>The global object is the top-level object in a JavaScript environment:</p><p>
+</p><ul>
+<li>In browsers, it is <b>window</b>.</li>
+<li>In Node.js, it is <b>global</b>.</li>
+<li>In Web Workers, it is <b>self</b>.</li>
+</ul>
+
+<p>Each environment used to have its own name for this object.
+This caused compatibility issues for code meant to run everywhere.</p>
+
+<p><code class="w3-codespan">globalThis</code> was introduced in <a href="js_2020.html">ECMAScript 2020</a>
+(ES11) to solve that problem. It is a unified reference to the global object, no matter the environment.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">globalThis === window); // true in browsers
+globalThis === global); // true in Node.js</code></pre>
+
+</div>
+
+<hr>
+<div class="ws-note">
+<h2>Learn More:</h2>
+<p class="w3-large"><a href="js_object_definition.html">JavaScript Object Definitions</a></p>
+<p class="w3-large"><a href="js_object_constructors.html">JavaScript Object Constructors</a></p>
+<p class="w3-large"><a href="js_this.html">JavaScript Object this</a></p>
+<p class="w3-large"><a href="js_destructuring.html">JavaScript Object Destructuring</a></p>
+<p class="w3-large"><a href="js_object_prototypes.html">JavaScript Object Prototypes</a></p>
+<p class="w3-large"><a href="js_object_methods.html">JavaScript Object Iterations</a></p>
+<p class="w3-large"><a href="js_object_property.html">JavaScript Object Management</a></p>
+<p class="w3-large"><a href="js_object_accessors.html">JavaScript Object Getters &amp; Setters</a></p>
+<p class="w3-large"><a href="js_object_protection.html">JavaScript Object Protection</a></p>
+<p class="w3-large"><a href="js_object_reference.html">JavaScript Object Reference</a></p>
+</div>
+
+<hr>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_object_constructors.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_destructuring.html">Next ❯</a>
+</div>
+
+

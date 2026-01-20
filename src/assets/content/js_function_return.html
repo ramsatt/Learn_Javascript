@@ -1,0 +1,170 @@
+
+      
+
+<h1>JavaScript Function Return</h1>
+
+
+<div class="ws-info">
+<h2>Returning Values from Functions</h2>
+<p>A function can return a value back to the code that called it.</p>
+<p>The <b>return statement</b> is used to send a value out of a function.</p>
+</div>
+<h2>The <b>return</b> Statement</h2>
+<p>
+When JavaScript reaches a <b>return</b> statement, the function stops executing.</p>
+<p>The value after <b>return</b> is sent back to the caller.</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <pre class="w3-code"><code class="language-javascript">function sayHello() {
+  return "Hello World";
+}
+let message = sayHello();</code></pre>
+</div>
+
+<p>
+The variable <b>message</b> now contains the returned value.<br>
+</p>
+
+<hr>
+<h2>Returning a Calculated Value</h2>
+<p>
+Most functions return the result of a calculation or operation.<br>
+</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <pre class="w3-code"><code class="language-javascript">function multiply(a, b) {
+  return a * b;
+}
+let result = multiply(4, 5);</code></pre>
+</div>
+
+<p>
+The returned value can be used anywhere a value is expected.<br>
+</p>
+
+<hr>
+<h2>Using Returned Values in Expressions</h2>
+<p>
+You can use a function call inside another expression.<br>
+</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <pre class="w3-code"><code class="language-javascript">function add(a, b) {
+  return a + b;
+}
+let total = add(2, 3) * 10;</code></pre>
+</div>
+
+<hr>
+<h2>Returning Text or Numbers</h2>
+<p>
+A function can return any type of value, such as text or numbers.<br>
+</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <pre class="w3-code"><code class="language-javascript">function fullName(firstName, lastName) {
+  return firstName + " " + lastName;
+}
+fullName("John", "Doe");</code></pre>
+</div>
+
+<hr>
+<h2>Returning from a Function Stops Execution</h2>
+<p>
+Code written after <b>return</b> will not be executed.<br>
+</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <pre class="w3-code"><code class="language-javascript">function testReturn() {
+  return "Done";
+  console.log("This will never run");
+}</code></pre>
+</div>
+
+<hr>
+<h2>Functions Without return</h2>
+<p>
+If a function does not return a value, it returns <b>undefined</b>.<br>
+</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <pre class="w3-code"><code class="language-javascript">function noReturn() {
+  let x = 10;
+}
+let result = noReturn();</code></pre>
+</div>
+
+<p>
+The value of <b>result</b> is <b>undefined</b>.<br>
+</p>
+
+<hr>
+<h2>Returning Values Early</h2>
+<p>
+You can use <b>return</b> to stop a function early, based on a condition.<br>
+</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">function checkAge(age) {
+  if (age &lt; 18) {
+    return "Too young";
+  }
+  return "Access granted";
+}</code></pre>
+
+
+</div>
+
+<hr>
+<h2>Returning Values to HTML</h2>
+<p>Returned function values are often used to update HTML content.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;p id="demo"&gt;&lt;/p&gt;
+&lt;script&gt;
+function toCelsius(farenheit) {
+  return (5 / 9) * (farenheit - 32);
+}
+document.getElementById("demo").innerHTML = toCelsius(77);
+&lt;/script&gt;</code></pre>
+
+</div>
+
+<hr>
+<div class="w3-panel w3-pale-yellow w3-leftbar w3-border-yellow">
+<h2>Quiz</h2>
+<p>What value is returned if a function has no return statement?</p>
+</div>
+
+<hr>
+<h2>Common Mistakes</h2>
+<ul class="w3-ul">
+<li><h3>Forgetting return</h3>
+A function without <b>return</b> sends back <b>undefined</b>.</li>
+
+<li><h3>Expecting code after return to run</h3><br>
+Code after <b>return</b> is ignored.</li>
+
+<li><h3>Confusing console.log() with return</h3><br>
+<b>console.log()</b> shows output but does not return a value.</li>
+</ul>
+
+<hr>
+<h2>Next Chapter</h2>
+<p class="w3-large">Next: <a href="js_function_definition.html">Function Declarations and Function Expressions</a></p>
+
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_function_parameters.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_function_definition.html">Next ❯</a>
+</div>
+
+

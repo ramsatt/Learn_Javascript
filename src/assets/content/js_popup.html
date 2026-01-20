@@ -1,0 +1,93 @@
+
+      
+
+<h1>JavaScript Popup Boxes</h1>
+
+<hr>
+<!--start-->
+<div class="ws-info">
+<p>JavaScript has three kinds of popup boxes:</p>
+<ul class="w3-xlarge">
+<li>Alert box
+</li><li>Confirm box</li>
+<li>Prompt box</li>
+</ul>
+</div>
+
+<h2>Alert Box</h2>
+<p>An alert box is often used if you want to make sure information comes through to the user.</p>
+<p>When an alert box pops up, the user will have to click "OK" to proceed. </p>
+
+<h3>Syntax</h3>
+<pre class="w3-code"><code class="language-javascript"><div> window.alert("<i>sometext</i>");</div></code></pre>
+<p>The <code class="w3-codespan">window.alert()</code> method can be written without the window 
+prefix.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">alert("I am an alert box!");</code></pre>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Confirm Box</h2>
+<p>A confirm box is often used if you want the user to verify or accept something.</p>
+<p>When a confirm box pops up, the user will have to click either "OK" or "Cancel" to proceed. </p>
+<p>If the user clicks "OK", the box returns <strong>true</strong>. If the user clicks "Cancel", the box returns
+<strong>false</strong>.</p>
+
+<h3>Syntax</h3>
+<pre class="w3-code"><code class="language-javascript"><div> window.confirm("<i>sometext</i>");</div></code></pre>
+<p>The <code class="w3-codespan">window.confirm()</code> method can be written without the window prefix.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">if (confirm("Press a button!")) {
+  txt = "You pressed OK!";
+} else {
+  txt = "You pressed Cancel!";
+}</code></pre>
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>Prompt Box</h2>
+<p>A prompt box is often used if you want the user to input a value before entering a page.</p>
+<p>When a prompt box pops up, the user will have to click either "OK" or "Cancel" 
+to proceed after entering an input value. </p>
+<p>If the user clicks "OK" the box returns the input value. If the user clicks "Cancel" the box returns null.</p>
+
+<h3>Syntax</h3>
+<pre class="w3-code"><code class="language-javascript"><div> window.prompt("<i>sometext</i>","<i>defaultText</i>");</div></code></pre>
+<p>The <code class="w3-codespan">window.prompt()</code> method can be written without the window prefix.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let person = prompt("Please enter your name", "Harry Potter");
+let text;
+if (person == null || person == "") {
+  text = "User cancelled the prompt.";
+} else {
+  text = "Hello " + person + "! How are you today?";
+}</code></pre>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Line Breaks</h2>
+<p>To display line breaks inside a popup box, use a back-slash followed by the character n.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">alert("Hello\nHow are you?");</code></pre>
+</div>
+<!--stop-->
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_window_navigator.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_timing.html">Next ❯</a>
+</div>
+
+

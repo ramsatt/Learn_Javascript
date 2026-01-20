@@ -1,0 +1,646 @@
+
+      
+
+<h1>JavaScript Array Methods</h1>
+
+<!--start-->
+<div class="ws-info">
+<h2>Basic Array Methods</h2>
+<div class="table-responsive-wrapper"><table class="w3-table w3-large">
+<tbody><tr><td>
+<a href="#mark_length">Array length</a><br>
+<a href="#mark_tostring">Array toString</a>()<br>
+<a href="#mark_at">Array at()</a><br>
+<a href="#mark_join">Array join()</a><br>
+<a href="#mark_pop">Array pop()</a><br>
+<a href="#mark_push">Array push()</a><br>
+<a href="#mark_shift">Array shift()</a><br>
+<a href="#mark_unshift">Array unshift()</a><br>
+</td>
+<td>
+<a href="#mark_isarray">Array isArray()</a><br>
+<a href="#mark_delete">Array delete()</a><br>
+<a href="#mark_concat">Array concat()</a><br>
+<a href="#mark_copywithin">Array copyWithin()</a><br>
+<a href="#mark_flat">Array flat()</a><br>
+<a href="#mark_slice">Array slice()</a><br>
+<a href="#mark_splice">Array splice()</a><br>
+<a href="#mark_tospliced">Array toSpliced()</a><br>
+</td></tr>
+</tbody></table></div>
+<p class="w3-large"><a href="js_array_reference.html">Complete JavaScript Array Reference</a>
+
+</p></div>
+<!--stop-->
+<div class="ws-note">
+<h2>See Also:</h2>
+<p class="w3-large"><a href="js_arrays.html">JavaScript Array Tutorial</a><br>
+</p><p class="w3-large"><a href="js_array_search.html">JavaScript Array Search Methods</a><br>
+</p><p class="w3-large"><a href="js_array_sort.html">JavaScript Array Sort Methods</a><br>
+</p><p class="w3-large"><a href="js_array_iteration.html">JavaScript Array Iteration Methods</a><br>
+</p></div>
+
+<!--start-->
+<hr>
+<a id="mark_length"></a>
+<h2>JavaScript Array length</h2>
+<p>The <code class="w3-codespan">length</code> property <b>returns the length</b> (size) of an array:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const fruits = ["Banana", "Orange", "Apple", "Mango"];
+let size = fruits.length;</code></pre>
+
+</div>
+<p>The <code class="w3-codespan">length</code> property can also be used to <b>set the length</b> of an array:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.length = 2;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_tostring"></a>
+<h2>JavaScript Array toString()</h2>
+
+<p>The <code class="w3-codespan">toString()</code> method returns the elements of an array as a comma separated string.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const fruits = ["Banana", "Orange", "Apple", "Mango"];
+let myList = fruits.toString();</code></pre>
+
+</div>
+<!--stop-->
+<div class="ws-note">
+<h2>Note</h2>
+<p>Every JavaScript object has a <code class="w3-codespan">toString()</code> method.</p>
+<p>The <code class="w3-codespan">toString()</code> method is used internally by JavaScript
+when an object needs to be displayed as a text (like in HTML),
+or when an object needs to be used as a string.</p>
+</div>
+
+
+<hr>
+<!--start-->
+<a id="mark_at"></a>
+<h2>JavaScript Array at()</h2>
+
+<p><a href="js_2022.html">ES2022</a> introduced the array method <code class="w3-codespan">at()</code>:</p>
+
+<div class="w3-example">
+<h3>Examples</h3>
+<p>Get the third element of fruits using at():</p>
+<pre class="w3-code"><code class="language-javascript">const fruits = ["Banana", "Orange", "Apple", "Mango"];
+let fruit = fruits.at(2);</code></pre>
+
+<p>Get the third element of fruits using []:</p>
+<pre class="w3-code"><code class="language-javascript">const fruits = ["Banana", "Orange", "Apple", "Mango"];
+let fruit = fruits[2];</code></pre>
+
+</div>
+<p>The <code class="w3-codespan">at()</code> method returns an indexed element from an array.</p>
+<p>The <code class="w3-codespan">at()</code> method returns the same as <code class="w3-codespan">[]</code>.</p>
+
+<hr>
+<h2>Browser Support</h2>
+<p><code class="w3-codespan">at()</code> is an ES2022 feature.</p>
+<p><a href="js_2022.html">JavaScript 2022</a> is supported in all modern browsers since March 2022:</p>
+
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr>
+    <th class="bsChrome" title="Chrome"></th>
+    <th class="bsEdge" title="Edge"></th>
+    <th class="bsFirefox" title="Firefox"></th>
+    <th class="bsSafari" title="Safari"></th>
+    <th class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>92</td>
+    <td>Edge<br>92</td>
+    <td>Firefox<br>90</td>
+    <td>Safari<br>15.4</td>
+    <td>Opera<br>78</td>
+  </tr>
+  <tr>
+    <td>Apr 2021</td>
+    <td>Jul 2021</td>
+    <td>Jul 2021</td>
+    <td>Mar 2022</td>
+    <td>Aug 2021</td>
+  </tr>
+</tbody></table></div>
+</div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>Many languages allow <code class="w3-codespan">negative bracket indexing</code> like [-1] to access elements from the end of an
+object / array / string.</p>
+<p>This is not possible in JavaScript, because [] is used for accessing both arrays and objects.
+obj[-1] refers to the value of key -1, not to the last property of the object.</p>
+<p>The <code class="w3-codespan">at()</code> method was introduced in ES2022 to solve this problem.</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_join"></a>
+<h2>JavaScript Array join()</h2>
+<p>The <code class="w3-codespan">join()</code> method also joins all array elements into a string.</p>
+<p>It behaves just like <code class="w3-codespan">toString()</code>, but in addition you can specify the separator:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo").innerHTML = fruits.join(" * ");</code></pre>
+<p>Result:</p>
+
+
+</div>
+
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Popping and Pushing</h2>
+<p>When you work with arrays, it is easy to remove elements and add 
+new elements.</p>
+<p>This is what popping and pushing is:</p>
+<p>Popping items <strong>out</strong> of an array, or pushing 
+items <strong>into</strong> an array.</p>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<a id="mark_pop"></a>
+<h2>JavaScript Array pop()</h2>
+<p>The <code class="w3-codespan">pop()</code> method removes the last element from an array: </p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.pop();</code></pre>
+
+</div>
+
+<p>The <code class="w3-codespan">pop()</code> method returns the value that was "popped out":</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const fruits = ["Banana", "Orange", "Apple", "Mango"];
+let fruit = fruits.pop();</code></pre>
+
+</div>
+
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_push"></a>
+<h2>JavaScript Array push()</h2>
+<p>The <code class="w3-codespan">push()</code> method adds a new element to an array (at the end):</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.push("Kiwi");</code></pre>
+
+</div>
+
+<p>The <code class="w3-codespan">push()</code> method returns the new array length:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const fruits = ["Banana", "Orange", "Apple", "Mango"];
+let length = fruits.push("Kiwi");</code></pre>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Shifting Elements</h2>
+<p>Shifting is equivalent to popping, but working on the first element instead of 
+the last.</p>
+<hr>
+<a id="mark_shift"></a>
+<h2>JavaScript Array shift()</h2>
+
+<p>The <code class="w3-codespan">shift()</code> method removes the first array element and "shifts" all 
+other elements to a lower index.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.shift();</code></pre>
+
+</div>
+
+<p>The <code class="w3-codespan">shift()</code> method returns the value that was "shifted out":</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const fruits = ["Banana", "Orange", "Apple", "Mango"];
+let fruit = fruits.shift();</code></pre>
+ 
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_unshift"></a>
+<h2>JavaScript Array unshift()</h2>
+
+<p>The <code class="w3-codespan">unshift()</code> method adds a new element to an array (at the beginning), and "unshifts" 
+older elements: </p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.unshift("Lemon");</code></pre>
+
+</div>
+
+<p>The <code class="w3-codespan">unshift()</code> method returns the new array length:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.unshift("Lemon");</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Changing Elements</h2>
+<p>Array elements are accessed using their <strong>index number</strong>:</p>
+
+<div class="w3-panel ws-note">
+<p>Array <strong>indexes</strong> start with 0:</p>
+<p>[0] is the first array element<br>[1] is the second<br>[2] is the third ...</p>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits[0] = "Kiwi";</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>JavaScript Array length</h2>
+
+<p>The <code class="w3-codespan">length</code> property provides an easy way to append a new element to an array:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits[fruits.length] = "Kiwi";</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_isarray"></a>
+<h2>Array.isArray()</h2>
+<p>ECMAScript 5 (JavaScript 2009) added the new method
+<code class="w3-codespan">Array.isArray()</code> to JavaScript:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">Array.isArray(fruits);</code></pre>
+ 
+</div>
+
+<hr>
+<a id="mark_delete"></a>
+<h2>JavaScript Array delete()</h2>
+<div class="w3-panel ws-warning">
+<h3>Warning !</h3>
+<p>Using <code class="w3-codespan">delete()</code> leaves <code class="w3-codespan">undefined</code> holes in the 
+array.</p>
+<p>Use pop() or shift() instead.</p>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const fruits = ["Banana", "Orange", "Apple", "Mango"];
+delete fruits[0];</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_concat"></a>
+<h2>Merging Arrays (Concatenating)</h2>
+<p>In programming languages, concatenation means joining strings end-to-end.</p>
+<p>Concatenation "snow" and "ball" gives "snowball".</p>
+<p>Concatenating arrays means joining arrays end-to-end.</p>
+<hr>
+<h2>JavaScript Array concat()</h2>
+<p>The <code class="w3-codespan">concat()</code> method creates a new array by merging (concatenating) 
+existing arrays:</p>
+<div class="w3-example">
+<h3>Example (Merging Two Arrays)</h3>
+<pre class="w3-code"><code class="language-javascript">const myGirls = ["Cecilie", "Lone"];
+const myBoys = ["Emil", "Tobias", "Linus"];
+const myChildren = myGirls.concat(myBoys);</code></pre>
+
+</div>
+<div class="w3-panel ws-note">
+<h2>Note</h2>
+<p>The <code class="w3-codespan">concat()</code> method does not change the existing arrays. It always returns a new array.</p>
+<p>The <code class="w3-codespan">concat()</code> method can take any number of array arguments.</p>
+</div>
+
+<div class="w3-example">
+<h3>Example (Merging Three Arrays)</h3>
+<pre class="w3-code"><code class="language-javascript">const arr1 = ["Cecilie", "Lone"];
+const arr2 = ["Emil", "Tobias", "Linus"];
+const arr3 = ["Robin", "Morgan"];
+const myChildren = arr1.concat(arr2, arr3);</code></pre>
+
+</div>
+
+<p>The <code class="w3-codespan">concat()</code> method can also take strings as arguments:</p>
+<div class="w3-example">
+<h3>Example (Merging an Array with Values)</h3>
+<pre class="w3-code"><code class="language-javascript">const arr1 = ["Emil", "Tobias", "Linus"];
+const myChildren = arr1.concat("Peter");</code></pre>
+  
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_copywithin"></a>
+<h2>Array copyWithin()</h2>
+<p>The <code class="w3-codespan">copyWithin()</code> method copies array elements to another position in an array:</p>
+<div class="w3-example">
+<h3>Examples</h3>
+<p>Copy to index 2, all elements from index 0:</p>
+<pre class="w3-code"><code class="language-javascript">const fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.copyWithin(2, 0);</code></pre>
+
+<p>Copy to index 2, the elements from index 0 to 2:</p>
+<pre class="w3-code"><code class="language-javascript">const fruits = ["Banana", "Orange", "Apple", "Mango", "Kiwi"];
+fruits.copyWithin(2, 0, 2);</code></pre>
+
+</div>
+<div class="w3-panel ws-note">
+<h2>Note</h2>
+<p>The <code class="w3-codespan">copyWithin()</code> method overwrites the existing values.</p>
+<p>The <code class="w3-codespan">copyWithin()</code> method does not add items to the array.</p>
+<p>The <code class="w3-codespan">copyWithin()</code> method does not change the length of the array.</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_flat"></a>
+<h2>Flattening an Array</h2>
+<p>Flattening an array is the process of reducing the dimensionality of an array.</p>
+<p>Flattening is useful when you want to convert a multi-dimensional array into a one-dimensional array.</p>
+<hr>
+<h2>JavaScript Array flat()</h2>
+<p><a href="js_2019.html">ES2019</a> Introduced the Array flat() method.</p>
+<p>The <code class="w3-codespan">flat()</code> method creates a new array with sub-array elements concatenated to a specified depth.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const myArr = [[1,2],[3,4],[5,6]];
+const newArr = myArr.flat();</code></pre>
+
+</div>
+
+<hr>
+<h2>Browser Support</h2>
+<p><code class="w3-codespan">flat()</code> is an <a href="js_2019.html">ECMAScript 2019</a> feature.</p>
+<p>ES2019 is supported in all modern browsers since January 2020:</p>
+
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr>
+    <th class="bsChrome" title="Chrome"></th>
+    <th class="bsEdge" title="Edge"></th>
+    <th class="bsFirefox" title="Firefox"></th>
+    <th class="bsSafari" title="Safari"></th>
+    <th class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>66</td>    
+    <td>Edge<br>79</td>
+    <td>Firefox<br>61</td>
+    <td>Safari<br>12</td>
+    <td>Opera<br>50</td>
+  </tr>
+  <tr>
+    <td>Apr 2018</td>
+    <td>Jan 2020</td>    
+    <td>Jun 2018</td>
+    <td>Sep 2018</td>
+    <td>May 2018</td>
+  </tr>
+</tbody>
+</table></div>
+</div>
+
+
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_array_flatmap"></a>
+<h2>JavaScript Array flatMap()</h2>
+<p>ES2019 added the Array <code class="w3-codespan">flatMap()</code> method to JavaScript.</p>
+<p>The <code class="w3-codespan">flatMap()</code> method first maps all elements of an array
+and then creates a new array by flattening the array.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const myArr = [1, 2, 3, 4, 5, 6];
+const newArr = myArr.flatMap(x =&gt; [x, x * 10]);</code></pre>
+
+</div>
+
+<hr>
+<h2>Browser Support</h2>
+<p><code class="w3-codespan">flatMap()</code> is an <a href="js_2019.html">ECMAScript 2019</a> feature.</p>
+<p>ES2019 is supported in all modern browsers since January 2020:</p>
+
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr>
+    <th class="bsChrome" title="Chrome"></th>
+    <th class="bsEdge" title="Edge"></th>
+    <th class="bsFirefox" title="Firefox"></th>
+    <th class="bsSafari" title="Safari"></th>
+    <th class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>66</td>    
+    <td>Edge<br>79</td>
+    <td>Firefox<br>61</td>
+    <td>Safari<br>12</td>
+    <td>Opera<br>50</td>
+  </tr>
+  <tr>
+    <td>Apr 2018</td>
+    <td>Jan 2020</td>    
+    <td>Jun 2018</td>
+    <td>Sep 2018</td>
+    <td>May 2018</td>
+  </tr>
+</tbody>
+</table></div>
+</div>
+
+
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Splicing and Slicing Arrays</h2>
+<p>The <code class="w3-codespan">splice()</code> method adds new items to an array.</p>
+<p>The <code class="w3-codespan">slice()</code> method slices out a piece of an array.</p>
+<hr>
+<a id="mark_splice"></a>
+<h2>JavaScript Array splice()</h2>
+<p>The <code class="w3-codespan">splice()</code> method can be used to add new items to an array: </p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.splice(2, 0, "Lemon", "Kiwi");</code></pre>
+
+</div>
+<p>The first parameter (2) defines the position <strong>where</strong> new elements should be 
+<strong>added</strong> (spliced in).</p>
+<p>The second parameter (0) defines <strong>how many</strong> elements should be
+<strong>removed</strong>.</p>
+<p>The rest of the parameters ("Lemon" , "Kiwi") define the new elements to be
+<strong>added</strong>.</p>
+<p>The <code class="w3-codespan">splice()</code> method returns an array with the deleted items: </p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.splice(2, 2, "Lemon", "Kiwi");</code></pre>
+  
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Using splice() to Remove Elements</h2>
+<p>With clever parameter setting, you can use <code class="w3-codespan">splice()</code> to remove elements without leaving 
+"holes" in the array: </p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.splice(0, 1);</code></pre>
+
+</div>
+<p>The first parameter (0) defines the position where new elements should be 
+<strong>added</strong> (spliced in).</p>
+<p>The second parameter (1) defines <strong>how many</strong> elements should be
+<strong>removed</strong>.</p>
+<p>The rest of the parameters are omitted. No new elements will be added.</p>
+<hr>
+<a id="mark_tospliced"></a>
+<h2>JavaScript Array toSpliced()</h2>
+<p><a href="js_2023.html">ES2023</a> added the Array toSpliced() method as a safe way to splice an array without altering the original array.</p>
+<p>The difference between the new <b>toSpliced()</b> method and the old <b>splice()</b> method is that the new method
+creates a new array, keeping the original array unchanged, while the old method altered the original array.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const months = ["Jan", "Feb", "Mar", "Apr"];
+const spliced = months.toSpliced(0, 1);</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_slice"></a>
+<h2>JavaScript Array slice()</h2>
+
+<p>The <code class="w3-codespan">slice()</code> method slices out a piece of an array into a new 
+array:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Slice out a part of an array starting from array element 1 ("Orange"):</p>
+<pre class="w3-code"><code class="language-javascript">const fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+const citrus = fruits.slice(1);</code></pre>
+
+</div>
+
+<div class="w3-panel ws-note">
+<h2>Note</h2>
+<p>The <code class="w3-codespan">slice()</code> method creates a new array.</p>
+<p>The <code class="w3-codespan">slice()</code> method does not remove any elements from the source array.</p>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Slice out a part of an array starting from array element 3 ("Apple"):</p>
+<pre class="w3-code"><code class="language-javascript">const fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+const citrus = fruits.slice(3);</code></pre>
+
+</div>
+
+<p>The <code class="w3-codespan">slice()</code> method can take two arguments like <code class="w3-codespan">slice(1, 3)</code>.</p>
+<p>The method then selects elements from the start argument, and up to (but not 
+including) the end argument.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+const citrus = fruits.slice(1, 3);</code></pre>
+
+</div>
+
+<p>If the end argument is omitted, like in the first examples, the <code class="w3-codespan">slice()</code> 
+method slices out the rest of the array.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+const citrus = fruits.slice(2);</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Automatic toString()</h2>
+
+<p>JavaScript automatically converts an array to a comma separated string when a 
+primitive value is expected.</p>
+<p>This is always the case when you try to output an array. </p>
+<p>These two examples will produce the same result:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo").innerHTML = fruits.toString();</code></pre>
+
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo").innerHTML = fruits;</code></pre>
+
+</div>
+
+<div class="w3-panel ws-note">
+<h2>Note</h2>
+<p>All JavaScript objects have a toString() method.</p>
+</div>
+
+<!--stop-->
+<hr>
+<h2>Searching Arrays</h2>
+<p><a href="js_array_search.html">Searching arrays</a> are covered in the next chapter of this tutorial.</p>
+
+<hr>
+<h2>Sorting Arrays</h2>
+<p><a href="js_array_sort.html">Sorting arrays</a> covers the methods used to sort arraysg.</p>
+
+<hr>
+<h2>Iterating Arrays</h2>
+<p><a href="js_array_iteration.html">Iterating arrays</a> covers methods that operate on all array elements.</p>
+<hr>
+
+<hr>
+
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_arrays.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_array_search.html">Next ❯</a>
+</div>
+
+

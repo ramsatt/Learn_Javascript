@@ -1,0 +1,107 @@
+
+      
+
+<h1>AJAX Introduction</h1>
+
+<!--start-->
+<div class="w3-panel ws-info intro">
+<p>AJAX is a developer's dream, because you can:</p>
+<ul>
+<li>Read data from a web server - after the page has loaded</li>
+<li>Update a web page without reloading the page</li>
+<li>Send data to a web server - in the background</li>
+</ul>
+</div>
+
+<div class="w3-example">
+<h3>AJAX Example</h3>
+
+<p>
+
+</p>
+</div>
+<hr>
+
+<h2>AJAX Example Explained</h2>
+<div class="w3-example">
+<h3>HTML Page</h3>
+<pre class="w3-code"><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+&lt;div id="demo"&gt;
+  &lt;h2&gt;Let AJAX change this text&lt;/h2&gt;
+  &lt;button type="button" onclick="loadDoc()"&gt;Change Content&lt;/button&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
+
+<p>The HTML page contains a &lt;div&gt; section and a &lt;button&gt;.</p>
+<p>The &lt;div&gt; 
+section is used to display information from a server.</p>
+<p>The &lt;button&gt; calls a function (if it is clicked).</p>
+<p>The function requests data from a web 
+server and displays it:</p>
+
+<div class="w3-example">
+<h3>Function loadDoc()</h3>
+<pre class="w3-code"><code class="language-javascript">function loadDoc() {
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+    document.getElementById("demo").innerHTML = this.responseText;
+    }
+  xhttp.open("GET", "ajax_info.txt", true);
+  xhttp.send();
+}</code></pre>
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>What is AJAX?</h2>
+<p>AJAX = <strong>A</strong>synchronous <strong>J</strong>avaScript <strong>A</strong>nd
+<strong>X</strong>ML.</p>
+<p>AJAX is not a programming language.</p>
+<p>AJAX just uses a combination of:</p>
+<ul>
+<li>A browser built-in <code class="w3-codespan">XMLHttpRequest</code> object (to request data from a web server)</li>
+<li>JavaScript and HTML DOM (to display or use the data)</li>
+</ul>
+
+<div class="w3-panel ws-note">
+<p>AJAX is a misleading name. AJAX applications might use XML to transport data,
+but it is equally common to transport data as plain text or JSON text.</p>
+</div>
+
+<p>AJAX allows web pages to be updated asynchronously by exchanging data with a web server behind the scenes.
+This means that it is possible to update parts of a web page, without reloading the whole page.</p>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>How AJAX Works</h2>
+<p><img class="w3-image" alt="AJAX" src="assets/images/pic_ajax.gif"></p>
+<ul class="w3-ul w3-border w3-section">
+<li>1. An event occurs in a web page (the page is loaded, a button is clicked)</li>
+<li>2. An XMLHttpRequest object is created by JavaScript</li>
+<li>3. The XMLHttpRequest object sends a request to a web server</li>
+<li>4. The server processes the request</li>
+<li>5. The server sends a response back to the web page</li>
+<li>6. The response is read by JavaScript</li>
+<li>7. Proper action (like page update) is performed by JavaScript </li>
+</ul>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Modern Browsers (Fetch API)</h2>
+<p>Modern Browsers can use Fetch API instead of the XMLHttpRequest Object.</p>
+<p>The Fetch API interface allows web browser to make HTTP requests to web servers.</p>
+<p>If you use the XMLHttpRequest Object, Fetch can do the same in a simpler way.</p>
+<!--stop-->
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_api_web_workers.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_ajax_http.html">Next ❯</a>
+</div>
+
+

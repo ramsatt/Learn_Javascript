@@ -1,0 +1,85 @@
+
+      
+
+<h1>JSON vs XML</h1>
+
+<hr>
+<!--start-->
+<p class="intro">Both JSON and XML can be used to receive data from a web server.</p>
+<hr>
+<p>The following JSON and XML examples both define an employees object, with an array of 3 employees:</p>
+<div class="w3-example">
+<h3>JSON Example</h3>
+<pre class="w3-code"><code class="language-javascript">{"employees":[
+  { "firstName":"John", "lastName":"Doe" },
+  { "firstName":"Anna", "lastName":"Smith" },
+  { "firstName":"Peter", "lastName":"Jones" }
+]}</code></pre>
+</div>
+
+<div class="w3-example">
+<h3>XML Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;employees&gt;
+  &lt;employee&gt;
+    &lt;firstName&gt;John&lt;/firstName&gt; &lt;lastName&gt;Doe&lt;/lastName&gt;
+  &lt;/employee&gt;
+  &lt;employee&gt;
+    &lt;firstName&gt;Anna&lt;/firstName&gt; &lt;lastName&gt;Smith&lt;/lastName&gt;
+  &lt;/employee&gt;
+  &lt;employee&gt;
+    &lt;firstName&gt;Peter&lt;/firstName&gt; &lt;lastName&gt;Jones&lt;/lastName&gt;
+  &lt;/employee&gt;
+&lt;/employees&gt;</code></pre>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>&nbsp;JSON is Like XML Because</h2>
+<ul>
+  <li>Both JSON and XML are "self describing" (human readable)</li>
+  <li>Both JSON and XML are hierarchical (values within values)</li>
+  <li>Both JSON and XML can be parsed and used by lots of programming languages</li>
+  <li>Both JSON and XML can be fetched with an XMLHttpRequest </li>
+</ul>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>JSON is Unlike XML Because</h2>
+<ul>
+  <li>JSON doesn't use end tag</li>
+  <li>JSON is shorter</li>
+  <li>JSON is quicker to read and write</li>
+  <li>JSON can use arrays</li>
+</ul>
+<p>The biggest difference is:</p>
+<p>&nbsp;XML has to be parsed with an XML parser. JSON can be parsed by a 
+standard JavaScript function. </p>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Why JSON is Better Than XML</h2>
+<div class="w3-panel ws-note">
+<p>XML is much more difficult to parse than JSON.<br>
+JSON is parsed into a ready-to-use JavaScript object.</p>
+</div>
+
+<p>For AJAX applications, JSON is faster and easier than XML:</p>
+<p>Using XML</p>
+<ul>
+  <li>Fetch an XML document</li>
+  <li>Use the XML DOM to loop through the document</li>
+  <li>Extract values and store in variables</li>
+</ul>
+<p>Using JSON</p>
+<ul>
+  <li>Fetch a JSON string</li>
+  <li>JSON.Parse the JSON string</li>
+</ul>
+<br>
+<!--stop-->
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_json_syntax.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_json_datatypes.html">Next ❯</a>
+</div>
+
+

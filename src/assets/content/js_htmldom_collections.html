@@ -1,0 +1,64 @@
+
+      
+
+<h1>JavaScript HTML DOM Collections</h1>
+
+<hr>
+<!--start-->
+<h2>The HTMLCollection Object</h2>
+<p>The <code class="w3-codespan">getElementsByTagName()</code> method returns an <code class="w3-codespan">HTMLCollection</code> object.</p>
+<p>An <code class="w3-codespan">HTMLCollection</code> object is 
+an array-like list (collection) of HTML elements.</p>
+<p>The following code selects all <code class="w3-codespan">&lt;p&gt;</code> elements in a document:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const myCollection = document.getElementsByTagName("p");</code></pre>
+<p>The elements in the collection can be accessed by an index number.</p>
+  <p>To access the 
+second &lt;p&gt; element you can write:</p>
+<pre class="w3-code"><code class="language-javascript">myCollection[1]</code></pre>
+  
+</div>
+<p><b>Note:</b> The index starts at 0.</p>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>HTML HTMLCollection Length</h2>
+<p>The <code class="w3-codespan">length</code> property defines the number of elements in an <code class="w3-codespan">HTMLCollection</code>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">myCollection.length</code></pre>
+  
+</div>
+<p>The <code class="w3-codespan">length</code> property is useful when you want to loop through the elements in a 
+collection:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Change the text color of all &lt;p&gt; elements:</p>
+<pre class="w3-code"><code class="language-javascript">const myCollection = document.getElementsByTagName("p");
+for (let i = 0; i &lt; myCollection.length; i++) {
+  myCollection[i].style.color = "red";
+}</code></pre>
+  
+</div>
+
+<div class="w3-panel ws-note">
+<p><strong>An HTMLCollection is NOT an array!</strong><br></p>
+  <p>An HTMLCollection may look 
+like an array, but it is not.</p>
+  <p>You can loop through the list and refer to 
+the elements with a number (just like an array).</p>
+  <p>However, you cannot use array methods like valueOf(), pop(), push(), 
+or join() on an HTMLCollection.</p>
+</div>
+
+<!--stop-->
+<hr>
+
+<hr>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_htmldom_nodes.html">❮ Previous</a>
+  <a class="w3-right w3-btn" href="js_htmldom_nodelist.html">Next ❯</a>
+</div>
+
+

@@ -1,0 +1,100 @@
+
+      
+
+<h1>JavaScript Load Events</h1>
+
+
+<!--start-->
+<div class="ws-info">
+<p class="w3-large"><b>Load Events</b> happen when the browser has finished loading an element.</p>
+<p class="w3-large">The two most important load events:</p>
+<ul class="w3-large">
+<li>DOMContentLoaded (when HTML is ready)</li>
+<li>load (waits for pages, images, CSS, etc.)</li>
+</ul>
+</div>
+
+<h2>DOMContentLoaded</h2>
+<p>The <b>DOMContentLoaded event</b> fires when the browser has fully loaded the HTML and built the
+Document Object Model (DOM) tree, but has not necessarily finished loading external resources
+like images and stylesheets.</p>
+<p>The DOMContentLoaded event is <b>best for initializing the user interface</b>, attaching event handlers,
+and performing actions that only require the DOM to be ready.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;p id="demo"&gt;&lt;/p&gt;
+&lt;script&gt;
+// Add Event Listener to document
+document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("demo").innerHTML = "HTML is loaded!";
+});
+&lt;/script&gt;</code></pre>
+
+</div>
+
+<hr>
+<h2>Window Load</h2>
+<p><b>The load event</b> fires when the entire page has fully loaded, including all dependent resources such as images,
+stylesheets, and sub-frames.</p>
+<p>The load event is <b>best for actions that require all resources available</b>,
+such as getting the dimensions of an image or checking the browser type.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;p id="demo"&gt;&lt;/p&gt;
+&lt;script&gt;
+// Add Event Listener to window
+window.addEventListener("load", function () {
+  document.getElementById("demo").innerHTML = "Page is fully loaded!";
+});
+&lt;/script&gt;</code></pre>
+
+</div>
+
+<hr>
+<h2>Other Load Events</h2>
+<p>The load event can also be used on other elements that fetch resources (not just pages):</p> 
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Tag</th><th>Description</th></tr>
+<tr><td>&lt;img&gt;</td><td>Fires when an image has finished downloading.</td></tr>
+<tr><td>&lt;script&gt;</td><td>Fires when a script has been successfully loaded and executed.</td></tr>
+<tr><td>&lt;link&gt;</td><td>Fires when a stylesheet has been fully loaded and parsed.</td></tr>
+<tr><td>&lt;video&gt;</td><td>Fires a variety of media-specific loading events.</td></tr> 
+</tbody></table></div>
+</div>
+
+<hr>
+<div class="ws-note">
+<h2>See Also:</h2>
+<p class="w3-large">For more details and examples:</p>
+<p class="w3-large"><a href="../jsref/event_onload.html">The onload Event</a></p>
+<p class="w3-large"><a href="../jsref/event_onloadeddata.html">The onloadeddata Event</a></p>
+<p class="w3-large"><a href="../jsref/event_onloadedmetadata.html">The onloadedmetadata Event</a></p>
+<p class="w3-large"><a href="../jsref/event_onloadstart.html">The onloadstart Event</a></p>
+</div>
+
+<hr>
+<h2>Image Load</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;img id="myImg"
+src="https://www.w3schools.com/images/w3schools_green.jpg" width="120"&gt;
+&lt;p id="demo"&gt;&lt;/p&gt;
+&lt;script&gt;
+const img = document.getElementById("myImg");
+// Add Event Listener to img
+img.addEventListener("load", function () {
+  document.getElementById("demo").innerHTML = "Image loaded!";
+});
+&lt;/script&gt;</code></pre>
+
+</div>
+
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_events_keyboard.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_events_timing.html">Next ❯</a>
+</div>
+
+

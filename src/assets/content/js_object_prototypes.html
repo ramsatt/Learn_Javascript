@@ -1,0 +1,125 @@
+
+      
+
+<h1>JavaScript Object Prototypes</h1>
+
+<!--start-->
+<hr>
+<p class="intro">All JavaScript objects inherit properties and methods 
+from a prototype.</p>
+
+<hr>
+<p>In the previous chapter we learned how to use an <strong>object constructor</strong>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">function Person(first, last, age, eyecolor) {
+  this.firstName = first;
+  this.lastName = last;
+  this.age = age;
+  this.eyeColor = eyecolor;
+}
+const myFather = new Person("John", "Doe", 50, "blue");
+const myMother = new Person("Sally", "Rally", 48, "green");</code></pre>
+
+</div>
+
+<p>We also learned that you can <strong>not</strong> add a new property to an existing object constructor:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">Person.nationality = "English";</code></pre>
+
+</div>
+
+
+<p>To add a new property to a constructor, you must add it to the 
+constructor function:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">function Person(first, last, age, eyecolor) {
+  this.firstName = first;
+  this.lastName = last;
+  this.age = age;
+  this.eyeColor = eyecolor;
+  this.nationality = "English";
+}</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>Prototype Inheritance</h2>
+<p>All JavaScript objects inherit properties and methods from a prototype:</p>
+<ul>
+  <li><code class="w3-codespan">Date</code> objects inherit from <code class="w3-codespan">Date.prototype</code></li>
+  <li><code class="w3-codespan">Array</code> objects inherit from <code class="w3-codespan">Array.prototype</code></li>
+  <li><code class="w3-codespan">Person</code> objects inherit from <code class="w3-codespan">Person.prototype</code></li>
+</ul>
+<p>The <code class="w3-codespan">Object.prototype</code> is on the top of the prototype inheritance chain:</p>
+<p><code class="w3-codespan">Date</code> objects, <code class="w3-codespan">Array</code> objects, and <code class="w3-codespan">Person</code> objects inherit from <code class="w3-codespan">Object.prototype</code>.</p><hr>
+<h2>Adding Properties and Methods to Objects</h2>
+<p>Sometimes you want to add new properties (or methods) to all existing objects of a given type.</p>
+
+<p>Sometimes you want to add new properties (or methods) to an object 
+constructor.</p>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Using the <strong>prototype</strong> Property</h2>
+<p>The JavaScript <code class="w3-codespan">prototype</code> property allows you to add new properties to object 
+constructors:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">function Person(first, last, age, eyecolor) {
+  this.firstName = first;
+  this.lastName = last;
+  this.age = age;
+  this.eyeColor = eyecolor;
+}
+Person.prototype.nationality = "English";</code></pre>
+
+</div>
+<p>The JavaScript <code class="w3-codespan">prototype</code> property also allows you to add new methods to objects 
+constructors:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">function Person(first, last, age, eyecolor) {
+  this.firstName = first;
+  this.lastName = last;
+  this.age = age;
+  this.eyeColor = eyecolor;
+}
+Person.prototype.name = function() {
+  return this.firstName + " " + this.lastName;
+};</code></pre>
+
+</div>
+
+<div class="w3-panel ws-warning">
+<h2>Warning</h2>
+<p>Only modify your <strong>own</strong> prototypes. Never modify the prototypes of  
+standard JavaScript objects.</p>
+</div>
+<!--stop-->
+<div class="ws-note">
+<h2>Learn More:</h2>
+<p class="w3-large"><a href="js_object_definition.html">JavaScript Object Definitions</a></p>
+<p class="w3-large"><a href="js_object_constructors.html">JavaScript Object Constructors</a></p>
+<p class="w3-large"><a href="js_this.html">JavaScript Object this</a></p>
+<p class="w3-large"><a href="js_destructuring.html">JavaScript Object Destructuring</a></p>
+<p class="w3-large"><a href="js_object_prototypes.html">JavaScript Object Prototypes</a></p>
+<p class="w3-large"><a href="js_object_methods.html">JavaScript Object Iterations</a></p>
+<p class="w3-large"><a href="js_object_property.html">JavaScript Object Management</a></p>
+<p class="w3-large"><a href="js_object_accessors.html">JavaScript Object Getters &amp; Setters</a></p>
+<p class="w3-large"><a href="js_object_protection.html">JavaScript Object Protection</a></p>
+<p class="w3-large"><a href="js_object_reference.html">JavaScript Object Reference</a></p>
+</div>
+
+
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_destructuring.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_object_method.html">Next ❯</a>
+</div>
+
+

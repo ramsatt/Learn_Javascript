@@ -1,0 +1,129 @@
+
+      
+
+<h1>JavaScript Window Location</h1>
+
+<hr>
+<!--start-->
+<p class="intro">The <code class="w3-codespan">window.location</code> object can be used to get 
+the current page address (URL) and to redirect the browser to a new page.</p>
+<hr>
+
+<h2>Window Location</h2>
+<p>The <code class="w3-codespan">window.location</code> object can be written without the window prefix.</p>
+<p>Some examples:</p>
+<ul>
+  <li><code class="w3-codespan">window.location.href</code> returns the href (URL) of the current page</li>
+  <li><code class="w3-codespan">window.location.hostname</code> returns the domain name of the web host</li>
+  <li><code class="w3-codespan">window.location.pathname</code> returns the path and filename of the current page</li>
+  <li><code class="w3-codespan">window.location.protocol</code> returns the web protocol used (http: or https:)</li>
+  <li><code class="w3-codespan">window.location.assign()</code> loads a new document</li>
+</ul>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Window Location Href</h2>
+<p>The <code class="w3-codespan">window.location.href</code> property returns the URL of the current page.</p>
+<div class="w3-example">
+<h3>Example</h3>
+ <p>Display the href (URL) of the current page:</p>
+<pre class="w3-code"><code class="language-javascript">document.getElementById("demo").innerHTML =
+"Page location is " + window.location.href;</code></pre>
+<p>Result is:</p>
+
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Window Location Hostname</h2>
+<p>The <code class="w3-codespan">window.location.hostname</code> property returns the name of the internet host (of the current page).</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Display the name of the host:</p>
+<pre class="w3-code"><code class="language-javascript">document.getElementById("demo").innerHTML =
+"Page hostname is " + window.location.hostname;</code></pre>
+<p>Result is:</p>
+
+
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>Window Location Pathname</h2>
+<p>The <code class="w3-codespan">window.location.pathname</code> property returns the pathname of 
+the current page.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Display the path name of the current URL:</p>
+ <pre class="w3-code"><code class="language-javascript">document.getElementById("demo").innerHTML =
+"Page path is " + window.location.pathname;</code></pre>
+<p>Result is:</p>
+
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Window Location Protocol</h2>
+<p>The <code class="w3-codespan">window.location.protocol</code> property returns the web protocol of the page.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Display the web protocol:</p>
+<pre class="w3-code"><code class="language-javascript">document.getElementById("demo").innerHTML =
+"Page protocol is " + window.location.protocol;</code></pre>
+<p>Result is:</p>
+
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Window Location Port</h2>
+<p>The <code class="w3-codespan">window.location.port</code> property returns the number of the internet host 
+port (of the current page).</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Display the name of the host:</p>
+<pre class="w3-code"><code class="language-javascript">document.getElementById("demo").innerHTML =
+"Port number is " + window.location.port;</code></pre>
+<p>Result is:</p>
+
+  
+</div>
+
+<div class="w3-panel ws-note">
+<p>Most browsers will not display default port numbers (80 for http and 443 for https)</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Window Location Assign</h2>
+<p>The <code class="w3-codespan">window.location.assign()</code> method loads a new document.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Load a new document:</p>
+<pre class="w3-code"><code class="language-html">&lt;html&gt;
+&lt;head&gt;
+&lt;script&gt;
+function newDoc() {
+  window.location.assign("https://www.w3schools.com")
+}
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;input type="button" value="Load new document" onclick="newDoc()"&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+</div>
+<!--stop-->
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_window_screen.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_window_history.html">Next ❯</a>
+</div>
+
+

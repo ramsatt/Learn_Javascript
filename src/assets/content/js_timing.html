@@ -1,0 +1,186 @@
+
+      
+
+<h1>JavaScript Timing Events</h1>
+
+<hr>
+<div class="w3-example">
+<div class="table-responsive-wrapper"><table><tbody><tr><td>
+<div style="width:120px;height:100px;position:relative;left:58px;top:50px;">
+ <div id="dig1" class="dig">1</div>
+ <div id="dig2" class="dig">2</div>
+ <div id="dig3" class="dig">3</div>
+ <div id="dig4" class="dig">4</div>
+ <div id="dig5" class="dig">5</div>
+ <div id="dig6" class="dig">6</div>
+ <div id="dig7" class="dig">7</div>
+ <div id="dig8" class="dig">8</div>
+ <div id="dig9" class="dig">9</div>
+ <div id="dig10" class="dig">10</div>
+ <div id="dig11" class="dig">11</div>
+ <div id="dig12" class="dig">12</div>
+
+ <div id="hour1" class="hour"></div>
+ <div id="hour2" class="hour"></div>
+ <div id="hour3" class="hour"></div>
+ <div id="hour4" class="hour"></div>
+
+ <div id="min1" class="min"></div>
+ <div id="min2" class="min"></div>
+ <div id="min3" class="min"></div>
+ <div id="min4" class="min"></div>
+ <div id="min5" class="min"></div>
+
+ <div id="sec1" class="sec"></div>
+ <div id="sec2" class="sec"></div>
+ <div id="sec3" class="sec"></div>
+ <div id="sec4" class="sec"></div>
+ <div id="sec5" class="sec"></div>
+ <div id="sec6" class="sec"></div>
+</div>
+</td>
+<td>
+<p class="intro">JavaScript can be executed in time-intervals.</p>
+<p class="intro">This is called timing events.</p>
+</td></tr></tbody></table></div>
+</div>
+
+<hr>
+<!--start-->
+<h2>Timing Events</h2>
+<p>The <code class="w3-codespan">window</code> object allows execution of code at specified time intervals.</p>
+<p>These time intervals are called timing events.</p>
+<p>The two key methods to use with JavaScript are:</p>
+<ul>
+  <li><code class="w3-codespan">setTimeout(<em>function, milliseconds</em></code>)<br>Executes a function, after waiting a specified number of milliseconds.</li>
+  <br><li><code class="w3-codespan">setInterval(<em>function, milliseconds</em></code>)<br>Same as setTimeout(), but repeats the execution 
+    of the function continuously.</li>
+</ul>
+
+<div class="w3-panel ws-note">
+<p>The <code class="w3-codespan">setTimeout()</code> and <code class="w3-codespan">setInterval()</code> are both methods of the HTML DOM Window object.</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The setTimeout() Method</h2>
+
+<pre class="w3-code"><code class="language-javascript"><div> window.setTimeout(<i>function</i>,<i> milliseconds</i>);</div></code></pre>
+
+<p>The <code class="w3-codespan">window.setTimeout()</code> method can be written without the window prefix.</p>
+
+<p>The first parameter is a function to be executed.</p>
+<p>The second parameter indicates the number of milliseconds before execution. </p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Click a button. Wait 3 seconds, and the page will alert "Hello":</p>
+<pre class="w3-code"><code class="language-html">&lt;button onclick="setTimeout(myFunction, 3000)"&gt;&lt;/button&gt;
+&lt;script&gt;
+function myFunction() {
+  alert('Hello');
+}
+&lt;/script&gt;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>How to Stop the Execution?</h2>
+<p>The <code class="w3-codespan">clearTimeout()</code> method stops the execution of the function 
+specified in setTimeout().</p>
+
+<pre class="w3-code"><code class="language-javascript"><div> window.clearTimeout(<em>timeoutVariable</em>)</div></code></pre>
+
+<p>The <code class="w3-codespan">window.clearTimeout()</code> method can be written without the window prefix.</p>
+
+<p>The <code class="w3-codespan">clearTimeout()</code> method uses the variable 
+returned from <code class="w3-codespan">setTimeout()</code>:</p>
+<pre class="w3-code"><code class="language-javascript"><div> myVar = setTimeout(<i>function</i>,<i> milliseconds</i>);
+clearTimeout(myVar);</div></code></pre>
+
+<p>If the function has not already been executed, you can stop the execution by calling the <code class="w3-codespan">clearTimeout()</code> 
+method:</p>
+<div class="w3-example">
+ <h3>Example</h3>
+<p>Same example as above, but with an added "Stop" button:</p>
+<pre class="w3-code"><code class="language-html">&lt;button onclick="myVar = setTimeout(myFunction, 3000)"&gt;&lt;/button&gt;
+&lt;button onclick="clearTimeout(myVar)"&gt;Stop it&lt;/button&gt;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The setInterval() Method</h2>
+
+<p>The <code class="w3-codespan">setInterval()</code> method repeats a given function at every given 
+time-interval.</p>
+
+<pre class="w3-code"><code class="language-javascript"><div> window.setInterval(<i>function</i>,<i> milliseconds</i>);</div></code></pre>
+
+<p>The <code class="w3-codespan">window.setInterval()</code> method can be written without the window prefix.</p>
+
+<p>The first parameter is the function to be executed.</p>
+<p>The second parameter indicates the length of the time-interval between each 
+execution.</p>
+<p>This example executes a function called "myTimer" once every second (like a digital 
+watch).</p>
+<div class="w3-example">
+ <h3>Example</h3>
+<p>Display the current time:</p>
+<pre class="w3-code"><code class="language-javascript">setInterval(myTimer, 1000);
+function myTimer() {
+  const d = new Date();
+  document.getElementById("demo").innerHTML = d.toLocaleTimeString();
+}</code></pre>
+
+</div>
+
+<div class="w3-panel ws-note">
+<p>There are 1000 milliseconds in one second.</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>How to Stop the Execution?</h2>
+<p>The <code class="w3-codespan">clearInterval()</code> method stops the executions of the function 
+specified in the setInterval() method.</p>
+
+<pre class="w3-code"><code class="language-javascript"><div> window.clearInterval(<em>timerVariable</em>)</div></code></pre>
+
+<p>The <code class="w3-codespan">window.clearInterval()</code> method can be written without the window prefix.</p>
+
+<p>The <code class="w3-codespan">clearInterval()</code> method uses the variable returned from <code class="w3-codespan">setInterval()</code>:</p>
+<pre class="w3-code"><code class="language-javascript"><div> let myVar = setInterval(<i>function</i>,<i> milliseconds</i>);
+clearInterval(myVar);</div></code></pre>
+
+
+<div class="w3-example">
+ <h3>Example</h3>
+<p>Same example as above, but we have added a "Stop time" button:</p>
+<pre class="w3-code"><code class="language-html">&lt;p id="demo"&gt;&lt;/p&gt;
+&lt;button onclick="clearInterval(myVar)"&gt;Stop time&lt;/button&gt;
+&lt;script&gt;
+let myVar = setInterval(myTimer, 1000);
+function myTimer() {
+  const d = new Date();
+  document.getElementById("demo").innerHTML = d.toLocaleTimeString();
+}
+&lt;/script&gt;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+
+<h2>More Examples</h2>
+<p><a href="tryit9cc4.html?filename=tryjs_timing2">Another simple timing</a></p>
+<p><a href="tryit2ed1.html?filename=tryjs_timing_clock">A clock created with a timing event</a></p>
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_popup.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_cookies.html">Next ❯</a>
+</div>
+
+

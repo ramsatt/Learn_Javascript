@@ -1,0 +1,266 @@
+
+      
+
+<h1>JavaScript Object Iterations</h1>
+
+
+<hr>
+<h2>General Methods</h2>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">// Copies properties from a source object to a target object
+Object.assign(target, source)
+// Creates an object from an existing object
+Object.create(object)
+// Returns an array of the key/value pairs of an object
+Object.entries(object)
+// Creates an object from a list of keys/values
+Object.fromEntries()
+// Returns an array of the keys of an object
+Object.keys(object)
+// Returns an array of the property values of an object
+Object.values(object)
+// Groups object elements according to a function
+Object.groupBy(object, callback)</code></pre>
+</div>
+
+
+<hr>
+<!--start-->
+<h2>JavaScript Object.assign()</h2>
+<p>The <code class="w3-codespan">Object.assign()</code> method copies properties from
+one or more source objects to a target object.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create Target Object
+const person1 = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 50,
+  eyeColor: "blue"
+};
+// Create Source Object
+const person2 = {firstName: "Anne",lastName: "Smith"};
+// Assign Source to Target
+Object.assign(person1, person2);</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_obj_entries"></a>
+<h2>JavaScript Object.entries()</h2>
+<p>ECMAScript 2017 added the <code class="w3-codespan">Object.entries()</code> method to objects.</p>
+<p><code class="w3-codespan">Object.entries()</code> returns an array of the key/value pairs in an object:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const person = {
+  firstName : "John",
+  lastName : "Doe",
+  age : 50,
+  eyeColor : "blue"
+};
+let text = Object.entries(person);</code></pre>
+
+</div>
+
+<p><code class="w3-codespan">Object.entries()</code> makes it simple to use objects in loops:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const fruits = {Bananas:300, Oranges:200, Apples:500};
+let text = "";
+for (let [fruit, value] of Object.entries(fruits)) {
+  text += fruit + ": " + value + "&lt;br&gt;";
+}</code></pre>
+
+</div>
+
+<p><code class="w3-codespan">Object.entries()</code> also makes it simple to convert objects to maps:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const fruits = {Bananas:300, Oranges:200, Apples:500};
+const myMap = new Map(Object.entries(fruits));</code></pre>
+
+</div>
+<p><code class="w3-codespan">Object.entries()</code> is supported in all modern browsers since March 2017:</p>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>JavaScript Object.fromEntries()</h2>
+<p>The <code class="w3-codespan">fromEntries()</code> method creates an object from
+a list of key/value pairs.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const fruits = [
+  ["apples", 300],
+  ["pears", 900],
+  ["bananas", 500]
+];
+const myObj = Object.fromEntries(fruits);</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<a id="mark_obj_values"></a>
+<h2>JavaScript Object.values()</h2>
+<p><code class="w3-codespan">Object.values()</code> is similar to <code class="w3-codespan">Object.entries()</code>,
+but returns a single dimension array of the object values:</p>
+<div class="w3-example">
+
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const person = {
+  firstName : "John",
+  lastName : "Doe",
+  age : 50,
+  eyeColor : "blue"
+};
+let text = Object.values(person);</code></pre>
+
+</div>
+<p><code class="w3-codespan">Object.values()</code> is supported in all modern browsers since March 2017:</p>
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_object_groupby"></a>
+<h2>JavaScript Object.groupBy()</h2>
+<p>ES2024 added the <code class="w3-codespan">Object.groupBy()</code> method to JavaScript.</p>
+<p>The <code class="w3-codespan">Object.groupBy()</code> method groups elements of an object
+according to string values returned from a callback function.</p>
+<p>The <code class="w3-codespan">Object.groupBy()</code> method does not change the original object.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an Array
+const fruits = [
+  {name:"apples", quantity:300},
+  {name:"bananas", quantity:500},
+  {name:"oranges", quantity:200},
+  {name:"kiwi", quantity:150}
+];
+// Callback function to Group Elements
+function myCallback({ quantity }) {
+  return quantity &gt; 200 ? "ok" : "low";
+}
+// Group by Quantity
+const result = Object.groupBy(fruits, myCallback);</code></pre>
+
+</div>
+<!--stop-->
+<h2>Browser Support</h2>
+<p><code class="w3-codespan">Object.groupby()</code> is an ES2024 feature.</p>
+<p><a href="js-2024.html">JavaScript 2024</a> is supported in new browsers since March 2024:</p>
+
+<div class="w3-responsive w3-stretch">
+
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr>
+    <th class="bsChrome" title="Chrome"></th>
+    <th class="bsEdge" title="Edge"></th>
+    <th class="bsFirefox" title="Firefox"></th>
+    <th class="bsSafari" title="Safari"></th>
+    <th class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome 117</td>
+    <td>Edge 117</td>
+    <td>Firefox 119</td>
+    <td>Safari 17.4</td>
+    <td>Opera 103</td>
+  </tr>
+  <tr>
+    <td>Sep 2023</td>
+    <td>Sep 2023</td>
+    <td>Oct 2023</td>
+    <td>Okt 2024</td>
+    <td>May 2023</td>
+  </tr>
+</tbody></table></div>
+</div>
+
+<div class="ws-warning">
+<h2>Warning</h2>
+<p>ES2024 features are relatively new.</p>
+<p>Older browsers may need an alternative code (Polyfill)</p>
+</div>
+
+
+<hr>
+<!--start-->
+<h2>Object.groupBy() vs Map.groupBy()</h2>
+<p>The difference between Object.groupBy() and Map.groupBy() is:</p>
+<p>Object.groupBy() groups elements into a JavaScript object.</p>
+<p>Map.groupBy() groups elements into a Map object.</p>
+
+<hr>
+<h2>JavaScript Object.keys()</h2>
+<p>The <code class="w3-codespan">Object.keys()</code> method returns an array with the keys of an object.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an Object
+const person = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 50,
+  eyeColor: "blue"
+};
+// Get the Keys
+const keys = Object.keys(person);</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>JavaScript for...in Loop</h2>
+<p>The JavaScript <code class="w3-codespan">for...in</code> statement loops through the properties of an object.</p>
+<h3>Syntax</h3>
+<pre class="w3-code"><code class="language-javascript"><div> for (let <i>variable</i> in <i>object</i>) {
+<i>  // code to be executed</i>
+}</div></code></pre>
+
+<p>The block of code inside of the <code class="w3-codespan">for...in</code> loop will be executed once for each property.</p>
+
+<p>Looping through the properties of an object:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const person = {
+  fname:" John",
+  lname:" Doe",
+  age: 25
+};
+for (let x in person) {
+  txt += person[x];
+}</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<div class="ws-note">
+<h2>Learn More:</h2>
+<p class="w3-large"><a href="js_object_definition.html">JavaScript Object Definitions</a></p>
+<p class="w3-large"><a href="js_object_constructors.html">JavaScript Object Constructors</a></p>
+<p class="w3-large"><a href="js_this.html">JavaScript Object this</a></p>
+<p class="w3-large"><a href="js_destructuring.html">JavaScript Object Destructuring</a></p>
+<p class="w3-large"><a href="js_object_prototypes.html">JavaScript Object Prototypes</a></p>
+<p class="w3-large"><a href="js_object_methods.html">JavaScript Object Iterations</a></p>
+<p class="w3-large"><a href="js_object_property.html">JavaScript Object Management</a></p>
+<p class="w3-large"><a href="js_object_accessors.html">JavaScript Object Getters &amp; Setters</a></p>
+<p class="w3-large"><a href="js_object_protection.html">JavaScript Object Protection</a></p>
+<p class="w3-large"><a href="js_object_reference.html">JavaScript Object Reference</a></p>
+</div>
+
+<hr>
+
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_object_prototypes.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_object_property.html">Next ❯</a>
+</div>
+
+

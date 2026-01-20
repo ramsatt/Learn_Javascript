@@ -1,0 +1,664 @@
+
+      
+
+<h1>JavaScript Array Iterations</h1>
+
+
+<!--start-->
+<div class="ws-info">
+<h2>Array Iteration Methods</h2>
+<p>Array iteration methods operate on every array item.</p>
+
+<div class="table-responsive-wrapper"><table class="w3-table w3-large">
+<tbody><tr>
+<td width="50%">
+<a href="#mark_foreach">Array forEach</a><br>
+<a href="#mark_map">Array map()</a><br>
+<a href="#mark_flatmap">Array flatMap()</a><br>
+<a href="#mark_filter">Array filter()</a><br>
+<a href="#mark_reduce">Array reduce()</a><br>
+<a href="#mark_reduceright">Array reduceRight()</a><br>
+<a href="#mark_every">Array every()</a><br>
+</td><td>
+<a href="#mark_some">Array some()</a><br>
+<a href="#mark_from">Array from()</a><br>
+<a href="#mark_keys">Array keys()</a><br>
+<a href="#mark_entries">Array entries()</a><br>
+<a href="#mark_with">Array with()</a><br>
+<a href="#mark_spread">Array Spread (...)</a><br>
+<a href="#mark_rest">Array Rest (...) </a><br>
+</td></tr>
+</tbody></table></div>
+<p class="w3-large"><a href="js_array_reference.html">Complete JavaScript Array Reference</a>
+
+</p></div>
+
+<div class="ws-note w3-large">
+<h2>See Also:</h2>
+<p class="w3-large"><a href="js_arrays.html">Array Tutorial</a></p>
+<p class="w3-large"><a href="js_array_methods.html">Array Basic Methods</a></p>
+<p class="w3-large"><a href="js_array_search.html">Array Search Methods</a></p>
+<p class="w3-large"><a href="js_array_sort.html">Array Sort Methods</a></p>
+<p class="w3-large"><a href="js_array_iteration.html">Array Iteration Methods</a></p><a href="js_array_iteration.html">
+</a><p class="w3-large"><a href="js_array_iteration.html"></a><a href="js_array_reference.html">Array Reference</a></p>
+</div>
+<!--stop-->
+<!--start-->
+<a id="mark_foreach"></a>
+<h2>JavaScript Array forEach()</h2>
+<p>The <code class="w3-codespan">forEach()</code> method calls a function (a callback function) once for each array element.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const numbers = [45, 4, 9, 16, 25];
+let txt = "";
+numbers.forEach(myFunction);
+function myFunction(value, index, array) {
+  txt += value + "&lt;br&gt;";
+}</code></pre>
+
+</div>
+
+<p>Note that the function takes 3 arguments:</p>
+<ul>
+<li>The item value</li>
+<li>The item index </li>
+<li>The array itself</li>
+</ul>
+
+<p>The example above uses only the value parameter. The example can be rewritten 
+to:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const numbers = [45, 4, 9, 16, 25];
+let txt = "";
+numbers.forEach(myFunction);
+function myFunction(value) {
+  txt += value + "&lt;br&gt;";
+}</code></pre>
+  
+</div>
+
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_map"></a>
+<h2>JavaScript Array map()</h2>
+<p>The <code class="w3-codespan">map()</code> method creates a new array by performing a function on each array element.</p>
+<p>The <code class="w3-codespan">map()</code> method does not execute the function for array 
+elements without values.</p>
+<p>The <code class="w3-codespan">map()</code> method does not change the original array.</p>
+<p>This example multiplies each array value by 2: </p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const numbers1 = [45, 4, 9, 16, 25];
+const numbers2 = numbers1.map(myFunction);
+function myFunction(value, index, array) {
+  return value * 2;
+}</code></pre>
+
+</div>
+<p>Note that the function takes 3 arguments:</p>
+<ul>
+<li>The item value</li>
+<li>The item index </li>
+<li>The array itself</li>
+</ul>
+
+<p>When a callback function uses only the value parameter, the index and array 
+parameters can be omitted: </p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const numbers1 = [45, 4, 9, 16, 25];
+const numbers2 = numbers1.map(myFunction);
+function myFunction(value) {
+  return value * 2;
+}</code></pre>
+  
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_flatmap"></a>
+<a id="mark_array_flatmap"></a>
+<h2>JavaScript Array flatMap()</h2>
+<p><a href="js_2019.html">ES2019</a> added the Array <code class="w3-codespan">flatMap()</code> method to JavaScript.</p>
+<p>The <code class="w3-codespan">flatMap()</code> method first maps all elements of an array
+and then creates a new array by flattening the array.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const myArr = [1, 2, 3, 4, 5, 6];
+const newArr = myArr.flatMap((x) =&gt; x * 2);</code></pre>
+
+</div>
+
+<h2>Browser Support</h2>
+<p><code class="w3-codespan">flatMap()</code> is an <a href="js_2019.html">ECMAScript 2019</a> feature.</p>
+<p>ES2019 is supported in all modern browsers since January 2020:</p>
+
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr>
+    <th class="bsChrome" title="Chrome"></th>
+    <th class="bsEdge" title="Edge"></th>
+    <th class="bsFirefox" title="Firefox"></th>
+    <th class="bsSafari" title="Safari"></th>
+    <th class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>66</td>    
+    <td>Edge<br>79</td>
+    <td>Firefox<br>61</td>
+    <td>Safari<br>12</td>
+    <td>Opera<br>50</td>
+  </tr>
+  <tr>
+    <td>Apr 2018</td>
+    <td>Jan 2020</td>    
+    <td>Jun 2018</td>
+    <td>Sep 2018</td>
+    <td>May 2018</td>
+  </tr>
+</tbody>
+</table></div>
+</div>
+
+
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<a id="mark_filter"></a>
+<h2>JavaScript Array filter()</h2>
+<p>The <code class="w3-codespan">filter()</code> method creates a new array with array elements that pass a test.</p>
+
+<p>This example creates a new array from elements with a value larger than 18:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const numbers = [45, 4, 9, 16, 25];
+const over18 = numbers.filter(myFunction);
+function myFunction(value, index, array) {
+  return value &gt; 18;
+}</code></pre>
+
+</div>
+<p>Note that the function takes 3 arguments:</p>
+<ul>
+<li>The item value</li>
+<li>The item index </li>
+<li>The array itself</li>
+</ul>
+
+<p>In the example above, the callback function does not use the index and array 
+parameters, so they can be omitted:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const numbers = [45, 4, 9, 16, 25];
+const over18 = numbers.filter(myFunction);
+function myFunction(value) {
+  return value &gt; 18;
+}</code></pre>
+  
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_reduce"></a>
+<h2>JavaScript Array reduce()</h2>
+<p>The <code class="w3-codespan">reduce()</code> method runs a function on each array element to produce a single value.</p>
+<p>The <code class="w3-codespan">reduce()</code> method works from left-to-right in the array. See also <code class="w3-codespan">reduceRight()</code>.</p>
+<div class="w3-panel ws-note">
+<h2>Note</h2>
+<p>The <code class="w3-codespan">reduce()</code> method does not reduce the original array.</p>
+</div>
+<p>This example finds the sum of all numbers in an array:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const numbers = [45, 4, 9, 16, 25];
+let sum = numbers.reduce(myFunction);
+function myFunction(total, value, index, array) {
+  return total + value;
+}</code></pre>
+
+</div>
+<p>Note that the function takes 4 arguments:</p>
+<ul>
+  <li>The total (the initial value / previously returned value)</li>
+  <li>The item value</li>
+  <li>The item index </li>
+  <li>The array itself</li>
+</ul>
+
+<p>Since the example above does not use the index and array parameters, it can be 
+rewritten to:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const numbers = [45, 4, 9, 16, 25];
+let sum = numbers.reduce(myFunction);
+function myFunction(total, value) {
+  return total + value;
+}</code></pre>
+  
+</div>
+
+<p>The <code class="w3-codespan">reduce()</code> method can accept an initial value:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const numbers = [45, 4, 9, 16, 25];
+let sum = numbers.reduce(myFunction, 100);
+function myFunction(total, value) {
+  return total + value;
+}</code></pre>
+  
+</div>
+
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_reduceright"></a>
+<h2>JavaScript Array reduceRight()</h2>
+<p>The <code class="w3-codespan">reduceRight()</code> method runs a function on each array element to produce a single value.</p>
+<p>The <code class="w3-codespan">reduceRight()</code> works from right-to-left in the array. See also <code class="w3-codespan">reduce()</code>.</p>
+<div class="w3-panel ws-note">
+<h2>Note</h2>
+<p>The <code class="w3-codespan">reduceRight()</code> method does not reduce the original array.</p>
+</div>
+<p>This example finds the sum of all numbers in an array:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const numbers = [45, 4, 9, 16, 25];
+let sum = numbers.reduceRight(myFunction);
+function myFunction(total, value, index, array) {
+  return total + value;
+}</code></pre>
+  
+</div>
+<p>Note that the function takes 4 arguments:</p>
+<ul>
+<li>The total (the initial value / previously returned value)</li>
+  <li>The item value</li>
+  <li>The item index </li>
+  <li>The array itself</li>
+</ul>
+
+<p>The example above does not use the index and array parameters. It can be 
+rewritten to:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const numbers = [45, 4, 9, 16, 25];
+let sum = numbers.reduceRight(myFunction);
+function myFunction(total, value) {
+  return total + value;
+}</code></pre>
+  
+</div>
+
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_every"></a>
+<h2>JavaScript Array every()</h2>
+<p>The <code class="w3-codespan">every()</code> method checks if all array values pass a test.</p>
+
+<p>This example checks if all array values are larger than 18:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const numbers = [45, 4, 9, 16, 25];
+let allOver18 = numbers.every(myFunction);
+function myFunction(value, index, array) {
+  return value &gt; 18;
+}</code></pre>
+
+</div>
+<p>Note that the function takes 3 arguments:</p>
+<ul>
+  <li>The item value</li>
+  <li>The item index </li>
+  <li>The array itself</li>
+</ul>
+
+<p>When a callback function uses the first parameter only (value), the other 
+parameters can be omitted:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const numbers = [45, 4, 9, 16, 25];
+let allOver18 = numbers.every(myFunction);
+function myFunction(value) {
+  return value &gt; 18;
+}</code></pre>
+  
+</div>
+
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_some"></a>
+<h2>JavaScript Array some()</h2>
+<p>The <code class="w3-codespan">some()</code> method checks if some array values pass a test.</p>
+
+<p>This example checks if some array values are larger than 18:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const numbers = [45, 4, 9, 16, 25];
+let someOver18 = numbers.some(myFunction);
+function myFunction(value, index, array) {
+  return value &gt; 18;
+}</code></pre>
+  
+</div>
+<p>Note that the function takes 3 arguments:</p>
+<ul>
+<li>The item value</li>
+<li>The item index </li>
+<li>The array itself</li>
+</ul>
+
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_from"></a>
+<h2>JavaScript Array.from()</h2>
+<p>The <code class="w3-codespan">Array.from()</code> method returns an Array object from:</p>
+<ul>
+<li><p><b>Any iterable object</b></p></li> 
+<li><p><b>Any object with a length property</b></p></li>
+</ul>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Create an Array from a String:</p>
+<pre class="w3-code"><code class="language-javascript">let text = "ABCDEFG";
+Array.from(text);</code></pre>
+
+</div>
+<p><code class="w3-codespan">Array.from()</code> has an optional parameter which allows you to execute a function
+on each element of the new array:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Create an Array from an Array:</p>
+<pre class="w3-code"><code class="language-javascript">const myNumbers = [1,2,3,4];
+const myArr = Array.from(myNumbers, (x) =&gt; x * 2);</code></pre>
+
+</div>
+<!--stop-->
+<h2>Browser Support</h2>
+<p><code class="w3-codespan">from()</code> is an <a href="js_es6.html">ES6  feature</a>.</p>
+<p>ES6 is fully supported in all modern browsers since June 2017:</p>
+
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr style="height:50px">
+    <th style="width:20%;" class="bsChrome" title="Chrome"></th>
+    <th style="width:20%;" class="bsEdge" title="Edge"></th>
+    <th style="width:20%;" class="bsFirefox" title="Firefox"></th>
+    <th style="width:20%;" class="bsSafari" title="Safari"></th>
+    <th style="width:19.9%;" class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>51</td>
+    <td>Edge<br>15</td>
+    <td>Firefox<br>54</td>
+    <td>Safari<br>10</td>
+    <td>Opera<br>38</td>
+  </tr>
+  <tr>
+    <td>May 2016</td>
+    <td>Apr 2017</td>
+    <td>Jun 2017</td>
+    <td>Sep 2016</td>
+    <td>Jun 2016</td>
+  </tr>
+</tbody></table></div>
+</div>
+
+
+<hr>
+<!--start-->
+<a id="mark_keys"></a>
+<h2>JavaScript Array keys()</h2>
+<p>The <code class="w3-codespan">Array.keys()</code> method returns an Array Iterator object with the keys of an array.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Create an Array Iterator object, containing the keys of the array:</p>
+<pre class="w3-code"><code class="language-javascript">const fruits = ["Banana", "Orange", "Apple", "Mango"];
+const keys = fruits.keys();
+for (let x of keys) {
+  text += x + "&lt;br&gt;";
+}</code></pre>
+
+</div>
+<!--stop-->
+<h2>Browser Support</h2>
+<p><code class="w3-codespan">keys()</code> is an <a href="js_es6.html">ES6  feature</a>.</p>
+<p>ES6 is fully supported in all modern browsers since June 2017:</p>
+
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr style="height:50px">
+    <th style="width:20%;" class="bsChrome" title="Chrome"></th>
+    <th style="width:20%;" class="bsEdge" title="Edge"></th>
+    <th style="width:20%;" class="bsFirefox" title="Firefox"></th>
+    <th style="width:20%;" class="bsSafari" title="Safari"></th>
+    <th style="width:19.9%;" class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>51</td>
+    <td>Edge<br>15</td>
+    <td>Firefox<br>54</td>
+    <td>Safari<br>10</td>
+    <td>Opera<br>38</td>
+  </tr>
+  <tr>
+    <td>May 2016</td>
+    <td>Apr 2017</td>
+    <td>Jun 2017</td>
+    <td>Sep 2016</td>
+    <td>Jun 2016</td>
+  </tr>
+</tbody></table></div>
+</div>
+
+
+<hr>
+<!--start-->
+<a id="mark_entries"></a>
+<h2>JavaScript Array entries()</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Create an Array Iterator, and then iterate over the key/value pairs:</p>
+<pre class="w3-code"><code class="language-javascript">const fruits = ["Banana", "Orange", "Apple", "Mango"];
+const f = fruits.entries();
+for (let x of f) {
+  document.getElementById("demo").innerHTML += x;
+}</code></pre>
+
+</div>
+<p>The <code class="w3-codespan">entries()</code> method returns an Array Iterator object with key/value pairs:</p>
+<p>[0, "Banana"]<br>[1, "Orange"]<br>[2, "Apple"]<br>[3, "Mango"]</p>
+<p>The <code class="w3-codespan">entries()</code> method does not change the original array.</p>
+<!--stop-->
+<h2>Browser Support</h2>
+<p><code class="w3-codespan">entries()</code> is an <a href="js_es6.html">ES6  feature</a>.</p>
+<p>ES6 is fully supported in all modern browsers since June 2017:</p>
+
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr style="height:50px">
+    <th style="width:20%;" class="bsChrome" title="Chrome"></th>
+    <th style="width:20%;" class="bsEdge" title="Edge"></th>
+    <th style="width:20%;" class="bsFirefox" title="Firefox"></th>
+    <th style="width:20%;" class="bsSafari" title="Safari"></th>
+    <th style="width:19.9%;" class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>51</td>
+    <td>Edge<br>15</td>
+    <td>Firefox<br>54</td>
+    <td>Safari<br>10</td>
+    <td>Opera<br>38</td>
+  </tr>
+  <tr>
+    <td>May 2016</td>
+    <td>Apr 2017</td>
+    <td>Jun 2017</td>
+    <td>Sep 2016</td>
+    <td>Jun 2016</td>
+  </tr>
+</tbody></table></div>
+</div>
+
+
+<hr>
+<!--start-->
+<a id="mark_with"></a>
+<h2>JavaScript Array with() Method</h2>
+<p><a href="js_2023.html">ES2023</a> added the Array with() method as a safe way to update elements in an array without altering the original array.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const months = ["Januar", "Februar", "Mar", "April"];
+const myMonths = months.with(2, "March");</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_spread"></a>
+<h2>JavaScript Array Spread (...)</h2>
+<p>The <code class="w3-codespan">...</code> operator expands an array into individual elements.</p>
+<p>This can be used join arrays:</p>
+<div class="w3-example">
+<h3>Example 1</h3>
+<pre class="w3-code"><code class="language-javascript">const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
+const arr3 = [...arr1, ...arr2];</code></pre>
+
+</div>
+<p>In the example above, <b>...arr1</b> expands arr1 into single elements, <b>...arr2</b> expands arr2 into single elements,
+and arr3 is constructed using ...arr1 and ...arr2.</p>
+<div class="w3-example">
+<h3>Example 2</h3>
+<pre class="w3-code"><code class="language-javascript">const q1 = ["Jan", "Feb", "Mar"];
+const q2 = ["Apr", "May", "Jun"];
+const q3 = ["Jul", "Aug", "Sep"];
+const q4 = ["Oct", "Nov", "Des"];
+const year = [...q1, ...q2, ...q3, ...q4];</code></pre>
+
+</div>
+
+<p>The spread operator (...) can be used to copy an array:</p>
+<div class="w3-example">
+<h3>Example 3</h3>
+<pre class="w3-code"><code class="language-javascript">const arr1 = [1, 2, 3];
+const arr2 = [...arr1];</code></pre>
+
+</div>
+
+<p>The spread operator (...) can be used to pass arguments to a function:</p>
+
+<div class="w3-example">
+<h3>Example 4</h3>
+<pre class="w3-code"><code class="language-javascript">const numbers = [23,55,21,87,56];
+let minValue = Math.min(...numbers);
+let maxValue = Math.max(...numbers);</code></pre>
+
+</div>
+<!--stop-->
+<h2>Browser Support</h2>
+<p><code class="w3-codespan">... (spread)</code> is an <a href="js_es6.html">ES6  feature</a>.</p>
+<p>ES6 is fully supported in all modern browsers since June 2017:</p>
+
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr style="height:50px">
+    <th style="width:20%;" class="bsChrome" title="Chrome"></th>
+    <th style="width:20%;" class="bsEdge" title="Edge"></th>
+    <th style="width:20%;" class="bsFirefox" title="Firefox"></th>
+    <th style="width:20%;" class="bsSafari" title="Safari"></th>
+    <th style="width:19.9%;" class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>51</td>
+    <td>Edge<br>15</td>
+    <td>Firefox<br>54</td>
+    <td>Safari<br>10</td>
+    <td>Opera<br>38</td>
+  </tr>
+  <tr>
+    <td>May 2016</td>
+    <td>Apr 2017</td>
+    <td>Jun 2017</td>
+    <td>Sep 2016</td>
+    <td>Jun 2016</td>
+  </tr>
+</tbody></table></div>
+</div>
+
+
+<hr>
+<!--start-->
+<a id="mark_rest"></a>
+<h2>JavaScript Array Rest (...)</h2>
+
+<p>The rest operator (...) allows us to destruct an array and collect the leftovers:</p>
+<div class="w3-example">
+<h3>Example 1</h3>
+<pre class="w3-code"><code class="language-javascript">let a, rest;
+const arr1 = [1,2,3,4,5,6,7,8];
+[a, ...rest] = arr1;</code></pre>
+
+</div>
+<div class="w3-example">
+<h3>Example 2</h3>
+<pre class="w3-code"><code class="language-javascript">let a, b, rest;
+const arr1 = [1,2,3,4,5,6,7,8];
+[a, b, ...rest] = arr1;</code></pre>
+
+</div>
+<!--stop-->
+<h2>Browser Support</h2>
+<p><code class="w3-codespan">... (rest)</code> is an <a href="js_2018.html">ECMAScript 2018</a> feature.</p>
+<p>ES2018 is supported in all modern browsers since January 2020:</p>
+
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr>
+    <th class="bsChrome" title="Chrome"></th>
+    <th class="bsEdge" title="Edge"></th>
+    <th class="bsFirefox" title="Firefox"></th>
+    <th class="bsSafari" title="Safari"></th>
+    <th class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>64</td>
+    <td>Edge<br>79</td>
+    <td>Firefox<br>58</td>
+    <td>Safari<br>12</td>
+    <td>Opera<br>51</td>
+  </tr>
+  <tr>
+    <td>Jan 2018</td>
+    <td>Jan 2020</td>
+    <td>Jan 2018</td>
+    <td>Sep 2018</td>
+    <td>Feb 2018</td>
+  </tr>
+</tbody></table></div>
+</div>
+
+<hr>
+<div class="ws-note">
+<h2>Complete JavaScript Reference</h2>
+<p>For a complete reference to all JavaScript properties and methods, with full descriptions and many examples, go to:</p>
+<p class="w3-large"><a href="../jsref/default.html">W3Schools' Full JavaScript Reference</a>.</p>
+<p>The reference inludes all JavaScript updates from 1999 to 2025.</p>
+</div>
+
+<hr>
+
+<hr>
+
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_array_sort.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_array_reference.html">Next ❯</a>
+</div>
+
+

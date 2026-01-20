@@ -1,0 +1,352 @@
+
+      
+
+<h1>JavaScript BigInt</h1>
+
+
+<div class="ws-info">
+<h2>What is JavaScript BigInt?</h2>
+<p><b>BigInt</b> is a JavaScript <b>data type</b> for handling and storing <b>big integer values</b>.</p>
+<p><b>BigInt</b> allows you to work with <b>integers larger than the limit of Numbers</b>.</p>
+<p><b>BigInt</b> can represent an integer of <b>any size</b>, limited only by available memory.</p>
+</div>
+<hr>
+<h2>JavaScript Accuracy</h2>
+<p>JavaScript Numbers are only accurate up to 15 digits:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// 15 digits:
+let x = 999999999999999;
+// 16 digits:
+let y = 9999999999999999;</code></pre>
+
+</div>
+
+<hr>
+<h2>Numbers are 64-bits Floating Point</h2>
+<p>All JavaScript <b>Numbers</b> are stored in a <b>64-bit floating-point</b> format (IEEE 754 standard).</p>
+<p>With this standard, large numbers cannot be exactly represented, but will be rounded.</p>
+<p>JavaScript can only safely represent integers up to <b>2<sup>53</sup>-1</b> (9007199254740991).</p>
+<p>JavaScript can only safely represent integers down to <b>-2<sup>53</sup>-1</b> (-9007199254740991).</p>
+
+<div class="w3-example">
+<h3>Examples</h3>
+<pre class="w3-code"><code class="language-javascript">// MAX = 9007199254740991
+let x = Number.MAX_SAFE_INTEGER;
+// MIN = -9007199254740991
+let y = Number.MIN_SAFE_INTEGER;</code></pre>
+
+<p>Integers bigger than <code class="w3-codespan">Number.MAX_SAFE_INTEGER</code> will lose precision:</p>
+<pre class="w3-code"><code class="language-javascript">// Max (accurate)
+let x = 9007199254740991;
+// Max + 10 (inaccurate)
+let y = x + 10;</code></pre>
+
+<p>Integers less than than <code class="w3-codespan">Number.MIN_SAFE_INTEGER</code> will lose precision:</p>
+<pre class="w3-code"><code class="language-javascript">// Min (accurate)
+let x = -9007199254740991;
+// Min - 10 (inaccurate)
+let y = x - 10;</code></pre>
+
+</div>
+<hr>
+<div class="ws-note">
+<h2>Note</h2>
+<p>There is no such thing as a JavaScript Integer.</p>
+<p>All JavaScript Numbers are 64-bit floating point.</p>
+</div>
+
+<hr>
+<h2>How to Create a BigInt</h2>
+<p>You can create a BigInt in two ways:</p>
+<ul>
+<li>Using an <b>integer literal</b> with an <b>n</b> suffix</li>
+<li>Using the <b>BigInt()</b> constructor with a <b>string</b></li>
+</ul>
+<div class="w3-example">
+<h3>Examples</h3>
+<pre class="w3-code"><code class="language-javascript">// Using an integer literal with an n suffix:
+let x = 999999999999999n;
+// Using the BigInt() constructor with a string:
+let y = BigInt("999999999999999");</code></pre>
+
+<pre class="w3-code"><code class="language-javascript">let x = 12345678901234567890n;
+let y = BigInt("12345678901234567890")</code></pre>
+
+</div>
+
+<p>You can also create a BigInt using the Bigint() constructor with a <b>Number</b>.</p>
+<p><b>Warning !! Numbers are only accurate up to 15 digits</b>.</p>
+
+<div class="w3-example">
+<h3>Examples</h3>
+<pre class="w3-code"><code class="language-javascript">let x = BigInt(9999999999999999);</code></pre>
+
+</div>
+
+<hr>
+<h2>BigInt is a JavaScript Datatype</h2>
+<p>The JavaScript <code class="w3-codespan">typeof</code> a <code class="w3-codespan">BigInt</code> is "bigint":</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = BigInt(999999999999999);
+let type = typeof x;</code></pre>
+
+</div>
+
+<p><code class="w3-codespan">BigInt</code> is the second numeric data type in JavaScript
+(after <code class="w3-codespan">Number</code>).</p>
+<p>With <code class="w3-codespan">BigInt</code> the total number of supported data types in JavaScript is 8:</p>
+<p>
+1. String<br>
+2. Number<br>
+3. Bigint<br>
+4. Boolean<br>
+5. Undefined<br>
+6. Null<br>
+7. Symbol<br>
+8. Object
+</p>
+
+<hr>
+
+<h2>Arithmetic Operators</h2>
+<p><b>BigInt</b> supports standard JavaScript <b>arithmetic operators</b>.</p>
+<p><b>(+, -, ++, --, *, /, %, **)</b></p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p><b>Multiplication</b>:</p>
+<pre class="w3-code"><code class="language-javascript">let x = 9007199254740995n;
+let y = 9007199254740995n;
+let z = x * y;</code></pre>
+
+</div>
+<hr>
+<h2>Mixing BigInt and Numbers</h2>
+
+<p>Arithmetic between a <code class="w3-codespan">BigInt</code>
+and a <code class="w3-codespan">Number</code> is not allowed (will result in a
+<code class="w3-codespan">TypeError</code>).</p>
+<p><b>Explicit conversion must be done first</b>.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>You cannot mix BigInt and Number directly:</p>
+<pre class="w3-code"><code class="language-javascript">let x = 10n;
+let y = 5;
+let z = x + y; // ❌ TypeError</code></pre>
+<p>To fix that, explicitly convert one:</p>
+<pre class="w3-code"><code class="language-javascript">let x = 10n;
+let y = 5;
+let z = Number(x) + y;</code></pre>
+
+</div>
+
+<hr>
+<h2>BigInt / Number Conversions</h2>
+<p><b>BigInt to Number:</b> Use the Number() constructor.</p>
+
+<p><b>Number to BigInt:</b> Use the BigInt() constructor.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create a BigInt
+let largeNumber = BigInt("12345678901234567890");
+// Conversions
+let num = Number(largeNumber);</code></pre>
+
+</div>
+<div class="ws-note">
+<h2>Note</h2>
+<p>Large BigInts might result in Infinity or loss of precision when converted to number.</p>
+</div>
+
+<hr>
+<h2>BigInt Decimals</h2>
+<p>A <code class="w3-codespan">BigInt</code> can not have decimals.</p>
+
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">let x = 1.5n; // ❌ TypeError</code></pre>
+</div>
+
+<div class="w3-example">
+<h3>BigInt Division Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 5n;
+let y = x / 2;
+// ❌ Error: Cannot mix BigInt and other types, use explicit conversion.</code></pre>
+
+<pre class="w3-code"><code class="language-javascript">let x = 5n;
+let y = Number(x) / 2;</code></pre>
+
+
+</div>
+<div class="ws-note">
+<h2>Note</h2>
+<p>Attempting to convert a number with a fractional part to a BigInt will throw an error.</p>
+</div>
+
+<hr>
+<h2>Comparison Operators</h2>
+<p><b>Bigint</b> supports standard JavaScript <b>comparison operators</b>.</p>
+<p>(<b>&lt;, &gt; ==, ===, !==, &lt;=, &gt;=</b>)</p>
+<p>BigInts can also be compared with Numbers using standard comparison operators.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p><b>Comparisons</b> work normally:</p>
+<pre class="w3-code"><code class="language-javascript">// true
+let x = (10n &gt; 5n);
+// false (different types)
+let y = (10n === 10);
+// true (loose equality)
+let z = (10n == 10);</code></pre>
+
+</div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>Strict equality (===) between a BigInt and a Number will always be false due to different types.</p>
+</div>
+
+<hr>
+<h2>Bitwise Operators</h2>
+<p>BigInt supports bitwise operations, but <b>only with other BigInts</b> (not Numbers):</p>
+<ul>
+<li>&amp; (AND)</li>
+<li>| (OR)</li>
+<li>^ (XOR)</li>
+<li>~ (NOT)</li>
+</ul>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let a = 5n; // 0101
+let b = 3n; // 0011
+let x = (a &amp; b); // 1n (0001)
+let y = (a | b); // 7n (0111)
+let z = (a ^ b); // 6n (0110)
+let n = (~a);    // -6n</code></pre>
+
+</div>
+
+<hr>
+<h2>Bitwise Shift Operators</h2>
+<p><b>BigInt</b> only supports two shift operators:</p>
+<ul>
+<li>&lt;&lt; (left shift)</li>
+<li>&gt;&gt; (signed right shift)</li>
+</ul>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let big = 10n; // binary: 1010
+let x = (big &lt;&lt; 2n); // 40n (101000)
+let y = (big &gt;&gt; 1n); // 5n (0101)</code></pre>
+
+</div>
+
+<p><b>Impotant Rules:</b></p>
+<ul>
+<li>Both operands must be BigInt</li>
+<li>Shift amounts must be non-negative</li>
+<li>Right shift keeps the sign bit for negative values</li>
+</ul>
+<hr>
+<div class="ws-note">
+<h2>Note</h2>
+<p>Unsigned right shift (&gt;&gt;&gt;) is not allowed with BigInts.</p>
+</div>
+
+<hr>
+<h2>BigInt Hex, Octal and Binary</h2>
+<p><code class="w3-codespan">BigInt</code> can also be written in hexadecimal, octal, or binary notation:</p>
+
+<p>Like numbers, bigint literals support several bases:</p>
+<ul>
+<li>Normal: 256n</li>
+<li>Octal: 0o400n</li>
+<li>Hexadecimal: 0x100n</li>
+<li>Binary: 0b100000000n</li>
+</ul>
+
+<div class="w3-example">
+<h3>Examples</h3>
+<pre class="w3-code"><code class="language-javascript">let num = 256n;
+let oct = 0o400n;
+let hex = 0x100n;
+let bin = 0b100000000n;</code></pre>
+
+<pre class="w3-code"><code class="language-javascript">let hex = 0x20000000000003n;
+let oct = 0o400000000000000003n;
+let bin = 0b100000000000000000000000000000000000000000000000000011n;</code></pre>
+
+</div>
+
+<hr>
+
+<h2>Precision Curiosity</h2>
+<p>Maximum safe integer in JavaScript is 9007199254740991.</p>
+<p>Rounding can compromise program security:</p>
+
+<div class="w3-example">
+<h3>MAX_SAFE_INTEGER Examples</h3>
+<pre class="w3-code"><code class="language-javascript">9007199254740992 === 9007199254740993; // is true !!!</code></pre>
+
+<pre class="w3-code"><code class="language-javascript">9007199254740992n === 9007199254740993n; // is false !!!</code></pre>
+
+</div>
+
+<hr>
+<div class="ws-note">
+<h2>Summary</h2>
+<p><b>BigInt</b> allows <b>arbitrary-precision integers</b></p>
+<p><b>BigInt</b> numbers can be as large (or small) as <b>your memory allows</b>.</p>
+<p><b>BigInt</b> are used for very large integers (cryptography, IDs, timestamps, etc).</p>
+<p><b>BigInt</b> is not suitable for decimals - only integers.</p>
+<p><b>Math functions</b> (like Math.sqrt()) <b>do not work</b> with BigInts.</p>
+<p><b>JSON.stringify()</b> cannot handle BigInts - <b>throws an error</b>.</p>
+</div>
+<hr>
+<h2>Browser Support</h2>
+<p><code class="w3-codespan">BigInt()</code> is an <a href="js_2020.html">ES2020</a> feature.</p>
+<p>ES2020 is fully supported in all modern browsers since September 2020:</p>
+<div class="w3-responsive">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr style="height:50px">
+    <th style="width:20%;" class="bsChrome" title="Chrome"></th>
+    <th style="width:20%;" class="bsEdge" title="Edge"></th>
+    <th style="width:20%;" class="bsFirefox" title="Firefox"></th>
+    <th style="width:20%;" class="bsSafari" title="Safari"></th>
+    <th style="width:19%;" class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>85</td>    
+    <td>Edge<br>85</td>
+    <td>Firefox<br>79</td>
+    <td>Safari<br>14</td>
+    <td>Opera<br>71</td>
+  </tr>
+  <tr>
+    <td>Aug 2020</td>
+    <td>Aug 2020</td>    
+    <td>Mar 2020</td>
+    <td>Sep 2020</td>
+    <td>Sep 2020</td>
+  </tr>
+</tbody>
+</table></div>
+</div>
+
+
+<hr>
+
+<hr>
+
+
+<hr>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_bitwise.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_function_intro.html">Next ❯</a>
+</div>
+
+

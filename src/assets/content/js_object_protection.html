@@ -1,0 +1,226 @@
+
+      
+
+<h1>JavaScript Object Protection</h1>
+
+<hr>
+<h2>Object Protection Methods</h2>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">// Prevents re-assignment
+const car = {type:"Fiat", model:"500", color:"white"};
+// Prevents adding object properties
+Object.preventExtensions(object)
+// Returns true if properties can be added to an object
+Object.isExtensible(object)
+// Prevents adding and deleting object properties
+Object.seal(object)
+// Returns true if object is sealed
+Object.isSealed(object)
+// Prevents any changes to an object
+Object.freeze(object)
+// Returns true if object is frozen
+Object.isFrozen(object)</code></pre>
+</div>
+<hr>
+<h2>Using const</h2>
+<p>The most common way to protect an object from being changed
+is by using the <code class="w3-codespan">const</code> keyword.</p>
+<p>With <code class="w3-codespan">const</code> you can not re-assign the object,
+but you can still change the value of a property, delete a property or create a new property.</p>
+
+
+<hr>
+<!--start-->
+<h2>JavaScript Object.preventExtensions()</h2>
+<p>The <code class="w3-codespan">Object.preventExtensions()</code> method prevents adding properties to an object.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create Object
+const person = {firstName:"John", lastName:"Doe"};
+// Prevent Extensions
+Object.preventExtensions(person);
+// This will throw an error
+person.nationality = "English";</code></pre>
+
+</div>
+<p>Since arrays are objects, arrays can be prevented from extensions too:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create Array
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+Object.preventExtensions(fruits);
+// This will throw an error:
+fruits.push("Kiwi");</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>JavaScript Object.isExtensible()</h2>
+<p>You can use <code class="w3-codespan">Object.isExtensible()</code> to check if an object is extensible.</p>
+<p>The <code class="w3-codespan">Object.isExtensible()</code> returns true if an object is extensible.</p>
+<div class="w3-example">
+<h3>Examples</h3>
+<pre class="w3-code"><code class="language-javascript">// Create Object
+const person = {firstName:"John", lastName:"Doe"};
+// Prevent Extensions
+Object.preventExtensions(person);
+// This will return false
+let answer = Object.isExtensible(person);</code></pre>
+
+<pre class="w3-code"><code class="language-javascript">// Create Array
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+// Prevent Extensions
+Object.preventExtensions(fruits);
+// This will return false
+let answer = Object.isExtensible(fruits);</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>JavaScript Object.seal()</h2>
+<p>The <code class="w3-codespan">Object.seal()</code> method prevents additions or deletions of new properties.</p>
+<p>The <code class="w3-codespan">Object.seal()</code> method makes existing properties non-configurable.</p>
+<p>The <code class="w3-codespan">Object.isSealed()</code> method can be used to check if an object is sealed.</p>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>The <code class="w3-codespan">Object.seal()</code> method will fail silently in non-strict mode and throw a TypeError in strict mode.</p>
+</div>
+ 
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">"use strict"
+// Create Object
+const person = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 50,
+  eyeColor: "blue"
+};
+// Seal Object
+Object.seal(person)
+// This will throw an error
+delete person.age;</code></pre>
+
+</div>
+<p>Since arrays are objects, arrays can be sealed too:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create Array
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+Object.seal(fruits);
+// This will throw an error:
+fruits.push("Kiwi");</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>JavaScript Object.isSealed()</h2>
+<p>The <code class="w3-codespan">Object.isSealed()</code> method can be used to check if an object is sealed.</p>
+<p>The <code class="w3-codespan">Object.isSealed()</code> returns true if an object is sealed.</p>
+
+<div class="w3-example">
+<h3>Examples</h3>
+<pre class="w3-code"><code class="language-javascript">// Create Object
+const person = {firstName:"John", lastName:"Doe"};
+// Seal Object
+Object.seal(person);
+// This will return true
+let answer = Object.isSealed(person);</code></pre>
+
+<pre class="w3-code"><code class="language-javascript">// Create Array
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+// Seal Array
+Object.seal(fruits);
+// This will return true
+let answer = Object.isSealed(fruits);</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>JavaScript Object.freeze()</h2>
+<p>The <code class="w3-codespan">Object.freeze()</code> method prevents any changes to an object.</p>
+<p>Frozen objects are read-only.</p>
+<p>No modification, addition or deletion of properties are allowed.</p>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>The <code class="w3-codespan">Object.freeze()</code> method will fail silently in non-strict mode and throw a TypeError in strict mode.</p>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">"use strict"
+// Create Object
+const person = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 50,
+  eyeColor: "blue"
+};
+// Freeze Object
+Object.freeze(person)
+// This will throw an error
+person.age = 51;</code></pre>
+
+</div>
+
+<p>Since arrays are objects, arrays can be frozen too:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const fruits = ["Banana", "Orange", "Apple", "Mango"];
+Object.freeze(fruits);
+// This will trow an error:
+fruits.push("Kiwi");</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>JavaScript Object.isFrozen()</h2>
+<p>The <code class="w3-codespan">Object.isFrozen()</code> method can be used to check if an object is frozen.</p>
+<p>The <code class="w3-codespan">Object.isFrozen()</code> returns true if an object is frozen.</p>
+
+<div class="w3-example">
+<h3>Examples</h3>
+<pre class="w3-code"><code class="language-javascript">// Create Object
+const person = {firstName:"John", lastName:"Doe"};
+// Freeze Object
+Object.freeze(person);
+// This will return true
+let answer = Object.isFrozen(person);</code></pre>
+
+<pre class="w3-code"><code class="language-javascript">// Create Array
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+Object.freeze(fruits);
+// This will return true:
+let answer = Object.isFrozen(fruits);</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<div class="ws-note">
+<h2>Learn More:</h2>
+<p class="w3-large"><a href="js_object_definition.html">JavaScript Object Definitions</a></p>
+<p class="w3-large"><a href="js_object_constructors.html">JavaScript Object Constructors</a></p>
+<p class="w3-large"><a href="js_this.html">JavaScript Object this</a></p>
+<p class="w3-large"><a href="js_destructuring.html">JavaScript Object Destructuring</a></p>
+<p class="w3-large"><a href="js_object_prototypes.html">JavaScript Object Prototypes</a></p>
+<p class="w3-large"><a href="js_object_methods.html">JavaScript Object Iterations</a></p>
+<p class="w3-large"><a href="js_object_property.html">JavaScript Object Management</a></p>
+<p class="w3-large"><a href="js_object_accessors.html">JavaScript Object Getters &amp; Setters</a></p>
+<p class="w3-large"><a href="js_object_protection.html">JavaScript Object Protection</a></p>
+<p class="w3-large"><a href="js_object_reference.html">JavaScript Object Reference</a></p>
+</div>
+
+<hr>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_object_accessors.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_object_reference.html">Next ❯</a>
+</div>
+
+

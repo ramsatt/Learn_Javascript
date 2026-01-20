@@ -1,0 +1,418 @@
+
+      
+
+<h1>JavaScript Data Types</h1>
+
+<!--start-->
+<div class="ws-info">
+<p class="w3-large">A <b>JavaScript variable</b> can hold <b>8 types</b> of data.</p>
+<p class="w3-large"><b>7 Primitive</b> Data Types and <b>1 Object</b> Data Type.</p>
+<p class="w3-large">The Object data type can hold many different object types.</p>
+
+</div>
+<img src="assets/images/img_datatypes_500.jpg" style="width:100%;max-width:512px" alt="Datatypes">
+
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Type</th><th>Description</th></tr>
+<tr><td>Number</td><td>A number representing a mathematical value</td></tr>
+<tr><td>Bigint</td><td>A number representing a large integer</td></tr>
+<tr><td>String</td><td>A text of characters enclosed in quotes</td></tr>
+<tr><td>Boolean</td><td>A data type representing true or false</td></tr>
+<tr><td>Undefined</td><td>A primitive variable with no assigned value</td></tr>
+<tr><td>Null</td><td>A primitive value representing object absence</td></tr>
+<tr><td>Symbol</td><td>A unique and primitive identifier</td></tr>
+<tr><td>Object</td><td>A collection of key-value pairs of data</td></tr>
+</tbody></table></div>
+</div>
+
+<div class="w3-example">
+<h3>Examples</h3>
+<pre class="w3-code"><code class="language-javascript">// Number
+let length = 16;
+let weight = 7.5;
+// BigInt
+let x = 1234567890123456789012345n;
+let y = BigInt(1234567890123456789012345)
+// Strings
+let color = "Yellow";
+let lastName = "Johnson";
+// Boolean
+let x = true;
+let y = false;
+// Undefined
+let x;
+let y;
+// Null
+let x = null;
+let y = null;
+// Symbol
+const x = Symbol();
+const y = Symbol();
+// Object
+const person = {firstName:"John", lastName:"Doe"};
+// Array Object
+const cars = ["Saab", "Volvo", "BMW"];
+// Date Object
+const date = new Date("2022-03-25");</code></pre>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The Concept of Data Types</h2>
+<p>In programming, data types is an important concept.</p>
+<p>To be able to operate on variables, it is important to know something about 
+the type.</p>
+<p>Without data types, a computer cannot safely solve this:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">let x = 16 + "Volvo";</code></pre>
+</div>
+<p>Does it make any sense to add "Volvo" to sixteen? Will it produce an 
+error or will it produce a result?</p>
+<p>JavaScript will treat the example above as:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">let x = "16" + "Volvo";</code></pre>
+</div>
+
+<div class="w3-panel ws-note">
+<h2>Note</h2>
+<p>When adding a number and a string, JavaScript will treat the number as a 
+string.</p>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 16 + "Volvo";</code></pre>
+
+</div>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = "Volvo" + 16;</code></pre>
+
+</div>
+<p>JavaScript evaluates expressions from left to right. Different sequences can 
+produce different results:</p>
+<div class="w3-example">
+<h3>JavaScript:</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 16 + 4 + "Volvo";</code></pre>
+
+<p>Result:</p>
+
+
+</div>
+<div class="w3-example">
+<h3>JavaScript:</h3>
+<pre class="w3-code"><code class="language-javascript">let x = "Volvo" + 16 + 4;</code></pre>
+
+<p>Result:</p>
+
+
+</div>
+<p>In the first example, JavaScript treats 16 and 4 as numbers, until it reaches "Volvo".</p>
+<p>In the second example, since the first operand is a string, all operands are 
+treated as strings.</p>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>JavaScript Types are Dynamic</h2>
+<p>JavaScript has dynamic types. This means that the same variable can be used 
+to hold 
+different data types:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x;       // Now x is undefined
+x = 5;       // Now x is a Number
+x = "John";  // Now x is a String</code></pre>
+<a class="w3-btn w3-margin-bottom" href="tryit7de0.html?filename=tryjs_datatypes_dynamic">Try 
+it Yourself »</a>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>JavaScript Strings</h2>
+<p>A string (or a text string) is a series of characters like "John Doe".</p>
+<p>Strings are written with quotes. You can use single or double quotes:<br>
+</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Using double quotes:
+let carName1 = "Volvo XC60";
+// Using single quotes:
+let carName2 = 'Volvo XC60';</code></pre>
+<a class="w3-btn w3-margin-bottom" href="tryit29d2.html?filename=tryjs_datatypes_string_quotes">Try 
+it Yourself »</a>
+</div>
+<p>You can use quotes inside a string, as long as they don't match the quotes 
+surrounding the string:</p>
+<div class="w3-example">
+ <h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Single quote inside double quotes:
+let answer1 = "It's alright";
+// Single quotes inside double quotes:
+let answer2 = "He is called 'Johnny'";
+// Double quotes inside single quotes:
+let answer3 = 'He is called "Johnny"';</code></pre>
+<a class="w3-btn w3-margin-bottom" href="tryit822b.html?filename=tryjs_datatypes_string">Try 
+it Yourself »</a></div>
+<div class="ws-note">
+<h2>Learn More:</h2>
+<p class="w3-large"><a href="js_string_methods.html">JavaScript String Methods</a></p>
+<p class="w3-large"><a href="js_string_search.html">JavaScript String Search</a></p>
+<p class="w3-large"><a href="js_string_reference.html">JavaScript String Reference</a></p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>JavaScript Numbers</h2>
+<p>All JavaScript numbers are stored as decimal numbers (floating point).</p>
+<p>Numbers can be written with, or without decimals:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// With decimals:
+let x1 = 34.00;
+// Without decimals:
+let x2 = 34;</code></pre>
+<a class="w3-btn w3-margin-bottom" href="tryit2301.html?filename=tryjs_datatypes_numbers">Try 
+it Yourself »</a>
+</div>
+<hr>
+<h2>Exponential Notation</h2>
+<p>Extra large or extra small numbers can be written with scientific 
+(exponential) notation:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let y = 123e5;    // 12300000
+let z = 123e-5;   // 0.00123</code></pre>
+<a class="w3-btn w3-margin-bottom" href="tryitb7bb.html?filename=tryjs_datatypes_numbers_large">Try 
+it Yourself »</a></div>
+<hr>
+<h2>Number Types</h2>
+<p>Most programming languages have many number types:</p>
+<p>Whole numbers (integers):<br>
+<b>byte</b> (8-bit), <b>short</b> (16-bit), <b>int</b> (32-bit), <b>long</b> (64-bit)</p>
+<p>Real numbers (floating-point):<br>
+<b>float</b> (32-bit), <b>double</b> (64-bit).</p>
+<p><b>Javascript numbers are always double (64-bit floating point).</b></p>
+<hr>
+<div class="ws-note">
+<h2>Learn More:</h2>
+<p class="w3-large"><a href="js_numbers.html">JavaScript Numbers Tutorial</a></p>
+<p class="w3-large"><a href="js_number_methods.html">JavaScript Number Methods</a></p>
+<p class="w3-large"><a href="js_number_properties.html">JavaScript Number Properties</a></p>
+<p class="w3-large"><a href="js_number_reference.html">JavaScript Number Reference</a></p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>JavaScript BigInt</h2>
+<p>All JavaScript numbers are stored in a 64-bit floating-point format.</p>
+<p>JavaScript BigInt is a new datatype (<a href="js_2020.html">ES2020</a>) that can be used to store integer values that are too big to be represented
+by a normal JavaScript Number.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = BigInt("123456789012345678901234567890");</code></pre>
+<a class="w3-btn w3-margin-bottom" href="tryit9847.html?filename=tryjs_bigint">Try 
+it Yourself »</a></div>
+<div class="ws-note">
+<h2>Learn More:</h2>
+<p class="w3-large"><a href="js_bigint.html">JavaScript BigInt Tutorial</a></p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>JavaScript Booleans</h2>
+<p>Booleans can only have two values: <code class="w3-codespan">true</code> or <code class="w3-codespan">false</code>.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 5;
+let y = 5;
+let z = 6;
+(x == y)       // Returns true
+(x == z)       // Returns false</code></pre>
+</div>
+<p>Booleans are often used in conditional testing.</p>
+<div class="ws-note">
+<h2>Learn More:</h2>
+<p class="w3-large"><a href="js_booleans.html">JavaScript Boolean Tutorial</a></p>
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>JavaScript Objects</h2>
+<p>JavaScript Objects represent <b>complex data</b> structures and functionalities beyond the
+primitive data types (string, number, boolean, null, undefined, symbol, bigint).</p>
+
+<p>JavaScript objects are written with curly braces <code class="w3-codespan">{ }</code>.</p>
+<p>JavaScript objects contains a collection of different <b>properties</b>.</p>
+<p>Object properties are written as <b>name:value</b> pairs, separated by commas.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Create a person object with 4 properties: firstName, 
+lastName, age and eyeColor:</p>
+
+<pre class="w3-code"><code class="language-javascript">const person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};</code></pre>
+
+</div>
+
+<div class="ws-note">
+<h2>Learn More:</h2>
+<p class="w3-large"><a href="js_objects.html">JavaScript Object Tutorial</a></p>
+<p class="w3-large"><a href="js_object_definition.html">JavaScript Object Definitions</a></p>
+<p class="w3-large"><a href="js_object_methods.html">JavaScript Object Methods</a></p>
+<p class="w3-large"><a href="js_object_reference.html">JavaScript Object Reference</a></p>
+</div>
+<hr>
+<h2>Built-In Object Types</h2>
+<p>A JavaScript object can represent a <b>JavScript object</b> or a <b>User defined object</b>.</p>
+<p>Built-in JavavaScript object types can be:</p>
+
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr><td><b>Object</b></td><td>The fundamental building block for complex data</td></tr>
+<tr><td><b>Array</b></td><td>Object of values accessed by a numerical index</td></tr>
+<tr><td><b>Date</b></td><td>Object for working with dates and times</td></tr>
+<tr><td><b>RegExp</b></td><td>Object for working with regular expressions</td></tr>
+<tr><td><b>Map</b></td><td>Object of key-value pairs where the keys can be of any data type</td></tr>
+<tr><td><b>Set</b></td><td>Object of values where each value can only appear once</td></tr>
+<tr><td><b>Error</b></td><td>Object represents error conditions during program execution</td></tr>
+<tr><td><b>Promise</b></td><td>Object representing the completion or failure of an asynchronous operation</td></tr>
+<tr><td><b>Int8Array</b></td><td>Array for storing fixed-size 8-bits integer values</td></tr>
+<tr><td><b>Int16Array</b></td><td>Array for storing fixed-size 16-bits integer values</td></tr>
+<tr><td><b>Int32Array</b></td><td>Array for storing fixed-size 32-bits integer values</td></tr>
+<tr><td><b>Float16Array</b></td><td>Array for storing fixed-size 16-bits floating-point values</td></tr>
+<tr><td><b>Float32Array</b></td><td>Array for storing fixed-size 32-bits floating-point values</td></tr>
+<tr><td><b>Float64Array</b></td><td>Array for storing fixed-size 64-bits floating-point values</td></tr>
+<tr><td><b>BigInt64Array</b></td><td>Array for storing fixed-size 64-bits big integer values</td></tr>
+</tbody></table></div>
+</div>
+
+<div class="ws-note">
+<h2>Note</h2><p>The list above is not complete,
+as JavaScript offers other built-in object types like Math for mathematic methods and values,
+and various other specialized objects for specific tasks.</p>
+</div>
+
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The typeof Operator</h2>
+<p>You can use the JavaScript <code class="w3-codespan">typeof</code> operator to find the type 
+of a JavaScript variable.</p>
+<p>The <code class="w3-codespan">typeof</code> operator returns the type of a variable or an expression:</p>
+<div class="w3-example">
+  <h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">typeof ""             // Returns "string"
+typeof "John"         // Returns "string"
+typeof "John Doe"     // Returns "string"</code></pre>
+  
+</div>
+
+
+<div class="w3-example">
+  <h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">typeof 0              // Returns "number"
+typeof 314            // Returns "number"
+typeof 3.14           // Returns "number"
+typeof (3)            // Returns "number"
+typeof (3 + 4)        // Returns "number"</code></pre>
+  
+</div>
+<div class="ws-note">
+<h2>Learn More:</h2>
+<p class="w3-large"><a href="js_typeof.html">JavaScript typeof Tutorial</a></p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>JavaScript Arrays</h2>
+<p>JavaScript arrays are a special type of JavaScript objects.</p>
+<p>JavaScript arrays are written with square <code class="w3-codespan">[ ]</code> brackets.</p>
+<p>Array items are separated by commas.</p>
+<p>The following code declares (creates) an array called <code class="w3-codespan">cars</code>, containing three 
+items (car names):</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const cars = ["Saab", "Volvo", "BMW"];</code></pre>
+
+</div>
+
+<p>Array indexes are zero-based, which means the first item is [0], second is 
+[1], and so on.</p>
+<div class="ws-note">
+<h2>Learn More:</h2>
+<p class="w3-large"><a href="js_arrays.html">JavaScript Array Tutorial</a></p>
+<p class="w3-large"><a href="js_array_methods.html">JavaScript Array Methods</a></p>
+<p class="w3-large"><a href="js_array_sort.html">JavaScript Array Sort</a></p>
+<p class="w3-large"><a href="js_array_iteration.html">JavaScript Array Iterations</a></p>
+<p class="w3-large"><a href="js_array_reference.html">JavaScript Array Reference</a></p></div>
+<!--stop-->
+
+<hr>
+<!--start-->
+<h2>Undefined</h2>
+<p>In JavaScript, a variable without a value, has the value <code class="w3-codespan">undefined</code>. 
+The type is also <code class="w3-codespan">undefined</code>.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let car;    // Value is undefined, type is undefined</code></pre>
+
+</div>
+<p>Any variable can be emptied, by setting the value to <code class="w3-codespan">undefined</code>. 
+The type will also be <code class="w3-codespan">undefined</code>.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">car = undefined;    // Value is undefined, type is undefined</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Empty Values </h2>
+<p>An empty value has nothing to do with <code class="w3-codespan">undefined</code>.</p>
+<p>An empty string has both a legal value and a type.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let car = "";    // The value is "", the typeof is "string"</code></pre>
+
+</div>
+<hr>
+<!--start-->
+<h2>Datatype null</h2>
+<p>In JavaScript, a variable or an expression can obtain the datatype null in several ways.
+</p><p>A function can return null or a variable can be assigned the null value:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let carName = null;</code></pre>
+
+</div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>The <b>typeof</b> operator returns <b>object</b> for null.</p>
+<p>This is a historical quirk in JavaScript and does not indicate that null is an object.</p>
+</div>
+
+<p>The <b>strict equality operator (===)</b> compares both the value and the type of the operands.</p>
+<p>It returns <code class="w3-codespan">true</code> only if both the operands values and types are
+<code class="w3-codespan">null</code>.</p>
+
+<p>The <b>loose equality operator</b> (==) also returns <code class="w3-codespan">true</code>
+for a <code class="w3-codespan">null</code> value,
+but it also returns true if the value is <code class="w3-codespan">undefined</code>.</p>
+<p>Using == is not recommended when checking for <code class="w3-codespan">null</code>.</p>
+<!--stop-->
+
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_regexp_methods.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_typeof.html">Next ❯</a>
+</div>
+
+

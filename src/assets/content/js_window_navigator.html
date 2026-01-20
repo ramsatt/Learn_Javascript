@@ -1,0 +1,216 @@
+
+      
+
+<h1>JavaScript Window Navigator</h1>
+
+<div class="ws-info">
+<!--start-->
+<h2>The Navigator Object</h2>
+
+<p>The <code class="w3-codespan">navigator</code> object contains information about the 
+visitor's browser.</p>
+<p>It can be written with or without the window prefix like:</p>
+<p><code class="w3-codespan">windows.navigator</code> or just <code class="w3-codespan">navigator</code></p>
+</div>
+<h2>Browser Cookies</h2>
+<p>The <code class="w3-codespan">cookieEnabled</code> property returns true if cookies are enabled, otherwise 
+false:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;p id="demo"&gt;&lt;/p&gt;
+&lt;script&gt;
+document.getElementById("demo").innerHTML =
+"cookiesEnabled is " + navigator.cookieEnabled;
+&lt;/script&gt;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The Browser Language</h2>
+<p>The <code class="w3-codespan">language</code> property returns the browser's language:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;p id="demo"&gt;&lt;/p&gt;
+&lt;script&gt;
+document.getElementById("demo").innerHTML = navigator.language;
+&lt;/script&gt;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Is The Browser Online?</h2>
+<p>The <code class="w3-codespan">onLine</code> property returns true if the browser is online:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;p id="demo"&gt;&lt;/p&gt;
+&lt;script&gt;
+document.getElementById("demo").innerHTML = navigator.onLine;
+&lt;/script&gt;</code></pre>
+ 
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Browser Application Name</h2>
+<p>The <code class="w3-codespan">appName</code> property returns the application name 
+of the browser:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;p id="demo"&gt;&lt;/p&gt;
+&lt;script&gt;
+document.getElementById("demo").innerHTML =
+"navigator.appName is " + navigator.appName;
+&lt;/script&gt;</code></pre>
+ 
+</div>
+<div class="w3-panel ws-warning">
+<h2>Warning</h2>
+<p>This property is removed (deprecated) in the latest web standard.</p>
+<p>Most browsers (Chrome, Edge, Firefox, Safari) returns <b>Netscape</b> as
+<code class="w3-codespan">appName</code>.</p>
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>Browser Application Code Name</h2>
+<p>The <code class="w3-codespan">appCodeName</code> property returns the application code name 
+of the browser:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;p id="demo"&gt;&lt;/p&gt;
+&lt;script&gt;
+document.getElementById("demo").innerHTML =
+"navigator.appCodeName is " + navigator.appCodeName;
+&lt;/script&gt;</code></pre>
+
+</div>
+
+<div class="w3-panel ws-warning">
+<h2>Warning</h2>
+<p>This property is removed (deprecated) in the latest web standard.</p>
+<p>Most browsers (Chrome, Edge, Firefox, Safari) returns <b>Mozilla</b> as
+<code class="w3-codespan">appCodeName</code>.</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The Browser Engine</h2>
+<p>The <code class="w3-codespan">product</code> property returns 
+the product name of the browser engine:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;p id="demo"&gt;&lt;/p&gt;
+&lt;script&gt;
+document.getElementById("demo").innerHTML =
+"navigator.product is " + navigator.product;
+&lt;/script&gt;</code></pre>
+
+</div>
+<div class="w3-panel ws-warning">
+<h2>Warning</h2>
+<p>This property is removed (deprecated) in the latest web standard.</p>
+<p>Most browsers returns <b>Gecko</b> as product.</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The Browser Version</h2>
+<p>The <code class="w3-codespan">appVersion</code> property returns 
+version information about the browser:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;p id="demo"&gt;&lt;/p&gt;
+&lt;script&gt;
+document.getElementById("demo").innerHTML = navigator.appVersion;
+&lt;/script&gt;</code></pre>
+
+</div>
+<div class="w3-panel ws-warning">
+<h2>Warning</h2>
+<p>This property is removed (deprecated) in the latest web standard.</p>
+<p>Do not rely on <code class="w3-codespan">appVersion</code> to return the correct browser version.</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The Browser Agent</h2>
+<p>The <code class="w3-codespan">userAgent</code> property returns the user-agent header sent by the browser to the server:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;p id="demo"&gt;&lt;/p&gt;
+&lt;script&gt;
+document.getElementById("demo").innerHTML = navigator.userAgent;
+&lt;/script&gt;</code></pre>
+
+</div>
+<hr>
+<div class="ws-warning">
+<h2>Warning</h2>
+<p>The information from the navigator object can often be misleading.</p>
+<p>The navigator object should <b>not be used to detect browser versions</b> because:</p>
+<ul>
+  <li>Different browsers can use the same name</li>
+  <li>The navigator data can 
+be changed by the browser owner</li>
+  <li>Some browsers misidentify themselves to bypass site tests</li>
+  <li>Browsers cannot report new operating systems, released later than the browser</li>
+</ul>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The Browser Platform</h2>
+<p>The <code class="w3-codespan">platform</code> property returns the browser platform 
+(operating system):</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;p id="demo"&gt;&lt;/p&gt;
+&lt;script&gt;
+document.getElementById("demo").innerHTML = navigator.platform;
+&lt;/script&gt;</code></pre>
+
+</div>
+<div class="w3-panel ws-warning">
+<h2>Warning</h2>
+<p>This property is removed (deprecated) in the latest web standard.</p>
+<p>Do not rely on <code class="w3-codespan">platform</code> to return the correct browser platform in all browsers.</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Is Java Enabled?</h2>
+<p>The <code class="w3-codespan">javaEnabled()</code> method returns true if <a href="../java/default.html">Java</a> is enabled:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;p id="demo"&gt;&lt;/p&gt;
+&lt;script&gt;
+document.getElementById("demo").innerHTML = navigator.javaEnabled();
+&lt;/script&gt;</code></pre>
+
+</div>
+<div class="w3-panel ws-warning">
+<h2>Warning</h2>
+<p>This method is removed (deprecated) in the latest web standard.</p>
+<p><code class="w3-codespan">javaEnabled()</code> always returns <code class="w3-codespan">false</code>.</p>
+</div>
+<!--stop-->
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_window_history.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_popup.html">Next ❯</a>
+</div>
+
+

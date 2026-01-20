@@ -1,0 +1,280 @@
+
+      
+
+<h1>JavaScript Object Management</h1>
+
+
+<hr>
+<h2>Property Management Methods</h2>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">// Adding or changing an object property
+Object.defineProperty(object, property, descriptor)
+// Adding or changing object properties
+Object.defineProperties(object, descriptors)
+// Accessing a Property
+Object.getOwnPropertyDescriptor(object, property)
+// Accessing Properties
+Object.getOwnPropertyDescriptors(object)
+// Returns all properties as an array
+Object.getOwnPropertyNames(object)
+// Accessing the prototype
+Object.getPrototypeOf(object)</code></pre>
+</div>
+
+
+<hr>
+<!--start-->
+<h2>JavaScript Object.defineProperty()</h2>
+<p>The <code class="w3-codespan">Object.defineProperty()</code> method can be used to:</p>
+<ul>
+<li>Adding a new property to an object</li>
+<li>Changing property values</li>
+<li>Changing property metadata</li>
+<li>Changing object getters and setters</li>
+</ul>
+<p>Syntax:</p>
+<pre class="w3-code"><code class="language-javascript">Object.defineProperty(<i>object, property, descriptor</i>)</code></pre>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Adding a new Property</h2>
+<p>This example adds a new property to an object:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an Object:
+const person = {
+  firstName: "John",
+  lastName : "Doe",
+  language : "EN"
+};
+// Add a Property
+Object.defineProperty(person, "year", {value:"2008"});</code></pre>
+  
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Changing a Property Value</h2>
+<p>This example changes a property value:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an Object:
+const person = {
+  firstName: "John",
+  lastName : "Doe",
+  language : "EN"
+};
+// Change a Property
+Object.defineProperty(person, "language", {value : "NO"});</code></pre>
+  
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Property Attributes</h2>
+<p>All properties have a name. In addition they also have a value.</p>
+<p>The value is one of the property's attributes.</p>
+<p>Other attributes are: enumerable, configurable, and writable.</p>
+<p>These attributes define how the property can be accessed (is it readable?, is 
+it writable?)</p>
+<p>In JavaScript, all attributes can be read, but only the value attribute can 
+be changed (and only if the property is writable).</p>
+<p>( ECMAScript 5 has methods for both getting and setting all property 
+attributes)</p>
+
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Changing Meta Data</h2>
+<p>The following property meta data can be changed:</p>
+
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">writable : true      // Property value can be changed
+enumerable : true    // Property can be enumerated
+configurable : true  // Property can be reconfigured</code></pre>
+</div>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">writable : false     // Property value can not be changed
+enumerable : false   // Property can be not enumerated
+configurable : false // Property can be not reconfigured</code></pre>
+</div>
+<p>Getters and setters can also be changed:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">// Defining a getter
+get: function() { return language }
+// Defining a setter
+set: function(value) { language = value }</code></pre>
+</div>
+<p>This example makes language read-only:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">Object.defineProperty(person, "language", {writable:false});</code></pre>
+</div>
+<p>This example makes language not enumerable:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">Object.defineProperty(person, "language", {enumerable:false});</code></pre>
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>JavaScript getOwnPropertyNames()</h2>
+<p>The <code class="w3-codespan">Object.getOwnPropertyNames()</code> method can:</p>
+<ul>
+<li>List object properties</li>
+</ul>
+<h3>Syntax</h3>
+<pre class="w3-code"><code class="language-javascript">Object.getOwnPropertyNames(<i>object</i>)</code></pre>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>List all Object Properties</h2>
+<p>This example gets all properties of an object:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an Object
+const person = {
+  firstName: "John",
+  lastName : "Doe",
+  language : "EN"
+};
+// Get all Properties
+Object.getOwnPropertyNames(person);</code></pre>
+
+</div>
+
+<p><code class="w3-codespan">Object.getOwnPropertyNames()</code> will also list properties that is not enumerable:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an Object
+const person = {
+  firstName: "John",
+  lastName : "Doe",
+  language : "EN"
+};
+// Set the language Property not enumerable
+Object.defineProperty(person, "language", {enumerable:false});
+// Get all Properties
+Object.getOwnPropertyNames(person);</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>JavaScript Object.keys()</h2>
+<p>The <code class="w3-codespan">Object.keys()</code> method can:</p>
+<ul>
+<li>List enumerable object properties</li>
+</ul>
+<h3>Syntax</h3>
+<pre class="w3-code"><code class="language-javascript">Object.keys(<i>object</i>)</code></pre>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>List Enumerable Object Properties</h2>
+<p>This example uses <code class="w3-codespan">Object.keys()</code> insted of <code class="w3-codespan">Object.getOwnPropertyNames()</code>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+
+<pre class="w3-code"><code class="language-javascript">// Create an Object
+const person = {
+  firstName: "John",
+  lastName : "Doe",
+  language : "EN"
+};
+// Change the "language" Property
+Object.defineProperty(person, "language", {enumerable:false});
+// Get all Enumerable Properties
+Object.keys(person);</code></pre>
+
+</div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>The getOwnPropertyNames() method returns all properties.</p>
+<p>The Object.keys() method returns all enumerable properties.</p>
+<p>If you define object properties without <b>enumerable:false</b>,
+the two methods will return the same.</p>
+</div>
+
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Adding Getters and Setters</h2>
+<p>The <code class="w3-codespan">Object.defineProperty()</code> method can also be used to add Getters and 
+Setters:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">//Create an object
+const person = {firstName:"John", lastName:"Doe"};
+// Define a getter
+Object.defineProperty(person, "fullName", {
+  get: function () {return this.firstName + " " + this.lastName;}
+});</code></pre>
+
+</div>
+
+<!--stop-->
+<hr>
+<!--start-->
+<h2>A Counter Example</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Define object
+const obj = {counter:0};
+// Define setters
+Object.defineProperty(obj, "reset", {
+  get : function () {this.counter = 0;}
+});
+Object.defineProperty(obj, "increment", {
+  get : function () {this.counter++;}
+});
+Object.defineProperty(obj, "decrement", {
+  get : function () {this.counter--;}
+});
+Object.defineProperty(obj, "add", {
+  set : function (value) {this.counter += value;}
+});
+Object.defineProperty(obj, "subtract", {
+  set : function (i) {this.counter -= i;}
+});
+// Play with the counter:
+obj.reset;
+obj.add = 5;
+obj.subtract = 1;
+obj.increment;
+obj.decrement;</code></pre>
+ 
+</div>
+
+<hr>
+<h2>Prototype Properties</h2>
+<p>JavaScript objects inherit the properties of their prototype. </p>
+
+<p>The <code class="w3-codespan">delete</code> keyword does not delete inherited properties, but if you delete a 
+prototype property, it will affect all objects 
+inherited from the prototype.</p>
+<!--stop-->
+<hr>
+<div class="ws-note">
+<h2>Learn More:</h2>
+<p class="w3-large"><a href="js_object_definition.html">JavaScript Object Definitions</a></p>
+<p class="w3-large"><a href="js_object_constructors.html">JavaScript Object Constructors</a></p>
+<p class="w3-large"><a href="js_this.html">JavaScript Object this</a></p>
+<p class="w3-large"><a href="js_destructuring.html">JavaScript Object Destructuring</a></p>
+<p class="w3-large"><a href="js_object_prototypes.html">JavaScript Object Prototypes</a></p>
+<p class="w3-large"><a href="js_object_methods.html">JavaScript Object Iterations</a></p>
+<p class="w3-large"><a href="js_object_property.html">JavaScript Object Management</a></p>
+<p class="w3-large"><a href="js_object_accessors.html">JavaScript Object Getters &amp; Setters</a></p>
+<p class="w3-large"><a href="js_object_protection.html">JavaScript Object Protection</a></p>
+<p class="w3-large"><a href="js_object_reference.html">JavaScript Object Reference</a></p>
+</div>
+
+<hr>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_object_method.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_object_accessors.html">Next ❯</a>
+</div>
+
+

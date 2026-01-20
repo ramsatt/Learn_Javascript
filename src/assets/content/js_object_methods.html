@@ -1,0 +1,134 @@
+
+      
+
+<h1>JavaScript Object Methods</h1>
+
+<!--start-->
+<div class="ws-info">
+<p><b>Object methods</b> are actions that can be performed on objects.</p>
+<p>A method is a <b>function definition</b> stored as a <b>property value</b>.</p>
+</div>
+
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+ <tbody><tr>
+  <th style="width:20%">Property</th>
+  <th>Value</th>
+ </tr>
+ <tr>
+  <td>firstName</td>
+  <td>John</td>
+ </tr>
+ <tr>
+  <td>lastName</td>
+  <td>Doe</td>
+ </tr>
+ <tr>
+  <td>age</td>
+  <td>50</td>
+ </tr>
+ <tr>
+  <td>eyeColor</td>
+  <td>blue</td>
+ </tr>
+ <tr>
+  <td>fullName</td>
+  <td>function() {return this.firstName + " " + this.lastName;}</td>
+ </tr>
+</tbody></table></div>
+
+<hr>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const <strong>person</strong> = {
+  firstName: "John",
+  lastName: "Doe",
+  id: 5566,
+  fullName: function() {
+    return <strong>this</strong>.firstName + " " + <strong>this</strong>.lastName;
+  }
+};</code></pre>
+
+</div>
+
+<p>In the example above, <code class="w3-codespan">this</code> refers to the <b>person object</b>:</p>
+<p><b>this.firstName</b> means the <b>firstName</b> property of <b>person</b>.</p>  
+<p><b>this.lastName</b> means the <b>lastName</b> property of <b>person</b>.</p>  
+
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Accessing Object Methods</h2>
+<p>You access an object method with the following syntax:</p>
+
+<pre class="w3-code"><code class="language-javascript"><div> <i>objectName.methodName()</i></div></code></pre>
+
+<p>If you invoke the <b>fullName property</b> with (), it will execute as a <b>function</b>:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">name = person.fullName();</code></pre>
+
+</div>
+
+<p>If you access the <b>fullName property</b> without (), it 
+will return the <strong>function definition</strong>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">name = person.fullName;</code></pre>
+
+</div>
+
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>Adding a Method to an Object</h2>
+<p>Adding a new method to an object is easy: </p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">person.name = function () {
+  return this.firstName + " " + this.lastName;
+};</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Using JavaScript Methods</h2>
+
+<p>This example uses the JavaScript <code class="w3-codespan">toUpperCase()</code> method to convert a text 
+to uppercase:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">person.name = function () {
+  return (this.firstName + " " + this.lastName).toUpperCase();
+};</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<div class="ws-note">
+<h2>Learn More:</h2>
+<p class="w3-large"><a href="js_object_definition.html">JavaScript Object Definitions</a></p>
+<p class="w3-large"><a href="js_object_constructors.html">JavaScript Object Constructors</a></p>
+<p class="w3-large"><a href="js_this.html">JavaScript Object this</a></p>
+<p class="w3-large"><a href="js_destructuring.html">JavaScript Object Destructuring</a></p>
+<p class="w3-large"><a href="js_object_prototypes.html">JavaScript Object Prototypes</a></p>
+<p class="w3-large"><a href="js_object_methods.html">JavaScript Object Iterations</a></p>
+<p class="w3-large"><a href="js_object_property.html">JavaScript Object Management</a></p>
+<p class="w3-large"><a href="js_object_accessors.html">JavaScript Object Getters &amp; Setters</a></p>
+<p class="w3-large"><a href="js_object_protection.html">JavaScript Object Protection</a></p>
+<p class="w3-large"><a href="js_object_reference.html">JavaScript Object Reference</a></p>
+</div>
+
+<hr>
+
+<hr>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_object_properties.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_object_display.html">Next ❯</a>
+</div>
+
+

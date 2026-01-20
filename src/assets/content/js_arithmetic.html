@@ -1,0 +1,254 @@
+
+      
+
+<h1>JavaScript Arithmetic</h1>
+
+<hr>
+<!--start-->
+<h2>JavaScript Arithmetic Operators</h2>
+<p>Arithmetic operators perform arithmetic on numbers (literals or variables).</p>
+
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate">
+<tbody><tr>
+<th style="width:25%">Operator</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>+</td>
+<td>Addition</td>
+</tr>
+<tr>
+<td>-</td>
+<td>Subtraction</td>
+</tr>
+<tr>
+<td>*</td>
+<td>Multiplication</td>
+</tr>
+<tr>
+<td>**</td>
+<td>Exponentiation (<a href="js_2016.html">ES2016</a>)</td>
+</tr>
+<tr>
+<td>/</td>
+<td>Division</td>
+</tr>
+<tr>
+<td>%</td>
+<td>Modulus (Remainder)</td>
+</tr>
+<tr>
+<td>++</td>
+<td>Increment</td>
+</tr>
+<tr>
+<td>--</td>
+<td>Decrement</td>
+</tr>
+</tbody></table></div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Arithmetic Operations</h2>
+<p>A typical arithmetic operation operates on two numbers.</p>
+<p>The two numbers can be literals:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 100 + 50;</code></pre>
+
+</div>
+<p>or variables:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = a + b;</code></pre>
+
+</div>
+<p>or expressions:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = (100 + 50) * a;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Operators and Operands</h2>
+<p>The numbers (in an arithmetic operation) are called <strong>operands</strong>.</p>
+<p>The operation (to be performed between the two operands) is defined by an <strong>operator</strong>.</p>
+
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+ <tbody><tr>
+  <th>Operand</th>
+  <th>Operator</th>
+  <th>Operand</th>
+ </tr>
+ <tr>
+  <td>100</td>
+  <td>+</td>
+  <td>50</td>
+ </tr>
+</tbody></table></div>
+<!--stop-->
+<hr>
+
+
+<hr>
+
+<!--start-->
+<h2>Adding</h2>
+<p>The <strong>addition</strong> operator (<code class="w3-codespan">+</code>) adds numbers:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 5;
+let y = 2;
+let z = x + y;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Subtracting</h2>
+<p>The <strong>subtraction</strong> operator (<code class="w3-codespan">-</code>) subtracts numbers.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 5;
+let y = 2;
+let z = x - y;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Multiplying</h2>
+<p>The <strong>multiplication</strong> operator (<code class="w3-codespan">*</code>) multiplies numbers.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 5;
+let y = 2;
+let z = x * y;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Dividing</h2>
+<p>The <strong>division</strong> operator (<code class="w3-codespan">/</code>) divides numbers.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 5;
+let y = 2;
+let z = x / y;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Remainder</h2>
+<p>The <strong>modulus</strong> operator (<code class="w3-codespan">%</code>) returns the division remainder.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 5;
+let y = 2;
+let z = x % y;</code></pre>
+
+</div>
+<div class="w3-panel ws-note">
+<p>In arithmetic, the division of two integers produces a <strong>quotient</strong>
+and a <strong>remainder</strong>.</p>
+<p>In mathematics, the result of a <strong>modulo operation</strong> is the <strong>remainder</strong> of an arithmetic division.
+</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Incrementing</h2>
+<p>The <strong>increment</strong> operator (<code class="w3-codespan">++</code>) increments numbers.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 5;
+x++;
+let z = x;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Decrementing</h2>
+<p>The <strong>decrement</strong> operator (<code class="w3-codespan">--</code>) decrements numbers.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 5;
+x--;
+let z = x;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Exponentiation</h2>
+<p>The <strong>exponentiation</strong> operator (<code class="w3-codespan">**</code>) raises the first operand to the power of the second operand.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 5;
+let z = x ** 2;</code></pre>
+  
+</div>
+
+<p>x ** y produces the same result as <code class="w3-codespan">Math.pow(x,y)</code>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 5;
+let z = Math.pow(x,2);</code></pre>
+  
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Operator Precedence</h2>
+<p>Operator precedence describes the order in which operations are performed in 
+an arithmetic expression.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 100 + 50 * 3;</code></pre>
+
+</div>
+<p>Is the result of example above the same as 150 * 3, or is it the same as 100 
++ 150?</p>
+<p>Is the addition or the multiplication done first?</p>
+<p>As in traditional school mathematics, the multiplication is done first.</p>
+<p>Multiplication (<code class="w3-codespan">*</code>) and division (<code class="w3-codespan">/</code>) have higher <strong>precedence</strong> than 
+addition (<code class="w3-codespan">+</code>) and subtraction (<code class="w3-codespan">-</code>).</p>
+<p>And (as in school mathematics) the precedence can be changed by using 
+parentheses.</p>
+<p>When using parentheses, the operations inside the parentheses are computed 
+first:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = (100 + 50) * 3;</code></pre>
+
+</div>
+<p>When many operations have the same precedence (like addition and 
+subtraction or multiplication and division), they are computed from left to 
+right: </p>
+<div class="w3-example">
+<h3>Examples</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 100 + 50 - 3;</code></pre>
+
+<pre class="w3-code"><code class="language-javascript">let x = 100 / 50 * 3;</code></pre>
+
+</div>
+<div class="ws-note">
+<h2>Note</h2>
+<p>For a full list of operator precedence values go to:</p>
+<p class="w3-large"><a href="js_precedence.html">JavaScript Operator Precedence Values</a>.</p>
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_operators.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_assignment.html">Next ❯</a>
+</div>
+
+

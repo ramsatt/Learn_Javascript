@@ -1,0 +1,389 @@
+
+      
+
+<h1>JavaScript RegExp</h1>
+
+<!--start-->
+<div class="ws-info">
+<h2>Regular Expressions</h2>
+<p class="intro">A <b>Regular Expression</b> is a sequence of characters that forms a <b>search pattern</b>.</p>
+<p><b>Regex</b> is a common shorthand for a regular expression.</p>
+<p>JavaScript <b>RegExp</b> is an <b>Object</b> for handling Regular Expressions.</p>
+
+<p class="intro">RegExp are be used for:</p>
+<ul>
+<li>Text searching</li>
+<li>Text replacing</li>
+<li>Text validation</li>
+</ul>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Do a case-insensitive search for "w3schools" in a string:</p>
+<pre class="w3-code"><code class="language-javascript">let text = "Visit W3Schools";
+let n = text.search(/w3schools/i);</code></pre>
+<p>
+</p>
+</div>
+
+<p>Example explained:</p>
+<p><strong>/w3schools/i</strong>&nbsp; is a regular expression.</p>
+<p><strong>w3schools</strong>&nbsp; is a pattern (to be used in a search).</p>
+<p><strong>i</strong>&nbsp; is a modifier (modifies the search to be case-insensitive).</p>
+
+<h2>Regular Expression Syntax</h2>
+<pre class="w3-code"><code class="language-javascript"><div> /<em>pattern</em>/<em>modifier flags</em>; </div></code></pre>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Using String Methods</h2>
+<p>Regular expressions are often used with the <strong>string methods</strong>:</p>
+
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Method</th><th>Description</th></tr>
+<tr><td>match(<i>regex</i>)</td>
+<td>Returns an Array of results</td></tr>
+<tr><td>replace(<i>regex</i>)</td>
+<td>Returns a new String</td></tr>
+<tr><td>search(<i>regex</i>)</td>
+<td>Returns the index of the first match</td></tr>
+</tbody></table></div>
+<!--stop-->
+<hr>
+
+<!--start-->
+<h2>Using String match()</h2>
+<div class="w3-example">
+<p>Search for "W3schools" in a string:</p>
+<pre class="w3-code"><code class="language-javascript">let text = "Visit W3Schools";
+let n = text.match(/W3schools/);</code></pre>
+<p>
+</p>
+</div>
+
+<h2>Using String replace()</h2>
+<div class="w3-example">
+<p>Replace Microsoft with W3Schools 
+in a string:</p>
+<pre class="w3-code"><code class="language-javascript">let text = "Visit Microsoft!";
+let result = text.replace(/Microsoft/i, "W3Schools");</code></pre>
+
+</div>
+
+<h2>Using String search()</h2>
+<div class="w3-example">
+<p>Search for "W3Schools" in a string:</p>
+<pre class="w3-code"><code class="language-javascript">let text = "Visit W3Schools";
+let n = text.search(/W3Schools/);</code></pre>
+<p>
+</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>RexExp Alternation (OR)</h2>
+<p>In a regular expression an <b>alternation</b> is denoted with a vertical line character <b>|</b>.</p>
+<p>An alternation matches any of the alternatives separated with <b>|</b>.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>A global search for the alternatives (red|green|blue):</p>
+<pre class="w3-code"><code class="language-javascript">let text = "Black, white, red, green, blue, yellow.";
+let result = text.match(/red|green|blue/g);</code></pre>
+<p>
+</p>
+</div>
+
+<hr>
+<h2>JavaScript Regex Flags</h2>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">/pattern/<b>flags</b></code></pre>
+</div>
+
+<p>Regular expression flags are parameters that can modify how a pattern is used,
+such as making it case-insensitive or global.</p>
+<p>These are the most common:</p>
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate">
+<tbody><tr></tr>
+<tr>
+  <th>Flag</th>
+  <th>Description</th>
+</tr>
+<tr>
+  <td>/g</td>
+  <td>Performs a global match (find all)</td>
+</tr>
+<tr>
+  <td>/i</td>
+  <td>Performs case-insensitive matching</td>
+</tr>
+<tr>
+  <td>/u</td>
+  <td>Enables Unicode support (new 2015)</td>
+</tr>
+</tbody></table></div>
+
+<hr>
+<h2>The /g Flag (Global)</h2>
+<p>The <b>/g</b> flag matches all occurrences of the pattern, rather than just the first one.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>A global search for "is" in a string:</p>
+<pre class="w3-code"><code class="language-javascript">let text = "Is this all there is?";
+const pattern = /is/g;
+let result = text.match(pattern);</code></pre>
+<p>
+</p>
+</div>
+
+<hr>
+<h2>The /i Flag (Insensitive)</h2>
+<p>The <b>/i</b> flag makes a match case-insensitive: /abc/i matches "abc", "AbC", "ABC".</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>A case-insensitive search for "w3schools" in a string:</p>
+<pre class="w3-code"><code class="language-javascript">let text = "Visit W3Schools";
+const pattern = /w3schools/i;
+let result = text.match(pattern);</code></pre>
+<p>
+</p>
+</div>
+<div class="ws-note">
+<h2>Learn More:</h2>
+<p class="w3-large"><a href="js_regexp_flags.html">JavaScript RegExp Flags</a></p>
+</div>
+<!--stop-->
+
+<hr>
+
+<h2>RexExp Metacharacters</h2>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">// Match words
+const pattern = /\w/;</code></pre>
+</div>
+<p><strong>Metacharacters</strong> are characters with a special meaning.</p>
+<p>They can be used to match digits, words, spaces, and more.</p>
+<p>These are the most common:</p>
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Meta</th><th>Description</th></tr>
+<tr><td>\d</td><td>Matches Digits</td></tr>
+<tr><td>\w</td><td>Matches Words</td></tr>
+<tr><td>\s</td><td>Matches Spaces</td></tr>
+</tbody></table></div>
+
+<hr>
+<h2>RegExp \d (digits) Metacharacter</h2>
+<p>The \d metacharacter matches digits.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>A global search for digits in a string:</p>
+<pre class="w3-code"><code class="language-javascript">let text = "Give 100%!";
+const pattern = /\d/g;
+let result = text.match(pattern);</code></pre>
+<p>
+</p>
+</div>
+
+<hr>
+<h2>RegExp \w (word) Metacharacter</h2>
+<p>The \w metacharacter matches word characters.</p>
+<p>A word character is a character a-z, A-Z, 0-9, including _ (underscore).</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>A global search for word characters:</p>
+<pre class="w3-code"><code class="language-javascript">let text = "Give 100%!";
+const pattern = /\w/g;
+let result = text.match(pattern);</code></pre>
+
+</div>
+
+<div class="ws-note">
+<h2>Learn More:</h2>
+<p class="w3-large"><a href="js_regexp_meta_characters.html">JavaScript RegExp Metacharacters</a></p>
+</div>
+
+<hr>
+<h2>JavaScript RegExp Quantifiers</h2>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">// Match at least one zero
+const pattern = /0+/;</code></pre>
+</div>
+<p><strong>Quantifiers</strong> define the numbers of characters or expressions to match.</p>
+<p>These are the most common:</p>
+
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate">
+<tbody><tr></tr>
+<tr>
+  <th>Code</th>
+  <th>Description</th>
+</tr>
+<tr>
+  <td>x*</td>
+  <td>Matches zero or more occurrences of x</td>
+</tr>
+<tr>
+  <td>x?</td>
+  <td>Matches zero or one occurrences of x</td>
+</tr>
+<tr>
+  <td>x{n}</td>
+  <td>Matches n occurences of x</td>
+</tr>
+</tbody></table></div>
+</div>
+
+<hr>
+<h2>The n? Quantifier</h2>
+<p><b><i>x</i>?</b> matches zero or one occurrences of x.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>A global search for "1", followed by zero or more "0" characters:</p>
+<pre class="w3-code"><code class="language-javascript">let text = "1, 100 or 1000?";
+const pattern = /10?/g;
+let result = text.match(pattern);</code></pre>
+<p>
+</p>
+</div>
+
+<div class="ws-note">
+<h2>Learn More:</h2>
+<p class="w3-large"><a href="js_regexp_quantifiers.html">JavaScript RegExp Quantifiers</a></p>
+</div>
+
+<hr>
+
+<hr>
+
+<h2>Regular Expression Assertions</h2>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">// Match beginning of string
+const pattern = /^W3Schools/;
+// Match end of string
+const pattern = /W3Schools$/;</code></pre>
+</div>
+<p><b>Assertions</b> matches <b>Boundaries</b> and <b>Lookarounds</b>:</p>
+<p>String Boundaries and Word Boundaries.</p>
+<p>Lookarounds: Lookaheads and Lookbehinds.</p>
+<p>These are the most common:</p>
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Syntax</th><th>Name</th><th>Description</th></tr>
+<tr><td>^</td><td>String boundary</td><td>Matches the beginning of a string</td></tr>
+<tr><td>$</td><td>String boundary</td><td>Matches the end of a string</td></tr>
+<tr><td>\b</td><td>Word boundary</td><td>Matches the beginning or end of a word</td></tr>
+<tr><td>(?=...)</td><td>Lookahead</td><td>Matches the subsequent string</td></tr>
+<tr><td>(?&lt;=...)</td><td>Lookbehind</td><td>Matches the previous string</td></tr>
+</tbody></table></div>
+</div>
+
+<hr>
+<h2>RegExp ^ Metacharacter</h2>
+<p>The ^ metacharacter matches the beginning of a string.</p>
+<div class="w3-example">
+<h3>Examples</h3>
+<p>Test if a string starts with W3Schools:</p>
+<pre class="w3-code"><code class="language-javascript">const pattern = /^W3Schools/;
+let text = "W3Schools Tutorial";
+let result = pattern.test(text); // true</code></pre>
+<p>
+</p>
+<pre class="w3-code"><code class="language-javascript">const pattern = /^W3Schools/;
+let text = "Hello W3Schools";
+let result = pattern.test(text); // false</code></pre>
+<p>
+</p>
+</div>
+
+<hr>
+<h2>RegExp $ Metacharacter</h2>
+
+<p>The $ metacharacter matches the end of a string.</p>
+<div class="w3-example">
+<p>Test if a string ends with W3Schools:</p>
+<pre class="w3-code"><code class="language-javascript">const pattern = /W3Schools$/;
+let text = "Hello W3Schools";
+let result = pattern.test(text); // true</code></pre>
+
+<pre class="w3-code"><code class="language-javascript">const pattern = /W3Schools$/;
+let text = "W3Schools tutorial";
+let result = pattern.test(text); // false</code></pre>
+
+</div>
+
+<div class="ws-note">
+<h2>Learn More:</h2>
+<p class="w3-large"><a href="js_regexp_assertions.html">JavaScript RegExp Assertions</a></p>
+</div>
+
+
+<hr>
+<h2>JavaScript RegExp Character Classes</h2>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">// Match Digits
+const pattern = /[0-9]/;</code></pre>
+</div>
+<p><b>Character Classes</b> are characters enclosed in square brackets <b>[]</b>.</p>
+<p>A character class matches any character from a set within brackets.</p>
+<p>These are the most common:</p>
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate">
+<tbody><tr></tr>
+<tr>
+  <th>Class</th>
+  <th>Description</th>
+</tr>
+<tr>
+  <td>[a]</td>
+  <td>Matches the character between the brackets</td>
+</tr>
+<tr>
+  <td>[abc]</td>
+  <td>Matches all characters between the brackets</td>
+  </tr>
+<tr>
+  <td>[a-z]</td>
+  <td>Matches all characters in the range from a to z</td>
+</tr>
+<tr>
+  <td>[0-9]</td>
+  <td>Matches all characters in the range from 0 to 9</td>
+</tr>
+</tbody></table></div>
+</div>
+
+<div class="w3-example">
+<h3>Example [0-9]</h3>
+<p>A global search for the characters "0" to "9" in a string:</p>
+<pre class="w3-code"><code class="language-javascript">let text = "More than 1000 times";
+const pattern = /[0-9]/g;
+let result = text.match(pattern);</code></pre>
+<p>
+</p>
+</div>
+
+<div class="ws-note">
+<h2>Learn More:</h2>
+<p class="w3-large"><a href="js_regexp_flags.html">JavaScript RegExp Flags</a></p>
+<p class="w3-large"><a href="js_regexp_characters.html">JavaScript RegExp Character Classes</a></p>
+<p class="w3-large"><a href="js_regexp_meta_characters.html">JavaScript RegExp Meta Characters</a></p>
+<p class="w3-large"><a href="js_regexp_assertions.html">JavaScript RegExp Assertions</a></p>
+<p class="w3-large"><a href="js_regexp_quantifiers.html">JavaScript RegExp Quantifiers</a></p>
+<p class="w3-large"><a href="js_regexp_patterns.html">JavaScript RegExp Patterns</a></p>
+<p class="w3-large"><a href="js_regexp_objects.html">JavaScript RegExp Objects</a></p>
+<p class="w3-large"><a href="js_regexp_methods.html">JavaScript RegExp Methods</a></p>
+</div>
+
+
+<hr>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_random.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_regexp_flags.html">Next ❯</a>
+</div>
+
+

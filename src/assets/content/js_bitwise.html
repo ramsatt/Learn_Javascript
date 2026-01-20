@@ -1,0 +1,448 @@
+
+      
+
+<h1>JavaScript Bitwise Operations</h1>
+
+<hr>
+<!--start-->
+<div class="ws-info">
+<img src="assets/images/img_bits_500.jpg" alt="Bits in a Computer">
+</div>
+<h2>JavaScript Bitwise Operators</h2>
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate">
+<tbody><tr>
+<th>Operator</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>&amp;</td>
+<td>AND</td>
+<td>Sets each bit to 1 if both bits are 1</td>
+</tr>
+<tr>
+<td>|</td>
+<td>OR</td>
+<td>Sets each bit to 1 if one of two bits is 1</td>
+</tr>
+<tr>
+<td>^</td>
+<td>XOR</td>
+<td>Sets each bit to 1 if only one of two bits is 1</td>
+</tr>
+<tr>
+<td>~</td>
+<td>NOT</td>
+<td>Inverts all the bits</td>
+</tr>
+<tr>
+<td>&lt;&lt;</td>
+<td>Zero fill left shift</td>
+<td>Shifts left by pushing zeros in from the right and let the leftmost bits fall off</td>
+</tr>
+<tr>
+<td>&gt;&gt;</td>
+<td>Signed right shift</td>
+<td>Shifts right by pushing copies of the leftmost bit in from the left, and let the rightmost bits 
+fall off</td>
+</tr>
+<tr>
+<td>&gt;&gt;&gt;</td>
+<td>Zero fill right shift</td>
+<td>Shifts right by pushing zeros in from the left, and let the rightmost bits fall off</td>
+</tr>
+</tbody></table></div>
+</div>
+<!--stop-->
+
+<!--start-->
+<h2>Examples</h2>
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate">
+<tbody><tr>
+<th>Operation</th>
+<th style="">Result</th>
+<th style="">Same as</th>
+<th>Result</th>
+</tr>
+<tr>
+<td>5 &amp; 1</td>
+<td>1</td>
+<td>0101 &amp; 0001</td>
+<td>&nbsp;0001</td>
+</tr>
+<tr>
+<td>5 | 1</td>
+<td>5</td>
+<td>0101 | 0001</td>
+<td>&nbsp;0101</td>
+</tr>
+<tr>
+<td>~ 5</td>
+<td>10</td>
+<td>&nbsp;~0101</td>
+<td>&nbsp;1010</td>
+</tr>
+<tr>
+<td>5 &lt;&lt; 1</td>
+<td>10</td>
+<td>0101 &lt;&lt; 1</td>
+<td>&nbsp;1010</td>
+</tr>
+<tr>
+<td>5 ^ 1</td>
+<td>4</td>
+<td>0101 ^ 0001</td>
+<td>&nbsp;0100</td>
+</tr>
+<tr>
+<td>5 &gt;&gt; 1</td>
+<td>2</td>
+<td>0101 &gt;&gt; 1</td>
+<td>&nbsp;0010</td>
+</tr>
+<tr>
+<td>5 &gt;&gt;&gt; 1</td>
+<td>2</td>
+<td>0101 &gt;&gt;&gt; 1</td>
+<td>&nbsp;0010</td>
+</tr>
+</tbody></table></div>
+</div>
+<!--stop-->
+
+<hr>
+<!--start-->
+<h2>JavaScript Uses 32 bits Bitwise Operands</h2>
+<p>JavaScript stores numbers as 64 bits floating point numbers, but all bitwise 
+operations are performed on 32 bits binary numbers. </p>
+<p>Before a bitwise operation is performed, JavaScript converts numbers to 32 bits 
+signed integers.</p>
+<p>After the bitwise operation is performed, the result is converted back to 64 bits JavaScript 
+numbers.</p>
+<div class="w3-container ws-note">
+<p>The examples above uses 4 bits unsigned binary numbers. Because of this ~ 5 returns 10.</p>
+<p>Since JavaScript uses 32 bits signed integers, it will not return 10. It will return -6.</p>
+<p>00000000000000000000000000000101 (5)</p>
+<p>11111111111111111111111111111010 (~5 = -6)</p>
+<p>A signed integer uses the leftmost bit as the minus sign.</p>
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>JavaScript Bitwise AND</h2>
+<p>When a bitwise AND is performed on a pair of bits, it returns 1 if both bits are 1.</p>
+
+<!--stop-->
+<hr>
+<!--start-->
+<h2>JavaScript Bitwise OR</h2>
+<p>When a bitwise OR is performed on a pair of bits, it returns 1 if one of the bits is 1:</p>
+
+<!--stop-->
+<hr>
+<!--start-->
+<h2>JavaScript Bitwise XOR</h2>
+<p>When a bitwise XOR is performed on a pair of bits, it returns 1 if the bits are different:</p>
+
+<!--stop-->
+<hr>
+<!--start-->
+<h2>JavaScript Bitwise AND (&amp;)</h2>
+<p>Bitwise AND returns 1 only if both bits are 1:</p>
+
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr><th>Decimal</th><th>Binary</th></tr>
+<tr><td>5</td><td>00000000000000000000000000000101</td></tr>
+<tr><td>1</td><td>00000000000000000000000000000001</td></tr>
+<tr><td>5 &amp; 1</td><td>00000000000000000000000000000001 (1)</td></tr>
+</tbody></table></div>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 5 &amp; 1;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>JavaScript Bitwise OR (|)</h2>
+<p>Bitwise OR returns 1 if one of the bits is 1:</p>
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr><th>Decimal</th><th>Binary</th></tr>
+<tr><td>5</td><td>00000000000000000000000000000101</td></tr>
+<tr><td>1</td><td>00000000000000000000000000000001</td></tr>
+<tr><td>5 | 1</td><td>00000000000000000000000000000101 (5)</td></tr>
+</tbody></table></div>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 5 | 1;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>JavaScript Bitwise XOR (^)</h2>
+<p>Bitwise XOR returns 1 if the bits are different:</p>
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr><th>Decimal</th><th>Binary</th></tr>
+<tr><td>5</td><td>00000000000000000000000000000101</td></tr>
+<tr><td>1</td><td>00000000000000000000000000000001</td></tr>
+<tr><td>5 ^ 1</td><td>00000000000000000000000000000100 (4)</td></tr>
+</tbody></table></div>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 5 ^ 1;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>JavaScript Bitwise NOT (~)</h2>
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr><th>Decimal</th><th>Binary</th></tr>
+<tr><td>5</td><td>00000000000000000000000000000101</td></tr>
+<tr><td>~5</td><td>11111111111111111111111111111010 (-6)</td></tr>
+</tbody></table></div>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = ~5;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>JavaScript (Zero Fill) Bitwise Left Shift (&lt;&lt;)</h2>
+<p>This is a zero fill left shift. One or more zero bits are pushed in from the right,
+and the leftmost bits fall off:</p>
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr><th>Decimal</th><th>Binary</th></tr>
+<tr><td>5</td><td>00000000000000000000000000000101</td></tr>
+<tr><td>5 &lt;&lt; 1</td><td>00000000000000000000000000001010 (10)</td></tr>
+</tbody></table></div>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 5 &lt;&lt; 1;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>JavaScript (Sign Preserving) Bitwise Right Shift (&gt;&gt;)</h2>
+<p>This is a sign preserving right shift. Copies of the leftmost bit are pushed 
+in from the left, and the rightmost bits fall off:</p>
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr><th>Decimal</th><th>Binary</th></tr>
+<tr><td>-5</td><td>11111111111111111111111111111011</td></tr>
+<tr><td>-5 &gt;&gt; 1</td><td>11111111111111111111111111111101 (-3)</td></tr>
+</tbody></table></div>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = -5 &gt;&gt; 1;</code></pre>
+ 
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>JavaScript (Zero Fill) Right Shift (&gt;&gt;&gt;)</h2>
+<p>This is a zero fill right shift. One or more zero bits are pushed in from the left,
+and the rightmost bits fall off:</p>
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr><th>Decimal</th><th>Binary</th></tr>
+<tr><td>5</td><td>00000000000000000000000000000101</td></tr>
+<tr><td>5 &gt;&gt;&gt; 1</td><td>00000000000000000000000000000010 (2)</td></tr>
+</tbody></table></div>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 5 &gt;&gt;&gt; 1;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Shift Assignment Operators</h2>
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate">
+<tbody><tr>
+<th style="width:30%">Operator</th>
+<th>Example</th>
+<th>Same As</th>
+</tr><tr>
+<td>&lt;&lt;=</td>
+<td>x &lt;&lt;= y</td>
+<td>x = x &lt;&lt; y</td>
+</tr>
+<tr>
+<td>&gt;&gt;=</td>
+<td>x &gt;&gt;= y</td>
+<td>x = x &gt;&gt; y</td>
+</tr>
+<tr>
+<td>&gt;&gt;&gt;=</td>
+<td>x &gt;&gt;&gt;= y</td>
+<td>x = x &gt;&gt;&gt; y</td>
+</tr>
+</tbody></table></div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The &lt;&lt;= Operator</h2>
+<p>The <b>Left Shift Assignment Operator</b> left shifts a variable.</p>
+<div class="w3-example">
+<h3>Left Shift Assignment Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = -100;
+x &lt;&lt;= 5;</code></pre>
+
+</div>
+
+<hr>
+<h2>The &gt;&gt;= Operator</h2>
+<p>The <b>Right Shift Assignment Operator</b> right shifts a variable (signed).</p>
+<div class="w3-example">
+<h3>Right Shift Assignment Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = -100;
+x &gt;&gt;= 5;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The &gt;&gt;&gt;= Operator</h2>
+<p>The <b>Unsigned Right Shift Assignment Operator</b> right shifts a variable (unsigned).</p>
+<div class="w3-example">
+<h3>Unsigned Right Shift Assignment Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = -100;
+x &gt;&gt;&gt;= 5;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Bitwise Assignment Operators</h2>
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate">
+<tbody><tr>
+<th style="width:30%">Operator</th>
+<th>Example</th>
+<th>Same As</th>
+</tr><tr>
+<td>&amp;=</td>
+<td>x &amp;= y</td>
+<td>x = x &amp; y</td>
+</tr>
+<tr>
+<td>^=</td>
+<td>x ^= y</td>
+<td>x = x ^ y</td>
+</tr>
+<tr>
+<td>|=</td>
+<td>x |= y</td>
+<td>x = x | y</td>
+</tr>
+</tbody></table></div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The &amp;= Operator</h2>
+<p>The <b>Bitwise AND Assignment Operator</b> does a bitwise AND operation on two operands
+and assigns the result to the the variable.</p>
+<div class="w3-example">
+<h3>Bitwise AND Assignment Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 10;
+x &amp;= 5;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The |= Operator</h2>
+<p>The <b>Bitwise OR Assignment Operator</b> does a bitwise OR operation on two operands
+and assigns the result to the variable.</p>
+<div class="w3-example">
+<h3>Bitwise OR Assignment Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 10;
+x |= 5;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The ^= Operator</h2>
+<p>The <b>Bitwise XOR Assignment Operator</b> does a bitwise XOR operation on two operands
+and assigns the result to the variable.</p>
+<div class="w3-example">
+<h3>Bitwise XOR Assignment Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 10;
+x ^= 5;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Binary Numbers</h2>
+<p>Binary numbers with only one bit set are easy to understand:</p>
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr><th>Binary Representation</th><th>Decimal value</th></tr>
+<tr><td>00000000000000000000000000000001</td><td>1</td></tr>
+<tr><td>00000000000000000000000000000010</td><td>2</td></tr>
+<tr><td>00000000000000000000000000000100</td><td>4</td></tr>
+<tr><td>00000000000000000000000000001000</td><td>8</td></tr>
+<tr><td>00000000000000000000000000010000</td><td>16</td></tr>
+<tr><td>00000000000000000000000000100000</td><td>32</td></tr>
+<tr><td>00000000000000000000000001000000</td><td>64</td></tr>
+</tbody></table></div>
+<p>Setting a few more bits reveals the binary pattern:</p>
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr><th>Binary Representation</th><th>Decimal value</th></tr>
+<tr><td>00000000000000000000000000000101</td><td>5 (4 + 1)</td></tr>
+<tr><td>00000000000000000000000000001101</td><td>13 (8 + 4 + 1)</td></tr>
+<tr><td>00000000000000000000000000101101</td><td>45 (32 + 8 + 4 + 1)</td></tr>
+</tbody></table></div>
+<p>JavaScript binary numbers are stored in two's complement format.</p>
+<p>This means that a negative number is the bitwise NOT of the number plus 1:</p>
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr><th>Binary Representation</th><th>Decimal value</th></tr>
+<tr><td>00000000000000000000000000000101</td><td>5</td></tr>
+<tr><td>11111111111111111111111111111011</td><td>-5</td></tr>
+<tr><td>00000000000000000000000000000110</td><td>6</td></tr>
+<tr><td>11111111111111111111111111111010</td><td>-6</td></tr>
+<tr><td>00000000000000000000000000101000</td><td>40</td></tr>
+<tr><td>11111111111111111111111111011000</td><td>-40</td></tr>
+</tbody></table></div>
+
+<div class="ws-note">
+<h2>Joke:</h2>
+<p>There are only 10 types of people in the world: those who understand binary and those who don't.</p></div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Converting Decimal to Binary</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">function dec2bin(dec){
+  return (dec &gt;&gt;&gt; 0).toString(2);
+}</code></pre>
+ 
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Converting Binary to Decimal</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">function bin2dec(bin){
+  return parseInt(bin, 2).toString(10);
+}</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_number_reference.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_bigint.html">Next ❯</a>
+</div>
+
+

@@ -1,0 +1,433 @@
+
+      
+
+
+<h1>JavaScript Typed Arrays</h1>
+
+
+
+<div class="w3-panel ws-info">
+<h2>Typed Arrays</h2>
+<p><b>Typed arrays</b> was designed for handling <b>Binary Data</b>.</p>
+<p>Unlike arrays, typed arrays are buffers of <b>Fixed Length</b>.</p>
+<p>Typed arrays store elements of <b>Fixed Types</b> like 8-bit integers or 32-bit numbers.</p>
+</div>
+<div class="w3-example">
+<h3>Examples</h3>
+<p>Create a typed array of 5 bytes:</p>
+<pre class="w3-code"><code class="language-javascript">const myArr = new Uint8Array(5);</code></pre>
+
+<p>Create a typed array from an array:</p>
+<pre class="w3-code"><code class="language-javascript">const myArr = new Uint8Array([0,1,2,3,4]);</code></pre>
+
+<p>Create a typed array from a list of numbers:</p>
+<pre class="w3-code"><code class="language-javascript">const myArr = Uint8Array.of(0,1,2,3,4);</code></pre>
+
+<p>Create a typed array from an array:</p>
+<pre class="w3-code"><code class="language-javascript">const myArr = Uint8Array.from([0,1,2,3,4]);</code></pre>
+
+</div>
+
+
+<hr>
+<h2>Typed Array Benefits</h2>
+
+<p>Typed Arrays were designed to provide an efficient way to handle binary data,
+unlike traditional JavaScript arrays which can hold elements of mixed data types.</p>
+
+<p>Typed arrays are raw memory, so JavaScript can pass them directly to any function
+without converting the data to another representation.</p>
+<p>Typed arrays are seriously faster than normal arrays for passing data
+to functions that can use raw binary data. Typed Arrays are highly suitable for:</p>
+<ul>
+<li><p><b>WebGL and Canvas</b>:
+<br>Fast graphics rendering and image processing.</p></li>
+<li><p><b>File APIs</b>:<br>
+Fast reading and writing of local files.</p></li>
+<li><p><b>Media APIs</b>:<br>
+Fast handling of audio and video data.</p></li>
+<li><p><b>WebSockets</b>:<br>
+Efficient binary data transfer over network.</p></li>
+</ul>
+<hr>
+<div class="ws-note">
+<h2>Note</h2>
+<p>Typed arrays provide a way to handle binary data as efficiently as arrays work in C.</p>
+</div>
+<hr>
+<h2>Browser APIs Supporting Typed Arrays</h2>
+
+<div class="w3-example">
+<h3>Fetch API Example</h3>
+<pre class="w3-code"><code class="language-javascript">fetch(url)
+.then(request =&gt; request.arrayBuffer())
+.then(arrayBuffer =&gt;...);</code></pre>
+</div>
+
+<div class="w3-example">
+<h3>Canvas Example</h3>
+<pre class="w3-code"><code class="language-javascript">const canvas = document.getElementById('my_canvas');
+const context = canvas.getContext('2d');
+const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+const uint8ClampedArray = imageData.data;</code></pre>
+</div>
+
+<hr>
+<h2>Differences from Regular Arrays</h2>
+<ul>
+<li><p>Fixed Length:
+<br>Typed Arrays cannot be dynamically resized using methods like push() or pop().</p></li>
+<li><p>Type Restriction:<br>
+Elements must adhere to the specified data type of the typed array.</p></li>
+<li><p>Underlying Buffer:<br>
+Typed Arrays are views into an ArrayBuffer, allowing direct manipulation of binary data.</p></li>
+</ul>
+
+<hr>
+<h2>Typed Array Types</h2>
+<div class="w3-stretch w3-responsive">
+<div class="table-responsive-wrapper"><table class="ws-table-all" style="font-size:14px">
+<tbody><tr></tr>
+<tr>
+<th>Name</th>
+<th>Min</th>
+<th>Max</th>
+<th>Bytes</th>
+<th>Type</th>
+</tr>
+
+<tr>
+<td>Int8Array</td>
+<td align="right">-128</td>
+<td align="right">127</td>
+<td>1</td>
+<td>byte</td>
+</tr>
+<tr>
+<td>Uint8Array</td>
+<td align="right">0</td>
+<td align="right">255</td>
+<td>1</td>
+<td>octet</td>
+</tr>
+<tr>
+<td>Uint8ClampedArray</td>
+<td align="right">0</td>
+<td align="right">255</td>
+<td>1</td>
+<td>octet</td>
+</tr>
+<tr>
+<td>Int16Array</td>
+<td align="right">-32768</td>
+<td align="right">32767</td>
+<td>2</td>
+<td>short</td>
+</tr>
+<tr>
+<td>Uint16Array</td>
+<td>0</td>
+<td>65535</td>
+<td>2</td>
+<td>unsigned short</td>
+</tr>
+<tr>
+<td>Int32Array</td>
+<td align="right">-2147483648</td>
+<td>2147483647</td>
+<td>4</td>
+<td>long</td>
+</tr>
+<tr>
+<td>Uint32Array</td>
+<td>0</td>
+<td>4294967295</td>
+<td>4</td>
+<td>unsigned long</td>
+</tr>
+<tr>
+<td>BigInt64Array</td>
+<td>-2<sup>63</sup></td>
+<td>2<sup>63</sup> - 1</td>
+<td>8</td>
+<td>bigint</td>
+</tr>
+<tr>
+<td>BigUint64Array</td>
+<td>0</td>
+<td>2<sup>64</sup> - 1</td>
+<td>8</td>
+<td>unsigned bigint</td>
+</tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr>
+<td>Float16Array</td>
+<td>-65504</td>
+<td>65504</td>
+<td>2</td>
+<td>unrestricted half</td>
+
+</tr>
+<tr>
+<td>Float32Array</td>
+<td>-3.4e38</td>
+<td>3.4e38</td>
+<td>4</td>
+<td>unrestricted float</td>
+</tr>
+<tr>
+<td>Float64Array</td>
+<td>-1.8e308</td>
+<td>1.8e308</td>
+<td>8</td>
+<td>unrestricted double</td>
+</tr>
+</tbody></table></div>
+</div>
+
+<hr>
+<h2>8 Bit Integers</h2>
+<div class="w3-stretch w3-responsive">
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate">
+<tbody><tr>
+  <th width="180px">Name</th>
+  <th>Data Type</th>
+  <th style="text-align:right">Range</th>
+</tr>
+<tr>
+  <td>Int8Array</td>
+  <td>Signed integer (byte)</td>
+  <td style="text-align:right">-128/127</td>
+</tr>
+<tr>
+  <td>Uint8Array</td>
+  <td>Unsigned integer (octet)</td>
+  <td style="text-align:right">0/255</td>
+</tr>
+<tr>
+  <td>Uint8ClampedArray</td>
+  <td>Unsigned integer (octet)</td>
+  <td style="text-align:right">0/255</td>
+</tr>
+</tbody></table></div>
+</div>
+
+<div class="w3-example">
+<h3>Examples</h3>
+<p>Create a typed array of 10 signed 8-bit integers (byte format):</p>
+<pre class="w3-code"><code class="language-javascript">const myArr = new Int8Array(10);</code></pre>
+
+<p>Create a typed array of 10 unsigned 8-bit integers (octet format):</p>
+<pre class="w3-code"><code class="language-javascript">const myArr = new Uint8Array(10);</code></pre>
+
+<p>Create a typed array of 10 usigned 8-bit integers (clamped format):</p>
+<pre class="w3-code"><code class="language-javascript">const myArr = new Uint8ClampedArray(10);</code></pre>
+
+</div>
+
+<hr>
+<h2>Uint8Array vs Uint8ClampedArray</h2>
+<p>The difference between an Uint8Array and  an Uint8ClampedArray is how values are added.</p>
+<p>If you set one element in an Uint8ClampedArray to a value outside the 0-255 range,
+it will default to 0 or 255.</p>
+<p>A typed array will just take the first 8 bits of the value.</p>
+
+<hr>
+<div class="ws-note">
+<h2>Note</h2>
+<p>Typed arrays are not arrays. </p>
+<p>isArray() on a typed array returns false.</p>
+<p>Many array methods (like push and pop) are not supported by typed arrays.</p>
+</div>
+
+<hr>
+<h2>16-Bits Integers</h2>
+<div class="w3-responsive">
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate">
+<tbody><tr>
+  <th width="150px">Name</th>
+  <th>Data Type</th>
+  <th style="text-align:right">Range</th>
+</tr>
+<tr>
+  <td>Int16Array</td>
+  <td>Short integer</td>
+  <td style="text-align:right">-32768/32767</td>
+</tr>
+<tr>
+  <td>Uint16Array</td>
+  <td>Unsigned short integer</td>
+  <td style="text-align:right">0/65535</td>
+</tr>
+</tbody></table></div>
+</div>
+
+<div class="w3-example">
+<h3>Examples</h3>
+<p>Create a typed array of 10 signed 16-bit integers (short format):</p>
+<pre class="w3-code"><code class="language-javascript">const myArr = new Int16Array(10);</code></pre>
+
+<p>Create a typed array of 10 unsigned 16-bit integers (unsigned short format):</p>
+<pre class="w3-code"><code class="language-javascript">const myArr = new Uint16Array(10);</code></pre>
+
+</div>
+
+<hr>
+<h2>32-Bit Integers</h2>
+<div class="w3-responsive">
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate">
+<tbody><tr>
+  <th width="150px">Name</th>
+  <th>Data Type</th>
+  <th style="text-align:right">Range</th>
+</tr>
+<tr>
+  <td>Int32Array</td>
+  <td>Signed long integer</td>
+  <td style="text-align:right">-2147483648 / 2147483647</td>
+</tr>
+<tr>
+  <td>Uint32Array</td>
+  <td>Unsigned long integer</td>
+  <td style="text-align:right">0 / 4294967295</td>
+</tr>
+</tbody></table></div>
+</div>
+
+<div class="w3-example">
+<h3>Examples</h3>
+<p>Create a typed array of 10 signed 32-bit integers (long format):</p>
+<pre class="w3-code"><code class="language-javascript">const myArr = new Int32Array(10);</code></pre>
+
+<p>Create a typed array of 10 unsigned 32-bit integers (unsigned long format):</p>
+<pre class="w3-code"><code class="language-javascript">const myArr = new Uint32Array(10);</code></pre>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>64-Bit Integers</h2>
+<div class="w3-responsive">
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate">
+<tbody><tr>
+  <th width="150px">Name</th>
+  <th>Data Type</th>
+  <th style="text-align:right">Range</th>
+</tr>
+<tr>
+  <td>BigInt64Array</td>
+  <td>Big signed integer</td>
+  <td style="text-align:right">-2<sup>63</sup>/2<sup>63</sup>-1</td>
+</tr>
+<tr>
+  <td>BigUint64Array</td>
+  <td>Big unsigned integer</td>
+  <td style="text-align:right">0/2<sup>64</sup></td>
+</tr>
+</tbody></table></div>
+</div>
+
+<div class="w3-example">
+<h3>Examples</h3>
+<p>Create a typed array of 10 signed 64-bit integers (bigint format):</p>
+<pre class="w3-code"><code class="language-javascript">const myArr = new Bigint64Array(10);</code></pre>
+
+<p>Create a typed array of 10 unsigned 64-bit integers (bigint format):</p>
+<pre class="w3-code"><code class="language-javascript">const myArr = new Biguint64Array(10);</code></pre>
+
+</div>
+
+<hr>
+<h2>Floating Point Numbers</h2>
+<div class="w3-responsive">
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate">
+<tbody><tr>
+  <th width="150px">Name</th>
+  <th>Description</th>
+  <th style="text-align:right">Range</th>
+</tr>
+<tr>
+  <td>Float16Array</td>
+  <td>Half precision - 3 significant decimal digits</td>
+  <td style="text-align:right">-65504	/ 65504</td>
+</tr>
+<tr>
+  <td>Float32Array</td>
+  <td>Normal precision - 7 significant decimal digits</td>
+  <td style="text-align:right">-3.4e38 / 3.4e38</td>
+</tr>
+<tr>
+  <td>Float64Array</td>
+  <td>Double precision- 15 significant decimal digits</td>
+  <td style="text-align:right">-1.8e308 /	1.8e308</td>
+</tr>
+</tbody></table></div>
+</div>
+
+<p>As specified by the <b>ECMAScript</b> standard, arithmetic in JavaScript shall be done using double-precision
+floating-point arithmetic:</p>
+<img alt="64-bit" src="assets/images/img_double_floating_point_900.jpg" style="width:100%;max-width:600px">
+<div class="w3-example">
+<h3>Examples</h3>
+<p>Create a typed array of 10 floating point numbers in (half precision) 16-bit format:</p>
+<pre class="w3-code"><code class="language-javascript">const myArr = new Float16Array(10);</code></pre>
+
+<p>Create a typed array of 10 floating point numbers in (normal precision) 32-bit format:</p>
+<pre class="w3-code"><code class="language-javascript">const myArr = new Float32Array(10);</code></pre>
+
+<p>Create a typed array of 10 floating point numbers in (double precision) 64-bit format:</p>
+<pre class="w3-code"><code class="language-javascript">const myArr = new Float64Array(10);</code></pre>
+
+</div>
+
+<hr>
+<div class="ws-note">
+<h2>Learn More:</h2>
+<p class="w3-large"><a href="js_typed_methods.html">Typed Array Methods</a></p>
+<p class="w3-large"><a href="js_typed_reference.html">Typed Array Reference</a></p>
+<p class="w3-large"><a href="js_arraybuffers.html">Array Buffers</a></p>
+<p class="w3-large"><a href="js_dataview.html">DataViews</a></p>
+<p class="w3-large"><a href="js_atomics.html">Atomics</a></p>
+</div>
+
+<hr>
+<h2>Browser Support</h2>
+<p><code class="w3-codespan">Typed Arrays</code> is an <a href="js_es6.html">ES6  feature</a>.</p>
+<p>ES6 is fully supported in all modern browsers since June 2017:</p>
+
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr style="height:50px">
+    <th style="width:20%;" class="bsChrome" title="Chrome"></th>
+    <th style="width:20%;" class="bsEdge" title="Edge"></th>
+    <th style="width:20%;" class="bsFirefox" title="Firefox"></th>
+    <th style="width:20%;" class="bsSafari" title="Safari"></th>
+    <th style="width:19.9%;" class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>51</td>
+    <td>Edge<br>15</td>
+    <td>Firefox<br>54</td>
+    <td>Safari<br>10</td>
+    <td>Opera<br>38</td>
+  </tr>
+  <tr>
+    <td>May 2016</td>
+    <td>Apr 2017</td>
+    <td>Jun 2017</td>
+    <td>Sep 2016</td>
+    <td>Jun 2016</td>
+  </tr>
+</tbody></table></div>
+</div>
+
+
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_array_const.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_typed_methods.html">Next ❯</a>
+</div>
+
+

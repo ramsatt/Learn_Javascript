@@ -1,0 +1,272 @@
+
+      
+
+<h1>JavaScript Strings</h1>
+
+<!--start-->
+<div class="ws-info">
+<p class="w3-large">Strings are for <b>storing text</b></p>
+<p class="w3-large">Strings are written <b>with quotes</b></p>
+</div>
+<h2>Using Quotes</h2>
+<p>A JavaScript string is zero or more characters written inside quotes.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let text = "John Doe";</code></pre>
+
+</div>
+
+<p>You can use single or double quotes:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let carName1 = "Volvo XC60";  // Double quotes
+let carName2 = 'Volvo XC60';  // Single quotes</code></pre>
+
+</div>
+<div class="ws-note">
+<h2>Note</h2>
+<p>Strings created with single or double quotes work the same.</p>
+<p>There is no difference between the two.</p>
+</div>
+<h2>Quotes Inside Quotes</h2>
+<p>You can use quotes inside a string, as long as they don't match the quotes 
+surrounding the string:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let answer1 = "It's alright";
+let answer2 = "He is called 'Johnny'";
+let answer3 = 'He is called "Johnny"';</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Template Strings</h2>
+<p>Templates were introduced with ES6 (JavaScript 2016).</p>
+<p>Templates are strings enclosed in backticks (`This is a template string`).</p>
+<p>Templates allow single and double quotes inside a string:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let text = `He's often called "Johnny"`;</code></pre>
+<p></p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>String Length</h2>
+<p>To find the length of a string, use the built-in <code class="w3-codespan">length</code> property:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+let length = text.length;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Escape Characters</h2>
+<p>Because strings must be written within quotes, JavaScript will misunderstand this string:</p>
+
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">let text = "We are the so-called "Vikings" from the north.";</code></pre></div>
+
+<p>The string will be chopped to "We are the so-called ".</p>
+<p>To solve this problem, you can use an <b>backslash escape character</b>.</p>
+<p>The backslash escape character (<code class="w3-codespan">\</code>) turns special characters into string characters:</p>
+
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate">
+<tbody><tr>
+  <th width="25%">Code</th>
+  <th>Result</th>
+  <th>Description</th>
+</tr>
+<tr>
+  <td>\'</td>
+  <td>'</td>
+  <td>Single quote</td>
+</tr>
+<tr>
+  <td>\"</td>
+  <td>"</td>
+  <td>Double quote</td>
+</tr>
+<tr>
+  <td>\\</td>
+  <td>\</td>
+  <td>Backslash</td>
+</tr>
+</tbody></table></div>
+
+<div class="w3-example">
+<h3>Examples</h3>
+<p>\" inserts a double quote in a string:</p><p>
+</p><pre class="w3-code"><code class="language-javascript">let text = "We are the so-called \"Vikings\" from the north.";</code></pre>
+
+<p>\' inserts a single quote in a string:</p><p>
+</p><pre class="w3-code"><code class="language-javascript">let text= 'It\'s alright.';</code></pre>
+
+<p>\\ inserts a backslash in a string:</p><p>
+</p><pre class="w3-code"><code class="language-javascript">let text = "The character \\ is called backslash.";</code></pre>
+
+</div>
+
+<p>Six other escape sequences are valid in JavaScript:</p>
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate">
+<tbody><tr>
+  <th width="25%">Code</th>
+  <th>Result</th>
+</tr>
+<tr>
+  <td>\b</td>
+  <td>Backspace</td>
+</tr>
+<tr>
+  <td>\f</td>
+  <td>Form Feed</td>
+</tr>
+<tr>
+  <td>\n</td>
+  <td>New Line</td>
+</tr>
+<tr>
+  <td>\r</td>
+  <td>Carriage Return</td>
+</tr>
+<tr>
+  <td>\t</td>
+  <td>Horizontal Tabulator</td>
+</tr>
+<tr>
+  <td>\v</td>
+  <td>Vertical Tabulator</td>
+</tr>
+</tbody></table></div>
+
+<div class="w3-panel ws-note">
+<h2>Note</h2>
+<p>The 6 escape characters above were originally designed to control 
+typewriters, teletypes, and fax machines. They do not make any sense in HTML. </p>
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>Breaking Long Lines</h2>
+<p>For readability, programmers often like to avoid long code lines.</p>
+<p>A safe way to break up a <b>statement</b> is after an operator:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">document.getElementById("demo").innerHTML =
+"Hello Dolly!";</code></pre>
+
+</div>
+
+<p>A safe way to break up a <b>string</b> is by using string addition:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">document.getElementById("demo").innerHTML = "Hello " +
+"Dolly!";</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Template Strings</h2>
+<p>Templates were introduced with ES6 (JavaScript 2016).</p>
+<p>Templates are strings enclosed in backticks (`This is a template string`).</p>
+<p>Templates allow multiline strings:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let text =
+`The quick
+brown fox
+jumps over
+the lazy dog`;</code></pre>
+<p></p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>JavaScript Strings as Objects</h2>
+<p>Normally, JavaScript strings are primitive values, created from literals:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">let x = "John";</code></pre>
+</div>
+
+
+<p>But strings can also be defined as objects with the keyword <code class="w3-codespan">new</code>:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">let y = new String("John");</code></pre>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = "John";
+let y = new String("John");</code></pre>
+
+</div>
+
+<div class="w3-panel ws-note">
+<p>Do not create String objects.</p>
+<p>The <code class="w3-codespan">new</code> keyword complicates the code and slows down execution speed.</p>
+<p>String objects can produce unexpected results:</p>
+</div>
+
+<div class="w3-example">
+<p> When using the <code class="w3-codespan">==</code> operator, x and y are <b>equal</b>:</p>
+<pre class="w3-code"><code class="language-javascript">let x = "John";
+let y = new String("John");</code></pre>
+
+</div>
+
+<div class="w3-example">
+<p>When using the <code class="w3-codespan">===</code> operator, x and y are <b>not equal</b>:
+
+</p><pre class="w3-code"><code class="language-javascript">let x = "John";
+let y = new String("John");</code></pre>
+
+</div>
+
+<div class="w3-panel ws-note">
+<p>Note the difference between <code class="w3-codespan">(x==y)</code> and <code class="w3-codespan">(x===y)</code>.</p>
+</div>
+
+<div class="w3-example">
+<p><code class="w3-codespan">(x == y)</code> true or false?</p>
+<pre class="w3-code"><code class="language-javascript">let x = new String("John");
+let y = new String("John");</code></pre>
+
+</div>
+
+<div class="w3-example">
+<p><code class="w3-codespan">(x === y)</code> true or false?</p>
+<pre class="w3-code"><code class="language-javascript">let x = new String("John");
+let y = new String("John");</code></pre>
+
+</div>
+
+<div class="w3-panel ws-note">
+<p>Comparing two JavaScript objects <b>always</b> returns <b>false</b>.</p>
+</div>
+<!--stop-->
+<hr>
+<div class="ws-note">
+<h2>Learn More:</h2>
+<p class="w3-large"><a href="js_string_methods.html">JavaScript String Methods</a></p>
+<p class="w3-large"><a href="js_string_search.html">JavaScript String Search</a></p>
+<p class="w3-large"><a href="js_string_reference.html">JavaScript String Reference</a></p>
+</div>
+<hr>
+
+<hr>
+
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_continue.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_string_templates.html">Next ❯</a>
+</div>
+
+

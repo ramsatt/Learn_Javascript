@@ -1,0 +1,205 @@
+
+      
+
+<h1>ECMAScript 2017</h1>
+
+
+<hr>
+<h2>New Features in JavaScript 2017</h2>
+
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Feature</th><th>Description</th><th></th></tr>
+<tr><td><a href="js_2017d41d.html?#mark_padding">String padStart()</a></td>
+<td>Pads the beginning of a string</td><td></td></tr>
+<tr><td><a href="js_2017d41d.html?#mark_padding">String padEnd()</a></td>
+<td>Pads the end of a string</td><td></td></tr>
+<tr><td><a href="js_2017d41d.html?#mark_obj_entries">Object entries()</a></td>
+<td>Returns an array of the key/value pairs of an object</td><td></td></tr>
+<tr><td><a href="js_2017d41d.html?#mark_obj_values">Object values()</a></td>
+<td>Returns an array of the values of an object</td><td></td></tr>
+<tr><td><a href="js_2017d41d.html?#mark_async">async and await</a></td>
+<td>Simplifies the handling of promises</td><td></td></tr>
+<tr><td><a href="js_2017d41d.html?#mark_trailing_commas">Trailing Commas</a></td>
+<td>Allows trailing commas where a comma-separated list of values is accepted</td><td></td></tr>
+<tr><td><a href="js_2017d41d.html?#mark_getownprop">getOwnProperty<br>Descriptors</a></td>
+<td>Returns an object containing all own property descriptors of an object</td><td></td></tr>
+</tbody></table></div>
+</div>
+
+<hr>
+<h2>Browser Support</h2>
+<p><b>JavaScript 2017</b> is supported in all modern browsers since <b>September 2017</b>:</p>
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr>
+    <th class="bsChrome" title="Chrome"></th>
+    <th class="bsEdge" title="Edge"></th>
+    <th class="bsFirefox" title="Firefox"></th>
+    <th class="bsSafari" title="Safari"></th>
+    <th class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>58</td>    
+    <td>Edge<br>15</td>
+    <td>Firefox<br>52</td>
+    <td>Safari<br>11</td>
+    <td>Opera<br>45</td>
+  </tr>
+  <tr>
+    <td>Apr 2017</td>
+    <td>Apr 2017</td>    
+    <td>Mar 2017</td>
+    <td>Sep 2017</td>
+    <td>May 2017</td>
+  </tr>
+</tbody></table></div>
+</div>
+
+<hr>
+<a id="mark_padding"></a>
+<h2>JavaScript String Padding</h2>
+<p>ECMAScript 2017 added two string methods to JavaScript: <code class="w3-codespan">padStart()</code>
+and <code class="w3-codespan">padEnd()</code> to support padding at the beginning and at the end of a string.</p>
+<div class="w3-example">
+<h3>Examples</h3>
+<pre class="w3-code"><code class="language-javascript">let text = "5";
+text = text.padStart(4,0);</code></pre>
+
+<pre class="w3-code"><code class="language-javascript">let text = "5";
+text = text.padEnd(4,0);</code></pre>
+
+</div>
+
+<hr>
+<a id="mark_obj_entries"></a>
+<h2>JavaScript Object Entries</h2>
+<p>ECMAScript 2017 added the <code class="w3-codespan">Object.entries()</code> method to objects.</p>
+<p><code class="w3-codespan">Object.entries()</code> returns an array of the key/value pairs in an object:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const person = {
+  firstName : "John",
+  lastName : "Doe",
+  age : 50,
+  eyeColor : "blue"
+};
+let text = Object.entries(person);</code></pre>
+
+</div>
+
+<p><code class="w3-codespan">Object.entries()</code> makes it simple to use objects in loops:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const fruits = {Bananas:300, Oranges:200, Apples:500};
+let text = "";
+for (let [fruit, value] of Object.entries(fruits)) {
+  text += fruit + ": " + value + "&lt;br&gt;";
+}</code></pre>
+
+</div>
+
+<p><code class="w3-codespan">Object.entries()</code> also makes it simple to convert objects to maps:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const fruits = {Bananas:300, Oranges:200, Apples:500};
+const myMap = new Map(Object.entries(fruits));</code></pre>
+
+</div>
+
+<hr>
+<a id="mark_obj_values"></a>
+<h2>JavaScript Object Values</h2>
+<p><code class="w3-codespan">Object.values()</code> is similar to <code class="w3-codespan">Object.entries()</code>,
+but returns a single dimension array of the object values:</p>
+<div class="w3-example">
+
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const person = {
+  firstName : "John",
+  lastName : "Doe",
+  age : 50,
+  eyeColor : "blue"
+};
+let text = Object.values(person);</code></pre>
+
+</div>
+<hr>
+
+<hr>
+<a id="mark_async"></a>
+<h2>JavaScript Async Functions</h2>
+<div class="w3-example">
+<h3>Waiting for a Timeout</h3>
+<pre class="w3-code"><code class="language-javascript">async function myDisplay() {
+  let myPromise = new Promise(function(myResolve, myReject) {
+    setTimeout(function() { myResolve("I love You !!"); }, 3000);
+  });
+  document.getElementById("demo").innerHTML = await myPromise;
+}
+myDisplay();</code></pre>
+<p>
+
+</p>
+</div>
+
+<hr>
+<a id="mark_trailing_commas"></a>
+<h2>JavaScript Trailing Commas</h2>
+<p>JavaScript allows trailing commas wherever a comma-separated list of values is accepted.</p>
+<p>In Array and Object Literals, Function Calls, Parameters, Imports and Exports.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">function myFunc(x,,,) {};
+const myArr = [1,2,3,4,,,];
+const myObj = {fname: John, age:50,,,};</code></pre>
+</div>
+
+<hr>
+<a id="mark_getownprop"></a>
+<h2>The Object.getOwnPropertyDescriptor() Method</h2>
+<p><code class="w3-codespan">Object.getOwnPropertyDescriptors()</code>
+returns all own property descriptors of a given object.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>The getOwnPropertyNames() method returns an array with the properties of an object:</p>
+<pre class="w3-code"><code class="language-javascript">const myProp = Object.getOwnPropertyNames(person);</code></pre>
+
+</div>
+<div class="w3-example">
+<h3>Example</h3>
+<p>The getOwnPropertyDescriptors() method returns the property descriptors of an object.</p>
+<pre class="w3-code"><code class="language-javascript">const myProp = Object.getOwnPropertyDescriptors(person);</code></pre>
+
+</div>
+
+<p>A property descriptor is an object that describes all attributes of a property:</p>
+<ul>
+<li><b>value:</b> The property's value</li>
+<li><b>writable:</b> true if the property value can be changed</li>
+<li><b>enumerable:</b> true if the property will show up in loops (for...in, Object.keys())</li>
+<li><b>configurable:</b> true if the property descriptor can be changed or deleted</li>
+<li><b>get:</b> Function to get the property value (for accessor properties)</li>
+<li><b>set:</b> Function to set the property value (for accessor properties)</li>
+</ul>
+<hr>
+<h2>Object Cloning</h2>
+<p>The <code class="w3-codespan">Object.getOwnPropertyDescriptors()</code>
+is often used to clone objects while preserving getters, setters, and property attributes:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const clone = Object.defineProperties({}, Object.getOwnPropertyDescriptors(person));</code></pre>
+
+</div>
+<br><br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_2018.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_2016.html">Next ❯</a>
+</div>
+
+

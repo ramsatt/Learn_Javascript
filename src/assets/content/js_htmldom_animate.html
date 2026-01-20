@@ -1,0 +1,110 @@
+
+      
+
+<h1>HTML DOM Animation</h1>
+
+<hr>
+<!--start-->
+<p class="intro">Learn to create HTML animations using JavaScript.</p>
+<hr>
+<h2>A Basic Web Page</h2>
+<p>To demonstrate how to create HTML animations with JavaScript, we will use a simple 
+web page:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+&lt;h1&gt;My First JavaScript Animation&lt;/h1&gt;
+&lt;div id="animation"&gt;My animation will go here&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Create an Animation Container</h2>
+
+<p>All animations should be relative to a container element.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;div id ="container"&gt;
+  &lt;div id ="animate"&gt;My animation will go here&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+</div>
+<hr>
+<h2>Style the Elements</h2>
+<p>The container element should be created with style = "<code class="w3-codespan">position: relative</code>".</p>
+<p>The animation element should be created with style = "<code class="w3-codespan">position: absolute</code>".</p>
+<div class="w3-example">
+ <h3>Example</h3>
+<pre class="w3-code"><code class="language-css">#container {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  background: yellow;
+}
+#animate {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background: red;
+}</code></pre>
+ 
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>Animation Code</h2>
+<p>JavaScript animations are done by programming gradual changes in an element's 
+style.</p>
+<p>The changes are called by a timer. When the timer interval is small, the 
+animation looks continuous.</p>
+<p>The basic code is:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">id = setInterval(frame, 5);
+function frame() {
+  if (/* test for finished */) {
+    clearInterval(id);
+  } else {
+    /* code to change the element style */ 
+  }
+}</code></pre>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Create the Full Animation Using JavaScript</h2>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">function myMove() {
+  let id = null;
+  const elem = document.getElementById("animate");
+  let pos = 0;
+  clearInterval(id);
+  id = setInterval(frame, 5);
+  function frame() {
+    if (pos == 350) {
+      clearInterval(id);
+    } else {
+      pos++;
+      elem.style.top = pos + 'px';
+      elem.style.left = pos + 'px';
+    }
+  }
+}</code></pre>
+ 
+</div>
+<!--stop-->
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_validation.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_htmldom_document.html">Next ❯</a>
+</div>
+
+

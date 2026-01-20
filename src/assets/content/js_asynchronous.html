@@ -1,0 +1,128 @@
+
+      
+
+<h1>Asynchronous JavaScript</h1>
+
+<!--start-->
+<div class="w3-panel ws-info w3-center" style="padding:8px">
+<p class="w3-xlarge"><i>"I will finish later!"</i></p>
+<p>Functions running in <b>parallel</b> with other functions are called <b>asynchronous</b></p>
+<p>A good example is JavaScript setTimeout()</p>
+</div>
+
+<h2>Asynchronous JavaScript</h2>
+
+<p>The examples used in the previous chapter, was very simplified.</p>
+<p>The purpose of the examples was to demonstrate the syntax of callback functions:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+
+<pre class="w3-code"><code class="language-javascript">function myDisplayer(something) {
+  document.getElementById("demo").innerHTML = something;
+}
+function myCalculator(num1, num2, myCallback) {
+  let sum = num1 + num2;
+  myCallback(sum);
+}
+myCalculator(5, 5, myDisplayer);</code></pre>
+<p>
+
+</p>
+</div>
+<p>In the example above, <code class="w3-codespan">myDisplayer</code> is the name of a function.</p>
+<p>It is passed to <code class="w3-codespan">myCalculator()</code> as an argument.</p>
+<div class="w3-panel ws-note">
+<p>In the real world, callbacks are most often used with asynchronous functions.</p>
+<p>A typical example is JavaScript <code class="w3-codespan">setTimeout()</code>.</p>
+</div>
+<hr>
+<h2>Waiting for a Timeout</h2>
+<p>When using the JavaScript function <code class="w3-codespan">setTimeout()</code>,
+you can specify a callback function to be executed on time-out:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">setTimeout(myFunction, 3000);
+function myFunction() {
+  document.getElementById("demo").innerHTML = "I love You !!";
+}</code></pre>
+<p>
+
+</p>
+</div>
+<p>In the example above, <code class="w3-codespan">myFunction</code> is used as a callback.</p>
+<p><code class="w3-codespan">myFunction</code> is passed to <code class="w3-codespan">setTimeout()</code> as an argument.</p>
+<p>3000 is the number of milliseconds before time-out, so
+<code class="w3-codespan">myFunction()</code> will be called after 3 seconds.</p>
+<div class="w3-panel ws-note">
+<h2>Note</h2>
+<p>When you pass a function as an argument, remember not to use parenthesis.</p>
+<p>Right: setTimeout(myFunction, 3000);</p>
+<p>Wrong: <del>setTimeout(myFunction(), 3000)</del>;</p>
+</div>
+<p>Instead of passing the name of a function as an argument to another function,
+you can always pass a whole function instead:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">setTimeout(function() { myFunction("I love You !!!"); }, 3000);
+function myFunction(value) {
+  document.getElementById("demo").innerHTML = value;
+}</code></pre>
+<p>
+
+</p>
+</div>
+<p>In the example above, <code class="w3-codespan">function(){ myFunction("I love You !!!"); }</code>
+is used as a callback. It is a complete function.
+The complete function is passed to setTimeout() as an argument.</p>
+<p>3000 is the number of milliseconds before time-out, so
+<code class="w3-codespan">myFunction()</code> will be called after 3 seconds.</p>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>Waiting for Intervals:</h2>
+<p>When using the JavaScript function <code class="w3-codespan">setInterval()</code>,
+you can specify a callback function to be executed for each interval:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">setInterval(myFunction, 1000);
+function myFunction() {
+  let d = new Date();
+  document.getElementById("demo").innerHTML=
+  d.getHours() + ":" +
+  d.getMinutes() + ":" +
+  d.getSeconds();
+}</code></pre>
+<p>
+
+</p>
+</div>
+<p>In the example above, <code class="w3-codespan">myFunction</code> is used as a callback.</p>
+<p><code class="w3-codespan">myFunction</code> is passed to <code class="w3-codespan">setInterval()</code> as an argument.</p>
+<p>1000 is the number of milliseconds between intervals, so
+<code class="w3-codespan">myFunction()</code> will be called every second.</p>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Callback Alternatives</h2>
+<p>With asynchronous programming, JavaScript programs can start long-running tasks,
+and continue running other tasks in parallel.</p>
+
+<p>But, asynchronus programmes are difficult to write and difficult to debug.</p>
+<p>Because of this, most modern asynchronous JavaScript methods don't use callbacks.
+Instead, in JavaScript, asynchronous programming is solved using <b>Promises</b> instead.</p>
+<!--stop-->
+<div class="ws-note">
+<h2>Note</h2>
+<p>You will learn about promises in the next chapter of this tutorial.</p>
+</div>
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_callback.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_promise.html">Next ❯</a>
+</div>
+
+

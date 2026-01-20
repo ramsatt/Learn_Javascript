@@ -1,0 +1,92 @@
+
+      
+
+<h1>JavaScript Event Management</h1>
+
+
+<!--start-->
+<div class="ws-info">
+<p class="w3-large"><b>Event Management</b> is about adding, removing, and controlling events.</p>
+</div>
+
+<hr>
+<h2>Adding Events</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;button id="btn"&gt;Click&lt;/button&gt;
+&lt;p id="demo"&gt;&lt;/p&gt;
+&lt;script&gt;
+const btn = document.getElementById("btn");
+// Let btn listen for click
+btn.addEventListener("click", myFunction);
+function myFunction() {
+  document.getElementById("demo").innerHTML = "Clicked!";
+}
+&lt;/script&gt;</code></pre>
+
+</div>
+
+<hr>
+<h2>Removing Events</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;button id="add"&gt;Add&lt;/button&gt;
+&lt;button id="remove"&gt;Remove&lt;/button&gt;
+&lt;button id="test"&gt;Test click&lt;/button&gt;
+&lt;p id="demo"&gt;&lt;/p&gt;
+&lt;script&gt;
+const test = document.getElementById("test");
+const remove = document.getElementById("remove");
+const add = document.getElementById("add");
+function myFunction() {
+   document.getElementById("demo").innerHTML += "Hello!";
+}
+// Let add listen for click
+add.addEventListener("click", function () {
+  // Let test listen for click
+  test.addEventListener("click", myFunction);
+});
+// Let remove listen for click
+remove.addEventListener("click", function () {
+  // Prevent test from listen for click
+  test.removeEventListener("click", myFunction);
+});
+&lt;/script&gt;</code></pre>
+
+</div>
+
+<hr>
+<div class="ws-note">
+<h2>Note</h2>
+<p>To remove an event listener, you must use the <b>same named function</b> you used to add it.</p>
+</div>
+
+<hr>
+
+<hr>
+
+<h2>Blocking Events</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Prevent default (block a link)</p>
+<pre class="w3-code"><code class="language-html">&lt;a href="https://www.w3schools.com" id="link"&gt;Go to W3Schools&lt;/a&gt;
+&lt;p id="demo"&gt;&lt;/p&gt;
+&lt;script&gt;
+const link = document.getElementById("link");
+// Let link listen for click
+link.addEventListener("click", function (event) {
+  event.preventDefault();
+  document.getElementById("demo").innerHTML = "Link blocked!";
+});
+&lt;/script&gt;</code></pre>
+
+</div>
+
+
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_events_timing.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_htmldom_events.html">Next ❯</a>
+</div>
+
+

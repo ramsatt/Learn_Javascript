@@ -1,0 +1,982 @@
+
+      
+
+<h1>Javascript 2015 (ES6)</h1>
+
+
+
+<hr>
+<div class="w3-panel ws-info">
+<h2>ECMAScript 2015</h2>
+<p><b>The second major revision to JavaScript</b>.</p>
+<p>ECMAScript 2015 is also known as ES6.</p> 
+</div>
+
+<h2>New Features in JavaScript 2015 (ES6)</h2>
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Feature</th><th>Description</th></tr>
+<tr><td><a href="js_es6d41d.html?#mark_let">The let keyword</a></td>
+<td>Declares a variable with block scope</td></tr>
+<tr><td><a href="js_es6d41d.html?#mark_const">The const keyword</a></td>
+<td>Declare a contant immutable variable</td></tr>
+<tr><td><a href="js_es6d41d.html?#mark_arrow">Arrow Functions</a></td><td>Allows short syntax for writing function expressions</td></tr>
+<tr><td><a href="js_es6d41d.html?#mark_object_destructuring">{a,b} = Operator</a></td>
+<td>Assigns object properties to variables (object destructuring)</td></tr>
+<tr><td><a href="js_es6d41d.html?#mark_array_destructuring">[a,b] = Operator</a></td>
+<td>Assigns array values to variables (array destructuring)</td></tr>
+<tr><td><a href="js_es6d41d.html?#mark_spread">... Operator</a></td>
+<td>Spreads an array or iterable into individual elements</td></tr>
+<tr><td><a href="js_es6d41d.html?#mark_forof">For/of</a></td>
+<td>Loops through the values of iterable objects</td></tr>
+<tr><td><a href="js_es6d41d.html?#mark_map">Map Objects</a></td>
+<td>Object with key-value pairs, similar but different from objects</td></tr>
+<tr><td><a href="js_es6d41d.html?#mark_set">Set Objects</a></td>
+<td>Array that stores unique values</td></tr>
+<tr><td><a href="js_es6d41d.html?#mark_class">Classes</a></td>
+<td>Templates for JavaScript Objects</td></tr>
+<tr><td><a href="js_es6d41d.html?#mark_promise">Promises</a></td>
+<td>Object representing the completion of an asynchronous operation</td></tr>
+<tr><td><a href="js_es6d41d.html?#mark_symbol">Symbol</a></td>
+<td>A unique "hidden" identifier that no code can access</td></tr>
+<tr><td><a href="js_es6d41d.html?#mark_param">Default&nbsp;Parameters</a></td>
+<td>Allows default values for function parameters</td></tr>
+<tr><td><a href="js_es6d41d.html?#mark_rest">Rest Parameters</a></td>
+<td>Allows functions to treat an indefinite number of arguments</td></tr>
+<tr><td><a href="js_es6d41d.html?#mark_includes">String.includes()</a></td>
+<td>Returns true if a string contains a specified value</td></tr>
+<tr><td><a href="js_es6d41d.html?#mark_startswith">String.startsWith()</a></td>
+<td>Returns true if a string begins with a specified value</td></tr>
+<tr><td><a href="js_es6d41d.html?#mark_endswith">String.endsWith()</a></td>
+<td>Returns true if a string ends with a specified value</td></tr>
+<tr><td><a href="js_es6d41d.html?#mark_entries">Array entries()</a></td>
+<td>Returns an iterator key/value pairs from an array</td></tr>
+<tr><td><a href="js_es6d41d.html?#mark_array_from">Array.from()</a></td>
+<td>Creates an array from a string</td></tr>
+<tr><td><a href="js_es6d41d.html?#mark_array_keys">Array keys()</a></td>
+<td>Returns an iterator with the keys of an array</td></tr>
+<tr><td><a href="js_es6d41d.html?#mark_array_find">Array find()</a></td>
+<td>Returns the value of the first element that passes a test</td></tr>
+<tr><td><a href="js_es6d41d.html?#mark_array_findIndex">Array findIndex()</a></td>
+<td>Returns the index of the first element that passes a test</td></tr>
+<tr><td><a href="js_es6d41d.html?#mark_object_assign">Object.assign()</a></td>
+<td>Copies properties from a source object to a target object</td></tr>
+<tr><td><a href="js_es6d41d.html?#mark_regexp_uflag">RegExp /u</a></td>
+<td>Enables full Unicode support in a regular expression</td></tr>
+<tr><td><a href="js_es6d41d.html?#mark_regexp_yflag">RegExp /y</a></td>
+<td>Performs a "sticky" search from the lastIndex property</td></tr>
+<tr><td><a href="js_es6d41d.html?#mark_global_methods">isFinite()</a></td>
+<td>returns true if the argument is not Infinity or NaN</td></tr>
+<tr><td><a href="js_es6d41d.html?#mark_global_methods">IsNaN()</a></td>
+<td>Returns true if the argument is NaN</td></tr>
+<tr><td><a href="js_es6d41d.html?#mark_modules">Modules</a></td>
+<td>Allows for breaking up your code into separate files</td></tr>
+<tr><td><a href="js_es6d41d.html?#mark_reflect">Reflect</a></td>
+<td>Object for low-lewel operation on objects</td></tr>
+<tr><td><a href="js_es6d41d.html?#mark_proxy">Proxy</a></td>
+<td>Object that wraps other objects for control operations</td></tr>
+</tbody></table></div>
+</div>
+
+<h2>Math Features</h2>
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Feature</th><th>Description</th></tr>
+<tr><td><a href="js_es6d41d.html?#mark_math_trunc">Math.trunc(x)</a></td>
+<td>Returns the integer part of x</td></tr>
+<tr><td><a href="js_es6d41d.html?#mark_math_sign">Math.sign(x)</a></td>
+<td>Returns -1, 0 or 1 (x is negative, null or positive)</td></tr>
+<tr><td><a href="js_es6d41d.html?#mark_math_cbrt">Math.cbrt(x)</a></td>
+<td>Returns the cube root of x</td></tr>
+<tr><td><a href="js_es6d41d.html?#mark_math_log2">Math.log2(x)</a></td>
+<td>Returns the base 2 logarithm of x</td></tr>
+<tr><td><a href="js_es6d41d.html?#mark_math_log10">Math.log10(x)</a></td>
+<td>Returns the base 10 logarithm of x</td></tr>
+</tbody></table></div>
+</div>
+
+<h2>Number Features</h2>
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Feature</th><th>Description</th></tr>
+<tr><td><a href="js_es6d41d.html?#mark_number_properties">Number.EPSILON</a></td>
+<td>The difference between 1 and the smallest number greater than 1</td></tr>
+<tr><td><a href="js_es6d41d.html?#mark_number_properties">Number.MIN_SAFE_INTEGER</a></td>
+<td>Minimum value that can be precisely represented</td></tr>
+<tr><td><a href="js_es6d41d.html?#mark_number_properties">Number.MAX_SAFE_INTEGER</a></td>
+<td>Maximum value that can be precisely represented</td></tr>
+<tr><td><a href="js_es6d41d.html?#mark_number_isinteger">Number.isInteger()</a></td>
+<td>Returns true if the argument is an integer</td></tr>
+<tr><td><a href="js_es6d41d.html?#mark_number_issafeinteger">Number.isSafeInteger()</a></td>
+<td>Returns true if the argument is a safe integer</td></tr>
+</tbody></table></div>
+</div>
+
+<hr>
+<h2>Browser Support</h2>
+<p><b>JavaScript 2015</b> is supported in all modern browsers since <b>June 2017</b>:</p>
+
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr style="height:50px">
+    <th class="bsChrome" title="Chrome"></th>
+    <th class="bsEdge" title="Edge"></th>
+    <th class="bsFirefox" title="Firefox"></th>
+    <th class="bsSafari" title="Safari"></th>
+    <th class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>51</td>
+    <td>Edge<br>15</td>
+    <td>Firefox<br>54</td>
+    <td>Safari<br>10</td>
+    <td>Opera<br>38</td>
+  </tr>
+  <tr>
+    <td>May 2016</td>
+    <td>Apr 2017</td>
+    <td>Jun 2017</td>
+    <td>Sep 2016</td>
+    <td>Jun 2016</td>
+  </tr>
+</tbody>
+</table></div>
+</div>
+<p>ES6 is not supported in Internet Explorer.</p>
+
+<hr>
+<a id="mark_let"></a>
+<h2>JavaScript let</h2>
+<p>The <code class="w3-codespan">let</code> keyword allows you to declare a variable with 
+block scope.</p>
+<div class="w3-example">
+  <h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">var x = 10;
+// Here x is 10
+{
+  let x = 2;
+  // Here x is 2
+}
+// Here x is 10</code></pre>
+
+</div>
+<p>Read more about <code class="w3-codespan">let</code> in the chapter: <a href="js_let.html">JavaScript Let</a>.</p>
+
+<hr>
+<a id="mark_const"></a>
+<h2>JavaScript const</h2>
+<p>The <code class="w3-codespan">const</code> keyword allows you to declare a constant (a 
+JavaScript variable with a constant value).</p>
+<p>Constants are similar to let variables, except that the value cannot be changed.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">var x = 10;
+// Here x is 10
+{
+  const x = 2;
+  // Here x is 2
+}
+// Here x is 10</code></pre>
+
+</div>
+<p>Read more about <code class="w3-codespan">const</code> in the chapter: <a href="js_const.html">JavaScript Const</a>.</p>
+
+<hr>
+<a id="mark_arrow"></a>
+<h2>Arrow Functions</h2>
+<p>Arrow functions is a short syntax for writing <b>function expressions</b>.</p>
+<p>You don't need the <b>function</b> keyword, the <b>return</b> keyword, or the 
+<b>curly brackets</b>.</p>
+
+<div class="w3-example">
+<h3>Before Arrow:</h3>
+<p>Function to compute the product of a and b</p>
+<pre class="w3-code"><code class="language-javascript">let myFunction = function(a, b) {return a * b}</code></pre>
+<p>
+
+</p>
+</div>
+
+<div class="w3-example">
+<h3>With Arrow</h3>
+<pre class="w3-code"><code class="language-javascript">let myFunction = (a, b) =&gt; a * b;</code></pre>
+<p>
+
+</p>
+</div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>Arrow functions do not have their own <b>this</b>.
+They are not well suited for defining <strong>object methods</strong>.</p>
+<p>Arrow functions are not hoisted. They must be defined <strong>before</strong> they are used.</p>
+</div>
+<p>You can only omit the <b>return</b> keyword and the <b>curly brackets</b> if the function is a single
+statement. Because of this, it might be a good habit to always keep them:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// This will not work
+let myFunction = (x, y) =&gt; { x * y } ;
+// This will not work
+let myFunction = (x, y) =&gt; return x * y ;
+// Only this will work
+let myFunction = (x, y) =&gt; { return x * y };</code></pre>
+
+</div>
+<p>Learn more about Arrow Functions in the chapter: <a href="js_arrow_function.html">JavaScript Arrow Function</a>.</p>
+
+<hr>
+<a id="mark_object_destructuring"></a>
+<h2>Object Destructuring</h2>
+<p>Destructuring assignment makes it easy to assign array values and object properties to variables.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an Object
+const person = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 50,
+  eyeColor: "blue"
+};
+// Destructuring Assignment
+let { firstName, age } = person;</code></pre>
+
+</div>
+<div class="ws-note">
+<h2>Note:</h2>
+<p>When destructuring an object, you must use the same name for the variables
+as the corresponding object keys (names).</p>
+<p>The order of the keys (names) does not matter.</p>
+</div>
+
+<hr>
+<a id="mark_array_destructuring"></a>
+<h2>Array Destructuring</h2>
+<p>Destructuring assignment makes it easy to assign array values and object properties to variables.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an Array
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+// Destructuring Assignment
+let [fruit1, fruit2] = fruits;</code></pre>
+
+</div>
+
+<hr>
+<a id="mark_spread"></a>
+<h2>The Spread (...) Operator</h2>
+<p>The <code class="w3-codespan">...</code> operator spreads an array or iterable into individual elements. 
+
+</p><div class="w3-example">
+<h3>Example</h3>
+<p>The <code class="w3-codespan">...</code> operator can pass arguments to a function:</p>
+<pre class="w3-code"><code class="language-javascript">const numbers = [23,55,21,87,56];
+let minValue = Math.min(...numbers);
+let maxValue = Math.max(...numbers);</code></pre>
+
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>The <code class="w3-codespan">...</code> operator can be used to join arrays:</p>
+<pre class="w3-code"><code class="language-javascript">const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
+const arr3 = [...arr1, ...arr2];</code></pre>
+
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const q1 = ["Jan", "Feb", "Mar"];
+const q2 = ["Apr", "May", "Jun"];
+const q3 = ["Jul", "Aug", "Sep"];
+const q4 = ["Oct", "Nov", "Dec"];
+const year = [...q1, ...q2, ...q3, ...q4];</code></pre>
+
+</div>
+
+<hr>
+
+<hr>
+
+<a id="mark_forof"></a>
+<h2>The For/Of Loop</h2>
+<p>The JavaScript <code class="w3-codespan">for/of</code> statement loops 
+through the values of iterable objects.</p>
+<p> <code class="w3-codespan">for/of</code> lets you loop over data structures 
+that are iterable such as Arrays, Strings, Maps, NodeLists, and more.</p>
+<p>The <code class="w3-codespan">for/of</code> loop has the following syntax:</p>
+<pre class="w3-code"><code class="language-javascript"><div> for (<i>variable</i> of <i>iterable</i>) {
+  // <i>code block to be executed</i>
+}
+</div></code></pre>
+
+<p><em>variable</em> - For every iteration the value of the next property is 
+assigned to the variable. <em>Variable</em> can be declared with
+<code class="w3-codespan">const</code>, <code class="w3-codespan">let</code>, or <code class="w3-codespan">var</code>.</p>
+<p><em>iterable</em> - An object that has iterable properties.</p>
+
+<h3>Looping over an Array</h3>
+<div class="w3-example">
+ <h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const cars = ["BMW", "Volvo", "Mini"];
+let text = "";
+for (let x of cars) {
+  text += x + " ";
+}</code></pre>
+
+</div>
+
+<h3>Looping over a String</h3>
+<div class="w3-example">
+ <h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let language = "JavaScript";
+let text = "";
+for (let x of language) {
+    text += x + " ";
+}</code></pre>
+
+</div>
+<p>Learn more in the chapter: <a href="js_loop_forin.html">JavaScript Loop For/In/Of</a>.</p>
+
+<hr>
+<a id="mark_map"></a>
+<h2>JavaScript Maps</h2>
+<p>A Map is an object that stores key-value pairs, similar to objects, but with differences:</p>
+<ul>
+<li>Keys can be of any data type (objects, functions, primitive values),
+unlike plain objects where keys are strings.</li>
+<li>Maintains the original insertion order of keys.</li>
+</ul>
+<div class="ws-note">
+<h2>Note</h2>
+<p>Being able to use an Object as a key is an important Map feature.</p>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const fruits = new Map([
+  ["apples", 500],
+  ["bananas", 300],
+  ["oranges", 200]
+]);</code></pre>
+
+</div>
+
+<p>Learn more about Map objects, and the difference between a Map and an Array, in the the chapter: <a href="js_maps.html">JavaScript Maps</a>.</p>
+
+<hr>
+<a id="mark_set"></a>
+<h2>JavaScript Sets</h2>
+<p>A Set is an object that stores unique values of any type (primitive values, functions, objects).</p>
+<p>A Set can only contain unique values. An attempt to add a duplicate value will be ignored.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create a Set
+const letters = new Set();
+// Add some values to the Set
+letters.add("a");
+letters.add("b");
+letters.add("c");</code></pre>
+
+</div>
+
+<p>Learn more about Set objects in the the chapter: <a href="js_sets.html">JavaScript Sets</a>.</p>
+
+<hr>
+<a id="mark_class"></a>
+<h2>JavaScript Classes</h2>
+
+<p>JavaScript Classes are templates for JavaScript Objects.</p>
+
+<p>Use the keyword <code class="w3-codespan">class</code> to create a class.</p>
+<p>Always add a method named <code class="w3-codespan">constructor()</code>:</p>
+
+<div class="w3-example">
+<h3>Syntax</h3>
+<pre class="w3-code"><code class="language-javascript">class ClassName {
+  constructor() { ... }
+}</code></pre>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">class Car {
+  constructor(name, year) {
+    this.name = name;
+    this.year = year;
+  }
+}</code></pre>
+</div>
+
+<p>The example above creates a class named "Car".</p>
+<p>The class has two initial properties: "name" and "year".</p>
+
+
+<div class="w3-panel ws-note">
+<p>A JavaScript class is <b>not</b> an object.</p>
+<p>It is a <b>template</b> for JavaScript objects.</p>
+</div>
+<hr>
+<h2>Using a Class</h2>
+<p>When you have a class, you can use the class to create objects:</p>
+
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const myCar1 = new Car("Ford", 2014);
+const myCar2 = new Car("Audi", 2019);</code></pre>
+<p>
+
+</p>
+</div>
+<p>Learn more about classes in the the chapter: <a href="js_classes.html">JavaScript Classes</a>.</p>
+
+<hr>
+<a id="mark_promise"></a>
+<h2>JavaScript Promises</h2>
+<p>A JavaScript Promise is an object representing the completion or failure of an asynchronous
+operation and its values.</p>
+<p>It is a placeholder for a value that may not yet be available,
+providing a structured way to handle asynchronous code.</p>
+<div class="w3-example">
+<h3>Promise Syntax</h3>
+<pre class="w3-code"><code class="language-javascript">const myPromise = new Promise(function(myResolve, myReject) {
+// "Producing Code" (May take some time)
+  myResolve(); // when successful
+  myReject();  // when error
+});
+// "Consuming Code" (Must wait for a fulfilled Promise).
+myPromise.then(
+  function(value) { /* code if successful */ },
+  function(error) { /* code if some error */ }
+);</code></pre>
+</div>
+<div class="w3-example">
+<h3>Example Using a Promise</h3>
+<pre class="w3-code"><code class="language-javascript">const myPromise = new Promise(function(myResolve, myReject) {
+  setTimeout(function() { myResolve("I love You !!"); }, 3000);
+});
+myPromise.then(function(value) {
+  document.getElementById("demo").innerHTML = value;
+});</code></pre>
+<p>
+
+</p>
+</div>
+<p>Learn more about Promises in the the chapter: <a href="js_promise.html">JavaScript Promises</a>.</p>
+
+<hr>
+<a id="mark_symbol"></a>
+<h2>The Symbol Type</h2>
+<p>A JavaScript Symbol is a primitive data type just like Number, String, or Boolean.</p>
+<p>It represents a unique "hidden" identifier that no other code can accidentally access.</p>
+<p>For instance, if different coders want to add a person.id property to a person object belonging to a third-party code,
+they could mix each others values.</p>
+<p>Using Symbol() to create a unique identifiers, solves this problem:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const person = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 50,
+  eyeColor: "blue"
+};
+let id = Symbol('id');
+person[id] = 140353;
+// Now person[id] = 140353
+// but person.id is still undefined</code></pre>
+
+</div>
+<div class="w3-panel ws-note">
+<h2>Note</h2>
+<p>Symbols are always unique.</p>
+<p>If you create two symbols with the same description they will have different values:</p>
+<pre class="w3-code"><code class="language-javascript">Symbol("id") == Symbol("id"); // false</code></pre>
+
+</div>
+
+<hr>
+<a id="mark_param"></a>
+<h2>Default Parameter Values</h2>
+<p>ES6 allows function parameters to have default values.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">function myFunction(x, y = 10) {
+  // y is 10 if not passed or undefined
+  return x + y;
+}
+myFunction(5); // will return 15</code></pre>
+
+</div>
+
+<hr>
+<a id="mark_rest"></a>
+<h2>Function Rest Parameter</h2>
+<p>The rest parameter (...) allows a function to treat an indefinite number of arguments as an array:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">function sum(...args) {
+  let sum = 0;
+  for (let arg of args) sum += arg;
+  return sum;
+}
+let x = sum(4, 9, 16, 25, 29, 100, 66, 77);</code></pre>
+
+</div>
+
+<hr>
+<a id="mark_includes"></a>
+<h2>String.includes()</h2>
+<p>The <code class="w3-codespan">includes()</code> method returns <code class="w3-codespan">true</code> if a string contains a specified value,
+otherwise <code class="w3-codespan">false</code>:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let text = "Hello world, welcome to the universe.";
+text.includes("world")    // Returns true</code></pre>
+
+</div>
+
+<hr>
+<a id="mark_startswith"></a>
+<h2>String.startsWith()</h2>
+<p>The <code class="w3-codespan">startsWith()</code> method returns <code class="w3-codespan">true</code>
+if a string begins with a specified value, otherwise <code class="w3-codespan">false</code>:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let text = "Hello world, welcome to the universe.";
+text.startsWith("Hello")   // Returns true</code></pre>
+
+</div>
+
+<hr>
+<a id="mark_endswith"></a>
+<h2>String.endsWith()</h2>
+<p>The <code class="w3-codespan">endsWith()</code> method returns <code class="w3-codespan">true</code>
+if a string ends with a specified value, otherwise <code class="w3-codespan">false</code>:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">var text = "John Doe";
+text.endsWith("Doe")    // Returns true</code></pre>
+
+</div>
+
+<hr>
+<a id="mark_entries"></a>
+<h2>Array entries()</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Create an Array Iterator, and then iterate over the key/value pairs:</p>
+<pre class="w3-code"><code class="language-javascript">const fruits = ["Banana", "Orange", "Apple", "Mango"];
+const f = fruits.entries();
+for (let x of f) {
+  document.getElementById("demo").innerHTML += x;
+}</code></pre>
+
+</div>
+<p>The <code class="w3-codespan">entries()</code> method returns an Array Iterator object with key/value pairs:</p>
+<p>[0, "Banana"]<br>[1, "Orange"]<br>[2, "Apple"]<br>[3, "Mango"]</p>
+<p>The <code class="w3-codespan">entries()</code> method does not change the original array.</p>
+
+<hr>
+<a id="mark_array_from"></a>
+<h2>Array.from()</h2>
+<p>The <code class="w3-codespan">Array.from()</code> method returns an Array object from any object with a length 
+property or any iterable object.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Create an Array from a String:</p>
+<pre class="w3-code"><code class="language-javascript">Array.from("ABCDEFG")   // Returns [A,B,C,D,E,F,G]</code></pre>
+
+</div>
+
+<hr>
+<a id="mark_array_keys"></a>
+<h2>Array keys()</h2>
+<p>The <code class="w3-codespan">keys()</code> method returns an Array Iterator object with the keys of an array.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Create an Array Iterator object, containing the keys of the array:</p>
+<pre class="w3-code"><code class="language-javascript">const fruits = ["Banana", "Orange", "Apple", "Mango"];
+const keys = fruits.keys();
+let text = "";
+for (let x of keys) {
+  text += x + "&lt;br&gt;";
+}</code></pre>
+
+</div>
+
+<hr>
+<a id="mark_array_find"></a>
+<h2>Array find()</h2>
+<p>The <code class="w3-codespan">find()</code> method returns the value of the first array element that passes a 
+test function.</p>
+
+<p>This example finds (returns the value of ) the first element that is larger 
+than 18:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const numbers = [4, 9, 16, 25, 29];
+let first = numbers.find(myFunction);
+function myFunction(value, index, array) {
+  return value &gt; 18;
+}</code></pre>
+  
+</div>
+<p>Note that the function takes 3 arguments:</p>
+<ul>
+  <li>The item value</li>
+<li>The item index </li>
+<li>The array itself</li>
+</ul>
+<hr>
+
+<a id="mark_array_findIndex"></a>
+<h2>Array findIndex()</h2>
+<p>The <code class="w3-codespan">findIndex()</code> method returns the index of the first array element that 
+passes a test function.</p>
+
+<p>This example finds the index of the first element that is larger than 18:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const numbers = [4, 9, 16, 25, 29];
+let first = numbers.findIndex(myFunction);
+function myFunction(value, index, array) {
+  return value &gt; 18;
+}</code></pre>
+  
+</div>
+<p>Note that the function takes 3 arguments:</p>
+<ul>
+  <li>The item value</li>
+<li>The item index </li>
+<li>The array itself</li>
+</ul>
+
+<hr>
+<a id="mark_modules"></a>
+<h2>Modules</h2>
+<p>Modules are imported in two different ways:</p>
+<div class="w3-example">
+<h3>Import from named exports</h3>
+<p>Import named exports from the file person.js:</p>
+<pre class="w3-code"><code class="language-javascript">import { name, age } from "./person.js";</code></pre>
+<p>
+
+</p>
+</div>
+<div class="w3-example">
+<h3>Import from default exports</h3>
+<p>Import a default export from the file message.js:</p>
+<pre class="w3-code"><code class="language-javascript">import message from "./message.js";</code></pre>
+<p>
+
+</p>
+</div>
+<p>Learn more about Modules in: <a href="js_modules.html">JavaScript Modules</a>.</p>
+
+<hr>
+<a id="mark_reflect"></a>
+<h2>JavaScript Reflect</h2>
+<p>Before Reflect, <b>object operations</b> were scattered:
+</p><ul>
+<li>Using the keyword <code class="w3-codespan"><b>in</b></code></li>
+<li>Using the keyword <code class="w3-codespan"><b>delete</b></code></li>
+<li>Using methods like <b> <code class="w3-codespan">Object.defineProperty</code></b></li>
+<li>Using language mechanisms like <code class="w3-codespan">[[<b>Get</b>]]</code> and <code class="w3-codespan">[[<b>Set</b>]]</code></li>
+</ul>
+
+<p>Reflect brings all these into clean <b>Reflect methods</b>.</p>
+
+<ul>
+<li>Reflect methods unifies everything</li>
+<li>Reflect methods has predictable behavior</li>
+<li>Reflect methods works perfectly with Proxy</li>
+</ul>
+
+<hr>
+<h2>Reflect.has()</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an Object
+const person = {name: "John", lastname: "Doe"};
+let answer = Reflect.has(person, "name");</code></pre>
+
+<p>Same as using the <b>in</b> operator:</p>
+<pre class="w3-code"><code class="language-javascript">let answer = "name" in person;</code></pre>
+
+</div>
+<div class="ws-note">
+<h2>Learn More...</h2>
+<p class="w3-large"><a href="js_meta_reflect.html">JavaScript Reflect Tutorial</a></p>
+</div>
+
+<hr>
+<a id="mark_proxy"></a>
+<h2>JavaScript Proxy</h2>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an Object
+const user = { name: "Jan", age: 40 };
+//Create a Proxy
+const proxy = new Proxy(user, {
+  get(target, property) {
+    log("Getting: " + property);
+    return target[property];
+  },
+  set(target, property, value) {
+    log("Setting: " + property);
+    return target[property];
+  }
+});
+proxy.name = "John";
+let text = proxy.name;</code></pre>
+
+</div>
+
+<div class="ws-note">
+<h2>Learn More...</h2>
+<p class="w3-large"><a href="js_meta_proxy.html">JavaScript Proxy Tutorial</a></p>
+</div>
+
+<hr>
+<a id="mark_math_methods"></a>
+<h2>New Math Methods</h2>
+<p>ES6 added the following methods to the Math object:</p>
+<ul>
+<li><code class="w3-codespan">Math.trunc()</code></li>
+<li><code class="w3-codespan">Math.sign()</code></li>
+<li><code class="w3-codespan">Math.cbrt()</code></li>
+<li><code class="w3-codespan">Math.log2()</code></li>
+<li><code class="w3-codespan">Math.log10()</code></li>
+</ul>
+
+<hr>
+<a id="mark_math_trunc"></a>
+<h2>The Math.trunc() Method</h2>
+<p><code class="w3-codespan">Math.trunc(x)</code> returns the integer part of x:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">Math.trunc(4.9);    // returns 4
+Math.trunc(4.7);    // returns 4
+Math.trunc(4.4);    // returns 4
+Math.trunc(4.2);    // returns 4
+Math.trunc(-4.2);    // returns -4</code></pre>
+
+</div>
+
+<hr>
+<a id="mark_math_sign"></a>
+<h2>The Math.sign() Method</h2>
+<p><code class="w3-codespan">Math.sign(x)</code> returns -1, 0, or 1 (if x is negative, null or positive):</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">Math.sign(-4);    // returns -1
+Math.sign(0);    // returns 0
+Math.sign(4);    // returns 1</code></pre>
+
+</div>
+
+<hr>
+<a id="mark_math_cbrt"></a>
+<h2>The Math.cbrt() Method</h2>
+<p><code class="w3-codespan">Math.cbrt(x)</code> returns the cube root of x:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">Math.cbrt(8);    // returns 2
+Math.cbrt(64);    // returns 4
+Math.cbrt(125);    // returns 5</code></pre>
+
+</div>
+
+<hr>
+<a id="mark_math_log2"></a>
+<h2>The Math.log2() Method</h2>
+<p><code class="w3-codespan">Math.log2(x)</code> returns the base 2 logarithm of x:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">Math.log2(2);    // returns 1</code></pre>
+
+</div>
+
+<hr>
+<a id="mark_math_log10"></a>
+<h2>The Math.log10() Method</h2>
+<p><code class="w3-codespan">Math.log10(x)</code> returns the base 10 logarithm of x:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">Math.log10(10);    // returns 1</code></pre>
+
+</div>
+
+<hr>
+<a id="mark_number_properties"></a>
+<h2>New Number Properties</h2>
+<p>ES6 added the following properties to the Number object:</p>
+<ul>
+<li><code class="w3-codespan">EPSILON</code></li>
+<li><code class="w3-codespan">MIN_SAFE_INTEGER</code></li>
+<li><code class="w3-codespan">MAX_SAFE_INTEGER</code></li>
+</ul>
+<div class="w3-example">
+<h3>EPSILON Example</h3>
+<p>The difference between 1 and the smallest floating-point number greater than 1:</p>
+<pre class="w3-code"><code class="language-javascript">let x = Number.EPSILON;</code></pre>
+
+</div>
+<div class="w3-example">
+<h3>MIN_SAFE_INTEGER Example</h3>
+<p>Minimum integer value that can be precisely represented:</p>
+<pre class="w3-code"><code class="language-javascript">let x = Number.MIN_SAFE_INTEGER;</code></pre>
+
+</div>
+<div class="w3-example">
+<h3>MAX_SAFE_INTEGER Example</h3>
+<p>Maximum integer value that can be precisely represented:</p>
+<pre class="w3-code"><code class="language-javascript">let x = Number.MAX_SAFE_INTEGER;</code></pre>
+
+</div>
+
+<hr>
+<a id="mark_number_isinteger"></a>
+<h2>The Number.isInteger() Method</h2>
+<p>The <code class="w3-codespan">Number.isInteger()</code> method returns <code class="w3-codespan">true</code> if the argument is an integer.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">Number.isInteger(10);        // returns true
+Number.isInteger(10.5);      // returns false</code></pre>
+
+</div>
+
+<hr>
+<a id="mark_number_issafeinteger"></a>
+<h2>The Number.isSafeInteger() Method</h2>
+<p>A safe integer is an integer that can be exactly represented as a double precision number.</p>
+<p>The <code class="w3-codespan">Number.isSafeInteger()</code> method returns <code class="w3-codespan">true</code> if the argument is a safe integer.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">Number.isSafeInteger(10);    // returns true
+Number.isSafeInteger(12345678901234567890);  // returns false</code></pre>
+
+</div>
+
+<div class="w3-container ws-note">
+<p>Safe integers are all integers from -(2<sup>53</sup> - 1) to +(2<sup>53</sup> - 1).<br>
+This is safe: 9007199254740991. This is not safe: 9007199254740992.</p>
+</div>
+<hr>
+
+<a id="mark_global_methods"></a>
+<h2>New Global Methods</h2>
+<p>ES6 added 2 new global number methods:</p>
+<ul>
+<li><code class="w3-codespan">isFinite()</code></li>
+  <li><code class="w3-codespan">isNaN()</code></li>
+</ul>
+<hr>
+<h2>The isFinite() Method</h2>
+<p>The global <code class="w3-codespan">isFinite()</code> method returns <code class="w3-codespan">false</code> if the argument is <code class="w3-codespan">Infinity</code> or <code class="w3-codespan">NaN</code>.</p>
+<p>Otherwise it returns <code class="w3-codespan">true</code>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">isFinite(10/0);       // returns false
+isFinite(10/1);       // returns true</code></pre>
+
+</div>
+<hr>
+
+<h2>The isNaN() Method</h2>
+<p>The global <code class="w3-codespan">isNaN()</code> method returns <code class="w3-codespan">true</code> if the argument is <code class="w3-codespan">NaN</code>. Otherwise it returns <code class="w3-codespan">false</code>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">isNaN("Hello");       // returns true</code></pre>
+
+</div>
+
+<hr>
+<a id="mark_object_assign"></a>
+<h2>JavaScript Object.assign()</h2>
+<p>The <code class="w3-codespan">Object.assign()</code> method copies properties from
+one or more source objects to a target object.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create Target Object
+const person1 = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 50,
+  eyeColor: "blue"
+};
+// Create Source Object
+const person2 = {firstName: "Anne",lastName: "Smith"};
+// Assign Source to Target
+Object.assign(person1, person2);</code></pre>
+
+</div>
+
+<hr>
+<a id="mark_regexp_uflag"></a>
+<h2>RegExp u Modifier</h2>
+<div class="w3-example">
+<h3>Examples</h3>
+<pre class="w3-code"><code class="language-javascript">let text = "Hello 😄";
+let pattern = /\p{Emoji}/u;
+let result = pattern.test(text);</code></pre>
+
+<pre class="w3-code"><code class="language-javascript">let text = "Hello 😄";
+let pattern = /\p{Emoji}/;
+let result = pattern.test(text);</code></pre>
+
+</div>
+
+<h2>Description</h2>
+<p>The <b>u</b> (unicode) flag enables full Unicode support in the regular expression.</p>
+<p>By default, JavaScript and regex treats 4-byte Unicode characters
+(like emojis or less common symbols) as two separate 2-byte "surrogate" code units.</p>
+<p>The <b>u</b> flag treats the pattern as a sequence of Unicode code points, which is important for correctly
+handling characters outside the Basic Multilingual Plane (BMP).</p>
+
+<hr>
+<a id="mark_regexp_yflag"></a>
+<h2>RegExp y Modifier</h2>
+<div class="w3-example">
+<h3>Examples</h3>
+<pre class="w3-code"><code class="language-javascript">let text = "abc def ghi";
+let pattern = /\w+/y;
+// Start match from position 4
+pattern.lastIndex = 4;
+let result = text.match(pattern);</code></pre>
+
+<pre class="w3-code"><code class="language-javascript">let text = "abc def ghi";
+let pattern = /\w+/;
+// Start match from position 4
+pattern.lastIndex = 4;
+let result = text.match(pattern);</code></pre>
+
+</div>
+
+<hr>
+<h2>Description</h2>
+<p>The <b>y</b> (Sticky) flag performs a "sticky" search that matches only from the lastIndex
+property of the RegExp object.</p>
+<p>The <b>y</b> flag  ensures that subsequent matches start immediately
+after the previous one, without skipping characters.</p>
+
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_2016.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_es5.html">Next ❯</a>
+</div>
+
+

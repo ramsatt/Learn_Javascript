@@ -1,0 +1,239 @@
+
+      
+
+<h1>ECMAScript 2022</h1>
+
+
+<hr>
+<h2>New Features in JavaScript 2022</h2>
+<p>Supported in all modern browsers since <b>March 2023</b>.</p>
+
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Feature</th><th>Description</th><th></th></tr>
+<tr><td><a href="js_2022d41d.html?#mark_array_at">Array at()</a></td>
+<td>Returns an indexed element from an array</td><td></td></tr>
+<tr><td><a href="js_2022d41d.html?#mark_string_at">String at()</a></td>
+<td>Returns an indexed element from an string</td><td></td></tr>
+<tr><td><a href="js_2022d41d.html?#mark_regexp_d">RegExp /d</a></td>
+<td>Perform substring matches</td><td></td></tr>
+<tr><td><a href="js_2022d41d.html?#mark_hasown">Object.hasOwn()</a></td>
+<td>Check if a property is the own property of an object</td><td></td></tr>
+<tr><td><a href="js_2022d41d.html?#mark_error_cause">error.cause</a></td>
+<td>Lets you specify the reason behind an error</td><td></td></tr>
+<tr><td><a href="js_2022d41d.html?#mark_await_import">await import</a></td>
+<td>Lets JavasSript modules wait for resources that require import before running.</td><td></td></tr>
+<tr><td><a href="js_2022d41d.html?#mark_class_fields">Class field declarations</a></td>
+<td>Allows for properties to be defined directly within a class</td><td></td></tr>
+<tr><td><a href="js_2022d41d.html?#mark_private_methods">Private methods and fields</a></td>
+<td>Allows for private properties (#method and #field)</td><td></td></tr>
+</tbody></table></div>
+</div>
+
+<hr>
+<h2>Browser Support</h2>
+<p><b>ECMAScript 2022</b> is supported in all modern browsers since <b>March 2023</b>:</p>
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr>
+    <th class="bsChrome" title="Chrome"></th>
+    <th class="bsEdge" title="Edge"></th>
+    <th class="bsFirefox" title="Firefox"></th>
+    <th class="bsSafari" title="Safari"></th>
+    <th class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>94</td>    
+    <td>Edge<br>94</td>
+    <td>Firefox<br>93</td>
+    <td>Safari<br>16.4</td>
+    <td>Opera<br>80</td>
+  </tr>
+  <tr>
+    <td>Sep 2021</td>
+    <td>Sep 2021</td>    
+    <td>Oct 2021</td>
+    <td>Mar 2023</td>
+    <td>Oct 2021</td>
+  </tr>
+</tbody></table></div>
+</div>
+<hr>
+<a id="mark_array_at"></a>
+<h2>JavaScript Array at()</h2>
+
+<p>ES2022 intoduced the array method <code class="w3-codespan">at()</code>:</p>
+
+<div class="w3-example">
+<h3>Examples</h3>
+<p>Get the third element of fruits:</p>
+<pre class="w3-code"><code class="language-javascript">const fruits = ["Banana", "Orange", "Apple", "Mango"];
+let fruit = fruits.at(2);</code></pre>
+
+<p>Get the third element of fruits:</p>
+<pre class="w3-code"><code class="language-javascript">const fruits = ["Banana", "Orange", "Apple", "Mango"];
+let fruit = fruits[2];</code></pre>
+
+</div>
+<p>The <code class="w3-codespan">at()</code> method returns an indexed element from an array.</p>
+<p>The <code class="w3-codespan">at()</code> method returns the same as <code class="w3-codespan">[]</code>.</p>
+<p>The <code class="w3-codespan">at()</code> method is supported in all modern browsers since March 2022:</p>
+<div class="ws-note">
+<h2>Note</h2>
+<p>Many languages allows <code class="w3-codespan">negative bracket indexing</code> like [-1] to access elements from the end of an
+object / array / string.</p>
+<p>This is not possible in JavaScript, because [] is used for accessing both arrays and objects.
+obj[-1] refers to the value of key -1, not to the last property of the object.</p>
+<p>The <code class="w3-codespan">at()</code> method was introduced in ES2022 to solve this problem.</p>
+</div>
+<hr>
+
+<a id="mark_string_at"></a>
+<h2>JavaScript String at()</h2>
+
+<p>ES2022 intoduced the string method <code class="w3-codespan">at()</code>:</p>
+
+<div class="w3-example">
+<h3>Examples</h3>
+<p>Get the third letter of name:</p>
+<pre class="w3-code"><code class="language-javascript">const name = "W3Schools";
+let letter = name.at(2);</code></pre>
+
+<p>Get the third letter of name:</p>
+<pre class="w3-code"><code class="language-javascript">const name = "W3Schools";
+let letter = name[2];</code></pre>
+
+</div>
+<p>The <code class="w3-codespan">at()</code> method returns an indexed element from an string.</p>
+<p>The <code class="w3-codespan">at()</code> method returns the same as <code class="w3-codespan">[]</code>.</p>
+
+<hr>
+<a id="mark_regexp_d"></a>
+<h2>RegExp d Modifier</h2>
+<p>ES2022 added the /d modifier to express the start and end of the match.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let text = "aaaabb";
+let result = text.match(/(aa)(bb)/d);</code></pre>
+
+</div>
+
+<p>RegExp Modifiers are used to spescfy case-insensitive, and other global searches:</p>
+
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate">
+  <tbody><tr>
+    <th>Modifier</th>
+    <th>Description</th>
+    <th width="75px"></th>                
+  </tr>
+  <tr>
+    <td>i</td>
+    <td>Perform case-insensitive matching</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>g</td>
+    <td>Perform a global match (find all)</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>m</td>
+    <td>Perform multiline matching</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>d</td>
+    <td>Perform substring matches (New in ES2022)</td>
+    <td></td>
+  </tr>
+</tbody></table></div>
+
+<hr>
+<a id="mark_hasown"></a>
+<h2>Object hasOwn</h2>
+<p>ES2022 provides a safe way to check if a property is the own property of an object.</p>
+<p><code class="w3-codespan">Object.hasOwn()</code> is similar to
+<code class="w3-codespan">Object.hasOwnProperty()</code> but supports all object types.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">Object.hasOwn(myObject, age)</code></pre>
+
+</div>
+
+<hr>
+<a id="mark_error_cause"></a>
+<h2>Error Cause</h2>
+<p>Starting from ECMAScript 2022, the Error constructor
+(and its subclasses like TypeError, SyntaxError, etc.)
+supports an optional <code class="w3-codespan">{cause}</code> property.</p>
+<p>This allows you to create chained errors - where one error includes another as its cause.</p>
+<div class="w3-example">
+<h3>Example (before)</h3>
+<pre class="w3-code"><code class="language-javascript">try {
+  // Create a JSON parse failure
+  JSON.parse("blablablabla");
+} catch(err) {
+  let text = err.name + " " + err.message;
+}</code></pre>
+
+</div>
+<div class="w3-example">
+<h3>Example (now)</h3>
+<pre class="w3-code"><code class="language-javascript">try {
+  try {
+    // Create a JSON parse failure
+    JSON.parse("<b>blablablabla</b>");
+  } catch(err) {
+    // Create a new error and include the original one as the cause
+    throw new Error("Failed to load JSON", {cause:err});
+  }
+} catch(err){
+  let text = err.name + " " + err.message;
+  document.getElementById("demo").innerHTML = text;
+}</code></pre>
+
+</div>
+
+<hr>
+
+<hr>
+
+<a id="mark_await_import"></a>
+<h2>JavaScript await import</h2>
+<p>JavasSript modules can now wait for resources that require import before running:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">import {myData} from './myData.js';
+const data = await myData();</code></pre>
+</div>
+
+<hr>
+<a id="mark_class_fields"></a>
+<h2>JavaScript Class Field Declarations</h2>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">class Hello {
+  counter = 0; // Class field
+}
+const myClass = new Hello();
+let x = myClass.counter;</code></pre>
+</div>
+
+<hr>
+<a id="mark_private_methods"></a>
+<h2>JavaScript Private Methods and Fields</h2>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">class Hello {
+  #counter = 0;  // Private field
+  #myMethod() {} // Private method
+}
+const myClass = new Hello();
+let x = myClass.#counter; // Error
+myClass.#myMethod();      // Error</code></pre>
+</div>
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_2023.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_2021.html">Next ❯</a>
+</div>
+
+

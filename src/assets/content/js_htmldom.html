@@ -1,0 +1,111 @@
+
+      
+
+<h1>The HTML DOM</h1>
+
+<!--start-->
+<div class="ws-info">
+<h2>HTML Document Object Model</h2>
+<p>The <b>HTML DOM</b> (HTML Document Object Model) is an <b>Object Model for HTML Documents</b>.</p>
+<img style="width:100%;border:1px solid lightgrey" src="assets/images/img_htmltree_800.png" alt="DOM HTML tree">
+<div class="w3-container w3-center w3-light-grey">
+<p>The <b>HTML DOM</b> is a tree of <b>Nodes</b> that represents an <b>HTML Page</b>.</p>
+</div>
+
+</div>
+<hr>
+<h2>The DOM Tree</h2>
+<p>When a web page loads, the browser creates a tree-like representation of the HTML document.</p>
+<p>Each part of the document are nodes in the tree:</p>
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Node</th> <th>Description</th></tr>
+<tr><td>Document</td> <td>Owner of all nodes in the document</td></tr>
+<tr><td>&lt;html&gt;</td> <td>Element Node</td></tr>
+<tr><td>&lt;head&gt;</td> <td>Element Node</td></tr>
+<tr><td>&lt;body&gt;</td> <td>Element Node</td></tr>
+<tr><td>&lt;a&gt;</td> <td>Element Node</td></tr>
+<tr><td>href</td> <td>Attribute Node</td></tr>
+<tr><td>&lt;h1&gt;</td> <td>Element Node</td></tr>
+<tr><td>My Header</td> <td>Text Node</td></tr>
+</tbody></table></div>
+</div>
+
+<hr>
+<h2>Accessing HTML Elements</h2>
+<p>The HTML DOM can be used to access HTML elements.</p>
+<p>The most common way to access an HTML element is to use the <code class="w3-codespan">id</code> of the 
+element:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;html&gt;
+&lt;body&gt;
+&lt;p id="demo"&gt;&lt;/p&gt;
+&lt;script&gt;
+// Access a paragraph Element
+const myPara = document.getElementById("demo");
+// Change the content of the Element
+myPara.innerHTML = "Hello World!";
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+</div>
+<p>In the example above, the <code class="w3-codespan">getElementById</code>
+method used <code class="w3-codespan">id="demo"</code> to find the 
+element.</p>
+
+<ul>
+<li><code class="w3-codespan">id="demo"</code> is an <b>HTML property</b></li>
+<li><code class="w3-codespan">getElementById()</code> is a <b>DOM Method</b></li>
+<li><code class="w3-codespan">innerHTML</code> is a <b>DOM Property</b></li>
+</ul>
+
+
+<hr>
+
+<hr>
+
+<h2>What You Will Learn</h2>
+<p>In the next chapters of this tutorial you will learn:</p>
+<ul>
+<li>How to <b>change the content</b> of HTML elements</li>
+<li>How to <b>change the style</b> (CSS) of HTML elements</li>
+<li>How to <b>add and delete</b> HTML elements</li>
+<li>How to <b>react to events</b> in from HTML elements</li>
+</ul>
+
+<hr>
+<h2>The World Wide Web Consortium</h2>
+<p>The DOM is a <b>W3C Standard</b> (World Wide Web Consortium):</p>
+<div class="w3-container w3-sand">
+<p><i>"The W3C Document Object Model (DOM) is a platform and language-neutral 
+interface that allows programs and scripts to dynamically access and update the 
+content, structure, and style of a document."</i></p>
+</div>
+<p>The W3C DOM standard is separated into 3 different parts:</p>
+<ul>
+  <li>Core DOM - standard model for all document types</li>
+  <li>XML DOM - standard model for XML documents</li>
+  <li><b>HTML DOM - standard model for HTML documents</b></li>
+</ul>
+<hr>
+<div class="ws-note">
+<h2>Note</h2>
+<p>The <b>HTML DOM</b> is a language independent standard developed by the W3C and WHATWG.</p>
+</div>
+
+
+<!--stop-->
+<hr>
+
+<hr>
+
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_atomics.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_htmldom_methods.html">Next ❯</a>
+</div>
+
+

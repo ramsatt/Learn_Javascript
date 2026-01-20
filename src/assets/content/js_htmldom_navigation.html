@@ -1,0 +1,307 @@
+
+      
+
+<h1>JavaScript HTML DOM Navigation</h1>
+
+<hr>
+<!--start-->
+<p class="intro">With the HTML DOM, you can navigate the node tree using node 
+relationships.</p>
+<hr>
+<h2>DOM Nodes</h2>
+<p>According to the W3C HTML DOM standard, everything in an HTML document is a node:</p>
+<ul>
+  <li>The entire document is a document node</li>
+  <li>Every HTML element is an element node</li>
+  <li>The text inside HTML elements are text nodes</li>
+  <li>Every HTML attribute is an attribute node (deprecated)</li>
+  <li>All comments are comment nodes</li>
+</ul>
+
+<div class="w3-white notranslate">
+<img class="w3-image" src="assets/images/pic_htmltree.gif" alt="DOM HTML tree">
+</div>
+<p>With the HTML DOM, all nodes in the node tree can be accessed by JavaScript.</p>
+<p>New nodes can be created, and all 
+nodes can be modified or deleted. </p>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Node Relationships</h2>
+<p>The nodes in the node tree have a hierarchical relationship to each other.</p>
+<p>The terms parent, child, and sibling are used to describe the relationships. </p>
+<ul>
+  <li>In a node tree, the top node is called the root (or root node)</li>
+  <li>Every node has exactly one parent, except the root (which has no parent)</li>
+  <li>A node can have a number of children</li>
+  <li>Siblings (brothers or sisters) are nodes with the same parent</li>
+</ul>
+
+
+
+<p>From the HTML above you can read:</p>
+<ul>
+  <li><code class="w3-codespan">&lt;html&gt;</code> is the root node</li>
+  <li><code class="w3-codespan">&lt;html&gt;</code> has no parents </li>
+  <li><code class="w3-codespan">&lt;html&gt;</code> is the parent of <code class="w3-codespan">&lt;head&gt;</code> and <code class="w3-codespan">&lt;body&gt;</code></li>
+  <li><code class="w3-codespan">&lt;head&gt;</code> is the first child of <code class="w3-codespan">&lt;html&gt;</code></li>
+  <li><code class="w3-codespan">&lt;body&gt;</code> is the last child of <code class="w3-codespan">&lt;html&gt;</code></li>
+</ul>
+<p>and:</p>
+<ul>
+  <li><code class="w3-codespan">&lt;head&gt;</code> has one child: <code class="w3-codespan">&lt;title&gt;</code></li>
+  <li><code class="w3-codespan">&lt;title&gt;</code> has one child (a text node): "DOM Tutorial"</li>
+  <li><code class="w3-codespan">&lt;body&gt;</code> has two children: <code class="w3-codespan">&lt;h1&gt;</code> and <code class="w3-codespan">&lt;p&gt;</code></li>
+  <li><code class="w3-codespan">&lt;h1&gt;</code> has one child: "DOM Lesson one"</li>
+  <li><code class="w3-codespan">&lt;p&gt;</code> has one child: "Hello world!"</li>
+  <li><code class="w3-codespan">&lt;h1&gt;</code> and <code class="w3-codespan">&lt;p&gt;</code> are siblings</li>
+</ul>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>Navigating Between Nodes</h2>
+<p>You can use the following node properties to navigate between nodes with 
+JavaScript:</p>
+<ul>
+  <li><code class="w3-codespan">parentNode</code></li>
+  <li><code class="w3-codespan">childNodes[<em>nodenumber</em>]</code></li>
+  <li><code class="w3-codespan">firstChild</code></li>
+  <li><code class="w3-codespan">lastChild</code></li>
+  <li><code class="w3-codespan">nextSibling</code></li>
+  <li><code class="w3-codespan">previousSibling</code></li>
+</ul>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Child Nodes and Node Values</h2>
+
+<div class="w3-panel ws-note">
+<p>A common error in DOM processing is to expect an element node to contain text.</p>
+</div>
+
+<div class="w3-example">
+<h3>Example:</h3>
+<pre class="w3-code"><code class="language-html">&lt;title id="demo"&gt;DOM Tutorial&lt;/title&gt;</code></pre>
+</div>
+
+<p>The element node 
+<code class="w3-codespan">&lt;title&gt;</code> (in the example above) does <strong>not</strong> contain text.</p>
+<p>It contains a <b>text node</b> with the value "DOM Tutorial". </p>
+<p>The value of the text node can be accessed by the 
+node's 
+<code class="w3-codespan">innerHTML</code> property:
+</p><div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">myTitle = document.getElementById("demo").innerHTML;</code></pre>
+</div>
+<p>Accessing the innerHTML property is the same as accessing the <code class="w3-codespan">nodeValue</code> 
+of the first child:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">myTitle = document.getElementById("demo").firstChild.nodeValue;</code></pre>
+</div>
+
+<p>Accessing the first child can also be done like this:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">myTitle = document.getElementById("demo").childNodes[0].nodeValue;</code></pre>
+</div>
+<!--stop-->
+<!--start-->
+<p>All the (3) following examples retrieves the text of an <code class="w3-codespan">&lt;h1&gt;</code> element and copies it 
+into a <code class="w3-codespan">&lt;p&gt;</code> element:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;html&gt;
+&lt;body&gt;
+&lt;h1 id="id01"&gt;My First Page&lt;/h1&gt;
+&lt;p id="id02"&gt;&lt;/p&gt;
+&lt;script&gt;
+document.getElementById("id02").innerHTML = document.getElementById("id01").innerHTML;
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+ 
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;html&gt;
+&lt;body&gt;
+&lt;h1 id="id01"&gt;My First Page&lt;/h1&gt;
+&lt;p id="id02"&gt;&lt;/p&gt;
+&lt;script&gt;
+document.getElementById("id02").innerHTML = document.getElementById("id01").firstChild.nodeValue;
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+ 
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;html&gt;
+&lt;body&gt;
+&lt;h1 id="id01"&gt;My First Page&lt;/h1&gt;
+&lt;p id="id02"&gt;Hello!&lt;/p&gt;
+&lt;script&gt;
+document.getElementById("id02").innerHTML = document.getElementById("id01").childNodes[0].nodeValue;
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+ 
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>InnerHTML</h2>
+<p>In this tutorial we use the innerHTML property to retrieve the content of an 
+HTML element.</p>
+<p>However, learning 
+the other methods above is useful for understanding the tree structure and the 
+navigation of the DOM.</p>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>DOM Root Nodes</h2>
+<p>There are two special properties that allow access to the full document:</p>
+<ul>
+  <li><code class="w3-codespan">document.body</code> - The body of the document</li>
+  <li><code class="w3-codespan">document.documentElement</code> - The full document</li>
+</ul>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;html&gt;
+&lt;body&gt;
+&lt;h2&gt;JavaScript HTMLDOM&lt;/h2&gt;
+&lt;p&gt;Displaying document.body&lt;/p&gt;
+&lt;p id="demo"&gt;&lt;/p&gt;
+&lt;script&gt;
+document.getElementById("demo").innerHTML = document.body.innerHTML;
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;html&gt;
+&lt;body&gt;
+&lt;h2&gt;JavaScript HTMLDOM&lt;/h2&gt;
+&lt;p&gt;Displaying document.documentElement&lt;/p&gt;
+&lt;p id="demo"&gt;&lt;/p&gt;
+&lt;script&gt;
+document.getElementById("demo").innerHTML = document.documentElement.innerHTML;
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The nodeName Property</h2>
+<p>The <code class="w3-codespan">nodeName</code> property specifies the name of a node.</p>
+<ul>
+  <li>nodeName is read-only</li>
+  <li>nodeName of an element node is the same as the tag name</li>
+  <li>nodeName of an attribute node is the attribute name</li>
+  <li>nodeName of a text node is always #text</li>
+  <li>nodeName of the document node is always #document</li>
+</ul>
+
+<div class="w3-example">
+<h3>Example</h3>
+ <pre class="w3-code"><code class="language-html">&lt;h1 id="id01"&gt;My First Page&lt;/h1&gt;
+&lt;p id="id02"&gt;&lt;/p&gt;
+&lt;script&gt;
+document.getElementById("id02").innerHTML = document.getElementById("id01").nodeName;
+&lt;/script&gt;</code></pre>
+
+</div>
+<div class="w3-panel ws-note">
+<p><b>Note:</b> <code class="w3-codespan">nodeName</code> always contains the uppercase tag name of an HTML element.</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The nodeValue Property</h2>
+<p>The <code class="w3-codespan">nodeValue</code> property specifies the value of a node.</p>
+<ul>
+  <li>nodeValue for element nodes is <code class="w3-codespan">null</code></li>
+  <li>nodeValue for text nodes is the text itself</li>
+  <li>nodeValue for attribute nodes is the attribute value</li>
+</ul>
+
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The nodeType Property</h2>
+<p>The <code class="w3-codespan">nodeType</code> property is read only. It returns the type of a node.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;h1 id="id01"&gt;My First Page&lt;/h1&gt;
+&lt;p id="id02"&gt;&lt;/p&gt;
+&lt;script&gt;
+document.getElementById("id02").innerHTML = document.getElementById("id01").nodeType;
+&lt;/script&gt;</code></pre>
+
+</div>
+
+<p>The most important nodeType properties are:</p>
+
+<div class="w3-responsive">
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate">
+<tbody><tr>
+<th>Node</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+<tr>
+  <td>ELEMENT_NODE</td>
+  <td>1</td>
+  <td>&lt;h1 class="heading"&gt;W3Schools&lt;/h1&gt;</td>
+</tr>
+<tr>
+  <td>ATTRIBUTE_NODE</td>
+  <td>2</td>
+  <td>&nbsp;class = "heading" (deprecated)</td>
+</tr>
+<tr>
+  <td>TEXT_NODE</td>
+  <td>3</td>
+  <td>W3Schools</td>
+</tr>
+<tr>
+  <td>COMMENT_NODE</td>
+  <td>8</td>
+  <td>&lt;!-- This is a comment --&gt;</td>
+</tr>
+<tr>
+  <td>DOCUMENT_NODE</td>
+  <td>9</td>
+  <td>The HTML document itself (the parent of &lt;html&gt;)</td>
+</tr>
+<tr>
+  <td>DOCUMENT_TYPE_NODE</td>
+  <td>10</td>
+  <td>&lt;!Doctype html&gt;</td>
+</tr>
+</tbody></table></div>
+</div>
+
+<div class="w3-panel ws-note">
+<p>Type 2 is deprecated in the HTML DOM (but works). It is not deprecated in the XML DOM.</p>
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_atomics.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_htmldom_nodes.html">Next ❯</a>
+</div>
+
+

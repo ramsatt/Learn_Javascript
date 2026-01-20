@@ -1,0 +1,235 @@
+
+      
+
+<h1>JavaScript Datatypes</h1>
+
+<hr>
+<!--start-->
+<h2>JavaScript has 8 Datatypes</h2>
+<p>A JavaScript variable can hold 8 types of data:</p>
+
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Type</th><th>Description</th></tr>
+<tr><td>String</td><td>A text of characters enclosed in quotes</td></tr>
+<tr><td>Number</td><td>A number representing a mathematical value</td></tr>
+<tr><td>Bigint</td><td>A number representing a large integer</td></tr>
+<tr><td>Boolean</td><td>A data type representing true or false</td></tr>
+<tr><td>Object</td><td>A collection of key-value pairs of data</td></tr>
+<tr><td>Undefined</td><td>A primitive variable with no assigned value</td></tr>
+<tr><td>Null</td><td>A primitive value representing object absence</td></tr>
+<tr><td>Symbol</td><td>A unique and primitive identifier</td></tr>
+</tbody></table></div>
+</div>
+
+<div class="w3-example">
+<h3>Examples</h3>
+<pre class="w3-code"><code class="language-javascript">// String
+let color = "Yellow";
+let lastName = "Johnson";
+// Number
+let length = 16;
+let weight = 7.5;
+// BigInt
+let x = 1234567890123456789012345n;
+let y = BigInt(1234567890123456789012345)
+// Boolean
+let x = true;
+let y = false;
+// Object
+const person = {firstName:"John", lastName:"Doe"};
+// Array object
+const cars = ["Saab", "Volvo", "BMW"];
+// Date object
+const date = new Date("2022-03-25");
+// Undefined
+let x;
+let y;
+// Null
+let x = null;
+let y = null;
+// Symbol
+const x = Symbol();
+const y = Symbol();</code></pre>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The typeof Operator</h2>
+<p>You can use the JavaScript <code class="w3-codespan">typeof</code> operator to find the type 
+of a JavaScript variable.</p>
+<p>The <code class="w3-codespan">typeof</code> operator returns the type of a variable or an expression:</p>
+<div class="w3-example">
+  <h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">typeof ""             // Returns "string"
+typeof "John"         // Returns "string"
+typeof "John Doe"     // Returns "string"</code></pre>
+  
+</div>
+
+
+<div class="w3-example">
+  <h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">typeof 0              // Returns "number"
+typeof 314            // Returns "number"
+typeof 3.14           // Returns "number"
+typeof (3)            // Returns "number"
+typeof (3 + 4)        // Returns "number"</code></pre>
+  
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>JavaScript Strings</h2>
+<p>A string (a text string) is a series of characters like "John Doe".</p>
+<p>Strings are written with quotes. You can use single or double quotes:<br>
+</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Using double quotes:
+let carName1 = "Volvo XC60";
+// Using single quotes:
+let carName2 = 'Volvo XC60';</code></pre>
+<a class="w3-btn w3-margin-bottom" href="tryit29d2.html?filename=tryjs_datatypes_string_quotes">Try 
+it Yourself »</a>
+</div>
+<p>You can use quotes inside a string, as long as they don't match the quotes 
+surrounding the string:</p>
+<div class="w3-example">
+ <h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Single quote inside double quotes:
+let answer1 = "It's alright";
+// Single quotes inside double quotes:
+let answer2 = "He is called 'Johnny'";
+// Double quotes inside single quotes:
+let answer3 = 'He is called "Johnny"';</code></pre>
+<a class="w3-btn w3-margin-bottom" href="tryit822b.html?filename=tryjs_datatypes_string">Try 
+it Yourself »</a></div>
+<div class="ws-note">
+<h2>Note</h2>
+<p>You will learn a lot more about <b><a href="js_strings.html">JavaScript Strings</a></b> later in this tutorial.</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>JavaScript Numbers</h2>
+<p>All JavaScript numbers are stored as decimal numbers (floating point).</p>
+<p>Numbers can be written with, or without decimals:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// With decimals:
+let x1 = 34.00;
+// Without decimals:
+let x2 = 34;</code></pre>
+<a class="w3-btn w3-margin-bottom" href="tryit2301.html?filename=tryjs_datatypes_numbers">Try 
+it Yourself »</a>
+</div>
+<hr>
+<h2>Exponential Notation</h2>
+<p>Extra large or extra small numbers can be written with scientific 
+(exponential) notation:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let y = 123e5;    // 12300000
+let z = 123e-5;   // 0.00123</code></pre>
+<a class="w3-btn w3-margin-bottom" href="tryitb7bb.html?filename=tryjs_datatypes_numbers_large">Try 
+it Yourself »</a></div>
+
+<!--stop-->
+
+<hr>
+
+<hr>
+
+<h2>JavaScript Booleans</h2>
+<p>JavaScript booleans can only have one of two values: <b>true</b> or <b>false</b></p>
+<p>The boolean value of an expression is the basis for JavaScript comparisons.</p>
+<p>Given that <b>x = 5</b>, the table below explains comparison:</p>
+
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate">
+<tbody><tr></tr>
+<tr>
+<th>Description</th>
+<th>Expression</th>
+<th>Returns</th>
+</tr>
+<tr>
+<td>Equal to</td>
+<td>(x == 8)</td>
+<td><b>false</b></td>
+</tr>
+<tr>
+<td>Not equal to</td>
+<td>(x != 8)</td>
+<td><b>true</b></td>
+</tr>
+<tr>
+<td>Greater than</td>
+<td>(x &gt; 8)</td>
+<td><b>false</b></td>
+</tr>
+<tr>
+<td>Less than</td>
+<td>(x &lt; 8)</td>
+<td><b>true</b></td>
+</tr>
+</tbody></table></div>
+</div>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 5;
+(x == 8); // equals false
+(x != 8); // equals true</code></pre>
+
+</div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>All JavaScript comparison operators (like ==, !=, &lt;, &gt;)
+return <b>true</b> or <b>false</b> from the comparison.</p>
+</div>
+<hr>
+<!--start-->
+<h2>Datatype undefined</h2>
+<p>In computer programs, variables are often declared without a value. The value 
+can be something that has to be calculated, or something that will be provided 
+later, like user input.</p>
+<p>A variable without a value has the datatype <code class="w3-codespan">undefined</code>.</p>
+<p>A variable without a value also has the value <code class="w3-codespan">undefined</code>.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let carName;</code></pre>
+
+</div>
+<!--stop-->
+
+<hr>
+<!--start-->
+<h2>Empty Values </h2>
+<p>An empty value has nothing to do with <code class="w3-codespan">undefined</code>.</p>
+<p>An empty string has both a legal value and a type.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let car = "";    // The value is "", the typeof is "string"</code></pre>
+
+</div>
+<div class="ws-note">
+<h2>Note</h2>
+<p>You will learn a lot more about <a href="js_datatypes.html"><b>Data Types</b></a> later in this tutorial.</p>
+</div>
+
+
+<hr>
+
+<hr>
+
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_const.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_operators.html">Next ❯</a>
+</div>
+
+

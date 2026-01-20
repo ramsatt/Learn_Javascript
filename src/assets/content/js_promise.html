@@ -1,0 +1,377 @@
+
+      
+
+<h1>JavaScript Promises</h1>
+
+<!--start-->
+<div class="w3-panel ws-info w3-center" style="padding:8px">
+<p class="w3-xlarge"><i>"I Promise a Result!"</i></p>
+<p>"Producing code" is code that can take some time</p>
+<p>"Consuming code" is code that must wait for the result</p>
+<p>A Promise is an Object that links Producing code and Consuming code</p>
+</div>
+<div class="ws-info">
+<p>The <b>Promise Object</b> represents the completion or failure of an asynchronous operation and its results.</p>
+<p>A Promise can have 3 states:</p>
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr><td>pending</td><td>initial state</td></tr>
+<tr><td>rejected</td><td>operation failed</td></tr>
+<tr><td>fulfilled</td><td>operation completed</td></tr>
+</tbody></table></div>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create a Promise Object
+let myPromise = new Promise(function(myResolve, myReject) {
+  let result = true;
+// Code that may take some time goes here
+  if (result == true) {
+    myResolve("OK");
+  } else {
+    myReject("Error");
+  }
+});
+// Using then() to display result
+myPromise.then(x =&gt; myDisplay(x), x =&gt; myDisplay(x));</code></pre>
+<p>
+
+</p>
+</div>
+
+<!--stop-->
+<!--start-->
+<h2>JavaScript Promise Object</h2>
+<p>A Promise contains both the producing code and calls to the consuming code:</p>
+<div class="w3-example">
+<h3>Promise Syntax</h3>
+<pre class="w3-code"><code class="language-javascript">let myPromise = new Promise(function(myResolve, myReject) {
+// "Producing Code" (May take some time)
+  myResolve(); // when successful
+  myReject();  // when error
+});
+// "Consuming Code" (Must wait for a fulfilled Promise)
+myPromise.then(
+  function(value) { /* code if successful */ },
+  function(error) { /* code if some error */ }
+);</code></pre>
+</div>
+<p>When the producing code obtains the result, it should call one of the two callbacks:
+</p><div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr><th>When</th><th>Call</th></tr>
+<tr><td>Success</td><td>myResolve(result value)</td></tr>
+<tr><td>Error</td><td>myReject(error object)</td></tr>
+</tbody></table></div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Promise Object Properties</h2>
+<p>A JavaScript Promise object can be:</p>
+<ul>
+<li>Pending</li>
+<li>Fulfilled</li>
+<li>Rejected</li>
+</ul>
+
+<p>The Promise object supports two properties: <b>state</b> and <b>result</b>.</p>
+<p>While a Promise object is "pending" (working), the result is undefined.</p>
+<p>When a Promise object is "fulfilled", the result is a value.</p>
+<p>When a Promise object is "rejected", the result is an error object.</p>
+
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr><th>myPromise.state</th><th>myPromise.result</th></tr>
+<tr><td>"pending"</td><td>undefined</td></tr>
+<tr><td>"fulfilled"</td><td>a result value</td></tr>
+<tr><td>"rejected"</td><td>an error object</td></tr>
+</tbody></table></div>
+<div class="w3-panel ws-note">
+<p>You cannot access the Promise properties <b>state</b> and <b>result</b>.</p>
+<p>You must use a Promise method to handle promises.</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Promise How To</h2>
+<p>Here is how to use a Promise:</p>
+
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">myPromise.then(
+  function(value) { /* code if successful */ },
+  function(error) { /* code if some error */ }
+);</code></pre>
+</div>
+
+<div class="w3-panel ws-note">
+<p>Promise.then() takes two arguments, a callback for success and another for failure.</p>
+<p>Both are optional, so you can add a callback for success or failure only.</p>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">function myDisplayer(some) {
+  document.getElementById("demo").innerHTML = some;
+}
+let myPromise = new Promise(function(myResolve, myReject) {
+  let x = 0;
+// The producing code (this may take some time)
+  if (x == 0) {
+    myResolve("OK");
+  } else {
+    myReject("Error");
+  }
+});
+myPromise.then(
+  function(value) {myDisplayer(value);},
+  function(error) {myDisplayer(error);}
+);</code></pre>
+<p>
+
+</p>
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>JavaScript Promise Examples</h2>
+<p>To demonstrate the use of promises, we will use the callback examples from the previous chapter:</p>
+<ul>
+<li>Waiting for a Timeout</li>
+<li>Waiting for a File</li>
+</ul> 
+<hr>
+<h2>Waiting for a Timeout</h2>
+<div class="w3-example">
+<h3>Example Using Callback</h3>
+<pre class="w3-code"><code class="language-javascript">setTimeout(function() { myFunction("I love You !!!"); }, 3000);
+function myFunction(value) {
+  document.getElementById("demo").innerHTML = value;
+}</code></pre>
+<p>
+
+</p>
+</div>
+<div class="w3-example">
+<h3>Example Using Promise</h3>
+<pre class="w3-code"><code class="language-javascript">let myPromise = new Promise(function(myResolve, myReject) {
+  setTimeout(function() { myResolve("I love You !!"); }, 3000);
+});
+myPromise.then(function(value) {
+  document.getElementById("demo").innerHTML = value;
+});</code></pre>
+<p>
+
+</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Waiting for a file</h2>
+<div class="w3-example">
+<h3>Example using Callback</h3>
+<pre class="w3-code"><code class="language-javascript">function getFile(myCallback) {
+  let req = new XMLHttpRequest();
+  req.open('GET', "mycar.html");
+  req.onload = function() {
+    if (req.status == 200) {
+      myCallback(req.responseText);
+    } else {
+      myCallback("Error: " + req.status);
+    }
+  }
+  req.send();
+}
+getFile(myDisplayer);</code></pre>
+<p>
+
+</p>
+</div>
+<!--stop-->
+<!--start-->
+<div class="w3-example">
+<h3>Example using Promise</h3>
+<pre class="w3-code"><code class="language-javascript">let myPromise = new Promise(function(myResolve, myReject) {
+  let req = new XMLHttpRequest();
+  req.open('GET', "mycar.html");
+  req.onload = function() {
+    if (req.status == 200) {
+      myResolve(req.response);
+    } else {
+      myReject("File not Found");
+    }
+  };
+  req.send();
+});
+myPromise.then(
+  function(value) {myDisplayer(value);},
+  function(error) {myDisplayer(error);}
+);</code></pre>
+<p>
+
+</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>JavaScript Promise.allSettled()</h2>
+<p>The <code class="w3-codespan">Promise.allSettled()</code> method returns a single Promise from a list of promises.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create a Promise
+const myPromise1 = new Promise((resolve, reject) =&gt; {
+  setTimeout(resolve, 200, "King");
+});
+// Create another Promise
+const myPromise2 = new Promise((resolve, reject) =&gt; {
+  setTimeout(resolve, 100, "Queen");
+});
+// Settle All
+Promise.allSettled([myPromise1, myPromise2]).then((results) =&gt;
+  results.forEach((x) =&gt; myDisplay(x.status)),
+);</code></pre>
+
+</div>
+<div class="ws-note">
+<h2>Note</h2>
+<p>Promise.allSettled() means "Just run all promises. I don't care about the results".</p>
+</div>
+<h2>Browser Support</h2>
+<p><code class="w3-codespan">Promise.allSettled()</code> is an <a href="js_2020.html">ES2020</a> feature.</p>
+<p>ES2020 is fully supported in all modern browsers since September 2020:</p>
+<div class="w3-responsive">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+  <tbody><tr style="height:50px">
+    <th style="width:20%;" class="bsChrome" title="Chrome"></th>
+    <th style="width:20%;" class="bsEdge" title="Edge"></th>
+    <th style="width:20%;" class="bsFirefox" title="Firefox"></th>
+    <th style="width:20%;" class="bsSafari" title="Safari"></th>
+    <th style="width:19%;" class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome<br>85</td>    
+    <td>Edge<br>85</td>
+    <td>Firefox<br>79</td>
+    <td>Safari<br>14</td>
+    <td>Opera<br>71</td>
+  </tr>
+  <tr>
+    <td>Aug 2020</td>
+    <td>Aug 2020</td>    
+    <td>Mar 2020</td>
+    <td>Sep 2020</td>
+    <td>Sep 2020</td>
+  </tr>
+</tbody>
+</table></div>
+</div>
+
+
+<hr>
+<hr>
+<a id="mark_withresolvers"></a>
+<h2>JavaScript Promise.withResolvers()</h2>
+
+<p><code class="w3-codespan">Promise.withResolvers()</code>
+is a static method that simplifies the creation and management of Promises.</p>
+<p><code class="w3-codespan">Promise.withResolvers()</code> provides a more convenient way to access
+the resolve and reject functions associated with a Promise outside of its executor function.</p>
+<p>Instead of the traditional <code class="w3-codespan">new Promise((resolve, reject) =&gt; { ... })</code> constructor pattern,
+Promise.withResolvers() returns an object containing:</p>
+<ul>
+<li><b>promise:</b> The newly created Promise instance</li>
+<li><b>resolve:</b> A function to fulfill the promise with a value</li>
+<li><b>reject:</b> A function to reject the promise with a reason (error)</li>
+</ul>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;p id="demo"&gt;Waiting...&lt;/p&gt;
+&lt;script&gt;
+const {promise, resolve, reject} = Promise.withResolvers();
+// You can now use 'resolve' and 'reject' anywhere
+// in your code to control the state of 'promise'.
+// Simulate async work
+setTimeout(() =&gt; {
+  const success = Math.random() &gt; 0.5;
+  if (success) {
+    resolve("Operation successful!");
+  } else {
+    reject("Operation failed!");
+  }
+}, 1000);
+// Update the UI when the promise finishes
+promise
+  .then((message) =&gt; {
+    document.getElementById("demo").innerHTML = message;
+  })
+  .catch((error) =&gt; {
+    document.getElementById("demo").innerHTML = error;;
+});
+&lt;/script&gt;</code></pre>
+
+</div>
+<h3>Example Explained</h3>
+<ul>
+<li>The &lt;p id="demo"&gt; initially shows "Waiting..."</li>
+<li>After 1 second, the promise resolves or rejects</li>
+<li>The result is written into "demo"</li>
+</ul>
+
+<div class="w3-example">
+<p>The code to simulate async work can be simplified to:</p>
+<pre class="w3-code"><code class="language-javascript">// Simulate async work
+setTimeout(() =&gt; {
+  Math.random() &gt; 0.5
+  ? resolve("Operation successful!")
+  : reject("Operation failed!");
+}, 1000);</code></pre>
+</div>
+
+<div class="w3-example">
+<p>The then / catch code can be simplified to:</p>
+<pre class="w3-code"><code class="language-javascript">// Set text in then/catch, update DOM in finally
+promise
+  .then((message) =&gt; text = message)
+  .catch((error) =&gt; text = error)
+  .finally(() =&gt; {
+    document.getElementById("demo").innerHTML = text;
+});</code></pre>
+
+</div>
+<h3>Example Explained</h3>
+<ul>
+<li>.then() or .catch() set the text variable</li>
+<li>.finally() always runs last, no matter success or failure</li>
+<li>The DOM is updated exactly once, cleanly and reliably</li>
+</ul>
+
+<div class="w3-example">
+<p>Using async/await is the cleanest:</p>
+<pre class="w3-code"><code class="language-javascript">// Use async/await to handle the promise
+(async () =&gt; {
+  try {
+    text = await promise; // Wait for resolve
+  } catch (err) {
+    text = err; // Handle reject
+  }
+  // Update the UI after promise finishes
+  document.getElementById("demo").innerHTML = text;
+})();</code></pre>
+
+</div>
+<h3>Example Explained</h3>
+<ul>
+<li>async/await makes asynchronous code look synchronous</li>
+<li>The DOM is updated after the promise resolves or rejects</li>
+<li>The UI updates in one place (no duplicated innerHTML calls)</li>
+</ul>
+<br>
+<!--stop-->
+<br>
+
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_asynchronous.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_async.html">Next ❯</a>
+</div>
+
+

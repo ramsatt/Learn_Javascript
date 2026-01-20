@@ -1,0 +1,173 @@
+
+      
+
+<h1>Selecting DOM Elements</h1>
+
+
+<!--start-->
+<div class="ws-info">
+
+<h2>Finding HTML Elements</h2>
+<p>Often, with JavaScript, you want to manipulate HTML elements.</p>
+<p>To do so, you have to find the elements first. There are several ways to do this:</p>
+<ul>
+  <li>Finding HTML elements by id</li>
+  <li>Finding HTML elements by tag name </li>
+  <li>Finding HTML elements by class name</li>
+  <li>Finding HTML elements by CSS selectors</li>
+  <li>Finding HTML elements by HTML object collections</li>
+</ul>
+</div>
+
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Finding HTML Element by Id</h2>
+
+<p>The easiest way to find an HTML element in the DOM, is by using the element id.</p>
+<p>This example finds the element with <code class="w3-codespan">id="intro"</code>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const element = document.getElementById("intro");</code></pre>
+
+</div>
+<p>If the element is found, the method will return the element as an object (in element).</p>
+<p>If the element is not found, element will contain <code class="w3-codespan">null</code>.</p>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Finding HTML Elements by Tag Name</h2>
+<p>This example finds all <code class="w3-codespan">&lt;p&gt;</code> elements:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const element = document.getElementsByTagName("p");</code></pre>
+
+</div>
+
+<p>This example finds the element with <code class="w3-codespan">id="main"</code>, and then finds all <code class="w3-codespan">&lt;p&gt;</code> elements 
+inside <code class="w3-codespan">"main"</code>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const x = document.getElementById("main");
+const y = x.getElementsByTagName("p");</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>Finding HTML Elements by Class Name</h2>
+<p>If you want to find all HTML elements with the same class name, use 
+<code class="w3-codespan">getElementsByClassName()</code>.<br>
+</p>
+
+<p>This example returns a list of all elements with <code class="w3-codespan">class="intro"</code>.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const x = document.getElementsByClassName("intro");</code></pre>
+
+</div>
+
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Finding HTML Elements by CSS Selectors</h2>
+
+
+<hr>
+<h2>The querySelector() Method</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;html&gt;
+&lt;body&gt;
+&lt;p class="demo"&gt;&lt;/p&gt;
+&lt;script&gt;
+// Access a paragraph Element
+const myPara = document.querySelector(".demo");
+// Change the content of the Element
+myPara.innerHTML = "Hello World!";
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+</div>
+
+<hr>
+<h2>The querySelectorAll() Method</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;html&gt;
+&lt;body&gt;
+&lt;p class="demo"&gt;One&lt;/p&gt;
+&lt;p class="demo"&gt;Two&lt;/p&gt;
+&lt;script&gt;
+// Access a paragraph Element
+const myItems = document.querySelector(".demo");
+// Change the content of the Element
+myItems[0].innerHTML = "First";
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+</div>
+<hr>
+<h2>Common Mistakes</h2>
+<ul>
+<li>Using `#` in getElementById():<br>
+&nbsp;&nbsp;Wrong: <b>"#demo"</b></li>
+<li>Forgetting that querySelector() returns only the first match</li>
+</ul>
+
+<p>If you want to find all HTML elements that match a specified CSS selector 
+(id, class names, types, attributes, values of attributes, etc), use the <code class="w3-codespan">querySelectorAll()</code> method.<br>
+</p>
+
+<p>This example returns a list of all <code class="w3-codespan">&lt;p&gt;</code> elements with <code class="w3-codespan">class="intro"</code>.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const x = document.querySelectorAll("p.intro");</code></pre>
+
+</div>
+
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Finding HTML Elements by HTML Object Collections</h2>
+<p>This example finds the form element with <code class="w3-codespan">id="frm1"</code>, in the forms 
+collection, and displays all element 
+values:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const x = document.forms["frm1"];
+let text = "";
+for (let i = 0; i &lt; x.length; i++) {
+  text += x.elements[i].value + "&lt;br&gt;";
+}
+document.getElementById("demo").innerHTML = text;</code></pre>
+
+</div>
+<p>The following HTML objects (and object collections) are also accessible:</p>
+<ul>
+  <li><a href="tryite29a.html?filename=tryjs_doc_anchors">document.anchors</a></li>
+  <li><a href="tryit2d2d.html?filename=tryjs_doc_body">document.body</a></li>
+  <li><a href="tryit1f8a.html?filename=tryjs_doc_element">document.documentElement</a></li>
+  <li><a href="tryit1c62.html?filename=tryjs_doc_embeds">document.embeds</a></li>
+  <li><a href="tryit3716.html?filename=tryjs_doc_forms">document.forms</a></li>
+  <li><a href="tryit8544.html?filename=tryjs_doc_head">document.head</a></li>
+  <li><a href="tryitda96.html?filename=tryjs_doc_images">document.images</a></li>
+  <li><a href="tryitf60f.html?filename=tryjs_doc_links">document.links</a></li>
+  <li><a href="tryit3af5.html?filename=tryjs_doc_scripts">document.scripts</a></li>
+  <li><a href="tryit9662.html?filename=tryjs_doc_title">document.title</a></li>
+</ul>
+<!--stop-->
+<hr>
+
+<hr>
+
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_htmldom_methods.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_htmldom_html.html">Next ❯</a>
+</div>
+
+

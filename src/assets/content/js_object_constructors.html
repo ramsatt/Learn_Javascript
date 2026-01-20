@@ -1,0 +1,233 @@
+
+      
+
+<h1>JavaScript Object Constructors</h1>
+
+<!--start-->
+<div class="ws-info">
+<h2>Object Constructor Functions</h2>
+<p>Sometimes we need to create many objects of the same <b>type</b>.</p>
+<p>To create an <b>object type</b> we use an <strong>object constructor function</strong>.</p>
+<p>It is considered good practice to name constructor functions with an upper-case first letter.</p>
+</div>
+
+<div class="w3-example">
+<h3>Object Type Person</h3>
+<pre class="w3-code"><code class="language-javascript">function Person(first, last, age, eye) {
+  this.firstName = first;
+  this.lastName = last;
+  this.age = age;
+  this.eyeColor = eye;
+}</code></pre>
+<a class="w3-btn w3-margin-bottom" href="tryit9bae.html?filename=tryjs_object_constructor">Try 
+it yourself »</a></div>
+
+<div class="w3-panel ws-note">
+<h2>Note:</h2>
+<p>In the constructor function, <code class="w3-codespan">this</code> has no value.</p>
+<p>The value of <code class="w3-codespan">this</code> will become the new object when 
+a new object is created.</p>
+<h2>See Also:</h2>
+<p><a href="js_this.html">The JavaScript <b>this</b> Tutorial</a></p>
+</div>
+
+<p>Now we can use <code class="w3-codespan">new Person()</code>
+to create many new Person objects:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const myFather = new Person("John", "Doe", 50, "blue");
+const myMother = new Person("Sally", "Rally", 48, "green");
+const mySister = new Person("Anna", "Rally", 18, "green");
+const mySelf = new Person("Johnny", "Rally", 22, "green");</code></pre>
+<a class="w3-btn w3-margin-bottom" href="tryite17e.html?filename=tryjs_object_constructor1">Try 
+it yourself »</a>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Property Default Values</h2>
+<p>A <b>value</b> given to a property will be a <b>default value</b> for all objects
+created by the constructor:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">function Person(first, last, age, eyecolor) {
+  this.firstName = first;
+  this.lastName = last;
+  this.age = age;
+  this.eyeColor = eyecolor;
+  this.nationality = "English";
+}</code></pre>
+
+</div>
+<!--stop-->
+
+<hr>
+<!--start-->
+<h2>Adding a Property to an Object</h2>
+<p>Adding a property to a created object is easy:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">myFather.nationality = "English";</code></pre>
+
+</div>
+
+<div class="ws-note">
+<h2>Note:</h2>
+<p>The new property will be added to <b>myFather</b>. Not to any other <b>Person Objects</b>.</p>
+</div>
+
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Adding a Property to a Constructor</h2>
+
+<p>You can <b>NOT</b> add a new property to an object constructor:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">Person.nationality = "English";</code></pre>
+
+</div>
+
+<p>To add a new property, you must add it to the constructor function prototype:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">Person.prototype.nationality = "English";</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>Constructor Function Methods</h2>
+<p>A constructor function can also have <b>methods</b>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">function Person(first, last, age, eyecolor) {
+  this.firstName = first;
+  this.lastName = last;
+  this.age = age;
+  this.eyeColor = eyecolor;
+  this.fullName = function() {
+    return this.firstName + " " + this.lastName;
+  };
+}</code></pre>
+
+</div>
+
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Adding a Method to an Object</h2>
+<p>Adding a method to a created object is easy: </p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">myMother.changeName = function (name) {
+  this.lastName = name;
+}</code></pre>
+
+</div>
+
+<div class="ws-note">
+<h2>Note:</h2>
+<p>The new method will be added to <b>myMother</b>. Not to any other <b>Person Objects</b>.</p>
+</div>
+
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Adding a Method to a Constructor</h2>
+<p>You cannot add a new method to an object constructor function.</p>
+<p>This code will produce a TypeError:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">Person.changeName = function (name) {
+  this.lastName = name;
+}
+myMother.changeName("Doe");</code></pre>
+<p>&nbsp;<code class="w3-codespan">TypeError: myMother.changeName is not a function</code></p>
+</div>
+
+<p>Adding a new method must be done to the constructor function prototype:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">Person.prototype.changeName = function (name) {
+  this.lastName = name;
+}
+myMother.changeName("Doe");</code></pre>
+
+</div>
+
+<div class="ws-note">
+<h2>Note:</h2>
+<p>The changeName() function assigns the value of <code class="w3-codespan">name</code>
+to the person's <code class="w3-codespan">lastName</code> property, substituting <code class="w3-codespan">this</code> with <code class="w3-codespan">myMother</code>.</p>
+</div>
+
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Built-in JavaScript Constructors</h2>
+<p>JavaScript has built-in constructors for all native objects:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">new Object()   // A new Object object
+new Array()    // A new Array object
+new Map()      // A new Map object
+new Set()      // A new Set object
+new Date()     // A new Date object
+new RegExp()   // A new RegExp object
+new Function() // A new Function object</code></pre>
+
+</div>
+<div class="ws-note">
+<h2>Note:</h2>
+<p>The <code class="w3-codespan">Math()</code> object is not in the list. <code class="w3-codespan">Math</code> is a global object. The <code class="w3-codespan">new</code> keyword cannot be used on 
+<code class="w3-codespan">Math</code>.</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Did You Know?</h2>
+<p>Use object literals <code class="w3-codespan">{}</code> instead of <code class="w3-codespan">new Object()</code>.</p>
+<p>Use array literals <code class="w3-codespan">[]</code> instead of <code class="w3-codespan">new Array()</code>.</p>
+<p>Use pattern literals <code class="w3-codespan">/()/</code> instead of <code class="w3-codespan">new RegExp()</code>.</p>
+<p>Use function expressions <code class="w3-codespan">() {}</code> instead of <code class="w3-codespan">new Function()</code>.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">"";           // primitive string
+0;            // primitive number
+false;        // primitive boolean
+{};           // object object
+[];           // array object
+/()/          // regexp object
+function(){}; // function</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<div class="ws-note">
+<h2>Learn More:</h2>
+<p class="w3-large"><a href="js_object_definition.html">JavaScript Object Definitions</a></p>
+<p class="w3-large"><a href="js_object_constructors.html">JavaScript Object Constructors</a></p>
+<p class="w3-large"><a href="js_this.html">JavaScript Object this</a></p>
+<p class="w3-large"><a href="js_destructuring.html">JavaScript Object Destructuring</a></p>
+<p class="w3-large"><a href="js_object_prototypes.html">JavaScript Object Prototypes</a></p>
+<p class="w3-large"><a href="js_object_methods.html">JavaScript Object Iterations</a></p>
+<p class="w3-large"><a href="js_object_property.html">JavaScript Object Management</a></p>
+<p class="w3-large"><a href="js_object_accessors.html">JavaScript Object Getters &amp; Setters</a></p>
+<p class="w3-large"><a href="js_object_protection.html">JavaScript Object Protection</a></p>
+<p class="w3-large"><a href="js_object_reference.html">JavaScript Object Reference</a></p>
+</div>
+
+<hr>
+
+<hr>
+
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_object_display.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_this.html">Next ❯</a>
+</div>
+
+

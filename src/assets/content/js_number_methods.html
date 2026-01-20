@@ -1,0 +1,436 @@
+
+      
+
+<h1>JavaScript Number Methods</h1>
+
+<!--start-->
+<div class="ws-info">
+<div class="table-responsive-wrapper"><table class="w3-table">
+<tbody><tr><td width="50%">
+<h2>Basic Methods</h2>
+<p>Basic number methods can be used <b>on any number</b>:</p>
+<a href="#mark_tostring">toString()</a><br>
+<a href="#mark_toexponential">toExponential()</a><br>
+<a href="#mark_tofixed">toFixed()</a><br>
+<a href="#mark_toprecision">toPrecision()</a><br>
+<a href="#mark_valueof">valueOf()</a><br>
+</td><td>
+<h2>Static Methods</h2>
+<p>Static methods can only be used <b>on Number</b>:</p>
+<a href="#mark_isfinite">Number.isFinite()</a><br>
+<a href="#mark_isinteger">Number.isInteger()</a><br>
+<a href="#mark_isnan">Number.isNan()</a><br>
+<a href="#mark_issafeinteger">Number.isSafeInteger()</a><br>
+<a href="#mark_parseint">Number.parseInt()</a><br>
+<a href="#mark_parsefloat">Number.parseFloat()</a><br>
+</td>
+</tr>
+</tbody></table></div>
+</div>
+
+<div class="ws-note w3-large">
+<h2>See Also:</h2>
+<a href="js_numbers.html">Numbers Tutorial</a><br>
+<a href="js_number_properties.html">Number Properties</a><br>
+<a href="js_number_reference.html">Number Reference</a><br>
+</div>
+
+<!--stop-->
+<!--start-->
+<a id="mark_tostring"></a>
+<h2>The toString() Method</h2>
+<p>The <code class="w3-codespan">toString()</code> method returns a number as a string.</p>
+
+<p>All number methods can be used on any type of numbers (literals, variables, or expressions):</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 123;
+x.toString();
+(123).toString();
+(100 + 23).toString();</code></pre>
+
+</div>
+
+<p>The <code class="w3-codespan">toString()</code> method can take an optional radix argument to convert
+the number to a different base:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 123;
+let text = x.toString(2);</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_toexponential"></a>
+<h2>The toExponential() Method</h2>
+<p><code class="w3-codespan">toExponential()</code> returns a string, with a number rounded and written using exponential notation.</p>
+<p>A parameter defines the number of characters behind the decimal point:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 9.656;
+x.toExponential(2);
+x.toExponential(4);
+x.toExponential(6);</code></pre>
+<a class="w3-btn w3-margin-bottom" href="tryit2e8a.html?filename=tryjs_number_toexponential">Try 
+it Yourself »</a>
+</div>
+<p>The parameter is optional. If you don't specify it, JavaScript will not round the number.</p>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<a id="mark_tofixed"></a>
+<h2>The toFixed() Method</h2>
+<p><code class="w3-codespan">toFixed()</code> returns a string, with the number 
+written with a specified number of 
+decimals:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 9.656;
+x.toFixed(0);
+x.toFixed(2);
+x.toFixed(4);
+x.toFixed(6);</code></pre>
+<a class="w3-btn w3-margin-bottom" href="tryit2e76.html?filename=tryjs_number_tofixed">Try 
+it Yourself »</a></div>
+
+<div class="w3-panel ws-note">
+<p><code class="w3-codespan">toFixed(2)</code> is perfect for working with money.</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_toprecision"></a>
+<h2>The toPrecision() Method</h2>
+<p><code class="w3-codespan">toPrecision()</code> returns a string, with a number written with a 
+specified length:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 9.656;
+x.toPrecision();
+x.toPrecision(2);
+x.toPrecision(4);
+x.toPrecision(6);</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_valueof"></a>
+<h2>The valueOf() Method</h2>
+<p><code class="w3-codespan">valueOf()</code> returns a number as a number.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 123;
+x.valueOf();
+(123).valueOf();
+(100 + 23).valueOf();</code></pre>
+
+</div>
+<p>In JavaScript, a number can be a primitive value (typeof = number) or an 
+object (typeof = object).</p>
+<p>The <code class="w3-codespan">valueOf()</code> method is used internally in JavaScript to convert Number 
+objects to primitive values.</p>
+<p>There is no reason to use it in your code.</p>
+
+<div class="w3-panel ws-note">
+<p>All JavaScript data types have a <code class="w3-codespan">valueOf()</code> and a <code class="w3-codespan">toString()</code> method.</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Converting Variables to Numbers</h2>
+<p>There are 3 JavaScript methods that can be used 
+to convert a variable to a number:</p>
+
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+  <tbody><tr>
+    <th style="width:120px">Method</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>Number()</td>
+    <td>Returns a number converted from its argument.</td>
+  </tr>
+  <tr>
+    <td>parseFloat()</td>
+    <td>Parses its argument and returns a floating point number</td>
+    </tr>
+  <tr>
+    <td>parseInt()</td>
+    <td>Parses its argument and returns a whole number</td>
+    </tr>
+</tbody></table></div>
+</div>
+<div class="ws-note">
+<p>The methods above are not <strong>number</strong> methods. They are <strong>global</strong> JavaScript methods.</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The Number() Method</h2>
+<p>The <code class="w3-codespan">Number()</code> method can be used to convert JavaScript variables to numbers:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">Number(true);
+Number(false);
+Number("10");
+Number("  10");
+Number("10  ");
+Number(" 10  ");
+Number("10.33");
+Number("10,33");
+Number("10 33");
+Number("John");</code></pre>
+
+</div>
+
+<div class="w3-panel ws-note">
+<p>If the number cannot be converted, <code class="w3-codespan">NaN</code> (Not a Number) is returned.</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The Number() Method Used on Dates</h2>
+<p><code class="w3-codespan">Number()</code> can also convert a date to a number.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">Number(new Date("1970-01-01"))</code></pre>
+
+</div>
+<div class="w3-panel ws-note">
+<h2>Note</h2>
+<p>The <code class="w3-codespan">Date()</code> method returns the number of milliseconds since 1.1.1970.
+</p>
+</div>
+
+<p>The number of milliseconds between 1970-01-02 and 1970-01-01 is 86400000:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">Number(new Date("1970-01-02"))</code></pre>
+
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">Number(new Date("2017-09-30"))</code></pre>
+
+</div>
+
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_parseint"></a>
+<h2>The parseInt() Method</h2>
+<p><code class="w3-codespan">parseInt()</code> parses a string and returns a whole number. Spaces are 
+allowed. Only the first number is returned:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">parseInt("-10");
+parseInt("-10.33");
+parseInt("10");
+parseInt("10.33");
+parseInt("10 20 30");
+parseInt("10 years");
+parseInt("years 10");</code></pre>
+<a class="w3-btn w3-margin-bottom" href="tryitd0dc.html?filename=tryjs_global_parseint">Try 
+it Yourself »</a></div>
+<p>If the number cannot be converted, <code class="w3-codespan">NaN</code> (Not a Number) is returned.</p>
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_parsefloat"></a>
+<h2>The parseFloat() Method</h2>
+<p><code class="w3-codespan">parseFloat()</code> parses a string and returns a number. Spaces are 
+allowed. Only the first number is returned:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">parseFloat("10");
+parseFloat("10.33");
+parseFloat("10 20 30");
+parseFloat("10 years");
+parseFloat("years 10");</code></pre>
+<a class="w3-btn w3-margin-bottom" href="tryitfa05.html?filename=tryjs_global_parsefloat">Try 
+it Yourself »</a></div>
+<p>If the number cannot be converted, <code class="w3-codespan">NaN</code> (Not a Number) is returned.</p>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Number Object Methods</h2>
+<p>These <b>object methods</b> belong to the <b>Number</b> object:</p>
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr><th>Method</th><th>Description</th></tr>
+<tr><td>Number.isInteger()</td><td>Returns true if the argument is an integer</td></tr>
+<tr><td>Number.isNaN()</td><td>Returns true if the argument is NaN</td></tr>
+<tr><td>Number.isFinite()</td><td>Returns true if the argument is not Infinity nor NaN</td></tr>
+<tr><td>Number.isSafeInteger()</td><td>Returns true if the argument is a safe integer</td></tr>
+<tr><td>Number.parseFloat()</td><td>Converts a string to a number</td></tr>
+<tr><td>Number.parseInt()</td><td>Converts a string to a whole number</td></tr>
+</tbody></table></div>
+</div>
+<div class="ws-note">
+<h2>Number Methods Cannot be Used on Variables</h2>
+<p>The number methods above belong to the JavaScript <b>Number Object</b>.</p>
+<p>These methods can only be accessed like <code class="w3-codespan">Number.isInteger()</code>.</p>
+<p>Using X.isInteger() where X is a variable, will result in an error:</p>
+<p><code class="w3-codespan">TypeError X.isInteger is not a function</code>.</p>
+</div>
+
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_isinteger"></a>
+<h2>The Number.isInteger() Method</h2>
+<p>The <code class="w3-codespan">Number.isInteger()</code> method returns <code class="w3-codespan">true</code> if the argument is an integer.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">Number.isInteger(10);
+Number.isInteger(10.5);</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_isfinite"></a>
+<h2>The Number.isFinite() Method</h2>
+<p>The <code class="w3-codespan">Number.isFinite()</code> method returns <code class="w3-codespan">true</code>
+if the argument is not Infinity, -iInfinity, nor Nan.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">Number.isFinite(123);</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_isnan"></a>
+<h2>The Number.isNaN() Method</h2>
+<p>The <code class="w3-codespan">Number.isNaN()</code> method returns <code class="w3-codespan">true</code>
+if the argument is NaN (Not a Number).</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">Number.isNaN(123);</code></pre>
+
+</div>
+<div class="ws-note">
+<h2>Note</h2>
+<p><code class="w3-codespan">Number.isNaN()</code> is the preferred way to check for equality with NaN.
+You cannot test for equality with NaN using == or ===.</p> 
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_issafeinteger"></a>
+<h2>The Number.isSafeInteger() Method</h2>
+<p>A safe integer is an integer that can be exactly represented as a double precision number.</p>
+<p>The <code class="w3-codespan">Number.isSafeInteger()</code> method returns <code class="w3-codespan">true</code> if the argument is a safe integer.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">Number.isSafeInteger(10);
+Number.isSafeInteger(12345678901234567890);</code></pre>
+
+</div>
+
+<div class="w3-container ws-note">
+<p>Safe integers are all integers from -(2<sup>53</sup> - 1) to +(2<sup>53</sup> - 1).<br>
+This is safe: 9007199254740991. This is not safe: 9007199254740992.</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_parsefloat"></a>
+<h2>The Number.parseFloat() Method</h2>
+<p><code class="w3-codespan">Number.parseFloat()</code> parses a string and returns a number.</p>
+<p>Spaces are allowed. Only the first number is returned:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">Number.parseFloat("10");
+Number.parseFloat("10.33");
+Number.parseFloat("10 20 30");
+Number.parseFloat("10 years");
+Number.parseFloat("years 10");</code></pre>
+<a class="w3-btn w3-margin-bottom" href="tryit8c93.html?filename=tryjs_number_parsefloat">Try 
+it Yourself »</a></div>
+<p>If the number cannot be converted, <code class="w3-codespan">NaN</code> (Not a Number) is returned.</p>
+<div class="ws-note">
+<h2>Note</h2>
+<p>The <b>Number</b> methods <code class="w3-codespan">Number.parseInt()</code>
+and <code class="w3-codespan">Number.parseFloat()</code><br><br>
+are the same as the<br><br>
+<b>Global</b> methods <code class="w3-codespan">parseInt()</code> and <code class="w3-codespan">parseFloat()</code>.</p>
+<p>The purpose of these two methods is modularization of globals, to make it easier to use the same
+JavaScript code outside the browser.</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<a id="mark_parseint"></a>
+<h2>The Number.parseInt() Method</h2>
+<p><code class="w3-codespan">Number.parseInt()</code> parses a string and returns a whole number.</p>
+<p>Spaces are allowed. Only the first number is returned:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">Number.parseInt("-10");
+Number.parseInt("-10.33");
+Number.parseInt("10");
+Number.parseInt("10.33");
+Number.parseInt("10 20 30");
+Number.parseInt("10 years");
+Number.parseInt("years 10");</code></pre>
+<a class="w3-btn w3-margin-bottom" href="tryit05f7.html?filename=tryjs_number_parseint">Try 
+it Yourself »</a></div>
+<p>If the number cannot be converted, <code class="w3-codespan">NaN</code> (Not a Number) is returned.</p>
+<!--stop-->
+
+<hr>
+<!--start-->
+<h2>The Number.isInteger() Method</h2>
+<p>The <code class="w3-codespan">Number.isInteger()</code> method returns <code class="w3-codespan">true</code> if the argument is an integer.</p>
+<div class="w3-example">
+<h3>Example: isInteger()</h3>
+<pre class="w3-code"><code class="language-javascript">Number.isInteger(10);
+Number.isInteger(10.5);</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The Number.isSafeInteger() Method</h2>
+<p>A safe integer is an integer that can be exactly represented as a double precision number.</p>
+<p>The <code class="w3-codespan">Number.isSafeInteger()</code> method returns <code class="w3-codespan">true</code> if the argument is a safe integer.</p>
+<div class="w3-example">
+<h3>Example isSafeInteger()</h3>
+<pre class="w3-code"><code class="language-javascript">Number.isSafeInteger(10);
+Number.isSafeInteger(12345678901234567890);</code></pre>
+
+</div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>Safe integers are all integers from -(2<sup>53</sup> - 1) to +(2<sup>53</sup> - 1).<br>
+This is safe: 9007199254740991. This is not safe: 9007199254740992.</p>
+</div>
+<!--stop-->
+<hr>
+<div class="ws-note">
+<h2>Complete JavaScript Reference</h2>
+<p>For a complete reference to all JavaScript properties and methods, with full descriptions and many examples, go to:</p>
+<p class="w3-large"><a href="../jsref/default.html">W3Schools' Full JavaScript Reference</a>.</p>
+<p>The reference inludes all JavaScript updates from 1999 to 2025.</p>
+</div>
+
+<hr>
+
+<hr>
+
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_string_reference.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_number_properties.html">Next ❯</a>
+</div>
+
+

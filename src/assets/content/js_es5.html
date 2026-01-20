@@ -1,0 +1,726 @@
+
+      
+
+<h1>JavaScript 2009 (ES5)</h1>
+
+
+<div class="ws-info">
+<h2>ECMAScript 2009</h2>
+<p><b>The first major revision to JavaScript</b>.</p>
+<p>ECMAScript 2009 is also known as ES5.</p> 
+</div>
+
+<h2>ES5 Features</h2>
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr></tr>
+<tr><th>Feature</th><th>Description</th></tr>
+<tr><td><a href="js_es5d41d.html?#mark_use_strict">"use strict"</a></td>
+<td>Allows code to be executed in "strict mode"</td></tr>
+<tr><td><a href="js_es5d41d.html?#mark_string_property_access">String [] access</a></td>
+<td>Returns the character at a specified index in a string</td></tr>
+<tr><td><a href="js_es5d41d.html?#mark_string_multiline">Multiline strings</a></td>
+<td>Aallows strings over multiple lines if escaped with \</td></tr>
+<tr><td><a href="js_es5d41d.html?#mark_string_trim">String.trim()</a></td>
+<td>Removes whitespace from both sides of a string</td></tr>
+<tr><td><a href="js_es5d41d.html?#mark_isarray">Array.isArray()</a></td>
+<td>Returns true if a variable is an array</td></tr>
+<tr><td><a href="js_es5d41d.html?#mark_array_foreach">Array forEach()</a></td>
+<td>Calls a function for each array element</td></tr>
+<tr><td><a href="js_es5d41d.html?#mark_array_map">Array map()</a></td>
+<td>Creates a new array from a function on each element</td></tr>
+<tr><td><a href="js_es5d41d.html?#mark_array_filter">Array filter()</a></td>
+<td>Creates an array from array elements that passes a test</td></tr>
+<tr><td><a href="js_es5d41d.html?#mark_array_reduce">Array reduce()</a></td>
+<td>Reduces an array to a single value (from left)</td></tr>
+<tr><td><a href="js_es5d41d.html?#mark_array_reduceright">Array reduceRight()</a></td>
+<td>Reduces an array to a single value (from right)</td></tr>
+<tr><td><a href="js_es5d41d.html?#mark_array_every">Array every()</a></td>
+<td>Checks if all array values pass a test</td></tr>
+<tr><td><a href="js_es5d41d.html?#mark_array_some">Array some()</a></td>
+<td>Checks if some values pass a test</td></tr>
+<tr><td><a href="js_es5d41d.html?#mark_array_indexof">Array indexOf()</a></td>
+<td>Search for an element value and returns its position</td></tr>
+<tr><td><a href="js_es5d41d.html?#mark_array_lastindexof">Array lastIndexOf()</a></td>
+<td>Search for an element value and returns its position</td></tr>
+<tr><td><a href="js_es5d41d.html?#mark_json_parse">JSON.parse()</a></td>
+<td>Convert JSON into a JavaScript object</td></tr>
+<tr><td><a href="js_es5d41d.html?#mark_json_stringify">JSON.stringify()</a></td>
+<td>Convert JSON into a string</td></tr>
+<tr><td><a href="js_es5d41d.html?#mark_date_now">Date.now()</a></td>
+<td>Returns the number of milliseconds since zero date</td></tr>
+<tr><td><a href="js_es5d41d.html?#mark_date_toiso">Date toISOString()</a></td>
+<td>Converts a date object into to an ISO string</td></tr>
+<tr><td><a href="js_es5d41d.html?#mark_date_tojson">Date toJSON()</a></td>
+<td>Converts a date object into to a JSON string</td></tr>
+<tr><td><a href="js_es5d41d.html?#mark_getter">Property getters</a></td>
+<td>Allows for defining how a property value is retrieved</td></tr>
+<tr><td><a href="js_es5d41d.html?#mark_getter">Property setters</a></td>
+<td>Allows for defining how a property value is set</td></tr>
+<tr><td><a href="js_es5d41d.html?#mark_reserved">Reserved names</a></td>
+<td>Allows reserved names as property names</td></tr>
+<tr><td><a href="js_es5d41d.html?#mark_object_create">Object.create()</a></td>
+<td>Creates an object from an existing object</td></tr>
+<tr><td><a href="js_es5d41d.html?#mark_object_keys">Object.keys()</a></td>
+<td>Returns an array with the keys of an object</td></tr>
+<tr><td><a href="js_es5d41d.html?#mark_object_methods">Object management</a></td>
+<td>Object management methods</td></tr>
+<tr><td><a href="js_es5d41d.html?#mark_object_protection">Object protection</a></td>
+<td>Object protection methods</td></tr>
+<tr><td><a href="js_es5d41d.html?#mark_object_define_property">Object defineProperty()</a></td>
+<td>Allows for defining or changing object properties</td></tr>
+<tr><td><a href="js_es5d41d.html?#mark_function_bind">Function bind()</a></td>
+<td>Let objects borrow methods from other objects</td></tr>
+<tr><td><a href="js_es5d41d.html?#mark_trailing_commas">Trailing commas</a></td>
+<td>allows trailing commas in object and array definitions:</td></tr>
+</tbody></table></div>
+</div>
+
+<hr>
+<h2>Browser Support</h2>
+<p><b>JavaScript 2009</b> is supported in all modern browsers since <b>July 2013</b>:</p>
+<div class="w3-responsive w3-stretch">
+<div class="table-responsive-wrapper"><table class="browserref notranslate">
+<tbody><tr>
+  <th class="bsChrome" title="Chrome"></th>
+  <th class="bsEdge" title="Edge"></th>
+  <th class="bsFirefox" title="Firefox"></th>
+  <th class="bsSafari" title="Safari"></th>
+  <th class="bsOpera" title="Opera"></th>   
+</tr>
+<tr>
+  <td>Chrome<br>23</td>
+  <td>IE/Edge<br>10</td>
+  <td>Firefox<br>21</td>
+  <td>Safari<br>6</td>
+  <td>Opera<br>15</td>
+</tr>
+<tr>
+  <td>Sep 2012</td>
+  <td>Sep 2012</td>
+  <td>Apr 2013</td>
+  <td>Jul 2012</td>
+  <td>Jul 2013</td>
+</tr></tbody></table></div>
+</div>
+
+<a id="mark_use_strict"></a>
+<hr>
+<h2>The "use strict" Directive</h2>
+<p><code class="w3-codespan">"use strict"</code> defines that the JavaScript code should be executed in "strict mode".</p>
+<p>With strict mode you can, for example, not use undeclared variables.</p>
+
+<div class="w3-panel ws-note">
+<p>You can use strict mode in all your programs. It helps you to write cleaner code,
+like preventing you from using undeclared variables.</p>
+<p><code class="w3-codespan">"use strict"</code> is just a string expression. Old browsers will not throw an error if they don't understand it.</p>
+<a href="js_strict.html" class="w3-btn w3-margin-bottom">Learn More ...</a>
+</div>
+
+<a id="mark_string_property_access"></a>
+<hr>
+<h2>Property Access on Strings</h2>
+<p>The <code class="w3-codespan">charAt()</code> method returns the character at a specified 
+index (position) in a string:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let str = "HELLO WORLD";
+str.charAt(0);     // returns H</code></pre>
+  
+</div>
+<p>ES5 allows property access on strings:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let str = "HELLO WORLD";
+str[0];           // returns H</code></pre>
+  
+</div>
+<div class="w3-panel ws-note">
+<p>Property access on string might be a little unpredictable.</p>
+<p>Read more in <a href="js_string_methodsd41d.html?#mark_propertyaccess">JS String Methods</a>.</p>
+</div>
+
+<a id="mark_string_multiline"></a><hr>
+<h2>Strings Over Multiple Lines</h2>
+ES5 allows string literals over multiple lines if escaped with a backslash:
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">"Hello \
+Dolly!";</code></pre>
+
+</div>
+
+<div class="w3-panel ws-note">
+<h2>Note</h2>
+<p>The \ method might not have universal support.<br>Older browsers might treat 
+the spaces around the backslash differently. <br>Some older browsers do 
+not allow spaces behind the \ character.</p>
+</div>
+
+<p>A safer way to break up a string literal, is to use string 
+addition:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">"Hello " +
+"Dolly!";</code></pre>
+
+</div>
+
+<a id="mark_reserved"></a>
+<hr>
+<h2>Reserved Words as Property Names</h2>
+<p>ES5 allows reserved words as property names:</p>
+<div class="w3-example">
+<h3>Object Example</h3>
+<pre class="w3-code"><code class="language-javascript">var obj = {name: "John", new: "yes"}</code></pre>
+
+</div>
+
+<a id="mark_string_trim"></a>
+<hr>
+<h2>String trim()</h2>
+<p>The <code class="w3-codespan">trim()</code> method removes whitespace from both sides of a string.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">var str = "       Hello World!        ";
+alert(str.trim());</code></pre>
+
+</div>
+<p>Learn more in <a href="js_string_methods.html">JS String Methods</a>.</p>
+
+<hr>
+
+<hr>
+
+<a id="mark_isarray"></a>
+<h2>Array.isArray()</h2>
+<p>The <code class="w3-codespan">isArray()</code> method checks whether an object is an array.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const fruits = ["Banana", "Orange", "Apple", "Mango"];
+result = Array.isArray(fruits);</code></pre>
+
+</div>
+<p>Learn more in <a href="js_array_methods.html">JS Array Methods</a>.</p>
+
+<a id="mark_array_foreach"></a>
+<hr>
+<h2>Array forEach()</h2>
+<p>The <code class="w3-codespan">forEach()</code> method calls a function once for each array element.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const numbers = [45, 4, 9, 16, 25];
+numbers.forEach(myFunction);</code></pre>
+
+</div>
+<p>Learn more in <a href="js_array_iteration.html">JS Array Iteration Methods</a>.</p>
+
+<a id="mark_array_map"></a>
+<hr>
+<h2>Array map()</h2>
+<p>The <code class="w3-codespan">map()</code> method creates a new array by performing a function on each array element.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Multiply each array value by 2:</p>
+<pre class="w3-code"><code class="language-javascript">const numbers1 = [45, 4, 9, 16, 25];
+const numbers2 = numbers1.map(myFunction);
+function myFunction(value) {
+  return value * 2;
+}</code></pre>
+  
+</div>
+<p>Learn more in <a href="js_array_iteration.html">JS Array Iteration Methods</a>.</p>
+
+<a id="mark_array_filter"></a>
+<hr>
+<h2>Array filter()</h2>
+<p>The <code class="w3-codespan">filter()</code> method creates a new array from array elements that passes a test.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Create a new array from elements with a value larger than 18:</p>
+<pre class="w3-code"><code class="language-javascript">const numbers = [45, 4, 9, 16, 25];
+const over18 = numbers.filter(myFunction);
+function myFunction(value) {
+  return value &gt; 18;
+}</code></pre>
+
+</div>
+<p>Learn more in <a href="js_array_iteration.html">JS Array Iteration Methods</a>.</p>
+
+<a id="mark_array_reduce"></a>
+<hr>
+<h2>Array reduce()</h2>
+<p>The <code class="w3-codespan">reduce()</code> method reduces an array to a single value.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Find the sum of all numbers in an array:</p>
+<pre class="w3-code"><code class="language-javascript">const numbers = [45, 4, 9, 16, 25];
+let sum = numbers.reduce(myFunction);
+function myFunction(total, value) {
+  return total + value;
+}</code></pre>
+
+</div>
+
+<p>Learn more in <a href="js_array_iteration.html">JS Array Iteration Methods</a>.</p>
+
+<a id="mark_array_reduceright"></a>
+<hr>
+<h2>Array reduceRight()</h2>
+<p>The <code class="w3-codespan">reduceRight()</code> method reduces an array to a single value (from right to left).</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Find the sum of all numbers in an array:</p>
+<pre class="w3-code"><code class="language-javascript">const numbers1 = [45, 4, 9, 16, 25];
+let sum = numbers1.reduceRight(myFunction);
+function myFunction(total, value) {
+  return total + value;
+}</code></pre>
+ 
+</div>
+<p>Learn more in <a href="js_array_iteration.html">JS Array Iteration Methods</a>.</p>
+
+<a id="mark_array_every"></a>
+<hr>
+<h2>Array every()</h2>
+<p>The <code class="w3-codespan">every()</code> method checks if all array values pass a test.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Check if all values are over 18:</p>
+<pre class="w3-code"><code class="language-javascript">const numbers = [45, 4, 9, 16, 25];
+let allOver18 = numbers.every(myFunction);
+function myFunction(value) {
+  return value &gt; 18;
+}</code></pre>
+ 
+</div>
+<p>Learn more in <a href="js_array_iteration.html">JS Array Iteration Methods</a>.</p>
+
+<a id="mark_array_some"></a>
+<hr>
+<h2>Array some()</h2>
+<p>The <code class="w3-codespan">some()</code> method checks if some array values pass a test.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Check if some values are over 18:</p>
+<pre class="w3-code"><code class="language-javascript">const numbers = [45, 4, 9, 16, 25];
+let allOver18 = numbers.some(myFunction);
+function myFunction(value) {
+  return value &gt; 18;
+}</code></pre>
+
+</div>
+<p>Learn more in <a href="js_array_iteration.html">JS Array Iteration Methods</a>.</p>
+
+<a id="mark_array_indexof"></a>
+<hr>
+<h2>Array indexOf()</h2>
+<p>The <code class="w3-codespan">indexOf()</code> method searches for an element value and returns its position.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Search an array for an element value:</p>
+<pre class="w3-code"><code class="language-javascript">const fruits = ["Apple", "Orange", "Apple", "Mango"];
+let position = fruits.indexOf("Apple") + 1;</code></pre>
+
+</div>
+<p>Learn more in <a href="js_array_search.html">JS Array Search Methods</a>.</p>
+
+<a id="mark_array_lastindexof"></a>
+<hr>
+<h2>Array lastIndexOf()</h2>
+<p><code class="w3-codespan">lastIndexOf()</code> is the same as <code class="w3-codespan">indexOf()</code>, but searches from the end of the array.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const fruits = ["Apple", "Orange", "Apple", "Mango"];
+let position = fruits.lastIndexOf("Apple") + 1;</code></pre>
+
+</div>
+<p>Learn more in <a href="js_array_search.html">JS Array Search Methods</a>.</p>
+
+<a id="mark_json_parse"></a>
+<hr>
+<h2>JSON.parse()</h2>
+<p>A common use of JSON is to receive data from a web server.</p>
+<p>Imagine you received this text string from a web server:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">'{"name":"John", "age":30, "city":"New York"}'</code></pre>
+</div>
+<p>The JavaScript function <code class="w3-codespan">JSON.parse()</code> is used to convert the text into a JavaScript object:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const txt = '{"name":"John", "age":30, "city":"New York"}'
+const myObj = JSON.parse(txt);</code></pre>
+
+</div>
+<p>Read more in our <a href="js_json.html">JSON Tutorial</a>.</p>
+
+<a id="mark_json_stringify"></a>
+<hr>
+<h2>JSON.stringify()</h2>
+<p>A common use of JSON is to send data to a web server.</p>
+<p>When sending data to a web server, the data has to be 
+a string.</p>
+<p>Imagine we have this object in JavaScript:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">const myObj = {name:"John", age:30, city:"New York"};</code></pre>
+</div>
+<p>Use the JavaScript function <code class="w3-codespan">JSON.stringify()</code> to convert it into a string.</p>
+ 
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">const myJSON = JSON.stringify(myObj);</code></pre>
+</div>
+<div class="w3-panel ws-note">
+<p>The result will be a string following the JSON notation.</p>
+</div>
+<p>myJSON is now a string, and ready to be sent to a server:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const myObj = {name:"John", age:30, city:"New York"};
+const myJSON = JSON.stringify(myObj);</code></pre>
+
+</div>
+<p>Read more in our <a href="js_json.html">JSON Tutorial</a>.</p>
+
+<a id="mark_date_now"></a>
+<hr>
+<h2>Date.now()</h2>
+<p><code class="w3-codespan">Date.now()</code> returns the number of milliseconds since zero date (January 1. 
+1970 00:00:00 UTC).</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">var timInMSs = Date.now();</code></pre>
+  
+</div>
+<p><code class="w3-codespan">Date.now()</code> returns the same as getTime() performed on a <code class="w3-codespan">Date</code> object.</p>
+<p>Learn more in <a href="js_date_reference.html">JS Date Methods</a>.</p>
+
+<a id="mark_date_toiso"></a>
+<hr>
+<h2>Date toISOString()</h2>
+<p>The <code class="w3-codespan">toISOString()</code> method converts a Date object to a string, using the ISO standard format:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const d = new Date();
+document.getElementById("demo").innerHTML = d.toISOString();</code></pre>
+
+</div>
+<p>Learn more in <a href="js_date_reference.html">JS Date Methods</a>.</p>
+
+<a id="mark_date_tojson"></a>
+<hr>
+<h2>Date toJSON()</h2>
+<p><code class="w3-codespan">toJSON()</code> converts a Date object into a string, formatted as a JSON date.</p>
+<p>JSON dates have the same format as the ISO-8601 standard: YYYY-MM-DDTHH:mm:ss.sssZ:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">d = new Date();
+document.getElementById("demo").innerHTML = d.toJSON();</code></pre>
+
+</div>
+<p>Learn more in <a href="js_date_reference.html">JS Date Methods</a>.</p>
+
+<a id="mark_getter"></a>
+<hr>
+<h2>Property Getters</h2>
+<p>A property getter is a method that allows you to define how a property value is retrieved when it is accessed.</p>
+<p>This example creates a <strong>getter</strong> for a property called fullName:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an object:
+const Person = {
+  firstName: "John",
+  lastName : "Doe",
+  get fullName() {
+    return this.firstName + " " + this.lastName;
+  }
+};
+// Display data from the object using a getter:
+document.getElementById("demo").innerHTML = Person.fullName;</code></pre>
+  
+</div>
+<p>Learn more about Gettes and Setters in <a href="js_object_accessors.html">JS Object Accessors</a></p>
+
+<hr>
+<h2>Property Setters</h2>
+<p>A property setter is a method that allows you to define how a property value is set.</p>
+<p>This example uses a <b>setter</b> to secure upper case updates of language:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const Person = {
+  firstName: "John",
+  lastName : "Doe",
+  language : "NO",
+  set lang(value) {
+    this.language = value.toUpperCase();
+  }
+};
+// Set an object property using a setter:
+person.lang = "en";
+// Display data from the object:
+document.getElementById("demo").innerHTML = Person.language;</code></pre>
+  
+</div>
+
+<p>This example creates a <strong>setter</strong> and a <strong>getter</strong> for the language property:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const Person = {
+  firstName: "John",
+  lastName : "Doe",
+  language : "NO",
+  get lang() {
+    return this.language;
+  },
+  set lang(value) {
+    this.language = value;
+  }
+};
+// Set an object property using a setter:
+person.lang = "en";
+// Display data from the object using a getter:
+document.getElementById("demo").innerHTML = Person.lang;</code></pre>
+  
+</div>
+
+<p>Learn more about Getters and Setters in <a href="js_object_accessors.html">JS Object Accessors</a></p>
+
+<a id="mark_object_define_property"></a>
+<hr>
+
+<h2>Object.defineProperty()</h2>
+<p><code class="w3-codespan">Object.defineProperty()</code> is a new Object method in ES5.</p>
+<p>It lets you define an object property and/or change a property's value and/or 
+metadata.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an Object:
+const person = {
+  firstName: "John",
+  lastName : "Doe",
+  language : "NO",
+};
+// Change a Property:
+<strong>Object.defineProperty</strong>(person, "language", {
+  value: "EN",
+  writable : true,
+  enumerable : true,
+  configurable : true
+});
+// Enumerate Properties
+let txt = "";
+for (let x in person) {
+  txt += person[x] + "&lt;br&gt;";
+}
+// Display Properties
+document.getElementById("demo").innerHTML = txt;</code></pre>
+  
+</div>
+
+<p>Next example is the same code, except it hides the language property from enumeration:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an Object:
+const person = {
+  firstName: "John",
+  lastName : "Doe",
+  language : "NO",
+};
+// Change a Property:
+<strong>Object.defineProperty</strong>(person, "language", {
+  value: "EN",
+  writable : true,
+  enumerable : false,
+  configurable : true
+});
+// Enumerate Properties
+let txt = "";
+for (let x in person) {
+  txt += person[x] + "&lt;br&gt;";
+}
+document.getElementById("demo").innerHTML = txt;</code></pre>
+  
+</div>
+
+<p>This example creates a setter and a getter to secure upper case updates of language:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an Object:
+const person = {
+  firstName: "John",
+  lastName : "Doe",
+  language : "NO"
+};
+// Change a Property:
+<strong>Object.defineProperty</strong>(person, "language", {
+  get : function() { return language },
+  set : function(value) { language = value.toUpperCase()}
+});
+// Change Language
+person.language = "en";
+// Display Language
+document.getElementById("demo").innerHTML = person.language;</code></pre>
+  
+</div>
+<p>Learn more in <a href="js_object_property.html">JS Object Management</a></p>
+
+
+<a id="mark_object_create"></a>
+<hr>
+<h2>Object.create()</h2>
+<p>The <code class="w3-codespan">Object.create()</code> method creates an object from an existing object.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an Object:
+const person = {
+  firstName: "John",
+  lastName: "Doe"
+};
+// Create new Object
+const man = Object.create(person);
+man.firstName = "Peter";</code></pre>
+
+</div>
+<p>Learn more in <a href="js_object_definition.html">JS Object Definition</a></p>
+
+
+<a id="mark_object_keys"></a>
+<hr>
+<h2>Object.keys()</h2>
+<p>The <code class="w3-codespan">Object.keys()</code> method returns an array with the keys of an object.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create an Object
+const person = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 50,
+  eyeColor: "blue"
+};
+// Get the Keys
+const keys = Object.keys(person);</code></pre>
+
+</div>
+<p>Learn more in <a href="js_object_method.html">JS Object Iterations</a></p>
+
+<a id="mark_object_methods"></a>
+<hr>
+<h2>Object Management</h2>
+<p>ES5 added new Object management methods to JavaScript:</p>
+
+<div class="w3-example">
+<h3>Managing Objects</h3>
+<pre class="w3-code"><code class="language-javascript">// Adding or changing an object property
+Object.defineProperty(object, property, descriptor)
+// Adding or changing object properties
+Object.defineProperties(object, descriptors)
+// Accessing a Property
+Object.getOwnPropertyDescriptor(object, property)
+// Accessing Properties
+Object.getOwnPropertyDescriptors(object)
+// Returns all properties as an array
+Object.getOwnPropertyNames(object)
+// Accessing the prototype
+Object.getPrototypeOf(object)</code></pre>
+<p>Learn more in <a href="js_object_property.html">Object Properties</a>.</p>
+</div>
+
+<a id="mark_object_protection"></a>
+<hr>
+<h2>Object Protection</h2>
+<p>ES5 added Object protection methods to JavaScript:</p>
+<div class="w3-example">
+<h3>Protecting Objects</h3>
+<pre class="w3-code"><code class="language-javascript">// Prevents adding properties to an object
+Object.preventExtensions(object)
+// Returns true if properties can be added to an object
+Object.isExtensible(object)
+// Prevents changes of object properties (not values)
+Object.seal(object)
+// Returns true if object is sealed
+Object.isSealed(object)
+// Prevents any changes to an object
+Object.freeze(object)
+// Returns true if object is frozen
+Object.isFrozen(object)</code></pre>
+<p>Learn more in <a href="js_object_protection.html">Object Protection</a>.</p>
+</div>
+
+<a id="mark_function_bind"></a>
+<hr>
+<h2>Function Bind()</h2>
+<p>With the <code class="w3-codespan">bind()</code> method, an object can borrow a method from another object.</p>
+<p>This example creates 2 objects (person and member).</p>
+<p>The member object borrows the fullname method from the person object:</p> 
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const person = {
+  firstName:"John",
+  lastName: "Doe",
+  fullName: function () {
+    return this.firstName + " " + this.lastName;
+  }
+}
+const member = {
+  firstName:"Hege",
+  lastName: "Nilsen",
+}
+let fullName = person.fullName.bind(member);</code></pre>
+
+</div>
+<p>Learn more in <a href="js_function_bind.html">Function bind()</a>.</p>
+
+<a id="mark_trailing_commas"></a>
+<hr>
+<h2>Trailing Commas</h2>
+<p>ES5 allows trailing commas in object and array definitions:</p>
+<div class="w3-example">
+<h3>Object Example</h3>
+<pre class="w3-code"><code class="language-javascript">person = {
+  firstName: "John",
+  lastName: " Doe",
+  age: 46,
+}</code></pre>
+</div>
+<div class="w3-example">
+<h3>Array Example</h3>
+<pre class="w3-code"><code class="language-javascript">points = [
+  1,
+  5,
+  10,
+  25,
+  40,
+  100,
+];</code></pre>
+</div>
+<div class="ws-warning">
+<h2>WARNING</h2>
+<p>JSON does not allow trailing commas.</p>
+</div>
+<div class="w3-example">
+<h3>JSON Objects:</h3>
+<pre class="w3-code"><code class="language-javascript">// Allowed:
+var person = '{"firstName":"John", "lastName":"Doe", "age":46}'
+JSON.parse(person)
+// Not allowed:
+var person = '{"firstName":"John", "lastName":"Doe", "age":46,}'
+JSON.parse(person)</code></pre>
+  <h3>JSON Arrays:</h3>
+  <pre class="w3-code"><code class="language-javascript">// Allowed:
+points = [40, 100, 1, 5, 25, 10]
+// Not allowed:
+points = [40, 100, 1, 5, 25, 10,]</code></pre>
+</div>
+
+
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_es6.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_es3.html">Next ❯</a>
+</div>
+
+

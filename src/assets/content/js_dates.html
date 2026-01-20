@@ -1,0 +1,299 @@
+
+      
+
+<h1>JavaScript Dates</h1>
+
+<hr>
+<!--start-->
+
+<p class="w3-center">JavaScript <strong>Date Objects</strong> let us work with dates:</p>
+<p class="w3-center"><strong></strong></p>
+
+<div class="w3-center">
+<a href="tryit68c8.html?filename=tryjs_date_getfullyear" class="w3-btn w3-margin-bottom ws-green">Year: </a>
+<a href="tryit5f3f.html?filename=tryjs_date_getmonth" class="w3-btn w3-margin-bottom ws-green">Month: </a>
+<a href="tryit104c.html?filename=tryjs_date_getdate" class="w3-btn w3-margin-bottom ws-green">Day: </a>
+<a href="tryit0baa.html?filename=tryjs_date_gethours" class="w3-btn w3-margin-bottom ws-green">Hours: </a>
+<a href="tryit8f7f.html?filename=tryjs_date_getminutes" class="w3-btn w3-margin-bottom ws-green">Minutes: </a>
+<a href="tryit59f8.html?filename=tryjs_date_getseconds" class="w3-btn w3-margin-bottom ws-green">Seconds: </a>
+</div>
+
+<div class="w3-example">
+<h3>Examples</h3>
+<pre class="w3-code"><code class="language-javascript">const d = new Date();</code></pre>
+
+<pre class="w3-code"><code class="language-javascript">const d = new Date("2022-03-25");</code></pre>
+
+</div>
+<div class="w3-panel ws-note">
+<h2>Note</h2>
+<p>Date objects are static. The "clock" is not "running".</p>
+<p>The computer clock is ticking, date objects are not.</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>JavaScript Date Output</h2>
+<p>By default, JavaScript will use the browser's time zone and display a date as a full text string:</p>
+<p><strong></strong></p>
+<div class="w3-panel ws-note">
+<p>You will learn much more about how to display dates, later in this tutorial.</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Creating Date Objects</h2>
+<p>Date objects are created with the 
+<code class="w3-codespan">new Date()</code> constructor.</p>
+<p>There are <strong>9 ways</strong> to create a new date object:</p>
+
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">new Date()
+new Date(<em>date string</em>)
+new Date(<em>year,month</em>)
+new Date(<em>year,month,day</em>)
+new Date(<em>year,month,day,hours</em>)
+new Date(<em>year,month,day,hours,minutes</em>)
+new Date(<em>year,month,day,hours,minutes,seconds</em>)
+new Date(<em>year,month,day,hours,minutes,seconds,ms</em>)
+new Date(<em>milliseconds</em>)</code></pre>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>JavaScript new Date()</h2>
+<p><code class="w3-codespan">new Date()</code> creates a date object with the <strong>current date and time</strong>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const d = new Date();</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>new Date(<em>date string</em>)</h2>
+<p><code class="w3-codespan">new Date(<em>date string</em>)</code> creates a date object from a <strong>date string</strong>:</p>
+<div class="w3-example">
+<h3>Examples</h3>
+<pre class="w3-code"><code class="language-javascript">const d = new Date("October 13, 2014 11:13:00");</code></pre>
+
+<pre class="w3-code"><code class="language-javascript">const d = new Date("2022-03-25");</code></pre>
+
+</div>
+
+<!--stop-->
+<div class="w3-panel ws-note">
+<p>Date string formats are described in the next chapter.</p>
+</div>
+
+<hr>
+<!--start-->
+<h2>new Date(<em>year, month, ...</em>)</h2>
+
+<p><code class="w3-codespan">new Date(<em>year, month, ...</em>)</code> creates a date object with a <strong>specified date and time</strong>.</p>
+  
+<p>7 numbers specify year, month, day, hour, minute, second, and millisecond (in that order):</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const d = new Date(2018, 11, 24, 10, 33, 30, 0);</code></pre>
+
+</div>
+<div class="w3-panel ws-note">
+<h2>Note</h2>
+<p>JavaScript counts months from <b>0</b> to <b>11</b>:</p>
+<p><b>January = 0</b>.</p>
+<p><b>December = 11</b>.</p>
+</div>
+
+<p>Specifying a month higher than 11, will not result in an error but add the overflow to the next year:</p>
+<div class="w3-example">
+<p>Specifying:</p>
+<pre class="w3-code"><code class="language-javascript">const d = new Date(2018, 15, 24, 10, 33, 30);</code></pre>
+
+<p>Is the same as:</p>
+<pre class="w3-code"><code class="language-javascript">const d = new Date(2019, 3, 24, 10, 33, 30);</code></pre>
+
+</div>
+<p>Specifying a day higher than max, will not result in an error but add the overflow to the next month:</p>
+<div class="w3-example">
+<p>Specifying:</p>
+<pre class="w3-code"><code class="language-javascript">const d = new Date(2018, 5, 35, 10, 33, 30);</code></pre>
+<p>Is the same as:</p>
+<pre class="w3-code"><code class="language-javascript">const d = new Date(2018, 6, 5, 10, 33, 30);</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Using 6, 4, 3, or 2 Numbers</h2>
+<p>6 numbers specify year, month, day, hour, minute, second:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const d = new Date(2018, 11, 24, 10, 33, 30);</code></pre>
+
+</div>
+
+<p>5 numbers specify year, month, day, hour, and minute:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const d = new Date(2018, 11, 24, 10, 33);</code></pre>
+
+</div>
+
+<p>4 numbers specify year, month, day, and hour:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const d = new Date(2018, 11, 24, 10);</code></pre>
+
+</div>
+
+<p>3 numbers specify year, month, and day:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const d = new Date(2018, 11, 24);</code></pre>
+
+</div>
+
+<p>2 numbers specify year and month:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const d = new Date(2018, 11);</code></pre>
+
+</div>
+<div class="w3-panel ws-note">
+<p>You cannot omit month. If you supply only one parameter it will be treated as milliseconds.</p>
+</div>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const d = new Date(2018);</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Previous Century</h2>
+<p>One and two digit years will be interpreted as 19xx:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const d = new Date(99, 11, 24);</code></pre>
+
+</div>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const d = new Date(9, 11, 24);</code></pre>
+
+</div>
+
+<hr>
+<div class="w3-panel ws-note">
+<h2>JavaScript Stores Dates as Milliseconds</h2>
+<p>JavaScript stores dates as number of milliseconds since January 01, 1970.</p>
+<p><b>Zero time is January 01, 1970 00:00:00 UTC</b>.</p>
+<p>One day (24 hours) is 86 400 000 milliseconds.</p>
+<p>Now the time is: <strong></strong> milliseconds past January 01, 1970</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>new Date(<em>milliseconds</em>)</h2>
+<p><code class="w3-codespan">new Date(<em>milliseconds</em>)</code> creates a new date object as <b>milliseconds</b> plus zero time:</p>
+
+<div class="w3-example">
+<h3>Examples</h3>
+
+<p>01 January 1970 <strong>plus</strong> 100 000 000 000 milliseconds is:</p>  
+<pre class="w3-code"><code class="language-javascript">const d = new Date(100000000000);</code></pre>
+
+
+<p>January 01 1970 <strong>minus</strong> 100 000 000 000 milliseconds is:</p>  
+<pre class="w3-code"><code class="language-javascript">const d = new Date(-100000000000);</code></pre>
+
+<p>January 01 1970 <strong>plus</strong> 24 hours is:</p>  
+<pre class="w3-code"><code class="language-javascript">const d = new Date(24 * 60 * 60 * 1000);
+// or
+const d = new Date(86400000);</code></pre>
+
+
+<p>01 January 1970 <b>plus</b> 0 milliseconds is:</p>
+<pre class="w3-code"><code class="language-javascript">const d = new Date(0);</code></pre>
+
+</div>
+
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>Date Methods</h2> 
+<p>When a date object is created, a number of <strong>methods</strong> allow you to operate on 
+it.</p>
+<p>Date methods allow you to get and set the year, month, day, hour, 
+minute, second, and millisecond of date objects, using either local time or UTC 
+(universal, or GMT) time.</p>
+
+<div class="w3-panel ws-note">
+<p>Date methods and time zones are covered in the next chapters.</p>
+</div>
+
+<hr>
+<h2>Displaying Dates</h2>
+<p>JavaScript will (by default) output dates using the <b>toString()</b> method.
+This is a string representation of the date, including the time zone.
+The format is specified in the ECMAScript specification:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript"></code></pre>
+
+</div>
+
+<p>When you display a date object in HTML, it is automatically converted to a 
+string, with the <code class="w3-codespan">toString()</code> method.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const d = new Date();
+d.toString();</code></pre>
+
+</div>
+
+<p>The <code class="w3-codespan">toDateString()</code> method converts a date to a more readable 
+format:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const d = new Date();
+d.toDateString();</code></pre>
+
+</div>
+<p>The <code class="w3-codespan">toUTCString()</code> method converts a date to a string using the UTC standard:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const d = new Date();
+d.toUTCString();</code></pre>
+
+</div>
+<p>The <code class="w3-codespan">toISOString()</code> method converts a date to a string using the ISO standard:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const d = new Date();
+d.toISOString();</code></pre>
+
+</div>
+<!--stop-->
+<div class="ws-note">
+<h2>Learn More:</h2>
+<p class="w3-large"><a href="js_date_formats.html">JavaScript Date Formats</a></p>
+<p class="w3-large"><a href="js_date_methods.html">JavaScript Date Get Methods</a></p>
+<p class="w3-large"><a href="js_date_methods_set.html">JavaScript Date Set Methods</a></p>
+<p class="w3-large"><a href="js_date_reference.html">JavaScript Date Reference</a></p>
+</div>
+
+<hr>
+
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_strict.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_date_formats.html">Next ❯</a>
+</div>
+
+

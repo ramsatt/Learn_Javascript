@@ -1,0 +1,186 @@
+
+      
+
+<h1>AJAX - XMLHttpRequest</h1>
+
+<hr>
+<!--start-->
+<p class="intro">The XMLHttpRequest object is used to request data from a server.</p>
+<hr>
+
+<h2>Send a Request To a Server</h2>
+<p>To send a request to a server, we use the open() and send() methods of the <code class="w3-codespan">XMLHttpRequest</code> object:</p>
+<pre class="w3-code"><code class="language-javascript"><div> xhttp.open("GET", "ajax_info.txt", true);
+xhttp.send();</div></code></pre>
+
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate"> 
+  <tbody><tr>
+    <th style="width:30%">Method</th>
+    <th>Description</th>
+  </tr>  
+  <tr>
+    <td>open(<i>method, url, async</i>)</td>
+    <td>Specifies the type of request<br><br>
+ <i>method</i>: the type of request: GET or POST<br>
+ <i>url</i>: the server (file) location<br>
+ <i>async</i>: true (asynchronous) or false (synchronous)</td>
+  </tr>
+  <tr>
+    <td>send()</td>
+    <td>Sends the request to the server (used for GET)</td>
+  </tr>
+  <tr>
+    <td>send(<i>string</i>)</td>
+    <td>Sends the request to the server (used for POST)</td>
+  </tr>
+ </tbody></table></div>
+ <!--stop-->
+<hr>
+<!--start-->
+<h2>The url - A File On a Server</h2>
+<p>The url parameter of the <code class="w3-codespan">open()</code> method, is an address to a file on a server:</p>
+<pre class="w3-code"><code class="language-javascript"><div> xhttp.open("GET", "ajax_test.asp", true);</div></code></pre>
+<p>The file can be any kind of file, like .txt and 
+.xml, or server scripting files like .asp and .php (which can perform  
+actions on the server before sending the response back).</p>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Asynchronous - True or False?</h2>
+<p>Server requests should be sent asynchronously.</p>
+<p>The async parameter of the open() 
+method should be set to true:</p>
+
+<pre class="w3-code"><code class="language-javascript"><div> xhttp.open("GET", "ajax_test.asp", true);</div></code></pre>
+
+<p>By sending asynchronously, the 
+JavaScript does not have to wait for the server response, but can instead:</p>
+<ul>
+  <li>execute other scripts while waiting for server response</li>
+  <li>deal with the response after the response is ready</li>
+</ul>
+
+
+<div class="w3-panel ws-warning">
+<p>The default value for the async parameter is async = true.</p>
+<p>You can safely remove the third parameter from your code.</p>
+<p>Synchronous XMLHttpRequest (async = false) is not recommended because the JavaScript will 
+stop executing until the server response is ready. If the server is busy or slow, the 
+application will hang or stop.</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>GET or POST?</h2>
+<p><code class="w3-codespan">GET</code> is simpler and faster than <code class="w3-codespan">POST</code>, and can be used in most cases.</p>
+<p>However, always use POST requests when:</p>
+<ul>
+  <li>A cached file is not an option (update a file or database on the server).</li>
+  <li>Sending a large amount of data to the server (POST has no size limitations).</li>
+  <li>Sending user input (which can contain unknown characters), POST is more robust and secure than GET.</li>
+</ul>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>GET Requests</h2>
+<p>A simple <code class="w3-codespan">GET</code> request:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">xhttp.open("GET", "demo_get.asp");
+xhttp.send();</code></pre>
+
+</div>
+
+
+<p>In the example above, you may get a cached result. To avoid this, add a unique ID to the URL:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">xhttp.open("GET", "demo_get.asp?t=" + Math.random());
+xhttp.send();</code></pre>
+
+</div>
+
+
+<p>If you want to send information with the <code class="w3-codespan">GET</code> method, add the information to the URL:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">xhttp.open("GET", "demo_get2.asp?fname=Henry&amp;lname=Ford");
+xhttp.send();</code></pre>
+
+</div>
+<!--stop-->
+<p>How the server uses the input and how the server responds to a request, is explained in a later chapter.</p>  
+<hr>
+
+<hr>
+<!--start-->
+<h2>POST Requests</h2>
+
+<p>A simple <code class="w3-codespan">POST</code> request:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">xhttp.open("POST", "demo_post.asp");
+xhttp.send();</code></pre>
+
+</div>
+
+<p>To POST data like an HTML form, add an HTTP header with <code class="w3-codespan">setRequestHeader()</code>. 
+Specify the data you want to send in the <code class="w3-codespan">send()</code> method:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">xhttp.open("POST", "ajax_test.asp");
+xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+xhttp.send("fname=Henry&amp;lname=Ford");</code></pre>
+
+</div>
+
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate"> 
+  <tbody><tr>
+    <th style="width:40%">Method</th>
+    <th>Description</th>
+  </tr>  
+  <tr>
+    <td>setRequestHeader(<i>header, value</i>)</td>
+    <td>Adds HTTP headers to the request<br><br>
+ <i>header</i>: specifies the header name<br>
+ <i>value</i>: specifies the header value</td>
+  </tr>
+   </tbody></table></div>
+
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Synchronous Request</h2>
+
+<p>To execute a synchronous request, change the third parameter in the <code class="w3-codespan">open()</code> method to <code class="w3-codespan">false</code>:</p>
+
+<pre class="w3-code"><code class="language-javascript">xhttp.open("GET", "ajax_info.txt", false);</code></pre>
+<p>Sometimes async = false are used for quick testing. You will also find 
+synchronous requests in older JavaScript code.</p>
+<p>Since the code will wait for server completion, there is no need for an <code class="w3-codespan">onreadystatechange</code> 
+function:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">xhttp.open("GET", "ajax_info.txt", false);
+xhttp.send();
+document.getElementById("demo").innerHTML = xhttp.responseText;</code></pre>
+
+</div>
+
+<div class="w3-panel ws-warning">
+<p>Synchronous XMLHttpRequest (async = false) is not recommended because the JavaScript will 
+stop executing until the server response is ready. If the server is busy or slow, the 
+application will hang or stop.</p>
+<p>Modern developer tools are encouraged to warn about using 
+synchronous requests and may throw an InvalidAccessError exception when it occurs.
+</p>
+</div>
+<!--stop-->
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_ajax_http.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_ajax_http_response.html">Next ❯</a>
+</div>
+
+

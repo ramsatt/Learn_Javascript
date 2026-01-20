@@ -1,0 +1,166 @@
+
+      
+
+<h1>JavaScript Loops</h1>
+
+<!--start-->
+<div class="ws-info">
+<p>JavaScript loops <b>repeat executing a block of code</b> a number of times.</p>
+<p>Loops are fundamental for tasks involving:</p>
+<ul>
+<li>Iteration over values</li>
+<li>Iteration over data structures</li>
+<li>Performing an action multiple times</li>
+</ul>
+<div class="w3-stretch">
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+<tbody><tr><th>Loop Type</th><th>Description</th></tr>
+<tr><td>for</td><td>Iterates over values and expressions</td></tr>
+<tr><td>while</td><td>Iterates over a condition</td></tr>
+<tr><td>do...while</td><td>Iterates over a condition</td></tr>
+<tr><td>for...in</td><td>Iterates over the properties of an Object</td></tr>
+<tr><td>for...of</td><td>Iterates over array like objects</td></tr>
+<tr><td>forEach()</td><td>Iterates over each element in an Array</td></tr>
+</tbody></table></div>
+</div>
+
+</div>
+
+<h2>The for Loop</h2>
+<p>The <code class="w3-codespan">for</code> loop is used when the number of iterations is known.</p>
+<p>It consists of an initialization (exp1), a condition (exp2), and an increment expression (exp3).</p>
+
+<div class="w3-example">
+<h3>Syntax</h3>
+<pre class="w3-code"><code class="language-javascript">for (<i>exp1</i>;<i> exp2</i>;<i> exp3</i>) {
+  // <i>code block to be executed</i>
+}</code></pre>
+</div>
+
+<p><strong>exp1</strong> is executed <b>one time before</b> the execution of the code block.</p>
+<p><strong>exp2</strong> defines <b>the condition</b> for executing the code block.</p>
+<p><strong>exp3</strong> is executed <b>every time</b> a code block has been executed.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">for (let i = 0; i &lt; 5; i++) {
+  text += "The number is " + i + "&lt;br&gt;";
+}</code></pre>
+
+</div>
+
+<hr>
+<h2>The while Loop</h2>
+<p>The <code class="w3-codespan">while</code> loop executes a block of code as long as a specified condition evaluates to true.</p>
+
+<div class="w3-example">
+<h3>Syntax</h3>
+<pre class="w3-code"><code class="language-javascript">while (<em>condition</em>) {
+<i>  // code block to be executed</i>
+}</code></pre>
+</div>
+
+<p>In the following example, the code in the loop will run, over and over again, as long as 
+a variable (i) is less than 10:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">while (i &lt; 10) {
+  text += "The number is " + i;
+  i++;
+}</code></pre>
+
+</div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>If you forget to increase the variable used in the condition, the loop will never end.
+This will crash your browser.</p>
+</div>
+
+<hr>
+<h2>The do...while Loop</h2>
+<p>The <code class="w3-codespan">do...while</code> loop is similar to the while loop,
+but guarantees that the code block will be executed at least once, before the condition is checked.</p>
+<div class="w3-example">
+<h3>Syntax</h3>
+<pre class="w3-code"><code class="language-javascript">do {
+<i>  // code block to be executed
+</i>}
+while (<em>condition</em>);</code></pre>
+</div>
+
+<p>The example below uses a <code class="w3-codespan">do...while</code> loop. The loop will always be 
+executed at least once, even if the condition is false, because the code block 
+is executed before the condition is tested:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">do {
+  text += "The number is " + i;
+  i++;
+}
+while (i &lt; 10);</code></pre>
+
+</div>
+<div class="ws-note">
+<p>Do not forget to increase the variable used in the condition, otherwise 
+the loop will never end!</p>
+</div>
+
+<hr>
+<h2>The for...in Loop</h2>
+<p>The <code class="w3-codespan">for...in</code> loop iterates over the enumerable properties of an object.</p>
+<p>It is typically used for iterating over object keys.</p>
+<div class="w3-example">
+<h3>Syntax</h3>
+<pre class="w3-code"><code class="language-javascript">for (<b>key</b> in <b>object</b>) {
+  // <i>code block to be executed</i>
+}</code></pre>
+</div>
+
+<p>A JavaScript <code class="w3-codespan">for...in</code> statement loops through the properties
+of a person object:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const person = {fname:"John", lname:"Doe", age:25};
+let text = "";
+for (let x in person) {
+  text += person[x];
+}</code></pre>
+
+</div>
+
+<hr>
+<h2>The for...of Loop</h2>
+<p>The <code class="w3-codespan">for...of</code> loop iterates over the values of iterable objects such as arrays, strings,
+Maps, Sets, and NodeLists.</p>
+<div class="w3-example">
+<h3>Syntax</h3>
+<pre class="w3-code"><code class="language-javascript">for (variable of iterable) {
+  // <i>code block to be executed</i>
+}</code></pre></div>
+
+<ul>
+<li><b>variable</b><br>
+For every iteration the value of the next property is 
+assigned to the variable. <em>Variable</em> can be declared with
+<code class="w3-codespan">const</code>, <code class="w3-codespan">let</code>,
+or <code class="w3-codespan">var</code>.</li>
+<li><b>iterable</b><br>
+An object that has iterable properties.</li>
+</ul>
+
+<hr>
+<h2>Other Methods</h2>
+<p>Array methods like forEach(), map(), filter(), and reduce() provide alternative ways
+to iterate and manipulate array elements, often offering a more functional and
+concise approach compared to traditional loops for array-specific operations.</p>
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_map_reference.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_iterables.html">Next ❯</a>
+</div>
+
+

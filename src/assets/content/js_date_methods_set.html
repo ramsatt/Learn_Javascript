@@ -1,0 +1,201 @@
+
+      
+
+<h1>JavaScript Set Date Methods</h1>
+
+<hr>
+<!--start-->
+<p class="intro">Set Date methods let you set date values (years, 
+months, days, hours, minutes, seconds, milliseconds) for a Date Object.</p>
+<hr>
+<h2>Set Date Methods</h2>
+<p>Set Date methods are used for setting a part of a date:</p>
+<div class="table-responsive-wrapper"><table class="ws-table-all notranslate">
+<tbody><tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>setDate()</td>
+<td>Set the day as a number (1-31)</td>
+</tr>
+<tr>
+<td>setFullYear()</td>
+<td>Set the year (yyyy)</td>
+</tr>
+<tr>
+<td>setHours()</td>
+<td>Set the hour (0-23)</td>
+</tr>
+<tr>
+<td>setMilliseconds()</td>
+<td>Set the milliseconds (0-999)</td>
+</tr>
+<tr>
+<td>setMinutes()</td>
+<td>Set the minutes (0-59)</td>
+</tr>
+<tr>
+<td>setMonth()</td>
+<td>Set the month (0-11)</td>
+</tr>
+<tr>
+<td>setSeconds()</td>
+<td>Set the seconds (0-59)</td>
+</tr>
+<tr>
+<td>setTime()</td>
+<td>Set the time (milliseconds since January 1, 1970)</td>
+</tr>
+</tbody></table></div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The setFullYear() Method</h2>
+<p>The <code class="w3-codespan">setFullYear()</code> method sets the year of a date object. In this example to 2020:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const d = new Date("January 01, 2025");
+d.setFullYear(2020);</code></pre>
+
+</div>
+
+<p>The <code class="w3-codespan">setFullYear()</code> method can <strong>optionally</strong> set month and day:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const d = new Date("January 01, 2025");
+d.setFullYear(2020, 11, 3);</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>The setMonth() Method</h2>
+<p>The <code class="w3-codespan">setMonth()</code> method sets the month of a date object (0-11):</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const d = new Date("January 01, 2025");
+d.setMonth(11);</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The setDate() Method</h2>
+<p>The <code class="w3-codespan">setDate()</code> method sets the day of a date object (1-31):</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const d = new Date("January 01, 2025");
+d.setDate(15);</code></pre>
+
+</div>
+
+<p>The <code class="w3-codespan">setDate()</code> method can also be used to <strong>add days</strong> to a date:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const d = new Date("January 01, 2025");
+d.setDate(d.getDate() + 50);</code></pre>
+
+</div>
+
+<div class="w3-panel ws-note">
+<h2>Note</h2>
+<p>If adding days shifts the month or year, the changes are handled automatically by the Date object.</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The setHours() Method</h2>
+<p>The <code class="w3-codespan">setHours()</code> method sets the hours of a date object (0-23):</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const d = new Date("January 01, 2025");
+d.setHours(22);</code></pre>
+
+</div>
+
+<p>The <code class="w3-codespan">setHours()</code> method can also be used to set minutes and
+seconds.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const d = new Date("January 01, 2025");
+d.setHours(22, 10, 20);</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The setMinutes() Method</h2>
+<p>The <code class="w3-codespan">setMinutes()</code> method sets the minutes of a date object (0-59):</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const d = new Date("January 01, 2025");
+d.setMinutes(30);</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>The setSeconds() Method</h2>
+<p>The <code class="w3-codespan">setSeconds()</code> method sets the seconds of a date object (0-59):</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const d = new Date("January 01, 2025");
+d.setSeconds(30);</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Compare Dates</h2>
+<p>Dates can easily be compared.</p>
+<p>The following example compares today's date with January 14, 2100:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let text = "";
+const today = new Date();
+const someday = new Date();
+someday.setFullYear(2100, 0, 14);
+if (someday &gt; today) {
+  text = "Today is before January 14, 2100.";
+} else {
+  text = "Today is after January 14, 2100.";
+}</code></pre>
+
+</div>
+
+<div class="w3-panel ws-note">
+<h2>Note</h2>
+<p>JavaScript counts months from 0 to 11. January is 0. December is 11.</p>
+</div>
+<!--stop-->
+
+<div class="ws-note">
+<h2>Learn More:</h2>
+<p class="w3-large"><a href="js_dates.html">JavaScript Date Tutorial</a></p>
+<p class="w3-large"><a href="js_date_formats.html">JavaScript Date Formats</a></p>
+<p class="w3-large"><a href="js_date_methods.html">JavaScript Date Get Methods</a></p>
+<p class="w3-large"><a href="js_date_reference.html">JavaScript Date Reference</a></p>
+</div>
+
+
+<hr>
+
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_date_methods.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_date_reference.html">Next ❯</a>
+</div>
+
+

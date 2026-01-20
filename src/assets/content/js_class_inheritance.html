@@ -1,0 +1,182 @@
+
+      
+
+<h1>JavaScript Class Inheritance</h1>
+
+
+<hr>
+<!--start-->
+<h2>Class Inheritance</h2>
+
+<p>To create a class inheritance, use the <code class="w3-codespan">extends</code> 
+keyword.</p>
+<p>A class created with a class inheritance inherits all the methods from 
+another class:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Create a class named "Model" which will inherit the methods from the "Car" 
+class:</p>
+<pre class="w3-code"><code class="language-javascript">class Car {
+  constructor(brand) {
+    this.carname = brand;
+  }
+  present() {
+    return 'I have a ' + this.carname;
+  }
+}
+class Model extends Car {
+  constructor(brand, mod) {
+    super(brand);
+    this.model = mod;
+  }
+  show() {
+    return this.present() + ', it is a ' + this.model;
+  }
+}
+let myCar = new Model("Ford", "Mustang");
+document.getElementById("demo").innerHTML = myCar.show();</code></pre>
+<p>
+
+</p>
+</div>
+
+<p>The <code class="w3-codespan">super()</code> method refers to the parent 
+class.</p>
+<p>By calling the <code class="w3-codespan">super()</code> method in the 
+constructor method, we call the parent's constructor method and gets access to 
+the parent's properties and methods.</p>
+
+<div class="ws-note w3-panel">
+<p>Inheritance is useful for code reusability: reuse properties and methods of an existing class when you create a new class.</p>
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+
+<!--start-->
+<h2>Getters and Setters</h2>
+
+<p>Classes also allow you to use getters and setters.</p>
+<p>It can be smart to use getters and setters for your properties, especially if 
+you want to do something special with the value before returning them, or before 
+you set them.</p>
+<p>To add getters and setters in the class, use the <code class="w3-codespan">
+get</code> and <code class="w3-codespan">set</code> keywords.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Create a getter and a setter for the "carname" property:</p>
+<pre class="w3-code"><code class="language-javascript">class Car {
+  constructor(brand) {
+    this.carname = brand;
+  }
+  get cnam() {
+    return this.carname;
+  }
+  set cnam(x) {
+    this.carname = x;
+  }
+}
+const myCar = new Car("Ford");
+document.getElementById("demo").innerHTML = myCar.cnam;</code></pre>
+<p>
+
+</p>
+</div>
+
+<div class="w3-panel ws-note">
+<p><strong>Note:</strong> even if the getter is a method, you do not use parentheses when you 
+want to get the property value.</p>
+</div>
+
+<p>The name of the getter/setter method cannot be the same as the name of the 
+property, in this case <code class="w3-codespan">carname</code>.</p>
+<p>
+
+</p><p>Many programmers use an underscore character <code class="w3-codespan">_</code> 
+before the property name to separate the getter/setter from the actual property:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>You can use the underscore character to separate the getter/setter from the 
+actual property:</p>
+<pre class="w3-code"><code class="language-javascript">class Car {
+  constructor(brand) {
+    this._carname = brand;
+  }
+  get carname() {
+    return this._carname;
+  }
+  set carname(x) {
+    this._carname = x;
+  }
+}
+const myCar = new Car("Ford");
+document.getElementById("demo").innerHTML = myCar.carname;</code></pre>
+<p>
+
+</p>
+</div>
+<!--stop-->
+<!--start-->
+<p>To use a <em>setter</em>, use the same syntax as when you set a property value, without parentheses:</p>
+
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Use a setter to change the carname to "Volvo":</p>
+<pre class="w3-code"><code class="language-javascript">class Car {
+  constructor(brand) {
+    this._carname = brand;
+  }
+  get carname() {
+    return this._carname;
+  }
+  set carname(x) {
+    this._carname = x;
+  }
+}
+const myCar = new Car("Ford");
+myCar.carname = "Volvo";
+document.getElementById("demo").innerHTML = myCar.carname;</code></pre>
+<p>
+
+</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Hoisting</h2>
+<p>Unlike functions, and other JavaScript declarations, class declarations are not hoisted.</p>
+
+<p>That means that you must declare a class before you can use it:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">//You cannot use the class yet.
+//myCar = new Car("Ford") will raise an error.
+class Car {
+  constructor(brand) {
+    this.carname = brand;
+  }
+}
+//Now you can use the class:
+const myCar = new Car("Ford")</code></pre>
+
+</div>
+
+<div class="w3-panel ws-note">
+<p><strong>Note:</strong> For other declarations, like functions, you will NOT get an 
+error when you try to use it before it is declared, because the default behavior 
+of JavaScript declarations are hoisting (moving the declaration to the top).</p>
+</div>
+<!--stop-->
+<hr>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_classes.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_class_static.html">Next ❯</a>
+</div>
+
+

@@ -1,0 +1,165 @@
+
+      
+
+<h1>JSON.stringify()</h1>
+
+<!--start-->
+<div class="ws-info">
+<p>A common use of JSON is to exchange data to/from a web server.</p>
+<p>When sending data to a web server, the data has to be 
+a string.</p>
+<p>You can convert any JavaScript datatype into a string with <code class="w3-codespan">JSON.stringify()</code>.</p>
+</div>
+<!--stop-->
+<!--start-->
+<h2>Stringify a JavaScript Object</h2>
+<p>Imagine we have this object in JavaScript:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">const obj = {name: "John", age: 30, city: "New York"};</code></pre>
+</div>
+
+<p>Use the JavaScript function <code class="w3-codespan">JSON.stringify()</code> to convert it into a string.</p>
+ 
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">const myJSON = JSON.stringify(obj);</code></pre>
+</div>
+<div class="w3-panel ws-note">
+<p>The result will be a string following the JSON notation.</p>
+</div>
+
+<p><code class="w3-codespan">myJSON</code> is now a string, and ready to be sent to a server:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const obj = {name: "John", age: 30, city: "New York"};
+const myJSON = JSON.stringify(obj);</code></pre>
+
+</div>
+
+<p>You will learn how to send JSON to a server in the next chapters.</p>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Stringify a JavaScript Array</h2>
+<p>It is also possible to stringify JavaScript arrays:</p>
+<p>Imagine we have this array in JavaScript:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">const arr = ["John", "Peter", "Sally", "Jane"];</code></pre>
+</div>
+
+<p>Use the JavaScript function <code class="w3-codespan">JSON.stringify()</code> to convert it into a string.</p>
+ 
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">const myJSON = JSON.stringify(arr);</code></pre>
+</div>
+<div class="w3-panel ws-note">
+<p>The result will be a string following the JSON notation.</p>
+</div>
+
+<p><code class="w3-codespan">myJSON</code> is now a string, and ready to be sent to a server:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const arr = ["John", "Peter", "Sally", "Jane"];
+const myJSON = JSON.stringify(arr);</code></pre>
+  
+</div>
+
+<p>You will learn how to send a JSON string to a server in the next chapters.</p>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Storing Data</h2>
+<p>When storing data, the data has to be a certain format, and regardless of where you choose to store it, 
+<em>text</em> is always one of the legal formats.</p>
+<p>JSON makes it possible to store JavaScript objects as text.</p>
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Storing data in local storage</p>
+<pre class="w3-code"><code class="language-javascript">// Storing data:
+const myObj = {name: "John", age: 31, city: "New York"};
+const myJSON = JSON.stringify(myObj);
+localStorage.setItem("testJSON", myJSON);
+// Retrieving data:
+let text = localStorage.getItem("testJSON");
+let obj = JSON.parse(text);
+document.getElementById("demo").innerHTML = obj.name;</code></pre>
+  
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>All Data Types</h2>
+<p>JSON.stringify() can not only convert objects and arrays into JSON strings,
+it can convert any JavaScript value into a string.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Stringify a Number</p>
+<pre class="w3-code"><code class="language-javascript">const num = 123e-5;
+const myJSON = JSON.stringify(num);</code></pre>
+
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Stringify a Boolean</p>
+<pre class="w3-code"><code class="language-javascript">let bool = new Boolean(1);
+const myJSON = JSON.stringify(bool);</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Stringify  a Date</h2>
+<p>In JSON, date objects are not allowed. The <code class="w3-codespan">JSON.stringify()</code> function
+will convert any Date objects into strings.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const obj = {name: "John", today: new Date(), city : "New York"};
+const myJSON = JSON.stringify(obj);</code></pre>
+
+</div>
+
+<p>You can convert the string back into a date object at the receiver.</p>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Stringify a Function</h2>
+<p>In JSON, functions are not allowed as object values.</p>
+<p>The <code class="w3-codespan">JSON.stringify()</code> function will remove any functions from a JavaScript 
+object, both the key and the value:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const obj = {name: "John", age: function () {return 30;}, city: "New York"};
+const myJSON = JSON.stringify(obj);</code></pre>
+  
+</div>
+
+<p>This can be omitted if you convert your functions into strings before running 
+the <code class="w3-codespan">JSON.stringify()</code> function.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">const obj = {name: "John", age: function () {return 30;}, city: "New York"};
+obj.age = obj.age.toString();
+const myJSON = JSON.stringify(obj);</code></pre>
+  
+</div>
+
+<div class="w3-panel ws-warning">
+<p>If you send functions using JSON, the functions will lose their scope, and the receiver 
+would have to use eval() to convert them back into functions.</p>
+</div>
+<!--stop-->
+<hr>
+
+<br>
+
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_json_parse.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_json_objects.html">Next ❯</a>
+</div>
+
+

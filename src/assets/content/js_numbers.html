@@ -1,0 +1,419 @@
+
+      
+
+<h1>JavaScript Numbers</h1>
+
+<hr>
+<!--start-->
+<div class="ws-info">
+<h2>Number Types</h2>
+<p>JavaScript has only one type of number.</p>
+<p>Numbers can be written with or without decimals.</p>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 3.14;    // A number with decimals
+let y = 3;       // A number without decimals</code></pre>
+<p>
+
+</p>
+</div>
+<p>Extra large or extra small numbers can be written with scientific (exponent) notation:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 123e5;    // 12300000
+let y = 123e-5;   // 0.00123</code></pre>
+<p>
+
+</p>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>JavaScript Numbers are Always 64-bit Floating Point</h2>
+<p>Unlike many other programming languages, 
+JavaScript does not define different types of numbers, like integers, short, long, 
+floating-point etc.</p>
+<p>JavaScript numbers are always stored as double precision floating point 
+numbers, following the international IEEE 754 standard. <br><br>This format 
+stores numbers in 64 bits, where the number (the fraction) is stored in bits 0 
+to 51, the exponent in bits 52 to 62, and the sign in bit 63:</p>
+<div class="table-responsive-wrapper"><table class="ws-table-all">
+  <tbody><tr>
+    <th>Value (aka Fraction/Mantissa)</th>
+    <th>Exponent</th>
+    <th>Sign</th>
+  </tr>
+  <tr>
+    <td>52 bits (0 - 51)&nbsp;</td>
+    <td>11 bits (52 - 62)</td>
+    <td>1 bit (63)</td>
+  </tr>
+</tbody></table></div>
+<!--stop-->
+<div class="ws-note">
+<h2>Note</h2>
+<p>Most programming languages have many number types:</p>
+<p>Whole numbers (integers):<br>
+byte (8-bit), short (16-bit), int (32-bit), long (64-bit)</p>
+<p>Real numbers (floating-point):<br>
+float (32-bit), double (64-bit).</p>
+<p><b>Javascript numbers are always double (64-bit floating point).</b></p>
+</div>
+
+<hr>
+<!--start-->
+<h2>Integer Precision</h2>
+<p>Integers (numbers without a period or exponent notation) are accurate up to 15 digits.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 999999999999999;   // x will be 999999999999999
+let y = 9999999999999999;  // y will be 10000000000000000</code></pre>
+
+</div>
+<p>The maximum number of decimals is 17.</p>
+
+<h2>Floating Precision</h2>
+<div class="w3-example">
+<p>Floating point arithmetic is not always 100% accurate:</p>
+<pre class="w3-code"><code class="language-javascript">let x = 0.2 + 0.1;</code></pre>
+<p>
+
+</p>
+</div>
+<div class="w3-example">
+<p>To solve the problem above, it helps to multiply and divide:</p>
+<pre class="w3-code"><code class="language-javascript">let x = (0.2 * 10 + 0.1 * 10) / 10;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+<!--start-->
+<h2>Adding Numbers and Strings</h2>
+<div class="w3-panel ws-warning">
+<p>WARNING !!</p>
+ <p>JavaScript uses the + operator for both addition and concatenation.</p>
+ <p>Numbers are added. Strings are concatenated.</p>
+</div>
+<p>If you add two numbers, the result will be a number:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 10;
+let y = 20;
+let z = x + y;</code></pre>
+
+</div>
+
+<p>If you add two strings, the result will be a string concatenation:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = "10";
+let y = "20";
+let z = x + y;</code></pre>
+
+</div>
+
+<p>If you add a number and a string, the result will be a string concatenation:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 10;
+let y = "20";
+let z = x + y;</code></pre>
+
+</div>
+
+<p>If you add a string and a number, the result will be a string concatenation:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = "10";
+let y = 20;
+let z = x + y;</code></pre>
+
+</div>
+<p>A common mistake is to expect this result to be 30:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 10;
+let y = 20;
+let z = "The result is: " + x + y;</code></pre>
+
+</div>
+<p>A common mistake is to expect this result to be 102030:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 10;
+let y = 20;
+let z = "30";
+let result = x + y + z;</code></pre>
+
+</div>
+<div class="w3-panel ws-note">
+<p>The JavaScript interpreter works from left to right.</p>
+<p>First 10 + 20 is added because x and y are both numbers.</p>
+<p>Then 30 + "30" is concatenated because z is a string.</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Numeric Strings</h2>
+
+<p>JavaScript strings can have numeric content:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">let x = 100;         // x is a number
+let y = "100";       // y is a string</code></pre>
+</div>
+
+<p>JavaScript will try to convert strings to numbers in all numeric operations:</p>
+<p>This will work:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">let x = "100";
+let y = "10";
+let z = x / y;</code></pre>
+<p>
+
+</p>
+</div>
+
+<p>This will also work:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">let x = "100";
+let y = "10";
+let z = x * y;</code></pre>
+<p>
+
+</p>
+</div>
+
+<p>And this will work:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">let x = "100";
+let y = "10";
+let z = x - y;</code></pre>
+<p>
+
+</p>
+</div>
+
+<p>But this will not work:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">let x = "100";
+let y = "10";
+let z = x + y;</code></pre>
+<p>
+
+</p>
+</div>
+
+<div class="w3-panel ws-note">
+<p>In the last example JavaScript uses the + operator to concatenate the strings.</p>
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>NaN - Not a Number</h2>
+
+<p><code class="w3-codespan">NaN</code> is a JavaScript reserved word indicating that a number is not a legal number.</p>
+<p>Trying to do arithmetic with a non-numeric string will result in <code class="w3-codespan">NaN</code> (Not a 
+Number):</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 100 / "Apple";</code></pre>
+<p>
+
+</p>
+</div>
+<p>However, if the string is numeric, the result will be a 
+number:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 100 / "10";</code></pre>
+
+</div>
+
+<p>You can use the global JavaScript function <code class="w3-codespan">isNaN()</code>
+to find out if a value is a not a number:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 100 / "Apple";
+isNaN(x);</code></pre>
+
+</div>
+<p>Watch out for <code class="w3-codespan">NaN</code>. If you use <code class="w3-codespan">NaN</code> in a mathematical operation, the result will also be <code class="w3-codespan">NaN</code>:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = NaN;
+let y = 5;
+let z = x + y;</code></pre>
+
+</div>
+
+<p>Or the result might be a concatenation like NaN5:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = NaN;
+let y = "5";
+let z = x + y;</code></pre>
+
+</div>
+
+<p><code class="w3-codespan">NaN</code> is a number: <code class="w3-codespan">typeof NaN</code> returns <code class="w3-codespan">number</code>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">typeof NaN;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Infinity</h2>
+
+<p><code class="w3-codespan">Infinity</code> (or <code class="w3-codespan">-Infinity</code>) is the value JavaScript will return if you calculate a number outside the largest 
+possible number.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let myNumber = 2;
+// Execute until Infinity
+while (myNumber != Infinity) {
+  myNumber = myNumber * myNumber;
+}</code></pre>
+<a class="w3-btn w3-margin-bottom" href="tryitd240.html?filename=tryjs_numbers_infinity">Try 
+it Yourself »</a></div>
+
+<p>Division by 0 (zero) also generates <code class="w3-codespan">Infinity</code>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x =  2 / 0;
+let y = -2 / 0;</code></pre>
+
+</div>
+
+<p><code class="w3-codespan">Infinity</code> is a number: <code class="w3-codespan">typeof Infinity</code> returns <code class="w3-codespan">number</code>.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">typeof Infinity;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Hexadecimal</h2>
+<p>JavaScript interprets numeric constants as hexadecimal if they are preceded by 
+0x.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+ <pre class="w3-code"><code class="language-javascript">let x = 0xFF;</code></pre>
+
+</div>
+
+<div class="w3-panel ws-note">
+<p>Never write a number with a leading zero (like 07).<br>Some JavaScript versions interpret 
+numbers as octal if they are written with a leading zero.</p>
+</div>
+
+<p>
+By default, JavaScript displays numbers as <strong>base 10</strong> decimals.</p>
+<p>But you can use the <code class="w3-codespan">toString()</code> method to output numbers from <strong>base 2</strong> 
+to <strong>base 36</strong>.</p>
+<p>Hexadecimal is <strong>base 16</strong>. Decimal is <strong>base 10</strong>. 
+Octal is <strong>base 8</strong>. Binary is <strong>base 2</strong>.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let myNumber = 32;
+myNumber.toString(32);
+myNumber.toString(16);
+myNumber.toString(12);
+myNumber.toString(10);
+myNumber.toString(8);
+myNumber.toString(2);</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>JavaScript Numbers as Objects</h2>
+
+<p>Normally JavaScript numbers are primitive values created from literals:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">let x = 123;</code></pre>
+</div>
+
+<p>But numbers can also be defined as objects with the keyword <code class="w3-codespan">new</code>:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">let y = new Number(123);</code></pre>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">let x = 123;
+let y = new Number(123);</code></pre>
+<a class="w3-btn w3-margin-bottom" href="tryit080b.html?filename=tryjs_number_object">Try 
+it Yourself »</a>
+</div>
+
+<div class="w3-panel ws-note">
+<p>Do not create Number objects.</p>
+<p>The <code class="w3-codespan">new</code> keyword complicates the code and slows down execution speed.</p>
+<p>Number Objects can produce unexpected results:</p>
+</div>
+
+<div class="w3-example">
+<p>When using the <code class="w3-codespan">==</code> operator, x and y are <b>equal</b>:</p>
+<pre class="w3-code"><code class="language-javascript">let x = 500;
+let y = new Number(500);</code></pre>
+
+</div>
+<div class="w3-example">
+<p>When using the <code class="w3-codespan">===</code> operator, x and y are <b>not equal</b>.</p>
+<pre class="w3-code"><code class="language-javascript">let x = 500;
+let y = new Number(500);</code></pre>
+
+</div>
+
+<div class="w3-panel ws-note">
+<p>Note the difference between <code class="w3-codespan">(x==y)</code> and <code class="w3-codespan">(x===y)</code>.</p>
+</div>
+
+<div class="w3-example">
+<p><code class="w3-codespan">(x == y)</code> true or false?</p>
+<pre class="w3-code"><code class="language-javascript">let x = new Number(500);
+let y = new Number(500);</code></pre>
+
+</div>
+
+<div class="w3-example">
+<p><code class="w3-codespan">(x === y)</code> true or false?</p>
+<pre class="w3-code"><code class="language-javascript">let x = new Number(500);
+let y = new Number(500);</code></pre>
+
+</div>
+
+<div class="w3-panel ws-note">
+<p>Comparing two JavaScript objects <b>always</b> returns <b>false</b>.</p>
+</div>
+<!--stop-->
+<hr>
+<div class="ws-note">
+<h2>Learn More:</h2>
+<p class="w3-large"><a href="js_number_methods.html">JavaScript Number Methods</a></p>
+<p class="w3-large"><a href="js_number_properties.html">JavaScript Number Properties</a></p>
+<p class="w3-large"><a href="js_number_reference.html">JavaScript Number Reference</a></p>
+</div>
+<hr>
+
+<hr>
+
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_string_reference.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_number_methods.html">Next ❯</a>
+</div>
+
+

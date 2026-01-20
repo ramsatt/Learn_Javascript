@@ -1,0 +1,451 @@
+
+      
+
+<h1>JavaScript DataView</h1>
+
+
+<div class="ws-info">
+<p>The <b>DataView Object</b> lets you read and write multiple numeric types
+in an <b>ArrayBuffer</b>, at any byte offset, with optional control over
+<b>endianness</b> (byte order).</p>
+</div>
+
+<h2>What Is a DataView?</h2>
+<p>A <b>DataView</b> is a <b>view</b> on top of an <b>ArrayBuffer</b>.</p>
+<p>A <b>DataView</b> does not store data by itself; instead, it lets you interpret the bytes
+in the buffer as different types:</p>
+
+<ul>
+<li>8-bit, 16-bit, 32-bit integers (signed and unsigned)</li>
+<li>32-bit and 64-bit floating point numbers</li>
+<li>At arbitrary byte offsets in the buffer</li>
+<li>With configurable <b>little-endian</b> or <b>big-endian</b> order</li>
+</ul>
+
+<p>Use <code>DataView</code> when:</p>
+<ul>
+<li>You have a binary format with fields of different types and sizes.</li>
+<li>You need to control byte order (endianness).</li>
+<li>Typed arrays like <code>Uint8Array</code> or <code>Float32Array</code> are not flexible enough.</li>
+</ul>
+<p>Use <code>DataView</code> when you work with binary data where
+you need full control over byte layout and types (for example network packets,
+file formats, or interoperability with other languages).</p>
+
+<hr>
+<h2>Creating a DataView</h2>
+<p>To create a <b>DataView</b>, you need an <b>ArrayBuffer</b>.</p>
+<p>Then you pass the ArrayBuffer to the <code class="w3-codespan">new DataView()</code> constructor:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">// Create a 16 bytes ArrayBuffer
+const buffer = new ArrayBuffer(16);
+// Create a new DataView
+const view = new DataView(buffer);
+// Get lengths and offset
+let len1 = buffer.byteLength);
+let len2 = view.byteLength;
+let off1 = view.byteOffset;</code></pre>
+
+</div>
+
+<p>You can also create a DataView that starts at a specific offset and has a limited length:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Starts at offset 4 with length 8:</p>
+<pre class="w3-code"><code class="language-javascript">// Create a 16 bytes ArrayBuffer
+const buffer = new ArrayBuffer(16);
+// Create a new DataView
+const view = new DataView(buffer, 4, 8);
+// Get lengths and offset
+let len1 = buffer.byteLength);
+let len2 = view.byteLength;
+let off1 = view.byteOffset;</code></pre>
+
+</div>
+
+<div class="ws-note">
+<h2>Note</h2>
+<p>Multiple <code>DataView</code> and typed array views can share the same ArrayBuffer.</p>
+</div>
+
+<hr>
+<h2>Reading and Writing DataView Values</h2>
+<p>DataView uses getXxx() and setXxx() methods to read and write values:
+</p>
+<ul>
+<li>getInt8(), setInt8()</li>
+<li>getUint16(), setUint16()</li>
+<li>getInt32(), setInt32()</li>
+<li>getFloat32(), setFloat32()</li>
+<li>and more</li>
+</ul>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>getInt32() and setInt32()</p>
+<pre class="w3-code"><code class="language-javascript">const buffer = new ArrayBuffer(8);
+const view = new DataView(buffer);
+// Write a 32-bit signed integer at byte offset 0
+view.setInt32(0, 123456);
+// Read it back
+const value = view.getInt32(0);
+console.log(value); // 123456</code></pre>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>getFloat64() and setFloat64()</p>
+<pre class="w3-code"><code class="language-javascript">const buffer = new ArrayBuffer(16);
+const view = new DataView(buffer);
+view.setFloat64(0, Math.PI);
+view.setFloat64(8, Math.E);
+const pi = view.getFloat64(0);
+const e = view.getFloat64(8);
+console.log("PI:", pi);
+console.log("E:", e);</code></pre>
+</div>
+
+<div class="w3-panel w3-note">
+<b>Note:</b> The first argument is always the byte offset from the start
+    of the underlying buffer (or the <code>byteOffset</code> of the view).
+</div>
+
+<hr>
+<h2>Endianness (Byte Order)</h2>
+<p>
+    Many binary formats specify whether multi-byte numbers are stored as
+<b>little-endian</b> or <b>big-endian</b>.
+</p>
+<ul>
+<li>
+<b>Little-endian:</b> Least significant byte first (most common on PCs).
+</li>
+<li>
+<b>Big-endian:</b> Most significant byte first (common in some protocols).
+</li>
+</ul>
+
+<p>
+    Most <code>DataView</code> numeric methods have an optional
+<code>littleEndian</code> parameter:
+</p>
+
+<ul>
+<li><code>true</code> = little-endian</li>
+<li><code>false</code> (or omitted) = big-endian</li>
+</ul>
+
+<div class="w3-example">
+<h3>Example: Writing with Little-Endian and Big-Endian</h3>
+<pre class="w3-code"><code class="language-javascript">const buffer = new ArrayBuffer(4);
+const view = new DataView(buffer);
+// Same number, two different byte orders:
+view.setUint32(0, 0x12345678, true); // little-endian
+console.log(new Uint8Array(buffer));
+// Example output: Uint8Array(4) [120, 86, 52, 18] (0x78, 0x56, 0x34, 0x12)
+// Overwrite with big-endian
+view.setUint32(0, 0x12345678, false); // big-endian
+console.log(new Uint8Array(buffer));
+// Example output: Uint8Array(4) [18, 52, 86, 120] (0x12, 0x34, 0x56, 0x78)</code></pre>
+</div>
+
+<div class="w3-panel w3-info">
+<b>Tip:</b> Always check the documentation for your file format or protocol
+    to know which endianness to use.
+</div>
+
+<!-- Mixed Types -->
+<h2 id="mixed-types">Mixed Types in One Buffer</h2>
+<p>
+    One of the main advantages of <code>DataView</code> is that you can mix
+    different types in a single buffer. For example:
+</p>
+<ul>
+<li>1 byte for a flag</li>
+<li>2 bytes for a length</li>
+<li>4 bytes for a float</li>
+</ul>
+
+<div class="w3-example">
+<h3>Example: Mixed Types</h3>
+<pre class="w3-code"><code class="language-javascript">const buffer = new ArrayBuffer(12);
+const view = new DataView(buffer);
+// Byte 0: a flag (0 or 1)
+view.setUint8(0, 1);
+// Bytes 1-2: a 16-bit length (little-endian)
+view.setUint16(1, 500, true);
+// Bytes 4-11: a 64-bit float (skip byte 3 for alignment)
+view.setFloat64(4, 3.14159, true);
+// Read the values back
+const flag = view.getUint8(0);
+const length = view.getUint16(1, true);
+const value = view.getFloat64(4, true);
+console.log("Flag:", flag);
+console.log("Length:", length);
+console.log("Value:", value);</code></pre>
+</div>
+
+<!--
+<hr>
+<h2>Example: Simple "Struct" Layout</h2>
+<p>
+    In many languages you would define a struct to represent a record. With
+<code>DataView</code>, you can simulate this by agreeing on a fixed layout.
+</p>
+
+<p>
+    Example record (total 13 bytes):
+</p>
+<ul>
+<li>Bytes 0-3: <code>id</code> (Uint32)</li>
+<li>Bytes 4-7: <code>score</code> (Float32)</li>
+<li>Bytes 8-12: 5 ASCII characters for a 5-letter code</li>
+</ul>
+
+<div class="w3-example">
+<h3>Example: Encode and Decode a Record</h3>
+<div class="w3-code notranslate jsHigh">
+function writeRecord(view, offset, id, score, code) {
+  // id: Uint32 (4 bytes)
+  view.setUint32(offset, id, true);       // little-endian
+
+  // score: Float32 (4 bytes)
+  view.setFloat32(offset + 4, score, true);
+
+  // code: 5 ASCII chars (5 bytes)
+  for (let i = 0; i &lt; 5; i++) {
+    const charCode = code.charCodeAt(i) || 0;
+    view.setUint8(offset + 8 + i, charCode);
+  }
+}
+
+function readRecord(view, offset) {
+  const id    = view.getUint32(offset, true);
+  const score = view.getFloat32(offset + 4, true);
+
+  let code = "";
+  for (let i = 0; i &lt; 5; i++) {
+    const charCode = view.getUint8(offset + 8 + i);
+    if (charCode !== 0) {
+      code += String.fromCharCode(charCode);
+    }
+  }
+
+  return { id, score, code };
+}
+
+const buffer = new ArrayBuffer(13);
+const view   = new DataView(buffer);
+
+writeRecord(view, 0, 123, 98.5, "HELLO");
+
+const record = readRecord(view, 0);
+console.log(record.id);    // 123
+console.log(record.score); // 98.5
+console.log(record.code);  // "HELLO"
+</div>
+<a href="#" class="w3-btn"> �</a>
+</div>
+
+
+<div class="w3-example">
+<h3>Example: Inspecting Bytes with a Typed Array</h3>
+<p>
+      You can combine <code>DataView</code> and typed arrays on the same buffer:
+</p>
+<div class="w3-code notranslate jsHigh">
+const buffer = new ArrayBuffer(4);
+const view   = new DataView(buffer);
+const bytes  = new Uint8Array(buffer);
+
+view.setUint32(0, 0xDEADBEEF, true);
+
+console.log(bytes);
+// Example output: Uint8Array(4) [239, 190, 173, 222] (little-endian)
+</div>
+<a href="#" class="w3-btn"> �</a>
+</div>
+-->
+
+<hr>
+<h2>Summary</h2>
+<ul>
+<li><code>DataView</code> is a flexible way to read and write multiple numeric types in an <code>ArrayBuffer</code>.</li>
+<li>Use <code>getXxx()</code> and <code>setXxx()</code> methods with a byte offset (and optional endianness).</li>
+<li>Great for binary protocols, file formats, and interoperability with other languages.</li>
+<li>Combine <code>DataView</code> with typed arrays to inspect individual bytes easily.</li>
+</ul>
+<hr>
+<h2>Common Use Cases</h2>
+<ul>
+<li>Parsing binary file formats (images, audio, custom formats).</li>
+<li>Implementing binary network protocols on top of WebSocket or WebRTC.</li>
+<li>Interop with WebAssembly or native code where layout matters.</li>
+<li>Re-implementing C/C++ style structs and unions in JavaScript.</li>
+</ul>
+
+<hr>
+<h2>DataView Reference</h2>
+<h4>Revised December 2025</h4>
+
+<h3>Constructor</h3>
+<div class="table-responsive-wrapper"><table class="w3-table-all">
+<tbody><tr></tr>
+<tr>
+<th>Syntax</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><code>new DataView(buffer)</code></td>
+<td>View on entire <code>ArrayBuffer</code>.</td>
+</tr>
+<tr>
+<td><code>new DataView(buffer, byteOffset)</code></td>
+<td>View starting at <code>byteOffset</code> to the end.</td>
+</tr>
+<tr>
+<td><code>new DataView(buffer, byteOffset, byteLength)</code></td>
+<td>View of length <code>byteLength</code> starting at <code>byteOffset</code>.</td>
+</tr>
+</tbody></table></div>
+
+<h3>Properties</h3>
+<div class="table-responsive-wrapper"><table class="w3-table-all">
+<tbody><tr></tr>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><code>dataView.buffer</code></td>
+<td>The underlying <code>ArrayBuffer</code>.</td>
+</tr>
+<tr>
+<td><code>dataView.byteLength</code></td>
+<td>Number of bytes in this view.</td>
+</tr>
+<tr>
+<td><code>dataView.byteOffset</code></td>
+<td>Offset (in bytes) of this view from the start of the buffer.</td>
+</tr>
+</tbody></table></div>
+
+<h3>Read Methods (get)</h3>
+<div class="table-responsive-wrapper"><table class="w3-table-all">
+<tbody><tr></tr>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><code>getInt8(byteOffset)</code></td>
+<td>Reads an 8-bit signed integer.</td>
+</tr>
+<tr>
+<td><code>getUint8(byteOffset)</code></td>
+<td>Reads an 8-bit unsigned integer.</td>
+</tr>
+<tr>
+<td><code>getInt16(byteOffset, littleEndian?)</code></td>
+<td>Reads a 16-bit signed integer.</td>
+</tr>
+<tr>
+<td><code>getUint16(byteOffset, littleEndian?)</code></td>
+<td>Reads a 16-bit unsigned integer.</td>
+</tr>
+<tr>
+<td><code>getInt32(byteOffset, littleEndian?)</code></td>
+<td>Reads a 32-bit signed integer.</td>
+</tr>
+<tr>
+<td><code>getUint32(byteOffset, littleEndian?)</code></td>
+<td>Reads a 32-bit unsigned integer.</td>
+</tr>
+<tr>
+<td><code>getFloat32(byteOffset, littleEndian?)</code></td>
+<td>Reads a 32-bit floating point number.</td>
+</tr>
+<tr>
+<td><code>getFloat64(byteOffset, littleEndian?)</code></td>
+<td>Reads a 64-bit floating point number.</td>
+</tr>
+<tr>
+<td><code>getBigInt64(byteOffset, littleEndian?)</code></td>
+<td>Reads a 64-bit signed integer as <code>BigInt</code>.</td>
+</tr>
+<tr>
+<td><code>getBigUint64(byteOffset, littleEndian?)</code></td>
+<td>Reads a 64-bit unsigned integer as <code>BigInt</code>.</td>
+</tr>
+</tbody></table></div>
+
+<h3>Write Methods (set)</h3>
+<div class="table-responsive-wrapper"><table class="w3-table-all">
+<tbody><tr></tr>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><code>setInt8(byteOffset, value)</code></td>
+<td>Writes an 8-bit signed integer.</td>
+</tr>
+<tr>
+<td><code>setUint8(byteOffset, value)</code></td>
+<td>Writes an 8-bit unsigned integer.</td>
+</tr>
+<tr>
+<td><code>setInt16(byteOffset, value, littleEndian?)</code></td>
+<td>Writes a 16-bit signed integer.</td>
+</tr>
+<tr>
+<td><code>setUint16(byteOffset, value, littleEndian?)</code></td>
+<td>Writes a 16-bit unsigned integer.</td>
+</tr>
+<tr>
+<td><code>setInt32(byteOffset, value, littleEndian?)</code></td>
+<td>Writes a 32-bit signed integer.</td>
+</tr>
+<tr>
+<td><code>setUint32(byteOffset, value, littleEndian?)</code></td>
+<td>Writes a 32-bit unsigned integer.</td>
+</tr>
+<tr>
+<td><code>setFloat32(byteOffset, value, littleEndian?)</code></td>
+<td>Writes a 32-bit floating point number.</td>
+</tr>
+<tr>
+<td><code>setFloat64(byteOffset, value, littleEndian?)</code></td>
+<td>Writes a 64-bit floating point number.</td>
+</tr>
+<tr>
+<td><code>setBigInt64(byteOffset, value, littleEndian?)</code></td>
+<td>Writes a 64-bit signed integer <code>BigInt</code>.</td>
+</tr>
+<tr>
+<td><code>setBigUint64(byteOffset, value, littleEndian?)</code></td>
+<td>Writes a 64-bit unsigned integer <code>BigInt</code>.</td>
+</tr>
+</tbody></table></div>
+
+
+<hr>
+<div class="ws-note">
+<h2>Learn More:</h2>
+<p class="w3-large"><a href="js_typed_arrays.html">Typed Array Tutorial</a></p>
+<p class="w3-large"><a href="js_typed_methods.html">Typed Array Methods</a></p>
+<p class="w3-large"><a href="js_typed_reference.html">Typed Array Reference</a></p>
+<p class="w3-large"><a href="js_arraybuffers.html">Array Buffers</a></p>
+<p class="w3-large"><a href="js_atomics.html">Atomics</a></p>
+</div>
+
+<br>
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_arraybuffers.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_atomics.html">Next ❯</a>
+</div>
+
+

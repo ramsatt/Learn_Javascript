@@ -1,0 +1,181 @@
+
+      
+
+<h1>JavaScript JSON</h1>
+
+<!--start-->
+<div class="ws-info">
+<div class="w3-cell-row">
+<div class="w3-cell w3-white w3-hide-small w3-center" style="padding:16px;width:150px">
+  <img class="w3-img" alt="HTML" src="assets/images/img_json.jpg" style="width:110px">
+  <div class="w3-center w3-xlarge"><b>JSON</b></div> 
+</div>
+<div class="w3-cell w3-container w3-white w3-cell-top">
+<p>JSON stands for <b>J</b>ava<b>S</b>cript <b>O</b>bject <b>N</b>otation.</p>
+<p>JSON is a <b>plain text format</b> for storing and transporting data.</p>
+<p>JSON is similar to the syntax for creating JavaScript objects.</p>
+<p>JSON is used to <b>send</b>, <b>receive</b> and <b>store data</b>.</p>
+
+</div>
+</div>
+</div>
+<!--stop-->
+<!--start-->
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-javascript">'{"name":"John", "age":30, "car":null}'</code></pre>
+</div>
+<p>The example above defines an object with 3 properties:</p>
+<ul>
+<li>"name"</li>
+<li>"age"</li>
+<li>"car"</li>
+</ul>
+<p>Each property has a value:</p>
+<ul>
+<li>"John"</li>
+<li>30</li>
+<li>null</li>
+</ul>
+<!--stop-->
+<hr>
+<!--start-->
+<h2>Why JSON?</h2>
+<ul>
+  <li>JSON is make it easy to send and store data between computers</li>
+  <li>JSON is text only and language independent <b>*</b> </li>
+</ul>
+
+<div class="w3-panel ws-note">
+<p><b>*</b> The syntax is derived from JavaScript object syntax, but JSON is text only.</p> 
+<p>Code for reading and generating JSON data can be written in any programming language.</p>
+<p>The JSON format was originally specified by <a href="http://www.crockford.com/">Douglas Crockford</a>.</p>
+</div>
+
+<hr>
+<h2>JSON and JavaScript</h2>
+
+<!--start-->
+<p>The JSON format is syntactically identical to the code for creating JavaScript objects.</p>
+<p>Because of this, a JavaScript program can easily convert JSON data into native JavaScript objects.</p>
+
+
+<p>JavaScript has a built in function for converting JSON strings into JavaScript objects:</p>
+<p><code class="w3-codespan">JSON.parse()</code></p>
+<p>JavaScript also has a built in function for converting an object into a JSON string:</p>
+<p><code class="w3-codespan">JSON.stringify()</code></p>
+<div class="ws-note">
+<p>You can receive pure text from a server and use it as a JavaScript object.</p>
+<p>You can send a JavaScript object to a server in pure text format.</p>
+<p>You can work with data as JavaScript objects, with no complicated 
+parsing and translations.</p>
+
+</div>
+<hr>
+<h2>Storing Data</h2>
+<p>When storing data, the data has to be a certain format, and regardless of where you choose to store it, 
+<em>text</em> is always one of the legal formats.</p>
+<p>JSON makes it possible to store JavaScript objects as text.</p>
+<!--stop-->
+<hr>
+<!--start-->
+<div class="w3-example">
+<h3>JSON Example</h3>
+<p>Text that defines an employees object with an array of 3 employee objects:</p>
+<pre class="w3-code"><code class="language-javascript">{
+"employees":[
+  {"firstName":"John", "lastName":"Doe"},
+  {"firstName":"Anna", "lastName":"Smith"},
+  {"firstName":"Peter", "lastName":"Jones"}
+]
+}</code></pre>
+</div>
+<p>If you parse the JSON string with a JavaScript program, you can access the data
+as an object:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">let personName = obj.name;
+let personAge = obj.age;</code></pre>
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+
+<!--start-->
+<h2>JSON Data - A Name and a Value</h2>
+
+<p>JSON data is written as name/value pairs, just like JavaScript object 
+properties.</p>
+<p>A name/value pair consists of a field name (in double quotes), 
+followed by a colon, followed by a value:</p>
+
+<pre class="w3-code"><code class="language-javascript"><div> "firstName":"John"</div></code></pre>
+
+<div class="w3-panel ws-note">
+<p>JSON names require double quotes. JavaScript names do not.</p>
+</div>
+
+<!--stop-->
+<hr>
+<!--start-->
+<h2>JSON Objects</h2>
+<p>JSON objects are written inside curly braces.</p>
+<p>Just like in JavaScript, objects can contain multiple name/value pairs:</p>
+<pre class="w3-code"><code class="language-javascript"><div> {"firstName":"John", "lastName":"Doe"} </div></code></pre>
+<!--stop-->
+
+<hr>
+<!--start-->
+<h2>JSON Arrays</h2>
+<p>JSON arrays are written inside square brackets.</p>
+<p>Just like in JavaScript, an array can contain objects:</p>
+<pre class="w3-code"><code class="language-javascript"><div> "employees":[
+  {"firstName":"John", "lastName":"Doe"},
+  {"firstName":"Anna", "lastName":"Smith"},
+  {"firstName":"Peter", "lastName":"Jones"}
+]</div></code></pre>
+
+<p>In the example above, the object "employees" is an array. It contains three 
+objects.</p>
+<p>Each object is a record of a person (with a first name and a last name).</p>
+<hr>
+<h2>Converting a JSON Text to a JavaScript Object</h2>
+<p>A common use of JSON is to read data from a web server, 
+and display the data in a web page.</p>
+<p>For simplicity, this can be demonstrated using a string as input.</p>
+<p>First, create a JavaScript string containing JSON syntax:</p>
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">let text = '{ "employees" : [' +
+'{ "firstName":"John" , "lastName":"Doe" },' +
+'{ "firstName":"Anna" , "lastName":"Smith" },' +
+'{ "firstName":"Peter" , "lastName":"Jones" } ]}';</code></pre>
+</div>
+
+<p>Then, use the JavaScript built-in function <code class="w3-codespan">JSON.parse()</code> to convert the string into a JavaScript object:</p>
+
+<div class="w3-example">
+<pre class="w3-code"><code class="language-javascript">const obj = JSON.parse(text);</code></pre>
+</div>
+
+<p>Finally, use the new JavaScript object in your page:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="w3-code"><code class="language-html">&lt;p id="demo"&gt;&lt;/p&gt;
+&lt;script&gt;
+document.getElementById("demo").innerHTML =
+obj.employees[1].firstName + " " + obj.employees[1].lastName;
+&lt;/script&gt;</code></pre>
+
+</div>
+<!--stop-->
+<hr>
+
+<hr>
+
+<div class="w3-clear nextprev">
+<a class="w3-left w3-btn" href="js_ajax_examples.html">❮ Previous</a>
+<a class="w3-right w3-btn" href="js_json_syntax.html">Next ❯</a>
+</div>
+
+
