@@ -29,10 +29,12 @@
 .action-btn {
     --padding-start: 8px;
     --padding-end: 8px;
+    --color: var(--ion-text-color); /* Adaptive color */
     margin: 0;
     height: 40px;
     width: 40px;
     font-size: 1.2rem;
+    color: var(--ion-text-color);
 }
 
 .notification-btn {
@@ -309,20 +311,21 @@
 
 /* Popular List */
 .popular-card {
-    background: #fff;
+    background: var(--ion-card-background); /* Adaptive background */
     border-radius: 16px;
     padding: 12px;
     display: flex;
     align-items: center;
     gap: 16px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    border: 1px solid rgba(0,0,0,0.05);
 }
 
 .pop-img {
     width: 60px;
     height: 60px;
     border-radius: 12px;
-    background: #e0e0e0;
+    background: var(--ion-color-step-100, #e0e0e0); /* Adaptive light/dark grey */
     overflow: hidden;
     flex-shrink: 0;
 }
@@ -333,8 +336,9 @@
 
 .pop-details h4 {
     margin: 0 0 4px;
-    font-size: 0.95rem;
+    font-size: 1rem;
     font-weight: 600;
+    color: var(--ion-text-color); /* Ensure visible */
 }
 
 .pop-details p {

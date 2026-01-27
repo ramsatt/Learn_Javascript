@@ -20,11 +20,11 @@
      </div>
      <div class="header-actions">
         <!-- Theme Toggle -->
-        <ion-button fill="clear" color="dark" class="action-btn" (click)="themeService.toggleTheme()">
+        <ion-button fill="clear" class="action-btn" (click)="themeService.toggleTheme()">
             <ion-icon [name]="themeService.isDarkMode() ? 'sunny-outline' : 'moon-outline'" slot="icon-only"></ion-icon>
         </ion-button>
         
-        <ion-button fill="clear" color="dark" class="action-btn notification-btn">
+        <ion-button fill="clear" class="action-btn notification-btn">
             <ion-icon name="notifications-outline" slot="icon-only"></ion-icon>
             <div class="badge-dot"></div>
         </ion-button>
