@@ -149,4 +149,39 @@ export class TutorialService {
   getNextLevelXP(): number {
        return this.level * 100 * 1.5;
   }
+  // --- Module Locking Logic ---
+  
+  // Initialize with persisted unlocked modules
+  private unlockedModules: Set<string> = new Set<string>();
+
+  initLocks() {
+      const saved = localStorage.getItem('unlocked_modules');
+      if (saved) {
+          this.unlockedModules = new Set(JSON.parse(saved));
+      }
+  }
+
+  isModuleLocked(index: number): boolean {
+      // First 5 modules (0-4) are always free
+      if (index < 5) return false;
+      
+      // Check if unlocked (we use index as key for simplicity, or title)
+      if (this.unlockedModules.has(index.toString())) return false;
+      
+      return true;
+  }
+
+  unlockNextSet(currentIndex: number) {
+      // Logic: Unlock the current block of 5.
+      // E.g. if index is 5, unlock 5,6,7,8,9
+      const start = Math.floor(currentIndex / 5) * 5;
+      for (let i = start; i < start + 5; i++) {
+          this.unlockedModules.add(i.toString());
+      }
+      this.saveLocks();
+  }
+
+  private saveLocks() {
+      localStorage.setItem('unlocked_modules', JSON.stringify(Array.from(this.unlockedModules)));
+  }
 }

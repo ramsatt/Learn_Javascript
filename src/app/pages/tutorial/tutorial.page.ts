@@ -3,6 +3,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TutorialService } from '../../services/tutorial.service';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { AdmobService } from '../../services/admob.service';
 import * as Prism from 'prismjs';
 import 'prismjs/components/prism-javascript';
 import 'prismjs/components/prism-css';
@@ -25,7 +26,8 @@ export class TutorialPage implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private tutorialService: TutorialService,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private admobService: AdmobService
   ) { }
 
   ngOnInit() {
@@ -110,6 +112,9 @@ export class TutorialPage implements OnInit {
 
       const isNewCompletion = this.tutorialService.markComplete(file);
       
+      // Show Interstitial Ad on completion
+      this.admobService.showInterstitial();
+
       if (isNewCompletion) {
           this.xpAwarded = 50;
           this.showSuccess = true;

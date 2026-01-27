@@ -96,7 +96,7 @@
       <!-- Horizontal Scroll Cards -->
       <div class="horizontal-scroll-container">
           <!-- Real Data Loop -->
-          <div class="feature-card" *ngFor="let section of menuData; let i = index" (click)="toggleSection(section)">
+          <div class="feature-card" *ngFor="let section of menuData; let i = index" (click)="toggleSection(section, i)">
               <div class="card-img-wrapper">
                   <!-- Dynamic Gradient Background -->
                   <div class="img-placeholder" [style.background]="getModuleThumb(section, i)">
@@ -104,6 +104,13 @@
                      <ion-icon name="logo-javascript" *ngIf="i % 3 === 0" size="large" style="font-size: 2.5rem; color:white; opacity:0.9; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));"></ion-icon>
                      <ion-icon name="code-slash" *ngIf="i % 3 === 1" size="large" style="font-size: 2.5rem; color:white; opacity:0.9; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));"></ion-icon>
                      <ion-icon name="layers" *ngIf="i % 3 === 2" size="large" style="font-size: 2.5rem; color:white; opacity:0.9; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));"></ion-icon>
+                     
+                     <!-- Lock Overlay -->
+                     <div class="lock-overlay" *ngIf="tutorialService.isModuleLocked(i)">
+                        <div class="lock-circle">
+                            <ion-icon name="lock-closed"></ion-icon>
+                        </div>
+                     </div>
                   </div>
               </div>
               <div class="card-details">
@@ -125,7 +132,7 @@
       </div>
 
       <div class="popular-list ion-padding-horizontal">
-          <div class="popular-card" *ngFor="let section of menuData" (click)="toggleSection(section)" style="margin-bottom: 12px;">
+          <div class="popular-card" *ngFor="let section of menuData; let i = index" (click)="toggleSection(section, i)" style="margin-bottom: 12px; position: relative; overflow: hidden;">
               <div class="pop-img" [style.background]="getCircleDash(section.progress || 0) === '0' ? '#e0e0e0' : 'rgba(76, 77, 220, 0.1)'">
                  <div class="tiny-placeholder" style="width:100%; height:100%; display:flex; align-items:center; justify-content:center;">
                      <ion-icon name="book" style="color: #666;"></ion-icon>
@@ -136,8 +143,15 @@
                   <p>{{ section.items ? section.items.length : 0 }} Lessons • {{ section.progress || 0 }}% Complete</p>
               </div>
               <div class="pop-arrow">
-                  <ion-icon name="arrow-forward"></ion-icon>
+                  <!-- Lock or Arrow -->
+                  <ion-icon *ngIf="tutorialService.isModuleLocked(i)" name="lock-closed" style="color: var(--ion-color-medium); font-size: 1rem;"></ion-icon>
+                  <ion-icon *ngIf="!tutorialService.isModuleLocked(i)" name="arrow-forward"></ion-icon>
               </div>
+              
+              <!-- Subtle dimmer for locked popular items -->
+               <div *ngIf="tutorialService.isModuleLocked(i)" style="position:absolute; top:0; left:0; right:0; bottom:0; background: rgba(255,255,255,0.5); z-index: 1;"></div>
+               <!-- Dark mode dimmer -->
+               <div class="dark-dimmer" *ngIf="tutorialService.isModuleLocked(i)"></div>
           </div>
       </div>
   </div>
