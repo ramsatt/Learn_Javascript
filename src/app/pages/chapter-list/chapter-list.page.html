@@ -7,32 +7,52 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="chapter-content">
-  <div class="chapter-list-container">
-    <ion-card button *ngFor="let item of chapterList" (click)="openTutorial(item.file)" class="chapter-item-card">
-      <ion-card-content>
-        <div class="icon-wrapper" [class.completed]="isComplete(item.file)">
-           <ion-icon [name]="isComplete(item.file) ? 'checkmark-circle' : 'document-text-outline'"></ion-icon>
-        </div>
-        
-        <div class="item-info">
-          <h3>{{ item.title }}</h3>
-        </div>
-        
-        <div class="arrow-wrapper">
-          <ion-icon name="chevron-forward-outline"></ion-icon>
-        </div>
-      </ion-card-content>
-    </ion-card>
+<ion-content class="chapter-content gamified-content">
+  <!-- Header Overlay -->
+  <div class="map-header">
+     <ion-buttons slot="start">
+       <ion-back-button defaultHref="/home" text="" icon="arrow-back-outline" color="light"></ion-back-button>
+     </ion-buttons>
+     <h2>{{ categoryTitle }}</h2>
+  </div>
+
+  <div class="path-container" *ngIf="chapterList.length > 0">
+     <!-- Start Node -->
+     <div class="start-node">
+         <span>Start</span>
+     </div>
+
+     <div class="path-node-wrapper" *ngFor="let item of chapterList; let i = index; let last = last"
+          [class.alternate]="i % 2 !== 0">
+          
+          <div class="path-node" 
+              [class.completed]="isComplete(item.file)"
+              [class.active]="!isComplete(item.file) && (i === 0 || isComplete(chapterList[i-1].file))"
+              [class.locked]="!isComplete(item.file) && (i > 0 && !isComplete(chapterList[i-1].file))"
+              (click)="openTutorial(item.file)">
+              
+              <div class="node-circle">
+                   <ion-icon *ngIf="isComplete(item.file)" name="star"></ion-icon>
+                   <ion-icon *ngIf="!isComplete(item.file) && (i === 0 || isComplete(chapterList[i-1].file))" name="play"></ion-icon>
+                   <ion-icon *ngIf="!isComplete(item.file) && (i > 0 && !isComplete(chapterList[i-1].file))" name="lock-closed"></ion-icon>
+              </div>
+
+              <div class="node-label">
+                  {{ item.title }}
+              </div>
+          </div>
+          
+          <div class="path-line" *ngIf="!last"></div>
+     </div>
   </div>
 
   <!-- Certificate Unlock Section -->
-  <div class="certificate-unlock-container" *ngIf="isCategoryComplete">
+  <div class="certificate-unlock-container" *ngIf="isCategoryComplete" style="text-align: center; margin-top: 40px; padding-bottom: 40px;">
       <div class="unlock-content">
-          <ion-icon name="ribbon" color="warning"></ion-icon>
-          <h3>Course Completed!</h3>
-          <p>You have mastered all chapters in this section.</p>
-          <ion-button expand="block" shape="round" color="tertiary" (click)="openCertificate()">
+          <ion-icon name="ribbon" color="warning" style="font-size: 60px;"></ion-icon>
+          <h3 style="color:white;">Course Completed!</h3>
+          <p style="color:#aaa;">You have mastered all chapters in this section.</p>
+          <ion-button expand="block" shape="round" color="tertiary" (click)="openCertificate()" style="margin: 20px;">
               <ion-icon name="trophy-outline" slot="start"></ion-icon>
               Get Your Certificate
           </ion-button>

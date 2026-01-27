@@ -1,159 +1,179 @@
+
 .chapter-content {
     --background: var(--ion-background-color);
 }
 
-.chapter-list-container {
+.map-header {
+    background: transparent;
     padding: 20px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-}
-
-.chapter-item-card {
-    margin: 0;
-    border-radius: 20px; /* Softer rounded corners */
-    background: #ffffff;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-    border: 1px solid rgba(255, 255, 255, 1);
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    height: 100%;
-
-    &:active {
-        transform: scale(0.96);
-    }
-
-    ion-card-content {
-        display: flex;
-        flex-direction: column; /* Stack vertically */
-        align-items: flex-start;
-        padding: 20px;
-        gap: 12px;
-        height: 100%;
-    }
-
-    .icon-wrapper {
-        width: 48px;
-        height: 48px;
-        background: #f3f4f6;
-        border-radius: 14px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #9ca3af; /* Default grey */
-        font-size: 1.4rem;
-        transition: all 0.3s ease;
-        margin-bottom: 4px;
-        
-        &.completed {
-            background: var(--ion-color-secondary); /* Brand Orange for completed? Or Success Green? User said "better stylish". Let's use Brand Secondary or Primary. */
-            background: #dcfce7; /* Soft Green bg */
-            color: #16a34a; /* Green check */
-            /* Or use the Orange theme? Let's stick to Green for 'Completed' logic universally */
-        }
-    }
-
-    .item-info {
-        width: 100%;
-
-        h3 {
-            margin: 0;
-            font-size: 1rem;
-            font-weight: 700;
-            color: #111827;
-            line-height: 1.4;
-            
-            /* Multi-line truncation */
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-    }
-
-    .arrow-wrapper {
-        display: none; /* Hide chevron in grid view for cleaner look */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    h2 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin: 0;
+        color: var(--ion-text-color);
     }
 }
 
-/* Dark Mode Overrides for Chapter List */
-@media (prefers-color-scheme: dark) {
-    .chapter-item-card {
-        background: var(--ion-card-background);
-        border-color: rgba(255,255,255,0.05);
-        box-shadow: none;
-        
-        ion-card-content {
-            /* Ensure text inside content inherits or is explicitly clear */
-        }
-        
-        .icon-wrapper {
-            background: rgba(255,255,255,0.05); /* Darker placeholder */
-            color: #94a3b8;
-            
-            &.completed {
-                background: rgba(var(--ion-color-secondary-rgb), 0.2); /* Use orange/secondarytint for visibility */
-                color: var(--ion-color-secondary-tint);
-            }
-        }
-        
-        .item-info h3 {
-            color: #f1f5f9;
-        }
-        
-        
-        &:active {
-            background: rgba(255,255,255,0.05);
-        }
-    }
+.path-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 0 80px;
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-.certificate-unlock-container {
-    padding: 30px 20px 40px;
+.start-node {
+    margin-bottom: 40px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ion-color-medium);
+    opacity: 0.7;
+}
+
+.path-node-wrapper {
+    position: relative;
+    width: 100%;
     display: flex;
     justify-content: center;
-
-    .unlock-content {
-        background: var(--ion-color-white, #fff);
-        border-radius: 20px;
-        padding: 30px;
-        text-align: center;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-        width: 100%;
-        max-width: 400px;
-        border: 2px solid var(--ion-color-warning);
-        
-        ion-icon {
-            font-size: 48px;
-            margin-bottom: 16px;
-        }
-
-        h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--ion-text-color);
-            margin: 0 0 8px;
-        }
-
-        p {
-            color: var(--ion-color-medium);
-            margin-bottom: 24px;
-        }
-
-        ion-button {
-            --box-shadow: 0 4px 10px rgba(var(--ion-color-tertiary-rgb), 0.3);
-            font-weight: 600;
-        }
+    margin-bottom: 60px; /* Space between nodes */
+    
+    /* Center line segment */
+    .path-line {
+        position: absolute;
+        top: 60px; /* Start below the current circle */
+        height: 60px; /* Reach next node */
+        width: 4px;
+        background: #2d3748; /* Dark line color */
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 0;
     }
 }
 
-/* Dark Mode for Unlock Section */
-@media (prefers-color-scheme: dark) {
-    .certificate-unlock-container .unlock-content {
-        background: #1e293b;
-        border-color: rgba(var(--ion-color-warning-rgb), 0.5);
-        box-shadow: none;
-        
-        h3 { color: #f1f5f9; }
-        p { color: #94a3b8; }
+.path-node {
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    
+    &:active {
+        transform: scale(0.95);
+    }
+}
+
+.node-circle {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #1e293b; /* Dark node background */
+    border: 4px solid #334155;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    color: #94a3b8;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+/* Completed State */
+.path-node.completed .node-circle {
+    background: #064e3b; /* Dark Green */
+    border-color: var(--ion-color-success);
+    color: #ffffff;
+}
+
+/* Active/Next State */
+.path-node.active .node-circle {
+    background: #1e293b;
+    border-color: var(--ion-color-primary-tint); /* Bright Teal */
+    color: var(--ion-color-primary-tint);
+    box-shadow: 0 0 20px rgba(20, 184, 166, 0.4);
+    animation: pulse-ring 2s infinite;
+}
+
+@keyframes pulse-ring {
+    0% { box-shadow: 0 0 0 0 rgba(20, 184, 166, 0.4); }
+    70% { box-shadow: 0 0 0 15px rgba(20, 184, 166, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(20, 184, 166, 0); }
+}
+
+/* Locked State */
+.path-node.locked .node-circle {
+    opacity: 0.6;
+    border-color: #333;
+    background: #111;
+}
+
+/* Labels */
+.node-label {
+    position: absolute;
+    width: 180px;
+    top: 50%;
+    transform: translateY(-50%);
+    
+    /* Default Right Side */
+    left: 80px; 
+    text-align: left;
+    
+    background: #1e293b;
+    padding: 10px 16px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #f1f5f9;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* Alternating Labels (Left Side) */
+.path-node-wrapper.alternate .node-label {
+    left: auto;
+    right: 80px;
+    text-align: right;
+}
+
+/* Light Mode Overrides */
+@media (prefers-color-scheme: light) {
+    .node-circle {
+        background: #ffffff;
+        border-color: #e2e8f0;
+        color: #94a3b8;
+    }
+    
+    .path-node.completed .node-circle {
+        background: var(--ion-color-success);
+        border-color: var(--ion-color-success-tint);
+    }
+    
+    .path-node.active .node-circle {
+        background: #ffffff;
+        border-color: var(--ion-color-primary);
+        color: var(--ion-color-primary);
+        box-shadow: 0 0 20px rgba(0, 95, 85, 0.2);
+    }
+    
+    .node-label {
+        background: #ffffff;
+        color: #1e293b;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        border: 1px solid #f1f5f9;
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    .path-line {
+        background: #e2e8f0;
     }
 }

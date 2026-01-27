@@ -1,0 +1,266 @@
+/* Gamification Styles */
+
+/* Variables */
+:root {
+  --game-gold: #fbbf24;
+  --game-xp: #14b8a6; /* Teal 500 */
+  --game-fire: #ef4444;
+  --game-bg: transparent; /* Rely on app background */
+  --game-card-bg: var(--ion-card-background);
+}
+
+.gamified-content {
+    --background: var(--ion-background-color);
+    color: var(--ion-text-color);
+}
+
+.game-header {
+    background: transparent; /* Cleaner, let body gradient show if any */
+    padding: 20px;
+    /* Remove shadow for cleaner look, or make very subtle */
+    border-bottom: none;
+}
+
+.user-stats-row {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-icon {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.ring-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 3px solid var(--game-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: var(--game-gold);
+}
+
+.streak-stat ion-icon {
+  font-size: 30px;
+  transition: transform 0.3s;
+}
+
+.streak-stat.active ion-icon {
+  animation: pulse-fire 1.5s infinite;
+}
+
+@keyframes pulse-fire {
+  0% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 2px var(--game-fire));
+  }
+  50% {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 8px var(--game-fire));
+  }
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 2px var(--game-fire));
+  }
+}
+
+.gem-stat ion-icon {
+  font-size: 30px;
+  filter: drop-shadow(0 0 5px #00f260);
+}
+
+.xp-progress-container {
+  margin-top: 10px;
+}
+
+.xp-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-bottom: 5px;
+  color: #aaa;
+}
+
+.dashboard-grid {
+  padding: 20px;
+}
+
+.section-title h2 {
+  color: white;
+  font-size: 22px;
+  margin-bottom: 15px;
+  border-left: 4px solid var(--game-xp);
+  padding-left: 10px;
+}
+
+/* Journey Cards */
+.journey-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.journey-card {
+  background: var(--game-card-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+}
+
+.journey-card:active {
+  transform: scale(0.98);
+}
+
+.journey-card.locked {
+  opacity: 0.6;
+  filter: grayscale(0.8);
+}
+
+.card-status-strip {
+  height: 4px;
+  width: 100%;
+}
+
+.card-content-game {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+}
+
+.card-icon-game {
+  margin-right: 15px;
+  font-size: 28px;
+  color: white;
+}
+
+.completed-icon {
+  color: var(--ion-color-success);
+}
+.play-icon {
+  color: var(--game-xp);
+}
+.lock-icon {
+  color: #555;
+}
+
+.card-text-game {
+  flex: 1;
+}
+
+.card-text-game h3 {
+  margin: 0 0 5px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.card-text-game p {
+  margin: 0;
+  font-size: 14px;
+  color: #888;
+}
+
+.card-arrow {
+  color: #444;
+}
+
+/* Chapter List - Path Map Style */
+.path-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding: 20px 0;
+}
+
+.path-node {
+  width: 60px;
+  height: 60px;
+  background: var(--game-card-bg);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #444;
+  margin-bottom: 40px; /* Space for connecting line */
+  position: relative;
+  z-index: 2;
+  transition: all 0.3s;
+}
+
+.path-node.completed {
+  border-color: var(--game-gold);
+  background: rgba(255, 215, 0, 0.1);
+}
+
+.path-node.active {
+  border-color: var(--game-xp);
+  box-shadow: 0 0 15px rgba(79, 172, 254, 0.5);
+  background: rgba(79, 172, 254, 0.1);
+}
+
+.path-node.locked {
+  border-color: #333;
+  background: #222;
+}
+
+.path-line {
+  position: absolute;
+  top: 60px;
+  bottom: -40px;
+  width: 4px;
+  background: #333;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.path-node:last-child .path-line {
+  display: none;
+}
+
+.node-icon {
+  font-size: 28px;
+  color: white;
+}
+
+.path-node.completed .node-icon {
+  color: var(--game-gold);
+}
+.path-node.active .node-icon {
+  color: var(--game-xp);
+}
+.path-node.locked .node-icon {
+  color: #555;
+}
+
+.node-label {
+  position: absolute;
+  left: 80px;
+  background: var(--game-card-bg);
+  padding: 8px 12px;
+  border-radius: 8px;
+  width: 200px;
+  font-size: 14px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Alternating labels */
+.path-node:nth-child(even) .node-label {
+  left: auto;
+  right: 80px;
+  text-align: right;
+}
+.success-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.85); z-index: 1000; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(5px); animation: fadeIn 0.3s ease-out; } .success-card { background: #2a2a40; padding: 30px; border-radius: 20px; text-align: center; width: 80%; max-width: 350px; border: 2px solid var(--game-gold); box-shadow: 0 0 30px rgba(255, 215, 0, 0.3); animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); } .success-icon { font-size: 60px; color: var(--game-gold); margin-bottom: 20px; animation: bounce 1s infinite; } .xp-reward { font-size: 40px; font-weight: bold; color: var(--game-xp); margin: 20px 0; } .xp-reward .label { font-size: 16px; color: #888; } @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } } @keyframes popIn { from { transform: scale(0.5); opacity: 0; } to { transform: scale(1); opacity: 1; } } @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }

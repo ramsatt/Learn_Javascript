@@ -25,7 +25,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap');
 
 :root {
-  --ion-font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --ion-font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+}
+
+/* Card & Shape Standards */
+.ion-card, ion-card {
+    border-radius: 20px !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05) !important;
+}
+
+ion-button {
+    --border-radius: 12px;
+    font-weight: 600;
 }
 
 /* Ionic Page Fixes */

@@ -1,31 +1,34 @@
-/* Professional Tech Theme (based on Slate/Blue) */
+/* Blue Learning App Theme (Based on Styleguide Mockup) */
+
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 :root {
-  /* Primary: Slate 900 - Deep, professional  /** primary - Deep Navy (from reference header/dark elements) */
-  --ion-color-primary: #131B2C;
-  --ion-color-primary-rgb: 19, 27, 44;
+  /* Primary: Indigo Blue #4C4DDC */
+  --ion-color-primary: #4C4DDC;
+  --ion-color-primary-rgb: 76, 77, 220;
   --ion-color-primary-contrast: #ffffff;
   --ion-color-primary-contrast-rgb: 255, 255, 255;
-  --ion-color-primary-shade: #111827;
-  --ion-color-primary-tint: #2b3241;
+  --ion-color-primary-shade: #4344c2;
+  --ion-color-primary-tint: #5e5ee0;
 
-  /** secondary - Vibrant Orange (from reference buttons/highlights) */
-  --ion-color-secondary: #FF6B4A;
-  --ion-color-secondary-rgb: 255, 107, 74;
-  --ion-color-secondary-contrast: #ffffff;
-  --ion-color-secondary-contrast-rgb: 255, 255, 255;
-  --ion-color-secondary-shade: #e05e41;
-  --ion-color-secondary-tint: #ff7a5c;
+  /* Secondary: Light Lavender #E4E4FA */
+  --ion-color-secondary: #E4E4FA;
+  --ion-color-secondary-rgb: 228, 228, 250;
+  --ion-color-secondary-contrast: #2E2E84; /* Dark Navy Text on light back */
+  --ion-color-secondary-contrast-rgb: 46, 46, 132;
+  --ion-color-secondary-shade: #c9c9dc;
+  --ion-color-secondary-tint: #e7e7fb;
 
-  /** tertiary - Soft Grey/Blue (for subtle UI elements) */
-  --ion-color-tertiary: #F5F7FB;
-  --ion-color-tertiary-rgb: 245, 247, 251;
-  --ion-color-tertiary-contrast: #131B2C;
-  --ion-color-tertiary-contrast-rgb: 19, 27, 44;
-  --ion-color-tertiary-shade: #d8d9dd;
-  --ion-color-tertiary-tint: #f6f7fb;
+  /* Tertiary: Dark Navy #2E2E84 */
+  --ion-color-tertiary: #2E2E84;
+  --ion-color-tertiary-rgb: 46, 46, 132;
+  --ion-color-tertiary-contrast: #ffffff;
+  --ion-color-tertiary-contrast-rgb: 255, 255, 255;
+  --ion-color-tertiary-shade: #282874;
+  --ion-color-tertiary-tint: #434390;
 
-  /** success */
+  /* Success: Green (Standard) */
   --ion-color-success: #2dd36f;
   --ion-color-success-rgb: 45, 211, 111;
   --ion-color-success-contrast: #ffffff;
@@ -33,92 +36,69 @@
   --ion-color-success-shade: #28ba62;
   --ion-color-success-tint: #42d77d;
 
-  /** warning */
+  /* Warning */
   --ion-color-warning: #ffc409;
   --ion-color-warning-rgb: 255, 196, 9;
   --ion-color-warning-contrast: #000000;
   --ion-color-warning-contrast-rgb: 0, 0, 0;
-  --ion-color-warning-shade: #e0ac08;
-  --ion-color-warning-tint: #ffca22;
 
-  /** danger */
+  /* Danger */
   --ion-color-danger: #eb445a;
   --ion-color-danger-rgb: 235, 68, 90;
   --ion-color-danger-contrast: #ffffff;
   --ion-color-danger-contrast-rgb: 255, 255, 255;
-  --ion-color-danger-shade: #cf3c4f;
-  --ion-color-danger-tint: #ed576b;
 
-  /** dark */
-  --ion-color-dark: #222428;
-  --ion-color-dark-rgb: 34, 36, 40;
+  /* Dark */
+  --ion-color-dark: #101010; /* Black from mockup */
+  --ion-color-dark-rgb: 16, 16, 16;
   --ion-color-dark-contrast: #ffffff;
   --ion-color-dark-contrast-rgb: 255, 255, 255;
-  --ion-color-dark-shade: #1e2023;
-  --ion-color-dark-tint: #383a3e;
+  --ion-color-dark-shade: #0e0e0e;
+  --ion-color-dark-tint: #282828;
 
-  /** medium */
+  /* Medium */
   --ion-color-medium: #92949c;
   --ion-color-medium-rgb: 146, 148, 156;
   --ion-color-medium-contrast: #ffffff;
   --ion-color-medium-contrast-rgb: 255, 255, 255;
-  --ion-color-medium-shade: #808289;
-  --ion-color-medium-tint: #9d9fa6;
 
-  /** light */
-  --ion-color-light: #ffffff;
-  --ion-color-light-rgb: 255, 255, 255;
+  /* Light */
+  --ion-color-light: #ECECEC; /* Light Grey from mockup */
+  --ion-color-light-rgb: 236, 236, 236;
   --ion-color-light-contrast: #000000;
   --ion-color-light-contrast-rgb: 0, 0, 0;
-  --ion-color-light-shade: #e0e0e0;
-  --ion-color-light-tint: #ffffff;
-  
+  --ion-color-light-shade: #d0d0d0;
+  --ion-color-light-tint: #eeeeee;
+
   /* App Defaults */
-  --ion-background-color: #F5F7FB;
-  --ion-text-color: #131B2C;
+  --ion-font-family: 'Poppins', sans-serif;
+  --ion-background-color: #ffffff;
+  --ion-text-color: #101010;
+  
+  --ion-card-background: #ffffff;
   --ion-item-background: #ffffff;
-  --ion-toolbar-background: #F5F7FB;
-  --ion-toolbar-color: #131B2C;
+  
+  --ion-toolbar-background: #ffffff;
+  --ion-toolbar-color: #101010;
 }
 
-body {
-    /* Improve font rendering */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
+/* body {
+    background-color: var(--ion-background-color);
+} */
 
-/* Dark Mode Support */
+/* Dark Mode Overrides (Optional - keeping consistent with blue theme) */
 @media (prefers-color-scheme: dark) {
   :root {
-    /* Primary (Navy) stays distinct but readable */
-    --ion-color-primary: #38bdf8; /* Lighter blue for dark mode visibility */
-    --ion-color-primary-rgb: 56, 189, 248;
-    --ion-color-primary-contrast: #0f172a;
-    --ion-color-primary-contrast-rgb: 15, 23, 42;
-    --ion-color-primary-shade: #31a6d9;
-    --ion-color-primary-tint: #4cc4f9;
-
-    /* Secondary (Orange) needs to pop */
-    --ion-color-secondary: #fb923c; /* Slightly lighter orange */
-    --ion-color-secondary-rgb: 251, 146, 60;
-    --ion-color-secondary-contrast: #0f172a;
-    --ion-color-secondary-contrast-rgb: 15, 23, 42;
-    --ion-color-secondary-shade: #dd8135;
-    --ion-color-secondary-tint: #fc9d50;
-
-    /* Backgrounds: Deep Slate/Navy */
-    --ion-background-color: #0f172a; /* Slate 900 */
-    --ion-background-color-rgb: 15, 23, 42;
+    --ion-color-primary: #5e5ee0;
+    --ion-color-primary-contrast: #ffffff;
     
-    --ion-text-color: #f1f5f9; /* Slate 100 */
-    --ion-text-color-rgb: 241, 245, 249;
-
-    --ion-item-background: #1e293b; /* Slate 800 */
-    --ion-card-background: #1e293b;
+    --ion-background-color: #101010;
+    --ion-text-color: #ffffff;
     
-    --ion-toolbar-background: #0f172a;
-    --ion-toolbar-color: #f8fafc;
+    --ion-card-background: #1c1c1e;
+    --ion-item-background: #1c1c1e;
     
-    --ion-tab-bar-background: #1e293b;
+    --ion-toolbar-background: #101010;
+    --ion-toolbar-color: #ffffff;
   }
 }

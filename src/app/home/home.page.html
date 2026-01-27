@@ -10,77 +10,155 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="home-content">
-  <div class="welcome-banner">
-    <h1>Learn JavaScript</h1>
-    <p>From zero to hero. Master the web's language.</p>
+<ion-content [fullscreen]="true" class="ion-padding-bottom">
+  
+  <!-- Header Section -->
+  <div class="header-section ion-padding">
+     <div class="user-greeting">
+        <p class="welcome-text">Welcome <span class="wave">👋</span></p>
+        <h2>JS Learner</h2>
+     </div>
+     <div class="header-actions">
+        <!-- Theme Toggle -->
+        <ion-button fill="clear" color="dark" class="action-btn" (click)="themeService.toggleTheme()">
+            <ion-icon [name]="themeService.isDarkMode() ? 'sunny-outline' : 'moon-outline'" slot="icon-only"></ion-icon>
+        </ion-button>
+        
+        <ion-button fill="clear" color="dark" class="action-btn notification-btn">
+            <ion-icon name="notifications-outline" slot="icon-only"></ion-icon>
+            <div class="badge-dot"></div>
+        </ion-button>
+     </div>
   </div>
 
-  <div class="course-container grid-layout" *ngIf="menuData.length > 0; else loadingTpl">
-    
-    <!-- Main Dashboard Loop - 2 Column Grid -->
-    <div class="category-card" *ngFor="let section of menuData" (click)="toggleSection(section)">
-      <div class="card-inner">
-        <div class="card-header">
-            <div class="category-icon-wrapper">
-                <ion-icon name="grid-outline"></ion-icon>
-            </div>
-            <!-- Optional: Could add a 'New' or 'Hot' badge here -->
-        </div>
-
-        <div class="card-body">
-            <h2>{{ section.title }}</h2>
-            <p>{{ section.items.length }} Tutorials</p>
-        </div>
-
-        <div class="card-footer">
-             <div class="footer-row">
-                 <div class="progress-text-col">
-                     <span class="label">Progress</span>
-                     <span class="value">{{ section.progress || 0 }}%</span>
-                 </div>
-                 
-                 <div class="circular-chart">
-                     <svg viewBox="0 0 36 36" class="circular-chart-svg">
-                        <path class="circle-bg"
-                          d="M18 2.0845
-                             a 15.9155 15.9155 0 0 1 0 31.831
-                             a 15.9155 15.9155 0 0 1 0 -31.831"
-                        />
-                        <path class="circle"
-                          [attr.stroke-dasharray]="(section.progress || 0) + ', 100'"
-                          d="M18 2.0845
-                             a 15.9155 15.9155 0 0 1 0 31.831
-                             a 15.9155 15.9155 0 0 1 0 -31.831"
-                        />
-                      </svg>
-                 </div>
-             </div>
-        </div>
-
+  <!-- Continue Learning Banner -->
+  <div class="ion-padding-horizontal">
+      <div class="continue-learning-card" (click)="continueToLast()">
+          <div class="cl-header">
+              <h3>Continue Learning</h3>
+          </div>
+          <div class="cl-content">
+              <div class="course-info">
+                  <h4>{{ lastModuleTitle }}</h4> 
+                  <div class="progress-row">
+                      <div class="progress-bar-bg">
+                          <div class="progress-fill" [style.width.%]="lastModuleProgress"></div>
+                      </div>
+                      <span class="progress-text">{{ overallProgressText }}</span>
+                  </div>
+              </div>
+              <div class="cl-action">
+                  <div class="go-btn">
+                      <ion-icon name="arrow-forward"></ion-icon>
+                  </div>
+              </div>
+          </div>
       </div>
-    </div>
-
   </div>
 
-  <!-- Modal or overlay to show actual chapters? Or navigate to a detail page? 
-       For now, let's just make the list toggleable or visible below if expanded?
-       User asked for "dashboard content in two column layout". 
-       Implies text: "Main dash board cont in two column layout" -> "Categories" are the dashboard items.
-       
-       Let's create a Modal or a separate page for the Chapter List to keep the Dashboard clean.
-       OR, we can expand the card in place. 
-       Let's use a Modal for clean "Dashboard" feel, OR navigate to a 'Course Details' page.
-       However, simplest first step: Toggle an inline list? No, grid makes inline expansion messy.
-       
-       Let's use an <ion-modal> or navigate. Let's start by modifying the controller to handle the click.
-       See 'home.page.ts' update needed.
-  -->
+  <!-- Feature Class Categories -->
+  <div class="section-container">
+      <div class="section-header ion-padding-horizontal">
+         <!-- Icon Grid Row -->
+         <div class="category-row">
+             <div class="cat-item">
+                 <div class="cat-icon-box">
+                     <ion-icon name="game-controller"></ion-icon>
+                 </div>
+                 <span>Game</span>
+             </div>
+             <div class="cat-item active">
+                 <div class="cat-icon-box active">
+                     <ion-icon name="brush"></ion-icon>
+                 </div>
+                 <span>Design</span>
+             </div>
+             <div class="cat-item">
+                 <div class="cat-icon-box">
+                     <ion-icon name="code-slash"></ion-icon>
+                 </div>
+                 <span>Developer</span>
+             </div>
+             <div class="cat-item">
+                 <div class="cat-icon-box">
+                     <ion-icon name="videocam"></ion-icon>
+                 </div>
+                 <span>Video</span>
+             </div>
+         </div>
+      </div>
 
-  <ng-template #loadingTpl>
-    <div class="ion-padding ion-text-center loading-state">
-      <ion-spinner color="primary"></ion-spinner>
-      <p>Loading course structure...</p>
-    </div>
-  </ng-template>
+      <div class="section-header ion-padding-horizontal box-header">
+          <h3>Modules</h3>
+          <!-- <span class="see-all">See All</span> -->
+      </div>
+      
+      <!-- Horizontal Scroll Cards -->
+      <div class="horizontal-scroll-container">
+          <!-- Real Data Loop -->
+          <div class="feature-card" *ngFor="let section of menuData; let i = index" (click)="toggleSection(section)">
+              <div class="card-img-wrapper">
+                  <!-- Dynamic Gradient Background -->
+                  <div class="img-placeholder" [style.background]="getModuleThumb(section, i)">
+                     <!-- Varying Icons -->
+                     <ion-icon name="logo-javascript" *ngIf="i % 3 === 0" size="large" style="font-size: 2.5rem; color:white; opacity:0.9; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));"></ion-icon>
+                     <ion-icon name="code-slash" *ngIf="i % 3 === 1" size="large" style="font-size: 2.5rem; color:white; opacity:0.9; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));"></ion-icon>
+                     <ion-icon name="layers" *ngIf="i % 3 === 2" size="large" style="font-size: 2.5rem; color:white; opacity:0.9; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));"></ion-icon>
+                  </div>
+              </div>
+              <div class="card-details">
+                  <h4>{{ section.title }}</h4>
+                  <div class="price-row">
+                      <span class="details-text">{{ section.items ? section.items.length : 0 }} Lessons</span>
+                      <span class="course-count" *ngIf="section.progress && section.progress > 0" style="color: var(--ion-color-success)">{{ section.progress }}%</span>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- Popular / Next Up logic -->
+  <div class="section-container" style="margin-top: 10px;" *ngIf="menuData.length > 0">
+      <div class="section-header ion-padding-horizontal box-header">
+          <h3>All Topics</h3>
+          <span class="see-all">Scroll Down</span>
+      </div>
+
+      <div class="popular-list ion-padding-horizontal">
+          <div class="popular-card" *ngFor="let section of menuData" (click)="toggleSection(section)" style="margin-bottom: 12px;">
+              <div class="pop-img" [style.background]="getCircleDash(section.progress || 0) === '0' ? '#e0e0e0' : 'rgba(76, 77, 220, 0.1)'">
+                 <div class="tiny-placeholder" style="width:100%; height:100%; display:flex; align-items:center; justify-content:center;">
+                     <ion-icon name="book" style="color: #666;"></ion-icon>
+                 </div>
+              </div>
+              <div class="pop-details">
+                  <h4>{{ section.title }}</h4>
+                  <p>{{ section.items ? section.items.length : 0 }} Lessons • {{ section.progress || 0 }}% Complete</p>
+              </div>
+              <div class="pop-arrow">
+                  <ion-icon name="arrow-forward"></ion-icon>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div style="height: 80px;"></div> <!-- Bottom Spacer for Tabs -->
+
 </ion-content>
+
+<!-- Custom Bottom Tab Bar ( Simulated since we don't have tabs router setup yet) -->
+<div class="custom-tab-bar">
+    <div class="tab-item active">
+        <ion-icon name="home"></ion-icon>
+        <span>Home</span>
+    </div>
+    <div class="tab-item">
+        <ion-icon name="document-text-outline"></ion-icon>
+    </div>
+    <div class="tab-item">
+        <ion-icon name="cart-outline"></ion-icon>
+    </div>
+    <div class="tab-item">
+        <ion-icon name="person-outline"></ion-icon>
+    </div>
+</div>

@@ -1,4 +1,3 @@
-
 <ion-header class="ion-no-border">
   <ion-toolbar color="primary">
     <ion-buttons slot="start">
@@ -7,31 +6,48 @@
       </ion-button>
     </ion-buttons>
     <ion-title class="tutorial-title">{{ title }}</ion-title>
-    <!-- Optional: Add bookmark or share buttons later -->
   </ion-toolbar>
+  <ion-progress-bar type="indeterminate" *ngIf="loading"></ion-progress-bar>
 </ion-header>
 
-<ion-content class="ion-padding tutorial-page-content">
+<ion-content class="ion-padding tutorial-page-content gamified-content">
   <div class="content-container">
     <div *ngIf="loading" class="loading-state">
-      <ion-spinner color="primary"></ion-spinner>
       <p>Fetching content...</p>
     </div>
     
     <div *ngIf="!loading && content">
-        <!-- Breadcrumb / Meta? -->
-        <div class="tutorial-meta">
-            <!-- Could find section name here if we passed it -->
-             <!-- Badge removed to avoid duplication with content header -->
-        </div>
-        
         <div [innerHTML]="content" class="tutorial-content"></div>
         
         <!-- Navigation Footer -->
-        <div class="tutorial-footer">
-            <p>Did you find this helpful?</p>
-            <!-- Add feedback mechanism later -->
+        <div class="tutorial-footer" style="margin-top: 50px; text-align: center;">
+            <p>End of Lesson</p>
+            <ion-button (click)="completeLesson()" expand="block" color="secondary" shape="round" class="complete-btn">
+                Mark as Complete
+            </ion-button>
+            <ion-button (click)="goHome()" fill="clear" color="light" style="margin-top: 10px;">
+                <ion-icon name="arrow-back" slot="start"></ion-icon>
+                Back to Map
+            </ion-button>
         </div>
     </div>
+  </div>
+
+  <!-- Success Overlay -->
+  <div class="success-overlay" *ngIf="showSuccess">
+      <div class="success-card">
+          <div class="success-icon">
+              <ion-icon name="trophy"></ion-icon>
+          </div>
+          <h2>Lesson Complete!</h2>
+          <div class="xp-reward">
+              <span class="plus">+</span>
+              <span class="amount">{{ xpAwarded }}</span>
+              <span class="label">XP</span>
+          </div>
+          <ion-button expand="block" color="warning" shape="round" (click)="continueNext()">
+              Continue Journey
+          </ion-button>
+      </div>
   </div>
 </ion-content>

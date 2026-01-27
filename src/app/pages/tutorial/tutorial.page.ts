@@ -18,6 +18,8 @@ export class TutorialPage implements OnInit {
   content: SafeHtml | string = "";
   title: string = "Tutorial";
   loading = true;
+  showSuccess = false;
+  xpAwarded = 0;
 
   constructor(
     private route: ActivatedRoute,
@@ -41,10 +43,8 @@ export class TutorialPage implements OnInit {
       next: (html) => {
         this.content = this.sanitizer.bypassSecurityTrustHtml(html);
         this.loading = false;
+        this.loading = false;
           
-        // Mark as complete when content successfully loads
-        this.tutorialService.markComplete(file);
-
         // Trigger highlight after view update
         setTimeout(() => {
              Prism.highlightAll();
@@ -97,5 +97,28 @@ export class TutorialPage implements OnInit {
   }
   goHome() {
     this.router.navigate(['/home'], { replaceUrl: true });
+  }
+
+  continueNext() {
+      this.showSuccess = false;
+      this.goHome(); // Or find next chapter? For now go home/map.
+  }
+
+  completeLesson() {
+      const file = this.route.snapshot.paramMap.get('file');
+      if (!file) return;
+
+      const isNewCompletion = this.tutorialService.markComplete(file);
+      
+      if (isNewCompletion) {
+          this.xpAwarded = 50;
+          this.showSuccess = true;
+      } else {
+          // Already completed, just go back or show a toast?
+          // For now, let's just go back if already done, OR show the success modal anyway without XP?
+          // User asked "mark the lesson completed manually".
+          // If already done, maybe just go back to map or show "Great work review!"
+          this.goHome();
+      }
   }
 }
