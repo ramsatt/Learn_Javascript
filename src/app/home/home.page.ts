@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { TutorialService } from '../services/tutorial.service';
 import { ThemeService } from '../services/theme.service';
 import { Router } from '@angular/router';
+import { AlertController, LoadingController } from '@ionic/angular';
+import { AdmobService } from '../services/admob.service';
 
 interface TutorialItem {
     title: string;
@@ -39,9 +41,12 @@ export class HomePage implements OnInit {
   overallProgressText = '0/0';
 
   constructor(
-    private tutorialService: TutorialService, 
+    public tutorialService: TutorialService, 
     private router: Router,
-    public themeService: ThemeService
+    public themeService: ThemeService,
+    private alertCtrl: AlertController,
+    private admobService: AdmobService,
+    private loadingCtrl: LoadingController
   ) {}
 
   ngOnInit() {
@@ -126,11 +131,63 @@ export class HomePage implements OnInit {
       return `${offset}`;
   }
 
-  toggleSection(section: MenuSection) {
+  async toggleSection(section: MenuSection, index: number = -1) {
+      // 1. Check if locked
+      if (index !== -1 && this.tutorialService.isModuleLocked(index)) {
+          await this.promptUnlock(index);
+          return;
+      }
+
       if (!section.items || section.items.length === 0) return;
       
       // Navigate to Chapter List
       this.router.navigate(['/chapter-list', section.title]);
+  }
+
+  async promptUnlock(index: number) {
+      const alert = await this.alertCtrl.create({
+          header: 'Unlock Topic',
+          message: 'Watch a short video to unlock the next 5 topics for free!',
+          mode: 'ios',
+          buttons: [
+              {
+                  text: 'Cancel',
+                  role: 'cancel'
+              },
+              {
+                  text: 'Watch Video',
+                  handler: () => {
+                      this.showRewardAd(index);
+                  }
+              }
+          ]
+      });
+      await alert.present();
+  }
+
+  async showRewardAd(index: number) {
+      const loading = await this.loadingCtrl.create({
+          message: 'Loading Reward...',
+          duration: 3000 // Fallback
+      });
+      await loading.present();
+
+      try {
+           // Show Ad
+           await this.admobService.showReward();
+           
+           // In production, you would listen for the rewar event. 
+           // For now, we assume if showReward completes (or even if it fails for test), we unlock.
+           
+           this.tutorialService.unlockNextSet(index);
+           if (loading) await loading.dismiss();
+           
+      } catch (e) {
+          if (loading) await loading.dismiss();
+          console.error('Ad failed or skipped', e);
+          // Fallback: unlock anyway for good UX if ad fails to load
+           this.tutorialService.unlockNextSet(index);
+      }
   }
 
   // Explicit back navigation to Dashboard
