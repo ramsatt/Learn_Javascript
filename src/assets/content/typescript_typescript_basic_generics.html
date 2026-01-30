@@ -1,0 +1,148 @@
+<h1>TypeScript Basic Generics</h1>
+
+
+
+<hr>
+<p>Generics allow creating 'type variables' which can be used to create classes, functions &amp; type aliases that don't need to explicitly define the types that they use.</p>
+<p>Generics make it easier to write reusable code.</p>
+<h2>Functions</h2>
+<p>Generics with functions help create more general functions that accurately represent the input and return types.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+
+<div class="w3-code notranslate jsHigh">
+function createPair&lt;S, T&gt;(v1: S, v2: T): [S, T] {<br>
+&nbsp;&nbsp;return [v1, v2];<br>
+}<br>
+console.log(createPair&lt;string, number&gt;('hello', 42)); // ['hello', 42]<br>
+</div>
+
+
+</div>
+
+<div class="w3-panel ws-info">
+<p>
+TypeScript can also infer the type of the generic parameter from the function parameters.
+</p>
+</div>
+
+<hr>
+<h2>Classes</h2>
+<p>Generics can be used to create generalized classes, like <a href="../js/js_maps.html" target="_blank">Map</a>.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+
+<div class="w3-code notranslate jsHigh">
+class NamedValue&lt;T&gt; {<br>
+&nbsp;&nbsp;private _value: T | undefined;<br>
+<br>
+&nbsp;&nbsp;constructor(private name: string) {}<br>
+<br>
+&nbsp;&nbsp;public setValue(value: T) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;this._value = value;<br>
+&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;public getValue(): T | undefined {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return this._value;<br>
+&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;public toString(): string {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return `${this.name}: ${this._value}`;<br>
+&nbsp;&nbsp;}<br>
+}<br>
+<br>
+let value = new NamedValue&lt;number&gt;('myNumber');<br>
+value.setValue(10);<br>
+console.log(value.toString()); // myNumber: 10<br>
+</div>
+
+
+</div>
+
+<div class="w3-panel ws-info">
+<p>
+TypeScript can also infer the type of the generic parameter if it's used in a constructor parameter.
+</p>
+</div>
+<hr>
+<hr>
+<h2>Type Aliases</h2>
+<p>Generics in type aliases allow creating types that are more reusable.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+
+<div class="w3-code notranslate jsHigh">
+type Wrapped&lt;T&gt; = { value: T };<br>
+<br>
+const wrappedValue: Wrapped&lt;number&gt; = { value: 10 };<br>
+</div>
+</div>
+
+
+<div class="w3-panel ws-info">
+<p>
+This also works with interfaces with the following syntax: <code class="w3-codespan">interface Wrapped&lt;T&gt; {</code>
+</p>
+</div>
+ 
+
+<h2>Default Value</h2>
+<p>Generics can be assigned default values which apply if no other value is specified or inferred.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+
+<div class="w3-code notranslate jsHigh">
+class NamedValue&lt;T = string&gt; {<br>
+&nbsp;&nbsp;private _value: T | undefined;<br>
+<br>
+&nbsp;&nbsp;constructor(private name: string) {}<br>
+<br>
+&nbsp;&nbsp;public setValue(value: T) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;this._value = value;<br>
+&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;public getValue(): T | undefined {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return this._value;<br>
+&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;public toString(): string {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return `${this.name}: ${this._value}`;<br>
+&nbsp;&nbsp;}<br>
+}<br>
+<br>
+let value = new NamedValue('myNumber');<br>
+value.setValue('myValue');<br>
+console.log(value.toString()); // myNumber: myValue<br>
+</div>
+</div>
+<hr>
+
+<h2>Extends</h2>
+<p>Constraints can be added to generics to limit what's allowed.</p>
+<p>The constraints make it possible to rely on a more specific type when using the generic type.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+
+<div class="w3-code notranslate jsHigh">
+function createLoggedPair&lt;S extends string | number, T extends string | number&gt;(v1: S, v2: T): [S, T] {<br>
+&nbsp;&nbsp;console.log(`creating pair: v1='${v1}', v2='${v2}'`);<br>
+&nbsp;&nbsp;return [v1, v2];<br>
+}<br>
+</div>
+</div>
+
+<div class="w3-panel ws-info">
+<p>
+This can be combined with a default value.
+</p>
+</div>
+
+<hr>
+
+<hr>
+<br>

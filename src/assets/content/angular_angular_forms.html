@@ -1,0 +1,355 @@
+<h1>Angular Forms</h1>
+  
+
+  <hr>
+  <p class="intro">Forms let users enter and edit data in your app.</p>
+  <hr>
+  <h2>Forms Essentials</h2>
+  <ul>
+    <li><b>Two approaches</b>: <b>Template-driven</b> (HTML-first with <code class="w3-codespan">[(ngModel)]</code>) and <b>Reactive</b> (code-first with <code class="w3-codespan">FormGroup</code>/<code class="w3-codespan">FormControl</code>).</li>
+    <li><b>When to use</b>: Template-driven for simple forms; Reactive for complex validation, dynamic fields, and testability.</li>
+    <li><b>Key concepts</b>: A <code class="w3-codespan">FormControl</code> tracks a single input's value/state; a <code class="w3-codespan">FormGroup</code> groups controls by name.</li>
+    <li><b>Imports</b>: <code class="w3-codespan">FormsModule</code> (template-driven) and <code class="w3-codespan">ReactiveFormsModule</code> (reactive).</li>
+  </ul>
+  <pre class="language-html" data-tab-header="Template-driven Syntax"><code class="w3-codespan">
+&lt;form #f="ngForm"&gt;
+  &lt;input name="name" [(ngModel)]="name"&gt;
+&lt;/form&gt;
+  </code></pre>
+  <pre class="language-ts" data-tab-header="Reactive Syntax"><code class="w3-codespan">
+form = new FormGroup({ name: new FormControl('') });
+
+&lt;form [formGroup]="form"&gt;
+  &lt;input formControlName="name"&gt;
+&lt;/form&gt;
+  </code></pre>
+  <div class="w3-panel ws-note">
+    <p><b>Notes:</b></p>
+    <ul>
+      <li>Related: See <a href="angular_data_binding.html">Data Binding</a> for <code class="w3-codespan">[(ngModel)]</code> and property binding, <a href="angular_events.html">Events</a> for handling input, and <a href="angular_templates.html">Templates</a> for interpolation.</li>
+      <li>Import <code class="w3-codespan">FormsModule</code> (template-driven) and <code class="w3-codespan">ReactiveFormsModule</code> (reactive).</li>
+    </ul>
+  </div>
+  <hr>
+  <h2>Template-driven Forms</h2>
+  <ul>
+    <li>Quick to start and feels like plain HTML.</li>
+    <li>Bind with <code class="w3-codespan">[(ngModel)]</code> and unique <code class="w3-codespan">name</code> attributes.</li>
+    <li>Access overall state via exported <code class="w3-codespan">ngForm</code> (e.g., <code class="w3-codespan">valid</code>, <code class="w3-codespan">touched</code>).</li>
+    <li>Import <code class="w3-codespan">FormsModule</code> in standalone components.</li>
+  </ul>
+  <div class="w3-example">
+    <pre class="language-ts"><code>&lt;form #f="ngForm" (ngSubmit)="onSubmit()"&gt;
+  &lt;input name="name" [(ngModel)]="name" required minlength="3" #c="ngModel"&gt;
+  &lt;div *ngIf="c.invalid &amp;&amp; (c.dirty || c.touched)"&gt;Invalid&lt;/div&gt;
+  &lt;button [disabled]="f.invalid"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+</div>
+  <div class="w3-example">
+    <h3 id="ex_forms_template_driven">Example</h3>
+    <pre class="language-ts" data-tab-header="main.ts"><code>import { bootstrapApplication } from '@angular/platform-browser';
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [CommonModule, FormsModule],
+  template: `
+    &lt;h3&gt;Forms&lt;/h3&gt;
+    &lt;form #f="ngForm" (ngSubmit)="onSubmit()"&gt;
+      &lt;label&gt;
+        Name:
+        &lt;input name="name" [(ngModel)]="name" placeholder="Enter your name"&gt;
+      &lt;/label&gt;
+      &lt;button type="submit"&gt;Submit&lt;/button&gt;
+    &lt;/form&gt;
+    &lt;p&gt;Value: {{ name }}&lt;/p&gt;
+    &lt;p *ngIf="submitted"&gt;Submitted!&lt;/p&gt;
+  `
+})
+export class App {
+  name = '';
+  submitted = false;
+  onSubmit() { this.submitted = true; }
+}
+
+bootstrapApplication(App);
+</code></pre>
+    <pre class="language-html" data-tab-header="index.html"><code>&lt;app-root&gt;&lt;/app-root&gt;</code></pre>
+    <p><a target="_blank" rel="noopener" class="w3-btn" href="showangular4f74.html?filename=demo_forms_basic">Run Example &raquo;</a></p>
+  </div>
+  <h3>Example explained</h3>
+  <ul>
+    <li><b>[(ngModel)]="name"</b>: Two-way binds the input to the <code class="w3-codespan">name</code> field.</li>
+    <li><b>#f="ngForm"</b>: Exports the form state (e.g., <code class="w3-codespan">f.valid</code>, <code class="w3-codespan">f.invalid</code>).</li>
+    <li><b>(ngSubmit)="onSubmit()"</b>: Handles submit using the component method.</li>
+    <li><b>Display</b>: <code class="w3-codespan">{{ name }}</code> shows the current value; a flag shows the submitted state.</li>
+  </ul>
+  <div class="w3-panel ws-note">
+    <p><b>Notes:</b></p>
+    <ul>
+      <li><b>Unique name required:</b> Each control needs a unique <code class="w3-codespan">name</code> to register with <code class="w3-codespan">ngForm</code>.</li>
+      <li><b>Module imports:</b> Template-driven forms require <code class="w3-codespan">FormsModule</code> (for standalone components, add it to <code class="w3-codespan">imports</code>).</li>
+  </ul>
+  </div>
+
+  <hr>
+  
+  <hr>
+  <h2>HTML Form Elements in Angular</h2>
+  <ul>
+    <li><b>Text/Email/Number</b>: Bind with <code class="w3-codespan">[(ngModel)]</code> or <code class="w3-codespan">formControlName</code>.</li>
+    <li><b>Textarea</b>: Works like text inputs.</li>
+    <li><b>Checkbox</b>: Boolean value via <code class="w3-codespan">[(ngModel)]</code> or <code class="w3-codespan">formControlName</code>.</li>
+    <li><b>Radio group</b>: Share the same <code class="w3-codespan">name</code>; bind group with <code class="w3-codespan">[(ngModel)]</code> or <code class="w3-codespan">formControlName</code>. Use <code class="w3-codespan">[value]</code>.</li>
+    <li><b>Select</b>: Bind selected value; use <code class="w3-codespan">[ngValue]</code> when options are objects.</li>
+    <li><b>File input</b>: Read files with <code class="w3-codespan">(change)</code> handler; do not two-way bind file objects.</li>
+  </ul>
+  <div class="w3-example">
+    <pre class="language-ts"><code>&lt;input name="email" type="email" [(ngModel)]="model.email"&gt;
+&lt;textarea name="bio" [(ngModel)]="model.bio"&gt;&lt;/textarea&gt;
+&lt;label&gt;&lt;input type="checkbox" name="agree" [(ngModel)]="model.agree"&gt; Agree&lt;/label&gt;
+&lt;label&gt;&lt;input type="radio" name="color" [value]="'red'" [(ngModel)]="model.color"&gt; Red&lt;/label&gt;
+&lt;label&gt;&lt;input type="radio" name="color" [value]="'blue'" [(ngModel)]="model.color"&gt; Blue&lt;/label&gt;
+&lt;select name="pet" [(ngModel)]="model.pet"&gt;
+  &lt;option [ngValue]="{ id: 1, name: 'Cat' }"&gt;Cat&lt;/option&gt;
+  &lt;option [ngValue]="{ id: 2, name: 'Dog' }"&gt;Dog&lt;/option&gt;
+&lt;/select&gt;
+&lt;input type="file" (change)="onFiles($event)"&gt;</code></pre>
+</div>
+  <div class="w3-panel ws-note">
+    <p><b>Tip:</b> For object options in <code class="w3-codespan">&lt;select&gt;</code>, use <code class="w3-codespan">[ngValue]</code> instead of <code class="w3-codespan">value</code>.</p>
+  </div>
+  <h3>Radio with non-string values</h3>
+  <ul>
+    <li>Use <code class="w3-codespan">[ngValue]</code> to bind non-string values (numbers or objects) to radios.</li>
+  </ul>
+  <div class="w3-example">
+    <pre class="language-ts"><code>&lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;size&quot; [ngValue]=&quot;1&quot; [(ngModel)]=&quot;model.size&quot;&gt; Small&lt;/label&gt;
+&lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;size&quot; [ngValue]=&quot;2&quot; [(ngModel)]=&quot;model.size&quot;&gt; Medium&lt;/label&gt;</code></pre>
+</div>
+  <h3>Select multiple</h3>
+  <ul>
+    <li>Add <code class="w3-codespan">multiple</code> and bind to an array; use <code class="w3-codespan">[ngValue]</code> for non-strings.</li>
+  </ul>
+  <div class="w3-example">
+    <pre class="language-ts"><code>&lt;select name=&quot;tags&quot; [(ngModel)]=&quot;model.tags&quot; multiple&gt;
+  &lt;option [ngValue]=&quot;'news'&quot;&gt;News&lt;/option&gt;
+  &lt;option [ngValue]=&quot;'tech'&quot;&gt;Tech&lt;/option&gt;
+  &lt;option [ngValue]=&quot;'sports'&quot;&gt;Sports&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+</div>
+
+  <h3>Number inputs: coercion</h3>
+  <ul>
+    <li>Template-driven binds values as strings; convert in code if you need numbers.</li>
+  </ul>
+  <div class="w3-example">
+    <pre class="language-ts"><code>&lt;input type=&quot;number&quot; name=&quot;age&quot; [ngModel]=&quot;age&quot; (ngModelChange)=&quot;age = $any($event)&quot;&gt;</code></pre>
+</div>
+
+  <h3>File input (multiple)</h3>
+  <ul>
+    <li>Read files with a <code class="w3-codespan">(change)</code> handler; do not two-way bind files.</li>
+  </ul>
+  <div class="w3-example">
+    <pre class="language-ts"><code>&lt;input type=&quot;file&quot; multiple (change)=&quot;onFiles($event)&quot;&gt;</code></pre>
+  </div>
+
+  <h3>compareWith for select of objects</h3>
+  <ul>
+    <li>Use <code class="w3-codespan">[compareWith]</code> when options are objects that may be re-created across renders.</li>
+  </ul>
+  <div class="w3-example">
+    <pre class="language-ts"><code>&lt;select name=&quot;pet&quot; [(ngModel)]=&quot;model.pet&quot; [compareWith]=&quot;byId&quot;&gt;
+  &lt;option [ngValue]=&quot;{ id: 1, name: 'Cat' }&quot;&gt;Cat&lt;/option&gt;
+  &lt;option [ngValue]=&quot;{ id: 2, name: 'Dog' }&quot;&gt;Dog&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+</div>
+<div class="w3-example">
+  <pre class="language-ts" data-tab-header="Component"><code class="w3-codespan">
+byId = (a: any, b: any) =&gt; a?.id === b?.id;
+</code></pre>
+</div>  
+
+  <hr>
+  <h2>Validation</h2>
+  <ul>
+    <li>Add rules like <code class="w3-codespan">required</code>, <code class="w3-codespan">minlength</code>, and <code class="w3-codespan">email</code>.</li>
+    <li>Show errors when invalid and the control is <code class="w3-codespan">dirty</code> or <code class="w3-codespan">touched</code>, or after submit.</li>
+    <li>Disable submit when the form is invalid.</li>
+  </ul>
+  <div class="w3-example">
+    <pre class="language-ts"><code>&lt;input name="email" [(ngModel)]="email" email required #e="ngModel"&gt;
+&lt;div *ngIf="e.invalid &amp;&amp; (e.dirty || e.touched)"&gt;
+  &lt;small *ngIf="e.errors &amp;&amp; e.errors['required']"&gt;Required&lt;/small&gt;
+  &lt;small *ngIf="e.errors &amp;&amp; e.errors['email']"&gt;Invalid email&lt;/small&gt;
+&lt;/div&gt;</code></pre>
+</div>
+<div class="w3-example">
+    <h3 id="ex_forms_validation">Example</h3>
+    <pre class="language-ts" data-tab-header="main.ts"><code>import { bootstrapApplication } from '@angular/platform-browser';
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [CommonModule, FormsModule],
+  template: `
+    &lt;h3&gt;Forms Validation&lt;/h3&gt;
+    &lt;form #f="ngForm" (ngSubmit)="onSubmit()" novalidate&gt;
+      &lt;label&gt;
+        Name:
+        &lt;input name="name" [(ngModel)]="model.name" required minlength="3" #name="ngModel"&gt;
+      &lt;/label&gt;
+      &lt;div *ngIf="name.invalid &amp;&amp; (name.dirty || name.touched || submitted)" style="color:crimson"&gt;
+        &lt;small *ngIf="name.errors &amp;&amp; name.errors['required']"&gt;Name is required.&lt;/small&gt;
+        &lt;small *ngIf="name.errors &amp;&amp; name.errors['minlength']"&gt;Name must be at least 3 characters.&lt;/small&gt;
+      &lt;/div&gt;
+
+      &lt;label&gt;
+        Email:
+        &lt;input name="email" [(ngModel)]="model.email" email required #email="ngModel"&gt;
+      &lt;/label&gt;
+      &lt;div *ngIf="email.invalid &amp;&amp; (email.dirty || email.touched || submitted)" style="color:crimson"&gt;
+        &lt;small *ngIf="email.errors &amp;&amp; email.errors['required']"&gt;Email is required.&lt;/small&gt;
+        &lt;small *ngIf="email.errors &amp;&amp; email.errors['email']"&gt;Email must be valid.&lt;/small&gt;
+      &lt;/div&gt;
+
+      &lt;button type="submit" [disabled]="f.invalid"&gt;Submit&lt;/button&gt;
+    &lt;/form&gt;
+
+    &lt;p *ngIf="submitted"&gt;Submitted: {{ model | json }}&lt;/p&gt;
+  `
+})
+export class App {
+  model = { name: '', email: '' };
+  submitted = false;
+  onSubmit() { this.submitted = true; }
+}
+
+bootstrapApplication(App);
+</code></pre>
+    <pre class="language-html" data-tab-header="index.html"><code>&lt;app-root&gt;&lt;/app-root&gt;</code></pre>
+    <p><a target="_blank" rel="noopener" class="w3-btn" href="showangularbb07.html?filename=demo_forms_validation">Run Example &raquo;</a></p>
+  </div>
+  <h3>Example explained</h3>
+  <ul>
+    <li><b>#name="ngModel"</b>: Exports the control state for the <code class="w3-codespan">name</code> input.</li>
+    <li><b>Errors</b>: <code class="w3-codespan">name.errors['required']</code> and <code class="w3-codespan">name.errors['minlength']</code> drive specific messages.</li>
+    <li><b>When to show</b>: Messages appear when the control is invalid and <code class="w3-codespan">dirty || touched || submitted</code>.</li>
+    <li><b>Disable submit</b>: The button binds to <code class="w3-codespan">f.invalid</code> to prevent invalid submission.</li>
+  </ul>
+  <div class="w3-panel ws-note">
+    <p><b>Notes:</b></p>
+    <ul>
+      <li><b>When to show errors:</b> Gate messages behind <code class="w3-codespan">dirty || touched || submitted</code> so they don't flash too early.</li>
+      <li><b>Disable submit correctly:</b> Bind to <code class="w3-codespan">f.invalid</code> (template) or <code class="w3-codespan">form.invalid</code> (reactive).</li>
+  </ul>
+  </div>
+
+  <hr>
+  <h2>Reactive Forms</h2>
+  <ul>
+    <li>Build a tree of <code class="w3-codespan">FormGroup</code>/<code class="w3-codespan">FormControl</code> in code.</li>
+    <li>Bind the template with <code class="w3-codespan">[formGroup]</code> and <code class="w3-codespan">formControlName</code>.</li>
+    <li>Great for complex validation, conditional fields, and dynamic forms.</li>
+    <li>Create controls with <code class="w3-codespan">FormBuilder</code> and <code class="w3-codespan">Validators</code>.</li>
+  </ul>
+  <div class="w3-example">
+    <pre class="language-ts"><code>form = this.fb.group({
+  name: ['', [Validators.required, Validators.minLength(3)]],
+  email: ['', [Validators.required, Validators.email]],
+});
+
+&lt;form [formGroup]="form"&gt;
+  &lt;input formControlName="name"&gt;
+  &lt;input formControlName="email"&gt;
+&lt;/form&gt;</code></pre>
+</div>
+<div class="w3-example">
+    <h3 id="ex_forms_reactive">Example</h3>
+    <pre class="language-ts" data-tab-header="main.ts"><code>import { bootstrapApplication } from '@angular/platform-browser';
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule],
+  template: `
+    &lt;h3&gt;Reactive Forms&lt;/h3&gt;
+    &lt;form [formGroup]="form" (ngSubmit)="onSubmit()"&gt;
+      &lt;label&gt;
+        Name
+        &lt;input formControlName="name" placeholder="Your name"&gt;
+      &lt;/label&gt;
+      &lt;div *ngIf="form.controls.name.invalid &amp;&amp; (form.controls.name.dirty || form.controls.name.touched || submitted)" style="color:crimson"&gt;
+        &lt;small *ngIf="form.controls.name.errors &amp;&amp; form.controls.name.errors['required']"&gt;Name is required.&lt;/small&gt;
+        &lt;small *ngIf="form.controls.name.errors &amp;&amp; form.controls.name.errors['minlength']"&gt;Min 3 characters.&lt;/small&gt;
+      &lt;/div&gt;
+
+      &lt;label&gt;
+        Email
+        &lt;input formControlName="email" placeholder="you@example.com"&gt;
+      &lt;/label&gt;
+      &lt;div *ngIf="form.controls.email.invalid &amp;&amp; (form.controls.email.dirty || form.controls.email.touched || submitted)" style="color:crimson"&gt;
+        &lt;small *ngIf="form.controls.email.errors &amp;&amp; form.controls.email.errors['required']"&gt;Email is required.&lt;/small&gt;
+        &lt;small *ngIf="form.controls.email.errors &amp;&amp; form.controls.email.errors['email']"&gt;Email must be valid.&lt;/small&gt;
+      &lt;/div&gt;
+
+      &lt;label&gt;
+        &lt;input type="checkbox" formControlName="newsletter"&gt;
+        Subscribe to newsletter
+      &lt;/label&gt;
+
+      &lt;button type="submit" [disabled]="form.invalid"&gt;Submit&lt;/button&gt;
+    &lt;/form&gt;
+
+    &lt;p&gt;Status: {{ form.status }}&lt;/p&gt;
+    &lt;p&gt;Value: {{ form.value | json }}&lt;/p&gt;
+    &lt;p *ngIf="submitted" style="color: seagreen;"&gt;Submitted!&lt;/p&gt;
+  `
+})
+export class App {
+  fb = new FormBuilder();
+  submitted = false;
+  form = this.fb.group({
+    name: ['', [Validators.required, Validators.minLength(3)]],
+    email: ['', [Validators.required, Validators.email]],
+    newsletter: [false],
+  });
+
+  onSubmit() { this.submitted = true; }
+}
+
+bootstrapApplication(App);
+</code></pre>
+    <pre class="language-html" data-tab-header="index.html"><code>&lt;app-root&gt;&lt;/app-root&gt;</code></pre>
+    <p><a target="_blank" rel="noopener" class="w3-btn" href="showangular602f.html?filename=demo_forms_reactive">Run Example &raquo;</a></p>
+  </div>
+  <h3>Example explained</h3>
+  <ul>
+    <li><b>[formGroup]="form"</b>: Binds the form element to the <code class="w3-codespan">FormGroup</code> instance.</li>
+    <li><b>formControlName</b>: Wires inputs to named controls (<code class="w3-codespan">name</code>, <code class="w3-codespan">email</code>, <code class="w3-codespan">newsletter</code>).</li>
+    <li><b>Validators</b>: Created with <code class="w3-codespan">FormBuilder</code> and <code class="w3-codespan">Validators</code>; error messages read control errors.</li>
+    <li><b>Submit</b>: Disables the button when <code class="w3-codespan">form.invalid</code>; sets a submitted flag on submit.</li>
+  </ul>
+  <div class="w3-panel ws-note">
+    <p><b>Notes:</b></p>
+    <ul>
+      <li><b>Don't mix paradigms:</b> Avoid <code class="w3-codespan">[(ngModel)]</code> on controls that also use <code class="w3-codespan">formControlName</code>.</li>
+      <li><b>Update via API:</b> Use <code class="w3-codespan">setValue</code>/<code class="w3-codespan">patchValue</code> and validator methods rather than mutating control objects directly.</li>
+      <li><b>Module imports:</b> Reactive forms require <code class="w3-codespan">ReactiveFormsModule</code>.</li>
+    </ul>
+  </div>
+
+  
+  <hr>
+  
+  <hr>

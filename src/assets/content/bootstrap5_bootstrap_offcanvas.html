@@ -1,0 +1,177 @@
+<h1>Bootstrap 5 <span class="color_h1">Offcanvas</span></h1>
+
+<hr>
+
+<h2>Offcanvas</h2>
+<p>Offcanvas is similar to <a href="bootstrap_modal.html">modals</a> (hidden by default and shown when activated), except that is often used as a sidebar navigation menu.</p>
+
+<div class="offcanvas offcanvas-start" id="demo">
+  <div class="offcanvas-header">
+    <h1 class="offcanvas-title" style="font-weight:500">Heading</h1>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" style="cursor:pointer"></button>
+  </div>
+  <div class="offcanvas-body">
+    <p>Some text lorem ipsum.</p>
+    <p>Some text lorem ipsum.</p>
+    <button class="btn btn-secondary" type="button">A Button</button>
+  </div>
+</div>
+  <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">
+    Open Offcanvas Sidebar
+  </button>
+<hr>
+
+<h2>How To Create an Offcanvas Sidebar</h2>
+<p>The following example shows how to create an offcanvas sidebar:</p>
+<div class="w3-example">
+ <h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;!-- Offcanvas Sidebar --&gt;<br>&lt;div class=&quot;offcanvas offcanvas-start&quot; 
+  id=&quot;demo&quot;&gt;<br>&nbsp; &lt;div 
+  class=&quot;offcanvas-header&quot;&gt;<br>&nbsp;&nbsp;&nbsp; &lt;h1 
+  class=&quot;offcanvas-title&quot;&gt;Heading&lt;/h1&gt;<br>&nbsp;&nbsp;&nbsp; &lt;button 
+  type=&quot;button&quot; class=&quot;btn-close text-reset&quot; 
+  data-bs-dismiss=&quot;offcanvas&quot;&gt;&lt;/button&gt;<br>&nbsp; &lt;/div&gt;<br>&nbsp; &lt;div 
+  class=&quot;offcanvas-body&quot;&gt;<br>&nbsp;&nbsp;&nbsp; &lt;p&gt;Some text lorem ipsum.&lt;/p&gt;<br>&nbsp;&nbsp;&nbsp; 
+  &lt;p&gt;Some text lorem ipsum.&lt;/p&gt;<br>&nbsp;&nbsp;&nbsp; &lt;button class=&quot;btn 
+  btn-secondary&quot; type=&quot;button&quot;&gt;A Button&lt;/button&gt;<br>&nbsp; &lt;/div&gt;<br>&lt;/div&gt;<br>
+  <br>&lt;!-- Button to open the offcanvas sidebar --&gt;<br>&lt;button class=&quot;btn 
+  btn-primary&quot; type=&quot;button&quot; data-bs-toggle=&quot;offcanvas&quot; data-bs-target=&quot;#demo&quot;&gt;<br>&nbsp; Open Offcanvas Sidebar<br>&lt;/button&gt;</div>
+
+</div>
+
+<h3>Example Explained</h3>
+
+<p>The <code class="w3-codespan">.offcanvas</code> class creates the offcanvas sidebar.</p>
+<p>The <code class="w3-codespan">.offcanvas-start</code> class positions the offcanvas, and makes it 400px wide. 
+See examples below for more positioning classes.</p>
+<p>The <code class="w3-codespan">.offcanvas-title</code> class ensures proper margins and line-height.</p>
+<p>Then, add your content inside the <code class="w3-codespan">.offcanvas-body</code> class.</p>
+
+<p>To open the offcanvas sidebar, you must use a <code class="w3-codespan">&lt;button&gt;</code> or an <code class="w3-codespan">&lt;a&gt;</code> element that points to the id of the <code class="w3-codespan">.offcanvas</code> container (<code class="w3-codespan">#demo</code> in our example).</p>
+<p>To open the offcanvas sidebar with an <code class="w3-codespan">&lt;a&gt;</code> element, you can point to <code class="w3-codespan">#demo</code> with the href attribute, instead of <code class="w3-codespan">data-bs-target</code> attribute.</p>
+<hr>
+<hr>
+
+<h2>Offcanvas Position</h2>
+<p>Use the <code class="w3-codespan">.offcanvas-start|end|top|bottom</code> to position the offcanvas to the left, right, top or bottom:</p>
+<div class="w3-example">
+ <h3>Right Example</h3>
+  <div class="w3-code notranslate htmlHigh">
+    &lt;div class=&quot;offcanvas offcanvas-end&quot; 
+  id=&quot;demo&quot;&gt;</div>
+
+<div class="w3-white w3-padding w3-padding-16">
+<div class="offcanvas offcanvas-end" id="demoright">
+  <div class="offcanvas-header">
+    <h1 class="offcanvas-title" style="font-weight:500">Heading</h1>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" style="cursor:pointer"></button>
+  </div>
+  <div class="offcanvas-body">
+    <p>Some text lorem ipsum.</p>
+    <p>Some text lorem ipsum.</p>
+    <button class="btn btn-secondary" type="button">A Button</button>
+  </div>
+</div>
+  <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#demoright">
+   Toggle Right Offcanvas
+  </button>
+</div>
+
+
+</div>
+<div class="w3-example">
+ <h3>Top Example</h3>
+  <div class="w3-code notranslate htmlHigh">
+    &lt;div class=&quot;offcanvas offcanvas-top&quot; 
+  id=&quot;demo&quot;&gt;</div>
+
+<div class="w3-white w3-padding w3-padding-16">
+<div class="offcanvas offcanvas-top" id="demotop">
+  <div class="offcanvas-header">
+    <h1 class="offcanvas-title" style="font-weight:500">Heading</h1>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" style="cursor:pointer"></button>
+  </div>
+  <div class="offcanvas-body">
+    <p>Some text lorem ipsum.</p>
+    <p>Some text lorem ipsum.</p>
+    <button class="btn btn-secondary" type="button">A Button</button>
+  </div>
+</div>
+  <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#demotop">
+   Toggle Top Offcanvas
+  </button>
+</div>
+
+
+</div>
+<div class="w3-example">
+ <h3>Bottom Example</h3>
+  <div class="w3-code notranslate htmlHigh">
+    &lt;div class=&quot;offcanvas offcanvas-bottom&quot; 
+  id=&quot;demo&quot;&gt;</div>
+<div class="w3-white w3-padding w3-padding-16">
+<div class="offcanvas offcanvas-bottom" id="demobottom">
+  <div class="offcanvas-header">
+    <h1 class="offcanvas-title" style="font-weight:500">Heading</h1>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" style="cursor:pointer"></button>
+  </div>
+  <div class="offcanvas-body">
+    <p>Some text lorem ipsum.</p>
+    <p>Some text lorem ipsum.</p>
+    <button class="btn btn-secondary" type="button">A Button</button>
+  </div>
+</div>
+  <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#demobottom">
+   Toggle Bottom Offcanvas
+  </button>
+</div>
+
+</div>
+<hr>
+
+<h2>Responsive OffCanvas Menu</h2>
+<p>You can also control when you want to hide or show the offcanvas menu on different screen widths, with the <code class="w3-codespan">.offcanvas-sm|md|lg|xl|xxl</code> classes:</p>
+<div class="w3-example">
+ <h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;div class=&quot;offcanvas offcanvas-start offcanvas-lg&quot; id=&quot;demo&quot;&gt;</div>
+
+</div>
+
+<hr>
+
+<h2>Dark OffCanvas Menu</h2>
+<p>Use the <code class="w3-codespan">.text-bg-dark</code> class to create a dark 
+offcanvas menu.</p>
+<p><strong>Tip:</strong> We have also added the <code class="w3-codespan">.btn-close-white</code> class to 
+<code class="w3-codespan">.btn-close</code>, to create a white close button that looks nice with the dark 
+background:</p>
+<div class="w3-example">
+ <h3>Example</h3>
+  <div class="w3-code notranslate htmlHigh">
+    &lt;div class=&quot;offcanvas offcanvas-end&quot; 
+  id=&quot;demo&quot;&gt;<br>&lt;button type=&quot;button&quot; class=&quot;btn-close 
+    btn-close-white&quot; data-bs-dismiss=&quot;offcanvas&quot;&gt;&lt;/button&gt;</div>
+
+<div class="w3-white w3-padding w3-padding-16 ">
+<div class="offcanvas offcanvas-start text-bg-dark" id="demodark">
+  <div class="offcanvas-header">
+    <h1 class="offcanvas-title" style="font-weight:500">Heading</h1>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" style="cursor:pointer"></button>
+  </div>
+  <div class="offcanvas-body">
+    <p>Some text lorem ipsum.</p>
+    <p>Some text lorem ipsum.</p>
+    <button class="btn btn-secondary" type="button">A Button</button>
+  </div>
+</div>
+  <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#demodark">
+   Toggle Dark Offcanvas
+  </button>
+</div>
+
+</div>
+
+
+<br>

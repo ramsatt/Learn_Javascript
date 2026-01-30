@@ -1,0 +1,246 @@
+<h1>React Props</h1>
+
+
+<hr>
+
+<p class="intro">Props are arguments passed into React components.</p>
+<p class="intro">Props are passed to components via HTML attributes.</p>
+<div class="w3-panel ws-note">
+<p><code class="w3-codespan">props</code> stands for properties.</p>
+</div>
+
+<hr>
+
+<h2>React Props</h2>
+<p>React Props are like function arguments in JavaScript <em>and</em> attributes 
+in HTML.</p>
+<p>To send props into a component, use the same syntax as HTML attributes:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Add a <code class="w3-codespan">brand</code> attribute to the <code class="w3-codespan">Car</code> element:</p>
+<pre class="language-jsx w3-white"><code>createRoot(document.getElementById('root')).render(
+  &lt;Car brand=&quot;Ford&quot; /&gt;
+);</code></pre>
+<br>
+</div>
+
+<p>The component receives the argument as a <code class="w3-codespan">props</code> object:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Use the <code class="w3-codespan">brand</code> attribute in the <code class="w3-codespan">Car</code> component:</p>
+<pre class="language-jsx w3-white"><code>function Car(props) {
+  return (
+    &lt;h2&gt;I am a {props.brand}!&lt;/h2&gt;
+  );
+}
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreact2759.html?filename=demo_react_props">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<p>The name of the object is <code class="w3-codespan">props</code>, but you can call it anything you want.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>You can use <code class="w3-codespan">myobj</code> instead of <code class="w3-codespan">props</code> in the component:</p>
+<pre class="language-jsx w3-white"><code>function Car(myobj) {
+  return (
+    &lt;h2&gt;I am a {myobj.brand}!&lt;/h2&gt;
+  );
+}
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreact5184.html?filename=demo_react_props2">Run 
+Example &raquo;</a>
+</p>
+</div>
+<hr>
+
+<hr>
+
+<h2>Pass Multiple Properties</h2>
+<p>You can send as many properties as you want.</p>
+
+<p>Every attribute is sent to the <code class="w3-codespan">Car</code> component as object properties.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Send multiple properties to the <code class="w3-codespan">Car</code> component:</p>
+<pre class="language-jsx w3-white"><code>createRoot(document.getElementById('root')).render(
+  &lt;Car brand=&quot;Ford&quot; model=&quot;Mustang&quot; color=&quot;red&quot; /&gt;
+);</code></pre>
+<br>
+</div>
+
+<p>All properties are received in the <code class="w3-codespan">Car</code> component inside the <code class="w3-codespan">props</code> object:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Use the property values in the <code class="w3-codespan">Car</code> component:</p>
+<pre class="language-jsx w3-white"><code>function Car(props) {
+  return (
+    &lt;h2&gt;I am a {props.color} {props.brand} {props.model}!&lt;/h2&gt;
+  );
+}
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreact0209.html?filename=demo_react_props3">Run Example &raquo;</a>
+</p>
+</div>
+
+<hr>
+
+<h2>Different Data Types</h2>
+
+<p>React props can be of any data type, including variables, numbers, strings, objects, arrays, and more.</p>
+
+<p>Strings can be sent inside quotes as in the examples above, but numbers, variables, and objects need to be sent inside curly brackets.
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Numbers has to be sent inside curly brackets to be treated as numbers:</p>
+<pre class="language-jsx w3-white"><code>createRoot(document.getElementById('root')).render(
+  &lt;Car year={1969} /&gt;
+);</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreact7f6f.html?filename=demo_react_props4">Run Example &raquo;</a>
+</p>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Variables has to be sent inside curly brackets:</p>
+<pre class="language-jsx w3-white"><code>let x = "Ford";
+
+createRoot(document.getElementById('root')).render(
+  &lt;Car brand={x} /&gt;
+);</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreact2f7e.html?filename=demo_react_props5">Run Example &raquo;</a>
+</p>
+</div>
+              
+<div class="w3-example">
+<h3>Example</h3>
+<p>Objects and Arrays has to be sent inside curly brackets:</p>
+<pre class="language-jsx w3-white"><code>let x = [1964, 1965, 1966];
+let y = {name: "Ford", model: "Mustang"};
+
+createRoot(document.getElementById('root')).render(
+  &lt;Car years={x} carinfo={y} /&gt;
+);</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreact87e9.html?filename=demo_react_props6">Run Example &raquo;</a>
+</p>
+</div>
+  
+<hr>
+
+<h2>Object Props</h2>
+
+<p>The component treats objects like objects, and you can use the dot notation to access the properties.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Use the dot notation to access object properties:</p>
+<pre class="language-jsx w3-white"><code>function Car(props) {
+  return (
+    &lt;&gt;
+      &lt;h2&gt;My {props.carinfo.name} {props.carinfo.model}!&lt;/h2&gt;
+      &lt;p&gt;It is {props.carinfo.color} and it is from {props.carinfo.year}!&lt;/p&gt;
+    &lt;/&gt;
+  );
+}
+
+const carInfo = {
+  name: "Ford",
+  model: "Mustang",
+  color: "red",
+  year: 1969
+};
+
+createRoot(document.getElementById('root')).render(
+  &lt;Car carinfo={carInfo} /&gt;
+);
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreactf202.html?filename=demo_react_props7">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<hr>
+
+<h2>Array Props</h2>
+
+<p>Array props can be accessed using the indexes.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Use the indexes to access array properties:</p>
+<pre class="language-jsx w3-white"><code>function Car(props) {
+  return (
+    &lt;h2&gt;My car is a {props.carinfo[0]} {props.carinfo[1]}!&lt;/h2&gt;
+  );
+}
+
+const carInfo = ["Ford", "Mustang"];
+
+createRoot(document.getElementById('root')).render(
+  &lt;Car carinfo={carInfo} /&gt;
+);
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreact894c.html?filename=demo_react_props8">Run 
+Example &raquo;</a>
+</p>
+</div>
+  
+<hr>
+
+<h2>Pass Props from Component to Component</h2>
+
+<p>Attributes are also how you pass data from one component to another, as parameters.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Send the <code class="w3-codespan">brand</code> attribute from the <code class="w3-codespan">Garage</code> component to the <code class="w3-codespan">Car</code> component:</p>
+<pre class="language-jsx w3-white"><code>function Car(props) {
+  return (
+    &lt;h2&gt;I am a {props.brand}!&lt;/h2&gt;
+  );
+}
+
+function Garage() {
+  return (
+    &lt;&gt;
+      &lt;h1&gt;Who lives in my garage?&lt;/h1&gt;
+      &lt;Car brand=&quot;Ford&quot; /&gt;
+    &lt;/&gt;
+  );
+}
+
+createRoot(document.getElementById('root')).render(
+  &lt;Garage /&gt;
+);
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreactd12c.html?filename=demo_react_props9">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+
+<div class="w3-panel ws-note">
+<p><strong>Note:</strong> React Props are read-only! You will get an error if you try to change their 
+value.</p>
+</div>
+<hr>
+
+
+
+<hr>

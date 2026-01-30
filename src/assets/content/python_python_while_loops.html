@@ -1,0 +1,103 @@
+<h1>Python <span class="color_h1">While Loops</span></h1>
+
+<hr>
+
+<h2>Python Loops</h2>
+<p>Python has two primitive loop commands:</p>
+<ul>
+<li><span class="w3-codespan"><a href="ref_keyword_while.html">while</a></span> loops</li>
+<li><span class="w3-codespan"><a href="ref_keyword_for.html">for</a></span> loops</li>
+</ul>
+
+<hr>
+<h2>The while Loop</h2>
+
+<p>With the <span class="w3-codespan"><a href="ref_keyword_while.html">while</a></span> loop we can execute a set of statements as long as a condition is true.</p>
+
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Print i as long as i is less than 6:</p>
+<div class="w3-code notranslate pythonHigh">
+i = 1<br>
+while i < 6:<br>
+&nbsp;&nbsp;print(i)<br>
+&nbsp;&nbsp;i += 1<br>
+</div>
+
+</div>
+<div class="w3-panel ws-note">
+  <p><strong>Note:</strong> remember to increment i, or else the loop will continue forever.</p>
+</div>
+
+<p>The <span class="w3-codespan"><a href="ref_keyword_while.html">while</a></span> loop requires relevant variables to be ready, in this example we need to define an indexing variable, <span class="w3-codespan"><a href="ref_keyword_while.html">i</a></span>, 
+which we set to 1.</p>
+
+<hr>
+
+<h2>The break Statement</h2>
+
+<p>With the <span class="w3-codespan"><a href="ref_keyword_break.html">break</a></span> statement we can stop the loop even if the 
+while condition is true:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Exit the loop when i is 3:</p>
+<div class="w3-code notranslate pythonHigh">
+i = 1<br>
+while i < 6:<br>
+&nbsp;&nbsp;print(i)<br>
+  &nbsp; if i == 3:<br>&nbsp;&nbsp;&nbsp; break<br>&nbsp;&nbsp;i += 1
+</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>The continue Statement</h2>
+
+<p>With the <span class="w3-codespan"><a href="ref_keyword_continue.html">continue</a></span> statement we can stop the 
+current iteration, and continue with the next:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Continue to the next iteration if i is 3:</p>
+<div class="w3-code notranslate pythonHigh">
+i = 0<br>
+while i < 6:<br>
+  &nbsp;&nbsp;i += 1
+<br>&nbsp; if i == 3:<br>&nbsp;&nbsp;&nbsp; continue<br>&nbsp;&nbsp;print(i)<br>
+</div>
+
+</div>
+
+<hr>
+
+<h2>The else Statement</h2>
+
+<p>With the <span class="w3-codespan"><a href="ref_keyword_else.html">else</a></span> statement we can run a block of code once when the 
+condition no longer is true:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Print a message once the condition is false:</p>
+<div class="w3-code notranslate pythonHigh">
+i = 1<br>
+while i < 6:<br>
+&nbsp;&nbsp;print(i)<br>
+&nbsp;&nbsp;i += 1<br>else:<br>&nbsp; print(&quot;i is no longer less than 6&quot;)<br>
+</div>
+
+</div>
+<div class="w3-panel ws-note">
+  <p><strong>Note:</strong> The <code class="w3-codespan"><a href="ref_keyword_else.html">else</a></code> block will NOT be executed if the loop is stopped by a <code class="w3-codespan"><a href="ref_keyword_break.html">break</a></code> statement.</p>
+</div>
+
+
+<hr>
+
+<hr>
+
+<br>

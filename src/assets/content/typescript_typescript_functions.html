@@ -1,0 +1,164 @@
+<h1>TypeScript Functions</h1>
+
+
+<hr>
+
+<p>TypeScript has a specific syntax for typing function parameters and return values.</p>
+<p>Read more about functions <a href="../js/js_functions.html" target="_blank">here</a>.</p>
+
+<hr>
+
+<h2>Return Type</h2>
+
+<p>The type of the value returned by the function can be explicitly defined.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+// the `: number` here specifies that this function returns a number<br>
+function getTime(): number {<br>
+&nbsp;&nbsp;return new Date().getTime();<br>
+}
+</div>
+
+</div>
+
+<div class="w3-panel ws-info">
+<p>If no return type is defined, TypeScript will attempt to infer it through the types of the variables or expressions returned.</p>
+</div>
+
+<hr>
+
+<hr>
+
+<h2>Void Return Type</h2>
+
+<p>The type <code class="w3-codespan">void</code> can be used to indicate a function doesn't return any value.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+
+<div class="w3-code notranslate jsHigh">
+function printHello(): void {<br>
+&nbsp;&nbsp;console.log('Hello!');<br>
+}
+</div>
+
+<p></p>
+
+
+</div>
+
+<hr>
+
+<h2>Parameters</h2>
+
+<p>Function parameters are typed with a similar syntax as variable declarations.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+
+<div class="w3-code notranslate jsHigh">
+function multiply(a: number, b: number) {<br>
+&nbsp;&nbsp;return a * b;<br>
+}
+</div>
+
+
+</div>
+
+<div class="w3-panel ws-info">
+<p>If no parameter type is defined, TypeScript will default to using <code class="w3-codespan">any</code>, unless additional type information is available as shown in the Default Parameters and Type Alias sections below.</p>
+</div>
+
+<hr>
+
+<h2>Optional Parameters</h2>
+
+<p>By default TypeScript will assume all parameters are required, but they can be explicitly marked as optional.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+// the `?` operator here marks parameter `c` as optional<br>
+function add(a: number, b: number, c?: number) {<br>
+&nbsp;&nbsp;return a + b + (c || 0);<br>
+}
+</div>
+
+</div>
+
+<hr>
+
+<h2>Default Parameters</h2>
+
+<p>For parameters with default values, the default value goes after the type annotation:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+function pow(value: number, exponent: number = 10) {<br>
+&nbsp;&nbsp;return value ** exponent;<br>
+}
+</div>
+
+</div>
+
+<p>TypeScript can also infer the type from the default value.</p>
+
+<hr>
+
+<h2>Named Parameters</h2>
+
+<p>Typing named parameters follows the same pattern as typing normal parameters.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+
+<div class="w3-code notranslate jsHigh">
+function divide({ dividend, divisor }: { dividend: number, divisor: number }) {<br>
+&nbsp;&nbsp;return dividend / divisor;<br>
+}
+</div>
+
+
+</div>
+
+<hr>
+
+<h2>Rest Parameters</h2>
+
+<p>Rest parameters can be typed like normal parameters, but the type must be an array as rest parameters are always arrays.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+
+<div class="w3-code notranslate jsHigh">
+function add(a: number, b: number, ...rest: number[]) {<br>
+&nbsp;&nbsp;return a + b + rest.reduce((p, c) =&gt; p + c, 0);<br>
+}
+</div>
+
+
+</div>
+<hr>
+<h2>Type Alias</h2>
+
+<p>Function types can be specified separately from functions with type aliases.</p>
+<p>These types are written similarly to arrow functions, read more about arrow functions <a href="../js/js_arrow_function.html" target="_blank">here</a>.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+type Negate = (value: number) =&gt; number;<br>
+<br>
+// in this function, the parameter `value` automatically gets assigned the type `number` from the type `Negate`<br>
+const negateFunction: Negate = (value) =&gt; value * -1;
+</div>
+
+
+</div>
+<hr>
+
+<hr>
+<br>

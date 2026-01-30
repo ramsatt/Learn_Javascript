@@ -1,0 +1,119 @@
+<h1>MySQL <span class="color_h1">CAST()</span> Function</h1>
+<p>
+<a class="w3-btn w3-white w3-border" href="mysql_ref_functions.html" title="MySQL Functions">&#10094; MySQL Functions</a></p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Convert a value to a DATE datatype:</p>
+<div class="w3-code notranslate sqlHigh">
+  SELECT 
+  CAST(&quot;2017-08-29&quot; AS DATE);</div>
+<a target="_blank" href="trymysqlcc6c.html?filename=trysql_func_mysql_cast" class="w3-btn w3-margin-bottom">Try it Yourself &raquo;</a>
+</div>
+<hr>
+
+<h2>Definition and Usage</h2>
+<p>The CAST() function converts a value (of any type) into the specified datatype.</p>
+<p><strong>Tip:</strong> See also the <a href="func_mysql_convert.html">CONVERT()</a> 
+function.</p>
+
+<h2>Syntax</h2>
+<div class="w3-code w3-border notranslate">
+  CAST(<em>value</em> AS <em>datatype</em>)</div>
+
+<h2>Parameter Values</h2>
+<table class="ws-table-all notranslate"> 
+  <tr>
+    <th style="width:23%">Parameter</th>
+    <th>Description</th>  </tr>  
+  <tr>
+    <td><em>value</em></td>
+    <td>Required. The value to convert</td>
+  </tr>
+  <tr>
+    <td><em>datatype</em></td>
+    <td>Required. The datatype to convert to. Can be one of the following:<br>
+    <table class="ws-table-all notranslate"> 
+  <tr>
+    <th>Value</th>
+    <th>Description</th>
+  </tr>  
+  <tr>
+    <td>DATE</td>
+    <td>Converts <em>value</em> to DATE. Format: &quot;YYYY-MM-DD&quot;</td>
+  </tr>
+  <tr>
+    <td>DATETIME</td>
+    <td>Converts <em>value</em> to DATETIME. Format: &quot;YYYY-MM-DD HH:MM:SS&quot;</td>
+  </tr>
+  <tr>
+    <td>DECIMAL</td>
+    <td>Converts <em>value</em> to DECIMAL. Use the optional M and D parameters 
+    to specify the maximum number of digits (M) and the number of digits 
+    following the decimal point (D).</td>
+  </tr>
+  <tr>
+    <td>TIME</td>
+    <td>Converts <em>value</em> to TIME. Format: &quot;HH:MM:SS&quot;</td>
+  </tr>
+  <tr>
+    <td>CHAR</td>
+    <td>Converts <em>value</em> to CHAR (a fixed length string)</td>
+  </tr>
+  <tr>
+    <td>NCHAR</td>
+    <td>Converts <em>value</em> to NCHAR (like CHAR, but produces a string with 
+    the national character set)</td>
+  </tr>
+  <tr>
+    <td>SIGNED</td>
+    <td>Converts <em>value</em> to SIGNED (a signed 64-bit integer)</td>
+  </tr>
+  <tr>
+    <td>UNSIGNED</td>
+    <td>Converts <em>value</em> to UNSIGNED (an unsigned 64-bit integer)</td>
+  </tr>
+  <tr>
+    <td>BINARY</td>
+    <td>Converts <em>value</em> to BINARY (a binary string)</td>
+  </tr>
+  </table>
+  </td>
+  </tr>
+  </table>
+
+<h2>Technical Details</h2>
+<table class="ws-table-all">
+<tr>
+ <th style="width:23%">Works in:</th>
+  <td>From MySQL 4.0</td>
+</tr>
+</table>
+<hr>
+
+<h2>More Examples</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Convert a value to a CHAR datatype:</p>
+<div class="w3-code notranslate sqlHigh">
+SELECT CAST(150 AS CHAR);</div>
+<a target="_blank" href="trymysqldd6d.html?filename=trysql_func_mysql_cast2" class="w3-btn w3-margin-bottom">Try it Yourself &raquo;</a>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Convert a value to a TIME datatype:</p>
+<div class="w3-code notranslate sqlHigh">
+SELECT CAST(&quot;14:06:10&quot; AS TIME);</div>
+<a target="_blank" href="trymysql8de5.html?filename=trysql_func_mysql_cast3" class="w3-btn w3-margin-bottom">Try it Yourself &raquo;</a>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Convert a value to a SIGNED datatype:</p>
+<div class="w3-code notranslate sqlHigh">
+SELECT CAST(5-10 AS SIGNED);</div>
+<a target="_blank" href="trymysqlbf47.html?filename=trysql_func_mysql_cast4" class="w3-btn w3-margin-bottom">Try it Yourself &raquo;</a>
+</div>
+
+<hr>
+<p><a class="w3-btn w3-white w3-border" href="mysql_ref_functions.html" title="MySQL Functions">&#10094; MySQL Functions</a></p>

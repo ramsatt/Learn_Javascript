@@ -1,0 +1,59 @@
+<h1>Java <span class="color_h1">Delete Files</span></h1>
+
+<hr>
+
+<h2>Delete a File</h2>
+<p>To delete a file in Java, use the <code class="w3-codespan">delete()</code> method:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>import java.io.File;&nbsp; // Import the File class
+
+public class DeleteFile {
+  public static void main(String[] args) { 
+    File myObj = new File(&quot;filename.txt&quot;); 
+    if (myObj.delete()) { 
+      System.out.println(&quot;Deleted the file: &quot; + myObj.getName());
+    } else {
+      System.out.println(&quot;Failed to delete the file.&quot;);
+    } 
+  } 
+}</code></pre>
+<p>The output will be:</p>
+<div class="notranslate w3-black w3-padding">
+<code>
+Deleted the file: filename.txt
+</code>
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom w3-margin-top" href="showjava0b94.html?filename=demo_files_delete">Run Example &raquo;</a>
+</div>
+<hr>
+
+<h2>Delete a Folder</h2>
+<p>You can also delete a folder. However, it must be empty:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>import java.io.File; 
+
+public class DeleteFolder {
+  public static void main(String[] args) { 
+    File myObj = new File(&quot;C:\\Users\\MyName\\Test&quot;); 
+    if (myObj.delete()) { 
+      System.out.println(&quot;Deleted the folder: &quot; + myObj.getName());
+    } else {
+      System.out.println(&quot;Failed to delete the folder.&quot;);
+    } 
+  } 
+</code>}</pre>
+<p>The output will be:</p>
+<div class="notranslate w3-black w3-padding">
+<code>
+Deleted the folder: Test
+</code>
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom w3-margin-top" href="showjavac3cf.html?filename=demo_files_delete_folder">Run Example &raquo;</a>
+</div>
+<hr>
+
+<hr>
+
+<br>

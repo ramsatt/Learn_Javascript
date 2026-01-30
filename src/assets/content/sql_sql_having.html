@@ -1,0 +1,214 @@
+<h1>SQL <span class="color_h1">HAVING</span> Clause</h1>
+
+<hr>
+
+<h2>The SQL HAVING Clause</h2>
+<p>The <code class="w3-codespan">HAVING</code> clause was added to SQL because the 
+<code class="w3-codespan">WHERE</code> keyword cannot be 
+used with aggregate functions.</p>
+<h3>HAVING Syntax</h3>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+  SELECT <em>column_name(s)</em><br>
+  FROM <em>table_name</em><br>
+  WHERE <em>condition</em><br>
+  GROUP BY <em>column_name(s)<br></em>HAVING <em>condition<br></em>ORDER BY <em>
+  column_name(s);</em></div></div>
+
+<hr>
+<h2>Demo Database</h2>
+<p>Below is a selection from the "Customers" table in the Northwind sample 
+database:</p>
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+  <tr>
+    <th>CustomerID</th>
+    <th>CustomerName</th>
+    <th>ContactName</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>PostalCode</th>
+    <th>Country</th>
+  </tr>
+  <tr>
+    <td>1<br><br></td>
+    <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Obere Str. 57</td>
+    <td>Berlin</td>
+    <td>12209</td>
+    <td>Germany</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Ana Trujillo Emparedados y helados</td>
+    <td>Ana Trujillo</td>
+    <td>Avda. de la Constitución 2222</td>
+    <td>México D.F.</td>
+    <td>05021</td>
+    <td>Mexico</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Antonio Moreno Taquería</td>
+    <td>Antonio Moreno</td>
+    <td>Mataderos 2312</td>
+    <td>México D.F.</td>
+    <td>05023</td>
+    <td>Mexico</td>
+  </tr>
+  <tr>
+    <td>4<br><br></td>
+    <td>Around the Horn</td>
+    <td>Thomas Hardy</td>
+    <td>120 Hanover Sq.</td>
+    <td>London</td>
+    <td>WA1 1DP</td>
+    <td>UK</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>Berglunds snabbköp</td>
+    <td>Christina Berglund</td>
+    <td>Berguvsvägen 8</td>
+    <td>Luleå</td>
+    <td>S-958 22</td>
+    <td>Sweden</td>
+  </tr>
+</table>
+</div>
+<hr>
+
+<h2>SQL HAVING Examples</h2>
+<p>The following SQL statement lists the number of customers in each country. 
+Only include countries with more than 5 customers:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+  SELECT COUNT(CustomerID), Country<br>FROM Customers<br>GROUP BY Country<br>
+  HAVING COUNT(CustomerID) &gt; 5;
+</div>
+
+</div>
+<p>The following SQL statement lists the number of customers in each country, 
+sorted high to low (Only include countries with more than 5 customers):</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+  SELECT COUNT(CustomerID), Country<br>FROM Customers<br>GROUP BY Country<br>HAVING COUNT(CustomerID) 
+  &gt; 5<br>
+  ORDER BY COUNT(CustomerID) DESC;
+</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>Demo Database</h2>
+<p>Below is a selection from the "Orders" table in the Northwind sample database:</p>
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+  <tr>
+    <th>OrderID</th>
+    <th>CustomerID</th>
+    <th>EmployeeID</th>
+    <th>OrderDate</th>
+    <th>ShipperID</th>
+  </tr>
+  <tr>
+    <td>10248</td>
+    <td>90</td>
+    <td>5</td>
+    <td>1996-07-04</td>
+    <td>3</td>
+  </tr>
+    <tr>
+    <td>10249</td>
+    <td>81</td>
+    <td>6</td>
+    <td>1996-07-05</td>
+    <td>1</td>
+    </tr>
+  <tr>
+    <td>10250</td>
+    <td>34</td>
+    <td>4</td>
+    <td>1996-07-08</td>
+    <td>2</td>
+    </tr>
+</table>
+</div>
+<p>And a selection from the "Employees" table:</p>
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+  <tr>
+    <th>EmployeeID</th>
+    <th>LastName</th>
+    <th>FirstName</th>
+    <th>BirthDate</th>
+    <th>Photo</th>
+    <th>Notes</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>Davolio</td>
+    <td>Nancy</td>
+    <td>1968-12-08</td>
+    <td>EmpID1.pic</td>
+    <td>Education includes a BA....</td>
+  </tr>
+    <tr>
+    <td>2</td>
+    <td>Fuller</td>
+    <td>Andrew</td>
+    <td>1952-02-19</td>
+    <td>EmpID2.pic</td>
+    <td>Andrew received his BTS....</td>    
+    </tr>
+  <tr>
+    <td>3</td>
+    <td>Leverling</td>
+    <td>Janet</td>
+    <td>1963-08-30</td>
+    <td>EmpID3.pic</td>
+    <td>Janet has a BS degree....</td>
+    </tr>
+</table>
+</div>
+
+<hr>
+
+<h2>More HAVING Examples</h2>
+<p>The following SQL statement lists the employees that have registered more 
+than 10 orders:</p>
+
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+  SELECT Employees.LastName, COUNT(Orders.OrderID) AS NumberOfOrders<br>FROM 
+  (Orders<br>INNER JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID)<br>
+  GROUP BY LastName<br>HAVING COUNT(Orders.OrderID) &gt; 10;
+</div>
+
+</div>
+<p>The following SQL statement lists if the employees "Davolio" or "Fuller" have registered 
+more than 25 orders:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+  SELECT Employees.LastName, COUNT(Orders.OrderID) AS NumberOfOrders<br>FROM Orders<br>
+  INNER JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID<br>
+  WHERE LastName = 'Davolio' OR LastName = 'Fuller'<br>GROUP BY LastName<br>HAVING 
+  COUNT(Orders.OrderID) &gt; 25;
+</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<br>

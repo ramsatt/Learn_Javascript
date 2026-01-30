@@ -1,0 +1,88 @@
+<h1>jQuery <span class="color_h1">offset()</span> Method</h1>
+<p><a href="jquery_ref_html.html" class="w3-btn w3-white w3-border" title="jQuery HTML/CSS Methods">&#10094; jQuery HTML/CSS Methods</a></p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Return the offset coordinates of a &lt;p&gt; element:</p>
+<div class="w3-code notranslate jsHigh">
+$(&quot;button&quot;).click(function(){<br>
+&nbsp;&nbsp;var x = $(&quot;p&quot;).offset();<br>&nbsp;&nbsp;alert(&quot;Top: &quot; + x.top + 
+&quot; Left: &quot; + x.left);<br>
+});
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="tryit695f.html?filename=tryjquery_css_offset">Try it Yourself &raquo;</a>
+</div>
+<hr>
+
+<h2>Definition and Usage</h2>
+<p>The offset() method set or returns the offset coordinates for the selected elements, relative to the document.</p>
+<p><strong>When used to return the offset:</strong><br>
+This method returns the offset coordinates of the FIRST matched element. It returns an object with 2 properties;
+the top and left positions in pixels.</p>
+<p><strong>When used to set the offset:</strong><br>
+This method sets the offset coordinates of ALL matched elements.</p>
+<hr>
+
+<h2>Syntax</h2>
+<p>Return the offset coordinates:</p>
+<div class="w3-code w3-border notranslate"><div>
+$(<i>selector</i>).offset()
+</div>
+</div>
+
+<p>Set the offset coordinates:</p>
+<div class="w3-code w3-border notranslate"><div>
+$(<i>selector</i>).offset({top:<i>value</i>,left:<i>value</i>})</div>
+</div>
+
+<p>Set offset coordinates using a function:</p>
+<div class="w3-code w3-border notranslate"><div>
+$(<i>selector</i>).offset(function<i>(index,currentoffset)</i>)
+</div>
+</div>
+<br>
+
+<table class="ws-table-all notranslate"> 
+  <tr>
+    <th style="width:30%">Parameter</th>
+    <th>Description</th>
+  </tr>  
+  <tr>
+    <td>{top:<i>value</i>,left:<i>value</i>}</td>
+    <td>Required when setting the offset. Specifies the top and left coordinates in pixels.<br>
+ <br>Possible values:<ul>
+    <li>Name/Value pairs, like {top:100,left:100}</li>
+    <li>An object with top and left properties (<a target="_blank" href="tryit9a4d.html?filename=tryjquery_css_offset_object">example</a>)</li>
+ </ul>
+  </td>
+  </tr>
+  <tr>
+    <td>function(<i>index,currentoffset</i>)</td>
+    <td>Optional. Specifies a function that returns an object containing the top and left coordinates
+    <ul>
+    <li><i>index</i> - Returns the index position of the element in the set</li>
+    <li><i>currentoffset</i> - Returns the current coordinates of the selected element</li>
+ </ul>
+  </td>
+  </tr>
+</table>
+<hr>
+
+<div class="w3-container w3-theme">
+<h2>Try it Yourself - Examples</h2>
+</div>
+
+<p><a href="tryite778.html?filename=tryjquery_css_offset_set" target="_blank">Set the offset coordinates</a><br>
+How to set the offset coordinates of an element.</p>
+
+<p><a href="tryit4cbd.html?filename=tryjquery_css_offset_func" target="_blank">Set offset coordinates using a function</a><br>
+Using a function to set the offset coordinates of an element.</p>
+
+<p><a target="_blank" href="tryit9a4d.html?filename=tryjquery_css_offset_object">Set the offset coordinates for an element using an object</a><br>
+How to set the offset coordinates for an element using a new object.</p>
+
+<p><a target="_blank" href="tryit759c.html?filename=tryjquery_css_offset_object2">Set the offset coordinates for an element using the offset coordinates of another element</a><br>
+How to set the offset coords for an element using the offset coords of an existing element.</p>
+<hr>
+
+<p><a href="jquery_ref_html.html" class="w3-btn w3-white w3-border" title="jQuery HTML/CSS Methods">&#10094; jQuery HTML/CSS Methods</a></p>

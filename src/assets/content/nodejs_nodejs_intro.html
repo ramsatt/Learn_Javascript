@@ -1,0 +1,113 @@
+<h1>Node.js <span class="color_h1">Introduction</span></h1>
+
+<hr>
+
+<h2>What You'll Learn</h2>
+<p>In this tutorial, you'll learn:</p>
+<ul>
+  <li>How to install and run Node.js</li>
+  <li>Core concepts like modules and the event loop</li>
+  <li>How to build web servers and APIs</li>
+  <li>Working with databases and files</li>
+  <li>Deploying Node.js applications</li>
+</ul>
+<hr>
+
+<h2 id="what">What is Node.js?</h2>
+<p><b>Node.js</b> is a free, open-source JavaScript runtime that runs on Windows, Mac, Linux, and more.</p>
+<p>It lets you execute JavaScript code outside of a web browser, enabling server-side development with JavaScript.</p>
+<p>Built on Chrome's V8 JavaScript engine, Node.js is designed for building scalable network applications efficiently.</p>
+<div class="w3-example">
+<h3>Example: Print a Message</h3>
+<div class="w3-code notranslate jsHigh">
+console.log('Hello from Node.js!');</div>
+
+</div>
+<hr>
+<h2 id="why">Why Node.js?</h2>
+<p>Node.js excels at handling many simultaneous connections with minimal overhead, making it perfect for:</p>
+<ul>
+  <li><b>Real-time applications</b> (chats, gaming, collaboration tools)</li>
+  <li>APIs and microservices</li>
+  <li>Data streaming applications</li>
+  <li>Command-line tools</li>
+  <li>Server-side web applications</li>
+</ul>
+<p>Its non-blocking, event-driven architecture makes it highly efficient for I/O-heavy workloads.</p>
+<hr>
+
+<hr>
+<h2 id="async">Asynchronous Programming</h2>
+<p>Node.js uses <b>asynchronous</b> (non-blocking) programming.</p>
+<p>This means it can keep working while waiting for tasks like reading files or talking to a database.</p>
+<p>With asynchronous code, Node.js can handle many things at once—making it fast and efficient.</p>
+<div class="w3-example">
+<h3>Example: Read a File Asynchronously</h3>
+<div class="w3-code notranslate jsHigh">
+// Load the filesystem module<br>
+const fs = require('fs');<br>
+<br>
+// Read file asynchronously<br>
+fs.readFile('myfile.txt', 'utf8', (err, data) => {<br>
+&nbsp;&nbsp;if (err) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;console.error('Error reading file: ' + err);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;console.log('File content: ' + data);<br>
+});<br>
+<br>
+console.log('Reading file... (this runs first!)');</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="shownodejs_cmddc22.html?filename=demo_intro_async">Run example &raquo;</a>
+</div>
+<p>In this example:</p>
+<ol>
+  <li>We load the built-in <code class="w3-codespan">fs</code> module</li>
+  <li>We call <code class="w3-codespan">readFile</code> to read a file</li>
+  <li>Node.js continues to the next line while reading the file</li>
+  <li>When the file is read, our callback function runs</li>
+</ol>
+<p>This non-blocking behavior lets Node.js handle many requests efficiently.</p>
+<hr>
+
+<h2 id="whatcan">What Can Node.js Do?</h2>
+<ul>
+  <li><b>Web Servers</b>: Create fast, scalable network applications</li>
+  <li><b>File Operations</b>: Read, write, and manage files on the server</li>
+  <li><b>Database Interaction</b>: Work with databases like MongoDB, MySQL, and more</li>
+  <li><b>APIs</b>: Build RESTful services and GraphQL APIs</li>
+  <li><b>Real-time</b>: Handle WebSockets for live applications</li>
+  <li><b>CLI Tools</b>: Create command-line applications</li>
+</ul>
+<div class="w3-example">
+<h3>Example: Simple Web Server</h3>
+<div class="w3-code notranslate jsHigh">
+const http = require('http');<br>
+http.createServer((req, res) => {<br>
+&nbsp;&nbsp;res.writeHead(200, {'Content-Type': 'text/plain'});<br>
+&nbsp;&nbsp;res.end('Hello World!');<br>
+}).listen(8080);
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="shownodejs8401.html?filename=demo_intro_webserver">Run example &raquo;</a>
+</div>
+<hr>
+
+<h2 id="file">What is a Node.js File?</h2>
+<p>Node.js files contain code that runs on the server. They usually have the <code class="w3-codespan">.js</code> extension and can be started with the <code class="w3-codespan">node</code> command.</p>
+<ul>
+  <li>Node.js files run tasks when certain events happen (like a web request)</li>
+  <li>They must be started on the server to have any effect</li>
+  <li>They use JavaScript syntax</li>
+</ul>
+<div class="w3-example">
+<h3>Example: Running a Node.js File</h3>
+<div class="w3-code notranslate">
+node app.js
+</div>
+</div>
+
+<h2>Node.js Versions & LTS:</h2>
+<p>Node.js releases a new major version every six months.</p>
+<p>For stability, use an <b>LTS (Long Term Support)</b> version for production projects.</p>
+<hr>
+
+<hr>

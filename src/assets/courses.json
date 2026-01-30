@@ -1,0 +1,194 @@
+[
+  {
+    "id": "javascript",
+    "title": "Javascript",
+    "icon": "logo-javascript",
+    "color": "#F7DF1E",
+    "file": "assets/data/javascript.json",
+    "description": "The language of the web."
+  },
+  {
+    "id": "html",
+    "title": "HTML",
+    "icon": "logo-html5",
+    "color": "#E34F26",
+    "file": "assets/data/html.json",
+    "description": "Structure of web pages."
+  },
+  {
+    "id": "css",
+    "title": "CSS",
+    "icon": "logo-css3",
+    "color": "#1572B6",
+    "file": "assets/data/css.json",
+    "description": "Styling of web pages."
+  },
+  {
+    "id": "java",
+    "title": "Java",
+    "icon": "cafe",
+    "color": "#007396",
+    "file": "assets/data/java.json",
+    "description": "Object-oriented programming."
+  },
+  {
+    "id": "python",
+    "title": "Python",
+    "icon": "logo-python",
+    "color": "#3776AB",
+    "file": "assets/data/python.json",
+    "description": "Versatile programming language."
+  },
+  {
+    "id": "jquery",
+    "title": "jQuery",
+    "icon": "code-working",
+    "color": "#0769AD",
+    "file": "assets/data/jquery.json",
+    "description": "Fast, small, and feature-rich JS library."
+  },
+  {
+    "id": "json",
+    "title": "JSON",
+    "icon": "document-text",
+    "color": "#000000",
+    "file": "assets/data/json.json",
+    "description": "Data interchange format."
+  },
+  {
+    "id": "sql",
+    "title": "SQL",
+    "icon": "server",
+    "color": "#4479A1",
+    "file": "assets/data/sql.json",
+    "description": "Database management."
+  },
+  {
+    "id": "php",
+    "title": "PHP",
+    "icon": "logo-docker", 
+    "color": "#777BB4",
+    "file": "assets/data/php.json",
+    "description": "Server-side scripting."
+  },
+  {
+    "id": "c",
+    "title": "C",
+    "icon": "laptop",
+    "color": "#A8B9CC",
+    "file": "assets/data/c.json",
+    "description": "General-purpose programming."
+  },
+  {
+    "id": "cpp",
+    "title": "C++",
+    "icon": "hardware-chip",
+    "color": "#00599C",
+    "file": "assets/data/cpp.json",
+    "description": "Performance and efficiency."
+  },
+  {
+    "id": "react",
+    "title": "React",
+    "icon": "logo-react",
+    "color": "#61DAFB",
+    "file": "assets/data/react.json",
+    "description": "UI library by Meta."
+  },
+  {
+    "id": "angular",
+    "title": "Angular",
+    "icon": "logo-angular",
+    "color": "#DD0031",
+    "file": "assets/data/angular.json",
+    "description": "Web app framework by Google."
+  },
+  {
+    "id": "mysql",
+    "title": "MySQL",
+    "icon": "cube",
+    "color": "#4479A1",
+    "file": "assets/data/mysql.json",
+    "description": "Relational database system."
+  },
+  {
+    "id": "xml",
+    "title": "XML",
+    "icon": "code",
+    "color": "#000000",
+    "file": "assets/data/xml.json",
+    "description": "Extensible Markup Language."
+  },
+  {
+    "id": "nodejs",
+    "title": "Node.js",
+    "icon": "logo-nodejs",
+    "color": "#339933",
+    "file": "assets/data/nodejs.json",
+    "description": "JS runtime built on Chrome's V8."
+  },
+  {
+    "id": "typescript",
+    "title": "TypeScript",
+    "icon": "language",
+    "color": "#3178C6",
+    "file": "assets/data/typescript.json",
+    "description": "Typed superset of JavaScript."
+  },
+  {
+    "id": "git",
+    "title": "Git",
+    "icon": "git-branch",
+    "color": "#F05032",
+    "file": "assets/data/git.json",
+    "description": "Version control system."
+  },
+  {
+    "id": "mongodb",
+    "title": "MongoDB",
+    "icon": "leaf",
+    "color": "#47A248",
+    "file": "assets/data/mongodb.json",
+    "description": "NoSQL database."
+  },
+  {
+    "id": "asp",
+    "title": "ASP.NET",
+    "icon": "desktop",
+    "color": "#512BD4",
+    "file": "assets/data/asp.json",
+    "description": "Web framework by Microsoft."
+  },
+  {
+    "id": "postgresql",
+    "title": "PostgreSQL",
+    "icon": "logo-tux",
+    "color": "#336791",
+    "file": "assets/data/postgresql.json",
+    "description": "Advanced relational database."
+  },
+  {
+    "id": "go",
+    "title": "Go",
+    "icon": "rocket",
+    "color": "#00ADD8",
+    "file": "assets/data/go.json",
+    "description": "Statically typed language by Google."
+  },
+  {
+    "id": "kotlin",
+    "title": "Kotlin",
+    "icon": "phone-portrait",
+    "color": "#7F52FF",
+    "file": "assets/data/kotlin.json",
+    "description": "Modern language for JVM and Android."
+  },
+  {
+    "id": "bootstrap5",
+    "title": "Bootstrap 5",
+    "icon": "logo-css3",
+    "color": "#7952B3",
+    "file": "assets/data/bootstrap5.json",
+    "description": "World's most popular front-end toolkit."
+  }
+]

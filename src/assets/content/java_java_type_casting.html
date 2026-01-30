@@ -1,0 +1,80 @@
+<h1>Java <span class="color_h1">Type Casting</span></h1>
+
+<hr>
+
+<h2>Java Type Casting</h2>
+<p>Type casting means converting one data type into another.  
+For example, turning an <code class="w3-codespan">int</code> into a <code class="w3-codespan">double</code>.</p>
+
+<p>In Java, there are two main types of casting:</p>
+<ul>
+<li><strong>Widening Casting</strong> (automatic) - converting a smaller type to a larger type size<br>
+  <code class="w3-codespan">byte</code> -&gt; <code class="w3-codespan">short</code> -&gt; <code class="w3-codespan">char</code> -&gt; <code class="w3-codespan">int</code> -&gt; <code class="w3-codespan">long</code> -&gt; <code class="w3-codespan">float</code> -&gt; <code class="w3-codespan">double</code><br><br>
+<li><strong>Narrowing Casting</strong> (manual) - converting a larger type to a smaller type size<br>
+  <code class="w3-codespan">double</code> -&gt; <code class="w3-codespan">float</code> -&gt; <code class="w3-codespan">long</code> -&gt; <code class="w3-codespan">int</code> -&gt; <code class="w3-codespan">char</code> -&gt; <code class="w3-codespan">short</code> -&gt; <code class="w3-codespan">byte</code>
+</ul>
+<hr>
+
+<h2>Widening Casting</h2>
+<p>Widening casting is done automatically when passing a smaller size type into a larger size type.</p>
+<p>This works because there is no risk of losing information.  
+For example, an <code class="w3-codespan">int</code> value can safely fit inside a <code class="w3-codespan">double</code>:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>int myInt = 9;
+double myDouble = myInt; // Automatic casting: int to double
+
+System.out.println(myInt);    // Outputs 9
+System.out.println(myDouble); // Outputs 9.0
+</code></pre>
+<p>
+
+</p>
+</div>
+<hr>
+
+<h2>Narrowing Casting</h2>
+<p>Narrowing casting must be done manually by placing the type in parentheses <code class="w3-codespan">()</code> in front of the value.</p>
+<p>This is required because narrowing may result in data loss (for example, dropping decimals when converting a <code class="w3-codespan">double</code> to an <code class="w3-codespan">int</code>):</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>double myDouble = 9.78d;
+int myInt = (int) myDouble; // Manual casting: double to int
+
+System.out.println(myDouble); // Outputs 9.78
+System.out.println(myInt);    // Outputs 9
+</code></pre>
+<p>
+
+</p>
+</div>
+<hr>
+
+<h2>Real-Life Example</h2>
+<p>Here is a real-life example of type casting.  
+We calculate the percentage of a user's score in relation to the maximum score in a game.</p>
+<p>We use type casting to make sure that the result is a <strong>floating-point</strong> value, rather than an integer:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>// Set the maximum possible score in the game to 500
+int maxScore = 500;
+
+// The actual score of the user
+int userScore = 423;
+
+/* Calculate the percentage of the user's score in relation to the maximum available score.
+Convert userScore to double to make sure that the division is accurate */
+double percentage = (double) userScore / maxScore * 100.0d;
+
+System.out.println("User's percentage is " + percentage);
+</code></pre>
+<p>
+
+</p>
+</div>
+<hr>
+
+<hr>

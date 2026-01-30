@@ -1,0 +1,123 @@
+<h1>C <span class="color_h1">Recursion</span></h1>
+
+<hr>
+
+
+<h2>Recursion</h2>
+<p>Recursion is the technique of making a function call itself. This technique provides a way
+to break complicated problems down into simple problems which are easier to solve.</p>
+
+<p>Recursion may be a bit difficult to understand. The
+best way to figure out how it works is to experiment with it.</p>
+
+<hr>
+
+
+<h2>Recursion Example</h2>
+
+<p>Adding two numbers together is easy to do, but adding a range of numbers is more
+complicated. In the following example, recursion is used to add a range of numbers
+together by breaking it down into the simple task of adding two numbers:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Use recursion to add all numbers from 1 to 10:</p>
+<pre class="language-c w3-white"><code>int sum(int k);
+
+int main() {
+  int result = sum(10);
+  printf("%d", result);
+  return 0;
+}
+
+int sum(int k) {
+  if (k > 0) {
+    return k + sum(k - 1);
+  } else {
+    return 0;
+  }
+}
+</code></pre>
+<p></p>
+</div>
+
+<h3>Example Explained</h3>
+<p>When the <code class="w3-codespan">sum()</code> function is called, it adds parameter <code class="w3-codespan">k</code> to the sum of all numbers smaller
+than <code class="w3-codespan">k</code> and returns the result. When k becomes 0, the function just returns 0. When
+running, the program follows these steps:</p>
+
+<div class="ws-note w3-panel" style="background-color:#2196F3!important;color:white">
+10 + sum(9)<br>
+10 + ( 9 + sum(8) )<br>
+10 + ( 9 + ( 8 + sum(7) ) )<br>
+...<br>
+10 + 9 + 8 + 7 + 6 + 5 + 4 + 3 + 2 + 1 + sum(0)<br>
+10 + 9 + 8 + 7 + 6 + 5 + 4 + 3 + 2 + 1 + 0
+</div>
+
+<p>Since the function does not call itself when <code class="w3-codespan">k</code> is 0, the program stops there and returns the
+result.</p>
+
+<div class="ws-note w3-panel">
+<p>The developer should be very careful with recursion as it can be quite easy to slip into writing a function which never terminates, or one that uses excess amounts of memory or processor power. However, when written correctly, recursion can be a very efficient and mathematically-elegant approach to programming.</p>
+</div>
+
+<hr>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Use recursion to count down from 5:</p>
+<pre class="language-c w3-white"><code>void countdown(int n);
+
+int main() {
+  countdown(5);
+  return 0;
+}
+
+void countdown(int n) {
+  if (n &gt; 0) {
+    printf("%d ", n);
+    countdown(n - 1);
+  }
+}
+</code></pre>
+<p></p>
+</div>
+
+<p>The function calls itself with <code class="w3-codespan">n - 1</code> until <code class="w3-codespan">n</code> becomes <code class="w3-codespan">0</code>.</p>
+<hr>
+
+<h2>Calculate Factorial with Recursion</h2>
+<p>This example uses a recursive function to calculate the factorial of 5:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-c w3-white"><code>int factorial(int n);
+
+int main() {
+  printf("Factorial of 5 is %d", factorial(5));
+  return 0;
+}
+
+int factorial(int n) {
+  if (n &gt; 1) {
+    return n * factorial(n - 1);
+  } else {
+    return 1;
+  }
+}
+</code></pre>
+<p></p>
+</div>
+
+<div class="ws-note ws-panel">
+<p><b>Factorial</b> means multiplying a number by every number below it, down to 1.  
+For example, the factorial of 5 is: 5 * 4 * 3 * 2 * 1 = 120.  
+By definition, <code class="w3-codespan">0!</code> is also 1.</p>
+</div>
+
+<hr>
+
+<hr>
+
+<br>

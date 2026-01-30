@@ -1,0 +1,202 @@
+<h1>Bootstrap 5 <span class="color_h1">Cards</span></h1>
+
+<hr>
+
+<h2>Cards</h2>
+<p>A card in Bootstrap 5 is a bordered box with some padding around its content. It includes options for headers, footers, content, colors, etc.</p>
+<div class="card" style="width:20rem;margin:20px 0 24px 0">
+  <img class="card-img-top" src="assets/content/images/img_avatar3.png" alt="image" style="width:100%">
+  <div class="card-body">
+    <h4 class="card-title">John Doe</h4>
+    <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+    <a href="javascript:void(0)" class="btn btn-primary">See Profile</a>
+  </div>
+</div>
+<hr>
+
+<h2>Basic Card</h2>
+<p>A basic card is created with the <code class="w3-codespan">.card</code> class, and content inside the 
+card has a <code class="w3-codespan">.card-body</code> class:</p>
+<div class="card">
+<div class="card-body">Basic card</div>
+</div>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+ &lt;div class=&quot;card&quot;&gt;<br>&nbsp; &lt;div class=&quot;card-body&quot;&gt;Basic 
+  card&lt;/div&gt;<br>&lt;/div&gt;<br></div>
+
+</div>
+<hr>
+
+<h2>Header and Footer</h2>
+<div class="card" style="margin:16px 0 24px 0">  
+  <div class="card-header">
+    Header
+  </div>
+  <div class="card-body">
+    Content
+  </div> 
+  <div class="card-footer">
+    Footer
+  </div>
+</div>
+  
+<p>The <code class="w3-codespan">.card-header</code> class adds a heading to the card and the <code class="w3-codespan">.card-footer</code> class adds a footer to the card:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;div class=&quot;card&quot;&gt;<br>&nbsp; &lt;div class=&quot;card-header&quot;&gt;Header&lt;/div&gt;<br>&nbsp; 
+  &lt;div class=&quot;card-body&quot;&gt;Content&lt;/div&gt; <br>&nbsp; &lt;div 
+  class=&quot;card-footer&quot;&gt;Footer&lt;/div&gt;<br>&lt;/div&gt;<br></div>
+
+</div>
+
+<hr>
+
+<h2>Contextual Cards</h2>
+<p>To add a background color to the card, use contextual classes (<code class="w3-codespan">.bg-primary</code>, <code class="w3-codespan">
+.bg-success</code>, <code class="w3-codespan">.bg-info</code>, <code class="w3-codespan">.bg-warning</code>, <code class="w3-codespan">.bg-danger</code>, <code class="w3-codespan">.bg-secondary</code>, <code class="w3-codespan">.bg-dark</code> and <code class="w3-codespan">.bg-light</code>.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-padding w3-white notranslate">
+<div class="card">
+<div class="card-body">Basic card</div>
+</div>
+<br>
+<div class="card bg-primary text-white">
+<div class="card-body">Primary card</div>
+</div>
+<br>
+<div class="card bg-success text-white">
+<div class="card-body">Success card</div>
+</div>
+<br>
+<div class="card bg-info text-white">
+<div class="card-body">Info card</div>
+</div>
+<br>
+<div class="card bg-warning text-white">
+<div class="card-body">Warning card</div>
+</div>
+<br>
+<div class="card bg-danger text-white">
+<div class="card-body">Danger card</div>
+</div>
+<br>
+<div class="card bg-secondary text-white">
+<div class="card-body">Secondary card</div>
+</div>
+<br>
+<div class="card bg-dark text-white">
+<div class="card-body">Dark card</div>
+</div>
+<br>
+<div class="card bg-light text-dark">
+<div class="card-body">Light card</div>
+</div>
+
+</div>
+
+
+
+</div>
+<hr>
+<hr>
+
+<h2>Titles, text, and links</h2>
+<div class="card" style="margin:16px 0 24px 0">
+  <div class="card-body">
+    <h4 class="card-title" style="margin-top:2px;font-weight:500;font-size: 1.5rem;line-height:1.1">Card title</h4>
+    <p class="card-text" style="margin:14px 0 16px 0">Some example text. Some example text.</p>
+    <a href="javascript:void(0)" class="card-link">Card link</a>
+    <a href="javascript:void(0)" class="card-link">Another link</a>
+  </div>
+</div>
+<p>Use <code class="w3-codespan">.card-title</code> to add card titles to any 
+heading element. 
+The <code class="w3-codespan">.card-text</code> class is used to remove bottom margins for a &lt;p&gt; element if it is 
+the last child (or the only one) inside <code class="w3-codespan">.card-body</code>. The <code class="w3-codespan">.card-link</code> class adds a blue 
+color to any link, and a hover effect.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;div class=&quot;card&quot;&gt;<br>&nbsp; &lt;div class=&quot;card-body&quot;&gt;<br>&nbsp;&nbsp;&nbsp; 
+  &lt;h4 class=&quot;card-title&quot;&gt;Card title&lt;/h4&gt;<br>&nbsp;&nbsp;&nbsp; &lt;p 
+  class=&quot;card-text&quot;&gt;Some example text. Some example text.&lt;/p&gt;<br>&nbsp;&nbsp;&nbsp; 
+  &lt;a href=&quot;#&quot; class=&quot;card-link&quot;&gt;Card link&lt;/a&gt;<br>&nbsp;&nbsp;&nbsp; &lt;a href=&quot;#&quot; 
+  class=&quot;card-link&quot;&gt;Another link&lt;/a&gt;<br>&nbsp; &lt;/div&gt;<br>&lt;/div&gt;<br></div>
+
+</div>
+<hr>
+
+<h2>Card Images</h2>
+<div class="w3-row" style="margin:20px 0 24px 0">
+<div class="w3-half">
+<div class="card" style="width:70%;">
+  <img class="card-img-top" src="assets/content/images/img_avatar1.png" alt="Card image" style="width:100%;margin-bottom:0">
+  <div class="card-body">
+    <h4 class="card-title" style="margin-top:0">John Doe</h4>
+    <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+    <a href="javascript:void(0)" class="btn btn-primary">See Profile</a>
+  </div>
+</div>
+</div>
+<div class="w3-half w3-hide-small">
+<div class="card" style="width:70%;">
+  <div class="card-body">
+    <h4 class="card-title" style="margin-top:0">Jane Doe</h4>
+    <p class="card-text">Some example text some example text. Jane Doe is an architect and engineer</p>
+    <a href="javascript:void(0)" class="btn btn-primary">See Profile</a>
+  </div>
+  <img class="card-img-bottom w3-grayscale-min" src="assets/content/images/img_avatar5.png" alt="Card image" style="width:100%;margin-bottom:0">
+</div>
+</div>
+</div>
+
+<p>Add <code class="w3-codespan">.card-img-top</code> or <code class="w3-codespan">.card-img-bottom</code> to an <code class="w3-codespan">
+&lt;img&gt;</code> to place the image at the top or at the bottom inside the card. Note 
+that we have added the image outside of the <code class="w3-codespan">.card-body</code> to span the entire width:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;div class=&quot;card&quot; style=&quot;width:400px&quot;&gt;<br>&nbsp; &lt;img class=&quot;card-img-top&quot; src=&quot;img_avatar1.png&quot; 
+  alt=&quot;Card image&quot;&gt;<br>&nbsp; &lt;div class=&quot;card-body&quot;&gt;<br>&nbsp;&nbsp;&nbsp; &lt;h4 
+  class=&quot;card-title&quot;&gt;John Doe&lt;/h4&gt;<br>&nbsp;&nbsp;&nbsp; &lt;p 
+  class=&quot;card-text&quot;&gt;Some example text.&lt;/p&gt;<br>&nbsp;&nbsp;&nbsp; &lt;a href=&quot;#&quot; 
+  class=&quot;btn btn-primary&quot;&gt;See Profile&lt;/a&gt;<br>&nbsp; &lt;/div&gt;<br>&lt;/div&gt;<br></div>
+
+</div>
+<hr>
+
+
+<h2>Card Image Overlays</h2>
+  <div class="card img-fluid" style="width:500px;margin:16px 0 24px 0">
+    <img class="card-img-top" src="assets/content/images/img_avatar1.png" alt="Card image" style="width:100%">
+    <div class="card-img-overlay">
+      <h4 class="card-title">John Doe</h4>
+      <p class="card-text">Some example text some example text. Some example text some example text. Some example text some example text. Some example text some example text.</p>
+      <a href="javascript:void(0)" class="btn btn-primary">See Profile</a>
+    </div>
+  </div>
+  
+<p>Turn an image into a card background and use <code class="w3-codespan">.card-img-overlay</code> 
+to add text on top of the image:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;div class=&quot;card&quot; style=&quot;width:500px&quot;&gt;<br>&nbsp; &lt;img class=&quot;card-img-top&quot; src=&quot;img_avatar1.png&quot; 
+  alt=&quot;Card image&quot;&gt;<br>&nbsp; &lt;div class=&quot;card-img-overlay&quot;&gt;<br>&nbsp;&nbsp;&nbsp; &lt;h4 
+  class=&quot;card-title&quot;&gt;John Doe&lt;/h4&gt;<br>&nbsp;&nbsp;&nbsp; &lt;p 
+  class=&quot;card-text&quot;&gt;Some example text.&lt;/p&gt;<br>&nbsp;&nbsp;&nbsp; &lt;a href=&quot;#&quot; 
+  class=&quot;btn btn-primary&quot;&gt;See Profile&lt;/a&gt;<br>&nbsp; &lt;/div&gt;<br>&lt;/div&gt;<br></div>
+
+</div>
+<hr>
+<div class="ws-info">
+<h2>Did You Know?</h2>
+<p class="w3-large"><a href="../w3css/default.html">W3.CSS</a> is an excellent alternative to Bootstrap.</p>
+<p class="w3-large"><a href="../w3css/default.html">W3.CSS</a> is smaller, faster, and easier to use.</p>
+</div>
+
+<br>

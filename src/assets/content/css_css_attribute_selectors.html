@@ -1,0 +1,177 @@
+<h1>CSS <span class="color_h1">Attribute</span> Selectors</h1>
+
+<hr>
+
+<h2>CSS Attribute Selectors</h2>
+<p>CSS attribute selectors are used to select and style HTML elements with 
+a specific attribute or attribute value, or both.</p>
+<p>The different types of attribute selectors are described below.</p>
+<hr>
+
+<h2>CSS [attribute] Selector</h2>
+<p>The <code class="w3-codespan"><a href="../cssref/sel_attribute.html">[attribute]</a></code> selector is used to select elements with a specific 
+attribute.</p>
+<p>The following example selects all &lt;a&gt; elements with a target attribute:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+a[target] {<br>&nbsp; background-color: yellow;<br>} </div>
+
+</div>
+
+<hr>
+
+<h2>CSS [attribute=&quot;value&quot;] Selector</h2>
+<p>The <code class="w3-codespan"><a href="../cssref/sel_attribute_value.html">[attribute=&quot;value&quot;]</a></code> selector is used to select elements with a specific 
+attribute with an exact value.</p>
+<p>The following example selects all &lt;a&gt; elements with a target=&quot;_blank&quot; attribute:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+a[target=&quot;_blank&quot;] { <br>&nbsp; background-color: yellow;<br>}
+</div>
+
+</div>
+
+<hr>
+
+<h2>CSS [attribute~=&quot;value&quot;] Selector</h2>
+<p>The <code class="w3-codespan">
+<a href="../cssref/sel_attribute_value_contains.html">[attribute~=&quot;value&quot;]</a></code> selector is used to select elements with an attribute 
+value containing a specific word.</p>
+<p>The following example selects all elements with a title attribute that 
+contains a space-separated list of words, one of which is &quot;flower&quot;:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+[title~=&quot;flower&quot;] {<br>&nbsp; border: 5px solid yellow;<br>}</div>
+
+</div>
+<p>The example above will match elements with title="flower", title="summer 
+flower", and title="flower new", but not title="my-flower" or title="flowers".</p>
+
+<hr>
+
+<hr>
+
+<h2>CSS [attribute|=&quot;value&quot;] Selector</h2>
+<p>The <code class="w3-codespan"><a href="../cssref/sel_attribute_value_lang.html">[attribute|=&quot;value&quot;]</a></code> selector 
+is used to select elements with the specific attribute, whose value can be 
+exactly the specific value, or start with the specific value followed by a 
+hyphen (-).</p>
+<p><strong>Note:</strong> The value has to be a whole word, either alone, like 
+class=&quot;top&quot;, or followed by a hyphen ( - ), like class=&quot;top-text&quot;.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+[class|=&quot;top&quot;] {<br>&nbsp; background: yellow;<br>}
+</div>
+
+</div>
+
+<hr>
+
+<h2>CSS [attribute^=&quot;value&quot;] Selector</h2>
+<p>The <code class="w3-codespan"><a href="../cssref/sel_attr_begin.html">[attribute^=&quot;value&quot;]</a></code> selector 
+is used to select elements with the specific attribute, whose value starts with 
+a specific value.</p>
+<p>The following example selects all elements with a class attribute value that 
+starts with &quot;top&quot;:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+[class^=&quot;top&quot;] {<br>&nbsp;&nbsp;background: yellow;<br>}
+</div>
+
+</div>
+
+<hr>
+
+<h2>CSS [attribute$=&quot;value&quot;] Selector</h2>
+<p>The <code class="w3-codespan"><a href="../cssref/sel_attr_end.html">[attribute$=&quot;value&quot;]</a></code> selector is used to select elements whose attribute 
+value ends with a specific value.</p>
+<p>The following example selects all elements with a class attribute value that 
+ends with &quot;test&quot;:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+[class$=&quot;test&quot;] {<br>&nbsp;&nbsp;background: yellow;<br>}</div>
+
+</div>
+
+<hr>
+
+<h2>CSS [attribute*=&quot;value&quot;] Selector</h2>
+<p>The <code class="w3-codespan"><a href="../cssref/sel_attr_contain.html">[attribute*=&quot;value&quot;]</a></code> selector is used to select elements whose attribute 
+value contains a specific value.</p>
+<p>The following example selects all elements with a class attribute value that 
+contains &quot;te&quot;:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+[class*=&quot;te&quot;] {<br>&nbsp; background: yellow;<br>}</div>
+
+</div>
+
+<hr>
+
+<h2>Style Form Elements With Attribute Selectors</h2>
+<p>The CSS attribute selectors can be useful for styling form elements, based on 
+input type:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+  input[type=&quot;text&quot;] {<br>&nbsp; width: 150px;<br>&nbsp; padding: 6px;<br>&nbsp; 
+  margin-bottom: 10px;<br>&nbsp; background-color: pink;<br>}<br><br>
+  input[type=&quot;button&quot;] {<br>&nbsp; width: 100px;<br>&nbsp; padding: 6px;<br>&nbsp; 
+  background-color: lightgreen;<br>}</div>
+
+</div>
+
+<p><strong>Tip:</strong> Visit our <a href="css_form.html">CSS Forms Tutorial</a> for more examples on how to style forms with CSS.</p>
+<hr>
+
+<hr>
+
+<h2>All CSS Attribute Selectors</h2>
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+  <tr>
+    <th style="width:20%">Selector</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><a href="../cssref/sel_attribute.html">[<i>attribute</i>]</a></td>
+    <td>Select elements with a specific attribute</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/sel_attribute_value.html">[<i>attribute</i>=<i>value</i>]</a></td>
+    <td>Select elements with a specific attribute with an exact value</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/sel_attribute_value_contains.html">[<i>attribute</i>~=<i>value</i>]</a></td>
+    <td>Select elements with an attribute value containing a specific word</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/sel_attribute_value_lang.html">[<i>attribute</i>|=<i>value</i>]</a></td>
+    <td>Select elements with the specific attribute, whose value can be exactly 
+    the specific value, or start with the specific value followed by a hyphen 
+    (-)</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/sel_attr_begin.html">[<i>attribute</i>^=<i>value</i>]</a></td>
+    <td>Select elements with the specific attribute, whose value starts with a 
+    specific value</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/sel_attr_end.html">[<i>attribute</i>$=<i>value</i>]</a></td>
+    <td>Select elements whose attribute value ends with a specific value</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/sel_attr_contain.html">[<i>attribute</i>*=<i>value</i>]</a></td>
+    <td>Select elements whose attribute value contains a specific value</td>
+  </tr>
+</table>
+</div>
+
+<br>

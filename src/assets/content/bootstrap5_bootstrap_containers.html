@@ -1,0 +1,234 @@
+<h1>Bootstrap 5 <span class="color_h1">Containers</span></h1>
+
+<hr>
+
+<h2>Bootstrap 5 Containers</h2>
+<p>You learned from the previous chapter that Bootstrap requires a containing 
+element to wrap site contents.</p>
+<p>Containers are used to pad the content inside 
+of them, and there are two container classes available:</p>
+<ol>
+  <li>The <code class="w3-codespan">.container</code> class provides a responsive <strong>fixed width container</strong></li>
+  <li>The <code class="w3-codespan">.container-fluid</code> class provides a <strong>full width container</strong>, spanning the entire width of the viewport</li>
+</ol>
+
+<div class="w3-row-padding" style="margin:16px -16px 0 -16px">
+  <div class="w3-half">
+    <div class="w3-padding w3-padding-16" style="border:4px solid #f1f1f1">
+      <div style="height:100px;width:80%;margin:auto;" class="ws-grey w3-display-container"><span class="w3-display-middle">.container</span></div>
+    </div>
+  </div>
+  <div class="w3-half">
+    <div class="w3-padding-16" style="border:4px solid #f1f1f1">
+      <div style="height:100px;width:100%;" class="ws-grey w3-center w3-display-container"><span class="w3-display-middle">.container-fluid</span></div>
+    </div>
+  </div>
+</div>
+<hr>
+<h2>Fixed Container</h2>
+<p>Use the <code class="w3-codespan">.container</code> class to create a responsive, fixed-width container.</p>
+<p>Note that its width (<code class="w3-codespan">max-width</code>) will change on different screen sizes:</p>
+
+<div class="w3-responsive" style="margin:-16px 0">
+<table class="w3-table ws-table-all">
+  <thead>
+    <tr>
+    <th></th>
+      <th>
+        Extra small<br>
+        &lt;576px
+      </th>
+      <th>
+        Small<br>
+        &#8805;576px
+      </th>
+      <th>
+        Medium<br>
+        &#8805;768px
+      </th>
+      <th>
+        Large<br>
+        &#8805;992px
+      </th>
+      <th>
+        Extra Large<br>
+        &#8805;1200px
+      </th>
+      <th>
+        XXL<br>
+        &#8805;1400px
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>max-width</td>
+      <td>100%</td>
+      <td>540px</td>
+      <td>720px</td>
+      <td>960px</td>
+      <td>1140px</td>
+      <td>1320px</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p>Open the example below and resize the browser window to see that the container width will change at different breakpoints:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;div class=&quot;container&quot;&gt;<br>&nbsp; &lt;h1&gt;My First Bootstrap Page&lt;/h1&gt;<br>&nbsp; &lt;p&gt;This is some text.&lt;/p&gt; <br>&lt;/div&gt;</div>
+
+</div>
+
+<div class="ws-note w3-panel">
+<p>The XXL breakpoint (&#8805;1400px) is <strong>new</strong> in Bootstrap 5, while the largest breakpoint in Bootstrap 4 is Extra large (&#8805;1200px).</p>
+</div>
+<hr>
+
+<h2>Fluid Container</h2>
+<p>Use the <code class="w3-codespan">.container-fluid</code> class to create a full width container, that will always span the entire width of the screen (<code class="w3-codespan">width</code> is always <code class="w3-codespan">100%</code>):</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;div class=&quot;container-fluid&quot;&gt;<br>&nbsp; &lt;h1&gt;My First Bootstrap Page&lt;/h1&gt;<br>&nbsp; &lt;p&gt;This is some text.&lt;/p&gt; <br>&lt;/div&gt;</div>
+
+</div>
+<hr>
+<hr>
+
+<h2>Container Padding</h2>
+<p>By default, containers have left and right padding, with no top or bottom padding. Therefore, we often use <strong>spacing utilities</strong>, such as extra padding and margins to make them look even better. For example, <code class="w3-codespan">
+.pt-5</code> means "add a large <strong>top padding</strong>":</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;div class=&quot;container pt-5&quot;&gt;&lt;/div&gt;</div>
+
+</div>
+
+
+<hr>
+
+<h2>Container Border and Color</h2>
+<p>Other utilities, such as borders and colors, are also often used together with containers:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-white w3-padding">
+<iframe src="assets/content/images/trybs_container_color.html" style="width:100%;border:none;height:500px"></iframe>
+</div>
+<div class="w3-code notranslate htmlHigh">
+  &lt;div class=&quot;container p-5 my-5 border&quot;&gt;&lt;/div&gt;<br><br>&lt;div class=&quot;container 
+  p-5 my-5 bg-dark 
+  text-white&quot;&gt;&lt;/div&gt;<br><br>&lt;div class=&quot;container p-5 my-5 bg-primary 
+  text-white&quot;&gt;&lt;/div&gt;</div>
+
+</div>
+<div class="ws-note w3-panel">
+<p>You will learn much more about colors and border utilities in a later chapter.</p>
+</div>
+
+<hr>
+
+<h2>Responsive Containers</h2>
+<p>You can also use the <code class="w3-codespan">.container-sm|md|lg|xl</code> classes to determine when the container should be responsive.</p>
+<p>The <code class="w3-codespan">max-width</code> of the container will change on different screen sizes/viewports:</p>
+
+<div class="w3-responsive" style="margin:-16px 0">
+<table class="w3-table ws-table-all">
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>
+        Extra small<br>
+        &lt;576px
+      </th>
+      <th>
+        Small<br>
+        &#8805;576px
+      </th>
+      <th>
+        Medium<br>
+        &#8805;768px
+      </th>
+      <th>
+        Large<br>
+        &#8805;992px
+      </th>
+      <th>
+        Extra large<br>
+        &#8805;1200px
+      </th>
+      <th>
+        XXL<br>
+        &#8805;1400px
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="w3-codespan">.container-sm</code></td>
+      <td>100%</td>
+      <td>540px</td>
+      <td>720px</td>
+      <td>960px</td>
+      <td>1140px</td>
+       <td>1320px</td>
+   </tr>
+    <tr>
+      <td><code class="w3-codespan">.container-md</code></td>
+      <td>100%</td>
+      <td>100%</td>
+      <td>720px</td>
+      <td>960px</td>
+      <td>1140px</td>
+       <td>1320px</td>
+   </tr>
+    <tr>
+      <td><code class="w3-codespan">.container-lg</code></td>
+      <td>100%</td>
+      <td>100%</td>
+      <td>100%</td>
+      <td>960px</td>
+      <td>1140px</td>
+       <td>1320px</td>
+   </tr>
+    <tr>
+      <td><code class="w3-codespan">.container-xl</code></td>
+      <td>100%</td>
+      <td>100%</td>
+      <td>100%</td>
+      <td>100%</td>
+      <td>1140px</td>
+      <td>1320px</td>
+    </tr>
+    <tr>
+      <td><code class="w3-codespan">.container-xxl</code></td>
+      <td>100%</td>
+      <td>100%</td>
+      <td>100%</td>
+      <td>100%</td>
+      <td>100%</td>
+      <td>1320px</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;div class=&quot;container-sm&quot;&gt;.container-sm&lt;/div&gt;<br>&lt;div 
+  class=&quot;container-md&quot;&gt;.container-md&lt;/div&gt;<br>&lt;div 
+  class=&quot;container-lg&quot;&gt;.container-lg&lt;/div&gt;<br>&lt;div 
+  class=&quot;container-xl&quot;&gt;.container-xl&lt;/div&gt;<br>&lt;div 
+  class=&quot;container-xxl&quot;&gt;.container-xxl&lt;/div&gt;</div>
+
+</div>
+<hr>
+<div class="ws-info">
+<h2>Did You Know?</h2>
+<p class="w3-large"><a href="../w3css/default.html">W3.CSS</a> is an excellent alternative to Bootstrap.</p>
+<p class="w3-large"><a href="../w3css/default.html">W3.CSS</a> is smaller, faster, and easier to use.</p>
+</div>
+
+<br>

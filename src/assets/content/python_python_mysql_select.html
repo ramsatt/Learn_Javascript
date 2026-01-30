@@ -1,0 +1,62 @@
+<h1>Python MySQL <span class="color_h1">Select From</span></h1>
+
+<hr>
+
+<h2>Select From a Table</h2>
+<p>To select from a table in MySQL, use the &quot;SELECT&quot; statement:</p>
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Select all records from the &quot;customers&quot; table, and display the 
+  result:</p>
+<div class="w3-code notranslate jsHigh">
+  import mysql.connector<br><br>mydb = mysql.connector.connect(<br>&nbsp; host=&quot;localhost&quot;,<br>&nbsp;
+  user=&quot;<em>yourusername</em>&quot;,<br>&nbsp; password=&quot;<em>yourpassword</em>&quot;,<br>&nbsp; database=&quot;mydatabase&quot;<br>)<br><br>mycursor = 
+  mydb.cursor()<br><br>mycursor.execute(&quot;SELECT * FROM customers&quot;)<br><br>
+  myresult = mycursor.fetchall()<br><br>for x in myresult:<br>&nbsp; print(x)<br></div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showpython1ecc.html?filename=demo_mysql_select">Run example &raquo;</a>
+</div>
+
+<div class="w3-panel ws-note">
+  <p><strong>Note:</strong> We use the <code class="w3-codespan">fetchall()</code> 
+  method, which fetches all rows from the last executed statement.</p>
+</div>
+
+<hr>
+
+<h2>Selecting Columns</h2>
+<p>To select only some of the columns in a table, use the &quot;SELECT&quot; statement 
+followed by the column name(s):</p>
+<div class="w3-example">
+  <h3>Example</h3>
+<p>Select only the name and address columns:</p>
+<div class="w3-code notranslate pythonHigh">
+  import mysql.connector<br><br>mydb = mysql.connector.connect(<br>&nbsp; host=&quot;localhost&quot;,<br>&nbsp;
+  user=&quot;<em>yourusername</em>&quot;,<br>&nbsp; password=&quot;<em>yourpassword</em>&quot;,<br>&nbsp; database=&quot;mydatabase&quot;<br>)<br>
+  <br>mycursor = mydb.cursor()<br><br>mycursor.execute(&quot;SELECT name, 
+  address FROM 
+  customers&quot;)<br><br>myresult = mycursor.fetchall()<br><br>for x in myresult:<br>&nbsp; 
+  print(x)</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showpython5921.html?filename=demo_mysql_select_columns">Run example &raquo;</a>
+</div>
+
+<hr>
+
+<hr>
+<h2>Using the fetchone() Method</h2>
+<p>If you are only interested in one row, you can use the 
+<code class="w3-codespan">fetchone()</code> method.</p>
+<p>The <code class="w3-codespan">fetchone()</code> method will return the first row of 
+the result:</p>
+<div class="w3-example">
+  <h3>Example</h3>
+<p>Fetch only one row:</p>
+<div class="w3-code notranslate pythonHigh">
+  import mysql.connector<br><br>mydb = mysql.connector.connect(<br>&nbsp; host=&quot;localhost&quot;,<br>
+  &nbsp;
+  user=&quot;<em>yourusername</em>&quot;,<br>&nbsp; password=&quot;<em>yourpassword</em>&quot;,<br>&nbsp; database=&quot;mydatabase&quot;<br>)<br><br>mycursor = 
+  mydb.cursor()<br><br>mycursor.execute(&quot;SELECT * FROM customers&quot;)<br><br>
+  myresult = mycursor.fetchone()<br><br>print(myresult)</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showpython11eb.html?filename=demo_mysql_select_fetchone">Run example &raquo;</a>
+</div>
+
+<hr>

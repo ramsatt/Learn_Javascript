@@ -1,0 +1,115 @@
+<h1>SQL <span class="color_h1">CHECK</span> Constraint</h1>
+
+<hr>
+
+
+<h2>SQL CHECK Constraint</h2>
+<p>The <code class="w3-codespan">CHECK</code> constraint is used to limit the value range that can be placed in a column.</p>
+<p>If you define a <code class="w3-codespan">CHECK</code> constraint on a column it 
+will allow only certain values for this column.</p>
+<p>If you define a <code class="w3-codespan">CHECK</code> constraint on a table it can limit the values in certain columns based on values in other columns in the row.</p>
+
+
+<hr>
+
+
+<h2>SQL CHECK on CREATE TABLE</h2>
+<p>The following SQL creates a <code class="w3-codespan">CHECK</code> constraint on the &quot;Age&quot; column when the &quot;Persons&quot; table is created.
+The <code class="w3-codespan">CHECK</code> constraint ensures that the age of a person must be 18, or older:</p>
+
+<p><b>MySQL:</b></p>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+CREATE TABLE Persons
+(<br>
+&nbsp;&nbsp;&nbsp; ID int NOT NULL,<br>
+&nbsp;&nbsp;&nbsp;
+LastName varchar(255) NOT NULL,<br>
+&nbsp;&nbsp;&nbsp;
+FirstName varchar(255),<br>
+&nbsp;&nbsp;&nbsp;
+Age int,<br>
+&nbsp;&nbsp;&nbsp;
+CHECK (Age&gt;=18)<br>
+);</div></div>
+
+<p><b>SQL Server / Oracle / MS Access:</b></p>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+CREATE TABLE Persons
+(<br>
+&nbsp;&nbsp;&nbsp; ID int NOT NULL,<br>
+&nbsp;&nbsp;&nbsp;
+LastName varchar(255) NOT NULL,<br>
+&nbsp;&nbsp;&nbsp;
+FirstName varchar(255),<br>
+&nbsp;&nbsp;&nbsp;
+Age int&nbsp;CHECK (Age&gt;=18)<br>
+);</div></div>
+
+<p>To allow naming of a <code class="w3-codespan">CHECK</code> constraint, and for defining a <code class="w3-codespan">
+CHECK</code> constraint on multiple columns, use the following SQL syntax:</p>
+<p><b>MySQL / SQL Server / Oracle / MS Access:</b></p>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+CREATE TABLE Persons
+(<br>
+&nbsp;&nbsp;&nbsp; ID int NOT NULL,<br>
+&nbsp;&nbsp;&nbsp;
+LastName varchar(255) NOT NULL,<br>
+&nbsp;&nbsp;&nbsp;
+FirstName varchar(255),<br>
+&nbsp;&nbsp;&nbsp;
+Age int,<br>
+&nbsp;&nbsp;&nbsp;
+City varchar(255),<br>
+&nbsp;&nbsp;&nbsp;
+CONSTRAINT CHK_Person CHECK (Age&gt;=18 AND City='Sandnes')<br>
+);</div></div>
+
+
+<hr>
+
+<hr>
+
+
+<h2>SQL CHECK on ALTER TABLE</h2>
+<p>To create a <code class="w3-codespan">CHECK</code> constraint on the &quot;Age&quot; column when the table is already created, use the following SQL:</p>
+<p><b>MySQL / SQL Server / Oracle / MS Access:</b></p>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+ALTER TABLE Persons<br>
+ADD CHECK (Age&gt;=18);</div></div>
+
+<p>To allow naming of a <code class="w3-codespan">CHECK</code> constraint, and for defining a <code class="w3-codespan">
+CHECK</code> constraint on multiple columns, use the following SQL syntax:</p>
+<p><b>MySQL / SQL Server / Oracle / MS Access:</b></p>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+ALTER TABLE Persons<br>
+ADD CONSTRAINT CHK_PersonAge CHECK (Age&gt;=18 AND City='Sandnes');</div></div>
+
+
+<hr>
+
+
+<h2>DROP a CHECK Constraint</h2>
+<p>To drop a <code class="w3-codespan">CHECK</code> constraint, use the following SQL:</p>
+<p><b>SQL Server / Oracle / MS Access:</b></p>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+ALTER TABLE Persons<br>
+DROP CONSTRAINT CHK_PersonAge;</div></div>
+
+<p><b>MySQL:</b></p>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+ALTER TABLE Persons<br>
+DROP CHECK CHK_PersonAge;</div></div>
+
+
+<hr>
+
+<hr>
+
+<br>

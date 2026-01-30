@@ -1,0 +1,161 @@
+<h1>Python <span class="color_h1">Functions</span></h1>
+
+<hr>
+
+<h2>Python Functions</h2>
+<p>A function is a block of code which only runs when it is called.</p>
+<p>A function can return data as a result.</p>
+<p>A function helps avoiding code repetition.</p>
+
+<hr>
+<h2>Creating a Function</h2>
+
+<p>In Python, a function is defined using the <code class="w3-codespan"><a href="ref_keyword_def.html">def</a></code> 
+keyword, followed by a function name and parentheses:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate pythonHigh">
+  def my_function():<br>&nbsp; print(&quot;Hello from a function&quot;)</div>
+</div>
+
+<p>This creates a function named <code class="w3-codespan">my_function</code> that prints "Hello from a function" when called.</p>
+
+<div class="w3-panel ws-note">
+  <p>The code inside the function must be indented. Python uses indentation to define code blocks.</p>
+</div>
+
+
+<hr>
+
+<h2>Calling a Function</h2>
+
+<p>To call a function, write its name followed by parentheses:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate pythonHigh">
+  def my_function():<br>&nbsp; print(&quot;Hello from a function&quot;)<br><br>
+  <strong>my_function()</strong></div>
+
+</div>
+
+<p>You can call the same function multiple times:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate pythonHigh">
+  def my_function():<br>&nbsp; print(&quot;Hello from a function&quot;)<br><br>
+  <strong>my_function()</strong><br><strong>my_function()</strong><br><strong>my_function()</strong></div>
+
+</div>
+
+
+<hr>
+
+<hr>
+
+<h2>Function Names</h2>
+
+<p>Function names follow the same rules as variable names in Python:</p>
+<ul>
+  <li>A function name must start with a letter or underscore</li>
+  <li>A function name can only contain letters, numbers, and underscores</li>
+  <li>Function names are case-sensitive (<code class="w3-codespan">myFunction</code> and <code class="w3-codespan">myfunction</code> are different)</li>
+</ul>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Valid function names:</p>
+<div class="w3-code notranslate pythonHigh">
+calculate_sum()<br>
+_private_function()<br>
+myFunction2()
+</div>
+</div>
+
+<div class="w3-panel ws-note">
+  <p>It's good practice to use descriptive names that explain what the function does.</p>
+</div>
+
+
+<hr>
+
+<h2>Why Use Functions?</h2>
+
+<p>Imagine you need to convert temperatures from Fahrenheit to Celsius several times in your program. Without functions, you would have to write the same calculation code repeatedly:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Without functions - repetitive code:</p>
+<div class="w3-code notranslate pythonHigh">
+  temp1 = 77<br>celsius1 = (temp1 - 32) * 5 / 9<br>print(celsius1)<br><br>
+  temp2 = 95<br>celsius2 = (temp2 - 32) * 5 / 9<br>print(celsius2)<br><br>
+  temp3 = 50<br>celsius3 = (temp3 - 32) * 5 / 9<br>print(celsius3)</div>
+
+</div>
+
+<p>With functions, you write the code once and reuse it:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>With functions - reusable code:</p>
+<div class="w3-code notranslate pythonHigh">
+  def fahrenheit_to_celsius(fahrenheit):<br>&nbsp; return (fahrenheit - 32) * 5 / 9<br><br>
+  print(fahrenheit_to_celsius(77))<br>print(fahrenheit_to_celsius(95))<br>print(fahrenheit_to_celsius(50))</div>
+
+</div>
+
+
+<hr>
+
+<h2>Return Values</h2>
+
+<p>Functions can send data back to the code that called them using the <code class="w3-codespan"><a href="ref_keyword_return.html">return</a></code> statement.</p>
+
+<p>When a function reaches a <code class="w3-codespan">return</code> statement, it stops executing and sends the result back:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>A function that returns a value:</p>
+<div class="w3-code notranslate pythonHigh">
+  def get_greeting():<br>&nbsp; return &quot;Hello from a function&quot;<br><br>
+  message = get_greeting()<br>print(message)</div>
+
+</div>
+
+<p>You can use the returned value directly:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Using the return value directly:</p>
+<div class="w3-code notranslate pythonHigh">
+  def get_greeting():<br>&nbsp; return &quot;Hello from a function&quot;<br><br>
+  print(get_greeting())</div>
+
+</div>
+
+<div class="w3-panel ws-note">
+  <p>If a function doesn't have a <code class="w3-codespan">return</code> statement, it returns <code class="w3-codespan">None</code> by default.</p>
+</div>
+
+
+<hr>
+
+<h2>The pass Statement</h2>
+
+<p>Function definitions cannot be empty. If you need to create a function placeholder without any code, use the <code class="w3-codespan"><a href="ref_keyword_pass.html">pass</a></code> statement:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate pythonHigh">
+  def my_function():<br>&nbsp; pass</div>
+
+</div>
+
+<p>The <code class="w3-codespan">pass</code> statement is often used when developing, allowing you to define the structure first and implement details later.</p>
+
+
+<hr>
+
+<hr>

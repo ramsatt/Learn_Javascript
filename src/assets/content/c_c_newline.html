@@ -1,0 +1,83 @@
+<h1>C <span class="color_h1">New Lines</span></h1>
+
+
+<hr>
+
+
+<h2>New Lines</h2>
+<p>To start a new line when printing text, you can use the <code class="w3-codespan">\n</code> character:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  #include &lt;stdio.h&gt;<br><br>int main() {<br>&nbsp; printf(&quot;Hello World!<strong>\n</strong>&quot;);<br>&nbsp;
+  printf(&quot;I am learning C.&quot;);<br>&nbsp; return 0;<br>}</div>
+
+</div>
+
+<div class="ws-note w3-panel">
+<p><strong>Notice:</strong> The second message starts on a new line.</p>
+</div>
+
+<p>You can also print multiple lines using a single <code class="w3-codespan">printf()</code> function.
+However, this could make the code harder to read:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  #include &lt;stdio.h&gt;<br><br>int main() {<br>&nbsp; printf(&quot;Hello World!<strong>\n</strong>I
+  am learning C.<strong>\n</strong>And it is awesome!&quot;);<br>&nbsp; return 0;<br>}</div>
+
+</div>
+
+<p><strong>Tip:</strong> Two <code class="w3-codespan">\n</code> characters in a row will create a blank line:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  #include &lt;stdio.h&gt;<br><br>int main() {<br>&nbsp; printf("Hello World!<strong>\n\n</strong>");<br>&nbsp;
+  printf("I am learning C.");<br>&nbsp; return 0;<br>}</div>
+
+</div>
+
+
+
+<div class="ws-note w3-panel">
+<h4>What is <code class="w3-codespan">\n</code> exactly?</h4>
+
+<p><code class="w3-codespan">\n</code> is called an <strong>escape sequence</strong>.</p>
+<p>Escape sequences start with a backslash and represent special characters that cannot be typed directly.</p>
+<p>In this case, <code class="w3-codespan">\n</code> tells the program to move the cursor to the beginning of the next line.</p>
+
+<p>Here are some other common escape sequences:</p>
+
+<table class="ws-table-all">
+  <tr>
+    <th style="width:30%">Escape Sequence</th>
+    <th>Description</th>
+    <th style="float:right">Try it</th>
+  </tr>
+  <tr>
+    <td>\t</td>
+    <td>Inserts a horizontal tab</td>
+    <td><a target="_blank" class="w3-btn btnsmall" href="tryce618.html?filename=demo_esc_char">Try it</a></td>
+  </tr>
+  <tr>
+    <td>\\</td>
+    <td>Inserts a backslash character (\)</td>
+    <td><a target="_blank" class="w3-btn btnsmall" href="trycf384.html?filename=demo_esc_char_backslash">Try it</a></td>
+  </tr>
+  <tr>
+    <td>\&quot;</td>
+    <td>Inserts a double quote character</td>
+    <td><a target="_blank" class="w3-btn btnsmall" href="tryc17a6.html?filename=demo_esc_char_dblquote">Try it</a></td>
+  </tr>
+</table>
+</div>
+
+
+<hr>
+
+<hr>
+
+<br>

@@ -1,0 +1,106 @@
+<section id="mainContent">
+<h1>Git <span class="color_h1">Revert</span></h1>
+
+<hr>
+<div style="position:relative">
+<div class="pagemenu">
+<h2>Change Platform:</h2>
+<hr>
+<a href="git_revert74ab.html?remote=github"><img src="assets/content/images/img_remote_github.png" alt="Shift focus to GitHub" style="height:100%;max-height:25px;margin:auto;margin-right:10px;">GitHub</a>
+<a href="git_revert678d.html?remote=bitbucket"><img src="assets/content/images/img_remote_bitbucket.png" alt="Shift focus to Bitbucket" style="height:100%;max-height:25px;margin-right:10px;">Bitbucket</a>
+<a href="git_revert99fa.html?remote=gitlab"><img src="assets/content/images/img_remote_gitlab.png" alt="Shift focus to GitLab" style="height:100%;max-height:25px;margin-right:10px;">GitLab</a>
+</div>
+</div>
+<h2>What Does Git Revert Do?</h2>
+<p>The <code class="language-shell">git revert</code> command undoes a previous commit by creating a new commit that reverses the changes.</p>
+<p>This keeps your commit history intact and is the safest way to undo changes in a shared repository.</p>
+<hr>
+
+<h2>Summary of Git Revert Commands and Options</h2>
+<ul>
+  <li><code class="language-shell">git revert HEAD</code> - Revert the latest commit</li>
+  <li><code class="language-shell">git revert &lt;commit&gt;</code> - Revert a specific commit</li>
+  <li><code class="language-shell">git revert HEAD~2</code> - Revert a commit further back in history</li>
+  <li><code class="language-shell">git revert --no-edit</code> - Skip commit message editor</li>
+  <li><code class="language-shell">git log --oneline</code> - Show commit history</li>
+</ul>
+<hr>
+<h2>How to Find the Commit to Revert</h2>
+<p>First, you need to find the commit you want to undo.</p>
+<p>Use <code class="language-shell">git log --oneline</code> to see a summary of your commit history:</p>
+<div class="w3-example">
+  <h3>Example</h3>
+<pre class="command-line" data-output="2-17" data-user="user" data-host="localhost"><code class="language-shell">git log --oneline
+52418f7 (HEAD -&gt; master) Just a regular update, definitely no accidents here...
+9a9add8 (origin/master) Added .gitignore
+81912ba Corrected spelling error
+3fdaa5b Merge pull request #1 from w3schools-test/update-readme
+836e5bf (origin/update-readme, update-readme) Updated readme for GitHub Branches
+daf4f7c (origin/html-skeleton, html-skeleton) Updated index.html with basic meta
+facaeae (gh-page/master) Merge branch 'master' of https://github.com/w3schools-test/hello-world
+e7de78f Updated index.html. Resized image
+5a04b6f Updated README.md with a line about focus
+d29d69f Updated README.md with a line about GitHub
+e0b6038 merged with hello-world-images after fixing conflicts
+1f1584e added new image
+dfa79db updated index.html with emergency fix
+0312c55 Added image to Hello World
+09f4acd Updated index.html with a new line
+221ec6e First release of Hello World!</code></pre>
+</div>
+<hr>
+
+<hr>
+<h2>Run Git Revert</h2>
+<p>Once you've found the commit you want to undo, use <code class="language-shell">git revert</code> to create a new commit that reverses the changes:</p>
+<div class="w3-example">
+  <h3>Example</h3>
+<pre class="command-line" data-output="2-5" data-user="user" data-host="localhost"><code class="language-shell">git revert HEAD --no-edit
+[master e56ba1f] Revert &quot;Just a regular update, definitely no accidents here...&quot;
+ Date: Thu Apr 22 10:50:13 2021 +0200
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 img_hello_git.jpg</code></pre>
+</div>
+<hr>
+<h2>Review Changes After Git Revert</h2>
+<p>After running <code class="language-shell">git revert</code>, review the changes to make sure everything is as expected:</p>
+<div class="w3-example">
+  <h3>Example</h3>
+<pre class="command-line" data-output="2-18" data-user="user" data-host="localhost"><code class="language-shell">git log --oneline
+e56ba1f (HEAD -&gt; master) Revert &quot;Just a regular update, definitely no accidents here...&quot;
+52418f7 Just a regular update, definitely no accidents here...
+9a9add8 (origin/master) Added .gitignore
+81912ba Corrected spelling error
+3fdaa5b Merge pull request #1 from w3schools-test/update-readme
+836e5bf (origin/update-readme, update-readme) Updated readme for GitHub Branches
+daf4f7c (origin/html-skeleton, html-skeleton) Updated index.html with basic meta
+facaeae (gh-page/master) Merge branch 'master' of https://github.com/w3schools-test/hello-world
+e7de78f Updated index.html. Resized image
+5a04b6f Updated README.md with a line about focus
+d29d69f Updated README.md with a line about GitHub
+e0b6038 merged with hello-world-images after fixing conflicts
+1f1584e added new image
+dfa79db updated index.html with emergency fix
+0312c55 Added image to Hello World
+09f4acd Updated index.html with a new line
+221ec6e First release of Hello World!</code></pre>
+</div>
+<hr>
+<h2>Tips & Best Practices</h2>
+<p>Here are some tips and best practices to keep in mind when using Git Revert:</p>
+<ul>
+  <li>Use <code class="language-shell">git revert</code> instead of <code class="language-shell">git reset</code> when you want to undo a previous commit, but still keep the commit history intact.</li>
+  <li>Use <code class="language-shell">git log --oneline</code> to find the commit you want to undo.</li>
+  <li>Use <code class="language-shell">git revert HEAD --no-edit</code> to create a new commit that reverses the changes.</li>
+</ul>
+<hr>
+<h2>Troubleshooting</h2>
+<p>Here are some common issues you may encounter when using Git Revert:</p>
+<ul>
+  <li>If you get an error message saying "error: could not revert...", try using <code class="language-shell">git revert --abort</code> to abort the revert process.</li>
+  <li>If you get an error message saying "error: could not apply...", try using <code class="language-shell">git revert --continue</code> to continue the revert process.</li>
+</ul>
+<hr>
+
+<hr>
+<br>

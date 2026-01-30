@@ -1,0 +1,58 @@
+<h1>Python MongoDB <span class="color_h1">Create Database</span></h1>
+
+<hr>
+
+<h2>Creating a Database</h2>
+<p>To create a database in MongoDB, start by creating a MongoClient object, then specify a connection URL with the 
+correct ip address and the name of the database you want to create.</p>
+<p>MongoDB will create the database if it does not exist, and make a connection 
+to it.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Create a database called "mydatabase":</p>
+<div class="w3-code notranslate pythonHigh">
+  import pymongo<br><br>myclient = pymongo.MongoClient(&quot;mongodb://localhost:27017/&quot;)<br>
+  <br>mydb = myclient[&quot;mydatabase&quot;]<br></div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showpythonc2bd.html?filename=demo_mongodb_create_db">Run example &raquo;</a>
+</div>
+
+<div class="w3-panel ws-note">
+  <p><strong>Important:</strong> In MongoDB, a database is not created until it 
+  gets content!</p>
+</div>
+
+<p>MongoDB waits until you have created a collection (table), with at least one document (record) before it actually creates the database (and collection).</p>
+
+<hr>
+
+<h2>Check if Database Exists</h2>
+<div class="w3-panel ws-note">
+  <p><strong>Remember:</strong> In MongoDB, a database is not created until it 
+  gets content, so if this is your first time creating a database, you should 
+  complete the next two chapters (create collection and create document) before 
+  you check if the database exists!</p>
+</div>
+
+<p>You can check if a database exist by listing all databases in you system:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Return a list of your system's databases:</p>
+<div class="w3-code notranslate pythonHigh">
+  print(myclient.list_database_names())<br></div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showpython1a1f.html?filename=demo_mongodb_check_db">Run example &raquo;</a>
+</div>
+
+
+<p>Or you can check a specific database by name:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Check if &quot;mydatabase&quot; exists:</p>
+<div class="w3-code notranslate pythonHigh">
+  dblist = myclient.list_database_names()<br>if &quot;mydatabase&quot; in dblist:<br>&nbsp; 
+  print(&quot;The database exists.&quot;)<br></div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showpythonf7e9.html?filename=demo_mongodb_check_db2">Run example &raquo;</a>
+</div>
+
+<hr>

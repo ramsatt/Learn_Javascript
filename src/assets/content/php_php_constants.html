@@ -1,0 +1,106 @@
+<h1>PHP <span class="color_h1">Constants</span></h1>
+
+<hr>
+
+<h2>PHP Constants</h2>
+<p>Constants are like variables, except that once they are defined they cannot be changed or undefined.</p>
+<p>PHP constants can be defined with the <code class="w3-codespan">
+<a href="func_misc_define.html">define()</a></code> function or the <code class="w3-codespan">
+<a href="keyword_const.html">const</a></code> keyword.</p>
+<p>A valid constant name starts with a letter or underscore (no $ sign before the constant name).</p>
+<hr>
+
+<h2>PHP define() Function</h2>
+<p>The <code class="w3-codespan">
+<a href="func_misc_define.html">define()</a></code> function defines a constant 
+at run-time.</p>
+<p>The <code class="w3-codespan">
+define()</code> function always define constants in the global scope, and can be 
+declared inside conditional blocks (if/else, loops, functions), but they cannot be used to define class 
+constants.</p>
+
+<h3>Syntax</h3>
+<div class="w3-example">
+<pre class="language-php notranslate w3-white"><code>define(<i>CONSTANT_NAME</i>, <i>value</i>);</code></pre></div>
+
+<p>Parameters:</p>
+<ul>
+  <li><i>CONSTANT_NAME</i> - Specifies the name of the constant (the name is 
+  case-sensitive)</li>
+  <li><i>value</i> - Specifies the value of the constant</li>
+</ul>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Create a constant named &quot;GREETING&quot; with <code class="w3-codespan">
+define()</code>:</p>
+<pre class="language-php notranslate w3-white"><code>define(&quot;GREETING&quot;, &quot;Welcome to W3Schools.com!&quot;);
+echo GREETING;</code></pre>
+
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>This example declares a constant inside a function, and output it outside the function:</p>
+<pre class="language-php notranslate w3-white"><code>function myTest() {
+  define(&quot;GREETING&quot;, &quot;Welcome to W3Schools.com!&quot;);
+}
+
+myTest();
+
+echo GREETING;</code></pre>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>PHP const Keyword</h2>
+<p>The <code class="w3-codespan">
+<a href="keyword_const.html">const</a></code> keyword defines a constant at 
+compile-time.</p>
+<p>Constants defined with the <code class="w3-codespan">
+const</code> keyword must be declared at the top-level scope because they are 
+defined at compile-time. This means that they cannot be declared inside 
+functions, loops, if/else statements or try/catch blocks.</p>
+<p>Constants defined with the <code class="w3-codespan">
+const</code> keyword can be used to define 
+class constants.</p>
+<p>Constants defined with the <code class="w3-codespan">
+const</code> keyword are case-sensitive.</p>
+
+<h3>Syntax</h3>
+<div class="w3-example">
+<pre class="language-php notranslate w3-white"><code>const <em>CONSTANT_NAME</em> = <i>value</i>;</code></pre></div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Create a constant named &quot;GREETING&quot; with <code class="w3-codespan">
+const</code>:</p>
+<pre class="language-php notranslate w3-white"><code>const GREETING = "Welcome to W3Schools.com!";
+echo GREETING;</code></pre>
+
+</div>
+<hr>
+
+<h2>PHP Array Constants</h2>
+<p>You can also create Array constants with <code class="w3-codespan">
+<a href="func_misc_define.html">define()</a></code> or <code class="w3-codespan">
+<a href="keyword_const.html">const</a></code>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Create Array constants:</p>
+<pre class="language-php notranslate w3-white"><code>// Using define()
+define(&quot;CARS&quot;, array(&quot;Volvo&quot;, &quot;BMW&quot;, &quot;Toyota&quot;));
+echo CARS[0];
+
+// Using const
+const ANIMALS = array(&quot;Cat&quot;, &quot;Dog&quot;, &quot;Horse&quot;);
+echo ANIMALS[1];</code></pre>
+
+</div>
+
+<hr>
+
+<hr>

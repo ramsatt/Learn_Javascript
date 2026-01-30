@@ -1,0 +1,68 @@
+<h1>Bootstrap 5 <span class="color_h1">Form Validation</span></h1>
+
+<hr>
+
+<h2>Form Validation</h2>
+<div style="margin:20px 0 25px 0;" class="w3-border w3-round w3-padding ws-grey">
+  <form class="was-validated">
+    <div class="mb-3 mt-3">
+      <label for="uname" class="form-label">Username:</label>
+      <input type="text" class="form-control" id="uname" placeholder="Enter username" name="uname" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="mb-3">
+      <label for="pwd" class="form-label">Password:</label>
+      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="form-check mb-3">
+      <input class="form-check-input" type="checkbox" id="myCheck"  name="remember" required>
+      <label class="form-check-label" for="myCheck">I agree on blabla.</label>
+       <div class="valid-feedback">
+        Valid.
+      </div>
+     <div class="invalid-feedback">
+        Check this checkbox to continue.
+      </div>
+           
+    </div>
+  </form>
+</div>
+
+<p>You can use different validation classes to provide valuable feedback to 
+users. Add either <code class="w3-codespan">.was-validated</code> or <code class="w3-codespan">.needs-validation</code> to the <code class="w3-codespan">&lt;form&gt;</code> element, 
+depending on whether you want to provide validation feedback before or after 
+submitting the form. The input fields will have a green (valid) or red (invalid) 
+border to indicate what's missing in the form. You can also add a 
+<code class="w3-codespan">.valid-feedback</code> or <code class="w3-codespan">.invalid-feedback</code> message to tell the user explicitly what's 
+missing, or needs to be done before submitting the form.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>In this example, we use <code class="w3-codespan">.was-validated</code> to indicate what's missing before submitting the form:</p>
+<div class="w3-code notranslate htmlHigh">
+  &lt;form action=&quot;/action_page.php&quot; class=&quot;was-validated&quot;&gt;<br>&nbsp; &lt;div 
+  class=&quot;mb-3 mt-3&quot;&gt;<br>&nbsp;&nbsp;&nbsp; &lt;label for=&quot;uname&quot; 
+  class=&quot;form-label&quot;&gt;Username:&lt;/label&gt;<br>&nbsp;&nbsp;&nbsp; &lt;input type=&quot;text&quot; 
+  class=&quot;form-control&quot; id=&quot;uname&quot; placeholder=&quot;Enter username&quot; name=&quot;uname&quot; 
+  required&gt;<br>&nbsp;&nbsp;&nbsp; &lt;div class=&quot;valid-feedback&quot;&gt;Valid.&lt;/div&gt;<br>&nbsp;&nbsp;&nbsp; 
+  &lt;div class=&quot;invalid-feedback&quot;&gt;Please fill out this field.&lt;/div&gt;<br>&nbsp; 
+  &lt;/div&gt;<br>&nbsp; &lt;div class=&quot;mb-3&quot;&gt;<br>&nbsp;&nbsp;&nbsp; &lt;label for=&quot;pwd&quot; 
+  class=&quot;form-label&quot;&gt;Password:&lt;/label&gt;<br>&nbsp;&nbsp;&nbsp; &lt;input 
+  type=&quot;password&quot; class=&quot;form-control&quot; id=&quot;pwd&quot; placeholder=&quot;Enter password&quot; 
+  name=&quot;pswd&quot; required&gt;<br>&nbsp;&nbsp;&nbsp; &lt;div 
+  class=&quot;valid-feedback&quot;&gt;Valid.&lt;/div&gt;<br>&nbsp;&nbsp;&nbsp; &lt;div 
+  class=&quot;invalid-feedback&quot;&gt;Please fill out this field.&lt;/div&gt;<br>&nbsp; &lt;/div&gt;<br>&nbsp; 
+  &lt;div class=&quot;form-check mb-3&quot;&gt;<br>&nbsp;&nbsp;&nbsp; &lt;input 
+  class=&quot;form-check-input&quot; type=&quot;checkbox&quot; id=&quot;myCheck&quot; name=&quot;remember&quot; 
+  required&gt;<br>&nbsp;&nbsp;&nbsp; &lt;label class=&quot;form-check-label&quot; 
+  for=&quot;myCheck&quot;&gt;I agree on blabla.&lt;/label&gt;<br>&nbsp;&nbsp;&nbsp; &lt;div 
+  class=&quot;valid-feedback&quot;&gt;Valid.&lt;/div&gt;<br>&nbsp;&nbsp;&nbsp; &lt;div 
+  class=&quot;invalid-feedback&quot;&gt;Check this checkbox to continue.&lt;/div&gt;<br>&nbsp; 
+  &lt;/div&gt;<br>&nbsp; &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary&quot;&gt;Submit&lt;/button&gt;<br>
+  &lt;/form&gt;</div>
+
+</div>
+
+<br>

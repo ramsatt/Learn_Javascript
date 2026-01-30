@@ -1,0 +1,69 @@
+<h1>CSS <span class="color_h1">Multiple Backgrounds</span></h1>
+
+<hr>
+
+<h2>CSS Multiple Backgrounds</h2>
+<p>CSS allows you to add multiple background images for an element, through the 
+<code class="w3-codespan"><a href="../cssref/pr_background-image.html">background-image</a></code> property.</p>
+<p>The different background images are separated by commas, and the images are 
+stacked on top of each other, where the first image is closest to the viewer.</p>
+<p>The following example has two background images, the first image is a flower 
+(aligned to the right-bottom) and the second image is a paper-like background (aligned to the top-left corner):</p>
+
+<div id="example1">
+<h3>Lorem Ipsum Dolor</h3>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+<p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+   #example1 {<br>&nbsp;&nbsp;background-image: url(img_flwr.gif), url(paper.gif);<br>&nbsp;&nbsp;background-position: right bottom, left top;<br>&nbsp;&nbsp;background-repeat: no-repeat, repeat;<br>} </div>
+
+</div>
+<p>Multiple background images can be specified using either the individual 
+background properties (as above) or with the <code class="w3-codespan">
+<a href="../cssref/css3_pr_background.html">background</a></code> shorthand property.</p>
+<p>The following example uses the <code class="w3-codespan">
+background</code> shorthand property (same result as 
+example above):</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+   #example1 {<br>&nbsp;&nbsp;background: url(img_flwr.gif) right bottom 
+no-repeat, url(paper.gif) left top repeat;<br>} </div>
+
+</div>
+
+<hr>
+
+<h2>CSS Advanced Background Properties</h2>
+<table class="ws-table-all notranslate">
+  <tr>
+    <th style="width:30%">Property</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><a href="../cssref/css3_pr_background.html">background</a></td>
+    <td>A shorthand property for setting all the background properties in one declaration</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/css3_pr_background-clip.html">background-clip</a></td>
+    <td>Specifies the painting area of the background</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_background-image.html">background-image</a></td>
+    <td>Specifies one or more background images for an element</td>
+ </tr>
+  <tr>
+    <td><a href="../cssref/css3_pr_background-origin.html">background-origin</a></td>
+    <td>Specifies where the background image(s) is/are positioned</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/css3_pr_background-size.html">background-size</a></td>
+    <td>Specifies the size of the background image(s)</td>
+  </tr>
+</table>
+
+<br>

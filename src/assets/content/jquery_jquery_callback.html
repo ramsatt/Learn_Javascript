@@ -1,0 +1,39 @@
+<h1>jQuery <span class="color_h1">Callback</span> Functions</h1>
+
+<hr>
+<p class="intro">A callback function is executed after the current effect is 100% finished.</p>
+<hr>
+
+<h2>jQuery Callback Functions</h2>
+<p>JavaScript statements are executed line by line. However, with effects, 
+the next line of code can be run even though the effect is not finished. This 
+can create errors.</p>
+<p>To prevent this, you can create a callback function.</p>
+<p>A callback function is executed after the current effect is finished.</p>
+<p>Typical syntax: <b>$(<i>selector</i>).hide(<i>speed,callback</i>);</b></p>
+
+<p><b>Examples</b></p>
+<p>The example below has a callback parameter that is a function that will be executed after the hide effect is completed:</p>
+<div class="w3-example">
+<h3>Example with Callback</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;button&quot;).click(function(){<br>
+&nbsp;&nbsp;$(&quot;p&quot;).hide(&quot;slow&quot;, function(){<br>
+  &nbsp;&nbsp;&nbsp; alert(&quot;The paragraph is now hidden&quot;);<br>
+  &nbsp; });<br>
+});</div>
+
+</div>
+
+<p>The example below has no callback parameter, and the alert box will be displayed before the hide effect is completed:</p>
+<div class="w3-example">
+<h3>Example without Callback</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;button&quot;).click(function(){<br>
+  &nbsp; $(&quot;p&quot;).hide(1000);<br>
+&nbsp;&nbsp;alert(&quot;The paragraph is now hidden&quot;);<br>
+});</div>
+
+</div>
+
+<br>

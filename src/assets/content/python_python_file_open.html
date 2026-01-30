@@ -1,0 +1,131 @@
+<h1>Python <span class="color_h1">File Open</span></h1>
+
+<hr>
+
+<h2>Open a File on the Server</h2>
+
+<p>Assume we have the following file, located in the same folder as Python:</p>
+
+<div class="w3-example">
+<p>demofile.txt</p>
+<div class="w3-code notranslate">
+  Hello! Welcome to demofile.txt<br>This file is for testing purposes.<br>Good 
+  Luck!</div>
+</div>
+
+<p>To open the file, use the built-in <code class="w3-codespan"><a href="ref_func_open.html">open()</a></code> function.</p>
+<p>The <code class="w3-codespan"><a href="ref_func_open.html">open()</a></code> function returns a file object, which has a 
+<code class="w3-codespan">read()</code> method for reading the content of the file:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate pythonHigh">
+  f = open(&quot;demofile.txt&quot;)<br>print(f.read())</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showpython012f.html?filename=demo_file_open">Run Example &raquo;</a>
+</div>
+
+<p>If the file is located in a different location, you will have to specify the file path, 
+like this:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Open a file on a different location:</p>
+<div class="w3-code notranslate pythonHigh">
+  f = open(&quot;D:\\myfiles\welcome.txt&quot;)<br>print(f.read())</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showpythonac1a.html?filename=demo_file_open_d">Run Example &raquo;</a>
+</div>
+
+<hr>
+
+<h2>Using the <code class="w3-codespan">with</code> statement</h2>
+
+<p>You can also use the <code class="w3-codespan">with</code> statement when opening a file:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Using the <code class="w3-codespan">with</code> keyword:</p>
+<div class="w3-code notranslate pythonHigh">
+with open(&quot;demofile.txt&quot;) as f:<br>
+&nbsp;&nbsp;print(f.read())</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showpython9aee.html?filename=demo_file_open_with">Run Example &raquo;</a>
+</div>
+
+<p>Then you do not have to worry about closing your files, the <code class="w3-codespan">with</code> statement takes care of that.</p>
+
+
+<hr>
+
+<h2>Close Files</h2>
+
+<p>It is a good practice to always close the file when you are done with it.</p>
+
+<p>If you are not using the <code class="w3-codespan">with</code> statement, you must write a close statement in order to close the file:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Close the file when you are finished with it:</p>
+<div class="w3-code notranslate pythonHigh">
+  f = open(&quot;demofile.txt&quot;)<br>print(f.readline())<br>
+  f.close()</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showpython796d.html?filename=demo_file_close">Run Example &raquo;</a>
+</div>
+
+<div class="w3-panel ws-note">
+  <p><strong>Note:</strong> You should always close your files. In some cases, due to buffering, changes made to a file may not show until you close the file.</p>
+</div>
+
+<hr>
+
+<h2>Read Only Parts of the File</h2>
+
+<p>By default the <code class="w3-codespan">read()</code> method returns the whole text, but you can also specify how many characters you want to return:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Return the 5 first characters of the file:</p>
+<div class="w3-code notranslate pythonHigh">
+  with open(&quot;demofile.txt&quot;) as f:<br>&nbsp; print(f.read(<strong>5</strong>))</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showpythoned31.html?filename=demo_file_open2">Run Example &raquo;</a>
+</div>
+
+<hr>
+
+<hr>
+
+<h2>Read Lines</h2>
+
+<p>You can return one line by using the <code class="w3-codespan">readline()</code> method:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Read one line of the file:</p>
+<div class="w3-code notranslate pythonHigh">
+  with open(&quot;demofile.txt&quot;) as f:<br>&nbsp; print(f.readline())</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showpythonffce.html?filename=demo_file_readline">Run Example &raquo;</a>
+</div>
+
+
+<p>By calling <code class="w3-codespan">readline()</code> two times, you can read the 
+two first lines:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Read two lines of the file:</p>
+<div class="w3-code notranslate pythonHigh">
+  with open(&quot;demofile.txt&quot;) as f:<br>&nbsp; print(f.readline())<br>&nbsp; print(f.readline())</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showpython73ff.html?filename=demo_file_readline2">Run Example &raquo;</a>
+</div>
+
+<p>By looping through the lines of the file, you can read the whole file, line by line:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Loop through the file line by line:</p>
+<div class="w3-code notranslate pythonHigh">
+  with open(&quot;demofile.txt&quot;) as f:<br>&nbsp; for x in f:<br>&nbsp;&nbsp;&nbsp; print(x)</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showpythonc8c6.html?filename=demo_file_readline3">Run Example &raquo;</a>
+</div>
+
+<hr>
+
+<hr>

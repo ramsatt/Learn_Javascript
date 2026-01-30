@@ -1,0 +1,45 @@
+<h1>PHP <span class="color_h1">FILTER_SANITIZE_MAGIC_QUOTES</span> Filter</h1>
+<hr>
+<a href="php_ref_filter.html" class="w3-btn w3-white w3-border" title="PHP Filter Reference">&#10094; Complete PHP Filter Reference</a>
+<hr>
+
+<h2>Definition and Usage</h2>
+
+<p>The FILTER_SANITIZE_MAGIC_QUOTES filter performs the
+<a href="func_string_addslashes.html">addslashes()</a> function to a 
+string.</p>
+<p>This filter sets backslashes in front of predefined characters.</p>
+<p>The predefined <span class="MemberBriefDescription">characters&nbsp; are:</span></p>
+<ul>
+  <li><span class="MemberBriefDescription">single quote (')</span></li>
+  <li><span class="MemberBriefDescription">double quote (&quot;)</span></li>
+  <li><span class="MemberBriefDescription">backslash (\)</span></li>
+  <li><span class="MemberBriefDescription">NULL</span></li>
+</ul>
+<p><span class="MemberBriefDescription">FILTER_SANITIZE_MAGIC_QUOTES info:</span></p>
+<ul>
+  <li>Name: &quot;magic_quotes&quot;</li>
+  <li>ID-number: 521</li>
+</ul>
+<hr>
+<h2>Example</h2>
+
+<div class="w3-code w3-border notranslate"><div>
+
+&lt;?php<br>
+$var=&quot;Peter's here!&quot;;<br>
+<br>
+var_dump(filter_var($var, FILTER_SANITIZE_MAGIC_QUOTES));<br>
+?&gt;
+
+</div></div>
+
+<p>The output of the code will be:</p>
+
+<div class="w3-code w3-border notranslate"><div>
+
+string(14) &quot;Peter\'s here!&quot;
+
+</div></div>
+<hr>
+<a href="php_ref_filter.html" class="w3-btn w3-white w3-border" title="PHP Filter Reference">&#10094; Complete PHP Filter Reference</a>

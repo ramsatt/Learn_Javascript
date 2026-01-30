@@ -1,0 +1,62 @@
+<h1>MySQL <span class="color_h1">BINARY</span> Function</h1>
+<p>
+<a class="w3-btn w3-white w3-border" href="mysql_ref_functions.html" title="MySQL Functions">&#10094; MySQL Functions</a></p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Convert a value to a binary string:</p>
+<div class="w3-code notranslate sqlHigh">
+  SELECT BINARY &quot;W3Schools.com&quot;;</div>
+<a target="_blank" href="trymysql9118.html?filename=trysql_func_mysql_binary" class="w3-btn w3-margin-bottom">Try it Yourself &raquo;</a>
+</div>
+<hr>
+
+<h2>Definition and Usage</h2>
+<p>The BINARY function converts a value to a binary string.</p>
+<p>This function is equivalent to using <a href="func_mysql_cast.html">CAST(value AS BINARY)</a>.</p>
+
+<h2>Syntax</h2>
+<div class="w3-code w3-border notranslate">
+  BINARY<em> value</em></div>
+
+<h2>Parameter Values</h2>
+<table class="ws-table-all notranslate"> 
+  <tr>
+    <th style="width:23%">Parameter</th>
+    <th>Description</th>  </tr>  
+  <tr>
+    <td><em>value</em></td>
+    <td>Required. The value to convert</td>
+  </tr>
+  </table>
+
+<h2>Technical Details</h2>
+<table class="ws-table-all">
+<tr>
+ <th style="width:23%">Works in:</th>
+  <td>From MySQL 4.0</td>
+</tr>
+</table>
+<hr>
+
+<h2>More Examples</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Here MySQL performs a character-by-character comparison of&nbsp; &quot;HELLO&quot; and 
+&quot;hello&quot; and return 1 (because on a character-by-character basis, they are 
+equivalent):</p>
+<div class="w3-code notranslate sqlHigh">
+  SELECT &quot;HELLO&quot; = &quot;hello&quot;;</div>
+<a target="_blank" href="trymysql17da.html?filename=trysql_func_mysql_binary2" class="w3-btn w3-margin-bottom">Try it Yourself &raquo;</a>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Here MySQL performs a byte-by-byte comparison of&nbsp; &quot;HELLO&quot; and &quot;hello&quot; 
+and return 0 (because on a byte-by-byte basis, they are NOT equivalent):</p>
+<div class="w3-code notranslate sqlHigh">
+  SELECT BINARY &quot;HELLO&quot; = &quot;hello&quot;;</div>
+<a target="_blank" href="trymysql6919.html?filename=trysql_func_mysql_binary3" class="w3-btn w3-margin-bottom">Try it Yourself &raquo;</a>
+</div>
+
+<hr>
+<p><a class="w3-btn w3-white w3-border" href="mysql_ref_functions.html" title="MySQL Functions">&#10094; MySQL Functions</a></p>

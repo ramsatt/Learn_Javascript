@@ -1,0 +1,139 @@
+<h1>TypeScript Type Aliases and Interfaces</h1>
+
+
+<hr>
+
+<p>TypeScript allows types to be defined separately from the variables that use them.</p>
+<p>Aliases and Interfaces allows types to be easily shared between different variables/objects.</p>
+
+<hr>
+<h2>Type Aliases</h2>
+
+<p>Type Aliases allow defining types with a custom name (an Alias).</p>
+<p>Type Aliases can be used for primitives like <code class="w3-codespan">string</code> or more complex types such as <code class="w3-codespan">objects</code> and <code class="w3-codespan">arrays</code>:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+
+<div class="w3-code notranslate jsHigh">
+type CarYear = number<br>
+type CarType = string<br>
+type CarModel = string<br>
+type Car = {<br>
+&nbsp;&nbsp;year: CarYear,<br>
+&nbsp;&nbsp;type: CarType,<br>
+&nbsp;&nbsp;model: CarModel<br>
+}<br><br>
+const carYear: CarYear = 2001<br>
+const carType: CarType = "Toyota"<br>
+const carModel: CarModel = "Corolla"<br>
+const car: Car = {<br>
+&nbsp;&nbsp;year: carYear,<br>
+&nbsp;&nbsp;type: carType,<br>
+&nbsp;&nbsp;model: carModel<br>
+};
+</div>
+
+
+</div>
+<div class="w3-example">
+<h3>Example: Union and Intersection Types</h3>
+<div class="w3-code notranslate jsHigh">
+type Animal = { name: string };<br>
+type Bear = Animal & { honey: boolean };<br>
+const bear: Bear = { name: "Winnie", honey: true };<br><br>
+type Status = "success" | "error";<br>
+let response: Status = "success";
+</div>
+</div>
+<hr>
+<h2>Interfaces</h2>
+
+<p>Interfaces are similar to type aliases, except they <strong>only</strong> apply to <code class="w3-codespan">object</code> types.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+
+<div class="w3-code notranslate jsHigh">
+interface Rectangle {<br>
+&nbsp;&nbsp;height: number,<br>
+&nbsp;&nbsp;width: number<br>
+}<br><br>
+const rectangle: Rectangle = {<br>
+&nbsp;&nbsp;height: 20,<br>
+&nbsp;&nbsp;width: 10<br>
+};
+</div>
+
+
+</div>
+<div class="w3-example">
+<h3>Example: Interface Merging</h3>
+
+<div class="w3-code notranslate jsHigh">
+interface Animal { name: string; }
+interface Animal { age: number; }
+const dog: Animal = { name: "Fido", age: 5 };
+</div>
+</div>
+<hr>
+<h2>Type vs Interface: Key Differences</h2>
+
+<ul>
+<li><b>Extending:</b> Both can be extended, but interfaces support declaration merging.</li>
+<li><b>Unions/Intersections:</b> Only type aliases support union and intersection types.</li>
+<li><b>Implements:</b> Classes can implement either.</li>
+<li><b>Recommendation:</b> Use <code class="w3-codespan">interface</code> for objects, <code class="w3-codespan">type</code> for everything else.</li>
+</ul>
+<p><b>Best Practices:</b></p>
+
+<ul>
+<li>Use <code class="w3-codespan">interface</code> for defining object shapes and public APIs.</li>
+<li>Use <code class="w3-codespan">type</code> for unions, intersections, and primitives.</li>
+<li>Favor composition over inheritance for types.</li>
+<li>Document your types and interfaces for clarity.</li>
+</ul>
+<p><b>Common Pitfalls:</b></p>
+
+<ul>
+<li>Using <code class="w3-codespan">type</code> when you need declaration merging (use <code class="w3-codespan">interface</code>).</li>
+<li>Overcomplicating types—keep them simple and focused.</li>
+<li>Forgetting to update types/interfaces as code evolves.</li>
+</ul>
+
+<hr>
+<hr>
+
+<h2>Extending Interfaces</h2>
+
+<p>Interfaces can extend each other's definition.</p>
+
+<div class="w3-panel">
+<p><strong>Extending</strong> an interface means you are creating a new interface with the same properties as the original, plus something new.</p>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+
+<div class="w3-code notranslate jsHigh">
+interface Rectangle {<br>
+&nbsp;&nbsp;height: number,<br>
+&nbsp;&nbsp;width: number<br>
+}<br><br>
+interface ColoredRectangle extends Rectangle {<br>
+&nbsp;&nbsp;color: string<br>
+}<br><br>
+const coloredRectangle: ColoredRectangle = {<br>
+&nbsp;&nbsp;height: 20,<br>
+&nbsp;&nbsp;width: 10,<br>
+&nbsp;&nbsp;color: "red"<br>
+};
+</div>
+
+
+</div>
+
+<hr>
+
+<hr>
+<br>

@@ -1,0 +1,784 @@
+<h1>Linked Lists with Python</h1>
+
+<hr>
+
+<div class="ws-info">
+  <p>A <strong>Linked List</strong> is, as the word implies, a list where the nodes are linked together. Each node contains data and a pointer. The way they are linked together is that each node points to where in the memory the next node is placed.</p>
+</div>
+
+<h2>Linked Lists</h2>
+<p>A linked list consists of nodes with some sort of data, and a pointer, or link, to the next node.</p>
+<img src="assets/content/images/img_linkedlists_singly.svg" alt="A singly linked list." style="max-width: 100%;">
+<hr>
+
+<h2>Linked Lists vs Arrays</h2>
+<p>The easiest way to understand linked lists is perhaps by comparing linked lists with arrays.</p>
+<p>Linked lists consist of nodes, and is a linear data structure we make ourselves, unlike arrays which is an existing data structure in the programming language that we can use.</p>
+<p>Nodes in a linked list store links to other nodes, but array elements do not need to store links to other elements.</p>
+<div class="ws-note">
+  <p><strong>Note: </strong>How linked lists and arrays are stored in memory is explained in detail on the page <a href="../dsa/dsa_theory_linkedlists_memory.html">Linked Lists in Memory</a>.</p>
+</div>
+<p>The table below compares linked lists with arrays to give a better understanding of what linked lists are.</p>
+<table class="ws-table-all notranslate">
+  <tbody><tr>
+    <th></th>
+    <th style="width: 20%;">Arrays</th>
+    <th style="width: 20%;">Linked Lists</th>
+  </tr>  
+  <tr>
+    <td><i>An existing data structure in the programming language</i></td>
+    <td>Yes</td>
+    <td>No</td>
+  </tr>
+  <tr>
+    <td><i>Fixed size in memory</i></td>
+    <td>Yes</td>
+    <td>No</td>
+  </tr>
+  <tr>
+    <td><i>Elements, or nodes, are stored right after each other in memory (contiguously)</i></td>
+    <td>Yes</td>
+    <td>No</td>
+  </tr>
+  <tr>
+    <td><i>Memory usage is low <br>(each node only contains data, no links to other nodes)</i></td>
+    <td>Yes</td>
+    <td>No</td>
+  </tr>
+  <tr>
+    <td><i>Elements, or nodes, can be accessed directly (random access)</i></td>
+    <td>Yes</td>
+    <td>No</td>
+  </tr>
+  <tr>
+    <td><i>Elements, or nodes, can be inserted or deleted in constant time, no shifting operations in memory needed.</i></td>
+    <td>No</td>
+    <td>Yes</td>
+    </tr>
+</tbody></table>
+
+<p>These are some key linked list properties, compared to arrays:</p>
+<ul>
+  <li>Linked lists are not allocated to a fixed size in memory like arrays are, so linked lists do not require to move the whole list into a larger memory space when the fixed memory space fills up, like arrays must.</li>
+  <li>Linked list nodes are not laid out one right after the other in memory (contiguously), so linked list nodes do not have to be shifted up or down in memory when nodes are inserted or deleted.</li>
+  <li>Linked list nodes require more memory to store one or more links to other nodes. Array elements do not require that much memory, because array elements do not contain links to other elements.</li>
+  <li>Linked list operations are usually harder to program and require more lines than similar array operations, because programming languages have better built in support for arrays.</li>
+  <li>We must traverse a linked list to find a node at a specific position, but with arrays we can access an element directly by writing <span class="w3-codespan">myArray[5]</span>.</li>
+</ul>
+
+<hr>
+
+<h2>Types of Linked Lists</h2>
+<p>There are three basic forms of linked lists:</p>
+<ol>
+  <li>Singly linked lists</li>
+  <li>Doubly linked lists</li>
+  <li>Circular linked lists</li>
+</ol>
+<hr>
+<p>A <strong>singly linked list</strong> is the simplest kind of linked lists. It takes up less space in memory because each node has only one address to the next node, like in the image below.</p>
+<img src="assets/content/images/img_linkedlists_singly.svg" class="dsa_img" alt="A singly linked list.">
+<hr>
+<p>A <strong>doubly linked list</strong> has nodes with addresses to both the previous and the next node, like in the image below, and therefore takes up more memory. But doubly linked lists are good if you want to be able to move both up and down in the list.</p>
+<img src="assets/content/images/img_linkedlists_doubly.svg" class="dsa_img" alt="A doubly linked list.">
+<hr>
+<p>A <strong>circular linked list</strong> is like a singly or doubly linked list with the first node, the "head", and the last node, the "tail", connected.</p>
+<p>In singly or doubly linked lists, we can find the start and end of a list by just checking if the links are <span class="w3-codespan">null</span>. But for circular linked lists, more complex code is needed to explicitly check for start and end nodes in certain applications.</p>
+<p>Circular linked lists are good for lists you need to cycle through continuously.</p>
+<p>The image below is an example of a singly circular linked list:</p>
+<img src="assets/content/images/img_linkedlists_circsingly.svg" class="dsa_img" alt="A circular singly linked list.">
+
+<p>The image below is an example of a doubly circular linked list:</p>
+<img src="assets/content/images/img_linkedlists_circdoubly.svg" class="dsa_img" alt="A circular doubly linked list.">
+<div class="ws-note">
+  <p><strong>Note: </strong>What kind of linked list you need depends on the problem you are trying to solve.</p>
+</div>
+<hr>
+
+<h2>Linked List Operations</h2>
+<p>Basic things we can do with linked lists are:</p>
+<ol>
+  <li>Traversal</li>
+  <li>Remove a node</li>
+  <li>Insert a node</li>
+  <li>Sort</li>
+</ol>
+<p>For simplicity, singly linked lists will be used to explain these operations below.</p>
+<hr>
+
+<h2>Traversal of a Linked List</h2>
+<p>Traversing a linked list means to go through the linked list by following the links from one node to the next.</p>
+<p>Traversal of linked lists is typically done to search for a specific node, and read or modify the node's content, remove the node, or insert a node right before or after that node.</p>
+<p>To traverse a singly linked list, we start with the first node in the list, the head node, and follow that node's next link, and the next node's next link and so on, until the next address is null.</p>
+
+<p>The code below prints out the node values as it traverses along the linked list, in the same way as the animation above.</p>
+<div class="w3-example">
+  <h3>Example</h3>
+  <p>Traversal of a singly linked list in Python:</p>
+  <div class="w3-code notranslate pythonHigh">
+class Node:<br>
+&nbsp;&nbsp;def __init__(self, data):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;self.data = data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;self.next = None<br>
+<br>
+def traverseAndPrint(head):<br>
+&nbsp;&nbsp;currentNode = head<br>
+&nbsp;&nbsp;while currentNode:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print(currentNode.data, end=" -> ")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;currentNode = currentNode.next<br>
+&nbsp;&nbsp;print("null")<br>
+<br>
+node1 = Node(7)<br>
+node2 = Node(11)<br>
+node3 = Node(3)<br>
+node4 = Node(2)<br>
+node5 = Node(9)<br>
+<br>
+node1.next = node2<br>
+node2.next = node3<br>
+node3.next = node4<br>
+node4.next = node5<br>
+<br>
+traverseAndPrint(node1)</div>
+  <a class="w3-btn w3-margin-bottom" href="trypython9bb2.html?filename=demo_dsa_linkedlists_traverse" target="_blank">Run Example »</a>
+</div>
+<hr>
+
+<h2>Find The Lowest Value in a Linked List</h2>
+<p>Let's find the lowest value in a singly linked list by traversing it and checking each value.</p>
+<p>Finding the lowest value in a linked list is very similar to how we <a href="../dsa/dsa_data_arrays.html#findLowest">found the lowest value in an array</a>, except that we need to follow the next link to get to the next node.</p>
+
+<p>To find the lowest value we need to traverse the list like in the previous code. But in addition to traversing the list, we must also update the current lowest value when we find a node with a lower value.</p>
+<p>In the code below, the algorithm to find the lowest value is moved into a function called <span class="w3-codespan">findLowestValue</span>.</p>
+<div class="w3-example">
+  <h3>Example</h3>
+  <p>Finding the lowest value in a singly linked list in Python:</p>
+  <div class="w3-code notranslate pythonHigh">
+class Node:<br>
+&nbsp;&nbsp;def __init__(self, data):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;self.data = data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;self.next = None<br>
+<br>
+def findLowestValue(head):<br>
+&nbsp;&nbsp;minValue = head.data<br>
+&nbsp;&nbsp;currentNode = head.next<br>
+&nbsp;&nbsp;while currentNode:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if currentNode.data < minValue:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;minValue = currentNode.data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;currentNode = currentNode.next<br>
+&nbsp;&nbsp;return minValue<br>
+<br>
+node1 = Node(7)<br>
+node2 = Node(11)<br>
+node3 = Node(3)<br>
+node4 = Node(2)<br>
+node5 = Node(9)<br>
+<br>
+node1.next = node2<br>
+node2.next = node3<br>
+node3.next = node4<br>
+node4.next = node5<br>
+<br>
+print("The lowest value in the linked list is:", findLowestValue(node1))</div>
+  <a class="w3-btn w3-margin-bottom" href="trypythondf49.html?filename=demo_dsa_linkedlists_findlowest" target="_blank">Run Example »</a>
+</div>
+<hr>
+
+<h2>Delete a Node in a Linked List</h2>
+<p>If you want to delete a node in a linked list, it is important to connect the nodes on each side of the node before deleting it, so that the linked list is not broken.</p>
+<p>So before deleting the node, we need to get the next pointer from the previous node, and connect the previous node to the new next node before deleting the node in between.</p>
+<p>Also, it is a good idea to first connect next pointer to the node after the node we want to delete, before we delete it. This is to avoid a 'dangling' pointer, a pointer that points to nothing, even if it is just for a brief moment.</p>
+<p>The simulation below shows the node we want to delete, and how the list must be traversed first to connect the list properly before deleting the node without breaking the linked list.</p>
+<div id="divAnim3">
+  <svg id="svgDeleteLowest" class="dsa_svg" viewBox="0 0 570 100" xmlns="http://www.w3.org/2000/svg">
+<defs>
+        <style>
+            .svgText {
+                font-family: Veranda, sans-serif;
+                fill: black;
+            }
+            .svgDataText{
+                font-family: "Roboto Mono", monospace;
+                fill: black;
+                stroke: black;
+                stroke-width: 0;
+            }
+            .svgAddressText2{
+                font-family: "Roboto Mono", monospace;
+                fill: black;
+                font-size: 12px;
+                stroke: black;
+                stroke-width: 0;
+            }
+            .svgAddressTextRed{
+                font-family: "Roboto Mono", monospace;
+                fill: #dc143c;
+                stroke: #dc143c;
+                stroke-width: 0;
+            }
+
+            .svgText2 {
+                font-family: Veranda, sans-serif;
+                fill: black;
+                font-size: smaller;
+            }
+
+            .svgTextRed {
+                font-family: Veranda, sans-serif;
+                fill: red;
+            }
+
+            #arrowheadRed00 polyline {
+                stroke: red;
+                stroke-width: 2;
+                fill: red;
+            }
+            .shadow {
+                filter: url(#f1);
+            }
+        </style>
+        <filter id="f1" x="0" y="0" width="150%" height="150%">
+            <feOffset result="offOut" in="SourceAlpha" dx="3" dy="3" />
+            <feGaussianBlur result="blurOut" in="offOut" stdDeviation="3" />
+            <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+        </filter>
+        <marker id="arrowhead001" markerWidth="8" markerHeight="14" refX="0" refY="7" orient="auto" markerUnits="userSpaceOnUse">
+            <line x1="0.5" y1="0.5" x2="7.5" y2="7.5" stroke="black" stroke-width="1.5"/>
+            <line x1="0" y1="7" x2="6" y2="7" stroke="black" stroke-width="1"/>
+            <line x1="0.5" y1="13.5" x2="7.5" y2="6.5" stroke="black" stroke-width="1.5"/>
+        </marker>
+        <marker id="arrowhead002" markerWidth="8" markerHeight="14" refX="0" refY="7" orient="auto" markerUnits="userSpaceOnUse">
+            <line x1="0.5" y1="0.5" x2="7.5" y2="7.5" stroke="black" stroke-width="1.5"/>
+            <line x1="0" y1="7" x2="6" y2="7" stroke="black" stroke-width="1"/>
+            <line x1="0.5" y1="13.5" x2="7.5" y2="6.5" stroke="black" stroke-width="1.5"/>
+        </marker>
+        <marker id="arrowhead003" markerWidth="8" markerHeight="14" refX="0" refY="7" orient="auto" markerUnits="userSpaceOnUse">
+            <line x1="0.5" y1="0.5" x2="7.5" y2="7.5" stroke="black" stroke-width="1.5"/>
+            <line x1="0" y1="7" x2="6" y2="7" stroke="black" stroke-width="1"/>
+            <line x1="0.5" y1="13.5" x2="7.5" y2="6.5" stroke="black" stroke-width="1.5"/>
+        </marker>
+        <marker id="arrowhead004" markerWidth="8" markerHeight="14" refX="0" refY="7" orient="auto" markerUnits="userSpaceOnUse">
+            <line x1="0.5" y1="0.5" x2="7.5" y2="7.5" stroke="black" stroke-width="1.5"/>
+            <line x1="0" y1="7" x2="6" y2="7" stroke="black" stroke-width="1"/>
+            <line x1="0.5" y1="13.5" x2="7.5" y2="6.5" stroke="black" stroke-width="1.5"/>
+        </marker>
+        <marker id="arrowhead005" markerWidth="8" markerHeight="14" refX="0" refY="7" orient="auto" markerUnits="userSpaceOnUse">
+            <line x1="0.5" y1="0.5" x2="7.5" y2="7.5" stroke="black" stroke-width="1.5"/>
+            <line x1="0" y1="7" x2="6" y2="7" stroke="black" stroke-width="1"/>
+            <line x1="0.5" y1="13.5" x2="7.5" y2="6.5" stroke="black" stroke-width="1.5"/>
+        </marker>
+        <marker id="arrowheadRed00" markerWidth="8" markerHeight="14" refX="0" refY="7" orient="auto" markerUnits="userSpaceOnUse">
+            <line x1="0.5" y1="0.5" x2="7.5" y2="7.5" stroke="#dc143c" stroke-width="1.5"/>
+            <line x1="0" y1="7" x2="6" y2="7" stroke="#dc143c" stroke-width="1"/>
+            <line x1="0.5" y1="13.5" x2="7.5" y2="6.5" stroke="#dc143c" stroke-width="1.5"/>
+        </marker>
+    </defs>
+    
+    <line class="arrow001" x1="42" y1="33" x2="60" y2="33" stroke="black" stroke-width="1" fill="none" marker-end="url(#arrowhead001)"></line>
+    <text x="1" y="37" class="svgDataText text1">Head</text>
+    <path d="M 70 25
+              L 120 25
+              L 120 53 
+              L 70 53 Z"
+          stroke="black" stroke-width="1" fill="#E0E0E0" class="valNode1">
+    </path>
+    <line x1="70" y1="40" x2="120" y2="40" stroke="black" stroke-width="1"></line>
+    <rect x="75" y="38" width="40" height="4" fill="#E0E0E0" stroke-width="0" class="rectNode1"></rect>
+    <text x="90" y="45" class="svgDataText val1">7</text>
+    <path d="M 70 53 
+              L 120 53 
+              L 120 81 
+              L 70 81 Z"
+          stroke="black" stroke-width="1" fill="#FCFC62">
+    </path>
+    <line x1="70" y1="68" x2="120" y2="68" stroke="black" stroke-width="1"></line>
+    <line x1="75" y1="68" x2="115" y2="68" stroke="#FCFC62" stroke-width="3"></line>
+    <text x="80" y="72" class="svgAddressText2 text2">next</text>
+    
+    <path class="arrow002" d="M120,68 C150,68 120,33 150,33" stroke="black" stroke-width="1" fill="none"
+          marker-end="url(#arrowhead002)"></path>
+    <path d="M 70 25
+              L 120 25
+              L 120 81 
+              L 70 81 Z"
+          stroke="black" stroke-width="0" fill="none" class="path1">
+    </path>
+    
+    <path d="M 160 25
+              L 210 25
+              L 210 53 
+              L 160 53 Z"
+          stroke="black" stroke-width="1" fill="#E0E0E0" class="valNode2">
+    </path>
+    <line x1="160" y1="40" x2="210" y2="40" stroke="black" stroke-width="1"></line>
+    <line x1="165" y1="40" x2="205" y2="40" stroke="#E0E0E0" stroke-width="3"></line>
+    <text x="175" y="45" class="svgDataText val2">11</text>
+    <path d="M 160 53 
+              L 210 53 
+              L 210 82 
+              L 160 82 Z"
+          stroke="black" stroke-width="1" fill="#FCFC62">
+    </path>
+    <line x1="160" y1="68" x2="210" y2="68" stroke="black" stroke-width="1"></line>
+    <line x1="165" y1="68" x2="205" y2="68" stroke="#FCFC62" stroke-width="3"></line>
+    <text x="170" y="72" class="svgAddressText2 text3">next</text>
+    <path class="arrow003" d="M210,68 C240,68 210,33 240,33" stroke="black" stroke-width="1" fill="none"
+          marker-end="url(#arrowhead003)"></path>
+    <path d="M 160 25
+              L 210 25
+              L 210 82 
+              L 160 82 Z"
+          stroke="black" stroke-width="0" fill="none" class="path2">
+    </path>
+    
+    <path d="M 250 25 
+              L 300 25 
+              L 300 53 
+              L 250 53 Z"
+          stroke="black" stroke-width="1" fill="#E0E0E0" class="valNode3">
+    </path>
+    <line x1="250" y1="40" x2="300" y2="40" stroke="black" stroke-width="1"></line>
+    <rect x="255" y="38" width="40" height="4" fill="#E0E0E0" stroke-width="0" class="rectNode3"></rect>
+    <text x="270" y="45" class="svgDataText val3">3</text>
+    <path d="M 250 53 
+              L 300 53 
+              L 300 82 
+              L 250 82 Z"
+          stroke="black" stroke-width="1" fill="#FCFC62">
+    </path>
+    <line x1="250" y1="68" x2="300" y2="68" stroke="black" stroke-width="1"></line>
+    <line x1="255" y1="68" x2="295" y2="68" stroke="#FCFC62" stroke-width="3"></line>
+    <text x="260" y="72" class="svgAddressText2 text4">next</text>
+    
+    <path d="M 250 25 
+              L 300 25 
+              L 300 82 
+              L 250 82 Z"
+          stroke="black" stroke-width="0" fill="none" class="path3">
+    </path>
+  
+<g class="deletedNode">
+<path d="M 340 25
+          L 390 25
+          L 390 53 
+          L 340 53 Z"
+    stroke="black" stroke-width="1" fill="#E0E0E0" class="valNode4"></path>
+<line x1="340" y1="40" x2="390" y2="40" stroke="black" stroke-width="1"></line>
+<rect x="345" y="38" width="40" height="4" fill="#E0E0E0" stroke-width="0" class="rectNode4"></rect>
+<text x="360" y="45" class="svgDataText val4">2</text>
+<path d="M 340 53 
+          L 390 53 
+          L 390 82 
+          L 340 82 Z"
+    stroke="black" stroke-width="1" fill="#FCFC62"></path>
+<line x1="340" y1="68" x2="390" y2="68" stroke="black" stroke-width="1"></line>
+<line x1="345" y1="68" x2="385" y2="68" stroke="#FCFC62" stroke-width="3"></line>
+<text x="350" y="72" class="svgAddressText2 text5">next</text>
+<path class="arrow005" d="M390,68 C420,68 390,33 420,33" stroke="black" stroke-width="1" fill="none"
+          marker-end="url(#arrowhead005)"></path>
+<path d="M 340 25
+          L 390 25
+          L 390 82 
+          L 340 82 Z"
+    stroke="#dc143c" stroke-width="2" fill="none" class="path4"></path>
+</g>
+<path class="arrow004" d="M300,68 C330,68 300,33 330,33" stroke="black" stroke-width="1" fill="none"
+      marker-end="url(#arrowhead004)"></path>
+    
+<path d="M 430 25
+          L 480 25
+          L 480 53 
+          L 430 53 Z"
+    stroke="black" stroke-width="1" fill="#E0E0E0" class="valNode5"></path>
+<line x1="430" y1="40" x2="480" y2="40" stroke="black" stroke-width="1"></line>
+<line x1="435" y1="40" x2="475" y2="40" stroke="#E0E0E0" stroke-width="3"></line>
+<text x="450" y="45" class="svgDataText val5">9</text>
+<path d="M 430 53 
+          L 480 53 
+          L 480 82 
+          L 430 82 Z"
+    stroke="black" stroke-width="1" fill="#FCFC62"></path>
+<line x1="430" y1="68" x2="480" y2="68" stroke="black" stroke-width="1"></line>
+<line x1="435" y1="68" x2="475" y2="68" stroke="#FCFC62" stroke-width="3"></line>
+<text x="440" y="72" class="svgAddressText2 text6">next</text>
+<line class="arrow006" x1="482" y1="68" x2="505" y2="68" stroke="#dc143c" stroke-width="1" fill="none" stroke-dasharray="5,5" marker-end="url(#arrowheadRed00)"></line>
+<text x="520" y="72" class="svgAddressTextRed text7">null</text>
+<path d="M 430 25
+          L 480 25
+          L 480 82 
+          L 430 82 Z"
+    stroke="black" stroke-width="0" fill="none" class="path5"></path>
+
+</svg>
+<div class="btnDiv">
+  <button id="btnDeleteLowest">Delete</button><span id="spanDeleteFinished" style="margin-left: 10px;"></span>
+</div>
+
+
+
+</div>
+
+
+<p>In the code below, the algorithm to delete a node is moved into a function called <span class="w3-codespan">deleteSpecificNode</span>.</p>
+<div class="w3-example">
+  <h3>Example</h3>
+  <p>Deleting a specific node in a singly linked list in Python:</p>
+  <div class="w3-code notranslate pythonHigh">
+class Node:<br>
+&nbsp;&nbsp;def __init__(self, data):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;self.data = data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;self.next = None<br>
+<br>
+def traverseAndPrint(head):<br>
+&nbsp;&nbsp;currentNode = head<br>
+&nbsp;&nbsp;while currentNode:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print(currentNode.data, end=" -> ")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;currentNode = currentNode.next<br>
+&nbsp;&nbsp;print("null")<br>
+<br>
+def deleteSpecificNode(head, nodeToDelete):<br>
+&nbsp;&nbsp;if head == nodeToDelete:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return head.next<br>
+<br>
+&nbsp;&nbsp;currentNode = head<br>
+&nbsp;&nbsp;while currentNode.next and currentNode.next != nodeToDelete:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;currentNode = currentNode.next<br>
+<br>
+&nbsp;&nbsp;if currentNode.next is None:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return head<br>
+<br>
+&nbsp;&nbsp;currentNode.next = currentNode.next.next<br>
+<br>
+&nbsp;&nbsp;return head<br>
+<br>
+node1 = Node(7)<br>
+node2 = Node(11)<br>
+node3 = Node(3)<br>
+node4 = Node(2)<br>
+node5 = Node(9)<br>
+<br>
+node1.next = node2<br>
+node2.next = node3<br>
+node3.next = node4<br>
+node4.next = node5<br>
+<br>
+print("Before deletion:")<br>
+traverseAndPrint(node1)<br>
+<br>
+# Delete node4<br>
+node1 = deleteSpecificNode(node1, node4)<br>
+<br>
+print("\nAfter deletion:")<br>
+traverseAndPrint(node1)</div>
+  <a class="w3-btn w3-margin-bottom" href="trypythone980.html?filename=demo_dsa_linkedlists_delete" target="_blank">Run Example »</a>
+</div>
+<p>In the <span class="w3-codespan">deleteSpecificNode</span> function above, the return value is the new head of the linked list. So for example, if the node to be deleted is the first node, the new head returned will be the next node.</p>
+<hr>
+
+<h2>Insert a Node in a Linked List</h2>
+<p>Inserting a node into a linked list is very similar to deleting a node, because in both cases we need to take care of the next pointers to make sure we do not break the linked list.</p>
+<p>To insert a node in a linked list we first need to create the node, and then at the position where we insert it, we need to adjust the pointers so that the previous node points to the new node, and the new node points to the correct next node.</p>
+<p>The simulation below shows how the links are adjusted when inserting a new node.</p>
+<div id="divAnim4">
+<svg id="svgInsert" class="dsa_svg" viewBox="0 0 570 100" xmlns="http://www.w3.org/2000/svg">
+<defs>
+        <style>
+            .svgText {
+                font-family: Veranda, sans-serif;
+                fill: black;
+            }
+            .svgDataText{
+                font-family: "Roboto Mono", monospace;
+                fill: black;
+                stroke: black;
+                stroke-width: 0;
+            }
+            .svgAddressText2{
+                font-family: "Roboto Mono", monospace;
+                fill: black;
+                font-size: 12px;
+                stroke: black;
+                stroke-width: 0;
+            }
+            .svgAddressTextRed{
+                font-family: "Roboto Mono", monospace;
+                fill: #dc143c;
+                stroke: #dc143c;
+                stroke-width: 0;
+            }
+
+            .svgText2 {
+                font-family: Veranda, sans-serif;
+                fill: black;
+                font-size: smaller;
+            }
+
+            .svgTextRed {
+                font-family: Veranda, sans-serif;
+                fill: red;
+            }
+
+            #arrowheadRed000 polyline {
+                stroke: red;
+                stroke-width: 2;
+                fill: red;
+            }
+            .shadow {
+                filter: url(#f1);
+            }
+            .insertedNode {
+              opacity: 0;
+            }
+            .topNodes {
+              translate: -90px 0;
+            }
+        </style>
+        <filter id="f1" x="0" y="0" width="150%" height="150%">
+            <feOffset result="offOut" in="SourceAlpha" dx="3" dy="3" />
+            <feGaussianBlur result="blurOut" in="offOut" stdDeviation="3" />
+            <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+        </filter>
+        <marker id="arrowhead0001" markerWidth="8" markerHeight="14" refX="0" refY="7" orient="auto" markerUnits="userSpaceOnUse">
+            <line x1="0.5" y1="0.5" x2="7.5" y2="7.5" stroke="black" stroke-width="1.5"/>
+            <line x1="0" y1="7" x2="6" y2="7" stroke="black" stroke-width="1"/>
+            <line x1="0.5" y1="13.5" x2="7.5" y2="6.5" stroke="black" stroke-width="1.5"/>
+        </marker>
+        <marker id="arrowhead0002" markerWidth="8" markerHeight="14" refX="0" refY="7" orient="auto" markerUnits="userSpaceOnUse">
+            <line x1="0.5" y1="0.5" x2="7.5" y2="7.5" stroke="black" stroke-width="1.5"/>
+            <line x1="0" y1="7" x2="6" y2="7" stroke="black" stroke-width="1"/>
+            <line x1="0.5" y1="13.5" x2="7.5" y2="6.5" stroke="black" stroke-width="1.5"/>
+        </marker>
+        <marker id="arrowhead0003" markerWidth="8" markerHeight="14" refX="0" refY="7" orient="auto" markerUnits="userSpaceOnUse">
+            <line x1="0.5" y1="0.5" x2="7.5" y2="7.5" stroke="black" stroke-width="1.5"/>
+            <line x1="0" y1="7" x2="6" y2="7" stroke="black" stroke-width="1"/>
+            <line x1="0.5" y1="13.5" x2="7.5" y2="6.5" stroke="black" stroke-width="1.5"/>
+        </marker>
+        <marker id="arrowhead0004" markerWidth="8" markerHeight="14" refX="0" refY="7" orient="auto" markerUnits="userSpaceOnUse">
+            <line x1="0.5" y1="0.5" x2="7.5" y2="7.5" stroke="black" stroke-width="1.5"/>
+            <line x1="0" y1="7" x2="6" y2="7" stroke="black" stroke-width="1"/>
+            <line x1="0.5" y1="13.5" x2="7.5" y2="6.5" stroke="black" stroke-width="1.5"/>
+        </marker>
+        <marker id="arrowhead0005" markerWidth="8" markerHeight="14" refX="0" refY="7" orient="auto" markerUnits="userSpaceOnUse">
+            <line x1="0.5" y1="0.5" x2="7.5" y2="7.5" stroke="black" stroke-width="1.5"/>
+            <line x1="0" y1="7" x2="6" y2="7" stroke="black" stroke-width="1"/>
+            <line x1="0.5" y1="13.5" x2="7.5" y2="6.5" stroke="black" stroke-width="1.5"/>
+        </marker>
+        <marker id="arrowheadRed000" markerWidth="8" markerHeight="14" refX="0" refY="7" orient="auto" markerUnits="userSpaceOnUse">
+            <line x1="0.5" y1="0.5" x2="7.5" y2="7.5" stroke="#dc143c" stroke-width="1.5"/>
+            <line x1="0" y1="7" x2="6" y2="7" stroke="#dc143c" stroke-width="1"/>
+            <line x1="0.5" y1="13.5" x2="7.5" y2="6.5" stroke="#dc143c" stroke-width="1.5"/>
+        </marker>
+    </defs>
+    
+    <line class="arrow0001" x1="42" y1="33" x2="60" y2="33" stroke="black" stroke-width="1" fill="none" marker-end="url(#arrowhead0001)"></line>
+    <text x="1" y="37" class="svgDataText text1">Head</text>
+    <path d="M 70 25
+              L 120 25
+              L 120 53 
+              L 70 53 Z"
+          stroke="black" stroke-width="1" fill="#E0E0E0" class="valNode1">
+    </path>
+    <line x1="70" y1="40" x2="120" y2="40" stroke="black" stroke-width="1"></line>
+    <rect x="75" y="38" width="40" height="4" fill="#E0E0E0" stroke-width="0" class="rectNode1"></rect>
+    <text x="90" y="45" class="svgDataText val1">7</text>
+    <path d="M 70 53 
+              L 120 53 
+              L 120 81 
+              L 70 81 Z"
+          stroke="black" stroke-width="1" fill="#FCFC62">
+    </path>
+    <line x1="70" y1="68" x2="120" y2="68" stroke="black" stroke-width="1"></line>
+    <line x1="75" y1="68" x2="115" y2="68" stroke="#FCFC62" stroke-width="3"></line>
+    <text x="80" y="72" class="svgAddressText2 text2">next</text>
+    <path d="M 70 25
+              L 120 25
+              L 120 81 
+              L 70 81 Z"
+          stroke="black" stroke-width="0" fill="none" class="path1">
+    </path>
+    
+    <g class="insertedNode">
+    <path d="M 160 25
+              L 210 25
+              L 210 53 
+              L 160 53 Z"
+          stroke="black" stroke-width="1" fill="#E0E0E0" class="valNode2">
+    </path>
+    <line x1="160" y1="40" x2="210" y2="40" stroke="black" stroke-width="1"></line>
+    <line x1="165" y1="40" x2="205" y2="40" stroke="#E0E0E0" stroke-width="3"></line>
+    <text x="175" y="45" class="svgDataText val2">97</text>
+    <path d="M 160 53 
+              L 210 53 
+              L 210 82 
+              L 160 82 Z"
+          stroke="black" stroke-width="1" fill="#FCFC62">
+    </path>
+    <line x1="160" y1="68" x2="210" y2="68" stroke="black" stroke-width="1"></line>
+    <line x1="165" y1="68" x2="205" y2="68" stroke="#FCFC62" stroke-width="3"></line>
+    <text x="170" y="72" class="svgAddressText2 text3">next</text>
+    <path class="arrow0003" d="M210,68 C240,68 210,33 240,33" stroke="black" stroke-width="1" fill="none"
+          marker-end="url(#arrowhead0003)"></path>
+    <path d="M 160 25
+              L 210 25
+              L 210 82 
+              L 160 82 Z"
+          stroke="black" stroke-width="0" fill="none" class="path2">
+    </path>
+    </g>
+    <path class="arrow0002" d="M120,68 C150,68 120,33 150,33" stroke="black" stroke-width="1" fill="none"
+          marker-end="url(#arrowhead0002)"></path>
+    
+    <g class="topNodes">
+    <path d="M 250 25 
+              L 300 25 
+              L 300 53 
+              L 250 53 Z"
+          stroke="black" stroke-width="1" fill="#E0E0E0" class="valNode3">
+    </path>
+    <line x1="250" y1="40" x2="300" y2="40" stroke="black" stroke-width="1"></line>
+    <rect x="255" y="38" width="40" height="4" fill="#E0E0E0" stroke-width="0" class="rectNode3"></rect>
+    <text x="270" y="45" class="svgDataText val3">3</text>
+    <path d="M 250 53 
+              L 300 53 
+              L 300 82 
+              L 250 82 Z"
+          stroke="black" stroke-width="1" fill="#FCFC62">
+    </path>
+    <line x1="250" y1="68" x2="300" y2="68" stroke="black" stroke-width="1"></line>
+    <line x1="255" y1="68" x2="295" y2="68" stroke="#FCFC62" stroke-width="3"></line>
+    <text x="260" y="72" class="svgAddressText2 text4">next</text>
+    
+    <path d="M 250 25 
+              L 300 25 
+              L 300 82 
+              L 250 82 Z"
+          stroke="black" stroke-width="0" fill="none" class="path3">
+    </path>
+  
+<path d="M 340 25
+          L 390 25
+          L 390 53 
+          L 340 53 Z"
+    stroke="black" stroke-width="1" fill="#E0E0E0" class="valNode4"></path>
+<line x1="340" y1="40" x2="390" y2="40" stroke="black" stroke-width="1"></line>
+<rect x="345" y="38" width="40" height="4" fill="#E0E0E0" stroke-width="0" class="rectNode4"></rect>
+<text x="360" y="45" class="svgDataText val4">2</text>
+<path d="M 340 53 
+          L 390 53 
+          L 390 82 
+          L 340 82 Z"
+    stroke="black" stroke-width="1" fill="#FCFC62"></path>
+<line x1="340" y1="68" x2="390" y2="68" stroke="black" stroke-width="1"></line>
+<line x1="345" y1="68" x2="385" y2="68" stroke="#FCFC62" stroke-width="3"></line>
+<text x="350" y="72" class="svgAddressText2 text5">next</text>
+<path class="arrow0005" d="M390,68 C420,68 390,33 420,33" stroke="black" stroke-width="1" fill="none"
+          marker-end="url(#arrowhead0005)"></path>
+<path d="M 340 25
+          L 390 25
+          L 390 82 
+          L 340 82 Z"
+    stroke="#dc143c" stroke-width="0" fill="none" class="path4"></path>
+<path class="arrow0004" d="M300,68 C330,68 300,33 330,33" stroke="black" stroke-width="1" fill="none"
+      marker-end="url(#arrowhead0004)"></path>
+    
+<path d="M 430 25
+          L 480 25
+          L 480 53 
+          L 430 53 Z"
+    stroke="black" stroke-width="1" fill="#E0E0E0" class="valNode5"></path>
+<line x1="430" y1="40" x2="480" y2="40" stroke="black" stroke-width="1"></line>
+<line x1="435" y1="40" x2="475" y2="40" stroke="#E0E0E0" stroke-width="3"></line>
+<text x="450" y="45" class="svgDataText val5">9</text>
+<path d="M 430 53 
+          L 480 53 
+          L 480 82 
+          L 430 82 Z"
+    stroke="black" stroke-width="1" fill="#FCFC62"></path>
+<line x1="430" y1="68" x2="480" y2="68" stroke="black" stroke-width="1"></line>
+<line x1="435" y1="68" x2="475" y2="68" stroke="#FCFC62" stroke-width="3"></line>
+<text x="440" y="72" class="svgAddressText2 text6">next</text>
+<line class="arrow0006" x1="482" y1="68" x2="505" y2="68" stroke="#dc143c" stroke-width="1" fill="none" stroke-dasharray="5,5" marker-end="url(#arrowheadRed000)"></line>
+<text x="520" y="72" class="svgAddressTextRed text7">null</text>
+<path d="M 430 25
+          L 480 25
+          L 480 82 
+          L 430 82 Z"
+    stroke="black" stroke-width="0" fill="none" class="path5"></path>
+    </g>
+</svg>
+<button id="btnInsert">Insert</button><span id="spanInsertFinished" style="margin-left: 10px;"></span><br>
+
+
+</div>
+
+
+
+
+<ol>
+  <li>New node is created</li>
+  <li>Node 1 is linked to new node</li>
+  <li>New node is linked to next node</li>
+</ol>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <p>Inserting a node in a singly linked list in Python:</p>
+  <div class="w3-code notranslate pythonHigh">
+class Node:<br>
+&nbsp;&nbsp;def __init__(self, data):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;self.data = data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;self.next = None<br>
+<br>
+def traverseAndPrint(head):<br>
+&nbsp;&nbsp;currentNode = head<br>
+&nbsp;&nbsp;while currentNode:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print(currentNode.data, end=" -> ")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;currentNode = currentNode.next<br>
+&nbsp;&nbsp;print("null")<br>
+<br>
+def insertNodeAtPosition(head, newNode, position):<br>
+&nbsp;&nbsp;if position == 1:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;newNode.next = head<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return newNode<br>
+<br>
+&nbsp;&nbsp;currentNode = head<br>
+&nbsp;&nbsp;for _ in range(position - 2):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if currentNode is None:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break<br>
+&nbsp;&nbsp;&nbsp;&nbsp;currentNode = currentNode.next<br>
+<br>
+&nbsp;&nbsp;newNode.next = currentNode.next<br>
+&nbsp;&nbsp;currentNode.next = newNode<br>
+&nbsp;&nbsp;return head<br>
+<br>
+node1 = Node(7)<br>
+node2 = Node(3)<br>
+node3 = Node(2)<br>
+node4 = Node(9)<br>
+<br>
+node1.next = node2<br>
+node2.next = node3<br>
+node3.next = node4<br>
+<br>
+print("Original list:")<br>
+traverseAndPrint(node1)<br>
+<br>
+# Insert a new node with value 97 at position 2<br>
+newNode = Node(97)<br>
+node1 = insertNodeAtPosition(node1, newNode, 2)<br>
+<br>
+print("\nAfter insertion:")<br>
+traverseAndPrint(node1)</div>
+  <a class="w3-btn w3-margin-bottom" href="trypythonf87b.html?filename=demo_dsa_linkedlists_insert" target="_blank">Run Example »</a>
+</div>
+<p>In the <span class="w3-codespan">insertNodeAtPosition</span> function above, the return value is the new head of the linked list. So for example, if the node is inserted at the start of the linked list, the new head returned will be the new node.</p>
+<hr>
+<h2>Time Complexity of Linked Lists Operations</h2>
+<p>Here we discuss time complexity of linked list operations, and compare these with the time complexity of the array algorithms that we have discussed previously in this tutorial.</p>
+<p>Remember that time complexity just says something about the approximate number of operations needed by the 
+  algorithm based on a large set of data <code class="w3-codespan">(n)</code>, and does not tell us the exact time a specific implementation of an algorithm takes.</p>
+<p>This means that even though linear search is said to have the same time complexity for arrays as for linked list: <code class="w3-codespan">O(n)</code>, it does not mean they take the same amount of time. The exact time it takes for an algorithm to run depends on programming language, computer hardware, differences in time needed for operations on arrays vs linked lists, and many other things as well.</p>
+<p><a href="python_dsa_linearsearch.html">Linear search</a> for linked lists works the same as for arrays. A list of unsorted values are traversed from the head node until the node with the specific value is found. Time complexity is <code class="w3-codespan">O(n)</code>.</p>
+<p><a href="python_dsa_binarysearch.html">Binary search</a> is not possible for linked lists because the algorithm is based on jumping directly to different array elements, and that is not possible with linked lists.</p>
+<p>Sorting algorithms have the same time complexities as for arrays, and these are explained earlier in this tutorial. But remember, sorting algorithms that are based on directly accessing an array element based on an index, do not work on linked lists.</p>
+<hr>

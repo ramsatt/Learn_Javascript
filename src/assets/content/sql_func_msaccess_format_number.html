@@ -1,0 +1,105 @@
+<h1>MS Access <span class="color_h1">Format()</span> Function</h1>
+
+<div class="w3-clear w3-center nextprev">
+<a class="w3-left w3-btn" href="func_msaccess_fix.html">&#10094;<span class="w3-hide-small"> Previous</span></a>
+<a class="w3-btn" title="MS Access Functions" href="sql_ref_msaccess.html">&#10094; MS Access Functions</a>
+<a class="w3-right w3-btn" href="func_msaccess_int.html"><span class="w3-hide-small">Next </span>&#10095;</a>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Format a numeric expression to percent:</p>
+<div class="w3-code notranslate sqlHigh">
+  SELECT Format(0.5, "Percent") AS FormattedNum; </div>
+<a target="_blank" href="trysql073d.html?filename=trysql_func_ms_format_number&amp;ss=-1" class="w3-btn w3-margin-bottom">Try it Yourself &raquo;</a>
+</div>
+<hr>
+
+<h2>Definition and Usage</h2>
+<p>The Format() function formats a numeric value with the specified format.</p>
+
+<h2>Syntax</h2>
+<div class="w3-code w3-border notranslate">
+  Format(<em>value</em>, <em>format</em>)</div>
+
+<h2>Parameter Values</h2>
+<table class="ws-table-all notranslate"> 
+  <tr>
+    <th style="width:23%">Parameter</th>
+    <th>Description</th>  </tr>  
+  <tr>
+    <td><em>value</em></td>
+    <td>Required. The numeric value to format</td>
+  </tr>
+  <tr>
+    <td><em>format</em></td>
+    
+    <td>Optional. The format to to use.<br>
+    <table class="ws-table-all notranslate"> 
+  <tr>
+    <th>Format</th>
+    <th>Description</th>
+  </tr>  
+  <tr>
+    <td>General Number</td>
+    <td>Indicates a number, without thousand separators</td>
+  </tr>
+  <tr>
+    <td>Currency</td>
+    <td>Indicates currency, with thousand separators and two decimal places</td>
+  </tr>
+  <tr>
+    <td>Fixed</td>
+    <td>Shows minimum one digit to the left of the decimal place and two digits to the right of the decimal place</td>
+  </tr>
+  <tr>
+    <td>Standard</td>
+    <td>Shows the thousand separators + minimum one digit to the left of the decimal place, and two digits to the right of the decimal place</td>
+  </tr>
+  <tr>
+    <td>Percent</td>
+    <td>Shows a percent value (with percent sign) and two digits to the right of the decimal place</td>
+  </tr>
+  <tr>
+    <td>Scientific</td>
+    <td>Indicates scientific notation</td>
+  </tr>
+  <tr>
+    <td>Yes/No</td>
+    <td>Shows No if <em>value</em> = 0 and Yes if <em>value</em> &lt;&gt; 0</td>
+  </tr>
+  <tr>
+    <td>True/False</td>
+    <td>Shows False if <em>value</em> = 0 and True if <em>value</em> &lt;&gt; 0</td>
+  </tr>
+  <tr>
+    <td>On/Off</td>
+    <td>Shows Off if <em>value</em> = 0 and On if <em>value</em> &lt;&gt; 0</td>
+  </tr>
+  </table>
+    </td>
+   </table>
+
+<h2>Technical Details</h2>
+<table class="ws-table-all">
+<tr>
+ <th style="width:23%">Works in:</th>
+  <td>From Access 2000</td>
+</tr>
+</table>
+<hr>
+<h2>More Examples</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Format the "Price" column to currency:</p>
+<div class="w3-code notranslate sqlHigh">
+  SELECT Format(Price, "Currency") AS FormattedPrice<br>FROM Products; </div>
+<a target="_blank" href="trysql0442.html?filename=trysql_func_ms_format_number2&amp;ss=-1" class="w3-btn w3-margin-bottom">Try it Yourself &raquo;</a>
+</div>
+<br>
+
+<div class="w3-clear w3-center nextprev">
+<a class="w3-left w3-btn" href="func_msaccess_fix.html">&#10094;<span class="w3-hide-small"> Previous</span></a>
+<a class="w3-btn" title="MS Access Functions" href="sql_ref_msaccess.html">&#10094; MS Access Functions</a>
+<a class="w3-right w3-btn" href="func_msaccess_int.html"><span class="w3-hide-small">Next </span>&#10095;</a>
+</div>

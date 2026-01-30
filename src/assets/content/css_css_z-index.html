@@ -1,0 +1,104 @@
+<h1>CSS <span class="color_h1">The z-index</span> Property</h1>
+
+<hr>
+
+<h2>The CSS z-index Property</h2>
+<p>The <code class="w3-codespan"><a href="../cssref/pr_pos_z-index.html">z-index</a></code> property specifies the stack order of 
+positioned elements.</p>
+<p>The stack order defines which element should be placed in front or behind other 
+elements.</p>
+<p>When elements are positioned, they can overlap other elements.</p>
+<p>An element can have a positive or negative stack order (z-index):</p>
+
+<div style="position:relative;padding:80px;height:270px;">
+<img style="position:absolute;left:30px;top:15px;z-index:0;height:250px;" src="assets/content/images/img_tree.png">
+<h1 style="position:absolute;left:35px;top:35px;z-index:0;">This is a heading</h1>
+<p style="position:absolute;left:35px;top:120px;z-index:0;">Because the image has a z-index of -1, it will be placed behind the text.</p>
+</div>
+
+<div class="w3-example" style="position:relative;z-index:0">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+img
+{<br>
+  &nbsp;
+position: absolute;<br>
+&nbsp;&nbsp;left: 0px;<br>
+  &nbsp;
+top: 0px;<br>
+  &nbsp;
+z-index: -1;<br>
+}</div>
+
+</div>
+
+<p><strong>Note:</strong> <code class="w3-codespan">
+<a href="../cssref/pr_pos_z-index.html">z-index</a></code> only works on <a href="css_positioning.html">positioned elements</a> (position: absolute, 
+position: relative, position: fixed, or position: sticky) and <a href="css3_flexbox.html">flex items</a> 
+(elements that are direct children of display: flex elements).</p>
+
+<hr>
+
+<hr>
+
+<h2>Another z-index Example</h2>
+<p>A postioned element with a greater stack order is always above an element 
+with a lower stack order.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;html&gt;<br>&lt;head&gt;<br>&lt;style&gt;<br>.container {<br>&nbsp; position: relative;<br>}<br>
+  <br>.black-box {<br>&nbsp; position: relative;<br>&nbsp; z-index: 1;<br>&nbsp; 
+  border: 2px solid black;<br>&nbsp; height: 100px;<br>&nbsp; margin: 30px;<br>}<br><br>.gray-box {<br>&nbsp; 
+  position: absolute;<br>&nbsp; z-index: 3;<br>&nbsp; background: lightgray;<br>&nbsp; height: 60px; <br>&nbsp; 
+  width: 70%;<br>&nbsp; left: 50px;<br>&nbsp; top: 50px;<br>}<br><br>.green-box {<br>&nbsp; position: absolute;<br>&nbsp; z-index: 2;<br>&nbsp; background: lightgreen;<br>&nbsp; 
+  width: 35%;<br>&nbsp; left: 270px;<br>&nbsp; top: -15px;<br>&nbsp; height: 
+  100px;<br>}<br>&lt;/style&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>
+  <br>&lt;div class=&quot;container&quot;&gt;<br>&nbsp; &lt;div 
+  class=&quot;black-box&quot;&gt;Black box&lt;/div&gt;<br>&nbsp; &lt;div class=&quot;gray-box&quot;&gt;Gray 
+  box&lt;/div&gt;<br>&nbsp; &lt;div class=&quot;green-box&quot;&gt;Green box&lt;/div&gt;<br>&lt;/div&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</div>
+
+</div>
+
+<hr>
+
+<h2>Without z-index</h2>
+<p>If several positioned elements overlap each other without a <code class="w3-codespan">
+<a href="../cssref/pr_pos_z-index.html">z-index</a></code>  
+specified, the elements render in the order they are defined in the HTML source 
+code.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Same example as above, but here with no z-index specified:</p>
+<div class="w3-code notranslate htmlHigh">
+  &lt;html&gt;<br>&lt;head&gt;<br>&lt;style&gt;<br>.container {<br>&nbsp; position: relative;<br>}<br>
+  <br>.black-box {<br>&nbsp; position: relative;<br>&nbsp; 
+  border: 2px solid black;<br>&nbsp; height: 100px;<br>&nbsp; margin: 30px;<br>}<br><br>.gray-box {<br>&nbsp; 
+  position: absolute;<br>&nbsp; background: lightgray;<br>&nbsp; height: 60px; <br>&nbsp; 
+  width: 70%;<br>&nbsp; left: 50px;<br>&nbsp; top: 50px;<br>}<br><br>.green-box {<br>&nbsp; position: absolute;<br>&nbsp; background: lightgreen;<br>&nbsp; 
+  width: 35%;<br>&nbsp; left: 270px;<br>&nbsp; top: -15px;<br>&nbsp; height: 
+  100px;<br>}<br>&lt;/style&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>
+  <br>&lt;div class=&quot;container&quot;&gt;<br>&nbsp; &lt;div 
+  class=&quot;black-box&quot;&gt;Black box&lt;/div&gt;<br>&nbsp; &lt;div class=&quot;gray-box&quot;&gt;Gray 
+  box&lt;/div&gt;<br>&nbsp; &lt;div class=&quot;green-box&quot;&gt;Green box&lt;/div&gt;<br>&lt;/div&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</div>
+
+</div>
+
+
+<hr>
+
+<hr>
+
+<h2>CSS Property</h2>
+<table class="ws-table-all notranslate">
+  <tr>
+    <th style="width:20%">Property</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_pos_z-index.html">z-index</a></td>
+    <td>Sets the stack order of an element</td>
+  </tr>
+</table>
+<br>

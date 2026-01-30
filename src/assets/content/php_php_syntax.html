@@ -1,0 +1,96 @@
+<h1>PHP <span class="color_h1">Syntax</span></h1>
+
+<hr>
+<h2>Basic PHP Syntax</h2>
+<p>A PHP script is executed on the server, and the plain HTML result is sent back to the browser.</p>
+<p>A PHP script can be placed anywhere in the document.</p>
+<p>A PHP script starts with <code class="w3-codespan">&lt;?php</code> and ends with 
+<code class="w3-codespan">?&gt;</code>:</p>
+
+<div class="w3-example">
+<pre class="language-php notranslate w3-white"><code>&lt;?php
+// PHP code goes here
+?&gt;</code></pre>
+</div>
+
+<p>The default file extension for PHP files is <code class="w3-codespan">.php</code>.</p>
+<p>A PHP file normally contains some HTML tags and some PHP scripting code.</p>
+<p>Below, we have an example of a simple PHP file, with a PHP script that uses 
+the PHP <code class="w3-codespan">echo</code> function to output some text
+on a web page:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>A simple <code class="w3-codespan">.php</code> file with both HTML code and PHP code:</p>
+<pre class="language-php notranslate w3-white"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+
+&lt;h1&gt;My first PHP page&lt;/h1&gt;
+
+&lt;?php
+echo 'Hello World!';
+?&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+</div>
+<p><strong>Note:</strong> All PHP statements end with a semicolon (<code class="w3-codespan">;</code>).</p>
+<hr>
+
+<hr>
+
+<h2>PHP Case Sensitivity</h2>
+<p>PHP keywords (e.g. if, else, echo, etc.), classes, functions, 
+and user-defined functions are not case-sensitive.</p>
+<p>In the example below, both echo statements are legal:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p><code class="w3-codespan">ECHO</code> is the same as <code class="w3-codespan">echo</code>:</p>
+<pre class="language-php notranslate w3-white"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+
+&lt;?php
+ECHO 'Hello World!&lt;br&gt;';
+echo 'Hello World!&lt;br&gt;';
+?&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+</div>
+
+<div class="ws-note w3-panel">
+<p><strong>Note:</strong> However; all variable names are case-sensitive!</p>
+</div>
+
+<p>Look at the example below; only the first statement will display the value of the 
+<code class="w3-codespan">$color</code> variable! This is because 
+<code class="w3-codespan">$color</code> and 
+<code class="w3-codespan">$COLOR</code> are treated as two 
+different variables:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p><code class="w3-codespan">$COLOR</code> is <em>not</em> same as <code class="w3-codespan">$color</code>:</p>
+<pre class="language-php notranslate w3-white"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+
+&lt;?php<br>$color = &quot;red&quot;;
+echo &quot;My car is $color&lt;br&gt;&quot;;
+echo &quot;My house is $COLOR&quot;;
+?&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+</div>
+
+<hr>
+
+<hr>

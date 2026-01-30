@@ -1,0 +1,184 @@
+<h1>HTML <span class="color_h1">Table Sizes</span></h1>
+
+<div id="tablesize">
+<hr>
+<p class="intro">HTML tables can have different sizes for each column, row or 
+the entire table.</p>
+<hr>
+<div style="overflow:auto;">
+<table style="width:20%;float:left;">
+<tr>
+<td>&nbsp;</td>
+<td style="width:80%">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<table style="width:50%;float:left;margin-left:5%;">
+<tr>
+<td style="width:40%">&nbsp;</td>
+<td>&nbsp;</td>
+<td style="width:40%">&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<table style="width:20%;float:right;">
+<tr>
+<td style="width:70%">&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr style="height:50px;">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+</div>
+<hr>
+<p class="intro">Use the <code class="w3-codespan">style</code> attribute with the
+<code class="w3-codespan">width</code> or <code class="w3-codespan">height</code>
+properties to specify the size of a table, row or column.</p>
+<hr>
+
+<h2>HTML Table Width</h2>
+<p>To set the width of a table, add the <code class="w3-codespan">style</code> 
+attribute to the <code class="w3-codespan">&lt;table&gt;</code> element:</p>
+<div class="w3-example">
+  <h3>Example</h3>
+  <p>Set the width of the table to 100%:</p>
+<div class="w3-code notranslate htmlHigh">
+&lt;table style=&quot;width:100%&quot;&gt;<br>&nbsp;
+&lt;tr&gt;<br>&nbsp;&nbsp;&nbsp; &lt;th&gt;Firstname&lt;/th&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;th&gt;Lastname&lt;/th&gt; <br>&nbsp;&nbsp;&nbsp; &lt;th&gt;Age&lt;/th&gt;<br>
+&nbsp;
+&lt;/tr&gt;<br>&nbsp;
+&lt;tr&gt;<br>&nbsp; &nbsp; &lt;td&gt;Jill&lt;/td&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;td&gt;Smith&lt;/td&gt; <br>&nbsp;&nbsp;&nbsp; &lt;td&gt;50&lt;/td&gt;<br>
+&nbsp;
+&lt;/tr&gt;<br>&nbsp; &lt;tr&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td&gt;Eve&lt;/td&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;td&gt;Jackson&lt;/td&gt; <br>&nbsp;&nbsp;&nbsp; &lt;td&gt;94&lt;/td&gt;<br>
+&nbsp; &lt;/tr&gt;<br>&lt;/table&gt;
+</div>
+  
+</div>
+
+<div class="w3-panel ws-note">
+<p><strong>Note:</strong> Using a percentage as the size unit for a width means 
+how wide will this element be compared to its parent element, which in this case 
+is the <code class="w3-codespan">&lt;body&gt;</code> 
+element.</p>
+</div>
+
+<hr>
+
+<h2>HTML Table Column Width</h2>
+<table style="width:30%;">
+<tr>
+<td>&nbsp;</td>
+<td style="width:60%;background-color:rgba(150, 212, 212,0.3)">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td style="background-color:rgba(150, 212, 212,0.3)">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td style="background-color:rgba(150, 212, 212,0.3)">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+
+<p>To set the size of a specific column, add the <code class="w3-codespan">style</code> 
+attribute on a <code class="w3-codespan">&lt;th&gt;</code> or
+<code class="w3-codespan">&lt;td&gt;</code> element:</p>
+<div class="w3-example">
+  <h3>Example</h3>
+  <p>Set the width of the first column to 70%:</p>
+<div class="w3-code notranslate htmlHigh">
+&lt;table style=&quot;width:100%&quot;&gt;<br>&nbsp;
+&lt;tr&gt;<br>&nbsp;&nbsp;&nbsp; &lt;th style=&quot;width:70%&quot;&gt;Firstname&lt;/th&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;th&gt;Lastname&lt;/th&gt; <br>&nbsp;&nbsp;&nbsp; &lt;th&gt;Age&lt;/th&gt;<br>
+&nbsp;
+&lt;/tr&gt;<br>&nbsp;
+&lt;tr&gt;<br>&nbsp; &nbsp; &lt;td&gt;Jill&lt;/td&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;td&gt;Smith&lt;/td&gt; <br>&nbsp;&nbsp;&nbsp; &lt;td&gt;50&lt;/td&gt;<br>
+&nbsp;
+&lt;/tr&gt;<br>&nbsp; &lt;tr&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td&gt;Eve&lt;/td&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;td&gt;Jackson&lt;/td&gt; <br>&nbsp;&nbsp;&nbsp; &lt;td&gt;94&lt;/td&gt;<br>
+&nbsp; &lt;/tr&gt;<br>&lt;/table&gt;
+</div>
+  
+</div>
+
+<hr>
+
+<hr>
+
+<h2>HTML Table Row Height</h2>
+<table style="width:30%;">
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr style="height:100px;background-color:rgba(150, 212, 212,0.3)">
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+
+<p>To set the height of a specific row, add the <code class="w3-codespan">style</code> 
+attribute on a table row element:</p>
+<div class="w3-example">
+  <h3>Example</h3>
+  <p>Set the height of the second row to 200 pixels:</p>
+<div class="w3-code notranslate htmlHigh">
+&lt;table style=&quot;width:100%&quot;&gt;<br>&nbsp;
+&lt;tr&gt;<br>&nbsp;&nbsp;&nbsp; &lt;th&gt;Firstname&lt;/th&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;th&gt;Lastname&lt;/th&gt; <br>&nbsp;&nbsp;&nbsp; &lt;th&gt;Age&lt;/th&gt;<br>
+&nbsp;
+&lt;/tr&gt;<br>&nbsp;
+&lt;tr style=&quot;height:200px&quot;&gt;<br>&nbsp; &nbsp; &lt;td&gt;Jill&lt;/td&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;td&gt;Smith&lt;/td&gt; <br>&nbsp;&nbsp;&nbsp; &lt;td&gt;50&lt;/td&gt;<br>
+&nbsp;
+&lt;/tr&gt;<br>&nbsp; &lt;tr&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td&gt;Eve&lt;/td&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;td&gt;Jackson&lt;/td&gt; <br>&nbsp;&nbsp;&nbsp; &lt;td&gt;94&lt;/td&gt;<br>
+&nbsp; &lt;/tr&gt;<br>&lt;/table&gt;
+</div>
+  
+</div>
+
+<hr>
+
+
+<hr>
+
+<br>
+</div>

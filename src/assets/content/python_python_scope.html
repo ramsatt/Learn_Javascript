@@ -1,0 +1,162 @@
+<h1>Python <span class="color_h1">Scope</span></h1>
+
+<hr>
+
+<h2>Scope</h2>
+<p>A variable is only available from inside the region it is 
+created. This is called <strong>scope</strong>.</p>
+<hr>
+
+<h2>Local Scope</h2>
+<p>A variable created inside a function belongs to the <em>local scope</em> of 
+that function, and can only be used inside that function.</p>
+<div class="w3-example">
+<h3>Example</h3>
+  <p>A variable created inside a function is available inside that function:</p>
+<div class="w3-code notranslate pythonHigh">
+  def myfunc():<br>&nbsp; x = 300<br>&nbsp; print(x)<br><br>myfunc()</div>
+
+</div>
+
+
+<h3>Function Inside Function</h3>
+
+<p>As explained in the example above, the variable <code class="w3-codespan">x</code> is not available outside the function, 
+but it is available for any function inside the function:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+  <p>The local variable can be accessed from a function within the function:</p>
+<div class="w3-code notranslate pythonHigh">
+  def myfunc():<br>&nbsp; x = 300<br>&nbsp; def myinnerfunc():<br>&nbsp; &nbsp; print(x)<br>&nbsp; 
+  myinnerfunc()<br><br>myfunc()</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>Global Scope</h2>
+<p>A variable created in the main body of the Python code is a global variable 
+and belongs to the global scope.</p>
+<p>Global variables are available from within any scope, global and local.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+  <p>A variable created outside of a function is global and can be used by 
+  anyone:</p>
+  <div class="w3-code notranslate pythonHigh">
+    x = 300<br><br>def myfunc():<br>&nbsp; print(x)<br><br>myfunc()<br><br>print(x)</div>
+
+</div>
+
+
+<h3>Naming Variables</h3>
+
+<p>If you operate with the same variable name inside and outside of a function, Python will treat them as two 
+separate variables,
+one available in the global scope (outside the function) and one available in the local scope (inside the function):</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+  <p>The function will print the local <code class="w3-codespan">x</code>, and 
+  then the code will print the global <code class="w3-codespan">x</code>:</p>
+  <div class="w3-code notranslate pythonHigh">
+    x = 300<br><br>def myfunc():<br>&nbsp; x = 200<br>&nbsp; 
+    print(x)<br><br>myfunc()<br><br>print(x)</div>
+
+</div>
+
+<hr>
+
+<h2>Global Keyword</h2>
+<p>If you need to create a global variable, but are stuck in the local scope, you can use the 
+<code class="w3-codespan"><a href="ref_keyword_global.html">global</a></code> keyword.</p>
+<p>The <code class="w3-codespan"><a href="ref_keyword_global.html">global</a></code> keyword makes the variable global.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+  <p>If you use the <code class="w3-codespan"><a href="ref_keyword_global.html">global</a></code> keyword, the variable belongs to the global scope:</p>
+  <div class="w3-code notranslate pythonHigh">
+    def myfunc():<br>&nbsp; global x<br>&nbsp; x = 300<br><br>myfunc()<br><br>
+    print(x)</div>
+
+</div>
+
+<p>Also, use the <code class="w3-codespan">global</code> keyword if you want to 
+make a change to a global variable inside a function.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+  <p>To change the value of a global variable inside a function, refer to the 
+  variable by using the <code class="w3-codespan">global</code> keyword:</p>
+<div class="w3-code notranslate pythonHigh">
+  x = 300<br><br>def myfunc():<br>&nbsp; global x<br>&nbsp; x = 200<br><br>myfunc()<br>
+  <br>print(x)</div>
+
+</div>
+
+<hr>
+
+<h2>Nonlocal Keyword</h2>
+<p>The <code class="w3-codespan">nonlocal</code> keyword is used to work with variables inside nested functions.</p>
+
+<p>The <code class="w3-codespan">nonlocal</code> keyword makes the variable belong to the outer function.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+  <p>If you use the <code class="w3-codespan">nonlocal</code> keyword, the variable will belong to the outer function:</p>
+  <div class="w3-code notranslate pythonHigh">
+def myfunc1():<br>
+&nbsp;&nbsp;x = "Jane"<br>
+&nbsp;&nbsp;def myfunc2():<br>
+&nbsp;&nbsp;&nbsp;&nbsp;nonlocal x<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x = "hello"<br>
+&nbsp;&nbsp;myfunc2()<br>
+&nbsp;&nbsp;return x<br>
+<br>
+print(myfunc1())</div>
+
+</div>
+
+
+
+<hr>
+
+
+<h2>The LEGB Rule</h2>
+<p>Python follows the LEGB rule when looking up variable names, and searches for them in this order:</p>
+<ol>
+  <li><strong>L</strong>ocal - Inside the current function</li>
+  <li><strong>E</strong>nclosing - Inside enclosing functions (from inner to outer)</li>
+  <li><strong>G</strong>lobal - At the top level of the module</li>
+  <li><strong>B</strong>uilt-in - In Python's built-in namespace</li>
+</ol>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Understanding the LEGB rule:</p>
+<div class="w3-code notranslate pythonHigh">
+x = "global"<br>
+<br>
+def outer():<br>
+&nbsp;&nbsp;x = "enclosing"<br>
+&nbsp;&nbsp;def inner():<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x = "local"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print("Inner:", x)<br>
+&nbsp;&nbsp;inner()<br>
+&nbsp;&nbsp;print("Outer:", x)<br>
+<br>
+outer()<br>
+print("Global:", x)</div>
+
+</div>
+
+
+
+
+
+<hr>
+
+<hr>

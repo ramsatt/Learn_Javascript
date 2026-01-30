@@ -1,0 +1,132 @@
+<h1>Python <span class="color_h1">PIP</span></h1>
+
+<hr>
+
+<h2>What is PIP?</h2>
+<p>PIP is a package manager for Python packages, or modules if you like.</p>
+<div class="w3-panel ws-note">
+  <p><strong>Note:</strong> If you have Python version 3.4 or later, PIP is included by default.</p>
+</div>
+
+<hr>
+
+<h2>What is a Package?</h2>
+<p>A package contains all the files you need for a module.</p>
+<p>Modules are Python code libraries you can include in your project.</p>
+
+<hr>
+
+<h2>Check if PIP is Installed</h2>
+
+<p>Navigate your command line to the location of Python's script directory, and type the following:</p>
+<div class="w3-example">
+  <h3>Example</h3>
+<p>Check PIP version:</p>
+<div class="w3-code notranslate w3-black">
+C:\Users\<em>Your Name</em>\AppData\Local\Programs\Python\Python36-32\Scripts&gt;pip --version
+</div>
+</div>
+
+<hr>
+
+<h2>Install PIP</h2>
+
+<p>If you do not have PIP installed, you can download and install it from this page:
+<a target="_blank" href="https://pypi.org/project/pip/">https://pypi.org/project/pip/</a>
+</p>
+
+<hr>
+
+<h2>Download a Package</h2>
+<p>Downloading a package is very easy.</p>
+<p>Open the command line interface and tell PIP to download the package you 
+want.</p>
+
+<p>Navigate your command line to the location of Python's script directory, and type the following:</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+<p>Download a package named &quot;camelcase&quot;:</p>
+<div class="w3-code notranslate w3-black">
+C:\Users\<em>Your Name</em>\AppData\Local\Programs\Python\Python36-32\Scripts&gt;pip 
+  install camelcase</div>
+</div>
+
+<p>Now you have downloaded and installed your first package!</p>
+
+<hr>
+
+<hr>
+
+<h2>Using a Package</h2>
+
+<p>Once the package is installed, it is ready to use.</p>
+<p>Import the &quot;camelcase&quot; package into your project.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Import and use &quot;camelcase&quot;:</p>
+<div class="w3-code notranslate pythonHigh">
+  import camelcase<br><br>c = camelcase.CamelCase()<br><br>txt = &quot;hello world&quot;<br>
+  <br>print(c.hump(txt))</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showpython0347.html?filename=demo_camelcase">Run Example &raquo;</a>
+</div>
+
+<hr>
+
+<h2>Find Packages</h2>
+
+<p>Find more packages at <a target="_blank" href="https://pypi.org/">https://pypi.org/</a>.</p>
+
+<hr>
+
+<h2>Remove a Package</h2>
+
+<p>Use the <code class="w3-codespan">uninstall</code> command to remove a package:</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+<p>Uninstall the package named &quot;camelcase&quot;:</p>
+<div class="w3-code notranslate w3-black">
+C:\Users\<em>Your Name</em>\AppData\Local\Programs\Python\Python36-32\Scripts&gt;pip 
+  uninstall camelcase</div>
+</div>
+
+<p>The PIP Package Manager will ask you to confirm that you want to remove the 
+camelcase package:</p>
+
+<div class="w3-example">
+<div class="w3-code notranslate w3-black">
+  Uninstalling camelcase-02.1:<br>&nbsp; Would remove:<br>&nbsp;&nbsp;&nbsp; c:\users\<em>Your Name</em>\appdata\local\programs\python\python36-32\lib\site-packages\camelcase-0.2-py3.6.egg-info<br>&nbsp;&nbsp;&nbsp; 
+  c:\users\<em>Your Name</em>\appdata\local\programs\python\python36-32\lib\site-packages\camelcase\*<br>
+  Proceed (y/n)?</div>
+</div>
+
+
+<p>Press <code class="w3-codespan">y</code> and the package will be removed.</p>
+
+<hr>
+
+<h2>List Packages</h2>
+
+<p>Use the <code class="w3-codespan">list</code> command to list all the packages installed on your system:</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+<p>List installed packages:</p>
+<div class="w3-code notranslate w3-black">
+C:\Users\<em>Your Name</em>\AppData\Local\Programs\Python\Python36-32\Scripts&gt;pip list</div>
+
+<p>Result:</p>
+
+<div class="w3-code notranslate w3-black">
+  Package&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Version<br>
+  -----------------------<br>camelcase&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.2<br>mysql-connector 2.1.6<br>
+  pip&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  18.1<br>pymongo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3.6.1<br>
+  setuptools&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 39.0.1</div>
+</div>
+
+<hr>
+
+<hr>

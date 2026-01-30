@@ -1,0 +1,186 @@
+<h1>SQL <span class="color_h1">GROUP BY</span> Statement</h1>
+
+<hr>
+
+<h2>The SQL GROUP BY Statement</h2>
+<p>The <code class="w3-codespan">GROUP BY</code> statement groups rows that have the same values into summary 
+rows, like "find the number of customers in each country".</p>
+<p>The <code class="w3-codespan">GROUP BY</code> statement is often used with aggregate functions (<code class="w3-codespan">COUNT()</code>, 
+<code class="w3-codespan">MAX()</code>, 
+<code class="w3-codespan">MIN()</code>, <code class="w3-codespan">SUM()</code>, 
+<code class="w3-codespan">AVG()</code>) to group the result-set by one or more columns.</p>
+<h3>GROUP BY Syntax</h3>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+  SELECT <em>column_name(s)</em><br>
+  FROM <em>table_name</em><br>
+  WHERE <em>condition</em><br>
+  GROUP BY <em>column_name(s)<br></em>ORDER BY <em>column_name(s);
+</em>
+</div></div>
+
+<hr>
+
+<h2>Demo Database</h2>
+<p>Below is a selection from the "Customers" table in the Northwind sample 
+database:</p>
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+  <tr>
+    <th>CustomerID</th>
+    <th>CustomerName</th>
+    <th>ContactName</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>PostalCode</th>
+    <th>Country</th>
+  </tr>
+  <tr>
+    <td>1<br><br></td>
+    <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Obere Str. 57</td>
+    <td>Berlin</td>
+    <td>12209</td>
+    <td>Germany</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Ana Trujillo Emparedados y helados</td>
+    <td>Ana Trujillo</td>
+    <td>Avda. de la Constitución 2222</td>
+    <td>México D.F.</td>
+    <td>05021</td>
+    <td>Mexico</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Antonio Moreno Taquería</td>
+    <td>Antonio Moreno</td>
+    <td>Mataderos 2312</td>
+    <td>México D.F.</td>
+    <td>05023</td>
+    <td>Mexico</td>
+  </tr>
+  <tr>
+    <td>4<br><br></td>
+    <td>Around the Horn</td>
+    <td>Thomas Hardy</td>
+    <td>120 Hanover Sq.</td>
+    <td>London</td>
+    <td>WA1 1DP</td>
+    <td>UK</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>Berglunds snabbköp</td>
+    <td>Christina Berglund</td>
+    <td>Berguvsvägen 8</td>
+    <td>Luleå</td>
+    <td>S-958 22</td>
+    <td>Sweden</td>
+  </tr>
+</table>
+</div>
+
+<hr>
+
+<hr>
+
+<h2>SQL GROUP BY Examples</h2>
+<p>The following SQL statement lists the number of customers in each country:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+  SELECT COUNT(CustomerID), Country<br>FROM Customers<br>GROUP BY Country;
+</div>
+
+</div>
+<p>The following SQL statement lists the number of customers in each country, 
+sorted high to low:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+  SELECT COUNT(CustomerID), Country<br>FROM Customers<br>GROUP BY Country<br>
+  ORDER BY COUNT(CustomerID) DESC;
+</div>
+
+</div>
+
+<hr>
+
+<h2>Demo Database</h2>
+<p>Below is a selection from the "Orders" table in the Northwind sample database:</p>
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+  <tr>
+    <th>OrderID</th>
+    <th>CustomerID</th>
+    <th>EmployeeID</th>
+    <th>OrderDate</th>
+    <th>ShipperID</th>
+  </tr>
+  <tr>
+    <td>10248</td>
+    <td>90</td>
+    <td>5</td>
+    <td>1996-07-04</td>
+    <td>3</td>
+  </tr>
+    <tr>
+    <td>10249</td>
+    <td>81</td>
+    <td>6</td>
+    <td>1996-07-05</td>
+    <td>1</td>
+    </tr>
+  <tr>
+    <td>10250</td>
+    <td>34</td>
+    <td>4</td>
+    <td>1996-07-08</td>
+    <td>2</td>
+    </tr>
+  </table>
+  </div>
+<p>And a selection from the "Shippers" table:</p>
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+  <tr>
+    <th>ShipperID</th>
+    <th>ShipperName</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>Speedy Express</td>
+  </tr>
+    <tr>
+    <td>2</td>
+    <td>United Package</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Federal Shipping</td>
+  </tr>
+  </table>
+  </div>
+
+<hr>
+
+<h2>GROUP BY With JOIN Example</h2>
+<p>The following SQL statement lists the number of orders sent by each shipper:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+  SELECT Shippers.ShipperName, COUNT(Orders.OrderID) AS NumberOfOrders FROM 
+  Orders<br>LEFT JOIN Shippers ON Orders.ShipperID = Shippers.ShipperID<br>
+  GROUP BY ShipperName;
+</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<br>

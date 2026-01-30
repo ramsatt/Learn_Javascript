@@ -1,0 +1,113 @@
+<h1>Java <span class="color_h1">Files</span></h1>
+
+<hr>
+<p class="intro">File handling is an important part of any application.</p>
+<p class="intro">Java has several methods for creating, reading, updating, and 
+deleting files.</p>
+<hr>
+
+<h2>Java File Handling</h2>
+<p>The <code class="w3-codespan">File</code> class from the <code class="w3-codespan">java.io</code> package, allows 
+us to work with files.</p>
+<p>To use the <code class="w3-codespan">File</code> class, create an object of 
+the class, and specify the filename or directory name: 
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>import java.io.File;&nbsp; // Import the File class
+
+File myObj = new File(&quot;filename.txt&quot;);&nbsp;// Specify the filename
+</code></pre>
+</div>
+<div class="ws-note w3-panel">
+<p>If you don't know what a package is, read our <a href="java_packages.html">Java Packages Tutorial</a>.</p>
+</div>
+
+<p>The <code class="w3-codespan">File</code> class has many useful methods for creating and getting information 
+about files. 
+For example:</p>
+<div class="w3-responsive" style="margin:-16px 0;">
+<table class="ws-table-all notranslate">
+<tbody>
+<tr>
+<th style="width:25%">Method</th>
+<th style="width:15%">Type</th>
+<th style="width:60%">Description</th>
+</tr>
+<tr>
+<td><code class="w3-codespan">canRead()</code></td>
+<td>Boolean</td>
+<td>Tests whether the file is readable or not</td>
+
+</tr>
+<tr>
+<td><code class="w3-codespan">canWrite()</code></td>
+<td>Boolean</td>
+<td>Tests whether the file is writable or not</td>
+
+</tr>
+<tr>
+<td><code class="w3-codespan">createNewFile()</code></td>
+<td>Boolean</td>
+<td>Creates an empty file</td>
+
+</tr>
+<tr>
+<td><code class="w3-codespan">delete()</code></td>
+<td>Boolean</td>
+<td>Deletes a file</td>
+
+</tr>
+<tr>
+<td><code class="w3-codespan">exists()</code></td>
+<td>Boolean</td>
+<td>Tests whether the file exists</td>
+
+</tr>
+<tr>
+<td><code class="w3-codespan">getName()</code></td>
+<td>String</td>
+<td>Returns the name of the file</td>
+
+</tr>
+<tr>
+<td><code class="w3-codespan">getAbsolutePath()</code></td>
+<td>String</td>
+<td>Returns the absolute pathname of the file</td>
+
+</tr>
+<tr>
+<td><code class="w3-codespan">length()</code></td>
+<td>Long</td>
+<td>Returns the size of the file in bytes</td>
+
+</tr>
+<tr>
+<td><code class="w3-codespan">list()</code></td>
+<td>String[]</td>
+<td>Returns an array of the files in the directory</td>
+
+</tr>
+<tr>
+<td><code class="w3-codespan">mkdir()</code></td>
+<td>Boolean</td>
+<td>Creates a directory</td>
+
+</tr>
+</tbody>
+</table>
+</div>
+
+<p>You will learn how to create, write, read and delete files in the next chapters:</p>
+<div class="w3-bar-block ws-grey">
+  <a href="java_files_create.html" class="w3-bar-item w3-button w3-border-bottom">Create Files &raquo;</a>
+  <a href="java_files_write.html" class="w3-bar-item w3-button w3-border-bottom">Write to Files &raquo;</a>
+  <a href="java_files_read.html" class="w3-bar-item w3-button w3-border-bottom">Read Files &raquo;</a>
+  <a href="java_files_delete.html" class="w3-bar-item w3-button">Delete Files &raquo;</a>
+</div>
+
+<hr>
+
+<hr>
+
+<br>

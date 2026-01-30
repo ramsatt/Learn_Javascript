@@ -1,0 +1,62 @@
+<h1>C <span class="color_h1">Constants</span></h1>
+
+<hr>
+
+
+<h2>Constants</h2>
+<p>Now that you have seen different types of variables in C, you should also know that sometimes you need variables that should not change.</p>
+<p>This can be done with the <code class="w3-codespan">const</code> keyword, which makes a variable <b>unchangeable</b> and <b>read-only</b>:</p>
+
+<div class="w3-example w3-pale-red">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh w3-border-red">
+  <strong>const</strong> int myNum = 15;&nbsp; // myNum will always be 15<br>myNum = 10;&nbsp; // error: 
+  assignment of read-only variable 'myNum'</div>
+
+</div>
+
+<p>You should always declare a variable as <code class="w3-codespan">const</code> when you have values that are unlikely to change:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  <strong>const</strong> int minutesPerHour = 60;<br><strong>const</strong> int 
+  monthsInYear = 12;</div>
+
+</div>
+
+<hr>
+
+
+<h2>Notes On Constants</h2>
+<p>When you declare a constant variable, it must be assigned with a value:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Like this:</p>
+<div class="w3-code notranslate javaHigh">
+  const int minutesPerHour = 60;
+</div>
+<p>This however, <strong>will not work</strong>:</p>
+<div class="w3-code notranslate javaHigh w3-border-red">
+  const int minutesPerHour;<br>minutesPerHour = 60; // error</div>
+
+</div>
+
+<hr>
+
+
+<h2>Good Practice</h2>
+<p>Another thing about constant variables, is that it is considered good practice to declare them with uppercase.</p>
+<p>It is not required, but useful for code readability and common for C programmers:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  <strong>const</strong> int BIRTHYEAR = 1980;</div>
+
+</div>
+
+
+<hr>
+
+<hr>

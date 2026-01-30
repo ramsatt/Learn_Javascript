@@ -1,0 +1,112 @@
+<h1>MS Access <span class="color_h1">DateDiff()</span> Function</h1>
+
+<div class="w3-clear w3-center nextprev">
+<a class="w3-left w3-btn" href="func_msaccess_dateadd.html">&#10094;<span class="w3-hide-small"> Previous</span></a>
+<a class="w3-btn" title="MS Access Functions" href="sql_ref_msaccess.html">&#10094; MS Access Functions</a>
+<a class="w3-right w3-btn" href="func_msaccess_datepart.html"><span class="w3-hide-small">Next </span>&#10095;</a>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Return the difference between two dates, in years:</p>
+<div class="w3-code notranslate sqlHigh">
+  SELECT DateDiff("yyyy", #13/01/1998#, #09/05/2017#);</div>
+<a target="_blank" href="trysql908e.html?filename=trysql_func_ms_datediff&amp;ss=-1" class="w3-btn w3-margin-bottom">Try it Yourself &raquo;</a>
+</div>
+<hr>
+
+<h2>Definition and Usage</h2>
+<p>The DateDiff() function returns the difference between two dates.</p>
+
+<h2>Syntax</h2>
+<div class="w3-code w3-border notranslate">
+DateDiff(<em>datepart</em>, <em>date1</em>, <em>date2</em>, <em>firstdayofweek</em>, <em>
+  firstweekofyear</em>)</div>
+
+<h2>Parameter Values</h2>
+<table class="ws-table-all notranslate"> 
+  <tr>
+    <th style="width:23%">Parameter</th>
+    <th>Description</th>  </tr>  
+  <tr>
+    <td><em>datepart</em></td>
+    <td>Required. The part to return. Can be one of the following values:
+    <ul>
+      <li>yyyy = Year</li>
+      <li>q = Quarter</li>
+      <li>m = month</li>
+      <li>y = Day of the year</li>
+      <li>d = Day</li>
+      <li>w = Weekday</li>
+      <li>ww = Week</li>
+      <li>h = hour</li>
+      <li>n = Minute</li>
+      <li>s = Second</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td><em>date1</em> and <em>date2</em></td>
+    <td>Required. The two dates to calculate the difference between</td>
+  </tr>
+  <tr>
+    <td><em>firstdayofweek</em></td>
+    <td>Optional. Specifies the first day of the week. 
+    Can be one of the following values:
+    <ul>
+      <li>0 = Use the NLS API setting</li>
+      <li>1 = Sunday (this is default)</li>
+      <li>2 = Monday</li>
+      <li>3 = Tuesday</li>
+      <li>4 = Wednesday</li>
+      <li>5 = Thursday</li>
+      <li>6 = Friday</li>
+      <li>7 = Saturday</li>
+    </ul>
+</td>
+  </tr>
+  <tr>
+    <td><em>firstdayofyear</em></td>
+    <td>Optional. Specifies the first week of the year. Can be one of the following values:
+    <ul>
+      <li>0 = Use the NLS API setting</li>
+      <li>1 = Use the first week that includes Jan 1st (default)</li>
+      <li>2 = Use the first week in the year that has at least 4 days</li>
+      <li>3 = Use the first full week of the year</li>
+    </ul>
+    </td>
+  </tr>
+</table>
+
+<h2>Technical Details</h2>
+<table class="ws-table-all">
+<tr>
+ <th style="width:23%">Works in:</th>
+  <td>From Access 2000</td>
+</tr>
+</table>
+<hr>
+
+<h2>More Examples</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Return the difference between two dates, in months:</p>
+<div class="w3-code notranslate sqlHigh">
+  SELECT DateDiff("m", #13/01/1998#, #09/05/2017#);</div>
+<a target="_blank" href="trysql1bb1.html?filename=trysql_func_ms_datediff2&amp;ss=-1" class="w3-btn w3-margin-bottom">Try it Yourself &raquo;</a>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Return the difference between a specified date and today's date, in days:</p>
+<div class="w3-code notranslate sqlHigh">
+  SELECT DateDiff("d", #13/01/1998#, Date());</div>
+<a target="_blank" href="trysql5c1f.html?filename=trysql_func_ms_datediff3&amp;ss=-1" class="w3-btn w3-margin-bottom">Try it Yourself &raquo;</a>
+</div>
+<br>
+
+<div class="w3-clear w3-center nextprev">
+<a class="w3-left w3-btn" href="func_msaccess_dateadd.html">&#10094;<span class="w3-hide-small"> Previous</span></a>
+<a class="w3-btn" title="MS Access Functions" href="sql_ref_msaccess.html">&#10094; MS Access Functions</a>
+<a class="w3-right w3-btn" href="func_msaccess_datepart.html"><span class="w3-hide-small">Next </span>&#10095;</a>
+</div>

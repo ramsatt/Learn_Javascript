@@ -1,0 +1,82 @@
+<h1>Python <span class="color_h1">Classes and Objects</span></h1>
+
+<hr>
+
+<h2>Python Classes/Objects</h2>
+<p>Python is an object oriented programming language.</p>
+<p>Almost everything in Python is an object, with its properties and methods.</p>
+<p>A Class is like an object constructor, or a "blueprint" for creating objects.</p>
+<hr>
+<h2>Create a Class</h2>
+<p>To create a class, use the keyword <code class="w3-codespan"><a href="ref_keyword_class.html">class</a></code>:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Create a class named MyClass, with a property named x:</p>
+<div class="w3-code notranslate pythonHigh">
+  class MyClass:<br>&nbsp; x = 5</div>
+
+</div>
+
+<hr>
+
+<h2>Create Object</h2>
+
+<p>Now we can use the class named MyClass to create objects:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Create an object named p1, and print the value of x:</p>
+<div class="w3-code notranslate pythonHigh">
+  p1 = MyClass()<br>print(p1.x)</div>
+
+</div>
+
+<hr>
+
+<h2>Delete Objects</h2>
+
+<p>You can delete objects by using the <code class="w3-codespan"><a href="ref_keyword_del.html">del</a></code> keyword:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Delete the p1 object:</p>
+<div class="w3-code notranslate pythonHigh">
+  del p1</div>
+
+</div>
+
+<hr>
+
+<h2>Multiple Objects</h2>
+
+<p>You can create multiple objects from the same class:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Create three objects from the MyClass class:</p>
+<div class="w3-code notranslate pythonHigh">
+p1 = MyClass()<br>p2 = MyClass()<br>p3 = MyClass()<br><br>print(p1.x)<br>print(p2.x)<br>print(p3.x)</div>
+
+</div>
+
+<div class="w3-panel ws-note">
+  <p><strong>Note:</strong> Each object is independent and has its own copy of the class properties.</p>
+</div>
+
+<hr>
+
+<h2>The pass Statement</h2>
+<p><code class="w3-codespan"><a href="ref_keyword_class.html">class</a></code> definitions cannot be empty, but if 
+you for some reason have a <code class="w3-codespan"><a href="ref_keyword_class.html">class</a></code> definition with no content, put in the <code class="w3-codespan"><a href="ref_keyword_pass.html">pass</a></code> statement to avoid getting an error.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate pythonHigh">
+  class Person:<br>&nbsp; pass</div>
+
+</div>
+
+<hr>
+
+<hr>

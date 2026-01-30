@@ -1,0 +1,170 @@
+<h1>React Getting Started</h1>
+
+
+<hr>
+
+<div class="w3-panel ws-note">
+  <p>To use React in production, you need npm which is included with 
+    <a href="https://nodejs.org/" target="_blank">Node.js</a>.</p>
+<p>Also, you need to set up a React Environment, and choose a build tool.</p>
+</div>
+
+<hr>
+
+<h2>Setting up a React Environment</h2>
+
+<p>First, make sure you have Node.js installed. You can check by running this in your terminal:</p>
+
+
+<div class="w3-example">
+  <div class="w3-code notranslate w3-black">
+    node -v
+  </div>
+</div>
+
+<p>If Node.js is installed, you will get a result with the version number:</p>
+
+<div class="w3-example">
+  <div class="w3-code notranslate w3-black">
+    v22.15.0
+  </div>
+</div>
+
+<p>If not, you will need to install Node.js.</p>
+
+<hr>
+
+<h2>Install a Build Tool (Vite)</h2>
+
+<p>When you have Node.js installed, you can start creating a React application by choosing a build tool.</p>
+
+<p>We will use the <a href="https://vite.dev/" target="_blank">Vite</a> build tool in this tutorial.</p>
+
+<p>Run this command to install Vite:</p>
+
+<div class="w3-example">
+<div class="w3-code notranslate w3-black">
+  npm install -g create-vite
+</div>
+</div>
+
+<p>If the installation was a success, you will get a result like this:</p>
+
+<div class="w3-example">
+<div class="w3-code notranslate w3-black">
+  added 1 package in 649ms
+</div>
+</div>
+
+<hr>
+
+<h2>Create a React Application</h2>
+
+<p>Run this command to create a React application named <code class="w3-codespan">my-react-app</code>:</p>
+
+<div class="w3-example">
+<div class="w3-code notranslate w3-black">
+  npm create vite@latest my-react-app -- --template react
+</div>
+</div>
+
+<p>If you get this message, just press <code class="w3-codespan">y</code> and press <code class="w3-codespan">Enter</code> to continue:</p>
+
+<div class="w3-example">
+<div class="w3-code notranslate w3-black">
+Need to install the following packages:<br>
+create-vite@6.5.0<br>
+Ok to proceed? (y)
+</div>
+</div>
+
+<p>If the creation was a success, you will get a result like this:</p>
+
+<div class="w3-example">
+<div class="w3-code notranslate w3-black">
+<br>
+> npx<br>
+> create-vite my-react-app --template react<br>
+<br>
+  <span class="w3-text-gray">|</span><br>
+  <span class="w3-text-green">o</span>&nbsp;&nbsp;Scaffolding project in C:\Users\stale\my-react-app...<br>
+  <span class="w3-text-gray">|</span><br>
+  <span class="w3-text-gray">—</span>&nbsp;&nbsp;Done. Now run:<br>
+  <br>
+  &nbsp;&nbsp;cd my-react-app<br>
+  &nbsp;&nbsp;npm install<br>
+  &nbsp;&nbsp;npm run dev
+</div>
+</div>
+
+<hr>
+
+<h2>Install Dependencies</h2>
+
+<p>As the result above suggests, navigate to your new react application directory:</p>
+
+<div class="w3-example">
+  <div class="w3-code notranslate w3-black">
+    cd my-react-app
+  </div>
+</div>
+
+<p>And run this command to install dependencies:</p>
+
+<div class="w3-example">
+  <div class="w3-code notranslate w3-black">
+    npm install
+  </div>
+</div>
+
+<p>Which will result in this:</p>
+
+<div class="w3-example">
+  <div class="w3-code notranslate w3-black">
+added 154 packages, and audited 155 packages in 8s<br>
+<br>
+33 packages are looking for funding<br>
+&nbsp;&nbsp;run `npm fund` for details<br>
+<br>
+found <span class="w3-text-green">0</span> vulnerabilities
+  </div>
+</div>
+
+<h2>Run the React Application</h2>
+
+<p>Now you are ready to run your first <em>real</em> React application!</p>
+
+<p>Run this command to run the React application <code class="w3-codespan">
+my-react-app</code>:</p>
+
+<div class="w3-example">
+<div class="w3-code notranslate w3-black">
+  npm run dev
+</div>
+</div>
+
+<p>Which will result in this:</p>
+
+<div class="w3-example">
+  <div class="w3-code notranslate w3-black">
+<span class="w3-text-green">VITE v6.3.5</span>&nbsp;&nbsp;<span class="w3-text-gray">ready in</span> 217 ms<br>
+<br>
+<span class="w3-text-green">➜</span>  Local:   <a style="text-decoration:none;color:dodgerblue" target="_blank" href="http://localhost:5173/">http://localhost:5173/</a><br>
+<span class="w3-text-green">➜</span>  Network: use --host to expose<br>
+<span class="w3-text-green">➜</span>  press h + enter to show help
+  </div>
+</div>
+
+<p>A new browser window will pop up with your newly created React App! If not, open your browser and type 
+<code class="w3-codespan">localhost:5173</code> in the address bar.</p>
+
+<p>The result:</p>
+
+<div class="w3-container w3-margin-top">
+<img src="assets/content/images/screenshot_react1.png" style="max-width:100%">
+</div>
+<br>
+
+<hr>
+
+<hr>

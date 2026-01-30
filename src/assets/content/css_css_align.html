@@ -1,0 +1,195 @@
+<h1>CSS <span class="color_h1">Horizontal &amp; Vertical Align</span></h1>
+<br>
+<div class="w3-dark-grey w3-padding-48 w3-display-container">
+<div class="w3-center w3-display-container" style="background-color:#1abc9c;color:white;max-width:400px;margin:auto;padding:15px">
+<h2>Center elements<br>horizontally and vertically</h2>
+</div>
+</div>
+<hr>
+
+
+<h2>CSS Centering Elements</h2>
+<p>With CSS, you can center elements (horizontally, vertically, or both) with several methods, depending on the type of element.</p>
+<hr>
+
+<h2>Center Align Block Elements</h2>
+<p>Use <code class="w3-codespan"><a href="../cssref/pr_margin.html">margin: auto;</a></code>, 
+to horizontally center a block-level element (like &lt;div&gt;).</p>
+<p>Also specify a <code class="w3-codespan"><a href="../cssref/pr_dim_width.html">
+width</a></code> for the element, to prevent it from stretching out to the edges of its container.</p>
+<p><b>Note:</b> Center aligning has no effect on block-level elements if the <code class="w3-codespan">width</code> property is not set 
+(or set to 100%).</p>
+<p>Below, the &lt;div&gt; element is centered and has a width of 50% (and the remaining space 
+will be split equally between the left and right margins):</p>
+
+<div style="margin:0 auto;width:50%;border:3px solid green;padding:10px;">
+  <p>This div element is centered.</p>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+.center
+{<br>
+&nbsp;&nbsp;margin: auto;<br>
+  &nbsp;
+width: 50%;<br>
+  &nbsp;
+border: 3px solid green;<br>&nbsp; padding: 10px;<br>
+}</div>
+
+</div>
+
+<hr>
+
+<h2>Center Align Text</h2>
+<p>To center the text inside a block-level element, use <code class="w3-codespan">text-align: center;</code>.</p>
+
+<div style="text-align:center;border:3px solid green">
+  <p>This text is centered.</p>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+  p {<br>&nbsp; text-align: center;<br>}</div>
+
+</div>
+
+<p><strong>Tip:</strong> For more examples on how to align text, see the <a href="css_text.html">CSS Text</a> chapter.</p>
+<hr>
+
+<hr>
+
+<h2>Center Align an Image</h2>
+<p>To center an image, set <code class="w3-codespan">
+<a href="../cssref/pr_margin-left.html">margin-left</a></code> and <code class="w3-codespan">
+<a href="../cssref/pr_margin-right.html">margin-right</a></code> to <code class="w3-codespan">auto</code>, and 
+also turn the image into a <code class="w3-codespan">block</code> element:</p>
+
+<img src="assets/content/images/paris.jpg" alt="Paris" style="width:45%;display:block;margin:0 auto">
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+img
+{<br>&nbsp;&nbsp;display: block;<br>
+  &nbsp; margin-left: auto;<br>&nbsp; margin-right: auto;<br>
+&nbsp;&nbsp;width: 40%;<br>
+}</div>
+
+</div>
+
+<hr>
+
+<h2>Center Align with Flexbox</h2>
+<p>With <a href="css3_flexbox.html">CSS flexbox</a> you can center elements, both horizontally and vertically, within a flex container.</p>
+<p>A flex container with both the <code class="w3-codespan"><a href="../cssref/css3_pr_justify-content.html">justify-content</a></code> and the
+<code class="w3-codespan"><a href="../cssref/css3_pr_align-items.html">align-items</a></code> properties set to 
+<code class="w3-codespan">center</code> will align the item(s) in the center (in both axis):</p>
+
+<div style="display: flex;justify-content: center;align-items: center;height: 200px;border: 3px solid green;">
+I am vertically and horizontally centered.
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+  .center {<br>&nbsp; display: flex;<br>&nbsp; justify-content: center;<br>&nbsp; 
+  align-items: center;<br>&nbsp; height: 200px;<br>&nbsp; border: 3px solid 
+  green; <br>}</div>
+
+</div>
+
+<hr>
+
+<h2>Center Align with Grid</h2>
+<p>With <a href="css_grid.html">CSS grid</a> you can center elements, both horizontally and vertically, within a grid container.</p>
+<p>A grid container with the <code class="w3-codespan"><a href="../cssref/css_pr_place-items.html">place-items</a></code> property set to center, will align the item(s) in the center (in both axis).</p>
+<div style="display: grid;place-items: center;height: 200px;border: 3px solid green;">
+I am vertically and horizontally centered.
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+  .center {<br>&nbsp; display: grid;<br>&nbsp; place-items: center;<br>&nbsp; height: 200px;<br>&nbsp; border: 3px solid 
+  green; <br>}</div>
+
+</div>
+
+<hr>
+
+<h2>Left and Right Align - Using position</h2>
+<p>Another method for aligning elements is to use <code class="w3-codespan">
+<a href="../cssref/pr_class_position.html">position: absolute;</a></code>:</p>
+<p><b>Note:</b> Absolute positioned elements are removed from the normal flow, and can overlap 
+other elements.</p>
+
+<div style="position:relative;margin-bottom:180px">
+  <div style="position:absolute;right:0px;width:300px;border:3px solid green;padding:10px;">
+    <p>This &lt;div&gt; element is positioned to the right, with the position: 
+    absolute property.</p>
+  </div>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+.right
+{<br>
+&nbsp;&nbsp;position: absolute;<br>
+  &nbsp;
+right: 0px;<br>
+&nbsp;&nbsp;width: 300px;<br>
+&nbsp;&nbsp;border: 3px solid green;<br>&nbsp;&nbsp;padding: 10px;<br>
+}</div>
+
+</div>
+
+<hr>
+
+<h2>Left and Right Align - Using float</h2>
+<p>Another method for aligning an element to the left or right, is to use the <code class="w3-codespan">
+<a href="../cssref/pr_class_float.html">float</a></code> property:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+.right
+{<br>
+&nbsp;&nbsp;float: right;<br>
+  &nbsp;
+width: 300px;<br>
+&nbsp;&nbsp;border: 3px solid green;<br>&nbsp;&nbsp;padding: 10px;<br>
+}</div>
+
+</div>
+
+<hr>
+
+<h2>Center Align with position and transform</h2>
+<p>If you deal with elements of unknown or dynamic dimensions, it is a common 
+technique to use <code class="w3-codespan">position: 
+absolute;</code> combined with <code class="w3-codespan">transform: translate();</code> 
+to center an element:</p>
+
+<div style="height:200px;position:relative;border:3px solid green;">
+  <p style="margin:0;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);">I am vertically and horizontally centered.</p>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+.container p {<br>&nbsp;&nbsp;margin: 0;<br>&nbsp; 
+position: absolute;<br>&nbsp; top: 50%;<br>&nbsp; 
+left: 50%;<br>&nbsp; transform: translate(-50%, -50%);<br>}</div>
+
+</div>
+
+<p><strong>Tip:</strong> You will learn more about the transform property in our <a href="css3_2dtransforms.html">2D Transforms 
+Chapter</a>.</p>
+<hr>
+
+<hr>
+
+<br>

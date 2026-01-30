@@ -1,0 +1,214 @@
+<h1>CSS <span class="color_h1">Dropdowns</span></h1>
+
+<hr>
+
+<h2>CSS Dropdowns</h2>
+<p>CSS dropdowns are used to display a list of options or content when a user 
+clicks or hover over an element, like a button or a navigation link.</p>
+
+<p>A CSS dropdown consists of a trigger element (like &lt;div&gt;, &lt;button&gt;, &lt;p&gt;, &lt;a&gt;, 
+etc.).</p>
+<p>When the trigger element is clicked or hovered over, the dropdown content 
+will be displayed.</p>
+<p>The dropdown content is a container element (e.g. &lt;div&gt;) that holds the hidden content 
+(can be text, links, images, etc.).&nbsp;</p>
+
+<p>Mouse over the three CSS dropdown examples below:</p>
+
+<div class="w3-row" style="padding:20px;border:1px solid black;">
+
+<div class="w3-third">
+  <div class="dropdown dropdown2" style="position:relative;top:15px;">
+    <span class="dropspan">Dropdown Text</span>
+    <div class="dropdown-content w3-white" style="padding:8px 16px;min-width:150px;text-align:center">
+      <p>Hello World!</p>
+    </div>
+  </div>
+</div>
+
+<div class="w3-third">
+  <div class="dropdown dropdown2">
+    <button class="dropbtn">Dropdown Menu</button>
+    <div class="dropdown-content">
+      <a href="javascript:void(0)">Link 1</a>
+      <a href="javascript:void(0)">Link 2</a>
+      <a href="javascript:void(0)">Link 3</a>
+    </div>
+  </div>
+</div>
+
+<div class="w3-third">
+  <div class="dropdown dropdown2">
+    <span style="position:relative;bottom:15px;">Other: </span>
+    <img class="dropimg" src="assets/content/images/img_5terre.jpg" alt="Cinque Terre" width="100" height="50">
+    <div class="dropdown-content right">
+      <div class="img">
+        <img src="assets/content/images/img_5terre.jpg" alt="Cinque Terre" width="300" height="200">
+        <div class="w3-white" style="padding:15px;text-align:center;">Beautiful Cinque Terre</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+<p style="clear:both"></p>
+
+<hr>
+
+<h2>CSS Dropdown Box with Text</h2>
+
+<p>Here, we create a dropdown box with some text, that appears when the user mouses over a 
+&lt;div&gt; 
+element.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+&lt;style&gt;<br>.dropdown {<br>&nbsp; position: relative;<br>}<br><br>.dropdown-content {<br>&nbsp; display: 
+none;<br>&nbsp; position: absolute;<br>&nbsp; 
+background-color: #f9f9f9;<br>&nbsp; min-width: 130px;<br>&nbsp;&nbsp;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);<br>
+  &nbsp; padding: 
+12px 16px;<br>}<br><br>.dropdown:hover 
+.dropdown-content {<br>&nbsp; display: block;<br>}<br>&lt;/style&gt;<br><br>
+&lt;div class="dropdown"&gt;Mouse over me!<br>&nbsp; 
+&lt;div class="dropdown-content"&gt;Hello World!&lt;/div&gt;<br>&lt;/div&gt;</div>
+
+</div>
+<h3>Example Explained</h3>
+<ul>
+  <li>The .dropdown class uses <code class="w3-codespan">
+  <a href="../cssref/pr_class_position.html">position:relative</a></code>, which is needed when we want the 
+dropdown content to be placed right below the trigger element (the dropdown 
+  content will use 
+  <code class="w3-codespan"><a href="../cssref/pr_class_position.html">position:absolute</a></code>).</li>
+  <li>The .dropdown-content class holds the dropdown content. It is hidden by 
+default, and will be displayed on hover. </li>
+  <li>The 
+  <code class="w3-codespan"><a href="../cssref/pr_dim_min-width.html">min-width</a></code> 
+  property is set to 130px. Feel free to change 
+this! If you want the width of the dropdown content to be 
+as wide as the trigger element, set <code class="w3-codespan">
+  <a href="../cssref/pr_dim_width.html">width</a></code> to 100% and
+  <code class="w3-codespan"><a href="../cssref/pr_pos_overflow.html">overflow:auto</a></code> to 
+enable scroll on small screens.</li>
+  <li>Instead of using a border, we use the <code class="w3-codespan">
+  <a href="../cssref/css3_pr_box-shadow.html">box-shadow</a></code> property to make the 
+dropdown content look like a "card".</li>
+  <li>The <code class="w3-codespan"><a href="../cssref/sel_hover.html">:hover</a></code> selector is used to show the dropdown 
+  content when the user  
+mouses over the &lt;div class=&quot;dropdown&quot;&gt; element.</li>
+</ul>
+
+<hr>
+
+<hr>
+
+<h2>CSS Dropdown Menu</h2>
+
+<p>Create a dropdown menu that allows the user to choose an option from a list:</p>
+<div class="dropdown dropdown2">
+  <button class="dropbtn dropbtn2">Dropdown Menu</button>
+  <div class="dropdown-content">
+    <a href="javascript:void(0)">Link 1</a>
+    <a href="javascript:void(0)">Link 2</a>
+    <a href="javascript:void(0)">Link 3</a>
+  </div>
+</div>
+<p>This example is similar to the previous one, except that we add a button and links inside the dropdown box and style them to fit 
+the dropdown button:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;style&gt;<br>.dropdown {<br>
+  &nbsp; position: relative;<br>}<br><br>/* Style the dropdown button */<br>.dropbtn {<br>&nbsp; 
+background-color: #4CAF50;<br>&nbsp; color: white;<br>&nbsp; 
+padding: 16px;<br>&nbsp; font-size: 16px;<br>&nbsp; 
+border: none;<br>&nbsp; cursor: pointer;<br>}<br><br>/* Dropdown content */<br>
+.dropdown-content {<br>&nbsp; display: none;<br>&nbsp; position: 
+absolute;<br>&nbsp; background-color: #f9f9f9;<br>&nbsp; 
+min-width: 200px;<br>&nbsp; box-shadow: 
+0px 8px 16px 0px rgba(0,0,0,0.2);<br>}<br><br>/* Links inside dropdown content */<br>
+.dropdown-content a {<br>&nbsp; color: black;<br>&nbsp;&nbsp;padding: 12px 16px;<br>&nbsp; text-decoration: none;<br>
+  &nbsp; 
+display: block;<br>}<br><br>/* Change color of dropdown links on hover */<br>
+.dropdown-content a:hover {<br>&nbsp; background-color: #f1f1f1<br>}<br><br>/* Show the 
+dropdown content on hover */<br>.dropdown:hover .dropdown-content {<br>&nbsp; 
+display: block;<br>}<br><br>/* Change background color of dropdown 
+button on hover */<br>.dropdown:hover .dropbtn {<br>&nbsp;&nbsp;background-color: #3e8e41;<br>}<br>&lt;/style&gt;<br><br>
+&lt;div class="dropdown"&gt;<br>&nbsp; &lt;button class="dropbtn"&gt;Dropdown 
+  Menu&lt;/button&gt;<br>&nbsp; 
+&lt;div class="dropdown-content"&gt;<br>&nbsp;&nbsp;&nbsp; &lt;a href="#"&gt;Link 
+1&lt;/a&gt;<br>&nbsp;&nbsp;&nbsp; 
+&lt;a href="#"&gt;Link 2&lt;/a&gt;<br>&nbsp;&nbsp;&nbsp; &lt;a href="#"&gt;Link 3&lt;/a&gt;<br>&nbsp; &lt;/div&gt;<br>&lt;/div&gt;</div>
+
+</div>
+
+<hr>
+
+<h2>CSS Right-aligned Dropdown</h2>
+
+<div class="dropdown dropdown2" style="float:left;">
+  <button class="dropbtn dropbtn2">Left</button>
+  <div class="dropdown-content" style="min-width:160px;">
+    <a href="javascript:void(0)">Link 1</a>
+    <a href="javascript:void(0)">Link 2</a>
+    <a href="javascript:void(0)">Link 3</a>
+  </div>
+</div>
+
+<div class="dropdown dropdown2" style="float:right;">
+  <button class="dropbtn dropbtn2">Right</button>
+  <div class="dropdown-content" style="min-width:160px;right:0;">
+    <a href="javascript:void(0)">Link 1</a>
+    <a href="javascript:void(0)">Link 2</a>
+    <a href="javascript:void(0)">Link 3</a>
+  </div>
+</div>
+<p style="clear:both;"></p>
+
+
+<p style="margin-top:30px;">If you want the dropdown menu to go from right to left, instead of left to right, add <code class="w3-codespan">
+<a href="../cssref/pr_pos_right.html">right: 0;</a></code></p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+.dropdown-content {<br>&nbsp; right: 0;<br>}<br></div>
+
+</div>
+
+<hr>
+
+<h2>CSS Dropdown Image</h2>
+<p>How to add an image and other content inside the dropdown box.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-white w3-padding">
+<p>Hover over the image:</p>
+<div class="dropdownimg" style="padding-bottom:15px;">
+  <img src="assets/content/images/img_5terre.jpg" alt="Cinque Terre" width="100" height="50">
+  <div class="dropdown-contentimg">
+    <img src="assets/content/images/img_5terre.jpg" alt="Cinque Terre" width="300" height="200">
+    <div class="w3-white descimg">Beautiful Cinque Terre</div>
+  </div><br>
+</div><br>
+</div>
+
+</div>
+
+<hr>
+
+
+<h2>CSS Dropdown Navbar</h2>
+<p>How to add a dropdown menu inside a navigation bar.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-white">
+<iframe src="assets/content/images/trycss_dropdown_navbar.html" style="width:100%;border:none;height:200px"></iframe>
+</div>
+
+</div>
+
+
+<br>

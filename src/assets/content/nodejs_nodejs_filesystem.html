@@ -1,0 +1,689 @@
+<h1>Node.js <span class="color_h1">File System Module</span></h1>
+
+<hr>
+
+<h2>Introduction to Node.js File System</h2>
+<p>The Node.js File System module (fs) provides a comprehensive set of methods for working with the file system on your computer.</p>
+<p>It allows you to perform file I/O operations in both synchronous and asynchronous ways.</p>
+
+<div class="w3-panel ws-note">
+  <p><strong>Note:</strong> The File System module is a core Node.js module, so no installation is required.</p>
+</div>
+
+<h3>Importing the File System Module</h3>
+
+<p>You can import the File System module using CommonJS <code class="w3-codespan">require()</code> or ES modules <code class="w3-codespan">import</code> syntax:</p>
+
+<div class="w3-example">
+  <h4>CommonJS (Default in Node.js)</h4>
+  <div class="w3-code notranslate jsHigh">
+  const fs = require('fs');
+  </div>
+</div>
+
+<div class="w3-example">
+  <h4>ES Modules (Node.js 14+ with "type": "module" in package.json)</h4>
+  <div class="w3-code notranslate jsHigh">
+  import fs from 'fs';<br>
+  // Or for specific methods:<br>
+  // import { readFile, writeFile } from 'fs/promises';
+  </div>
+</div>
+
+<h3>Promise-based API</h3>
+<p>Node.js provides promise-based versions of the File System API in the <code class="w3-codespan">fs/promises</code> namespace, which is recommended for modern applications:</p>
+
+<div class="w3-example">
+  <div class="w3-code notranslate jsHigh">
+  // Using promises (Node.js 10.0.0+)<br>
+  const fs = require('fs').promises;<br>
+  <br>
+  // Or with destructuring<br>
+  const { readFile, writeFile } = require('fs').promises;<br>
+  <br>
+  // Or with ES modules<br>
+  // import { readFile, writeFile } from 'fs/promises';  </div>
+</div>
+
+<h3>Common Use Cases</h3>
+<div class="w3-row-padding">
+  <div class="w3-col l4 m6 s12">
+    <div class="w3-panel w3-light-grey w3-padding-16">
+      <h4>File Operations</h4>
+      <ul>
+        <li>Read and write files</li>
+        <li>Create and delete files</li>
+        <li>Append to files</li>
+        <li>Rename and move files</li>
+        <li>Change file permissions</li>
+      </ul>
+    </div>
+  </div>
+  <div class="w3-col l4 m6 s12">
+    <div class="w3-panel w3-light-grey w3-padding-16">
+      <h4>Directory Operations</h4>
+      <ul>
+        <li>Create and remove directories</li>
+        <li>List directory contents</li>
+        <li>Watch for file changes</li>
+        <li>Get file/directory stats</li>
+        <li>Check file existence</li>
+      </ul>
+    </div>
+  </div>
+  <div class="w3-col l4 m6 s12">
+    <div class="w3-panel w3-light-grey w3-padding-16">
+      <h4>Advanced Features</h4>
+      <ul>
+        <li>File streams</li>
+        <li>File descriptors</li>
+        <li>Symbolic links</li>
+        <li>File watching</li>
+        <li>Working with file permissions</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="w3-panel ws-note">
+  <p><strong>Performance Tip:</strong> For large files, consider using streams (<code class="w3-codespan">fs.createReadStream</code> and <code class="w3-codespan">fs.createWriteStream</code>) to avoid high memory usage.</p>
+</div>
+
+<hr>
+
+<h2>Reading Files</h2>
+<p>Node.js provides several methods to read files, including both callback-based and promise-based approaches.</p>
+<p>The most common method is <code class="w3-codespan">fs.readFile()</code>.</p>
+
+<div class="w3-panel ws-note">
+  <p><strong>Note:</strong> Always handle errors when working with file operations to prevent your application from crashing.</p>
+</div>
+
+<h3>Reading Files with Callbacks</h3>
+<p>Here's how to read a file using the traditional callback pattern:</p>
+<div class="w3-example">
+<p>myfile.txt</p>
+<div class="w3-code notranslate">
+This is the content of myfile.txt</div>
+</div>
+<p>Create a Node.js file that reads the text file, and return the content:</p>
+<div class="w3-example">
+<h4>Example: Reading a file with callbacks</h4>
+<div class="w3-code notranslate jsHigh">
+const fs = require('fs');<br>
+<br>
+// Read file asynchronously with callback<br>
+fs.readFile('myfile.txt', 'utf8', (err, data) => {<br>
+&nbsp; if (err) {<br>
+&nbsp; &nbsp; console.error('Error reading file:', err);<br>
+&nbsp; &nbsp; return;<br>
+&nbsp; }<br>
+&nbsp; console.log('File content:', data);<br>
+});<br>
+<br>
+// For binary data (like images), omit the encoding<br>
+fs.readFile('image.png', (err, data) => {<br>
+&nbsp; if (err) throw err;<br>
+&nbsp; // data is a Buffer containing the file content<br>
+&nbsp; console.log('Image size:', data.length, 'bytes');<br>
+});</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="shownodejs_cmdb016.html?filename=demo_filesystem_open">Run example &raquo;</a>
+</div>
+
+<h3>Reading Files with Promises (Modern Approach)</h3>
+<p>Using <code class="w3-codespan">fs.promises</code> or <code class="w3-codespan">util.promisify</code> for cleaner async/await syntax:</p>
+
+<div class="w3-example">
+<h4>Example: Reading a file with async/await</h4>
+<div class="w3-code notranslate jsHigh">
+// Using fs.promises (Node.js 10.0.0+)<br>
+const fs = require('fs').promises;<br>
+<br>
+async function readFileExample() {<br>
+&nbsp; try {<br>
+&nbsp; &nbsp; const data = await fs.readFile('myfile.txt', 'utf8');<br>
+&nbsp; &nbsp; console.log('File content:', data);<br>
+&nbsp; } catch (err) {<br>
+&nbsp; &nbsp; console.error('Error reading file:', err);<br>
+&nbsp; }<br>
+}<br>
+<br>
+readFileExample();<br>
+<br>
+// Or with util.promisify (Node.js 8.0.0+)<br>
+const { promisify } = require('util');<br>
+const readFileAsync = promisify(require('fs').readFile);<br>
+<br>
+async function readWithPromisify() {<br>
+&nbsp; try {<br>
+&nbsp; &nbsp; const data = await readFileAsync('myfile.txt', 'utf8');<br>
+&nbsp; &nbsp; console.log(data);<br>
+&nbsp; } catch (err) {<br>
+&nbsp; &nbsp; console.error(err);<br>
+&nbsp; }<br>
+}<br>
+<br>
+readWithPromisify();</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="shownodejs_cmd81ce.html?filename=demo_filesystem_promise">Run example &raquo;</a>
+</div>
+
+<h3>Reading Files Synchronously</h3>
+<p>For simple scripts, you can use synchronous methods, but avoid them in production servers as they block the event loop:</p>
+
+<div class="w3-example">
+<h4>Example: Reading a file synchronously</h4>
+<div class="w3-code notranslate jsHigh">
+const fs = require('fs');<br>
+<br>
+try {<br>
+&nbsp; // Read file synchronously<br>
+&nbsp; const data = fs.readFileSync('myfile.txt', 'utf8');<br>
+&nbsp; console.log('File content:', data);<br>
+} catch (err) {<br>
+&nbsp; console.error('Error reading file:', err);<br>
+}</div>
+</div>
+
+<div class="w3-panel ws-note">
+  <p><strong>Best Practice:</strong> Always specify the character encoding (like 'utf8') when reading text files to get a string instead of a Buffer.</p>
+</div>
+
+<hr>
+
+<hr>
+<h2>Creating and Writing Files</h2>
+<p>Node.js provides several methods for creating and writing to files.</p>
+<p>Here are the most common approaches:</p>
+
+<h3>1. Using <code class="w3-codespan">fs.writeFile()</code></h3>
+<p>Creates a new file or overwrites an existing file with the specified content:</p>
+
+<div class="w3-example">
+<h4>Example: Writing to a file</h4>
+<div class="w3-code notranslate jsHigh">
+const fs = require('fs').promises;<br>
+<br>
+async function writeFileExample() {<br>
+&nbsp; try {<br>
+&nbsp; &nbsp; // Write text to a file<br>
+&nbsp; &nbsp; await fs.writeFile('myfile.txt', 'Hello, World!', 'utf8');<br>
+<br>
+&nbsp; &nbsp; // Write JSON data<br>
+&nbsp; &nbsp; const data = { name: 'John', age: 30, city: 'New York' };<br>
+&nbsp; &nbsp; await fs.writeFile('data.json', JSON.stringify(data, null, 2), 'utf8');<br>
+<br>
+&nbsp; &nbsp; console.log('Files created successfully');<br>
+&nbsp; } catch (err) {<br>
+&nbsp; &nbsp; console.error('Error writing files:', err);<br>
+&nbsp; }<br>
+}<br>
+<br>
+writeFileExample();
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="shownodejs_cmdc940.html?filename=demo_filesystem_writefile">Run example &raquo;</a>
+</div>
+
+<h3>2. Using <code class="w3-codespan">fs.appendFile()</code></h3>
+<p>Appends content to a file, creating the file if it doesn't exist:</p>
+
+<div class="w3-example">
+<h4>Example: Appending to a file</h4>
+<div class="w3-code notranslate jsHigh">
+const fs = require('fs').promises;<br>
+<br>
+async function appendToFile() {<br>
+&nbsp; try {<br>
+&nbsp; &nbsp; // Append a timestamped log entry<br>
+&nbsp; &nbsp; const logEntry = `${new Date().toISOString()}: Application started\n`;<br>
+&nbsp; &nbsp; await fs.appendFile('app.log', logEntry, 'utf8');<br>
+<br>
+&nbsp; &nbsp; console.log('Log entry added');<br>
+&nbsp; } catch (err) {<br>
+&nbsp; &nbsp; console.error('Error appending to file:', err);<br>
+&nbsp; }<br>
+}<br>
+<br>
+appendToFile();
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="shownodejs_cmdb1e1.html?filename=demo_filesystem_appendfile">Run example &raquo;</a>
+</div>
+
+<h3>3. Using File Handles</h3>
+<p>For more control over file operations, you can use file handles:</p>
+
+<div class="w3-example">
+<h4>Example: Using file handles</h4>
+<div class="w3-code notranslate jsHigh">
+const fs = require('fs').promises;<br>
+<br>
+async function writeWithFileHandle() {<br>
+&nbsp; let fileHandle;<br>
+<br>
+&nbsp; try {<br>
+&nbsp; &nbsp; // Open a file for writing (creates if doesn't exist)<br>
+&nbsp; &nbsp; fileHandle = await fs.open('output.txt', 'w');<br>
+<br>
+&nbsp; &nbsp; // Write content to the file<br>
+&nbsp; &nbsp; await fileHandle.write('First line\n');<br>
+&nbsp; &nbsp; await fileHandle.write('Second line\n');<br>
+&nbsp; &nbsp; await fileHandle.write('Third line\n');<br>
+<br>
+&nbsp; &nbsp; console.log('Content written successfully');<br>
+&nbsp; } catch (err) {<br>
+&nbsp; &nbsp; console.error('Error writing to file:', err);<br>
+&nbsp; } finally {<br>
+&nbsp; &nbsp; // Always close the file handle<br>
+&nbsp; &nbsp; if (fileHandle) {<br>
+&nbsp; &nbsp; &nbsp; await fileHandle.close();<br>
+&nbsp; &nbsp; }<br>
+&nbsp; }<br>
+}<br>
+<br>
+writeWithFileHandle();
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="shownodejs_cmdd1e5.html?filename=demo_filesystem_handle">Run example &raquo;</a>
+</div>
+
+<h3>4. Using Streams for Large Files</h3>
+<p>For writing large amounts of data, use streams to avoid high memory usage:</p>
+
+<div class="w3-example">
+<h4>Example: Writing large files with streams</h4>
+<div class="w3-code notranslate jsHigh">
+const fs = require('fs');<br>
+const { pipeline } = require('stream/promises');<br>
+const { Readable } = require('stream');<br>
+<br>
+async function writeLargeFile() {<br>
+&nbsp; // Create a readable stream (could be from HTTP request, etc.)<br>
+&nbsp; const data = Array(1000).fill().map((_, i) => `Line ${i + 1}: ${'x'.repeat(100)}\n`);<br>
+&nbsp; const readable = Readable.from(data);<br>
+<br>
+&nbsp; // Create a writable stream to a file<br>
+&nbsp; const writable = fs.createWriteStream('large-file.txt');<br>
+<br>
+&nbsp; try {<br>
+&nbsp; &nbsp; // Pipe the data from readable to writable<br>
+&nbsp; &nbsp; await pipeline(readable, writable);<br>
+&nbsp; &nbsp; console.log('Large file written successfully');<br>
+&nbsp; } catch (err) {<br>
+&nbsp; &nbsp; console.error('Error writing file:', err);<br>
+&nbsp; }<br>
+}<br>
+<br>
+writeLargeFile();
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="shownodejs_cmd5a67.html?filename=demo_filesystem_stream">Run example &raquo;</a>
+</div>
+
+<div class="w3-panel ws-info">
+  <p><strong>File Flags:</strong> When opening files, you can specify different modes:</p>
+  <ul>
+    <li><code class="w3-codespan">'w'</code> - Open for writing (file is created or truncated)</li>
+    <li><code class="w3-codespan">'wx'</code> - Like 'w' but fails if the path exists</li>
+    <li><code class="w3-codespan">'w+'</code> - Open for reading and writing (file is created or truncated)</li>
+    <li><code class="w3-codespan">'a'</code> - Open for appending (file is created if it doesn't exist)</li>
+    <li><code class="w3-codespan">'ax'</code> - Like 'a' but fails if the path exists</li>
+    <li><code class="w3-codespan">'r+'</code> - Open for reading and writing (file must exist)</li>
+  </ul>
+</div>
+<hr>
+
+<h2>Deleting Files and Directories</h2>
+<p>Node.js provides several methods to delete files and directories.</p>
+<p>Here's how to handle different deletion scenarios:</p>
+
+<h3>1. Deleting a Single File</h3>
+<p>Use <code class="w3-codespan">fs.unlink()</code> to delete a file:</p>
+
+<div class="w3-example">
+<h4>Example: Deleting a file</h4>
+<div class="w3-code notranslate jsHigh">
+const fs = require('fs').promises;<br>
+<br>
+async function deleteFile() {<br>
+&nbsp; const filePath = 'file-to-delete.txt';<br>
+<br>
+&nbsp; try {<br>
+&nbsp; &nbsp; // Check if file exists before deleting<br>
+&nbsp; &nbsp; await fs.access(filePath);<br>
+<br>
+&nbsp; &nbsp; // Delete the file<br>
+&nbsp; &nbsp; await fs.unlink(filePath);<br>
+&nbsp; &nbsp; console.log('File deleted successfully');<br>
+&nbsp; } catch (err) {<br>
+&nbsp; &nbsp; if (err.code === 'ENOENT') {<br>
+&nbsp; &nbsp; &nbsp; console.log('File does not exist');<br>
+&nbsp; &nbsp; } else {<br>
+&nbsp; &nbsp; &nbsp; console.error('Error deleting file:', err);<br>
+&nbsp; &nbsp; }<br>
+&nbsp; }<br>
+}<br>
+<br>
+deleteFile();
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="shownodejs_cmd443a.html?filename=demo_filesystem_delete">Run example &raquo;</a>
+</div>
+
+<h3>2. Deleting Multiple Files</h3>
+<p>To delete multiple files, you can use Promise.all() with fs.unlink():</p>
+
+<div class="w3-example">
+<h4>Example: Deleting multiple files</h4>
+<div class="w3-code notranslate jsHigh">
+const fs = require('fs').promises;<br>
+const path = require('path');<br>
+<br>
+async function deleteFiles() {<br>
+&nbsp; const filesToDelete = [<br>
+&nbsp; &nbsp; 'temp1.txt',<br>
+&nbsp; &nbsp; 'temp2.txt',<br>
+&nbsp; &nbsp; 'temp3.txt'<br>
+&nbsp; ];<br>
+<br>
+&nbsp; try {<br>
+&nbsp; &nbsp; // Delete all files in parallel<br>
+&nbsp; &nbsp; await Promise.all(<br>
+&nbsp; &nbsp; &nbsp; filesToDelete.map(file => <br>
+&nbsp; &nbsp; &nbsp; &nbsp; fs.unlink(file).catch(err => {<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (err.code !== 'ENOENT') {<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; console.error(`Error deleting ${file}:`, err);<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br>
+&nbsp; &nbsp; &nbsp; &nbsp; })<br>
+&nbsp; &nbsp; &nbsp; )<br>
+&nbsp; &nbsp; );<br>
+<br>
+&nbsp; &nbsp; console.log('Files deleted successfully');<br>
+&nbsp; } catch (err) {<br>
+&nbsp; &nbsp; console.error('Error during file deletion:', err);<br>
+&nbsp; }<br>
+}<br>
+<br>
+deleteFiles();</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="shownodejs_cmd0c62.html?filename=demo_filesystem_delete_multi">Run example &raquo;</a>
+</div>
+
+<h3>3. Deleting Directories</h3>
+<p>To delete directories, you have several options depending on your needs:</p>
+
+<div class="w3-example">
+<h4>Example: Deleting directories</h4>
+<div class="w3-code notranslate jsHigh">
+const fs = require('fs').promises;<br>
+const path = require('path');<br>
+<br>
+async function deleteDirectory(dirPath) {<br>
+&nbsp; try {<br>
+&nbsp; &nbsp; // Check if the directory exists<br>
+&nbsp; &nbsp; const stats = await fs.stat(dirPath);<br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; if (!stats.isDirectory()) {<br>
+&nbsp; &nbsp; &nbsp; console.log('Path is not a directory');<br>
+&nbsp; &nbsp; &nbsp; return;<br>
+&nbsp; &nbsp; }<br>
+<br>
+&nbsp; &nbsp; // For Node.js 14.14.0+ (recommended)<br>
+&nbsp; &nbsp; await fs.rm(dirPath, { recursive: true, force: true });<br>
+<br>
+&nbsp; &nbsp; // For older Node.js versions (deprecated but still works)<br>
+&nbsp; &nbsp; // await fs.rmdir(dirPath, { recursive: true });<br>
+<br>
+&nbsp; &nbsp; console.log('Directory deleted successfully');<br>
+&nbsp; } catch (err) {<br>
+&nbsp; &nbsp; if (err.code === 'ENOENT') {<br>
+&nbsp; &nbsp; &nbsp; console.log('Directory does not exist');<br>
+&nbsp; &nbsp; } else {<br>
+&nbsp; &nbsp; &nbsp; console.error('Error deleting directory:', err);<br>
+&nbsp; &nbsp; }<br>
+&nbsp; }<br>
+}<br>
+<br>
+// Usage<br>
+deleteDirectory('directory-to-delete');
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="shownodejs_cmded20.html?filename=demo_filesystem_delete_dir">Run example &raquo;</a>
+</div>
+
+<h3>4. Emptying a Directory Without Deleting It</h3>
+<p>To remove all files and subdirectories within a directory but keep the directory itself:</p>
+
+<div class="w3-example">
+<h4>Example: Emptying a directory</h4>
+<div class="w3-code notranslate jsHigh">
+const fs = require('fs').promises;<br>
+const path = require('path');<br>
+<br>
+async function emptyDirectory(dirPath) {<br>
+&nbsp; try {<br>
+&nbsp; &nbsp; // Read the directory<br>
+&nbsp; &nbsp; const files = await fs.readdir(dirPath, { withFileTypes: true });<br>
+<br>
+&nbsp; &nbsp; // Delete all files and directories in parallel<br>
+&nbsp; &nbsp; await Promise.all(<br>
+&nbsp; &nbsp; &nbsp; files.map(file => {<br>
+&nbsp; &nbsp; &nbsp; &nbsp; const fullPath = path.join(dirPath, file.name);<br>
+&nbsp; &nbsp; &nbsp; &nbsp; return file.isDirectory() <br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ? fs.rm(fullPath, { recursive: true, force: true })<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : fs.unlink(fullPath);<br>
+&nbsp; &nbsp; &nbsp; })<br>
+&nbsp; &nbsp; );<br>
+<br>
+&nbsp; &nbsp; console.log('Directory emptied successfully');<br>
+&nbsp; } catch (err) {<br>
+&nbsp; &nbsp; console.error('Error emptying directory:', err);<br>
+&nbsp; }<br>
+}<br>
+<br>
+// Usage<br>
+emptyDirectory('directory-to-empty');
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="shownodejs_cmd75f9.html?filename=demo_filesystem_empty_dir">Run example &raquo;</a>
+</div>
+
+<div class="w3-panel ws-note">
+  <p><strong>Security Note:</strong> Be extremely careful with file deletion, especially when using recursive options or wildcards. Always validate and sanitize file paths to prevent directory traversal attacks.</p>
+</div>
+
+<hr>
+<h2>Renaming and Moving Files</h2>
+<p>The <code class="w3-codespan">fs.rename()</code> method can be used for both renaming and moving files.</p>
+<p>It's a versatile method for file system operations that involve changing file paths.</p>
+
+<h3>1. Basic File Renaming</h3>
+<p>To rename a file in the same directory:</p>
+
+<div class="w3-example">
+<h4>Example: Renaming a file</h4>
+<div class="w3-code notranslate jsHigh">
+const fs = require('fs').promises;<br>
+<br>
+async function renameFile() {<br>
+&nbsp; const oldPath = 'old-name.txt';<br>
+&nbsp; const newPath = 'new-name.txt';<br>
+<br>
+&nbsp; try {<br>
+&nbsp; &nbsp; // Check if source file exists<br>
+&nbsp; &nbsp; await fs.access(oldPath);<br>
+<br>
+&nbsp; &nbsp; // Check if destination file already exists<br>
+&nbsp; &nbsp; try {<br>
+&nbsp; &nbsp; &nbsp; await fs.access(newPath);<br>
+&nbsp; &nbsp; &nbsp; console.log('Destination file already exists');<br>
+&nbsp; &nbsp; &nbsp; return;<br>
+&nbsp; &nbsp; } catch (err) {<br>
+&nbsp; &nbsp; &nbsp; // Destination doesn't exist, safe to proceed<br>
+&nbsp; &nbsp; }<br>
+<br>
+&nbsp; &nbsp; // Perform the rename<br>
+&nbsp; &nbsp; await fs.rename(oldPath, newPath);<br>
+&nbsp; &nbsp; console.log('File renamed successfully');<br>
+&nbsp; } catch (err) {<br>
+&nbsp; &nbsp; if (err.code === 'ENOENT') {<br>
+&nbsp; &nbsp; &nbsp; console.log('Source file does not exist');<br>
+&nbsp; &nbsp; } else {<br>
+&nbsp; &nbsp; &nbsp; console.error('Error renaming file:', err);<br>
+&nbsp; &nbsp; }<br>
+&nbsp; }<br>
+}<br>
+<br>
+// Usage<br>
+renameFile();</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="shownodejs_cmd1caf.html?filename=demo_filesystem_rename">Run example &raquo;</a>
+</div>
+
+<h3>2. Moving Files Between Directories</h3>
+<p>You can use <code class="w3-codespan">fs.rename()</code> to move files between directories:</p>
+
+<div class="w3-example">
+<h4>Example: Moving a file to a different directory</h4>
+<div class="w3-code notranslate jsHigh">
+const fs = require('fs').promises;<br>
+const path = require('path');<br>
+<br>
+async function moveFile() {<br>
+&nbsp; const sourceFile = 'source/file.txt';<br>
+&nbsp; const targetDir = 'destination';<br>
+&nbsp; const targetFile = path.join(targetDir, 'file.txt');<br>
+<br>
+&nbsp; try {<br>
+&nbsp; &nbsp; // Ensure source file exists<br>
+&nbsp; &nbsp; await fs.access(sourceFile);<br>
+<br>
+&nbsp; &nbsp; // Create target directory if it doesn't exist<br>
+&nbsp; &nbsp; await fs.mkdir(targetDir, { recursive: true });<br>
+<br>
+&nbsp; &nbsp; // Move the file<br>
+&nbsp; &nbsp; await fs.rename(sourceFile, targetFile);<br>
+<br>
+&nbsp; &nbsp; console.log('File moved successfully');<br>
+&nbsp; } catch (err) {<br>
+&nbsp; &nbsp; if (err.code === 'ENOENT') {<br>
+&nbsp; &nbsp; &nbsp; console.log('Source file does not exist');<br>
+&nbsp; &nbsp; } else if (err.code === 'EXDEV') {<br>
+&nbsp; &nbsp; &nbsp; console.log('Cross-device move detected, using copy+delete fallback');<br>
+&nbsp; &nbsp; &nbsp; await moveAcrossDevices(sourceFile, targetFile);<br>
+&nbsp; &nbsp; } else {<br>
+&nbsp; &nbsp; &nbsp; console.error('Error moving file:', err);<br>
+&nbsp; &nbsp; }<br>
+&nbsp; }<br>
+}<br>
+<br>
+// Helper function for cross-device moves<br>
+async function moveAcrossDevices(source, target) {<br>
+&nbsp; try {<br>
+&nbsp; &nbsp; // Copy the file<br>
+&nbsp; &nbsp; await fs.copyFile(source, target);<br>
+<br>
+&nbsp; &nbsp; // Delete the original<br>
+&nbsp; &nbsp; await fs.unlink(source);<br>
+<br>
+&nbsp; &nbsp; console.log('File moved across devices successfully');<br>
+&nbsp; } catch (err) {<br>
+&nbsp; &nbsp; // Clean up if something went wrong<br>
+&nbsp; &nbsp; try { await fs.unlink(target); } catch (e) {}<br>
+&nbsp; &nbsp; throw err;<br>
+&nbsp; }<br>
+}<br>
+<br>
+// Usage<br>
+moveFile();</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="shownodejs_cmdc01e.html?filename=demo_filesystem_move">Run example &raquo;</a>
+</div>
+
+<h3>3. Batch Renaming Files</h3>
+<p>To rename multiple files matching a pattern:</p>
+
+<div class="w3-example">
+<h4>Example: Batch renaming files</h4>
+<div class="w3-code notranslate jsHigh">
+const fs = require('fs').promises;<br>
+const path = require('path');<br>
+<br>
+async function batchRename() {<br>
+&nbsp; const directory = 'images';<br>
+&nbsp; const pattern = /^image(\d+)\.jpg$/;<br>
+<br>
+&nbsp; try {<br>
+&nbsp; &nbsp; // Read directory contents<br>
+&nbsp; &nbsp; const files = await fs.readdir(directory);<br>
+<br>
+&nbsp; &nbsp; // Process each file<br>
+&nbsp; &nbsp; for (const file of files) {<br>
+&nbsp; &nbsp; &nbsp; const match = file.match(pattern);<br>
+&nbsp; &nbsp; &nbsp; if (match) {<br>
+&nbsp; &nbsp; &nbsp; &nbsp; const [_, number] = match;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; const newName = `photo-${number.padStart(3, '0')}.jpg`;<br>
+&nbsp; &nbsp; &nbsp; &nbsp; const oldPath = path.join(directory, file);<br>
+&nbsp; &nbsp; &nbsp; &nbsp; const newPath = path.join(directory, newName);<br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; // Skip if the new name is the same as the old name<br>
+&nbsp; &nbsp; &nbsp; &nbsp; if (oldPath !== newPath) {<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; await fs.rename(oldPath, newPath);<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; console.log(`Renamed: ${file} - ${newName}`);<br>
+&nbsp; &nbsp; &nbsp; &nbsp; }<br>
+&nbsp; &nbsp; &nbsp; }<br>
+&nbsp; &nbsp; }<br>
+<br>
+&nbsp; &nbsp; console.log('Batch rename completed');<br>
+&nbsp; } catch (err) {<br>
+&nbsp; &nbsp; console.error('Error during batch rename:', err);<br>
+&nbsp; }<br>
+}<br>
+<br>
+batchRename();</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="shownodejs_cmd4039.html?filename=demo_filesystem_rename_multi">Run example &raquo;</a>
+</div>
+
+<h3>4. Atomic Rename Operations</h3>
+<p>For critical operations, use a temporary file to ensure atomicity:</p>
+
+<div class="w3-example">
+<h4>Example: Atomic file update</h4>
+<div class="w3-code notranslate jsHigh">
+const fs = require('fs').promises;<br>
+const path = require('path');<br>
+const os = require('os');<br>
+<br>
+async function updateFileAtomic(filePath, newContent) {<br>
+&nbsp; const tempPath = path.join(<br>
+&nbsp; &nbsp; os.tmpdir(), <br>
+&nbsp; &nbsp; `temp-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`<br>
+&nbsp; );<br>
+<br>
+&nbsp; try {<br>
+&nbsp; &nbsp; // 1. Write to temp file<br>
+&nbsp; &nbsp; await fs.writeFile(tempPath, newContent, 'utf8');<br>
+<br>
+&nbsp; &nbsp; // 2. Verify the temp file was written correctly<br>
+&nbsp; &nbsp; const stats = await fs.stat(tempPath);<br>
+&nbsp; &nbsp; if (stats.size === 0) {<br>
+&nbsp; &nbsp; &nbsp; throw new Error('Temporary file is empty');<br>
+&nbsp; &nbsp; }<br>
+<br>
+&nbsp; &nbsp; // 3. Rename (atomic on most systems)<br>
+&nbsp; &nbsp; await fs.rename(tempPath, filePath);<br>
+<br>
+&nbsp; &nbsp; console.log('File updated atomically');<br>
+&nbsp; } catch (err) {<br>
+&nbsp; &nbsp; // Clean up temp file if it exists<br>
+&nbsp; &nbsp; try { await fs.unlink(tempPath); } catch (e) {}<br>
+<br>
+&nbsp; &nbsp; console.error('Atomic update failed:', err);<br>
+&nbsp; &nbsp; throw err;<br>
+&nbsp; }<br>
+}<br>
+<br>
+// Usage<br>
+updateFileAtomic('important-config.json', JSON.stringify({ key: 'value' }, null, 2));
+</div>
+</div>
+
+<div class="w3-panel ws-note">
+  <p><strong>Cross-Platform Note:</strong> The <code class="w3-codespan">fs.rename()</code> operation is atomic on Unix-like systems but may not be on Windows.</p>
+  <p>For cross-platform atomic operations, consider using a temporary file approach as shown in the example above.</p>
+</div>
+
+<hr>
+
+<hr>
+<br>

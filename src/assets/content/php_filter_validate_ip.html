@@ -1,0 +1,36 @@
+<h1>PHP <span class="color_h1">FILTER_VALIDATE_IP</span> Filter</h1>
+<p><a href="php_ref_filter.html" class="w3-btn w3-white w3-border" title="PHP Filter Reference">&#10094; PHP Filter Reference</a></p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Check if the variable $ip is a valid IP address:</p>
+<div class="w3-code notranslate">
+ &lt;?php<br>$ip = &quot;127.0.0.1&quot;;<br><br>if (filter_var($ip, FILTER_VALIDATE_IP)) {<br>&nbsp;&nbsp;&nbsp; echo(&quot;$ip is a valid IP address&quot;);<br>} else {<br>&nbsp;&nbsp;&nbsp; echo(&quot;$ip is not a valid IP address&quot;);<br>}<br>?&gt;
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="phptryit34ae.html?filename=tryphp_func_validate_ip">Try it Yourself &raquo;</a>
+</div>
+<hr>
+
+<h2>Definition and Usage</h2>
+<p>The FILTER_VALIDATE_IP filter validates an IP address.</p>
+<p>Possible flags:</p>
+<ul>
+  <li>FILTER_FLAG_IPV4 - The value must be a valid IPv4 address</li>
+  <li>FILTER_FLAG_IPV6 - The value must be a valid IPv6 address</li>
+  <li>FILTER_FLAG_NO_PRIV_RANGE - The value must not be within a private range</li>
+  <li>FILTER_FLAG_NO_RES_RANGE - The value must not be within a reserved range</li>
+</ul>
+<hr>
+
+<h2>More Examples</h2>
+<div class="w3-example">
+<h3>Example 1</h3>
+<p>Check if the variable $ip is a valid IPv6 address:</p>
+<div class="w3-code notranslate">
+ &lt;?php<br>$ip = &quot;2001:0db8:85a3:08d3:1319:8a2e:0370:7334&quot;;<br><br>
+  if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) {<br>&nbsp;&nbsp;&nbsp; echo(&quot;$ip is a valid IPv6 address&quot;);<br>} else {<br>&nbsp;&nbsp;&nbsp; echo(&quot;$ip is not a valid IPv6 address&quot;);<br>}<br>?&gt;
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="phptryit025c.html?filename=tryphp_func_validate_ip2">Try it Yourself &raquo;</a>
+</div>
+
+<hr>
+<a href="php_ref_filter.html" class="w3-btn w3-white w3-border" title="PHP Filter Reference">&#10094; PHP Filter Reference</a>

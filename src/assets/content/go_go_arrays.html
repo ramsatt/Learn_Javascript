@@ -1,0 +1,288 @@
+<h1>Go Arrays</h1>
+
+<hr>
+
+<h2>Go Arrays</h2>
+<p>Arrays are used to store multiple values of the same type in a single variable, instead of declaring separate variables for each value.</p>
+<hr>
+
+<h2>Declare an Array</h2>
+<p>In Go, there are two ways to declare an array:</p>
+<h4>1. With the <code class="w3-codespan">var</code> keyword:</h4>
+<div class="w3-example">
+  <h3>Syntax</h3>
+      <div class="w3-code notranslate javaHigh">
+      var <em>array_name = </em> [<em>length</em>]<em>datatype</em>{<em>values</em>} // here length is defined<br>
+        <br>or<br><br>
+      var <em>array_name = </em>[...]<em>datatype</em>{<em>values</em>}<em> </em>// here length is inferred</div>
+</div> 
+
+<h4>2. With the <code class="w3-codespan">:=</code> sign:</h4>
+<div class="w3-example">
+  <h3>Syntax</h3>
+      <div class="w3-code notranslate javaHigh">
+      <em>array_name</em> := [<em>length</em>]<em>datatype</em>{<em>values</em>}&nbsp;// here length 
+        is defined<br><br>or<br><br> <em>array_name</em> := [...]<em>datatype</em>{<em>values</em>}<em> </em>// 
+        here length is inferred</div>
+</div> 
+
+<div class="w3-panel ws-note">
+  <p><strong>Note:</strong> The <em>length</em> specifies the number of elements 
+  to store in the array. In Go, arrays have a fixed length. The length of the 
+  array is either defined by a number or is inferred 
+(means that the compiler decides the length of the array, based on the number of
+  <em>values</em>).</p>
+</div>
+<hr>
+
+<h2>Array Examples</h2>
+<div class="w3-example">
+  <h3>Example</h3>
+  <p>This example declares two arrays (arr1 and arr2) with defined lengths:</p>
+  <div class="w3-code notranslate javaHigh">
+    package main<br>
+    import ("fmt")<br><br>
+    func main() {<br>
+    &nbsp;&nbsp;var arr1 =  [3]int{1,2,3}<br>
+    &nbsp;&nbsp;arr2 := [5]int{4,5,6,7,8}<br>
+    <br>
+    &nbsp;&nbsp;fmt.Println(arr1)<br>
+    &nbsp;&nbsp;fmt.Println(arr2)<br>
+    }
+  </div>
+  <p>Result:</p>
+  <div class="notranslate w3-black w3-padding">
+  <code>
+    [1 2 3] <br>
+    [4 5 6 7 8] <br>
+ </code>
+  </div>
+  
+</div>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <p>This example declares two arrays (arr1 and arr2) with inferred lengths:</p>
+  <div class="w3-code notranslate javaHigh">
+    package main<br>
+    import ("fmt")<br><br>
+    func main() {<br>
+    &nbsp;&nbsp;var arr1 = [...]int{1,2,3}<br>
+    &nbsp;&nbsp;arr2 := [...]int{4,5,6,7,8}<br>
+    <br>
+    &nbsp;&nbsp;fmt.Println(arr1)<br>
+    &nbsp;&nbsp;fmt.Println(arr2)<br>
+    }
+  </div>
+  <p>Result:</p>
+  <div class="notranslate w3-black w3-padding">
+  <code>
+    [1 2 3] <br>
+    [4 5 6 7 8] <br>
+ </code>
+  </div>
+  
+</div>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <p>This example declares an array of strings:</p>
+  <div class="w3-code notranslate javaHigh">
+    package main<br>
+    import ("fmt")<br><br>
+    func main() {<br>
+    &nbsp; var cars = [4]string{&quot;Volvo&quot;, &quot;BMW&quot;, &quot;Ford&quot;, &quot;Mazda&quot;}<br>&nbsp; 
+    fmt.Print(cars)<br>}
+  </div>
+  <p>Result:</p>
+  <div class="notranslate w3-black w3-padding">
+    <code>
+    [Volvo BMW Ford Mazda]</code></div>
+  
+</div>
+<hr>
+<hr>
+<h2>Access Elements of an Array</h2>
+<p>You can access a specific array element by referring to the index number.</p>
+<p>In Go, array indexes start at 0. That means that [0] is the first element, [1] is the second element, etc.</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <p>This example shows how to access the first and third elements in the 
+  prices array:</p>
+  <div class="w3-code notranslate javaHigh">
+    package main<br>
+    import ("fmt")<br><br>
+    func main() {<br>
+    &nbsp;&nbsp;prices := [3]int{10,20,30}<br>
+    <br>
+    &nbsp;&nbsp;fmt.Println(prices[0])<br>
+    &nbsp;&nbsp;fmt.Println(prices[2])<br>
+    }
+  </div>
+  <p>Result:</p>
+  <div class="notranslate w3-black w3-padding">
+  <code>
+    10 <br>
+    30 <br>
+ </code>
+  </div>
+  
+</div>
+<hr>
+
+<h2>Change Elements of an Array</h2>
+<p>You can also change the value of a specific array element by referring to the index number.</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <p>This example shows how to change the value of the third element in the 
+  prices array:&nbsp;</p>
+  <div class="w3-code notranslate javaHigh">
+    package main<br>
+    import ("fmt")<br><br>
+    func main() {<br>
+    &nbsp;&nbsp;prices := [3]int{10,20,30}<br>
+    <br>
+    &nbsp;&nbsp;prices[2] = 50<br>
+    &nbsp;&nbsp;fmt.Println(prices)<br>
+    }
+  </div>
+  <p>Result:</p>
+  <div class="notranslate w3-black w3-padding">
+  <code>
+    [10 20 50] <br>
+ </code>
+  </div>
+  
+</div>
+
+<hr>
+
+<h2>Array Initialization</h2>
+
+<p> If an array or one of its elements has not been initialized in the code, it 
+is assigned the default value of its type.</p>
+<p> <strong>Tip:</strong> The default value for int is 0, and the default value 
+for string is &quot;&quot;.</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <div class="w3-code notranslate javaHigh">
+    package main<br>
+    import ("fmt")<br><br>
+    func main() {<br>
+    &nbsp;&nbsp;arr1 := [5]int{} //not initialized<br>
+    &nbsp;&nbsp;arr2 := [5]int{1,2} //partially initialized<br>
+    &nbsp;&nbsp;arr3 := [5]int{1,2,3,4,5} //fully initialized<br>
+    <br>
+    &nbsp;&nbsp;fmt.Println(arr1)<br>
+    &nbsp;&nbsp;fmt.Println(arr2)<br>
+    &nbsp;&nbsp;fmt.Println(arr3)<br>
+    }
+  </div>
+  <p>Result:</p>
+  <div class="notranslate w3-black w3-padding">
+  <code>
+    [0 0 0 0 0] <br>
+    [1 2 0 0 0] <br>
+    [1 2 3 4 5] <br>
+ </code>
+  </div>
+  
+</div>
+
+<hr>
+
+<h2>Initialize Only Specific Elements</h2>
+
+<p>It is possible to initialize only specific elements in an array.</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <p>This example initializes only the second and third elements of the array:&nbsp;</p>
+  <div class="w3-code notranslate javaHigh">
+    package main<br>
+    import ("fmt")<br><br>
+    func main() {<br>
+    &nbsp;&nbsp;arr1 := [5]int{1:10,2:40}<br>
+    <br>
+    &nbsp;&nbsp;fmt.Println(arr1)<br>
+    }
+  </div>
+  <p>Result:</p>
+  <div class="notranslate w3-black w3-padding">
+  <code>
+    [0 10 40 0 0] <br>
+ </code>
+  </div>
+  
+</div>
+
+<h4>Example Explained</h4>
+
+<p>&nbsp;The array above has 5 elements.</p>
+
+<ul>
+<li><code class="w3-codespan">1:10</code> means: assign <code class="w3-codespan">
+10</code> to array index <code class="w3-codespan">1</code> (second element).</li>
+<li><code class="w3-codespan">2:40</code> means: assign <code class="w3-codespan">40</code> to 
+array index <code class="w3-codespan">
+2</code> (third element).</li>
+</ul>
+
+<hr>
+
+<h2>Find the Length of an Array</h2>
+
+<p>The <code class="w3-codespan">len()</code> function is used to find the length of an array:</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <div class="w3-code notranslate javaHigh">
+    package main<br>
+    import ("fmt")<br><br>
+    func main() {<br>
+    &nbsp;&nbsp;arr1 := [4]string{&quot;Volvo&quot;, &quot;BMW&quot;, &quot;Ford&quot;, &quot;Mazda&quot;}<br>
+    &nbsp;&nbsp;arr2 := [...]int{1,2,3,4,5,6}<br>
+    <br>
+    &nbsp;&nbsp;fmt.Println(len(arr1))<br>
+    &nbsp;&nbsp;fmt.Println(len(arr2))<br>
+    }
+  </div>
+  <p>Result:</p>
+  <div class="notranslate w3-black w3-padding">
+  <code>
+    4 <br>
+    6 <br>
+ </code>
+  </div>
+  
+</div>
+<hr>
+
+<div>
+<h2>Go Exercises</h2>
+<form autocomplete="off" spellcheck="false" id="w3-exerciseform" action="https://www.w3schools.com/go/exercise.php?filename=exercise_arrays1" method="post" target="_blank">
+<h2>Test Yourself With Exercises</h2>
+<div class="exercisewindow">
+<h2>Exercise:</h2>
+<p>Create an array, named cars, of type string:</p>
+<div class="exerciseprecontainer">
+<pre style="overflow: auto;">
+package main   
+import ("fmt") <br>
+func main() {
+  var <input name="ex1" maxlength="4" style="width: 50px;"> = [4]<input name="ex2" maxlength="6" style="width: 70px;">{"Volvo", "BMW", "Ford", "Mazda"}
+  fmt.Print(<input name="ex3" maxlength="4" style="width: 50px;">)
+}
+</pre>
+</div>
+<br>
+<button type="submit" class="w3-btn w3-margin-bottom">Submit Answer &raquo;</button>
+<p><a target="_blank" href="exercise996a.html?filename=exercise_arrays1">Start the Exercise</a></p>
+</div>
+</form>
+</div>
+
+<br>

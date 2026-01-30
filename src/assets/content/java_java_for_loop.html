@@ -1,0 +1,108 @@
+<h1>Java <span class="color_h1">For Loop</span></h1>
+
+<hr>
+
+<h2>Java For Loop</h2>
+
+<p>When you know exactly how many times you want to loop through a block of 
+code, use the <code class="w3-codespan">for</code> loop instead of a <a href="java_while_loop.html"><code class="w3-codespan">while</code></a> loop:</p>
+
+<div class="w3-example">
+<h3>Syntax</h3>
+<pre class="language-java w3-white"><code>for (<i>statement 1</i>;<i> statement 2</i>;<i> statement 3</i>) {
+&nbsp; <i>// code block to be executed</i>
+}</code></pre>
+</div>
+
+<p><strong>Statement 1</strong> is executed (one time) before the execution of the code block.</p>
+<p><strong>Statement 2</strong> defines the condition for executing the code block.</p>
+<p><strong>Statement 3</strong> is executed (every time) after the code block has been executed.</p>
+<hr>
+
+<h2>Print Numbers</h2>
+
+<p>The example below will print the numbers 0 to 4:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>for (int i = 0; i &lt; 5; i++) {<br>&nbsp;&nbsp;System.out.println(i);<br>}
+</code></pre>
+<p>
+
+</p>
+</div>
+
+<h3>Example explained</h3>
+<ul>
+  <li><strong>Statement 1</strong> sets a variable before the loop starts: <code class="w3-codespan">int i = 0</code></li>
+  <li><strong>Statement 2</strong> defines the condition for the loop to run: <code class="w3-codespan">i &lt; 5</code>. If the condition is true, the loop will run again; if it is false, the loop ends.</li>
+  <li><strong>Statement 3</strong> increases a value each time the code block has run: <code class="w3-codespan">i++</code></li>
+</ul>
+
+<hr>
+
+<h2>Print Even Numbers</h2>
+
+<p>This example prints even values between 0 and 10:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>for (int i = 0; i &lt;= 10; i = i + 2) {<br>&nbsp;&nbsp;System.out.println(i);<br>}
+</code></pre>
+<p>
+
+</p>
+</div>
+
+<hr>
+
+<h2>Sum of Numbers</h2>
+
+<p>This example calculates the sum of numbers from 1 to 5:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>int sum = 0;<br>for (int i = 1; i &lt;= 5; i++) {<br>&nbsp;&nbsp;sum = sum + i;<br>}<br>System.out.println("Sum is " + sum);
+</code></pre>
+<p>
+
+</p>
+</div>
+
+<hr>
+
+<h2>Countdown</h2>
+
+<p>This example prints a countdown from 5 to 1:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>for (int i = 5; i &gt; 0; i--) {<br>&nbsp;&nbsp;System.out.println(i);<br>}
+</code></pre>
+<p>
+
+</p>
+</div>
+<hr>
+
+<h2>For Loop With False Condition</h2>
+<p>Just like a <code class="w3-codespan">while</code> loop, a <code class="w3-codespan">for</code> loop may also never run.  
+If the condition is <code class="w3-codespan">false</code> right from the start, the code inside the loop will be skipped entirely:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>for (int i = 10; i &lt; 5; i++) {
+  System.out.println("This will never be printed");
+}
+</code></pre>
+<p>
+
+</p>
+</div>
+<p>In this example, the loop starts with <code class="w3-codespan">i = 10</code>.  
+The condition <code class="w3-codespan">i &lt; 5</code> is already false, so the loop body is skipped, and nothing is printed.</p>
+
+<hr>
+
+
+<hr>

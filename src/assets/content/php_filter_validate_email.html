@@ -1,0 +1,33 @@
+<h1>PHP <span class="color_h1">FILTER_VALIDATE_EMAIL</span> Filter</h1>
+<p><a href="php_ref_filter.html" class="w3-btn w3-white w3-border" title="PHP Filter Reference">&#10094; PHP Filter Reference</a></p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Check if the variable $email is a valid email address:</p>
+<div class="w3-code notranslate">
+ &lt;?php<br>$email = &quot;john.doe@example.com&quot;;<br><br>if (filter_var($email, FILTER_VALIDATE_EMAIL)) {<br>&nbsp; echo(&quot;$email is a valid email address&quot;);<br>} else {<br>&nbsp; echo(&quot;$email is not a valid email address&quot;);<br>}<br>?&gt;
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="phptryit3f32.html?filename=tryphp_func_validate_email">Try it Yourself &raquo;</a>
+</div>
+<hr>
+
+<h2>Definition and Usage</h2>
+<p>The FILTER_VALIDATE_EMAIL filter validates an e-mail address.</p>
+<hr>
+
+<h2>More Examples</h2>
+<p>The example below both sanitizes and validates an email address:</p>
+
+<div class="w3-example">
+<h3>Example 1</h3>
+<p>First remove all illegal characters from the $email variable, then check if 
+it is a valid email address:</p>
+<div class="w3-code notranslate">
+ &lt;?php<br>$email = &quot;john.doe@example.com&quot;;<br><br>// Remove all illegal characters from email<br>$email = filter_var($email, FILTER_SANITIZE_EMAIL);<br>
+ <br>// Validate e-mail<br>if (filter_var($email, FILTER_VALIDATE_EMAIL)) {<br>&nbsp;&nbsp;&nbsp; echo(&quot;$email is a valid email address&quot;);<br>} else {<br>&nbsp;&nbsp;&nbsp; echo(&quot;$email is not a valid email address&quot;);<br>
+ }<br>?&gt;
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="phptryite896.html?filename=tryphp_func_validate_email2">Try it Yourself &raquo;</a>
+</div>
+
+<hr>
+<a href="php_ref_filter.html" class="w3-btn w3-white w3-border" title="PHP Filter Reference">&#10094; PHP Filter Reference</a>

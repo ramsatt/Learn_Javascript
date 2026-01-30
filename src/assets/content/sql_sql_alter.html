@@ -1,0 +1,238 @@
+<h1>SQL <span class="color_h1">ALTER TABLE</span> Statement</h1>
+
+<hr>
+
+<h2>SQL ALTER TABLE Statement</h2>
+<p>The <code class="w3-codespan">ALTER TABLE</code> statement is used to add, delete, or modify columns in an existing table.</p>
+<p>The <code class="w3-codespan">ALTER TABLE</code> statement is also used to add and drop various constraints on 
+an existing table.</p>
+<hr>
+
+<h2>ALTER TABLE - ADD Column</h2>
+<p>To add a column in a table, use the following syntax:</p>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+ALTER TABLE <em>table_name</em><br>
+ADD <em>column_name datatype</em>;</div></div>
+
+<p>The following SQL adds an &quot;Email&quot; column to the &quot;Customers&quot; table:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+  ALTER TABLE Customers<br>ADD Email varchar(255);
+</div>
+</div>
+
+<hr>
+
+
+<h2>ALTER TABLE - DROP COLUMN</h2>
+<p>To delete a column in a table, use the following syntax (notice that some 
+database systems don't allow deleting a column):</p>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+ALTER TABLE <em>table_name</em><br>
+DROP COLUMN <em>column_name</em>;</div></div>
+
+<p>The following SQL deletes the &quot;Email&quot; column from the &quot;Customers&quot; table:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+  ALTER TABLE Customers<br>DROP COLUMN Email;
+</div>
+</div>
+
+<hr>
+
+
+<h2>ALTER TABLE - RENAME COLUMN</h2>
+<p>To rename a column in a table, use the following syntax:</p>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+ALTER TABLE <em>table_name</em><br>
+  RENAME COLUMN <em>old_name</em> to <em>new_name</em>;</div></div>
+
+<p>To rename a column in a table in SQL Server, use the following syntax:</p>
+<p><b>SQL Server:</b></p>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+  EXEC sp_rename '<em>table_name.old_name</em>',&nbsp; '<em>new_name</em>', 
+  'COLUMN';</div></div>
+
+<hr>
+
+
+<h2>ALTER TABLE - ALTER/MODIFY DATATYPE</h2>
+<p>To change the data type of a column in a table, use the following syntax:</p>
+<p><b>SQL Server / MS Access:</b></p>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+ALTER TABLE <em>table_name</em><br>
+ALTER COLUMN <em>column_name datatype</em>;</div></div>
+
+<p><b>My SQL / Oracle (prior version 10G):</b></p>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+ALTER TABLE <em>table_name</em><br>
+MODIFY COLUMN <em>column_name datatype</em>;</div></div>
+
+<p><b>Oracle 10G and later:</b></p>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+ALTER TABLE <em>table_name</em><br>
+MODIFY <em>column_name datatype</em>;</div></div>
+
+<hr>
+
+<hr>
+
+
+<h2>SQL ALTER TABLE Example</h2>
+<p>Look at the &quot;Persons&quot; table:</p>
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+  <tr>
+    <th>ID</th>
+    <th>LastName</th>
+    <th>FirstName</th>
+    <th>Address</th>
+    <th>City</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>Hansen</td>
+    <td>Ola</td>
+    <td>Timoteivn 10</td>
+    <td>Sandnes</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Svendson</td>
+    <td>Tove</td>
+    <td>Borgvn 23</td>
+    <td>Sandnes</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Pettersen</td>
+    <td>Kari</td>
+    <td>Storgt 20</td>
+    <td>Stavanger</td>
+  </tr>
+</table>
+</div>
+<p>Now we want to add a column named &quot;DateOfBirth&quot; in the &quot;Persons&quot; table.</p>
+<p>We use the following SQL statement:</p>
+
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+ALTER TABLE Persons<br>
+ADD DateOfBirth date;</div></div>
+
+<p>Notice that the new column, &quot;DateOfBirth&quot;, is of type date and is going to hold a 
+date. The data type specifies what type of data the column can hold. For a complete 
+reference of all the data types available in MS Access, MySQL, and SQL Server, 
+go to our complete <a href="sql_datatypes.html">Data Types reference</a>.</p>
+
+<p>The &quot;Persons&quot; table will now look like this:</p>
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+  <tr>
+    <th>ID</th>
+    <th>LastName</th>
+    <th>FirstName</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>DateOfBirth</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>Hansen</td>
+    <td>Ola</td>
+    <td>Timoteivn 10</td>
+    <td>Sandnes</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Svendson</td>
+    <td>Tove</td>
+    <td>Borgvn 23</td>
+    <td>Sandnes</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Pettersen</td>
+    <td>Kari</td>
+    <td>Storgt 20</td>
+    <td>Stavanger</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+</div>
+
+<hr>
+
+
+<h2>Change Data Type Example</h2>
+<p>Now we want to change the data type of the column named &quot;DateOfBirth&quot; in the &quot;Persons&quot; table.</p>
+<p>We use the following SQL statement:</p>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+ALTER TABLE Persons<br>
+ALTER COLUMN DateOfBirth year;</div></div>
+
+<p>Notice that the &quot;DateOfBirth&quot; column is now of type year and is going to hold a year in a two- or four-digit format.</p>
+
+<hr>
+
+
+<h2>DROP COLUMN Example</h2>
+<p>Next, we want to delete the column named &quot;DateOfBirth&quot; in the &quot;Persons&quot; table.</p>
+<p>We use the following SQL statement:</p>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+ALTER TABLE Persons<br>
+DROP COLUMN DateOfBirth;</div></div>
+
+<p>The &quot;Persons&quot; table will now look like this:</p>
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+  <tr>
+    <th>ID</th>
+    <th>LastName</th>
+    <th>FirstName</th>
+    <th>Address</th>
+    <th>City</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>Hansen</td>
+    <td>Ola</td>
+    <td>Timoteivn 10</td>
+    <td>Sandnes</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Svendson</td>
+    <td>Tove</td>
+    <td>Borgvn 23</td>
+    <td>Sandnes</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Pettersen</td>
+    <td>Kari</td>
+    <td>Storgt 20</td>
+    <td>Stavanger</td>
+  </tr>
+</table>
+</div>
+
+
+<hr>
+
+<hr>
+
+<br>

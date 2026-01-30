@@ -1,0 +1,132 @@
+<h1>TypeScript Tuples</h1>
+
+
+
+<hr>
+
+<h2>Typed Arrays</h2>
+<p>A <strong>tuple</strong> is a typed <a href="../js/js_arrays.html" target="_blank">array</a> with a pre-defined length and types for each index.</p>
+<p>Tuples are great because they allow each element in the array to be a known type of value.</p>
+
+<p>To define a tuple, specify the type of each element in the array:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+// define our tuple<br>
+let ourTuple: [number, boolean, string];<br><br>
+// initialize correctly<br>
+ourTuple = [5, false, 'Coding God was here'];<br>
+</div>
+
+
+</div>
+
+<p>As you can see we have a number, boolean and a string.</p>
+<p>But what happens if we try to set them in the wrong order:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+// define our tuple<br>
+let ourTuple: [number, boolean, string];<br><br>
+// initialized incorrectly which throws an error<br>
+ourTuple = [false, 'Coding God was mistaken', 5];
+</div>
+
+
+</div>
+
+<div class="w3-panel ws-info">
+  <p>Even though we have a
+      <code class="w3-codespan">boolean</code>,
+      <code class="w3-codespan">string</code>,
+      and <code class="w3-codespan">number</code> the order matters in our tuple and will throw an error.
+  </p>
+</div>
+<hr>
+
+<h2>Readonly Tuple</h2>
+
+<p>A good practice is to make your <strong>tuple</strong> <code class="w3-codespan">readonly</code>.</p>
+<p>Tuples only have strongly defined types for the initial values:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">// define our tuple<br>
+let ourTuple: [number, boolean, string];<br>
+// initialize correctly<br>
+ourTuple = [5, false, 'Coding God was here'];<br>
+// We have no type safety in our tuple for indexes 3+<br>
+ourTuple.push('Something new and wrong');<br>
+console.log(ourTuple);
+</div>
+
+
+</div>
+
+<p>You can see the new value.</p>
+<p>Tuples only have strongly defined types for the initial values:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">// define our readonly tuple<br>
+const ourReadonlyTuple: readonly [number, boolean, string] = [5, true, 'The Real Coding God'];<br>
+// throws error as it is readonly.<br>
+ourReadonlyTuple.push('Coding God took a day off');
+</div>
+
+
+</div>
+
+<p>To learn more about access modifiers like <code class="w3-codespan">readonly</code> go to our section on them here: <a href="typescript_classes.html" target="_blank">TypeScript Classes</a>.</p>
+
+<div class="w3-panel ws-info">
+<p>If you have ever used React before you have worked with tuples more than likely.</p>
+<p><code class="w3-codespan">useState</code> returns a tuple of the value and a setter function.</p>
+<p><code class="w3-codespan">const [firstName, setFirstName] = useState('Dylan')</code> is a common example.</p>
+<p>Because of the structure we know our first value in our list will be a certain value type in this case a <code class="w3-codespan">string</code> and the second value a <code class="w3-codespan">function</code>.</p>
+</div>
+
+<hr>
+<hr>
+
+<h2>Named Tuples</h2>
+
+<p><strong>Named tuples</strong> allow us to provide context for our values at each index.
+</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+
+<div class="w3-code notranslate jsHigh">
+const graph: [x: number, y: number] = [55.2, 41.3];
+</div>
+</div>
+
+<div class="w3-panel ws-info">
+<p><strong>Named tuples</strong> provide more context for what our index values represent.
+</p>
+</div>
+
+<hr>
+
+<h2>Destructuring Tuples</h2>
+
+<p>Since tuples are arrays we can also destructure them.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+
+<div class="w3-code notranslate jsHigh">
+const graph: [number, number] = [55.2, 41.3];<br>
+const [x, y] = graph;
+</div>
+</div>
+<div class="w3-panel ws-info">
+<p>To review destructuring check it out <a href="../js/js_destructuring.html" target="_blank">here</a>.
+</p>
+</div>
+
+<hr>
+
+<hr>
+<br>

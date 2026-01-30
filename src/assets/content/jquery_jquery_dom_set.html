@@ -1,0 +1,134 @@
+<h1>jQuery - <span class="color_h1">Set Content and Attributes</span></h1>
+
+<hr>
+<h2>Set Content - text(), html(), and val()</h2>
+<p>We will use the same three methods from the previous page to <b>set content</b>:</p>
+<ul>
+  <li><code class="w3-codespan">text()</code> - Sets or returns the text content of selected elements</li>
+  <li><code class="w3-codespan">html()</code> - Sets or returns the content of selected elements (including HTML markup)</li>
+  <li><code class="w3-codespan">val()</code> - Sets or returns the value of form fields</li>
+</ul>
+<p>The following example demonstrates how to set content with the jQuery <code class="w3-codespan">text()</code>, <code class="w3-codespan">html()</code>, 
+and <code class="w3-codespan">val()</code> methods:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;#btn1&quot;).click(function(){<br>
+&nbsp;&nbsp;$(&quot;#test1&quot;).text(&quot;Hello world!&quot;);<br>
+});<br>
+$(&quot;#btn2&quot;).click(function(){<br>
+&nbsp;&nbsp;$(&quot;#test2&quot;).html(&quot;&lt;b&gt;Hello world!&lt;/b&gt;&quot;);<br>
+});<br>
+$(&quot;#btn3&quot;).click(function(){<br>
+  &nbsp; $(&quot;#test3&quot;).val(&quot;Dolly Duck&quot;);<br>
+});
+</div>
+
+</div>
+<hr>
+
+<h2>A Callback Function for text(), html(), and val()</h2>
+<p>All of the three jQuery methods above: <code class="w3-codespan">text()</code>, <code class="w3-codespan">html()</code>, 
+and <code class="w3-codespan">val()</code>, also come with a callback function. The callback function has two 
+parameters: the index of the current element in the list of elements selected 
+and the original (old) value. You then return the string you wish to use as the 
+new value from the function.</p>
+<p>The following example demonstrates <code class="w3-codespan">text()</code> and <code class="w3-codespan">html()</code> with a callback 
+function:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;#btn1&quot;).click(function(){<br>
+&nbsp;&nbsp;$(&quot;#test1&quot;).text(function(i, origText){<br>
+  &nbsp;&nbsp;&nbsp; return &quot;Old text: &quot; + origText + &quot; New text: Hello world!<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(index: &quot; + i + &quot;)&quot;; <br>
+&nbsp;&nbsp;});<br>
+});<br>
+<br>
+$(&quot;#btn2&quot;).click(function(){<br>
+&nbsp;&nbsp;$(&quot;#test2&quot;).html(function(i, origText){<br>
+  &nbsp;&nbsp;&nbsp; return &quot;Old html: &quot; + origText + &quot; New html: Hello 
+&lt;b&gt;world!&lt;/b&gt;<br>
+&nbsp;&nbsp;&nbsp; (index: &quot; + i + &quot;)&quot;; <br>
+&nbsp;&nbsp;});<br>
+});
+</div>
+
+</div>
+<hr>
+
+<hr>
+<h2>Set Attributes - attr()</h2>
+<p>The jQuery <code class="w3-codespan">attr()</code> method is also used to set/change attribute values.</p>
+<p>The following example demonstrates how to change (set) the value of the href attribute 
+in a link:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;button&quot;).click(function(){<br>
+&nbsp;&nbsp;$(&quot;#w3s&quot;).attr(&quot;href&quot;, &quot;https://www.w3schools.com/jquery/&quot;);<br>
+});
+</div>
+
+</div>
+<p>The <code class="w3-codespan">attr()</code> method also allows you to set multiple attributes at the same 
+time.</p>
+<p>The following example demonstrates how to set both the href and title attributes 
+at the same time:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;button&quot;).click(function(){<br>
+&nbsp;&nbsp;$(&quot;#w3s&quot;).attr({<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&quot;href&quot; : &quot;https://www.w3schools.com/jquery/&quot;,<br>
+  &nbsp;&nbsp;&nbsp; &quot;title&quot; : &quot;W3Schools jQuery Tutorial&quot;<br>
+&nbsp;&nbsp;});<br>
+});
+</div>
+
+</div>
+<hr>
+
+<h2>A Callback Function for attr()</h2>
+<p>The jQuery method <code class="w3-codespan">attr()</code>, also comes with a callback function. The callback function has two 
+parameters: the index of the current element in the list of elements selected 
+and the original (old) attribute value. You then return the string you wish to use as the 
+new attribute value from the function.</p>
+<p>The following example demonstrates <code class="w3-codespan">attr()</code> with a callback 
+function:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;button&quot;).click(function(){<br>
+&nbsp;&nbsp;$(&quot;#w3s&quot;).attr(&quot;href&quot;, function(i, origValue){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return origValue + &quot;/jquery/&quot;; <br>
+&nbsp;&nbsp;});<br>
+});
+</div>
+
+</div>
+<hr>
+
+<h2>jQuery Exercises</h2>
+<form autocomplete="off" id="w3-exerciseform" action="https://www.w3schools.com/jquery/exercise_jq.asp?filename=exercise_jq_dom_set1" method="post" target="_blank">
+<h2>Test Yourself With Exercises</h2>
+<div class="exercisewindow">
+<h2>Exercise:</h2>
+<p>Use a jQuery method to <strong>change</strong> the text of a &lt;div&gt; element to "Hello World".</p>
+<div class="exerciseprecontainer">
+<pre style="background-color:transparent;border:none;">
+$("div").<input name="ex1" maxlength="4" style="width:45px;">("<input name="ex2" maxlength="11" style="width:115px;">");
+</pre>
+</div>
+<br>
+<button type="submit" class="w3-btn w3-margin-bottom">Submit Answer &raquo;</button>
+<p><a target="_blank" href="exercise_jq7a99.html?filename=exercise_jq_dom_set1">Start the Exercise</a></p>
+</div>
+</form>
+<hr>
+
+<h2>jQuery HTML Reference</h2>
+<p>For a complete overview of all jQuery HTML methods, please go to our
+<a href="jquery_ref_html.html">jQuery HTML/CSS Reference</a>.</p>
+
+<br>

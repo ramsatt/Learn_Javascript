@@ -1,0 +1,26 @@
+<h1>PHP <span class="color_h1">FILTER_UNSAFE_RAW</span> Filter</h1>
+<hr>
+<a href="php_ref_filter.html" class="w3-btn w3-white w3-border" title="PHP Filter Reference">&#10094; Complete PHP Filter Reference</a>
+<hr>
+
+<h2>Definition and Usage</h2>
+
+<p>The FILTER_UNSAFE_RAW filter does nothing, or encodes and strips 
+specified characters.</p>
+<p>This filter removes data that is potentially harmful for your application. It 
+is used to strip tags and remove or encode unwanted characters.</p>
+<p>This filter does nothing if no flags are specified</p>
+<ul>
+  <li>Name: &quot;unsafe_raw&quot;</li>
+  <li>ID-number: 516</li>
+</ul>
+<p>Possible flags:</p>
+<ul>
+  <li>FILTER_FLAG_STRIP_LOW - Strip characters with ASCII value below 32</li>
+  <li>FILTER_FLAG_STRIP_HIGH - Strip characters with ASCII value above 127</li>
+  <li>FILTER_FLAG_ENCODE_LOW - Encode characters with ASCII value below 32</li>
+  <li>FILTER_FLAG_ENCODE_HIGH - Encode characters with ASCII value above 127</li>
+  <li>FILTER_FLAG_ENCODE_AMP - Encode the &amp; character to &amp;amp;</li>
+</ul>
+<hr>
+<a href="php_ref_filter.html" class="w3-btn w3-white w3-border" title="PHP Filter Reference">&#10094; Complete PHP Filter Reference</a>

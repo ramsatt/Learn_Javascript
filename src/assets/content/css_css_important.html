@@ -1,0 +1,126 @@
+<h1>CSS The <span class="color_h1">!important Rule</span></h1>
+
+<hr>
+
+<h2>CSS !important Rule</h2>
+<p>The <code class="w3-codespan">!important</code> rule is used to give the 
+value of a specific property the highest priority.</p>
+<p>The <code class="w3-codespan">!important</code> rule will override ALL previous styling rules for that 
+specific property on that element!</p>
+<p>The <code class="w3-codespan">!important</code> keyword is added to the end 
+of a CSS declaration, before the semicolon.</p>
+
+<h3>Syntax</h3>
+<div class="w3-code w3-border notranslate">
+  selector {<br>&nbsp; property: value !important;<br>}
+</div>
+<hr>
+
+<h2>CSS !important Rule Example</h2>
+<p>In the following example, all three paragraphs will get a yellow background 
+color, even though the inline style, id selector, and the class selector have a higher 
+<a href="css_specificity.html">specificity</a>. The <code class="w3-codespan">!important</code> rule overrides 
+ALL styling rules for that specific property on that element!</p>
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Using the !important rule:</p>
+<div class="w3-code notranslate htmlHigh">
+  &lt;html&gt;<br>&lt;head&gt;<br>&lt;style&gt;<br>p {<br>&nbsp; background-color: yellow 
+  !important;<br>}<br><br>#myid {<br>&nbsp; background-color: blue;<br>}<br><br>
+  .myclass {<br>&nbsp; background-color: gray;<br>}<br><br>&lt;/style&gt;<br>&lt;/head&gt;<br>
+  &lt;body&gt;<br><br>&lt;p style=&quot;background-color:orange;&quot;&gt;This is a paragraph.&lt;/p&gt;<br>
+  &lt;p class=&quot;myclass&quot;&gt;This is a paragraph.&lt;/p&gt;<br>&lt;p id=&quot;myid&quot;&gt;This is a 
+  paragraph.&lt;/p&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</div>
+<p></p>
+</div>
+
+<hr>
+
+<hr>
+
+<h2>Use !important Sparingly</h2>
+<p>The only way to override an <code class="w3-codespan">!important</code> 
+rule is to include another <code class="w3-codespan">!important</code> 
+rule on a declaration with the same (or higher) specificity in the source code - and here the problem starts!</p>
+<p>The CSS code will be confusing and the debugging will be hard! Especially if 
+you have a large style sheet!</p>
+<p>In the following example, it is not very clear which color is considered most important:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+  p {<br>&nbsp; background-color: red !important;<br>}<br><br>#myid {<br>&nbsp; background-color: blue !important;<br>}<br><br>.myclass {<br>&nbsp; 
+  background-color: gray !important;<br>}<br></div>
+<p></p>
+</div>
+
+<hr>
+
+<h2>A Few Fair Uses of !important</h2>
+<p>The <code class="w3-codespan">!important</code> rule can be useful in some 
+cases, like: </p>
+<p><strong>1. To override 
+a style that cannot be overridden in any other way.</strong> This could be if you are 
+working in a Content Management System (CMS) and cannot edit the CSS code. 
+Then you can set some custom styles to override some of the CMS styles.</p>
+
+<p><strong>2. To respect user preferences.</strong> Some users have motion 
+sensitivity and prefer websites with less animation. CSS has a <code class="w3-codespan">
+<a href="../cssref/atrule_media.html">@media</a></code> feature called <code class="w3-codespan">prefers-reduced-motion</code> 
+that lets you check if
+   a user has asked to reduce motion, such as animations or transitions.
+  You can use <code class="w3-codespan">!important</code> to turn off, or tone 
+down animations and transitions for the users who has activated this setting on 
+their computer:</p>
+<div class="w3-example">
+  <h3>Example</h3>
+  <div class="w3-code notranslate cssHigh">
+@media (prefers-reduced-motion: reduce) {<br>
+&nbsp; * {<br>
+&nbsp;&nbsp;&nbsp; animation: none !important;<br>
+&nbsp;&nbsp;&nbsp; transition: none !important;<br>
+&nbsp; }<br>}
+  </div>
+  
+</div>
+<p>You will learn more about <a href="css3_mediaqueries.html">media queries</a> in a later chapter.</p>
+<p><strong>3. To create a highly specific, unchangeable style for a specific 
+element.</strong> Assume we want a special look for all link buttons on a page:</p>
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Style link buttons with a gray background color, white text, and some 
+  padding and border:</p>
+<div class="w3-code notranslate cssHigh">
+  a.button {<br>&nbsp; background-color: #8c8c8c; <br>&nbsp; color: white;<br>&nbsp; 
+  padding: 5px;<br>&nbsp; border: 1px solid black;<br>&nbsp; text-decoration: 
+  none;<br>}</div>
+<p></p>
+</div>
+<p>Now, if we put a link button inside another element with 
+higher specificity, the properties might get in conflict. Here is an example of this:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+  a.button {<br>&nbsp; background-color: #8c8c8c; <br>&nbsp; color: white;<br>&nbsp; 
+  padding: 5px;<br>&nbsp; border: 1px solid black;<br>&nbsp; text-decoration: 
+  none;<br>}<br><br>#myDiv a {<br>&nbsp; 
+  color: red;<br>&nbsp; background-color: yellow; <br>}</div>
+<p></p>
+</div>
+<p>To &quot;force&quot; all buttons to have the same look, no matter what, we can add the <code class="w3-codespan">!important</code> 
+rule to the properties of the button, like this:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+  a.button {<br>&nbsp; background-color: #8c8c8c !important; <br>&nbsp; color: white 
+  !important;<br>&nbsp; 
+  padding: 5px !important;<br>&nbsp; border: 1px solid black !important; <br>&nbsp; 
+  text-decoration: none !important;<br>}<br><br>#myDiv a {<br>&nbsp; 
+  color: red;<br>&nbsp; background-color: yellow; <br>}</div>
+<p></p>
+</div>
+
+<hr>
+
+<hr>
+
+<br>

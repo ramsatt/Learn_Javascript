@@ -1,0 +1,183 @@
+<h1>Java <span class="color_h1">Lambda Expressions</span></h1>
+
+<hr>
+
+<h2>Java Lambda Expressions</h2>
+<p>Lambda Expressions were added in Java 8.</p>
+<p>A <strong>lambda expression</strong> is a short block of code that takes in parameters and returns a value. 
+Lambdas look similar to methods, but they do not need a name, and they can be written right inside a method body.</p>
+<hr>
+
+<h2>Syntax</h2>
+<p>The simplest lambda expression contains a single parameter and an expression:</p>
+<div class="w3-example">
+<pre class="language-java w3-white"><code><em>parameter</em> -> <em>expression</em></code></pre>
+</div>
+
+<p>To use more than one parameter, wrap them in parentheses:</p>
+<div class="w3-example">
+<pre class="language-java w3-white"><code>(<em>parameter1</em>, <em>parameter2</em>) -> <em>expression</em></code></pre>
+</div>
+
+<p>Simple expressions must return a value immediately. They cannot contain multiple statements, such as loops or <code class="w3-codespan">if</code> conditions. 
+To do more complex work, use a code block with curly braces. If the lambda should return a value, use the <code class="w3-codespan">return</code> keyword:</p>
+
+<div class="w3-example">
+<pre class="language-java w3-white"><code>(<em>parameter1</em>, <em>parameter2</em>) -> {
+  // code block
+  return <em>result</em>;
+}</code></pre>
+</div>
+<hr>
+
+<h2>Using Lambda Expressions</h2>
+<p>Lambdas are often passed as arguments to methods. For example, you can use a lambda in the 
+<code class="w3-codespan">forEach()</code> method of an <code class="w3-codespan">ArrayList</code>:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>import java.util.ArrayList;
+
+public class Main {
+  public static void main(String[] args) {
+    ArrayList&lt;Integer&gt; numbers = new ArrayList&lt;Integer&gt;();
+    numbers.add(5);
+    numbers.add(9);
+    numbers.add(8);
+    numbers.add(1);
+    numbers.forEach((n) -> { System.out.println(n); });
+  }
+}</code></pre>
+<p>
+
+</p>
+</div>
+<hr>
+
+<hr>
+
+<h2>Lambdas in Variables</h2>
+<p>A lambda expression can be stored in a variable. The variable's type must be an interface with exactly one method 
+(a <strong>functional interface</strong>). The lambda must match that method's parameters and return type.</p>
+<p>Java includes many built-in functional interfaces, such as <code class="w3-codespan">Consumer</code> (from the <code class="w3-codespan">java.util</code> package) used with lists.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>import java.util.ArrayList;
+import java.util.function.Consumer;
+
+public class Main {
+  public static void main(String[] args) {
+    ArrayList&lt;Integer&gt; numbers = new ArrayList&lt;Integer&gt;();
+    numbers.add(5);
+    numbers.add(9);
+    numbers.add(8);
+    numbers.add(1);
+    
+    Consumer&lt;Integer&gt; method = (n) -> { System.out.println(n); };
+    numbers.forEach(method);
+  }
+}</code></pre>
+<p>
+
+</p>
+</div>
+<hr>
+
+<h2>Lambdas as Method Parameters</h2>
+<p>You can also pass a lambda expression to a method. The method's parameter must be a functional interface. 
+Calling the interface's method will then run the lambda expression:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>interface StringFunction {
+  String run(String str);
+}
+
+public class Main {
+  public static void main(String[] args) {
+    StringFunction exclaim = (s) -> s + "!";
+    StringFunction ask = (s) -> s + "?";
+    printFormatted("Hello", exclaim);
+    printFormatted("Hello", ask);
+  }
+
+  public static void printFormatted(String str, StringFunction format) {
+    String result = format.run(str);
+    System.out.println(result);
+  }
+}</code></pre>
+<p>
+
+</p>
+</div>
+<hr>
+
+<h2>Anonymous Class vs. Lambda Expression</h2>
+<p>In Java 8+, you can often replace an 
+<a href="java_anonymous.html">anonymous class</a> with a <strong>lambda expression</strong> - 
+but only if the interface is a <strong>functional interface</strong> (one abstract method).</p>
+
+<h5>Example: Same task, two ways (interface with one method):</h5>
+
+<div class="compare-grid">
+  <div class="compare-card">
+    <div class="code-wrap">
+      <div class="w3-example">
+        <h5>Anonymous Class</h5>
+<pre class="language-java w3-white"><code>// Functional interface (one abstract method)
+interface Greeting {
+  void sayHello();
+}
+
+public class Main {
+  public static void main(String[] args) {
+    Greeting g = new Greeting() {
+      public void sayHello() {
+        System.out.println("Hello from anonymous class");
+      }
+    }; 
+    g.sayHello();
+  }
+}
+</code></pre>
+<p>
+
+</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="compare-card">
+    <div class="code-wrap">
+      <div class="w3-example">
+        <h5>Lambda Expression</h5>
+<pre class="language-java w3-white"><code>// Same functional interface
+interface Greeting {
+  void sayHello();
+}
+
+public class Main {
+  public static void main(String[] args) {
+    Greeting g = () -> System.out.println("Hello from lambda");
+    g.sayHello();
+  }
+}
+</code></pre>
+<p>
+
+</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="ws-note ws-panel">
+<p><strong>Rule of thumb:</strong> Use a <code class="w3-codespan">lambda</code> for short, single-method interfaces. 
+Use an <a href="java_anonymous.html">anonymous class</a> when you need to override multiple methods, add fields, or extend a class.</p>
+</div>
+
+<hr>
+
+<hr>
+
+<br>

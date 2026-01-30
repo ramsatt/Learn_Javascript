@@ -1,0 +1,146 @@
+<h1>Python <span class="color_h1">Modules</span></h1>
+
+<hr>
+
+<h2>What is a Module?</h2>
+<p>Consider a module to be the same as a code library.</p>
+<p>A file containing a set of functions you want to include in your application.</p>
+<hr>
+<h2>Create a Module</h2>
+<p>To create a module just save the code you want in a file with the file extension <code class="w3-codespan">.py</code>:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Save this code in a file named <code class="w3-codespan">mymodule.py</code></p>
+<div class="w3-code notranslate pythonHigh">
+  def greeting(name):<br>&nbsp; print(&quot;Hello, &quot; + name)</div>
+</div>
+
+
+<h2>Use a Module</h2>
+
+<p>Now we can use the module we just created, by using the <code class="w3-codespan"><a href="ref_keyword_import.html">import</a></code> statement:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Import the module named mymodule, and call the greeting function:</p>
+<div class="w3-code notranslate pythonHigh">
+  import mymodule<br><br>mymodule.greeting(&quot;Jonathan&quot;)
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showpython9931.html?filename=demo_module1">Run Example &raquo;</a>
+</div>
+<div class="w3-panel ws-note">
+  <p><strong>Note:</strong> When using a function from a module, use the syntax: <em>module_name.function_name</em>.</p>
+</div>
+
+<hr>
+
+<h2>Variables in Module</h2>
+
+<p>The module can contain functions, as already described, but also variables of 
+all types (arrays, dictionaries, objects etc):</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Save this code in the file <code class="w3-codespan">mymodule.py</code></p>
+<div class="w3-code notranslate pythonHigh">
+  person1 = {<br>&nbsp; &quot;name&quot;: &quot;John&quot;,<br>&nbsp; &quot;age&quot;: 36,<br>&nbsp; 
+  &quot;country&quot;: &quot;Norway&quot;<br>}</div>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Import the module named mymodule, and access the person1 dictionary:</p>
+<div class="w3-code notranslate pythonHigh">
+  import mymodule<br><br>a = mymodule.person1[&quot;age&quot;]<br>print(a)</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showpythonff9e.html?filename=demo_module2">Run Example &raquo;</a>
+</div>
+
+<hr>
+
+<hr>
+
+<h2>Naming a Module</h2>
+
+<p>You can name the module file whatever you like, but it must have the file extension 
+<code class="w3-codespan">.py</code></p>
+
+<h2>Re-naming a Module</h2>
+
+<p>You can create an alias when you import a module, by using the <code class="w3-codespan"><a href="ref_keyword_as.html">as</a></code> keyword:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Create an alias for <code class="w3-codespan">mymodule</code> called <code class="w3-codespan">mx</code>:</p>
+<div class="w3-code notranslate pythonHigh">
+  import mymodule as mx<br><br>a = mx.person1[&quot;age&quot;]<br>print(a)</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showpython8f47.html?filename=demo_module3">Run Example &raquo;</a>
+</div>
+
+<hr>
+
+<h2>Built-in Modules</h2>
+
+<p>There are several built-in modules in Python, which you can import whenever you like.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Import and use the <code class="w3-codespan">platform</code> module:</p>
+<div class="w3-code notranslate pythonHigh">
+  import platform<br><br>x = platform.system()<br>print(x)</div>
+
+</div>
+
+<hr>
+
+<h2>Using the dir() Function</h2>
+
+<p>There is a built-in function to list all the function names (or variable 
+names) in a module. The <code class="w3-codespan"><a href="ref_func_dir.html">dir()</a></code> function:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>List all the defined names belonging to the platform module:</p>
+<div class="w3-code notranslate pythonHigh">
+  import platform<br><br>x = dir(platform)<br>print(x)</div>
+
+</div>
+<div class="w3-panel ws-note">
+  <p><strong>Note:</strong> The <code class="w3-codespan"><a href="ref_func_dir.html">dir()</a></code> function can be used on <em>all</em> 
+  modules, also the ones you create yourself.</p>
+</div>
+
+<hr>
+
+<h2>Import From Module</h2>
+
+<p>You can choose to import only parts from a module, by using the <code class="w3-codespan"><a href="ref_keyword_from.html">from</a></code> keyword.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>The module named <code class="w3-codespan">mymodule</code> has one function 
+and one dictionary:</p>
+<div class="w3-code notranslate pythonHigh">
+  def greeting(name):<br>&nbsp; print(&quot;Hello, &quot; + name)<br><br>person1 
+  = {<br>&nbsp; &quot;name&quot;: &quot;John&quot;,<br>&nbsp; &quot;age&quot;: 36,<br>&nbsp; &quot;country&quot;: 
+  &quot;Norway&quot;<br>}<br></div>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Import only the person1 dictionary from the module:</p>
+<div class="w3-code notranslate pythonHigh">
+  from mymodule import person1<br><br>print (person1[&quot;age&quot;])<br></div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showpython9447.html?filename=demo_module6">Run Example &raquo;</a>
+</div>
+<div class="w3-panel ws-note">
+  <p><strong>Note:</strong> When importing using the <code class="w3-codespan"><a href="ref_keyword_from.html">from</a></code> 
+  keyword, do not use the module name when referring to elements in the module. 
+  Example: <code class="w3-codespan">person1[&quot;age&quot;]</code>, <strong>not</strong>
+  <code class="w3-codespan"><strike>mymodule.person1[&quot;age&quot;]</strike></code></p>
+</div>
+
+
+<hr>
+
+<hr>

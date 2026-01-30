@@ -1,0 +1,119 @@
+<h1>CSS <span class="color_h1">Float</span></h1>
+
+<hr>
+
+<h2>CSS Float</h2>
+
+<div class="w3-clear w3-border w3-padding">
+<p><img src="assets/content/images/pineapple.jpg" alt="Pineapple" style="width:170px;height:170px;float:right;margin-left:15px;margin-bottom:15px;"></p>
+<p>The <code class="w3-codespan"><a href="../cssref/pr_class_float.html">float</a></code> property specifies how an element should float 
+within its container.</p> 
+<p>It places an element on the left or right side of its container, allowing text and inline elements to wrap around it.</p>
+<p>The image inside this &lt;div&gt; is floated to the right.</p>
+  <p>If you make the screen smaller, you will see that the text wraps around the 
+  image.</p>
+</div>
+<hr>
+
+<h2>The CSS float Property</h2>
+<p>The <code class="w3-codespan"><a href="../cssref/pr_class_float.html">float</a></code> property is used for 
+positioning and formatting content e.g. let an image float left to the text in a container.</p>
+<p>This property can have one of the following values:</p>
+<ul>
+  <li> <code class="w3-codespan">left</code> - The element floats to the left of its container</li>
+  <li> <code class="w3-codespan">right</code> - The element floats to the right of its container</li>
+  <li> <code class="w3-codespan">none</code> - Default. The element does not float 
+  and is displayed just where it occurs in the text</li>
+  <li> <code class="w3-codespan">inherit</code> - The element inherits the float value of its parent</li>
+</ul>
+<p><strong>Tip:</strong> The <code class="w3-codespan">
+<a href="../cssref/pr_class_float.html">float</a></code> property is often used to 
+wrap text around images!</p>
+
+<hr>
+
+<h2>CSS float: right Example</h2>
+<p>The <code class="w3-codespan">float: right</code> value indicates that an 
+element should float to the right within its container. </p>
+<p>The following example specifies that the image should float to the <strong>right</strong>:</p>
+<div class="w3-clear w3-border w3-padding">
+<p><img src="assets/content/images/pineapple.jpg" alt="Pineapple" style="width:170px;height:170px;float:right;margin-left:15px;margin-bottom:10px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. <span class="w3-hide-small">Fusce luctus vestibulum augue ut aliquet. Mauris ante ligula, facilisis sed ornare eu, lobortis in odio. Praesent convallis urna a lacus interdum ut hendrerit risus congue. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac...</span></p>
+</div>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+img {<br>&nbsp; float: right;<br>}</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>CSS float: left Example</h2>
+<p>The <code class="w3-codespan">float: left</code> value indicates that an 
+element should float to the left within its container. </p>
+<p>The following example specifies that the image should float to the <strong>left</strong>:</p>
+<div class="w3-clear w3-border w3-padding">
+<p><img src="assets/content/images/pineapple.jpg" alt="Pineapple" style="width:170px;height:170px;float:left;margin-right:15px;margin-bottom:10px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. <span class="w3-hide-small">Fusce luctus vestibulum augue ut aliquet. Mauris ante ligula, facilisis sed ornare eu, lobortis in odio. Praesent convallis urna a lacus interdum ut hendrerit risus congue. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac...</span></p>
+</div>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+img {<br>&nbsp; float: left;<br>}</div>
+
+</div>
+
+<hr>
+
+<h2>CSS float: none Example</h2>
+<p>The <code class="w3-codespan">float: none</code> value is the default value 
+for <code class="w3-codespan">float</code>, and the element is displayed just 
+where it occurs in its container. </p>
+<p>In the following example the image will be displayed just where it occurs in 
+the container:</p>
+<div class="w3-clear w3-border w3-padding">
+<p><img src="assets/content/images/pineapple.jpg" alt="Pineapple" style="max-width:185px;width:50%;float:none;">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. <span class="w3-hide-small">Fusce luctus vestibulum augue ut aliquet. Mauris ante ligula, facilisis sed ornare eu, lobortis in odio. Praesent convallis urna a lacus interdum ut hendrerit risus congue. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac...</span></p>
+</div>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+img {<br>&nbsp; float: none;<br>}</div>
+
+</div>
+
+<hr>
+
+<h2>CSS Float Next To Each Other</h2>
+<p>HTML &lt;div&gt; elements are block elements, and will start on a new line and 
+take up the full width available. However, if we 
+use <code class="w3-codespan">float: left</code> we can make the &lt;div&gt; elements 
+to float next to each other:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+  div {<br>&nbsp; float: left;<br>&nbsp; padding: 15px; <br>}<br><br>.div1 {<br>&nbsp; 
+  background: red;<br>}<br><br>.div2 {<br>&nbsp; background: yellow;<br>}<br>
+  <br>.div3 {<br>&nbsp; background: green;<br>}</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>CSS Float Property</h2>
+<table class="ws-table-all notranslate">
+  <tr>
+    <th style="width:20%">Property</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_class_float.html">float</a></td>
+    <td>Specifies whether an element should float to the left, right, or not at 
+    all</td>
+  </tr>
+</table>
+
+<br>

@@ -1,0 +1,506 @@
+<h1>Bootstrap 5 <span class="color_h1">Navbars</span></h1>
+
+<hr>
+
+<h2>Navigation Bars</h2>
+<p>A navigation bar is a navigation header that is placed at the top of the 
+page:</p>
+
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="javascript:void(0)">Logo</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mynavbar">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item" style="margin-top:-12px;">
+          <a class="nav-link active" href="javascript:void(0)">Link</a>
+        </li>
+        <li class="nav-item" style="margin-top:-12px;">
+          <a class="nav-link" href="javascript:void(0)">Link</a>
+        </li>
+        <li class="nav-item" style="margin-top:-12px;">
+          <a class="nav-link" href="javascript:void(0)">Link</a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="text" placeholder="Search">
+        <button class="btn btn-primary" type="button">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<hr>
+
+<h2>Basic Navbar</h2>
+<p>With Bootstrap, a navigation bar can extend or collapse, depending on the 
+screen size.</p>
+<p>A standard navigation bar is created with the <code class="w3-codespan">.navbar</code> 
+class, followed by a responsive collapsing class: <code class="w3-codespan">.navbar-expand-xxl|xl|lg|md|sm</code> 
+(stacks the navbar vertically on xxlarge, extra large, large, medium or small screens). </p>
+<p>To add links inside the navbar, use either an <code class="w3-codespan">&lt;ul&gt;</code> element 
+(or a <code class="w3-codespan">&lt;div&gt;</code>) with <code class="w3-codespan">class=&quot;navbar-nav&quot;</code>. 
+Then add <code class="w3-codespan">&lt;li&gt;</code> elements with a <code class="w3-codespan">.nav-item</code> class
+followed by an <code class="w3-codespan">&lt;a&gt;</code> element with a <code class="w3-codespan">.nav-link</code> class:</p>
+
+<nav class="navbar navbar-expand-sm bg-light">
+  <div class="container-fluid">
+    <ul class="navbar-nav">
+        <li class="nav-item" style="margin-top:-12px;">
+        <a class="nav-link" href="javascript:void(0)">Link 1</a>
+      </li>
+        <li class="nav-item" style="margin-top:-12px;">
+        <a class="nav-link" href="javascript:void(0)">Link 2</a>
+      </li>
+        <li class="nav-item" style="margin-top:-12px;">
+        <a class="nav-link" href="javascript:void(0)">Link 3</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;!-- A grey horizontal navbar that becomes 
+  vertical on small screens --&gt;<br>&lt;nav class=&quot;navbar navbar-expand-sm 
+   bg-light&quot;&gt;<br><br>&nbsp; &lt;div class=&quot;container-fluid&quot;&gt;<br>&nbsp;&nbsp;&nbsp; &lt;!-- Links --&gt;<br>&nbsp; &nbsp; &lt;ul class=&quot;navbar-nav&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;li class=&quot;nav-item&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Link 
+  1&lt;/a&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/li&gt;<br>&nbsp;&nbsp;&nbsp; &nbsp; &lt;li class=&quot;nav-item&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Link 
+  2&lt;/a&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/li&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;li class=&quot;nav-item&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Link 
+  3&lt;/a&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/li&gt;<br>&nbsp;&nbsp;&nbsp; &lt;/ul&gt;<br>&nbsp; 
+  &lt;/div&gt;<br><br>&lt;/nav&gt;</div>
+
+</div>
+<hr>
+
+<h2>Vertical Navbar</h2>
+<p>Remove the <code class="w3-codespan">.navbar-expand-*</code> class to create a navigation bar 
+that will always be vertical:</p>
+
+<nav class="navbar bg-light">
+
+<div class="container-fluid">
+  
+  <ul class="nav navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="javascript:void(0)">Link 1</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="javascript:void(0)">Link 2</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="javascript:void(0)">Link 3</a>
+    </li>
+  </ul>
+</div>
+</nav>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;!-- A grey 
+  vertical navbar --&gt;<br>&lt;nav class=&quot;navbar  
+   bg-light&quot;&gt;<br>&nbsp; ...<br>&lt;/nav&gt;</div>
+
+</div>
+<hr>
+<hr>
+
+<h2>Centered Navbar</h2>
+<p>Add the <code class="w3-codespan">.justify-content-center</code> class to 
+center the navigation bar:</p>
+
+<nav class="navbar bg-light navbar-expand-sm justify-content-center">
+
+  
+  
+  <ul class="nav navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="javascript:void(0)">Link 1</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="javascript:void(0)">Link 2</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="javascript:void(0)">Link 3</a>
+    </li>
+  </ul>
+
+</nav>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;nav class=&quot;navbar navbar-expand-sm 
+  bg-light justify-content-center&quot;&gt;<br>&nbsp; ...<br>&lt;/nav&gt;</div>
+
+</div>
+<hr>
+
+<h2>Colored Navbar</h2>
+<nav class="navbar bg-light navbar-light navbar-expand-sm">
+<div class="container-fluid">
+  
+  <ul class="nav navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link active" href="javascript:void(0)">Active</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="javascript:void(0)">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="javascript:void(0)">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled" href="javascript:void(0)">Disabled</a>
+    </li>
+  </ul>
+</div>
+</nav>
+
+<br>
+<nav class="navbar bg-dark navbar-dark navbar-expand-sm">
+<div class="container-fluid">
+
+  
+  <ul class="nav navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link active" href="javascript:void(0)">Active</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="javascript:void(0)">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="javascript:void(0)">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled" href="javascript:void(0)">Disabled</a>
+    </li>
+  </ul>
+</div>
+</nav>
+<br>
+
+<nav class="navbar bg-primary navbar-dark navbar-expand-sm">
+<div class="container-fluid">
+
+  
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link active" href="javascript:void(0)">Active</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="javascript:void(0)">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="javascript:void(0)">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled" href="javascript:void(0)">Disabled</a>
+    </li>
+  </ul>
+</div>
+</nav>
+<br>
+
+
+<p>Use any of the <code class="w3-codespan">.bg-color</code> classes to change the background color of the navbar (<code class="w3-codespan">.bg-primary</code>, <code class="w3-codespan">
+.bg-success</code>, <code class="w3-codespan">.bg-info</code>, <code class="w3-codespan">.bg-warning</code>, <code class="w3-codespan">.bg-danger</code>, <code class="w3-codespan">.bg-secondary</code>, <code class="w3-codespan">.bg-dark</code> and <code class="w3-codespan">.bg-light</code>)</p>
+
+<p><strong>Tip:</strong> Add a <strong>white</strong> text color to all links in the navbar with the <code class="w3-codespan">.navbar-dark</code> class, or use the <code class="w3-codespan">.navbar-light</code> class to add a 
+<strong>black</strong> text color.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;!-- Grey with black text --&gt;<br>&lt;nav class=&quot;navbar navbar-expand-sm bg-light navbar-light&quot;&gt;<br>&nbsp; 
+  &lt;div class=&quot;container-fluid&quot;&gt;<br>&nbsp;&nbsp;&nbsp; &lt;ul class=&quot;navbar-nav&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  &lt;li class=&quot;nav-item&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &lt;a class=&quot;nav-link 
+  active&quot; 
+  href=&quot;#&quot;&gt;Active&lt;/a&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/li&gt;<br>&nbsp; &nbsp;&nbsp; &lt;li 
+  class=&quot;nav-item&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Link&lt;/a&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  &lt;/li&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;li class=&quot;nav-item&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  &lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Link&lt;/a&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/li&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  &lt;li class=&quot;nav-item&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;a class=&quot;nav-link 
+  disabled&quot; href=&quot;#&quot;&gt;Disabled&lt;/a&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/li&gt;<br>&nbsp;&nbsp;&nbsp; &lt;/ul&gt;<br>&nbsp; 
+  &lt;/div&gt;<br>
+  &lt;/nav&gt;<br>
+  <br>&lt;!-- Black background with white text --&gt;<br>&lt;nav class=&quot;navbar navbar-expand-sm bg-dark navbar-dark&quot;&gt;...&lt;/nav&gt;<br><br>&lt;!-- Blue 
+  background with white text --&gt;<br>&lt;nav class=&quot;navbar navbar-expand-sm 
+  bg-primary navbar-dark&quot;&gt;...&lt;/nav&gt;<br></div>
+
+</div>
+<div class="w3-panel ws-note">
+<p style="margin-bottom:8px"><strong>Active/disabled state</strong>: Add the <code class="w3-codespan">.active</code> class to an 
+<code class="w3-codespan">&lt;a&gt;</code> element to highlight the current link, or the <code class="w3-codespan">.disabled</code> class to indicate that the link is un-clickable.</p>
+</div>
+
+<hr>
+
+<h2>Brand / Logo</h2>
+<p>The <code class="w3-codespan">.navbar-brand</code> class is used to highlight the brand/logo/project name of your page:</p>
+
+<nav class="navbar bg-dark navbar-dark navbar-expand-sm">
+<div class="container-fluid">
+  <a class="navbar-brand" href="javascript:void(0)" sxtyle="margin-top:-12px;">Logo</a>
+</div>
+</nav>
+
+<div class="w3-example">
+<h3>Example</h3>
+  <div class="w3-code notranslate htmlHigh">
+    &lt;nav class="navbar navbar-expand-sm bg-dark navbar-dark"&gt;<br>&nbsp; &lt;div 
+    class="container-fluid"&gt;<br>&nbsp;&nbsp;&nbsp; &lt;a class="navbar-brand" 
+    href="#"&gt;Logo&lt;/a&gt;<br>&nbsp; &lt;/div&gt;<br>&lt;/nav&gt;</div>
+
+</div>
+
+<p>When using the <code class="w3-codespan">.navbar-brand</code> class with images, Bootstrap 
+5 will automatically style the image to fit the navbar vertically.</p>
+<nav class="navbar bg-dark navbar-dark navbar-expand-sm">
+<div class="container-fluid">
+
+  <a class="navbar-brand" href="javascript:void(0)">
+    <img src="assets/content/images/img_avatar1.png" alt="Avatar Logo" style="width:40px;" class="rounded-pill">
+  </a>
+  
+</div>
+
+</nav>
+
+
+<div class="w3-example">
+<h3>Example</h3>
+  <div class="w3-code notranslate htmlHigh">
+    &lt;nav class="navbar navbar-expand-sm bg-dark navbar-dark"&gt;<br>&nbsp; &lt;div 
+    class="container-fluid"&gt;<br>&nbsp;&nbsp;&nbsp; &lt;a class="navbar-brand" 
+    href="#"&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;img src=&quot;logo.png&quot; 
+    alt=&quot;Avatar Logo&quot; style=&quot;width:40px;&quot; class=&quot;rounded-pill&quot;&gt;&nbsp; <br>&nbsp;&nbsp;&nbsp; &lt;/a&gt;<br>&nbsp; &lt;/div&gt;<br>&lt;/nav&gt;</div>
+
+</div>
+
+<hr>
+
+
+<h2>Navbar Text</h2>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="margin:16px 0 24px 0;">
+<div class="container-fluid">
+  
+<span class="navbar-text" style="margin-left:6px;">
+    Navbar text
+  </span>
+  </div>
+</nav>
+
+<p>Use the <code class="w3-codespan">.navbar-text</code> class to vertical align any elements inside the navbar that are not links (ensures proper padding 
+and text color).</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;nav class=&quot;navbar navbar-expand-sm bg-dark navbar-dark&quot;&gt;<br>&nbsp; &lt;div 
+  class=&quot;container-fluid&quot;&gt;<br>&nbsp;&nbsp;&nbsp; &lt;span 
+  class=&quot;navbar-text&quot;&gt;Navbar text&lt;/span&gt;<br>&nbsp; &lt;/div&gt;<br>&lt;/nav&gt;</div>
+
+</div>
+<hr>
+
+
+<nav class="navbar naxvbar-expand-sm bg-dark navbar-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Logo</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#xx" style="cursor:pointer">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="xx">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>    
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<p>Very often, especially on small screens, you want to hide the navigation 
+links and replace them with a button that should reveal them when clicked on.</p>
+<p>To create a collapsible navigation bar, use a button with <code class="w3-codespan">class=&quot;navbar-toggler&quot;, 
+data-bs-toggle=&quot;collapse&quot; and data-bs-target=&quot;#<em>thetarget</em>&quot;</code>. Then wrap the 
+navbar content (links, etc) inside a &lt;div&gt; element with <code class="w3-codespan">class=&quot;collapse navbar-collapse&quot;</code>, 
+followed by an id that matches the <code class="w3-codespan">data-bs-target</code> of the button: &quot;<em>thetarget</em>&quot;.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;nav class=&quot;navbar navbar-expand-sm bg-dark navbar-dark&quot;&gt;<br>&nbsp; &lt;div 
+  class=&quot;container-fluid&quot;&gt;<br>&nbsp;&nbsp;&nbsp; &lt;a class=&quot;navbar-brand&quot; 
+  href=&quot;#&quot;&gt;Logo&lt;/a&gt;<br>&nbsp;&nbsp;&nbsp; &lt;button class=&quot;navbar-toggler&quot; 
+  type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#collapsibleNavbar&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;<br>&nbsp;&nbsp;&nbsp; &lt;/button&gt;<br>&nbsp;&nbsp;&nbsp; 
+  &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;collapsibleNavbar&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  &lt;ul class=&quot;navbar-nav&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;li 
+  class=&quot;nav-item&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;a 
+  class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Link&lt;/a&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  &lt;/li&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;li class=&quot;nav-item&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  &lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Link&lt;/a&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  &lt;/li&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;li class=&quot;nav-item&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  &lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Link&lt;/a&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  &lt;/li&gt; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/ul&gt;<br>&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br>&nbsp; 
+  &lt;/div&gt;<br>&lt;/nav&gt;</div>
+
+</div>
+
+<div class="ws-note w3-panel">
+<p style="margin-bottom:8px"><strong>Tip:</strong> You can also remove the <code class="w3-codespan">.navbar-expand-md</code> class to ALWAYS hide navbar links and display the toggler button.</p>
+</div>
+<hr>
+
+<h2>Navbar With Dropdown</h2>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Logo</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar2">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar2">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>  
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Dropdown</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Link</a></li>
+            <li><a class="dropdown-item" href="#">Another link</a></li>
+            <li><a class="dropdown-item" href="#">A third link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav><p>Navbars can also hold dropdown menus:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;li class=&quot;nav-item dropdown&quot;&gt;<br>&nbsp; &lt;a class=&quot;nav-link dropdown-toggle&quot; 
+  href=&quot;#&quot; role=&quot;button&quot; data-bs-toggle=&quot;dropdown&quot;&gt;Dropdown&lt;/a&gt;<br>&nbsp; &lt;ul 
+  class=&quot;dropdown-menu&quot;&gt;<br>&nbsp;&nbsp;&nbsp; &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; 
+  href=&quot;#&quot;&gt;Link&lt;/a&gt;&lt;/li&gt;<br>&nbsp;&nbsp;&nbsp; &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; 
+  href=&quot;#&quot;&gt;Another link&lt;/a&gt;&lt;/li&gt;<br>&nbsp;&nbsp;&nbsp; &lt;li&gt;&lt;a 
+  class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;A third link&lt;/a&gt;&lt;/li&gt;<br>&nbsp; &lt;/ul&gt;<br>&lt;/li&gt;</div>
+
+</div>
+<hr>
+
+<h2>Navbar Forms and Buttons</h2>
+
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="javascript:void(0)">Logo</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbarz">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mynavbarz">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item" style="margin-top:-12px;">
+          <a class="nav-link active" href="javascript:void(0)">Link</a>
+        </li>
+        <li class="nav-item" style="margin-top:-12px;">
+          <a class="nav-link" href="javascript:void(0)">Link</a>
+        </li>
+        <li class="nav-item" style="margin-top:-12px;">
+          <a class="nav-link" href="javascript:void(0)">Link</a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="text" placeholder="Search">
+        <button class="btn btn-primary" type="button">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+
+<p>You can also include forms inside the navigation bar:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;nav class=&quot;navbar navbar-expand-sm navbar-dark bg-dark&quot;&gt;<br>&nbsp; &lt;div 
+  class=&quot;container-fluid&quot;&gt;<br>&nbsp;&nbsp;&nbsp; &lt;a class=&quot;navbar-brand&quot; 
+  href=&quot;javascript:void(0)&quot;&gt;Logo&lt;/a&gt;<br>&nbsp;&nbsp;&nbsp; &lt;button 
+  class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; 
+  data-bs-target=&quot;#mynavbar&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;span 
+  class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;<br>&nbsp;&nbsp;&nbsp; &lt;/button&gt;<br>&nbsp;&nbsp;&nbsp; 
+  &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;mynavbar&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  &lt;ul class=&quot;navbar-nav me-auto&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  &lt;li class=&quot;nav-item&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  &lt;a class=&quot;nav-link&quot; href=&quot;javascript:void(0)&quot;&gt;Link&lt;/a&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  &lt;/li&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;li class=&quot;nav-item&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  &lt;a class=&quot;nav-link&quot; href=&quot;javascript:void(0)&quot;&gt;Link&lt;/a&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  &lt;/li&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;li class=&quot;nav-item&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  &lt;a class=&quot;nav-link&quot; href=&quot;javascript:void(0)&quot;&gt;Link&lt;/a&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  &lt;/li&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/ul&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  &lt;form class=&quot;d-flex&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;input 
+  class=&quot;form-control me-2&quot; type=&quot;text&quot; placeholder=&quot;Search&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  &lt;button class=&quot;btn btn-primary&quot; type=&quot;button&quot;&gt;Search&lt;/button&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  &lt;/form&gt;<br>&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br>&nbsp; &lt;/div&gt;<br>&lt;/nav&gt;</div>
+
+</div>
+
+<hr>
+
+<h2>Fixed Navigation Bar</h2>
+<iframe src="assets/content/images/trybs_navbar_fixed.html" style="width:100%;height:260px;margin-bottom:16px" class="w3-border"></iframe>
+<p>The navigation bar can also be fixed at the top or at the bottom of the page.</p>
+<p>A fixed navigation bar stays visible in a fixed position (top or bottom) 
+independent of the page scroll.</p>
+<p>The <code class="w3-codespan">.fixed-top</code> class makes the navigation bar fixed at 
+the <strong>top</strong>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;nav class=&quot;navbar navbar-expand-sm bg-dark navbar-dark fixed-top&quot;&gt;<br>&nbsp; 
+  ...<br>&lt;/nav&gt;</div>
+
+</div>
+<p>Use the <code class="w3-codespan">.fixed-bottom</code> class to make the navbar stay at 
+the <strong>bottom</strong> of the page:</p>
+<iframe src="assets/content/images/trybs_navbar_fixed_bottom.html" style="width:100%;height:260px;margin-top:10px;margin-bottom:2px" class="w3-border"></iframe>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;nav class=&quot;navbar navbar-expand-sm bg-dark navbar-dark fixed-bottom&quot;&gt;<br>&nbsp; 
+  ...<br>&lt;/nav&gt;</div>
+
+</div>
+
+<p>Use the <code class="w3-codespan">.sticky-top</code> class to make the navbar fixed/stay at 
+the <strong>top</strong> of the page when you scroll <strong>past</strong> it. <strong>Note:
+</strong>This class does not work in IE11 and earlier (will treat it as <code class="w3-codespan">position:relative</code>).</p>
+
+<iframe src="assets/content/images/trybs_navbar_fixed_sticky.html" style="width:100%;height:260px;margin-top:10px;margin-bottom:2px" class="w3-border"></iframe>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;nav class=&quot;navbar navbar-expand-sm bg-dark navbar-dark sticky-top&quot;&gt;<br>&nbsp; 
+  ...<br>&lt;/nav&gt;</div>
+
+</div>
+
+<hr>
+
+<br>

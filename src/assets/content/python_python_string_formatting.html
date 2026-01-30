@@ -1,0 +1,423 @@
+<h1>Python <span class="color_h1">String Formatting</span></h1>
+
+<hr>
+
+<p class="intro">F-String was introduced in Python 3.6,
+and is now the preferred way of formatting strings.</p>
+<p class="intro">Before Python 3.6 we had to use the <code class="w3-codespan"><a href="ref_func_format.html">format()</a></code> method.</p>
+
+<hr>
+
+<h2>F-Strings</h2>
+
+<p>F-string allows you to format selected parts of a string.</p>
+
+<p>To specify a string as an f-string, simply put an <code class="w3-codespan">f</code> in front of the string 
+literal, like this:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Create an f-string:</p>
+<div class="w3-code notranslate pythonHigh">
+txt = f&quot;The price is 49 dollars&quot;
+<br>
+print(txt)
+</div>
+
+</div>
+
+<hr>
+
+<h2>Placeholders and Modifiers</h2>
+
+<p>To format values in an f-string, add placeholders <code class="w3-codespan">{}</code>, 
+a placeholder can contain variables,
+operations, functions, and modifiers to format the value.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Add a placeholder for the <code class="w3-codespan">price</code> variable:</p>
+<div class="w3-code notranslate pythonHigh">
+price = 59
+<br>
+txt = f&quot;The price is {price} dollars&quot;
+<br>
+print(txt)
+</div>
+
+</div>
+
+<p>A placeholder can also include a <em>modifier </em>to format the value.</p>
+<p>A modifier is included by adding a colon <code class="w3-codespan">:</code> followed by a legal formatting type, like 
+<code class="w3-codespan">.2f</code> which means fixed point number with 2 decimals:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Display the price with 2 decimals:</p>
+<div class="w3-code notranslate pythonHigh">
+price = 59
+<br>
+txt = f&quot;The price is {price:.2f} dollars&quot;
+<br>
+print(txt)
+</div>
+
+</div>
+
+
+<hr>
+
+<p>You can also format a value directly without keeping it in a variable:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Display the value <code class="w3-codespan">95</code> with 2 decimals:</p>
+<div class="w3-code notranslate pythonHigh">
+txt = f&quot;The price is {95:.2f} dollars&quot;
+<br>
+print(txt)
+</div>
+
+</div>
+
+<hr>
+
+
+<hr>
+
+<h2>Perform Operations in F-Strings</h2>
+
+<p>You can perform Python operations inside the placeholders.</p>
+<p>You can do math operations:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Perform a math operation in the placeholder, and return the result:</p>
+<div class="w3-code notranslate pythonHigh">
+txt = f&quot;The price is {20 * 59} dollars&quot;
+<br>
+print(txt)
+</div>
+
+</div>
+
+<p>You can perform math operations on variables:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Add taxes before displaying the price:</p>
+<div class="w3-code notranslate pythonHigh">
+price = 59<br>
+tax = 0.25<br>
+txt = f&quot;The price is {price + (price * tax)} dollars&quot;
+<br>
+print(txt)
+</div>
+
+</div>
+
+<p>You can perform <code class="w3-codespan">if...else</code> statements inside the placeholders:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Return "Expensive" if the price is over 50, otherwise return "Cheap":</p>
+<div class="w3-code notranslate pythonHigh">
+price = 49<br>
+txt = f"It is very {'Expensive' if price>50 else 'Cheap'}"<br>
+<br>
+print(txt)
+</div>
+
+</div>
+
+<hr>
+
+<h2>Execute Functions in F-Strings</h2>
+
+<p>You can execute functions inside the placeholder:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Use the string method <code class="w3-codespan">upper()</code>to convert a 
+value into upper case letters: </p>
+<div class="w3-code notranslate pythonHigh">
+fruit = "apples"<br>
+txt = f&quot;I love {fruit.upper()}&quot;
+<br>
+print(txt)
+</div>
+
+</div>
+
+<p>The function does not have to be a built-in Python method, you can create your own functions and use them:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Create a function that converts feet into meters:</p>
+<div class="w3-code notranslate pythonHigh">
+def myconverter(x):<br>
+&nbsp;&nbsp;return x * 0.3048<br>
+<br> 
+txt = f&quot;The plane is flying at a {myconverter(30000)} meter altitude&quot;
+<br>
+print(txt)
+</div>
+
+</div>
+
+<hr>
+
+<h2>More Modifiers</h2>
+
+<p>At the beginning of this chapter we explained how to use the <code class="w3-codespan">.2f</code> modifier to 
+format a number into a fixed point number with 2 decimals.</p>
+
+<p>There are several other modifiers that can be used to format values:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Use a comma as a thousand separator:</p>
+<div class="w3-code notranslate pythonHigh">
+price = 59000
+<br>
+txt = f&quot;The price is {price:,} dollars&quot;
+<br>
+print(txt)
+</div>
+
+</div>
+
+<p>Here is a list of all the formatting types.</p>
+
+<table class="ws-table-all notranslate"> 
+<tbody>
+<tr><th colspan="3">Formatting Types</th></tr>
+<tr>
+  <td><code class="w3-codespan">:&lt;</code></td>
+  <td><a target="_blank" class="w3-btn btnsmall" href="trypython56c5.html?filename=demo_fstring_modifier1">Try it</a></td>
+  <td>Left aligns the result (within the available space)</td>
+</tr>
+<tr>
+  <td><code class="w3-codespan">:&gt;</code></td>
+  <td><a target="_blank" class="w3-btn btnsmall" href="trypython8208.html?filename=demo_fstring_modifier2">Try it</a></td>
+  <td>Right aligns the result (within the available space)</td>
+</tr>
+<tr>
+  <td><code class="w3-codespan">:^</code></td>
+  <td><a target="_blank" class="w3-btn btnsmall" href="trypython50e1.html?filename=demo_fstring_modifier3">Try it</a></td>
+  <td>Center aligns the result (within the available space)</td>
+</tr>
+<tr>
+  <td><code class="w3-codespan">:=</code></td>
+  <td><a target="_blank" class="w3-btn btnsmall" href="trypython28c5.html?filename=demo_fstring_modifier4">Try it</a></td>
+  <td>Places the sign to the left most position</td>
+</tr>
+<tr>
+  <td><code class="w3-codespan">:+</code></td>
+  <td><a target="_blank" class="w3-btn btnsmall" href="trypython8cec.html?filename=demo_fstring_modifier5">Try it</a></td>
+  <td>Use a plus sign to indicate if the result is positive or negative</td>
+</tr>
+<tr>
+  <td><code class="w3-codespan">:-</code></td>
+  <td><a target="_blank" class="w3-btn btnsmall" href="trypython8e35.html?filename=demo_fstring_modifier6">Try it</a></td>
+  <td>Use a minus sign for negative values only</td>
+</tr>
+<tr>
+  <td><code class="w3-codespan">:&nbsp;</code></td>
+  <td><a target="_blank" class="w3-btn btnsmall" href="trypython71a1.html?filename=demo_fstring_modifier7">Try it</a></td>
+  <td>Use a space to insert an extra space before positive numbers (and a minus sign 
+  before negative numbers)</td>
+</tr>
+<tr>
+  <td><code class="w3-codespan">:,</code></td>
+  <td><a target="_blank" class="w3-btn btnsmall" href="trypython7eb2.html?filename=demo_fstring_modifier8">Try it</a></td>
+  <td>Use a comma as a thousand separator</td>
+</tr>
+<tr>
+  <td><code class="w3-codespan">:_</code></td>
+  <td><a target="_blank" class="w3-btn btnsmall" href="trypython1c33.html?filename=demo_fstring_modifier9">Try it</a></td>
+  <td>Use a underscore as a thousand separator</td>
+</tr>
+<tr>
+  <td><code class="w3-codespan">:b</code></td>
+  <td><a target="_blank" class="w3-btn btnsmall" href="trypython0296.html?filename=demo_fstring_modifier10">Try it</a></td>
+  <td>Binary format</td>
+</tr>
+<tr>
+  <td><code class="w3-codespan">:c</code></td>
+  <td></td>
+  <td>Converts the value into the corresponding Unicode character</td>
+</tr>
+<tr>
+  <td><code class="w3-codespan">:d</code></td>
+  <td><a target="_blank" class="w3-btn btnsmall" href="trypython191d.html?filename=demo_fstring_modifier12">Try it</a></td>
+  <td>Decimal format</td>
+</tr>
+<tr>
+  <td><code class="w3-codespan">:e</code></td>
+  <td><a target="_blank" class="w3-btn btnsmall" href="trypythonc4c8.html?filename=demo_fstring_modifier13">Try it</a></td>
+  <td>Scientific format, with a lower case e</td>
+</tr>
+<tr>
+  <td><code class="w3-codespan">:E</code></td>
+  <td><a target="_blank" class="w3-btn btnsmall" href="trypythonc432.html?filename=demo_fstring_modifier14">Try it</a></td>
+  <td>Scientific format, with an upper case E</td>
+</tr>
+<tr>
+  <td><code class="w3-codespan">:f</code></td>
+  <td><a target="_blank" class="w3-btn btnsmall" href="trypython2854.html?filename=demo_fstring_modifier15">Try it</a></td>
+  <td>Fix point number format</td>
+</tr>
+<tr>
+  <td><code class="w3-codespan">:F</code></td>
+  <td><a target="_blank" class="w3-btn btnsmall" href="trypythonc536.html?filename=demo_fstring_modifier16">Try it</a></td>
+  <td>Fix point number format, in uppercase format (show
+  <code class="w3-codespan">inf</code> and
+  <code class="w3-codespan">nan</code> as <code class="w3-codespan">INF</code> 
+  and <code class="w3-codespan">NAN</code>)</td>
+</tr>
+<tr>
+  <td><code class="w3-codespan">:g</code></td>
+  <td></td>
+  <td>General format</td>
+</tr>
+<tr>
+  <td><code class="w3-codespan">:G</code></td>
+  <td></td>
+  <td>General format (using a upper case E for scientific notations)</td>
+</tr>
+<tr>
+  <td><code class="w3-codespan">:o</code></td>
+  <td><a target="_blank" class="w3-btn btnsmall" href="trypython0a21.html?filename=demo_fstring_modifier19">Try it</a></td>
+  <td>Octal format</td>
+</tr>
+<tr>
+  <td><code class="w3-codespan">:x</code></td>
+  <td><a target="_blank" class="w3-btn btnsmall" href="trypython5ae6.html?filename=demo_fstring_modifier20">Try it</a></td>
+  <td>Hex format, lower case</td>
+</tr>
+<tr>
+  <td><code class="w3-codespan">:X</code></td>
+  <td><a target="_blank" class="w3-btn btnsmall" href="trypython3c9c.html?filename=demo_fstring_modifier21">Try it</a></td>
+  <td>Hex format, upper case</td>
+</tr>
+<tr>
+  <td><code class="w3-codespan">:n</code></td>
+  <td></td>
+  <td>Number format</td>
+</tr>
+<tr>
+  <td><code class="w3-codespan">:%</code></td>
+  <td><a target="_blank" class="w3-btn btnsmall" href="trypython6327.html?filename=demo_fstring_modifier23">Try it</a></td>
+  <td>Percentage format</td>
+</tr>
+</table>
+
+<hr>
+
+<h2>String format()</h2>
+
+<p>Before Python 3.6 we used the <code class="w3-codespan"><a href="ref_func_format.html">format()</a></code> method to format strings.</p>
+
+<p>The <code class="w3-codespan"><a href="ref_func_format.html">format()</a></code> method can still be used,
+but f-strings are faster and the preferred way to format strings.</p>
+
+<p>The next examples in this page demonstrates how to format strings with the
+<code class="w3-codespan"><a href="ref_func_format.html">format()</a></code> method.</p>
+
+<p>The <code class="w3-codespan"><a href="ref_func_format.html">format()</a></code> method also uses curly brackets as placeholders
+<code class="w3-codespan">{}</code>, but the syntax is slightly different:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Add a placeholder where you want to display the price:</p>
+<div class="w3-code notranslate pythonHigh">
+  price = 49<br>txt = &quot;The price is {} dollars&quot;<br>print(txt.format(price))
+</div>
+
+</div>
+
+<p>You can add parameters inside the curly brackets to specify how to convert 
+the value:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Format the price to be displayed as a number with two decimals:</p>
+<div class="w3-code notranslate pythonHigh">
+  txt = &quot;The price is {:.2f} dollars&quot;<br>
+</div>
+
+</div>
+
+<p>Check out all formatting types in our <a href="ref_string_format.html">String format() Reference</a>.</p>
+
+<hr>
+
+<h2>Multiple Values</h2>
+<p>If you want to use more values, just add more values to the <code class="w3-codespan"><a href="ref_func_format.html">format()</a></code> method:</p>
+
+<div class="w3-example">
+<div class="w3-code notranslate pythonHigh">
+print(txt.format(price, itemno, count))
+</div>
+</div>
+
+<p>And add more placeholders:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate pythonHigh">
+  quantity = 3<br>itemno = 567<br>price = 49<br>myorder = &quot;I want {} pieces of 
+  item number {} for {:.2f} dollars.&quot;<br>print(myorder.format(quantity, itemno, price))
+</div>
+
+</div>
+
+<hr>
+
+<h2>Index Numbers</h2>
+
+<p>You can use index numbers (a number inside the curly brackets <code class="w3-codespan">{0}</code>) to be sure the 
+values are placed 
+in the correct placeholders:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate pythonHigh">
+  quantity = 3<br>itemno = 567<br>price = 49<br>myorder = &quot;I want {0} pieces of 
+  item number {1} for {2:.2f} dollars.&quot;<br>print(myorder.format(quantity, itemno, price))
+</div>
+
+</div>
+<p>Also, if you want to refer to the same value more than once, use the index number:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate pythonHigh">
+  age = 36<br>name = &quot;John&quot;<br>txt = &quot;His name is {1}. {1} is {0} years old.&quot;<br>print(txt.format(age, 
+  name))
+</div>
+
+</div>
+
+<hr>
+
+<h2>Named Indexes</h2>
+
+<p>You can also use named indexes by entering a name inside the curly brackets <code class="w3-codespan">{carname}</code>, 
+but then you must use names when you pass the parameter values
+<code class="w3-codespan">txt.format(carname = &quot;Ford&quot;)</code>:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate pythonHigh">
+  myorder = &quot;I have a {carname}, it is a {model}.&quot;<br>print(myorder.format(carname 
+  = &quot;Ford&quot;, model = &quot;Mustang&quot;))
+</div>
+
+</div>
+
+
+<hr>
+
+<hr>

@@ -1,0 +1,171 @@
+<h1>SQL <span class="color_h1">UNION</span> Operator</h1>
+
+<hr>
+
+<h2>The SQL UNION Operator</h2>
+<p>The <code class="w3-codespan">UNION</code> operator is used to combine the result-set of two or more 
+<code class="w3-codespan">SELECT</code> 
+statements.</p>
+<p>The <code class="w3-codespan">UNION</code> operator automatically removes 
+duplicate rows from the result set.</p>
+<p>Requirements for <code class="w3-codespan">UNION</code>:</p>
+<ul>
+  <li>Every <code class="w3-codespan">SELECT</code> statement within
+  <code class="w3-codespan">UNION</code> must have the same number 
+of columns</li>
+  <li>The columns must also have similar data types</li>
+  <li>The columns in 
+  every <code class="w3-codespan">SELECT</code> statement must also be in the same order</li>
+</ul>
+
+<h3>UNION Syntax</h3>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+ SELECT <em>column_name(s)</em> FROM <em>table1</em><br>
+ UNION<br>
+ SELECT <em>column_name(s)</em> FROM <em>table2</em>;</div></div>
+
+<p><b>Note:</b> The column names in the result-set are usually equal to 
+the column names in the first <code class="w3-codespan">SELECT</code> statement.</p>
+
+<hr>
+
+<h2>Demo Database</h2>
+<p>In this tutorial we will use the well-known Northwind sample database.</p>
+<p>Below is a selection from the "Customers" table:</p>
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+  <tr>
+    <th style="width:15%">CustomerID</th>
+    <th>CustomerName</th>
+    <th>ContactName</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>PostalCode</th>
+    <th>Country</th>
+  </tr>
+  <tr>
+    <td>1<br><br></td>
+    <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Obere Str. 57</td>
+    <td>Berlin</td>
+    <td>12209</td>
+    <td>Germany</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Ana Trujillo Emparedados y helados</td>
+    <td>Ana Trujillo</td>
+    <td>Avda. de la Constitución 2222</td>
+    <td>México D.F.</td>
+    <td>05021</td>
+    <td>Mexico</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Antonio Moreno Taquería</td>
+    <td>Antonio Moreno</td>
+    <td>Mataderos 2312</td>
+    <td>México D.F.</td>
+    <td>05023</td>
+    <td>Mexico</td>
+  </tr>
+</table>
+</div>
+
+<p>And a selection from the "Suppliers" table:</p>
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+  <tr>
+    <th style="width:15%">SupplierID</th>
+    <th>SupplierName</th>
+    <th>ContactName</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>PostalCode</th>
+    <th>Country</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>Exotic Liquid</td>
+    <td>Charlotte Cooper</td>
+    <td>49 Gilbert St.</td>
+    <td>London</td>
+    <td>EC1 4SD</td>
+    <td>UK</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>New Orleans Cajun Delights</td>
+    <td>Shelley Burke</td>
+    <td>P.O. Box 78934</td>
+    <td>New Orleans</td>
+    <td>70117</td>
+    <td>USA</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Grandma Kelly's Homestead</td>
+    <td>Regina Murphy</td>
+    <td>707 Oxford Rd.</td>
+    <td>Ann Arbor</td>
+    <td>48104</td>
+    <td>USA</td>
+  </tr>
+</table>
+</div>
+
+<hr>
+
+<hr>
+
+<h2>SQL UNION Example</h2>
+<p>The following SQL statement returns the cities 
+(only distinct values) from both the "Customers" and the "Suppliers" table:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+ SELECT City FROM Customers<br>UNION<br>SELECT City FROM Suppliers<br>ORDER BY City;
+</div>
+
+</div>
+
+<p><b>Note:</b> If some customers or suppliers have the same city, each city will only be 
+listed once, because <code class="w3-codespan">UNION</code> selects only distinct values. Use 
+<code class="w3-codespan"><a href="sql_union_all.html">UNION ALL</a></code> to also select 
+duplicate values!</p>
+
+<hr>
+
+<h2>SQL UNION With WHERE</h2>
+<p>The following SQL statement returns the German cities 
+(only distinct values) from both the "Customers" and the "Suppliers" table:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+ SELECT City, Country FROM Customers<br>WHERE Country='Germany'<br>UNION<br>
+ SELECT City, Country FROM Suppliers<br>WHERE Country='Germany'<br>ORDER BY City;
+</div>
+
+</div>
+
+<hr>
+
+<h2>Another UNION Example</h2>
+<p>The following SQL statement lists all customers and suppliers:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+  SELECT 'Customer' AS Type, ContactName, City, Country<br>FROM Customers<br>
+  UNION<br>SELECT 'Supplier', ContactName, City, Country<br>FROM Suppliers;
+</div>
+
+</div>
+<p>Notice the "AS Type" above - it is an alias. <a href="sql_alias.html">SQL 
+Aliases</a> are used to give a table or a column a temporary name.
+An alias only exists for the duration of the query. So, here we have created a 
+temporary column named "Type", that list whether the contact person is a 
+"Customer" or a "Supplier".</p>
+
+<hr>

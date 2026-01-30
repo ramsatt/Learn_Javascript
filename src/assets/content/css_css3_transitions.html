@@ -1,0 +1,213 @@
+<h1>CSS <span class="color_h1">Transitions</span></h1>
+
+<hr>
+
+<h2>CSS Transitions</h2>
+<p>CSS transitions allows you to change property values smoothly, over a given duration.</p>
+<p><strong>Mouse over the element below to see a CSS transition effect:</strong></p>
+<div style="height:90px;">
+<div class="animated_div">CSS</div>
+</div>
+
+<hr>
+
+<h2>The CSS transition Property</h2>
+
+<p>To create a transition effect, you must specify the CSS property you want to add a 
+transition to, and the duration of the transition.</p>
+<p>The CSS <code class="w3-codespan"><a href="../cssref/css3_pr_transition.html">transition</a></code> 
+property is a shorthand property for:</p>
+<ul>
+<li><code class="w3-codespan"><a href="../cssref/css3_pr_transition-property.html">transition-property</a></code> (Required)</li>
+<li><code class="w3-codespan"><a href="../cssref/css3_pr_transition-duration.html">transition-duration</a></code> (Required)</li>
+<li><code class="w3-codespan"><a href="../cssref/css3_pr_transition-timing-function.html">transition-timing-function</a></code></li>
+<li><code class="w3-codespan"><a href="../cssref/css3_pr_transition-delay.html">transition-delay</a></code></li>
+</ul>
+<h3>CSS Transition Example</h3>
+<p>The following example shows a 100px * 100px &lt;div&gt; element. The &lt;div&gt; 
+element has specified a transition effect for the width property, with a duration of 2 seconds:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+div
+{<br>&nbsp; width: 100px;<br>&nbsp;&nbsp;height: 100px;<br>&nbsp; 
+background-color: red;<br>&nbsp;&nbsp;transition: width 2s;<br>
+}
+</div>
+<br>
+</div>
+<h3>How to Trigger the Transition</h3>
+<p>The transition is triggered when there is a change in the element's properties. 
+This often happens within pseudo-classes (:hover, :active, :focus, or 
+:checked).</p>
+<p>So, from the code above, the transition effect will start when the width property changes value.</p>
+<p>Now, we add a div:hover class that specifies a new value for the width property when a user 
+mouses over the &lt;div&gt; element:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+div:hover
+{<br>
+&nbsp;&nbsp;width: 300px;<br>
+}
+</div>
+
+</div>
+<p>Notice that when the cursor mouses out of the element, it will gradually change back to its original style.</p>
+
+<hr>
+
+<h2>Change Multiple Property Values</h2>
+<p>You can change multiple properties by separating them by commas.</p>
+<p>The following example adds a transition effect for the width, height, and 
+background-color properties, with a duration 
+of 2 seconds for the width, 4 seconds for the height, and 3 seconds for the 
+background-color:</p>
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Add a transition effect for the width, height, and background-color 
+  properties:</p>
+<div class="w3-code notranslate cssHigh">
+div
+{<br>
+&nbsp;&nbsp;transition: width 2s, height 4s, background-color 3s;<br>
+}
+</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>CSS Transition Speed Curve</h2>
+<p>The <code class="w3-codespan">
+<a href="../cssref/css3_pr_transition-timing-function.html">transition-timing-function</a></code> property specifies the speed curve of the transition effect.</p>
+<p>This property can have one of the following values:</p>
+<ul>
+<li><code class="w3-codespan">ease</code> - transition will start slow, then go fast, 
+and end slow (this is default)</li>
+<li><code class="w3-codespan">linear</code> - transition will keep the same speed from start to end</li>
+<li><code class="w3-codespan">ease-in</code> - transition will start slow</li>
+<li><code class="w3-codespan">ease-out</code> - transition will end slow</li>
+<li><code class="w3-codespan">ease-in-out</code> - transition will have a slow start and end</li>
+<li><code class="w3-codespan">cubic-bezier(n,n,n,n)</code> - lets you define your own values in a cubic-bezier function</li>
+</ul>
+<p>The following example shows some of the different speed curves that can be used:</p>
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Some different speed curves for transition:</p>
+<div class="w3-code notranslate cssHigh">
+#div1 {transition-timing-function: linear;}<br>#div2 
+{transition-timing-function: ease;}<br>#div3 {transition-timing-function: 
+ease-in;}<br>#div4 {transition-timing-function: ease-out;}<br>#div5 
+{transition-timing-function: ease-in-out;}</div>
+
+</div>
+
+<hr>
+
+<h2>CSS Transition Delay</h2>
+<p>The <code class="w3-codespan"><a href="../cssref/css3_pr_transition-delay.html">transition-delay</a></code> property specifies a delay 
+before the transition starts.</p>
+<p>The <code class="w3-codespan">transition-delay</code> value is defined in 
+seconds (s) or milliseconds (ms).</p>
+<p>The following example has a 1 second delay before starting:</p>
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Add a 1 second delay before starting:</p>
+<div class="w3-code notranslate cssHigh">
+div {<br>&nbsp; 
+transition-delay: 1s;<br>}</div>
+
+</div>
+
+<hr>
+
+<h2>Transition + Transform</h2>
+<p>The following example combines transition and transform for a &lt;div&gt;:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+div {<br>&nbsp;&nbsp;transition: 
+width 2s, height 2s, background-color 2s, transform 2s;<br>}</div>
+
+</div>
+
+<p>The following example combines transition and transform for a button:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+  button {<br>&nbsp;&nbsp;transition: background-color 1s ease-out, transform 1s 
+  ease-out;<br>}</div>
+
+</div>
+
+
+<hr>
+
+<h2>More Transition Examples</h2>
+<p>The CSS transition properties can be specified one by one, like this:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+div
+{<br>&nbsp; transition-property: width;<br>
+  &nbsp;
+transition-duration: 2s;<br>
+  &nbsp;
+transition-timing-function: linear;<br>
+&nbsp;&nbsp;transition-delay: 1s;<br>
+}
+</div>
+
+</div>
+<p>or by using the shorthand property <code class="w3-codespan">
+<a href="../cssref/css3_pr_transition.html">transition</a></code>:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+div
+{<br>
+  &nbsp;
+transition: width 2s linear 1s;<br>
+}
+</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>CSS Transition Properties</h2>
+<p>The following table lists all the CSS transition properties:</p>
+<table class="ws-table-all notranslate">
+  <tr>
+    <th>Property</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><a href="../cssref/css3_pr_transition.html">transition</a></td>
+    <td>A shorthand property for setting the four transition properties into a single property</td>
+  </tr>
+<tr>
+    <td><a href="../cssref/css3_pr_transition-delay.html">transition-delay</a></td>
+    <td>Specifies a delay (in seconds) for the transition effect</td>
+    </tr>
+<tr>
+    <td><a href="../cssref/css3_pr_transition-duration.html">transition-duration</a></td>
+    <td>Specifies how many seconds or milliseconds a transition effect takes to complete</td>
+   </tr>
+<tr>
+   <td><a href="../cssref/css3_pr_transition-property.html">transition-property</a></td>
+   <td>Specifies the name of the CSS property the transition effect is for</td>
+  </tr>
+<tr>
+   <td><a href="../cssref/css3_pr_transition-timing-function.html">transition-timing-function</a></td>
+   <td>Specifies the speed curve of the transition effect</td>
+  </tr>
+</table>
+
+<br>

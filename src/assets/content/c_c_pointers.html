@@ -1,0 +1,100 @@
+<h1>C <span class="color_h1">Pointers</span></h1>
+
+<hr>
+
+
+<h2>Creating Pointers</h2>
+<p>You learned from the previous chapter, that we can get the <strong>memory 
+address</strong> of a variable with the reference 
+operator <code class="w3-codespan">&amp;</code>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+  <div class="w3-code notranslate javaHigh">
+    int myAge = 43; // an int variable<br><br>printf(&quot;%d&quot;, myAge);&nbsp; // 
+    Outputs the value of myAge (43)<br>printf(&quot;%p&quot;, &amp;myAge); // Outputs the 
+    memory address of myAge (0x7ffe5367e044)<br>
+ </div>
+
+</div>
+
+<p>A <strong>pointer </strong>is a variable that <strong>stores </strong>the
+<strong>memory address</strong> of another variable as its value. </p>
+<p>A <strong>pointer variable</strong> <strong>points</strong> to a <strong>data type </strong>(like <code class="w3-codespan">int</code>) of the same 
+type, and is created with the <code class="w3-codespan">*</code> operator. </p>
+<p>The address of the variable you are working with is assigned to the pointer:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+  <div class="w3-code notranslate javaHigh">
+    int myAge = 43;&nbsp;&nbsp;&nbsp;&nbsp; // An int variable<br><strong>int* ptr = 
+    &amp;myAge;</strong>&nbsp;&nbsp;// A pointer variable, with the name ptr, that 
+    stores the address of myAge<br><br>// Output the value of myAge (43)<br>
+    printf(&quot;%d\n&quot;, myAge);<br><br>// Output 
+    the memory address of myAge (0x7ffe5367e044)<br>printf(&quot;%p\n&quot;, &amp;myAge);<br><br>// 
+    Output the memory address of myAge with the pointer (0x7ffe5367e044)<br>
+    printf(&quot;%p\n&quot;, ptr);<br>
+ </div>
+
+</div>
+<h4>Example explained</h4>
+<p>Create a pointer variable with the name <code class="w3-codespan">ptr</code>, that <strong>points to</strong> an <code class="w3-codespan">
+int</code> variable (<code class="w3-codespan">myAge</code>). Note that the type of the pointer has to match the type of the variable you're 
+working with (<code class="w3-codespan">int</code> in our example).</p>
+<p>Use the <code class="w3-codespan">&amp;</code> operator to store the memory address of the 
+<code class="w3-codespan">myAge</code> variable, and assign it to the pointer.</p>
+<p>Now, <code class="w3-codespan">ptr</code> holds the value of <code class="w3-codespan">myAge</code>'s memory address.</p>
+
+<hr>
+
+
+<h2>Dereference</h2>
+<p>In the example above, we used the pointer variable to get the memory address of a variable (used together with the <code class="w3-codespan">&</code> <strong>reference </strong>operator).</p>
+<p>You can also get the value of the variable the pointer points to, by using the <code class="w3-codespan">*</code> operator (the <strong>dereference </strong>operator):</p>
+<div class="w3-example">
+<h3>Example</h3>
+  <div class="w3-code notranslate javaHigh">
+    int myAge = 43;&nbsp;&nbsp;&nbsp;&nbsp; // Variable declaration<br>int* ptr = &amp;myAge;&nbsp; // Pointer 
+    declaration<br><br>// Reference: Output the memory address of myAge with the 
+    pointer (0x7ffe5367e044)<br>printf(&quot;%p\n&quot;, ptr);<br><br>// Dereference: 
+    Output the value of myAge with the pointer (43)<br>printf(&quot;%d\n&quot;, *ptr);<br>
+ </div>
+
+</div>
+
+<div class="ws-note w3-panel">
+<p>Note that the <code class="w3-codespan">*</code> sign can be confusing here, as it does two different things 
+in our code:</p>
+<ul>
+<li>When used in declaration (<code class="w3-codespan">int* ptr</code>), it creates a <strong>pointer variable</strong>.</li>
+  <li>When not used in declaration, it act as a <strong>dereference operator</strong>.</li>
+</ul>
+<hr>
+
+<p><strong>Good To Know:</strong> There are two ways to declare pointer 
+variables in C:</p>
+<div class="w3-example">
+  <div class="w3-code notranslate javaHigh">
+    int* myNum;<br>int *myNum;<br>
+ </div>
+</div>
+<hr>
+
+<p><strong>Notes on Pointers</strong></p>
+
+  <p>Pointers are one of the things that make C stand out from other 
+  programming languages, like <a href="../python/default.html">Python</a> and <a href="../java/default.html">Java</a>.</p>
+<p>They are important in C, because they allow us to manipulate the data in the computer's memory. 
+This can reduce the code and improve the performance. If you are familiar with 
+data structures like lists, trees and graphs, you should know that pointers are 
+especially useful for implementing those. And sometimes you even have to use 
+pointers, for example when working with <a href="c_files.html">files</a> and <a href="c_memory_management.html">memory management</a>.</p>
+
+<p><strong>But be careful</strong>; pointers must be handled with care, since it is possible to damage data stored in other memory addresses.
+</p>
+</div>
+
+
+<hr>
+
+<hr>
+<br>

@@ -1,0 +1,46 @@
+<h1>PHP <span class="color_h1">FILTER_VALIDATE_BOOLEAN</span> Filter</h1>
+<hr>
+<a href="php_ref_filter.html" class="w3-btn w3-white w3-border" title="PHP Filter Reference">&#10094; Complete PHP Filter Reference</a>
+<hr>
+
+<h2>Definition and Usage</h2>
+
+<p>The FILTER_VALIDATE_BOOLEAN filter validates value as a boolean option.</p>
+<ul>
+  <li>Name: &quot;boolean&quot;</li>
+  <li>ID-number: 258</li>
+</ul>
+<p>Possible return values:</p>
+<ul>
+  <li>Returns TRUE for &quot;1&quot;, &quot;true&quot;, &quot;on&quot; and &quot;yes&quot;</li>
+  <li>Returns FALSE for &quot;0&quot;, &quot;false&quot;, &quot;off&quot; and &quot;no&quot;</li>
+  <li>Returns NULL on failure if FILTER_NULL_ON_FAILURE is set</li>
+</ul>
+<hr>
+
+<h2>Example</h2>
+<div class="w3-code w3-border notranslate"><div>
+&lt;?php<br>
+  $var1=&quot;yes&quot;;<br>$var2=&quot;off&quot;; <br><br>var_dump(filter_var($var1, 
+  FILTER_VALIDATE_BOOLEAN));<br>echo &quot;&lt;br&gt;&quot;; <br>var_dump(filter_var($var2, 
+  FILTER_VALIDATE_BOOLEAN));<br>
+?&gt;
+</div></div>
+<p>The output of the code will be:</p>
+<div class="w3-code w3-border notranslate"><div>
+bool(true)<br>bool(false)</div></div>
+
+<h2>Example</h2>
+<div class="w3-code w3-border notranslate"><div>
+&lt;?php<br>
+  $var1=&quot;Hello&quot;;<br>$var2=23; <br><br>var_dump(filter_var($var1, 
+  FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE));<br>echo &quot;&lt;br&gt;&quot;; <br>var_dump(filter_var($var2, 
+  FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE));<br>
+?&gt;
+</div></div>
+<p>The output of the code will be:</p>
+<div class="w3-code w3-border notranslate"><div>
+  NULL<br>NULL</div></div>
+
+<hr>
+<a href="php_ref_filter.html" class="w3-btn w3-white w3-border" title="PHP Filter Reference">&#10094; Complete PHP Filter Reference</a>

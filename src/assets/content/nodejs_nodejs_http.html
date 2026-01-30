@@ -1,0 +1,584 @@
+<h1>Node.js <span class="color_h1">HTTP Module</span></h1>
+
+<hr>
+
+<h2>The Built-in HTTP Module</h2>
+<p>Node.js includes a powerful built-in HTTP module that enables you to create HTTP servers and make HTTP requests.</p>
+<p>This module is essential for building web applications and APIs in Node.js.</p>
+
+<h3>Key Features</h3>
+<ul>
+  <li>Create HTTP servers to handle requests and send responses</li>
+  <li>Make HTTP requests to other servers</li>
+  <li>Handle different HTTP methods (GET, POST, PUT, DELETE, etc.)</li>
+  <li>Work with request and response headers</li>
+  <li>Handle streaming data for large payloads</li>
+</ul>
+
+<h3>Including the HTTP Module</h3>
+<p>To use the HTTP module, include it in your application using the <code class="w3-codespan">require()</code> method:</p>
+<div class="w3-example">
+<div class="w3-code notranslate jsHigh">
+// Using CommonJS require (Node.js default)<br>
+const http = require('http');<br>
+<br>
+// Or using ES modules (Node.js 14+ with "type": "module" in package.json)<br>
+// import http from 'http';
+</div>
+</div>
+
+<hr>
+
+<h2>Creating an HTTP Server</h2>
+<p>The HTTP module's <code class="w3-codespan">createServer()</code> method creates an HTTP server that listens for requests on a specified port and executes a callback function for each request.</p>
+
+<h3>Basic HTTP Server Example</h3>
+<div class="w3-example">
+<div class="w3-code notranslate jsHigh">
+// Import the HTTP module<br>
+const http = require('http');<br>
+<br>
+// Create a server object<br>
+const server = http.createServer((req, res) => {<br>
+&nbsp;&nbsp;// Set the response HTTP header with HTTP status and Content type<br>
+&nbsp;&nbsp;res.writeHead(200, { 'Content-Type': 'text/plain' });<br>
+<br>
+&nbsp;&nbsp;// Send the response body as 'Hello, World!'<br>
+&nbsp;&nbsp;res.end('Hello, World!\n');<br>
+});<br>
+<br>
+// Define the port to listen on
+const PORT = 3000;<br>
+<br>
+// Start the server and listen on the specified port<br>
+server.listen(PORT, 'localhost', () => {<br>
+&nbsp;&nbsp;console.log(`Server running at http://localhost:${PORT}/`);<br>
+});
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="shownodejs1659.html?filename=demo_http">Run example &raquo;</a>
+</div>
+
+<h3>Understanding the Code</h3>
+<ol>
+  <li><code class="w3-codespan">http.createServer()</code> - Creates a new HTTP server instance</li>
+  <li>The callback function is executed for each request with two parameters:
+    <ul>
+      <li><code class="w3-codespan">req</code> - The request object (http.IncomingMessage)</li>
+      <li><code class="w3-codespan">res</code> - The response object (http.ServerResponse)</li>
+    </ul>
+  </li>
+  <li><code class="w3-codespan">res.writeHead()</code> - Sets the response status code and headers</li>
+  <li><code class="w3-codespan">res.end()</code> - Sends the response and ends the connection</li>
+  <li><code class="w3-codespan">server.listen()</code> - Starts the server on the specified port</li>
+</ol>
+
+<h3>Running the Server</h3>
+<ol>
+  <li>Save the code in a file named <code class="w3-codespan">server.js</code></li>
+  <li>Run the server using Node.js:</li>
+</ol>
+<div class="w3-example">
+<div class="w3-code notranslate w3-black">
+node server.js
+</div>
+</div>
+<p>Visit <a href="http://localhost:3000/" target="_blank">http://localhost:3000</a> in your browser to see the response.</p>
+<hr>
+
+<hr>
+<h2>Working with HTTP Headers</h2>
+<p>HTTP headers let you send additional information with your response.</p>
+<p>The <code class="w3-codespan">res.writeHead()</code> method is used to set the status code and response headers.</p>
+
+<h3>Setting Response Headers</h3>
+<div class="w3-example">
+<h4>Example: Setting Multiple Headers</h4>
+<div class="w3-code notranslate jsHigh">
+const http = require('http');<br>
+<br>
+const server = http.createServer((req, res) => {<br>
+&nbsp;&nbsp;// Set status code and multiple headers<br>
+&nbsp;&nbsp;res.writeHead(200, {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'Content-Type': 'text/html',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'X-Powered-By': 'Node.js',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'Cache-Control': 'no-cache, no-store, must-revalidate',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'Set-Cookie': 'sessionid=abc123; HttpOnly'<br>
+&nbsp;&nbsp;});<br>
+<br>
+&nbsp;&nbsp;res.end('&lt;h1&gt;Hello, World!&lt;/h1&gt;');<br>
+});<br>
+<br>
+server.listen(3000, () => {<br>
+&nbsp;&nbsp;console.log('Server running at http://localhost:3000/');<br>
+});<br>
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="shownodejse559.html?filename=demo_http_header">Run example &raquo;</a>
+</div>
+
+<h3>Common HTTP Status Codes</h3>
+<table class="ws-table-all w3-margin-top">
+  <tr>
+    <th>Code</th>
+    <th>Message</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>200</td>
+    <td>OK</td>
+    <td>Standard response for successful HTTP requests</td>
+  </tr>
+  <tr>
+    <td>201</td>
+    <td>Created</td>
+    <td>Request has been fulfilled and new resource created</td>
+  </tr>
+  <tr>
+    <td>301</td>
+    <td>Moved Permanently</td>
+    <td>Resource has been moved to a new URL</td>
+  </tr>
+  <tr>
+    <td>400</td>
+    <td>Bad Request</td>
+    <td>Server cannot process the request due to client error</td>
+  </tr>
+  <tr>
+    <td>401</td>
+    <td>Unauthorized</td>
+    <td>Authentication is required</td>
+  </tr>
+  <tr>
+    <td>403</td>
+    <td>Forbidden</td>
+    <td>Server refuses to authorize the request</td>
+  </tr>
+  <tr>
+    <td>404</td>
+    <td>Not Found</td>
+    <td>Requested resource could not be found</td>
+  </tr>
+  <tr>
+    <td>500</td>
+    <td>Internal Server Error</td>
+    <td>Unexpected condition was encountered</td>
+  </tr>
+</table>
+
+<h3>Common Response Headers</h3>
+<ul>
+  <li><code class="w3-codespan">Content-Type</code>: Specifies the media type of the content (e.g., text/html, application/json)</li>
+  <li><code class="w3-codespan">Content-Length</code>: The length of the response body in bytes</li>
+  <li><code class="w3-codespan">Location</code>: Used in redirects (with 3xx status codes)</li>
+  <li><code class="w3-codespan">Set-Cookie</code>: Sets HTTP cookies on the client</li>
+  <li><code class="w3-codespan">Cache-Control</code>: Directives for caching mechanisms</li>
+  <li><code class="w3-codespan">Access-Control-Allow-Origin</code>: For CORS support</li>
+</ul>
+
+<h3>Reading Request Headers</h3>
+<p>You can access request headers using the <code class="w3-codespan">req.headers</code> object:</p>
+<div class="w3-example">
+<div class="w3-code notranslate jsHigh">
+const http = require('http');<br>
+<br>
+const server = http.createServer((req, res) => {<br>
+&nbsp;&nbsp;// Log all request headers<br>
+&nbsp;&nbsp;console.log('Request Headers:', req.headers);<br>
+  <br>
+&nbsp;&nbsp;// Get specific headers (case-insensitive)<br>
+&nbsp;&nbsp;const userAgent = req.headers['user-agent'];<br>
+&nbsp;&nbsp;const acceptLanguage = req.headers['accept-language'];<br>
+  <br>
+&nbsp;&nbsp;res.writeHead(200, { 'Content-Type': 'text/plain' });<br>
+&nbsp;&nbsp;res.end(`User-Agent: ${userAgent}\nAccept-Language: ${acceptLanguage}`);<br>
+});<br>
+<br>
+server.listen(3000);
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="shownodejs_cmdb4f7.html?filename=demo_http_req_header">Run example &raquo;</a>
+</div>
+
+<hr>
+
+<h2>Working with URLs and Query Strings</h2>
+<p>Node.js provides built-in modules to work with URLs and query strings, making it easy to handle different parts of a URL and parse query parameters.</p>
+
+<h3>Accessing the Request URL</h3>
+<p>The <code class="w3-codespan">req.url</code> property contains the URL string that was requested, including any query parameters.</p>
+<p>This is part of the <code class="w3-codespan">http.IncomingMessage</code> object.</p>
+
+<div class="w3-example">
+<h4>Example: Basic URL Handling</h4>
+<div class="w3-code notranslate jsHigh">
+const http = require('http');<br>
+<br>
+const server = http.createServer((req, res) => {<br>
+&nbsp;&nbsp;// Get the URL and HTTP method<br>
+&nbsp;&nbsp;const { url, method } = req;<br>
+  <br>
+&nbsp;&nbsp;res.writeHead(200, { 'Content-Type': 'text/plain' });<br>
+&nbsp;&nbsp;res.end(`You made a ${method} request to ${url}`);<br>
+});<br>
+<br>
+server.listen(3000, () => {<br>
+&nbsp;&nbsp;console.log('Server running at http://localhost:3000/');<br>
+});
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="shownodejs_cmdefe5.html?filename=demo_http_url">Run example &raquo;</a>
+</div>
+
+<h3>Parsing URLs with the URL Module</h3>
+<p>The <code class="w3-codespan">url</code> module provides utilities for URL resolution and parsing.</p>
+<p>It can parse a URL string into a URL object with properties for each part of the URL.</p>
+
+<div class="w3-example">
+<h4>Example: Parsing URLs</h4>
+<div class="w3-code notranslate jsHigh">
+const http = require('http');<br>
+const url = require('url');<br>
+<br>
+const server = http.createServer((req, res) => {<br>
+&nbsp;&nbsp;// Parse the URL<br>
+&nbsp;&nbsp;const parsedUrl = url.parse(req.url, true);<br>
+  <br>
+&nbsp;&nbsp;// Get different parts of the URL<br>
+&nbsp;&nbsp;const pathname = parsedUrl.pathname; // The path without query string<br>
+&nbsp;&nbsp;const query = parsedUrl.query;      // The query string as an object<br>
+  <br>
+&nbsp;&nbsp;res.writeHead(200, { 'Content-Type': 'application/json' });<br>
+&nbsp;&nbsp;res.end(JSON.stringify({<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pathname,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;query,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;fullUrl: req.url<br>
+&nbsp;&nbsp;}, null, 2));<br>
+});<br>
+<br>
+server.listen(3000);
+</div>
+</div>
+
+<h4>Example Requests and Responses</h4>
+
+<p>For the following request:</p>
+<div class="w3-code notranslate w3-margin-bottom">
+GET /products?category=electronics&sort=price&page=2 HTTP/1.1
+</div>
+
+<p>The server would respond with:</p>
+<div class="w3-code notranslate">
+{<br>
+&nbsp;&nbsp;"pathname": "/products",<br>
+&nbsp;&nbsp;"query": {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"category": "electronics",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"sort": "price",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"page": "2"<br>
+&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;"fullUrl": "/products?category=electronics&sort=price&page=2"<br>
+}
+</div>
+
+<h3>Working with Query Strings</h3>
+<p>For more advanced query string handling, you can use the <code class="w3-codespan">querystring</code> module:</p>
+
+<div class="w3-example">
+<h4>Example: Using querystring Module</h4>
+<div class="w3-code notranslate jsHigh">
+const http = require('http');<br>
+const { URL } = require('url');<br>
+const querystring = require('querystring');<br>
+<br>
+const server = http.createServer((req, res) => {<br>
+&nbsp;&nbsp;// Using the newer URL API (Node.js 10+)<br>
+&nbsp;&nbsp;const baseURL = 'http://' + req.headers.host + '/';
+&nbsp;&nbsp;const parsedUrl = new URL(req.url, baseURL);<br>
+  <br>
+&nbsp;&nbsp;// Get query parameters<br>
+&nbsp;&nbsp;const params = Object.fromEntries(parsedUrl.searchParams);<br>
+  <br>
+&nbsp;&nbsp;// Example of building a query string<br>
+&nbsp;&nbsp;const queryObj = {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name: 'John Doe',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;age: 30,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;interests: ['programming', 'music']<br>
+&nbsp;&nbsp};<br>
+&nbsp;&nbsp;const queryStr = querystring.stringify(queryObj);<br>
+<br>
+&nbsp;&nbsp;res.writeHead(200, { 'Content-Type': 'application/json' });<br>
+&nbsp;&nbsp;res.end(JSON.stringify({<br>
+&nbsp;&nbsp;&nbsp;&nbsp;path: parsedUrl.pathname,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;params,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;exampleQueryString: queryStr<br>
+&nbsp;&nbsp;}, null, 2));<br>
+});<br>
+<br>
+server.listen(3000);
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="shownodejs_cmdf94d.html?filename=demo_http_querystring">Run example &raquo;</a>
+</div>
+
+<h4>Common URL Parsing Methods</h4>
+<ul>
+  <li><code class="w3-codespan">url.parse(urlString, [parseQueryString], [slashesDenoteHost])</code>: Parse a URL string into an object</li>
+  <li><code class="w3-codespan">url.format(urlObject)</code>: Format a URL object into a URL string</li>
+  <li><code class="w3-codespan">url.resolve(from, to)</code>: Resolve a target URL relative to a base URL</li>
+  <li><code class="w3-codespan">new URL(input, [base])</code>: The WHATWG URL API (recommended for new code)</li>
+  <li><code class="w3-codespan">querystring.parse(str, [sep], [eq], [options])</code>: Parse a query string into an object</li>
+  <li><code class="w3-codespan">querystring.stringify(obj, [sep], [eq], [options])</code>: Stringify an object into a query string</li>
+</ul>
+<hr>
+<h2>Handling Different HTTP Methods</h2>
+<p>RESTful APIs commonly use different HTTP methods (GET, POST, PUT, DELETE, etc.) to perform different operations on resources.</p>
+<p>Here's how to handle different HTTP methods in a Node.js HTTP server:</p>
+
+<div class="w3-example">
+<h4>Example: Handling Multiple HTTP Methods</h4>
+<div class="w3-code notranslate jsHigh">
+const http = require('http');<br>
+const { URL } = require('url');<br>
+<br>
+// In-memory data store (for demonstration)<br>
+let todos = [<br>
+&nbsp;&nbsp;{ id: 1, task: 'Learn Node.js', completed: false },<br>
+&nbsp;&nbsp;{ id: 2, task: 'Build an API', completed: false }<br>
+];<br>
+<br>
+const server = http.createServer((req, res) => {<br>
+&nbsp;&nbsp;const { method, url } = req;<br>
+&nbsp;&nbsp;const parsedUrl = new URL(url, `http://${req.headers.host}`);<br>
+&nbsp;&nbsp;const pathname = parsedUrl.pathname;<br>
+  <br>
+&nbsp;&nbsp;// Set CORS headers (for development)<br>
+&nbsp;&nbsp;res.setHeader('Access-Control-Allow-Origin', '*');<br>
+&nbsp;&nbsp;res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');<br>
+&nbsp;&nbsp;res.setHeader('Access-Control-Allow-Headers', 'Content-Type');<br>
+  <br>
+&nbsp;&nbsp;// Handle preflight requests<br>
+&nbsp;&nbsp;if (method === 'OPTIONS') {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;res.writeHead(204);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;res.end();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return;<br>
+&nbsp;&nbsp;}<br>
+  <br>
+&nbsp;&nbsp;// Route: GET /todos<br>
+&nbsp;&nbsp;if (method === 'GET' && pathname === '/todos') {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;res.writeHead(200, { 'Content-Type': 'application/json' });<br>
+&nbsp;&nbsp;&nbsp;&nbsp;res.end(JSON.stringify(todos));<br>
+&nbsp;&nbsp;}<br>
+  
+&nbsp;&nbsp;// Route: POST /todos<br>
+&nbsp;&nbsp;else if (method === 'POST' && pathname === '/todos') {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;let body = '';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;req.on('data', chunk => {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;body += chunk.toString();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;});<br>
+    <br>
+&nbsp;&nbsp;&nbsp;&nbsp;req.on('end', () => {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const newTodo = JSON.parse(body);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;newTodo.id = todos.length > 0 ? Math.max(...todos.map(t => t.id)) + 1 : 1;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;todos.push(newTodo);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;res.writeHead(201, { 'Content-Type': 'application/json' });<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;res.end(JSON.stringify(newTodo));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} catch (error) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;res.writeHead(400, { 'Content-Type': 'application/json' });<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;res.end(JSON.stringify({ error: 'Invalid JSON' }));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;});<br>
+&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;// Route: PUT /todos/:id<br>
+&nbsp;&nbsp;else if (method === 'PUT' && pathname.startsWith('/todos/')) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;const id = parseInt(pathname.split('/')[2]);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;let body = '';<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;req.on('data', chunk => {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;body += chunk.toString();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;});<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;req.on('end', () => {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const updatedTodo = JSON.parse(body);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const index = todos.findIndex(t => t.id === id);<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (index === -1) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;res.writeHead(404, { 'Content-Type': 'application/json' });<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;res.end(JSON.stringify({ error: 'Todo not found' }));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} else {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;todos[index] = { ...todos[index], ...updatedTodo };<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;res.writeHead(200, { 'Content-Type': 'application/json' });<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;res.end(JSON.stringify(todos[index]));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} catch (error) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;res.writeHead(400, { 'Content-Type': 'application/json' });<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;res.end(JSON.stringify({ error: 'Invalid JSON' }));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;});<br>
+&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;// Route: DELETE /todos/:id<br>
+&nbsp;&nbsp;else if (method === 'DELETE' && pathname.startsWith('/todos/')) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;const id = parseInt(pathname.split('/')[2]);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;const index = todos.findIndex(t => t.id === id);<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if (index === -1) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;res.writeHead(404, { 'Content-Type': 'application/json' });<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;res.end(JSON.stringify({ error: 'Todo not found' }));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;} else {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;todos = todos.filter(t => t.id !== id);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;res.writeHead(204);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;res.end();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;// 404 Not Found<br>
+&nbsp;&nbsp;else {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;res.writeHead(404, { 'Content-Type': 'application/json' });<br>
+&nbsp;&nbsp;&nbsp;&nbsp;res.end(JSON.stringify({ error: 'Not Found' }));<br>
+&nbsp;&nbsp;}<br>
+});<br>
+<br>
+const PORT = 3000;<br>
+server.listen(PORT, () => {<br>
+&nbsp;&nbsp;console.log(`Server running at http://localhost:${PORT}/`);<br>
+});
+</div>
+</div>
+
+<h3>Testing the API with cURL</h3>
+<p>You can test this API using cURL commands:</p>
+
+<div class="w3-example">
+<h4>1. Get all todos</h4>
+<div class="w3-code notranslate w3-black">
+curl http://localhost:3000/todos
+</div>
+</div>
+
+<div class="w3-example">
+<h4>2. Create a new todo</h4>
+<div class="w3-code notranslate w3-black">
+curl -X POST http://localhost:3000/todos \<br>
+  -H "Content-Type: application/json" \<br>
+  -d '{"task":"New Task","completed":false}'
+</div>
+</div>
+
+<div class="w3-example">
+<h4>3. Update a todo</h4>
+<div class="w3-code notranslate w3-black">
+curl -X PUT http://localhost:3000/todos/1 \<br>
+  -H "Content-Type: application/json" \<br>
+  -d '{"completed":true}'
+</div>
+</div>
+
+<div class="w3-example">
+<h4>4. Delete a todo</h4>
+<div class="w3-code notranslate w3-black">
+curl -X DELETE http://localhost:3000/todos/1
+</div>
+</div>
+
+<h3>Best Practices for HTTP Methods</h3>
+<ul>
+  <li><strong>GET</strong>: Retrieve a resource or collection of resources (should be idempotent)</li>
+  <li><strong>POST</strong>: Create a new resource (not idempotent)</li>
+  <li><strong>PUT</strong>: Update an existing resource or create it if it doesn't exist (idempotent)</li>
+  <li><strong>PATCH</strong>: Partially update a resource</li>
+  <li><strong>DELETE</strong>: Remove a resource (idempotent)</li>
+  <li><strong>HEAD</strong>: Same as GET but without the response body</li>
+  <li><strong>OPTIONS</strong>: Describe the communication options for the target resource</li>
+</ul>
+
+<h3>Error Handling</h3>
+<p>Always include proper error handling and appropriate HTTP status codes:</p>
+<ul>
+  <li><code class="w3-codespan">200 OK</code> - Successful GET/PUT/PATCH</li>
+  <li><code class="w3-codespan">201 Created</code> - Successful resource creation</li>
+  <li><code class="w3-codespan">204 No Content</code> - Successful DELETE</li>
+  <li><code class="w3-codespan">400 Bad Request</code> - Invalid request data</li>
+  <li><code class="w3-codespan">401 Unauthorized</code> - Authentication required</li>
+  <li><code class="w3-codespan">403 Forbidden</code> - Not enough permissions</li>
+  <li><code class="w3-codespan">404 Not Found</code> - Resource doesn't exist</li>
+  <li><code class="w3-codespan">500 Internal Server Error</code> - Server-side error</li>
+</ul>
+
+<hr>
+
+<h2>Streaming Responses</h2>
+<p>Node.js streams are powerful for handling large amounts of data efficiently. The HTTP module works well with streams for both reading request bodies and writing responses.</p>
+
+<div class="w3-example">
+<h4>Example: Streaming a Large File</h4>
+<div class="w3-code notranslate jsHigh">
+const http = require('http');<br>
+const fs = require('fs');<br>
+const path = require('path');<br>
+<br>
+const server = http.createServer((req, res) => {<br>
+&nbsp;&nbsp;// Get the file path from the URL<br>
+&nbsp;&nbsp;const filePath = path.join(__dirname, req.url);<br>
+<br>
+&nbsp;&nbsp;// Check if file exists<br>
+&nbsp;&nbsp;fs.access(filePath, fs.constants.F_OK, (err) => {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if (err) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;res.statusCode = 404;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;res.end('File not found');<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// Get file stats<br>
+&nbsp;&nbsp;&nbsp;&nbsp;fs.stat(filePath, (err, stats) => {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (err) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;res.statusCode = 500;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;res.end('Server error');<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Set appropriate headers<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;res.setHeader('Content-Length', stats.size);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;res.setHeader('Content-Type', 'application/octet-stream');<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Create read stream and pipe to response<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const stream = fs.createReadStream(filePath);<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Handle errors<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stream.on('error', (err) => {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.error('Error reading file:', err);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (!res.headersSent) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;res.statusCode = 500;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;res.end('Error reading file');<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Pipe the file to the response<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stream.pipe(res);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;});<br>
+&nbsp;&nbsp;});<br>
+});<br>
+<br>
+const PORT = 3000;<br>
+server.listen(PORT, () => {<br>
+&nbsp;&nbsp;console.log(`File server running at http://localhost:${PORT}/`);<br>
+});
+</div>
+</div>
+
+<h3>Benefits of Streaming</h3>
+<ul>
+  <li><strong>Memory Efficiency</strong>: Processes data in chunks instead of loading everything into memory</li>
+  <li><strong>Faster Time to First Byte</strong>: Starts sending data as soon as it's available</li>
+  <li><strong>Backpressure Handling</strong>: Automatically handles slow clients by pausing the read stream</li>
+</ul>
+
+<h3>Common Use Cases for Streaming</h3>
+<ul>
+  <li>File uploads/downloads</li>
+  <li>Real-time data processing</li>
+  <li>Proxying requests</li>
+  <li>Video/audio streaming</li>
+  <li>Log processing</li>
+</ul>
+<hr>
+
+<hr>
+<br>

@@ -1,0 +1,336 @@
+<h1>Java <span class="color_h1">ArrayList</span></h1>
+
+<hr>
+
+<h2>Java ArrayList</h2>
+
+<p>An <code class="w3-codespan">ArrayList</code> is like a resizable <a href="java_arrays.html">array</a>.</p>
+
+<p>It is part of the <code class="w3-codespan">java.util</code> package and implements the <a href="java_list.html"><code class="w3-codespan">List</code></a> interface.</p>
+
+<p>The difference between a built-in <a href="java_arrays.html">array</a> and an <code class="w3-codespan">ArrayList</code> in Java, is that the size of an array cannot be modified (if you want to 
+add or remove elements to/from an array, you have to create a new one). While elements can be added and removed from an <code class="w3-codespan">ArrayList</code> whenever you want.</p>
+<hr>
+
+<h2>Create an ArrayList</h2>
+
+<p>To use an <code class="w3-codespan">ArrayList</code>, you must first import it from <code class="w3-codespan">java.util</code>:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Create an <code class="w3-codespan">ArrayList</code> object called <strong>cars</strong> that will store strings:</p><pre class="language-java w3-white"><code>import java.util.ArrayList; // Import the ArrayList class
+
+ArrayList&lt;String&gt; cars = new ArrayList&lt;String&gt;(); // Create an ArrayList object</code></pre>
+</div>
+
+<p>Now you can use methods like <code class="w3-codespan">add()</code>, <code class="w3-codespan">get()</code>, <code class="w3-codespan">set()</code>, and <code class="w3-codespan">remove()</code> to manage your list of elements.</p>
+<hr>
+
+<h2>Add Elements</h2>
+<p>To add elements to an 
+<code class="w3-codespan">ArrayList</code>, use the <code class="w3-codespan">add()</code> method:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>import java.util.ArrayList;
+
+public class Main {
+&nbsp; public static void main(String[] args) {
+&nbsp;&nbsp;&nbsp; ArrayList&lt;String&gt; cars = new ArrayList&lt;String&gt;();
+&nbsp;&nbsp;&nbsp; cars.add(&quot;Volvo&quot;);
+&nbsp;&nbsp;&nbsp; cars.add(&quot;BMW&quot;);
+&nbsp;&nbsp;&nbsp; cars.add(&quot;Ford&quot;);
+&nbsp;&nbsp;&nbsp; cars.add(&quot;Mazda&quot;);
+&nbsp;&nbsp;&nbsp; System.out.println(cars);
+&nbsp; }
+}</code></pre>
+<p>
+
+</p>
+</div>
+
+<p>You can also add an element at a specified position by referring to the index 
+number:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>import java.util.ArrayList;
+
+public class Main {
+&nbsp; public static void main(String[] args) {
+&nbsp;&nbsp;&nbsp; ArrayList&lt;String&gt; cars = new ArrayList&lt;String&gt;();
+&nbsp;&nbsp;&nbsp; cars.add(&quot;Volvo&quot;);
+&nbsp;&nbsp;&nbsp; cars.add(&quot;BMW&quot;);
+&nbsp;&nbsp;&nbsp; cars.add(&quot;Ford&quot;);
+
+    cars.add(0, &quot;Mazda&quot;); // Insert element at the beginning of the list (0)
+
+&nbsp;&nbsp;&nbsp; System.out.println(cars);
+&nbsp; }
+}</code></pre>
+<p>
+
+</p></div>
+<div class="ws-note w3-panel">
+<p>An <code class="w3-codespan">ArrayList</code> keeps elements in the same order you add them, so the first item you add will be at index 0, the next at index 1, and so on.</p>
+</div>
+
+<hr>
+
+<h2>Access an Element</h2>
+<p>To access an element in the <code class="w3-codespan">ArrayList</code>, use the <code class="w3-codespan">get()</code> method and refer to the index number:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>cars.get(0);  // Get the first element
+</code></pre>
+<p>
+
+</p>
+</div>
+
+<hr>
+
+<hr>
+
+<h2>Change an Element</h2>
+
+<p>To modify an element, use the <code class="w3-codespan">set()</code> method 
+and refer to the index number:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>cars.set(0, &quot;Opel&quot;);
+</code></pre>
+<p>
+
+</p>
+</div>
+<hr>
+
+<h2>Remove an Element</h2>
+
+<p>To remove an element, use the <code class="w3-codespan">remove()</code> method 
+and refer to the index number:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>cars.remove(0);
+</code></pre>
+<p>
+
+</p>
+</div>
+
+<p>To remove all the elements in the <code class="w3-codespan">ArrayList</code>, use the <code class="w3-codespan">clear()</code> method:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>cars.clear();
+</code></pre>
+<p>
+
+</p>
+</div>
+
+<hr>
+
+<h2>ArrayList Size</h2>
+<p>To find out how many elements an <code class="w3-codespan">ArrayList</code> have, use the <code class="w3-codespan">size</code> method:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>cars.size();
+</code></pre>
+<p>
+
+</p>
+</div>
+<hr>
+
+<h2>Loop Through an ArrayList</h2>
+<p>Loop through the elements of an <code class="w3-codespan">ArrayList</code> with a <code class="w3-codespan">for</code> loop, and use the <code class="w3-codespan">
+size()</code> method to specify how many times the loop should run:</p>
+
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>public class Main {
+&nbsp; public static void main(String[] args) {
+&nbsp;&nbsp;&nbsp; ArrayList&lt;String&gt; cars = new ArrayList&lt;String&gt;();
+&nbsp;&nbsp;&nbsp; cars.add(&quot;Volvo&quot;);
+&nbsp;&nbsp;&nbsp; cars.add(&quot;BMW&quot;);
+&nbsp;&nbsp;&nbsp; cars.add(&quot;Ford&quot;);
+&nbsp;&nbsp;&nbsp; cars.add(&quot;Mazda&quot;);
+&nbsp;&nbsp;&nbsp; for (int i = 0; i &lt; cars.size(); i++) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(cars.get(i));
+&nbsp;&nbsp;&nbsp; }
+&nbsp; }
+}
+</code></pre>
+<p>
+
+</p>
+</div>
+<p>You can also loop through an <code class="w3-codespan">ArrayList</code> with the <strong>for-each</strong> loop:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>public class Main {
+&nbsp; public static void main(String[] args) {
+&nbsp;&nbsp;&nbsp; ArrayList&lt;String&gt; cars = new ArrayList&lt;String&gt;();
+&nbsp;&nbsp;&nbsp; cars.add(&quot;Volvo&quot;);
+&nbsp;&nbsp;&nbsp; cars.add(&quot;BMW&quot;);
+&nbsp;&nbsp;&nbsp; cars.add(&quot;Ford&quot;);
+&nbsp;&nbsp;&nbsp; cars.add(&quot;Mazda&quot;);
+&nbsp;&nbsp;&nbsp; for (String i : cars) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(i);
+&nbsp;&nbsp;&nbsp; }
+&nbsp; }
+}
+</code></pre>
+<p>
+
+</p>
+</div>
+<hr>
+
+<h2>Other Types</h2>
+<p>Elements in an <code class="w3-codespan">ArrayList</code> are actually objects. In the examples above, we created elements 
+(objects) of type "String". Remember that a <code class="w3-codespan">String</code> in Java is an object (not a primitive type). To use other types, such as <code class="w3-codespan">int</code>, you must specify an equivalent <a href="java_wrapper_classes.html">wrapper class</a>: <code class="w3-codespan">Integer</code>. For other primitive types, 
+use: <code class="w3-codespan">Boolean</code> for boolean, <code class="w3-codespan">Character</code> for char, <code class="w3-codespan">Double</code> for double, 
+etc:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Create an <code class="w3-codespan">ArrayList</code> to store numbers (add elements of type <code class="w3-codespan">Integer</code>):</p>
+<pre class="language-java w3-white"><code>import java.util.ArrayList;
+
+public class Main {
+&nbsp; public static void main(String[] args) {
+&nbsp;&nbsp;&nbsp; ArrayList&lt;Integer&gt; myNumbers = new ArrayList&lt;Integer&gt;();
+&nbsp;&nbsp;&nbsp; myNumbers.add(10);
+&nbsp;&nbsp;&nbsp; myNumbers.add(15);
+&nbsp;&nbsp;&nbsp; myNumbers.add(20);
+&nbsp;&nbsp;&nbsp; myNumbers.add(25);
+&nbsp;&nbsp;&nbsp; for (int i : myNumbers) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(i);
+&nbsp;&nbsp;&nbsp; }
+&nbsp; }
+}
+</code></pre>
+<p>
+
+</p>
+</div>
+<hr>
+
+<h2>Sort an ArrayList</h2>
+<p>Another useful class in the <code class="w3-codespan">java.util</code> package is the <code class="w3-codespan">Collections</code> class, which include the <code class="w3-codespan">sort()</code> method for sorting lists 
+alphabetically or numerically:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Sort an ArrayList of Strings:</p>
+<pre class="language-java w3-white"><code>import java.util.ArrayList;
+import java.util.Collections;&nbsp; // Import the Collections class
+
+public class Main {
+&nbsp; public static void main(String[] args) {
+&nbsp;&nbsp;&nbsp; ArrayList&lt;String&gt; cars = new ArrayList&lt;String&gt;();
+&nbsp;&nbsp;&nbsp; cars.add(&quot;Volvo&quot;);
+&nbsp;&nbsp;&nbsp; cars.add(&quot;BMW&quot;);
+&nbsp;&nbsp;&nbsp; cars.add(&quot;Ford&quot;);
+&nbsp;&nbsp;&nbsp; cars.add(&quot;Mazda&quot;);
+&nbsp;&nbsp;&nbsp; Collections.sort(cars);&nbsp; // Sort cars
+&nbsp;&nbsp;&nbsp; for (String i : cars) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(i);
+&nbsp;&nbsp;&nbsp; }
+&nbsp; }
+}
+</code></pre>
+<p>
+
+</p>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Sort an ArrayList of Integers:</p>
+<pre class="language-java w3-white"><code>import java.util.ArrayList;
+import java.util.Collections;&nbsp; // Import the Collections class
+
+public class Main {
+&nbsp; public static void main(String[] args) {
+&nbsp;&nbsp;&nbsp; ArrayList&lt;Integer&gt; myNumbers = new ArrayList&lt;Integer&gt;();
+&nbsp;&nbsp;&nbsp; myNumbers.add(33);
+&nbsp;&nbsp;&nbsp; myNumbers.add(15);
+&nbsp;&nbsp;&nbsp; myNumbers.add(20);
+&nbsp;&nbsp;&nbsp; myNumbers.add(34);
+&nbsp;&nbsp;&nbsp; myNumbers.add(8);
+&nbsp;&nbsp;&nbsp; myNumbers.add(12);
+
+&nbsp;&nbsp;&nbsp; Collections.sort(myNumbers);&nbsp; // Sort myNumbers
+
+&nbsp;&nbsp;&nbsp; for (int i : myNumbers) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(i);
+&nbsp;&nbsp;&nbsp; }
+&nbsp; }
+}
+</code></pre>
+<p>
+
+</p>
+</div>
+
+<hr>
+
+<h2>The var Keyword</h2>
+
+<p>
+From Java 10, you can use the <code class="w3-codespan">var</code> keyword to declare an <code class="w3-codespan">ArrayList</code> variable without writing the type twice.  
+The compiler figures out the type from the value you assign.  
+</p>
+
+<p>
+This makes code shorter, <strong>but many developers still use the full type for clarity</strong>.  
+Since <code class="w3-codespan">var</code> is valid Java, you may see it in other code, so it's good to know that it exists:
+</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <pre class="language-java w3-white"><code>// Without var
+ArrayList&lt;String&gt; cars = new ArrayList&lt;String&gt;();
+
+// With var
+var cars = new ArrayList&lt;String&gt;();
+</code></pre>
+  <p>
+    
+  </p>
+</div>
+
+<hr>
+
+<h2>The List Interface</h2>
+<p><strong>Note:</strong> Sometimes you will see both <code class="w3-codespan">List</code> and <code class="w3-codespan">ArrayList</code> in Java code, like this:</p>
+
+<div class="w3-example">
+  <pre class="language-java w3-white"><code>import java.util.List;
+import java.util.ArrayList;
+
+List&lt;String&gt; cars = new ArrayList&lt;&gt;();</code></pre>
+<p>
+
+</p>
+</div>
+<p>This means the variable (cars) is declared as a <a href="java_list.html"><code class="w3-codespan">List</code></a> (the interface), but it stores an <code class="w3-codespan">ArrayList</code> object (the actual list). Since <code class="w3-codespan">ArrayList</code> implements the <code class="w3-codespan">List</code> interface, this is possible.</p>
+<p>It works the same way, but some developers prefer this style because it gives them more flexibility to change the type later.</p>
+<hr>
+
+<div>
+<h2>Complete ArrayList Reference</h2>
+<p>For a complete reference of ArrayList methods, go to our <a href="java_ref_arraylist.html">Java ArrayList Reference</a>.</p>
+</div>
+<hr>
+
+<hr>
+
+<br>

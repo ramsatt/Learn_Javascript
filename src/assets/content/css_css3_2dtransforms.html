@@ -1,0 +1,338 @@
+<h1>CSS <span class="color_h1">2D Transforms</span></h1>
+
+<hr>
+
+<h2>CSS 2D Transforms</h2>
+<p>The CSS <code class="w3-codespan"><a href="../cssref/css3_pr_transform.html">transform</a></code> 
+property applies a 2D or 3D transformation to an element. This property allows 
+you to rotate, scale, move, and skew elements.</p>
+<p>Mouse over the element below to see a 2D transformation:</p>
+<div style="height:80px;">
+<div onmouseover="rotateDIV()" id="rotate2D">2D rotate</div>
+</div>
+<hr>
+
+<h2>CSS 2D Transforms Functions</h2>
+<p>With the CSS <code class="w3-codespan">
+<a href="../cssref/css3_pr_transform.html">transform</a></code> property you can use 
+the following 2D transformation functions:</p>
+<ul>
+<li><code class="w3-codespan"><a href="../cssref/func_translate.html">translate()</a></code></li>
+<li><code class="w3-codespan"><a href="../cssref/func_rotate.html">rotate()</a></code></li>
+<li><code class="w3-codespan"><a href="../cssref/func_scalex.html">scaleX()</a></code></li>
+<li><code class="w3-codespan"><a href="../cssref/func_scaley.html">scaleY()</a></code></li>
+<li><code class="w3-codespan"><a href="../cssref/func_scale.html">scale()</a></code></li>
+<li><code class="w3-codespan"><a href="../cssref/func_skewx.html">skewX()</a></code></li>
+<li><code class="w3-codespan"><a href="../cssref/func_skewy.html">skewY()</a></code></li>
+<li><code class="w3-codespan"><a href="../cssref/func_skew.html">skew()</a></code></li>
+<li><code class="w3-codespan"><a href="../cssref/func_matrix.html">matrix()</a></code></li>
+</ul>
+
+<hr>
+
+<h2>The CSS translate() Function</h2>
+<p>The <code class="w3-codespan"><a href="../cssref/func_translate.html">translate()</a></code> function moves an element from its current position (according 
+to the parameters given for the X-axis and the Y-axis).</p>
+<p>The following example moves the &lt;div&gt; element 50 pixels to the right, and 100 pixels down from its current position:</p>
+
+<div style="height:140px"><div style="background:white;padding:10px;width:auto;position:absolute;"><img src="assets/content/images/transform_translate.gif" alt="Translate"></div></div>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+div
+{<br>
+  &nbsp;
+transform: translate(50px, 100px);<br>
+}
+</div>
+
+</div>
+
+<hr>
+
+<h2>The CSS rotate() Function</h2>
+<p>The <code class="w3-codespan"><a href="../cssref/func_rotate.html">rotate()</a></code> function rotates an element clockwise or counter-clockwise according to a given degree.</p>
+<p>The following example rotates the &lt;div&gt; element clockwise with 20 degrees:</p>
+<img src="assets/content/images/transform_rotate.gif" alt="Rotate">
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+div
+{<br>
+&nbsp;&nbsp;transform: rotate(20deg);<br>
+}
+</div>
+
+</div>
+<p>Using negative values will rotate the element counter-clockwise.</p>
+<p>The following example rotates the &lt;div&gt; element counter-clockwise with 20 degrees:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+div
+{<br>
+  &nbsp;
+transform: rotate(-20deg);<br>
+}
+</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>The CSS scale() Function</h2>
+<p>The <code class="w3-codespan"><a href="../cssref/func_scale.html">scale()</a></code> function increases or decreases the size of an element (according to the parameters given for the width and height).</p>
+<p>The following example increases the &lt;div&gt; element to be two times of its original width, and three times of its original height:&nbsp;</p>
+<div style="height:160px"><div style="background:white;padding:20px;width:auto;position:absolute;"><img src="assets/content/images/transform_scale.gif" alt="Scale"></div></div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+div
+{<br>
+  &nbsp;
+transform: scale(2, 3);<br>
+}
+</div>
+
+</div>
+
+<p>The following example decreases the &lt;div&gt; element to be half of its original width and height:&nbsp;</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+div
+{<br>
+  &nbsp;
+transform: scale(0.5, 0.5);<br>
+}
+</div>
+
+</div>
+
+<hr>
+
+<h2>The CSS scaleX() Function</h2>
+<p>The <code class="w3-codespan"><a href="../cssref/func_scalex.html">scaleX()</a></code> function increases or decreases the 
+width of an element.</p>
+<p>The following example increases the &lt;div&gt; element to be two times of its original width:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+div
+{<br>
+  &nbsp;
+transform: scaleX(2);<br>
+}
+</div>
+
+</div>
+
+<p>The following example decreases the &lt;div&gt; element to be half of its original width:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+div
+{<br>
+  &nbsp;
+transform: scaleX(0.5);<br>
+}
+</div>
+
+</div>
+
+<hr>
+
+<h2>The CSS scaleY() Function</h2>
+<p>The <code class="w3-codespan"><a href="../cssref/func_scaley.html">scaleY()</a></code> function increases or decreases the 
+height of an element.</p>
+<p>The following example increases the &lt;div&gt; element to be three times of its original height:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+div
+{<br>
+  &nbsp;
+transform: scaleY(3);<br>
+}
+</div>
+  
+</div>
+
+<p>The following example decreases the &lt;div&gt; element to be half of its original height:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+div
+{<br>
+  &nbsp;
+transform: scaleY(0.5);<br>
+}
+</div>
+
+</div>
+
+<hr>
+
+<h2>The CSS skewX() Function</h2>
+<p>The <code class="w3-codespan"><a href="../cssref/func_skewx.html">skewX()</a></code> function skews an element along the X-axis by the given angle.</p>
+<p>The following example skews the &lt;div&gt; element 20 degrees along the X-axis:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+div
+{<br>
+  &nbsp;
+transform: skewX(20deg);<br>
+}
+</div>
+
+</div>
+
+<hr>
+
+<h2>The CSS skewY() Function</h2>
+<p>The <code class="w3-codespan"><a href="../cssref/func_skewy.html">skewY()</a></code> function skews an element along the Y-axis by the given angle.</p>
+<p>The following example skews the &lt;div&gt; element 20 degrees along the Y-axis:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+div
+{<br>
+  &nbsp;
+transform: skewY(20deg);<br>
+}
+</div>
+
+</div>
+
+<hr>
+
+<h2>The CSS skew() Function</h2>
+<p>The <code class="w3-codespan"><a href="../cssref/func_skew.html">skew()</a></code> function skews an element along the X and Y-axis by the given angles.</p>
+<p>The following example skews the &lt;div&gt; element 20 degrees along the X-axis, and 10 degrees along the Y-axis:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+div
+{<br>
+  &nbsp;
+transform: skew(20deg, 10deg);<br>
+}
+</div>
+
+</div>
+<p>If the second parameter is not specified, it has a zero value. So, the following example skews the &lt;div&gt; element 20 degrees along the X-axis:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+div
+{<br>
+  &nbsp;
+transform: skew(20deg);<br>
+}
+</div>
+
+</div>
+
+<hr>
+
+<h2>The CSS matrix() Function</h2>
+<p>The <code class="w3-codespan"><a href="../cssref/func_matrix.html">matrix()</a></code> function combines all the 2D transform 
+functions into one.</p>
+<p>The <code class="w3-codespan"><a href="../cssref/func_matrix.html">matrix()</a></code> function take six parameters, containing mathematic functions, 
+which allows you to rotate, scale, move (translate), and skew elements.</p>
+<p>The parameters are as follow: matrix(scaleX(), skewY(), skewX(), scaleY(), translateX(), translateY())</p>
+<img src="assets/content/images/transform_rotate.gif" alt="Rotate">
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+div
+{<br>
+  &nbsp; 
+transform: matrix(1, -0.3, 0, 1, 0, 0);<br>}
+</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>CSS Transform Properties</h2>
+<p>The following table lists all the 2D transform properties:</p>
+<table class="ws-table-all notranslate">
+  <tr>
+    <th style="width:23%">Property</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><a href="../cssref/css3_pr_transform.html">transform</a></td>
+    <td>Applies a 2D or 3D transformation to an element</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/css3_pr_transform-origin.html">transform-origin</a></td>
+    <td>Allows you to change the position on transformed elements</td>
+  </tr>
+</table>
+  
+<h2>CSS 2D Transform Functions</h2>
+<table class="ws-table-all notranslate">
+  <tr>
+    <th style="width:23%">Function</th>
+    <th>Description</th>
+  </tr>  
+  <tr>
+    <td><a href="../cssref/func_matrix.html">matrix()</a></td>
+    <td>Defines a 2D transformation, using a matrix of six values</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/func_translate.html">translate()</a></td>
+    <td>Defines a 2D translation, moving the element along the X- and the Y-axis</td>
+  </tr>
+<tr>
+    <td><a href="../cssref/func_translatex.html">translateX()</a></td>
+    <td>Defines a 2D translation, moving the element along the X-axis</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/func_translatey.html">translateY()</a></td>
+    <td>Defines a 2D translation, moving the element along the Y-axis</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/func_scale.html">scale()</a></td>
+    <td>Defines a 2D scale transformation, scaling the elements width and height</td>
+  </tr>
+  <tr>
+   <td><a href="../cssref/func_scalex.html">scaleX()</a></td>
+   <td>Defines a 2D scale transformation, scaling the element's width</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/func_scaley.html">scaleY()</a></td>
+    <td>Defines a 2D scale transformation, scaling the element's height</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/func_rotate.html">rotate()</a></td>
+    <td>Defines a 2D rotation, the angle is specified in the parameter</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/func_skew.html">skew()</a></td>
+    <td>Defines a 2D skew transformation along the X- and the Y-axis</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/func_skewx.html">skewX()</a></td>
+    <td>Defines a 2D skew transformation along the X-axis</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/func_skewy.html">skewY()</a></td>
+    <td>Defines a 2D skew transformation along the Y-axis</td>
+  </tr>
+</table>
+
+<br>

@@ -1,0 +1,92 @@
+<h1>Bootstrap 5 <span class="color_h1">Popover</span></h1>
+
+<hr>
+
+<style>
+.popover-header{
+  margin-top:0;
+  font-weight:500;
+}
+</style>
+<h2>Popovers</h2>
+<p>The Popover component is similar to tooltips; it is a pop-up box that appears when the user clicks on an element. The difference is that the popover can contain much more content.</p>
+<button type="button" class="btn btn-primary" data-bs-toggle="popover" title="Popover Header" data-bs-content="Some content inside the popover">Toggle popover
+</button>
+
+
+<hr>
+
+<h2>How To Create a Popover</h2>
+<p>To create a popover, add the <code class="w3-codespan">data-bs-toggle=&quot;popover&quot;</code> 
+attribute to an element.</p>
+<p>Use the <code class="w3-codespan">title</code> attribute to specify the header text of the popover, and use the <code class="w3-codespan">data-bs-content</code> attribute to specify the 
+text that should be displayed inside the popover's body:</p>
+<div class="w3-example">
+<div class="w3-code notranslate htmlHigh">
+  &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot; data-bs-toggle=&quot;popover&quot; 
+  title=&quot;Popover Header&quot; data-bs-content=&quot;Some content inside the 
+  popover&quot;&gt;Toggle popover&lt;/button&gt;</div>
+</div>
+<p><strong>Note:</strong> Popovers must be initialized with JavaScript to work.</p>
+<p>The following code will enable all popovers in the document:</p>
+<div class="w3-example">
+ <h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+ &lt;script&gt;<br>var popoverTriggerList = 
+  [].slice.call(document.querySelectorAll('[data-bs-toggle=&quot;popover&quot;]'))<br>var 
+  popoverList = popoverTriggerList.map(function (popoverTriggerEl) {<br>&nbsp; 
+  return new bootstrap.Popover(popoverTriggerEl)<br>})<br>&lt;/script&gt;<br></div>
+
+</div>
+<hr>
+<hr>
+
+<h2>Positioning Popovers</h2>
+<p>By default, the popover will appear on the right side of the element.</p>
+<p>Use the <code class="w3-codespan">data-bs-placement</code> attribute to set the position of the 
+popover on top, bottom, left or the right side of the element:</p>
+
+<div class="w3-example">
+ <h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+ &lt;a href=&quot;#&quot; title=&quot;Header&quot; data-bs-toggle=&quot;popover&quot; data-bs-placement=&quot;top&quot; data-content=&quot;Content&quot;&gt;Top&lt;/a&gt;<br>&lt;a href=&quot;#&quot; title=&quot;Header&quot; data-bs-toggle=&quot;popover&quot; data-bs-placement=&quot;bottom&quot; data-content=&quot;Content&quot;&gt;Bottom&lt;/a&gt;<br>&lt;a href=&quot;#&quot; title=&quot;Header&quot; data-bs-toggle=&quot;popover&quot; data-bs-placement=&quot;left&quot; data-content=&quot;Content&quot;&gt;Left&lt;/a&gt;<br>&lt;a href=&quot;#&quot; title=&quot;Header&quot; data-bs-toggle=&quot;popover&quot; data-bs-placement=&quot;right&quot; data-content=&quot;Content&quot;&gt;Right&lt;/a&gt;<br></div>
+
+</div>
+
+<div class="ws-note w3-panel">
+  <p><strong>Note:</strong> The placement attributes do not work as you expect 
+  if it is not enough room for them. For example: if you use the top placement 
+  at the top of a page (where it is no room for it), it will instead display the 
+  popover below the element or to the right (wherever it is room for it).</p>
+
+</div>
+<hr>
+
+<h2>Closing Popovers</h2>
+<p>By default, the popover is closed when you click on the element 
+again. However, you can use the <code class="w3-codespan">data-bs-trigger=&quot;focus&quot;</code> attribute which will close 
+the popover when clicking outside the element:</p>
+<div class="w3-example">
+ <h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;a href=&quot;#&quot; title=&quot;Dismissible popover&quot; data-bs-toggle=&quot;popover&quot; 
+  data-bs-trigger=&quot;focus&quot; data-bs-content=&quot;Click anywhere in the document to 
+  close this popover&quot;&gt;Click me&lt;/a&gt;<br></div>
+
+</div>
+<hr>
+
+<h2>Hoverable Popover</h2>
+<p><strong>Tip:</strong> If you want the popover to be displayed when you move 
+the mouse pointer over the element, use the <code class="w3-codespan">data-bs-trigger</code> attribute with a value of 
+&quot;<code class="w3-codespan">hover</code>&quot;:</p>
+<div class="w3-example">
+ <h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;a href=&quot;#&quot; title=&quot;Header&quot; data-bs-toggle=&quot;popover&quot; data-bs-trigger=&quot;hover&quot; 
+  data-bs-content=&quot;Popover text&quot;&gt;Hover over me&lt;/a&gt;<br></div>
+
+</div>
+<hr>
+
+<br>

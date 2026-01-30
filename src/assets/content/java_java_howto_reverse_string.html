@@ -1,0 +1,29 @@
+<h1>Java <span class="color_h1">How To Reverse a String</span></h1>
+
+<hr>
+
+<h2>Reverse a String</h2>
+<p>You can easily reverse a string by characters with the following example:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>String originalStr = &quot;Hello&quot;;
+String reversedStr = &quot;&quot;;
+
+for (int i = 0; i &lt; originalStr.length(); i++) {
+  reversedStr = originalStr.charAt(i) + reversedStr;
+}
+
+System.out.println(&quot;Reversed string: &quot;+ reversedStr);</code></pre>
+
+</div>
+<p><b>Explanation:</b> We start with an empty string <code class="w3-codespan">reversedStr</code>.  
+<br>- On each loop, we take one character from the original string using <code class="w3-codespan">charAt()</code>.  
+<br>- Instead of adding it to the end, we place it in front of the existing <code class="w3-codespan">reversedStr</code>.  
+<br>- This way, the characters are built in reverse order.  
+<br>For example, from <code class="w3-codespan">&quot;Hello&quot;</code> we get <code class="w3-codespan">&quot;olleH&quot;</code>.</p>
+<hr><h2>Related Pages</h2>
+<p><a href="java_strings.html">Java String Tutorial</a></p>
+<p><a href="java_ref_string.html">Java String Methods</a></p>
+
+<br>

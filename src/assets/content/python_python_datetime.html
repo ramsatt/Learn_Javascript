@@ -1,0 +1,264 @@
+<h1>Python <span class="color_h1">Datetime</span></h1>
+
+<hr>
+
+<h2>Python Dates</h2>
+<p>A date in Python is not a data type of its own, but we can import a module 
+named <code class="w3-codespan">datetime</code> to work with dates as date 
+objects.</p>
+<div class="w3-example">
+  <h3>Example</h3>
+<p>Import the datetime module and display the current date:</p>
+<div class="w3-code notranslate pythonHigh">
+  import datetime<br><br>x = datetime.datetime.now()<br>print(x)</div>
+
+</div>
+
+<hr>
+
+<h2>Date Output</h2>
+
+<p>When we execute the code from the example above the result will be:</p>
+
+<code class="w3-codespan">
+
+</code>
+
+<p>The date contains year, month, day, hour, minute, second, and microsecond.</p>
+<p>The <code class="w3-codespan">datetime</code> module has many methods to return information about the date 
+object.</p>
+
+
+<p>Here are a few examples, you will learn more about them later in this 
+chapter: </p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Return the year and name of weekday:</p>
+<div class="w3-code notranslate pythonHigh">
+  import datetime<br><br>x = datetime.datetime.now()<br><br>print(x.year)<br>
+  print(x.strftime(&quot;%A&quot;))</div>
+
+</div>
+
+<hr>
+
+<h2>Creating Date Objects</h2>
+
+<p>To create a date, we can use the <code class="w3-codespan">datetime()</code> class (constructor) of the
+<code class="w3-codespan">datetime</code> module.</p>
+<p>The <code class="w3-codespan">datetime()</code> class requires three parameters to create a date: year, 
+month, day.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Create a date object:</p>
+<div class="w3-code notranslate pythonHigh">
+  import datetime<br><br>x = datetime.datetime(2020, 5, 17)<br>
+  <br>print(x)</div>
+
+</div>
+
+<p>The <code class="w3-codespan">datetime()</code> class also takes parameters for time and timezone (hour, 
+minute, second, microsecond, tzone), but they are optional, and has a default 
+value of <code class="w3-codespan">0</code>, (<code class="w3-codespan">None</code> for timezone).</p>
+
+<hr>
+
+<hr>
+
+<h2>The strftime() Method</h2>
+
+<p>The <code class="w3-codespan">datetime</code> object has a method for formatting date objects into readable strings.</p>
+<p>The method is called <code class="w3-codespan">strftime()</code>, and takes one parameter, 
+<code class="w3-codespan">format</code>, to specify the format of the returned string:</p>
+<div class="w3-example">
+  <h3>Example</h3>
+<p>Display the name of the month:</p>
+<div class="w3-code notranslate pythonHigh">
+  import datetime<br><br>x = datetime.datetime(2018, 6, 1)<br><br>print(x.strftime(&quot;%B&quot;))</div>
+
+</div>
+
+<p>A reference of all the legal format codes:</p>
+<table class="ws-table-all notranslate">
+<tr>
+<th style="width:25%">Directive</th>
+<th style="width:35%">Description</th>
+<th style="width:30%">Example</th>
+<th style="width:10%">Try it</th>
+</tr>
+<tr>
+<td>%a</td>
+<td>Weekday, short version</td>
+<td>Wed</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypythonf158.html?filename=demo_datetime_strftime_a">Try it &raquo;</a></td>
+</tr>
+<tr>
+<td>%A</td>
+<td>Weekday, full version</td>
+<td>Wednesday</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypythond7be.html?filename=demo_datetime_strftime_a2">Try it &raquo;</a></td>
+</tr>
+<tr>
+<td>%w</td>
+<td>Weekday as a number 0-6, 0 is Sunday</td>
+<td>3</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypythonbf63.html?filename=demo_datetime_strftime_w">Try it &raquo;</a></td>
+</tr>
+<tr>
+<td>%d</td>
+<td>Day of month 01-31</td>
+<td>31</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypythonbaaa.html?filename=demo_datetime_strftime_d">Try it &raquo;</a></td>
+</tr>
+<tr>
+<td>%b</td>
+<td>Month name, short version</td>
+<td>Dec</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypython2be5.html?filename=demo_datetime_strftime_b">Try it &raquo;</a></td>
+</tr>
+<tr>
+<td>%B</td>
+<td>Month name, full version</td>
+<td>December</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypythondf35.html?filename=demo_datetime_strftime_b2">Try it &raquo;</a></td>
+</tr>
+<tr>
+<td>%m</td>
+<td>Month as a number 01-12</td>
+<td>12</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypython34aa.html?filename=demo_datetime_strftime_m">Try it &raquo;</a></td>
+</tr>
+<tr>
+<td>%y</td>
+<td>Year, short version, without century</td>
+<td>18</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypython21cf.html?filename=demo_datetime_strftime_y">Try it &raquo;</a></td>
+</tr>
+<tr>
+<td>%Y</td>
+<td>Year, full version</td>
+<td>2018</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypython8657.html?filename=demo_datetime_strftime_y2">Try it &raquo;</a></td>
+</tr>
+<tr>
+<td>%H</td>
+<td>Hour 00-23</td>
+<td>17</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypython6cfc.html?filename=demo_datetime_strftime_h2">Try it &raquo;</a></td>
+</tr>
+<tr>
+<td>%I</td>
+<td>Hour 00-12</td>
+<td>05</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypythonf900.html?filename=demo_datetime_strftime_i2">Try it &raquo;</a></td>
+</tr>
+<tr>
+<td>%p</td>
+<td>AM/PM</td>
+<td>PM</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypython581f-2.html?filename=demo_datetime_strftime_p">Try it &raquo;</a></td>
+</tr>
+<tr>
+<td>%M</td>
+<td>Minute 00-59</td>
+<td>41</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypython470b.html?filename=demo_datetime_strftime_m2">Try it &raquo;</a></td>
+</tr>
+<tr>
+<td>%S</td>
+<td>Second 00-59</td>
+<td>08</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypythonc419.html?filename=demo_datetime_strftime_s2">Try it &raquo;</a></td>
+</tr>
+<tr>
+<td>%f</td>
+<td>Microsecond 000000-999999</td>
+<td>548513</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypythonccd2.html?filename=demo_datetime_strftime_f">Try it &raquo;</a></td>
+</tr>
+<tr>
+<td>%z</td>
+<td>UTC offset</td>
+<td>+0100</td>
+<td></td>
+</tr>
+<tr>
+<td>%Z</td>
+<td>Timezone</td>
+<td>CST</td>
+<td></td>
+</tr>
+<tr>
+<td>%j</td>
+<td>Day number of year 001-366</td>
+<td>365</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypython5403.html?filename=demo_datetime_strftime_j">Try it &raquo;</a></td>
+</tr>
+<tr>
+<td>%U</td>
+<td>Week number of year, Sunday as the first day of week, 00-53</td>
+<td>52</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypython2f9f.html?filename=demo_datetime_strftime_u2">Try it &raquo;</a></td>
+</tr>
+<tr>
+<td>%W</td>
+<td>Week number of year, Monday as the first day of week, 00-53</td>
+<td>52</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypython0013.html?filename=demo_datetime_strftime_w2">Try it &raquo;</a></td>
+</tr>
+<tr>
+<td>%c</td>
+<td>Local version of date and time</td>
+<td>Mon Dec 31 17:41:00 2018</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypythonac10.html?filename=demo_datetime_strftime_c">Try it &raquo;</a></td>
+</tr>
+<tr>
+<td>%C</td>
+<td>Century</td>
+<td>20</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypythonf683.html?filename=demo_datetime_strftime_century">Try it &raquo;</a></td>
+</tr>
+<tr>
+<td>%x</td>
+<td>Local version of date</td>
+<td>12/31/18</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypython23a6.html?filename=demo_datetime_strftime_x">Try it &raquo;</a></td>
+</tr>
+<tr>
+<td>%X</td>
+<td>Local version of time</td>
+<td>17:41:00</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypython7af0.html?filename=demo_datetime_strftime_x2">Try it &raquo;</a></td>
+</tr>
+<tr>
+<td>%%</td>
+<td>A % character</td>
+<td>%</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypython851e.html?filename=demo_datetime_strftime_percent">Try it &raquo;</a></td>
+</tr>
+<tr>
+<td>%G</td>
+<td>ISO 8601 year</td>
+<td>2018</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypython301b.html?filename=demo_datetime_strftime_g">Try it &raquo;</a></td>
+</tr>
+<tr>
+<td>%u</td>
+<td>ISO 8601 weekday (1-7)</td>
+<td>1</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypythonddc5.html?filename=demo_datetime_strftime_u">Try it &raquo;</a></td>
+</tr>
+<tr>
+<td>%V</td>
+<td>ISO 8601 weeknumber (01-53)</td>
+<td>01</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypython62cf.html?filename=demo_datetime_strftime_v">Try it &raquo;</a></td>
+</tr>
+</table>
+
+
+<hr>
+
+<hr>

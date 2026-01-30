@@ -1,0 +1,251 @@
+<h1>jQuery <span class="color_h1">Event Methods</span></h1>
+
+<hr>
+<p class="intro">jQuery is tailor-made to respond to events in an HTML page.</p>
+<hr>
+
+<h2>What are Events?</h2>
+<p>All the different visitors' actions that a web page can respond to are called events.</p>
+<p>An event represents the precise moment when something happens.</p>
+<p>Examples:</p>
+<ul>
+  <li>moving a mouse over an element</li>
+  <li>selecting a radio button</li>
+  <li>clicking on an element</li>
+</ul>
+<p>The term <b>&quot;fires/fired&quot;</b> is often used with events. Example: 
+&quot;The keypress event is fired, the moment you press a key&quot;.</p>
+<p>Here are some common DOM events:</p>
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+<tr>
+<th style="width:23%">Mouse Events</th>
+<th style="width:25%">Keyboard Events</th>
+<th style="width:22%">Form Events</th>
+<th>Document/Window Events</th>
+</tr>
+<tr>
+<td>click</td>
+<td>keypress</td>
+<td>submit</td>
+<td>load</td>
+</tr>
+<tr>
+<td>dblclick</td>
+<td>keydown</td>
+<td>change</td>
+<td>resize</td>
+</tr>
+<tr>
+<td>mouseenter</td>
+<td>keyup</td>
+<td>focus</td>
+<td>scroll</td>
+</tr>
+<tr>
+<td>mouseleave</td>
+<td>&nbsp;</td>
+<td>blur</td>
+<td>unload</td>
+</tr>
+</table>
+</div>
+<hr>
+
+<h2>jQuery Syntax For Event Methods</h2>
+<p>In jQuery, most DOM events have an equivalent jQuery method.</p>
+<p>To assign a click event to all paragraphs on a page, you can do this: </p>
+<div class="w3-code w3-border notranslate jsHigh">
+<div>
+$(&quot;p&quot;).click();
+</div>
+</div>
+<p>The next step is to define what should happen when the event fires. You must 
+pass a function to the event:</p>
+<div class="w3-code w3-border notranslate jsHigh">
+<div>
+$(&quot;p&quot;).click(function(){<br>
+&nbsp; // action goes here!!<br>
+});
+</div>
+</div>
+<hr>
+
+<hr>
+
+<h2>Commonly Used jQuery Event Methods</h2>
+<p><b>$(document).ready()</b></p>
+<p>The <code class="w3-codespan">$(document).ready()</code> method allows us to execute a function when the 
+document is fully loaded. This event is already explained in the
+<a href="jquery_syntax.html">jQuery Syntax</a> chapter. </p>
+<p><b>click()</b></p>
+<p>The <code class="w3-codespan">click()</code> method attaches an event handler function to an HTML element.</p>
+<p>The 
+function is executed when the user clicks on the HTML element.</p>
+<p>The following example says: When a click event fires on a <code class="w3-codespan">&lt;p&gt;</code> element; hide 
+the current <code class="w3-codespan">&lt;p&gt;</code> element:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;p&quot;).click(function(){<br>
+&nbsp;&nbsp;$(this).hide();<br>
+});
+</div>
+
+</div>
+<p><b>dblclick()</b></p>
+<p>The <code class="w3-codespan">dblclick()</code> method attaches an event handler function to an HTML element.</p>
+<p>The function is executed when the user double-clicks on the HTML element:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;p&quot;).dblclick(function(){<br>
+  &nbsp; $(this).hide();<br>
+});
+</div>
+
+</div>
+<p><b>mouseenter()</b></p>
+<p>The <code class="w3-codespan">mouseenter()</code> method attaches an event handler function to an HTML 
+element.</p>
+<p>The function is executed when the mouse pointer enters the HTML element:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;#p1&quot;).mouseenter(function(){<br>
+  &nbsp; alert(&quot;You entered p1!&quot;);<br>
+});
+</div>
+
+</div>
+<p><b>mouseleave()</b></p>
+<p>The <code class="w3-codespan">mouseleave()</code> method attaches an event handler function to an HTML 
+element.</p>
+<p>The function is executed when the mouse pointer leaves the HTML element:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;#p1&quot;).mouseleave(function(){<br>
+  &nbsp; alert(&quot;Bye! You now leave p1!&quot;);<br>
+});
+</div>
+
+</div>
+<p><b>mousedown()</b></p>
+<p>The <code class="w3-codespan">mousedown()</code> method attaches an event handler function to an HTML 
+element.</p>
+<p>The function is executed, when the left, middle or right mouse button is pressed down, while the 
+mouse is over the HTML element:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;#p1&quot;).mousedown(function(){<br>
+&nbsp;&nbsp;alert(&quot;Mouse down over p1!&quot;);<br>
+});
+</div>
+
+</div>
+<p><b>mouseup()</b></p>
+<p>The <code class="w3-codespan">mouseup()</code> method attaches an event handler function to an HTML 
+element.</p>
+<p>The function is executed, when the left, middle or right mouse button is released, while the 
+mouse is over the HTML element:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;#p1&quot;).mouseup(function(){<br>
+  &nbsp; alert(&quot;Mouse up over p1!&quot;);<br>
+});
+</div>
+
+</div>
+<p><b>hover()</b></p>
+<p>The <code class="w3-codespan">hover()</code> method takes two functions and is a combination of the <code class="w3-codespan">mouseenter()</code> and <code class="w3-codespan">mouseleave()</code> 
+methods.</p>
+<p>The first 
+function is executed when the mouse enters the HTML element, and the second 
+function is 
+executed when the mouse leaves the HTML element:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;#p1&quot;).hover(function(){<br>
+&nbsp;&nbsp;alert(&quot;You entered p1!&quot;);<br>
+ },<br>
+ function(){<br>
+&nbsp;&nbsp;alert(&quot;Bye! You now leave p1!&quot;);<br>
+});
+</div>
+
+</div>
+<p><b>focus()</b></p>
+<p>The <code class="w3-codespan">focus()</code> method attaches an event handler function to an HTML form field.</p>
+<p>The function is executed when the form field gets focus:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;input&quot;).focus(function(){<br>
+&nbsp;&nbsp;$(this).css(&quot;background-color&quot;, &quot;#cccccc&quot;);<br>
+});
+</div>
+
+</div>
+<p><b>blur()</b></p>
+<p>The <code class="w3-codespan">blur()</code> method attaches an event handler function to an HTML form field.</p>
+<p>The function 
+is executed when the form field loses focus:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;input&quot;).blur(function(){<br>
+&nbsp;&nbsp;$(this).css(&quot;background-color&quot;, &quot;#ffffff&quot;);<br>
+});
+</div>
+
+</div>
+<hr>
+
+<h2>The on() Method</h2>
+<p>The <code class="w3-codespan">on()</code> method attaches one or more event handlers for the selected elements.</p>
+<p>Attach a click event to a <code class="w3-codespan">&lt;p&gt;</code> element:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+ $(&quot;p&quot;).on(&quot;click&quot;, function(){<br>&nbsp; $(this).hide();<br>});</div>
+
+</div>
+<p>Attach multiple event handlers to a <code class="w3-codespan">&lt;p&gt;</code> element:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+ $(&quot;p&quot;).on({<br>&nbsp; mouseenter: function(){<br>&nbsp;&nbsp;&nbsp;&nbsp;$(this).css(&quot;background-color&quot;, &quot;lightgray&quot;);<br>&nbsp;&nbsp;}, <br>
+  &nbsp; mouseleave: function(){<br>&nbsp;&nbsp;&nbsp; $(this).css(&quot;background-color&quot;, &quot;lightblue&quot;);<br>&nbsp;&nbsp;}, <br>&nbsp;&nbsp;click: function(){<br>&nbsp;&nbsp;&nbsp; $(this).css(&quot;background-color&quot;, &quot;yellow&quot;);<br>
+  &nbsp;&nbsp;} <br>});</div>
+
+</div>
+<hr>
+
+<h2>jQuery Exercises</h2>
+<form autocomplete="off" id="w3-exerciseform" action="https://www.w3schools.com/jquery/exercise_jq.asp?filename=exercise_jq_events1" method="post" target="_blank">
+<h2>Test Yourself With Exercises</h2>
+<div class="exercisewindow">
+<h2>Exercise:</h2>
+<p>Use the correct <strong>event</strong> to hide all &lt;p&gt; elements with a "click".</p>
+<div class="exerciseprecontainer">
+<pre style="background-color:transparent;border:none;">
+$("p").<input name="ex1" maxlength="5" style="width: 55px;">(function(){
+  $(this).hide();
+});
+</pre>
+</div>
+<br>
+<button type="submit" class="w3-btn w3-margin-bottom">Submit Answer &raquo;</button>
+<p><a target="_blank" href="exercise_jqb7eb.html?filename=exercise_jq_events1">Start the Exercise</a></p>
+</div>
+</form>
+<hr>
+
+<h2>jQuery Event Methods</h2>
+<p>For a full jQuery event reference, please go to our <a href="jquery_ref_events.html">jQuery Events Reference</a>.</p>
+
+<br>

@@ -1,0 +1,174 @@
+<h1>Bootstrap 5 <span class="color_h1">Pagination</span></h1>
+
+<hr>
+
+<h2>Basic Pagination</h2>
+<p>If you have a web site with lots of pages, you may wish to add some sort of pagination to each page.</p>
+<ul class="pagination" style="font-size:16px;margin:20px 0">
+  <li class="page-item"><a class="page-link" href="javascript:void(0);">Previous</a></li>
+  <li class="page-item"><a class="page-link" href="javascript:void(0);">1</a></li>
+  <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
+  <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
+  <li class="page-item"><a class="page-link" href="javascript:void(0);">Next</a></li>
+</ul>
+<p>To create a basic pagination, add the <code class="w3-codespan">.pagination</code> class to an <code class="w3-codespan">&lt;ul&gt;</code> element. 
+Then add the <code class="w3-codespan">.page-item</code> to each <code class="w3-codespan">&lt;li&gt;</code> element and a <code class="w3-codespan">.page-link</code> class to each link 
+inside <code class="w3-codespan">&lt;li&gt;</code>:</p>                  
+<div class="w3-example">
+ <h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;ul class=&quot;pagination&quot;&gt;<br>&nbsp; &lt;li class=&quot;page-item&quot;&gt;&lt;a class=&quot;page-link&quot; 
+  href=&quot;#&quot;&gt;Previous&lt;/a&gt;&lt;/li&gt;<br>&nbsp; &lt;li class=&quot;page-item&quot;&gt;&lt;a 
+  class=&quot;page-link&quot; href=&quot;#&quot;&gt;1&lt;/a&gt;&lt;/li&gt;<br>&nbsp; &lt;li class=&quot;page-item&quot;&gt;&lt;a 
+  class=&quot;page-link&quot; href=&quot;#&quot;&gt;2&lt;/a&gt;&lt;/li&gt;<br>&nbsp; &lt;li class=&quot;page-item&quot;&gt;&lt;a 
+  class=&quot;page-link&quot; href=&quot;#&quot;&gt;3&lt;/a&gt;&lt;/li&gt;<br>&nbsp; &lt;li class=&quot;page-item&quot;&gt;&lt;a 
+  class=&quot;page-link&quot; href=&quot;#&quot;&gt;Next&lt;/a&gt;&lt;/li&gt;<br>&lt;/ul&gt;</div>
+
+</div>
+<hr>
+
+<h2>Active State</h2>
+<p>The <code class="w3-codespan">.active</code> class is used to "highlight" the current page:</p>
+<ul class="pagination" style="font-size:16px;margin:20px 0">
+  <li class="page-item"><a class="page-link" href="javascript:void(0);">Previous</a></li>
+  <li class="page-item"><a class="page-link" href="javascript:void(0);">1</a></li>
+  <li class="page-item active" style="z-index:1"><a class="page-link" href="javascript:void(0);">2</a></li>
+  <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
+  <li class="page-item"><a class="page-link" href="javascript:void(0);">Next</a></li>
+</ul>
+<div class="w3-example">
+ <h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+ &lt;ul class=&quot;pagination&quot;&gt;<br>&nbsp; &lt;li class=&quot;page-item&quot;&gt;&lt;a class=&quot;page-link&quot; 
+  href=&quot;#&quot;&gt;Previous&lt;/a&gt;&lt;/li&gt;<br>&nbsp; &lt;li class=&quot;page-item&quot;&gt;&lt;a 
+  class=&quot;page-link&quot; href=&quot;#&quot;&gt;1&lt;/a&gt;&lt;/li&gt;<br>&nbsp; &lt;li class=&quot;page-item 
+  active&quot;&gt;&lt;a 
+  class=&quot;page-link&quot; href=&quot;#&quot;&gt;2&lt;/a&gt;&lt;/li&gt;<br>&nbsp; &lt;li class=&quot;page-item&quot;&gt;&lt;a 
+  class=&quot;page-link&quot; href=&quot;#&quot;&gt;3&lt;/a&gt;&lt;/li&gt;<br>&nbsp; &lt;li class=&quot;page-item&quot;&gt;&lt;a 
+  class=&quot;page-link&quot; href=&quot;#&quot;&gt;Next&lt;/a&gt;&lt;/li&gt;<br>&lt;/ul&gt;</div>
+
+</div>
+<hr>
+<hr>
+
+<h2>Disabled State</h2>
+<p>The <code class="w3-codespan">.disabled</code> class is used for un-clickable links:</p>
+<ul class="pagination" style="font-size:16px;margin:20px 0">
+  <li class="page-item disabled"><a class="page-link" href="javascript:void(0);">Previous</a></li>
+  <li class="page-item"><a class="page-link" href="javascript:void(0);">1</a></li>
+  <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
+  <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
+  <li class="page-item"><a class="page-link" href="javascript:void(0);">Next</a></li>
+</ul>
+<div class="w3-example">
+ <h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+ &lt;ul class=&quot;pagination&quot;&gt;<br>&nbsp; &lt;li class=&quot;page-item 
+  disabled&quot;&gt;&lt;a class=&quot;page-link&quot; href=&quot;#&quot;&gt;Previous&lt;/a&gt;&lt;/li&gt;<br>&nbsp; &lt;li class=&quot;page-item&quot;&gt;&lt;a 
+  class=&quot;page-link&quot; href=&quot;#&quot;&gt;1&lt;/a&gt;&lt;/li&gt;<br>&nbsp; &lt;li class=&quot;page-item&quot;&gt;&lt;a 
+  class=&quot;page-link&quot; href=&quot;#&quot;&gt;2&lt;/a&gt;&lt;/li&gt;<br>&nbsp; &lt;li class=&quot;page-item&quot;&gt;&lt;a 
+  class=&quot;page-link&quot; href=&quot;#&quot;&gt;3&lt;/a&gt;&lt;/li&gt;<br>&nbsp; &lt;li class=&quot;page-item&quot;&gt;&lt;a 
+  class=&quot;page-link&quot; href=&quot;#&quot;&gt;Next&lt;/a&gt;&lt;/li&gt;<br>&lt;/ul&gt;</div>
+
+</div>
+<hr>
+
+<h2>Pagination Sizing</h2>
+<p>Pagination blocks can also be sized to a larger or a smaller size:</p>
+<ul class="pagination pagination-lg" style="margin:20px 0">
+  <li class="page-item"><a class="page-link" href="javascript:void(0);">Previous</a></li>
+  <li class="page-item"><a class="page-link" href="javascript:void(0);">1</a></li>
+  <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
+  <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
+  <li class="page-item"><a class="page-link" href="javascript:void(0);">Next</a></li>
+</ul>
+<ul class="pagination pagination-sm" style="margin:20px 0">
+  <li class="page-item"><a class="page-link" href="javascript:void(0);">Previous</a></li>
+  <li class="page-item"><a class="page-link" href="javascript:void(0);">1</a></li>
+  <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
+  <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
+  <li class="page-item"><a class="page-link" href="javascript:void(0);">Next</a></li>
+</ul>
+
+<p>Add class <code class="w3-codespan">.pagination-lg</code> for larger blocks or <code class="w3-codespan">.pagination-sm</code> for smaller blocks:</p>
+<div class="w3-example">
+ <h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+ &lt;ul class=&quot;pagination 
+  pagination-lg&quot;&gt;<br>&nbsp; &lt;li class=&quot;page-item&quot;&gt;&lt;a class=&quot;page-link&quot; 
+  href=&quot;#&quot;&gt;Previous&lt;/a&gt;&lt;/li&gt;<br>&nbsp; &lt;li class=&quot;page-item&quot;&gt;&lt;a 
+  class=&quot;page-link&quot; href=&quot;#&quot;&gt;1&lt;/a&gt;&lt;/li&gt;<br>&nbsp; &lt;li class=&quot;page-item&quot;&gt;&lt;a 
+  class=&quot;page-link&quot; href=&quot;#&quot;&gt;2&lt;/a&gt;&lt;/li&gt;<br>&nbsp; &lt;li class=&quot;page-item&quot;&gt;&lt;a 
+  class=&quot;page-link&quot; href=&quot;#&quot;&gt;3&lt;/a&gt;&lt;/li&gt;<br>&nbsp; &lt;li class=&quot;page-item&quot;&gt;&lt;a 
+  class=&quot;page-link&quot; href=&quot;#&quot;&gt;Next&lt;/a&gt;&lt;/li&gt;<br>&lt;/ul&gt;<br>
+  <br>&lt;ul class=&quot;pagination pagination-sm&quot;&gt;<br>&nbsp; &lt;li class=&quot;page-item&quot;&gt;&lt;a class=&quot;page-link&quot; 
+  href=&quot;#&quot;&gt;Previous&lt;/a&gt;&lt;/li&gt;<br>&nbsp; &lt;li class=&quot;page-item&quot;&gt;&lt;a 
+  class=&quot;page-link&quot; href=&quot;#&quot;&gt;1&lt;/a&gt;&lt;/li&gt;<br>&nbsp; &lt;li class=&quot;page-item&quot;&gt;&lt;a 
+  class=&quot;page-link&quot; href=&quot;#&quot;&gt;2&lt;/a&gt;&lt;/li&gt;<br>&nbsp; &lt;li class=&quot;page-item&quot;&gt;&lt;a 
+  class=&quot;page-link&quot; href=&quot;#&quot;&gt;3&lt;/a&gt;&lt;/li&gt;<br>&nbsp; &lt;li class=&quot;page-item&quot;&gt;&lt;a 
+  class=&quot;page-link&quot; href=&quot;#&quot;&gt;Next&lt;/a&gt;&lt;/li&gt;<br>&lt;/ul&gt;</div>
+
+</div>
+<hr>
+
+<h2>Pagination Alignment</h2>
+<p>Use utility classes to change the alignment of the pagination:</p>
+<ul class="pagination" style="margin:20px 0">
+  <li class="page-item"><a class="page-link" href="javascript:void(0);">Previous</a></li>
+  <li class="page-item"><a class="page-link" href="javascript:void(0);">1</a></li>
+  <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
+  <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
+  <li class="page-item"><a class="page-link" href="javascript:void(0);">Next</a></li>
+</ul>
+<ul class="pagination justify-content-center" style="margin:20px 0">
+  <li class="page-item"><a class="page-link" href="javascript:void(0);">Previous</a></li>
+  <li class="page-item"><a class="page-link" href="javascript:void(0);">1</a></li>
+  <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
+  <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
+  <li class="page-item"><a class="page-link" href="javascript:void(0);">Next</a></li>
+</ul>
+<ul class="pagination justify-content-end" style="margin:20px 0">
+  <li class="page-item"><a class="page-link" href="javascript:void(0);">Previous</a></li>
+  <li class="page-item"><a class="page-link" href="javascript:void(0);">1</a></li>
+  <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
+  <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
+  <li class="page-item"><a class="page-link" href="javascript:void(0);">Next</a></li>
+</ul>
+
+<div class="w3-example">
+ <h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;!-- Default (left-aligned) --&gt;<br>&lt;ul class=&quot;pagination&quot; style=&quot;margin:20px 
+  0&quot;&gt;<br>&nbsp; &lt;li class=&quot;page-item&quot;&gt;...&lt;/li&gt;<br>&lt;/ul&gt;<br><br>&lt;!-- 
+  Center-aligned --&gt;<br>&lt;ul class=&quot;pagination justify-content-center&quot; 
+  style=&quot;margin:20px 0&quot;&gt;<br>&nbsp; &lt;li class=&quot;page-item&quot;&gt;...&lt;/li&gt;<br>&lt;/ul&gt;<br><br>&lt;!-- Right-aligned --&gt;<br>&lt;ul 
+  class=&quot;pagination justify-content-end&quot; style=&quot;margin:20px 0&quot;&gt;<br>&nbsp; &lt;li 
+  class=&quot;page-item&quot;&gt;...&lt;/li&gt;<br>&lt;/ul&gt;</div>
+
+</div>
+
+
+<hr>
+
+<h2>Breadcrumbs</h2>
+<p>Another form for pagination, is breadcrumbs:</p>
+<ul class="breadcrumb" style="margin:20px 0">
+  <li class="breadcrumb-item"><a href="javascript:void(0)">Photos</a></li>
+  <li class="breadcrumb-item"><a href="javascript:void(0)">Summer 2017</a></li>
+  <li class="breadcrumb-item"><a href="javascript:void(0)">Italy</a></li>
+  <li class="breadcrumb-item active">Rome</li>
+</ul><p>The <code class="w3-codespan">.breadcrumb</code> and <code class="w3-codespan">.breadcrumb-item</code> 
+classes indicates the current page's location within a 
+navigational hierarchy:</p>
+<div class="w3-example">
+ <h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;ul class=&quot;breadcrumb&quot;&gt;<br>&nbsp; &lt;li class=&quot;breadcrumb-item&quot;&gt;&lt;a 
+  href=&quot;#&quot;&gt;Photos&lt;/a&gt;&lt;/li&gt;<br>&nbsp; &lt;li 
+  class=&quot;breadcrumb-item&quot;&gt;&lt;a href=&quot;#&quot;&gt;Summer 2017&lt;/a&gt;&lt;/li&gt;<br>&nbsp; &lt;li 
+  class=&quot;breadcrumb-item&quot;&gt;&lt;a href=&quot;#&quot;&gt;Italy&lt;/a&gt;&lt;/li&gt;<br>&nbsp; &lt;li class=&quot;breadcrumb-item 
+  active&quot;&gt;Rome&lt;/li&gt;<br>&lt;/ul&gt;</div>
+
+</div>
+
+<br>

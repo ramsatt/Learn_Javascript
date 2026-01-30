@@ -1,0 +1,81 @@
+<h1>SQL <span class="color_h1">CREATE INDEX</span> Statement</h1>
+
+<hr>
+
+
+<h2>SQL CREATE INDEX Statement</h2>
+<p>The <code class="w3-codespan">CREATE INDEX</code> statement is used to create indexes in tables.</p>
+<p>Indexes are used to retrieve data from the database more quickly than 
+otherwise. The users cannot see the indexes, they are just used to speed up searches/queries.</p>
+
+<div class="w3-panel ws-note">
+<p><strong>Note:</strong> Updating a table with indexes takes more time than updating a table without (because the indexes also need an update).
+So, only create indexes on columns that will be frequently searched against.</p>
+</div>
+
+<h3>CREATE INDEX Syntax</h3>
+<p>Creates an index on a table. Duplicate values are allowed:</p>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+CREATE INDEX <em>index_name</em><br>
+ON <em>table_name</em> (<em>column1</em>, <em>column2</em>, ...);</div></div>
+
+<h3>CREATE UNIQUE INDEX Syntax</h3>
+<p>Creates a unique index on a table. Duplicate values are not allowed:</p>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+CREATE UNIQUE INDEX <em>index_name</em><br>
+ON <em>table_name</em> (<em>column1</em>, <em>column2</em>, ...);</div></div>
+<p><b>Note:</b> The syntax for creating indexes varies among different databases. Therefore: Check the syntax for creating indexes in your database.</p>
+
+<hr>
+
+
+<h2>CREATE INDEX Example</h2>
+<p>The SQL statement below creates an index named &quot;idx_lastname&quot; on the &quot;LastName&quot; column in the &quot;Persons&quot; table:</p>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+CREATE INDEX idx_lastname<br>
+ON Persons (LastName);</div></div>
+
+<p>If you want to create an index on a combination of columns, you can list the column names within the parentheses, separated by commas:</p>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+CREATE INDEX idx_pname<br>
+ON Persons (LastName, FirstName);</div></div>
+
+
+<hr>
+
+<hr>
+
+
+<h2>DROP INDEX Statement</h2>
+<p>The <code class="w3-codespan">DROP INDEX</code> statement is used to delete an index in a table.</p>
+
+<p><strong>MS Access:</strong></p>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+DROP INDEX <em>index_name</em> ON <em>table_name</em>;</div></div>
+
+<p><strong>SQL Server:</strong></p>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+DROP INDEX <em>table_name</em>.<em>index_name</em>;</div></div>
+
+<p><strong>DB2/Oracle:</strong></p>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+DROP INDEX <em>index_name</em>;</div></div>
+
+<p><strong>MySQL:</strong></p>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+ALTER TABLE <em>table_name<br></em>DROP INDEX <em>index_name</em>;</div></div>
+
+
+<hr>
+
+<hr>
+
+<br>

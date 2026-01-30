@@ -21,22 +21,81 @@ export class TutorialPage implements OnInit {
   loading = true;
   showSuccess = false;
   xpAwarded = 0;
+  
+  // Two Pan Layout Data
+  menuData: any[] = [];
+  currentFile: string = "";
+  isSidebarOpen = true;
+  
+  prevFile: any = null;
+  nextFile: any = null;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private tutorialService: TutorialService,
+    public tutorialService: TutorialService,
     private sanitizer: DomSanitizer,
     private admobService: AdmobService
   ) { }
 
   ngOnInit() {
-    const file = this.route.snapshot.paramMap.get('file');
-    if (file) {
-      // Basic title extraction from filename
-      this.title = file.replace('.html', '').replace(/_/g, ' ').toUpperCase();
-      this.loadContent(file);
-    }
+    this.loadMenu();
+    this.route.paramMap.subscribe(params => {
+        const file = params.get('file');
+        if (file) {
+            this.currentFile = file;
+            this.title = file.replace('.html', '').replace(/_/g, ' ').toUpperCase();
+            this.loadContent(file);
+            this.updateNavButtons();
+        }
+    });
+  }
+
+  loadMenu() {
+    this.tutorialService.getMenu().subscribe(data => {
+        this.menuData = data;
+        // Expand the section containing the current file
+        this.menuData.forEach(section => {
+            if (section.items.some((i: any) => i.file === this.currentFile)) {
+                section.expanded = true;
+            }
+        });
+        this.updateNavButtons();
+    });
+  }
+
+  updateNavButtons() {
+    if (!this.menuData || this.menuData.length === 0 || !this.currentFile) return;
+
+    // Flatten all items into a single array to find siblings across sections
+    const allItems: any[] = [];
+    this.menuData.forEach(section => {
+        section.items.forEach((item: any) => {
+            allItems.push(item);
+        });
+    });
+
+    const currentIndex = allItems.findIndex(item => item.file === this.currentFile);
+    
+    this.prevFile = currentIndex > 0 ? allItems[currentIndex - 1] : null;
+    this.nextFile = currentIndex < allItems.length - 1 ? allItems[currentIndex + 1] : null;
+  }
+
+  toggleSection(section: any) {
+    section.expanded = !section.expanded;
+  }
+
+  isLessonActive(file: string): boolean {
+    return this.currentFile === file;
+  }
+  
+  toggleSidebar() {
+      this.isSidebarOpen = !this.isSidebarOpen;
+  }
+
+  openLesson(file: string) {
+      if (this.currentFile === file) return;
+      this.router.navigate(['/tutorial', file]);
   }
 
   loadContent(file: string) {
@@ -68,7 +127,18 @@ export class TutorialPage implements OnInit {
     
     if (anchor) {
       const href = anchor.getAttribute('href');
+      const isNextButton = anchor.classList.contains('w3-right') || anchor.innerText.toLowerCase().includes('next');
+
       if (href) {
+        // Mark current as complete before moving to next
+        if (isNextButton) {
+            const currentFile = this.route.snapshot.paramMap.get('file');
+            if (currentFile) this.tutorialService.markComplete(currentFile);
+            
+            // Show Interstitial Ad specifically for Next navigation
+            this.admobService.showInterstitial();
+        }
+
         // Check if it's an external link
         if (href.startsWith('http') || href.startsWith('//') || href.startsWith('mailto:')) {
             // Allow default behavior (open in new tab possibly if target=_blank)
@@ -97,13 +167,32 @@ export class TutorialPage implements OnInit {
       }
     }
   }
+
+  goToNext() {
+      if (this.nextFile) {
+          this.tutorialService.markComplete(this.currentFile);
+          this.admobService.showInterstitial();
+          this.router.navigate(['/tutorial', this.nextFile.file]);
+      }
+  }
+
+  goToPrev() {
+      if (this.prevFile) {
+          this.router.navigate(['/tutorial', this.prevFile.file]);
+      }
+  }
+
   goHome() {
     this.router.navigate(['/home'], { replaceUrl: true });
   }
 
   continueNext() {
       this.showSuccess = false;
-      this.goHome(); // Or find next chapter? For now go home/map.
+      if (this.nextFile) {
+          this.goToNext();
+      } else {
+          this.goHome();
+      }
   }
 
   completeLesson() {

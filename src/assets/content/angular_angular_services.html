@@ -1,0 +1,293 @@
+<h1>Angular Services &amp; Dependency Injection</h1>
+  
+
+  <hr>
+  <p class="intro">Services organize reusable logic and state outside of components.</p>
+  <hr>
+  <h2>Services &amp; DI Essentials</h2>
+<ul>
+  <li><b>What</b>: A <em>service</em> holds reusable logic/state. DI (dependency injection) supplies instances where needed.</li>
+  <li><b>Scope</b>: Provide in <code class="w3-codespan">root</code> for a shared singleton, or provide in a component for isolated instances.</li>
+  <li><b>Use cases</b>: Data fetching, caching, business rules, cross-component state.</li>
+  <li><b>Mental model</b>: DI is like a power outlet: you plug in and Angular gives you a ready instance.</li>
+  <li><b>Decorator</b>: Use <code class="w3-codespan">@Injectable()</code> on classes that inject other services.</li>
+</ul>
+<div class="w3-example">
+  <pre class="language-ts"><code>import { Injectable } from '@angular/core';
+
+@Injectable({ providedIn: 'root' })
+export class CounterService { value = 0; inc() { this.value++; } }
+
+// Inject in a component
+// constructor(public counter: CounterService) {}</code></pre>
+</div>
+<div class="w3-panel ws-note">
+  <p><b>Notes:</b></p>
+  <ul>
+    <li>Related: See <a href="angular_components.html">Components</a> to consume services, <a href="angular_router.html">Router</a> for guards using services, and <a href="angular_http.html">HTTP</a> for services that fetch data.</li>
+    <li>Use <code class="w3-codespan">@Injectable({ providedIn: 'root' })</code> for app-wide singletons.</li>
+    <li>Provide at a component when you need isolated instances.</li>
+    <li>Use <code class="w3-codespan">inject()</code> in functions like route guards to retrieve dependencies outside constructors.</li>
+  </ul>
+</div>
+
+<hr>
+<h2>Service Basics</h2>
+<ul>
+  <li>Decorate classes with <code class="w3-codespan">@Injectable()</code> (required if they inject other services).</li>
+  <li>Inject services into constructors to use them in components.</li>
+  <li>Use <code class="w3-codespan">providedIn: 'root'</code> for a shared singleton.
+  </li>
+</ul>
+<div class="w3-example">
+  <pre class="language-ts"><code>@Injectable({ providedIn: 'root' })
+export class DataService {}
+
+// class App { constructor(private data: DataService) {} }</code></pre>
+</div>
+<div class="w3-example">
+  <h3 id="ex_services_basic">Example</h3>
+
+  <pre class="language-ts" data-tab-header="main.ts"><code>import { bootstrapApplication } from '@angular/platform-browser';
+import { Component, Injectable } from '@angular/core';
+
+@Injectable({ providedIn: 'root' })
+export class CounterService {
+  value = 0;
+  inc() { this.value++; }
+  dec() { this.value--; }
+  reset() { this.value = 0; }
+}
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  template: `
+    &lt;h3&gt;Services&lt;/h3&gt;
+    &lt;p&gt;Counter: {{ counter.value }}&lt;/p&gt;
+    &lt;button (click)="counter.inc()"&gt;+&lt;/button&gt;
+    &lt;button (click)="counter.dec()"&gt;-&lt;/button&gt;
+    &lt;button (click)="counter.reset()"&gt;Reset&lt;/button&gt;
+  `
+})
+export class App {
+  constructor(public counter: CounterService) {}
+}
+
+bootstrapApplication(App);</code></pre>
+  <pre class="language-html" data-tab-header="index.html"><code>&lt;app-root&gt;&lt;/app-root&gt;</code></pre>
+  <p><a target="_blank" rel="noopener" class="w3-btn" href="showangularc5b1.html?filename=demo_services_basic">Run Example &raquo;</a></p>
+  </div>
+  <h3>Example explained</h3>
+  <ul>
+    <li><code class="w3-codespan">@Injectable({ providedIn: 'root' })</code>: Registers a singleton service available app-wide.</li>
+    <li><b>Inject in constructor</b>: <code class="w3-codespan">constructor(public counter: CounterService)</code> exposes the service to the template.</li>
+    <li><b>Methods</b>: Call <code class="w3-codespan">inc()</code> / <code class="w3-codespan">dec()</code> / <code class="w3-codespan">reset()</code> to update shared state.</li>
+  </ul>
+  <div class="w3-panel ws-note">
+    <p><b>Notes:</b></p>
+    <ul>
+      <li><b>Metadata required when injecting:</b> If a service injects other services, add <code class="w3-codespan">@Injectable()</code> so DI can generate metadata.</li>
+      <li><b>Keep state minimal:</b> Avoid large shared mutable state in services; Use explicit methods and return values.</li>
+      <li><b>Standalone bootstrapping:</b> Ensure providers are registered where needed and use <code class="w3-codespan">inject()</code> in functional constructs (e.g., guards).</li>
+    </ul>
+  </div>
+
+  <hr>
+  
+  <hr>
+  <h2>Shared Service Across Components</h2>
+  <ul>
+    <li><code class="w3-codespan">providedIn: 'root'</code> shares one instance across the app.</li>
+    <li>Updating in one component reflects in others using the same service.</li>
+  </ul>
+  <div class="w3-example">
+    <pre class="language-ts"><code>&lt;counter-a&gt;&lt;/counter-a&gt;
+&lt;counter-b&gt;&lt;/counter-b&gt;
+&lt;!-- Both use the same service instance --&gt;</code></pre>
+</div>
+  <div class="w3-example">
+    <h3 id="ex_services_shared">Example</h3>
+    <pre class="language-ts" data-tab-header="main.ts"><code>import { bootstrapApplication } from '@angular/platform-browser';
+import { Component, Injectable } from '@angular/core';
+
+@Injectable({ providedIn: 'root' })
+export class CounterService {
+  value = 0;
+  inc() { this.value++; }
+  dec() { this.value--; }
+}
+
+@Component({
+  selector: 'counter-a',
+  standalone: true,
+  template: `
+    &lt;h4&gt;Counter A&lt;/h4&gt;
+    &lt;p&gt;Value: {{ counter.value }}&lt;/p&gt;
+    &lt;button (click)="counter.inc()"&gt;+1&lt;/button&gt;
+    &lt;button (click)="counter.dec()"&gt;-1&lt;/button&gt;
+  `
+})
+export class CounterA {
+  constructor(public counter: CounterService) {}
+}
+
+@Component({
+  selector: 'counter-b',
+  standalone: true,
+  template: `
+    &lt;h4&gt;Counter B&lt;/h4&gt;
+    &lt;p&gt;Value: {{ counter.value }}&lt;/p&gt;
+    &lt;button (click)="counter.inc()"&gt;+1&lt;/button&gt;
+    &lt;button (click)="counter.dec()"&gt;-1&lt;/button&gt;
+  `
+})
+export class CounterB {
+  constructor(public counter: CounterService) {}
+}
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [CounterA, CounterB],
+  template: `
+    &lt;h3&gt;Shared Service Across Components&lt;/h3&gt;
+    &lt;counter-a&gt;&lt;/counter-a&gt;
+    &lt;counter-b&gt;&lt;/counter-b&gt;
+    &lt;p&gt;&lt;em&gt;Both components use the same CounterService instance.&lt;/em&gt;&lt;/p&gt;
+  `
+})
+export class App {}
+
+bootstrapApplication(App);</code></pre>
+    <pre class="language-html" data-tab-header="index.html"><code>&lt;app-root&gt;&lt;/app-root&gt;</code></pre>
+    <p><a target="_blank" rel="noopener" class="w3-btn" href="showangular85cc.html?filename=demo_services_shared">Run Example &raquo;</a></p>
+  </div>
+  <h3>Example explained</h3>
+  <ul>
+    <li><code class="w3-codespan">providedIn: 'root'</code> shares one instance across the app.</li>
+    <li><b>Shared state</b>: Clicking +/− in one component updates the value shown in the other.</li>
+    <li><b>Template access</b>: Injected as <code class="w3-codespan">public</code> so the template can read <code class="w3-codespan">counter.value</code> and call methods.</li>
+  </ul>
+  <div class="w3-panel ws-note">
+    <p><b>Notes:</b></p>
+    <ul>
+      <li><b>Singleton vs local:</b> <code class="w3-codespan">providedIn: 'root'</code> yields a single shared instance; providing in a component creates separate instances per subtree.</li>
+      <li><b>Be deliberate about scope:</b> Provide at the level that matches your sharing needs to avoid surprises.</li>
+    </ul>
+  </div>
+
+  <hr>
+  <h2>Component-Provided Service (Hierarchical DI)</h2>
+  <ul>
+    <li>Provide a service in a component's <code class="w3-codespan">providers</code> to create a local instance for its subtree.</li>
+    <li>Sibling subtrees receive separate instances.</li>
+  </ul>
+  <div class="w3-example">
+    <pre class="language-ts"><code>@Component({ providers: [LocalCounterService] })
+export class Panel {}</code></pre>
+  </div>
+  <div class="w3-example">
+    <h3 id="ex_services_component_provider">Example</h3>
+    <pre class="language-ts" data-tab-header="main.ts"><code>import { bootstrapApplication } from '@angular/platform-browser';
+import { Component, Injectable } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+@Injectable()
+export class LocalCounterService {
+  id = Math.floor(Math.random() * 10000);
+  value = 0;
+  inc() { this.value++; }
+}
+
+@Component({
+  selector: 'counter-view',
+  standalone: true,
+  template: `
+    &lt;p&gt;Service #{{ svc.id }} value: {{ svc.value }}&lt;/p&gt;
+    &lt;button (click)="svc.inc()"&gt;+1&lt;/button&gt;
+  `
+})
+export class CounterView {
+  constructor(public svc: LocalCounterService) {}
+}
+
+@Component({
+  selector: 'panel-a',
+  standalone: true,
+  imports: [CommonModule, CounterView],
+  providers: [LocalCounterService],
+  template: `
+    &lt;h4&gt;Panel A (own provider)&lt;/h4&gt;
+    &lt;counter-view&gt;&lt;/counter-view&gt;
+    &lt;counter-view&gt;&lt;/counter-view&gt;
+  `
+})
+export class PanelA {}
+
+@Component({
+  selector: 'panel-b',
+  standalone: true,
+  imports: [CommonModule, CounterView],
+  providers: [LocalCounterService],
+  template: `
+    &lt;h4&gt;Panel B (own provider)&lt;/h4&gt;
+    &lt;counter-view&gt;&lt;/counter-view&gt;
+    &lt;counter-view&gt;&lt;/counter-view&gt;
+  `
+})
+export class PanelB {}
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [CommonModule, PanelA, PanelB],
+  styles: [`
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+    h4 { margin: 0 0 8px; }
+    button { margin-top: 6px; }
+  `],
+  template: `
+    &lt;h3&gt;Component-Provided Service (Hierarchical DI)&lt;/h3&gt;
+    &lt;p&gt;Each panel provides its own service instance.&lt;/p&gt;
+    &lt;p&gt;Counters inside the same panel share the instance.&lt;/p&gt;
+    &lt;p&gt;Different panels do not.&lt;/p&gt;
+    &lt;div class="grid"&gt;
+      &lt;panel-a&gt;&lt;/panel-a&gt;
+      &lt;panel-b&gt;&lt;/panel-b&gt;
+    &lt;/div&gt;
+  `
+})
+export class App {}
+
+bootstrapApplication(App);</code></pre>
+    <pre class="language-html" data-tab-header="index.html"><code>&lt;app-root&gt;&lt;/app-root&gt;</code></pre>
+    <p><a target="_blank" rel="noopener" class="w3-btn" href="showangular5c6b.html?filename=demo_services_component_provider">Run Example &raquo;</a></p>
+  </div>
+  <h3>Example explained</h3>
+  <ul>
+    <li><code class="w3-codespan">providers: [LocalCounterService]</code>: Each panel component gets its own service instance for its subtree.</li>
+    <li><b>Within a panel</b>: Multiple <code class="w3-codespan">CounterView</code> children share the same local instance.</li>
+    <li><b>Between panels</b>: Panel A and Panel B have different instances (see the different <code class="w3-codespan">id</code> values).</li>
+  </ul>
+  <div class="w3-panel ws-note">
+    <p><b>Notes:</b></p>
+    <ul>
+      <li><b>Multiple instances expected:</b> Each provided component subtree gets its own instance; siblings do not share it.</li>
+      <li><b>Avoid circular dependencies:</b> Two services injecting each other will fail; extract common logic into a third service or redesign.</li>
+    </ul>
+  </div>
+
+ <hr>
+ <h2>Service Design Tips</h2>
+ <p>Keep services focused and easy to test:</p>
+<ul>
+  <li><b>Avoid component coupling:</b> Do not inject components into services; keep services UI-agnostic.</li>
+  <li><b>Expose clear APIs:</b> Use small methods returning plain values or Observables; keep internal state private.</li>
+  <li><b>Configuration via tokens:</b> Use injection tokens (a unique lookup key, often a class or an <code class="w3-codespan">InjectionToken</code> object) for configurable values to simplify testing and reuse.</li>
+  <li><b>Scope deliberately:</b> Use <code class="w3-codespan">providedIn: 'root'</code> for app-wide singletons; provide at a component for isolated instances.</li>
+</ul>
+
+<hr>
+
+<hr>

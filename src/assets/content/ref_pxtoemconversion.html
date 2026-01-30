@@ -1,0 +1,50 @@
+<h1>Pixels to Ems <span class="color_h1">Conversion</span></h1>
+
+<hr>
+
+<h2>Pixel to Em Converter</h2>
+<p>The tool below allows you to work out the em sizes from pixels (or vice versa).</p>
+<ul>
+  <li>Set a default pixel size for body (usually 16px)</li>
+  <li>Then, convert a pixel value to em, based on the default pixel size</li>
+  <li>Or, convert an em value to pixels, based on the default pixel size</li>
+</ul>
+<div class="jumbotron ws-grey" style="padding:50px;margin-top:17px;border-radius:5px;">
+<p>Set a default pixel size:</p>
+<input class="conv" type="text" id="pix1" size="8" value="16"> <span style="font-size:23px">px</span>
+<br><br>
+
+<p class="pxem">Convert PX to EM:<br>
+<input onfocus="wrong()" onblur="works()" class="conv" type="text" size="8" id="myInput" value=""> <span style="font-size:23px">px</span>
+ </p>
+ <p class="empx">Convert EM to PX:<br>
+<input onfocus="wrong2()" onblur="works2()" class="conv" type="text" size="8" id="myInput2" value=""> <span style="font-size:23px">em</span>
+</p>
+<p class="clearfix"></p>
+ <button class="btn btn-lg ws-green w3-round ws-hover-green" onclick="myFunction()"><span class="glyphicon glyphicon-transfer"> </span> Convert</button>
+<hr>
+<p>Result: <span style="font-size:24px" id="result1"></span></p>
+<br>
+</div>
+
+<h2>Body Font Size</h2>
+<p>In the table below, select a body font size in pixels (px) to display a 
+complete &quot;px to em and percent&quot; conversion table.</p>
+<div class="ws-note w3-panel">
+<p><strong>Tip:</strong> The default font size is usually 16px.</p>
+</div>
+
+<div id="demo"></div>
+
+<div class="w3-panel ws-note">
+<p><strong>What is the difference between PX, EM and Percent?</strong></p><p>Pixel 
+is a static measurement, while percent and EM are relative 
+measurements. The size of an EM or percent depends on its parent. If the text 
+size of body is 16 pixels, then 150% or 1.5 EM will be 24 pixels (1.5 * 16). 
+Look at <a href="../cssref/css_units.html">CSS Units</a> for more 
+measurement units.</p>
+</div>
+
+
+
+<br>

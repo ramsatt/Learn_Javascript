@@ -1,0 +1,235 @@
+<h1>HTML <span class="color_h1">Forms</span></h1>
+
+<hr>
+
+<p class="intro">An HTML form is used to collect user input. The user input is 
+most often sent to a server for processing. </p>
+<hr>
+
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-white w3-padding notranslate">
+<form action="https://www.w3schools.com/action_page.php" target="_blank">
+  <label for="fname">First name:</label><br>
+  <input type="text" id="fname" name="fname" value="John"><br>
+  <label for="lname">Last name:</label><br>
+  <input type="text" id="lname" name="lname" value="Doe"><br><br>
+  <input type="submit" value="Submit">
+</form> 
+</div>
+
+</div>
+<hr>
+
+<h2>The &lt;form&gt; Element</h2>
+<p>The HTML <code class="w3-codespan">&lt;form&gt;</code> element is used to 
+create an HTML form for user input:</p>
+<div class="w3-example">
+<div class="w3-code notranslate htmlHigh">
+ &lt;form&gt;<br>
+ .<br>
+<i>form elements</i><br>
+ .<br>
+ &lt;/form&gt;<br>
+</div>
+</div>
+<p>The <code class="w3-codespan">&lt;form&gt;</code> element is a container for different types of input elements, 
+such as: text fields, checkboxes, radio 
+buttons, submit buttons, etc.</p>
+<p>All
+the different form elements are covered in this chapter:
+<a href="html_form_elements.html">HTML Form Elements</a>.
+</p>
+
+
+<hr>
+
+<h2>The &lt;input&gt; Element</h2>
+<p>The HTML <code class="w3-codespan">&lt;input&gt;</code> element is the most 
+used form element. </p>
+<p>An <code class="w3-codespan">&lt;input&gt;</code> element can be displayed in 
+many ways, depending on the <code class="w3-codespan">type</code> 
+attribute.</p>
+<p>Here are some examples:</p>
+<table class="ws-table-all">
+ <tr>
+  <th>Type</th>
+  <th>Description</th>
+ </tr>
+ <tr>
+  <td>&lt;input type=&quot;text&quot;&gt;</td>
+  <td>Displays a single-line text input field</td>
+ </tr>
+ <tr>
+  <td>&lt;input type=&quot;radio&quot;&gt;</td>
+  <td>Displays a radio button (for selecting one of many choices)</td>
+ </tr>
+ <tr>
+  <td>&lt;input type=&quot;checkbox&quot;&gt;</td>
+  <td>Displays a checkbox (for selecting zero or more of many choices)</td>
+ </tr>
+ <tr>
+  <td>&lt;input type=&quot;submit&quot;&gt;</td>
+  <td>Displays a submit button (for submitting the form)</td>
+ </tr>
+ <tr>
+  <td>&lt;input type=&quot;button&quot;&gt;</td>
+  <td>Displays a clickable button</td>
+ </tr>
+ </table>
+<p>All the different input types are covered in this chapter:
+<a href="html_form_input_types.html">HTML Input Types</a>.
+</p>
+
+<hr>
+
+<hr>
+
+<h2>Text Fields</h2>
+<p>The <code class="w3-codespan">&lt;input type="text"&gt;</code> defines a single-line input field for 
+text input.</p>
+<div class="w3-example">
+<h3>Example</h3>
+  <p>A form with input fields for text:</p>
+<div class="w3-code notranslate htmlHigh">
+ &lt;form&gt;<br>
+  &nbsp; &lt;label for=&quot;fname&quot;&gt;First name:&lt;/label&gt;&lt;br&gt;<br>&nbsp; &lt;input 
+  type=&quot;text&quot; id=&quot;fname&quot; name=&quot;fname&quot;&gt;&lt;br&gt;<br>&nbsp; &lt;label for=&quot;lname&quot;&gt;Last 
+  name:&lt;/label&gt;&lt;br&gt;<br>&nbsp; &lt;input type=&quot;text&quot; id=&quot;lname&quot; name=&quot;lname"&gt;<br>&lt;/form&gt;
+</div>
+
+</div>
+<p>This is how the HTML code above will be displayed in a browser:</p>
+<form>
+First name:<br>
+<input type="text" name="fname"><br>
+Last name:<br>
+<input type="text" name="lname">
+</form>
+
+<div class="w3-panel ws-note"><p><b>Note:</b> The form itself is not visible. Also note that the default width 
+of an input field is 20 characters.</p>
+</div>
+
+<hr>
+
+<h2>The &lt;label&gt; Element</h2>
+<p>Notice the use of the <code class="w3-codespan">&lt;label&gt;</code> element in the 
+example above. </p>
+<p>The <code class="w3-codespan">&lt;label&gt;</code> tag defines a label for many 
+form elements.</p>
+<p>The <code class="w3-codespan">&lt;label&gt;</code> element is useful for 
+screen-reader users, because the screen-reader will read out loud the label when 
+the user focuses on the input element.</p>
+<p>The <code class="w3-codespan">&lt;label&gt;</code> element also helps users who have 
+difficulty clicking on very small regions (such as radio buttons or checkboxes) 
+- because when the user clicks the text within the <code class="w3-codespan">&lt;label&gt;</code> element, it toggles 
+the radio button/checkbox.</p>
+<p>The <code class="w3-codespan">for</code> attribute of the <code class="w3-codespan">&lt;label&gt;</code> tag should 
+be equal to the <code class="w3-codespan">id</code> attribute of the <code class="w3-codespan">&lt;input&gt;</code>  
+element to bind them together. </p>
+
+<hr>
+
+<h2>Radio Buttons</h2>
+<p>The <code class="w3-codespan">&lt;input type="radio"&gt;</code> defines a radio button.</p>
+<p>Radio buttons let a user select ONE of a limited number of choices.</p>
+<div class="w3-example">
+ <h3>Example</h3>
+  <p>A form with radio buttons:</p>
+<div class="w3-code notranslate htmlHigh">
+&lt;p&gt;Choose your favorite Web language:&lt;/p&gt;<br><br>
+&lt;form&gt;<br>&nbsp; &lt;input type=&quot;radio&quot; id=&quot;html&quot; name=&quot;fav_language&quot; 
+  value=&quot;HTML&quot;&gt;<br>&nbsp; &lt;label for=&quot;html&quot;&gt;HTML&lt;/label&gt;&lt;br&gt;<br>&nbsp; &lt;input 
+  type=&quot;radio&quot; id=&quot;css&quot; name=&quot;fav_language&quot; value=&quot;CSS&quot;&gt;<br>&nbsp; &lt;label 
+  for=&quot;css&quot;&gt;CSS&lt;/label&gt;&lt;br&gt;<br>&nbsp; &lt;input type=&quot;radio&quot; id=&quot;javascript&quot; 
+  name=&quot;fav_language&quot; value=&quot;JavaScript&quot;&gt;<br>&nbsp; &lt;label for=&quot;javascript&quot;&gt;JavaScript&lt;/label&gt;<br>&lt;/form&gt;
+</div>
+
+</div>
+<p>This is how the HTML code above will be displayed in a browser:</p>
+
+<p>Choose your favorite Web language:</p>
+<input type="radio" id="html" name="fav_language" value="HTML">
+<label for="html">HTML</label><br>
+<input type="radio" id="css" name="fav_language" value="CSS">
+<label for="css">CSS</label><br>
+<input type="radio" id="javascript" name="fav_language" value="JavaScript">
+<label for="javascript">JavaScript</label>
+
+<hr>
+
+<h2>Checkboxes</h2>
+<p>The <code class="w3-codespan">&lt;input type=&quot;checkbox&quot;&gt;</code> defines a <strong>checkbox</strong>.</p>
+<p>Checkboxes let a user select ZERO or MORE options of a limited number of choices.</p>
+<div class="w3-example">
+ <h3>Example</h3>
+  <p>A form with checkboxes:</p>
+<div class="w3-code notranslate htmlHigh">
+ &lt;form&gt;<br>&nbsp; &lt;input type=&quot;checkbox&quot; id=&quot;vehicle1&quot; name=&quot;vehicle1&quot; value=&quot;Bike&quot;&gt;<br>&nbsp; 
+  &lt;label for=&quot;vehicle1&quot;&gt; I have a bike&lt;/label&gt;&lt;br&gt;<br>&nbsp; &lt;input 
+  type=&quot;checkbox&quot; id=&quot;vehicle2&quot; name=&quot;vehicle2&quot; value=&quot;Car&quot;&gt;<br>&nbsp; &lt;label for=&quot;vehicle2&quot;&gt; 
+  I have a car&lt;/label&gt;&lt;br&gt;<br>&nbsp; &lt;input type=&quot;checkbox&quot; 
+  id=&quot;vehicle3&quot; name=&quot;vehicle3&quot; 
+  value=&quot;Boat&quot;&gt;<br>&nbsp; &lt;label for=&quot;vehicle3&quot;&gt; I have a boat&lt;/label&gt;<br>
+ &lt;/form&gt;
+</div>
+
+</div>
+<p>This is how the HTML code above will be displayed in a browser:</p>
+<input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+<label for="vehicle1"> I have a bike</label><br>
+<input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+<label for="vehicle2"> I have a car</label><br>
+<input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+<label for="vehicle3"> I have a boat</label>
+
+<hr>
+
+<h2>The Submit Button</h2>
+<p>The <code class="w3-codespan">&lt;input type="submit"&gt;</code> defines a button for submitting the form data to a form-handler.</p>
+<p>The form-handler is typically a file on the server with a script for processing 
+input data.</p>
+<p>The form-handler is specified in the form's <code class="w3-codespan">action</code> 
+attribute.</p>
+<div class="w3-example">
+<h3>Example</h3>
+  <p>A form with a submit button:</p>
+<div class="w3-code notranslate htmlHigh">
+ &lt;form action="/action_page.php"&gt;<br>&nbsp; &lt;label for=&quot;fname&quot;&gt;First 
+  name:&lt;/label&gt;&lt;br&gt;<br>&nbsp; &lt;input type=&quot;text&quot; id=&quot;fname&quot; name=&quot;fname&quot; 
+  value=&quot;John&quot;&gt;&lt;br&gt;<br>&nbsp; &lt;label for=&quot;lname&quot;&gt;Last name:&lt;/label&gt;&lt;br&gt;<br>&nbsp; 
+  &lt;input type=&quot;text&quot; id=&quot;lname&quot; name=&quot;lname&quot; value=&quot;Doe&quot;&gt;&lt;br&gt;&lt;br&gt;<br>&nbsp; 
+  &lt;input type=&quot;submit&quot; value=&quot;Submit&quot;&gt;<br>&lt;/form&gt;
+</div>
+
+</div>
+<p>This is how the HTML code above will be displayed in a browser:</p>
+<form action="https://www.w3schools.com/action_page.php" target="_blank">
+First name:<br>
+<input type="text" name="firstname" value="John"><br>
+Last name:<br>
+<input type="text" name="lastname" value="Doe"><br><br>
+<input type="submit" value="Submit">
+</form> 
+
+<hr>
+
+<h2>The Name Attribute for &lt;input&gt;</h2>
+<p>Notice that each input field must have a <code class="w3-codespan">name</code> attribute to be submitted.</p>
+<p>If the <code class="w3-codespan">name</code> attribute is omitted, the value of the input field will not be sent at all.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>This example will not submit the value of the &quot;First name&quot; input field:&nbsp;</p>
+<div class="w3-code notranslate htmlHigh">
+ &lt;form action="/action_page.php"&gt;<br>&nbsp; &lt;label for=&quot;fname&quot;&gt;First 
+  name:&lt;/label&gt;&lt;br&gt;<br>&nbsp; &lt;input type=&quot;text&quot; id=&quot;fname&quot; value=&quot;John&quot;&gt;&lt;br&gt;&lt;br&gt;<br>&nbsp; 
+  &lt;input type=&quot;submit&quot; value=&quot;Submit&quot;&gt;<br>&lt;/form&gt;
+</div>
+
+</div>
+
+<hr>
+
+<hr>

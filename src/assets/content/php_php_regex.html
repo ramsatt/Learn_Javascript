@@ -1,0 +1,288 @@
+<h1>PHP Regular Expressions</h1>
+
+<hr>
+
+<h2>PHP Regular Expressions</h2>
+<p>A regular expression is a sequence of characters that forms a search pattern.
+When you search for data in a text, you can use this search pattern to describe what you
+are searching for.</p>
+<p>A regular expression can be a single character, or a more complicated pattern.</p>
+<p>Regular expressions can be used to perform all types of text search and text replace
+operations.</p>
+<hr>
+
+<h2>Regular Expression Syntax</h2>
+<p>In PHP, regular expressions are strings composed of delimiters, a pattern and optional modifiers.</p>
+
+<h3>Syntax</h3>
+<div class="w3-example">
+<pre class="language-php notranslate w3-white"><code>&quot;/pattern/modifiers&quot;</code></pre>
+</div>
+<ul>
+  <li>delimiters - charcters that enclose the pattern (e.g. <code class="w3-codespan">/</code>)</li>
+  <li>pattern - the character sequence to search for</li>
+  <li>modifiers - how the search is performed (e.g. <code class="w3-codespan">i</code> indicates a 
+  case-insensitive search)</li>
+</ul>
+
+<p>Look at the following regular expression:</p>
+<pre class="language-php notranslate" style="border-radius:5px;"><code>$exp = &quot;/w3schools/i&quot;;
+</code></pre>
+
+<p>Here, <code class="w3-codespan">/</code> is the <strong>delimiter</strong>, <em>w3schools</em> is the <strong>pattern </strong>to search for,
+and <code class="w3-codespan">i</code> is a <strong>modifier </strong>that makes the search case-insensitive.</p>
+<p>The <strong>delimiter</strong> can be any character that is not a letter, number, backslash or space. The
+most common delimiter is the forward slash (/), but when your pattern contains forward
+slashes it is convenient to choose other delimiters such as # or ~.</p>
+<hr>
+
+<hr>
+
+<h2>Regular Expression Modifiers</h2>
+<p>The modifiers specify how the search is performed.</p>
+<table class="ws-table-all notranslate">
+  <tr>
+    <th style="width:100px">Modifier</th>
+    <th>Description</th>
+    <th style="width:85px;text-align:center">Try it</th>
+  </tr>
+  <tr>
+    <td>i</td>
+    <td>Performs a case-insensitive search</td>
+    <td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;"
+           href="phptryite644.html?filename=tryphp_regex_i">Try it &raquo;</a>
+    </td>
+  </tr>
+  <tr>
+    <td>m</td>
+    <td>Performs a multiline search (patterns that search for a match at the
+beginning or end of a string will now match the beginning or end of <em>each line</em>)</td>
+    <td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;"
+           href="phptryit26da.html?filename=tryphp_regex_m">Try it &raquo;</a>
+    </td>
+  </tr>
+  <tr>
+    <td>u</td>
+    <td>Enables correct matching of UTF-8 encoded patterns</td>
+    <td></td>
+  </tr>
+</table>
+<hr>
+
+<h2>Regular Expression Patterns</h2>
+<p>Brackets are used to find a range of characters:</p>
+<table class="ws-table-all notranslate">
+  <tr>
+    <th style="width:22%">Expression</th>
+    <th>Description</th>
+    <th style="width:85px;text-align:center">Try it</th>
+  </tr>
+  <tr>
+    <td>[abc]</td>
+    <td>Find one or many of the characters inside the brackets</td>
+    <td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;"
+           href="phptryit9a70.html?filename=tryphp_regex_abc">Try it &raquo;</a>
+    </td>
+  </tr>
+  <tr>
+    <td>[^abc]</td>
+    <td>Find any character NOT between the brackets</td>
+    <td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;"
+           href="phptryita6e8.html?filename=tryphp_regex_abc_not">Try it &raquo;</a>
+    </td>    
+  </tr>
+  <tr>
+    <td>[a-z]</td>
+    <td>Find any character alphabetically between two letters</td>
+    <td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;"
+           href="phptryit1e8c.html?filename=tryphp_regex_a-z">Try it &raquo;</a>
+    </td>    
+  </tr>
+  <tr>
+    <td>[A-z]</td>
+    <td>Find any character alphabetically between a specified upper-case letter and a specified lower-case letter</td>
+    <td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;"
+           href="phptryit94a0.html?filename=tryphp_regex_uppera-lowerz">Try it &raquo;</a>
+    </td>    
+  </tr>
+  <tr>
+    <td>[A-Z]</td>
+    <td>Find any character alphabetically between two upper-case letters.</td>
+    <td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;"
+           href="phptryit5d27.html?filename=tryphp_regex_a-z_uppercase">Try it &raquo;</a>
+    </td>    
+  </tr>
+  <tr>
+    <td>[123]</td>
+    <td>Find one or many of the digits inside the brackets</td>
+    <td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;"
+           href="phptryit8189.html?filename=tryphp_regex_123">Try it &raquo;</a>
+    </td>    
+  </tr>
+  <tr>
+    <td>[0-5]</td>
+    <td>Find any digits between the two numbers</td>
+    <td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;"
+           href="phptryit7c72.html?filename=tryphp_regex_0-5">Try it &raquo;</a>
+    </td>    
+  </tr>
+  <tr>
+    <td>[0-9]</td>
+    <td>Find any digits</td>
+    <td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;"
+           href="phptryitbb9a.html?filename=tryphp_regex_0-9">Try it &raquo;</a>
+    </td>    
+  </tr>
+</table>
+
+<h2>Metacharacters</h2>
+<p>Metacharacters are characters with a special meaning:</p>
+<table class="ws-table-all notranslate">
+  <tr>
+    <th style="width:22%">Metacharacter</th>
+    <th>Description</th>
+    <th style="width:85px;text-align:center">Try it</th>    
+  </tr>
+  <tr>
+    <td>|</td>
+    <td>Find a match for any one of the patterns separated by | as in: cat|dog|fish</td>
+    <td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;"
+           href="phptryit4a97.html?filename=tryphp_regex_pipe">Try it &raquo;</a>
+    </td>    
+  </tr>
+  <tr>
+    <td>.</td>
+    <td>Find any character</td>
+    <td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;"
+           href="phptryitee46.html?filename=tryphp_regex_dot">Try it &raquo;</a>
+    </td>    
+  </tr>
+  <tr>
+    <td>^</td>
+    <td>Finds a match as the beginning of a string as in: ^Hello</td>
+    <td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;"
+           href="phptryitd05f.html?filename=tryphp_regex_beginning">Try it &raquo;</a>
+    </td>    
+  </tr>
+  <tr>
+    <td>$</td>
+    <td>Finds a match at the end of the string as in: World$</td>
+    <td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;"
+           href="phptryitc1cd.html?filename=tryphp_regex_end">Try it &raquo;</a>
+    </td>    
+  </tr>
+  <tr>
+    <td>\d</td>
+    <td>Find any digits</td>
+    <td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;"
+           href="phptryit6ff9.html?filename=tryphp_regex_d">Try it &raquo;</a>
+    </td>    
+  </tr>
+  <tr>
+    <td>\D</td>
+    <td>Find any non-digits</td>
+    <td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;"
+           href="phptryitc167.html?filename=tryphp_regex_d_upper">Try it &raquo;</a>
+    </td>    
+  </tr>
+  <tr>
+    <td>\s</td>
+    <td>Find any whitespace character</td>
+    <td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;"
+           href="phptryitc38d.html?filename=tryphp_regex_s">Try it &raquo;</a>
+    </td>    
+  </tr>
+  <tr>
+    <td>\S</td>
+    <td>Find any non-whitespace character</td>
+    <td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;"
+           href="phptryitb82b.html?filename=tryphp_regex_s_upper">Try it &raquo;</a>
+    </td>    
+  </tr>
+  <tr>
+    <td>\w</td>
+    <td>Find any alphabetical letter (a to Z) and digit (0 to 9)</td>
+    <td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;"
+           href="phptryit7aa1.html?filename=tryphp_regex_w">Try it &raquo;</a>
+    </td>    
+  </tr>
+  <tr>
+    <td>\W</td>
+    <td>Find any non-alphabetical and non-digit character</td>
+    <td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;"
+           href="phptryit9ae4.html?filename=tryphp_regex_w_upper">Try it &raquo;</a>
+    </td>    
+  </tr>
+  <tr>
+    <td>\b</td>
+    <td>Find a match at the beginning of a word like this: \bWORD, or at the end of a word like this: WORD\b</td>
+    <td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;"
+           href="phptryit0cac.html?filename=tryphp_regex_b">Try it &raquo;</a>
+    </td>    
+  </tr>
+  <tr>
+    <td>\uxxxx</td>
+    <td>Find the Unicode character specified by the hexadecimal number xxxx</td>
+    <td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;"
+           href="phptryitb94d.html?filename=tryphp_regex_u">Try it &raquo;</a>
+    </td>    
+  </tr>
+</table>
+
+<h2>Quantifiers</h2>
+<p>Quantifiers define quantities:</p>
+<table class="ws-table-all notranslate">
+  <tr>
+    <th style="width:22%">Quantifier</th>
+    <th>Description</th>
+    <th style="width:85px;text-align:center">Try it</th>        
+  </tr>
+  <tr>
+    <td><em>n</em>+</td>
+    <td>Matches any string that contains at least one <em>n</em></td>
+    <td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;"
+           href="phptryitc9dc.html?filename=tryphp_regex_plus">Try it &raquo;</a>
+    </td>    
+  </tr>
+  <tr>
+    <td><em>n</em>*</td>
+    <td>Matches any string that contains zero or more occurrences of <em>n</em></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><em>n</em>?</td>
+    <td>Matches any string that contains zero or one occurrences of <em>n</em></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><em>n</em>{<em>3</em>}</td>
+    <td>Matches any string that contains a sequence of <i>3</i> <i>n</i>'s</td>
+    <td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;"
+           href="phptryite7a7.html?filename=tryphp_regex_n2">Try it &raquo;</a>
+    </td>    
+  </tr>
+  <tr>
+    <td><em>n</em>{<em>2</em>, <em>5</em>}</td>
+    <td>Matches any string that contains a sequence of at least 2, but not more 
+    that 5 <i>n</i>'s</td>
+    <td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;"
+           href="phptryit3ac5.html?filename=tryphp_regex_n25">Try it &raquo;</a>
+    </td>        
+  </tr>
+  <tr>
+    <td><em>n</em>{3,}</td>
+    <td>Matches any string that contains a sequence of at least 3 <i>n</i>'s</td>
+    <td><a target="_blank" class="w3-btn btnsmall" style="padding-top:2px;padding-bottom:2px;"
+           href="phptryit0f65.html?filename=tryphp_regex_n3">Try it &raquo;</a>
+    </td>        
+  </tr>
+</table>
+
+<div class="ws-note w3-panel">
+<p><strong>Note:</strong> If your expression needs to search for one of the special characters you can use a
+backslash ( \ ) to escape them.
+For example, to search for one or more question marks you can use the following
+expression: $pattern = '/\?+/';</p>
+</div>
+
+<br>

@@ -1,0 +1,243 @@
+<h1>React Components</h1>
+
+
+<hr>
+
+<p class="intro">Components are like functions that return HTML elements.</p>
+
+<hr>
+<h2>React Components</h2>
+  
+<p>Components are independent and reusable bits of code.
+They serve the same purpose as JavaScript functions,
+but work in isolation and return HTML.</p>
+<p>Components come in two types, Class components and Function components, in 
+this tutorial we will concentrate on Function components.</p>
+
+<div class="w3-panel ws-note">
+<p>In older React code bases, you may find Class components primarily used.</p>
+<p>It is now suggested to use Function components along with Hooks, instead of Class components.</p>
+<p>Class components are still supported, check the <a href="react_class.html">Class components</a> section for more information.</p>
+</div>
+
+<hr>
+<h2>Create Your First Component</h2>
+
+<p>When creating a React component, the component's name <em>MUST</em> start with an 
+upper case letter.</p>
+
+<p>React components returns HTML code.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Create a Function component called <code class="w3-codespan">Car</code></p>
+<pre class="language-jsx w3-white"><code>function Car() {
+  return (
+    &lt;h2&gt;Hi, I am a Car!&lt;/h2&gt;
+  );
+}
+</code></pre>
+<br>
+</div>
+<hr>
+
+<hr>
+<h2>Rendering a Component</h2>
+<p>Now your React application has a component called <code class="w3-codespan">Car</code>, which returns an 
+<code class="w3-codespan">&lt;h2&gt;</code> element.</p>
+<p>To use this component in your application, refer to it like this:
+<code class="w3-codespan" style="white-space: nowrap;">&lt;Car /&gt;</code></p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Display the <code class="w3-codespan">Car</code> component in the "root" element:</p>
+<pre class="language-jsx w3-white"><code>createRoot(document.getElementById('root')).render(
+  &lt;Car /&gt;
+)
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreactc5b4.html?filename=demo_react_components">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<hr>
+
+<h2>Props</h2>
+
+<p>Arguments can be passed into a component as <code class="w3-codespan">props</code>, which stands for properties.</p>
+
+<p>You send the arguments into the component as HTML attributes.</p>
+<p>You will learn more about <code class="w3-codespan">props</code> in our <a href="react_props.html">React Props chapter</a>.</p>
+<div class="w3-example">
+  <h3>Example</h3>
+<p>Use an attribute to pass a color to the <code class="w3-codespan">Car</code> component, and use it in the 
+<code class="w3-codespan">render</code> function:</p>
+<pre class="language-jsx w3-white"><code>function Car(props) {
+  return (
+    &lt;h2&gt;I am a {props.color} Car!&lt;/h2&gt;
+  );
+}
+
+createRoot(document.getElementById('root')).render(
+  &lt;Car color=&quot;red&quot;/&gt;
+);
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreact03b8.html?filename=demo_react_components_props">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<hr>
+
+<h2>Components in Components</h2>
+
+<p>We can refer to components inside other components:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Use the <code class="w3-codespan">Car</code> component inside the <code class="w3-codespan">Garage</code> component:</p>
+<pre class="language-jsx w3-white"><code>function Car() {
+  return (
+    &lt;h2&gt;I am a Car!&lt;/h2&gt;
+  );
+}
+
+function Garage() {
+  return (
+    &lt;&gt;
+      &lt;h1&gt;Who lives in my Garage?&lt;/h1&gt;
+      &lt;Car /&gt;
+    &lt;/&gt;
+  );
+}
+
+createRoot(document.getElementById('root')).render(
+  &lt;Garage /&gt;
+);
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreact7346.html?filename=demo_react_components_many">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<hr>
+
+<h2>Rendering a Component Twice</h2>
+
+<p>We can render a component multiple times:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Use the <code class="w3-codespan">Car</code> component twice inside the <code class="w3-codespan">Garage</code> component:</p>
+<pre class="language-jsx w3-white"><code>function Car() {
+  return (
+    &lt;h2&gt;I am a Car!&lt;/h2&gt;
+  );
+}
+
+function Garage() {
+  return (
+    &lt;&gt;
+      &lt;h1&gt;Who lives in my Garage?&lt;/h1&gt;
+      &lt;Car /&gt;
+      &lt;Car /&gt;
+    &lt;/&gt;
+  );
+}
+
+createRoot(document.getElementById('root')).render(
+  &lt;Garage /&gt;
+);
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreactb7e4.html?filename=demo_react_components_twice">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<p>The example above might be a bit useless, but if we change the content of the <code class="w3-codespan">Car</code> component, by using arguments, it makes more sense:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Use the <code class="w3-codespan">Car</code> component to display two different cars:</p>
+<pre class="language-jsx w3-white"><code>function Car(props) {
+  return (
+    &lt;h2&gt;I am a {props.brand}!&lt;/h2&gt;
+  );
+}
+
+function Garage() {
+  return (
+    &lt;&gt;
+      &lt;h1&gt;Who lives in my Garage?&lt;/h1&gt;
+      &lt;Car brand="Ford" /&gt;
+      &lt;Car brand="BMW" /&gt;
+    &lt;/&gt;
+  );
+}
+
+createRoot(document.getElementById('root')).render(
+  &lt;Garage /&gt;
+);
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreact3142.html?filename=demo_react_components_twice2">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<hr>
+
+<h2>Components in Files</h2>
+
+<p>React is all about re-using code, and it can be a good idea to split your components into separate files.</p>
+
+<p>To do that, create a new file in the <code class="w3-codespan">src</code> folder with a <code class="w3-codespan">.jsx</code> 
+file extension and put the code inside it:</p>
+
+<div class="w3-panel ws-note">
+<p>Note that the filename must start with an uppercase character.</p>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>This is the new file, we named it <code class="w3-codespan">Vehicle.jsx</code>:</p>
+<pre class="language-jsx w3-white" data-tab-header="Vehicle.jsx"><code>function Car() {
+  return (
+    &lt;h2&gt;Hi, I am a Car!&lt;/h2&gt;
+  );
+}
+
+export default Car;
+</code></pre>
+<br>
+</div>
+
+<p>To be able to use the <code class="w3-codespan">Car</code> component, you have to import the <code class="w3-codespan">Vehicle.jsx</code> file in your 
+application.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Now we import the <code class="w3-codespan">Vehicle.jsx</code> file in the application, and we can use the 
+<code class="w3-codespan">Car</code> 
+component as if it was created here.</p>
+<pre class="language-jsx w3-white" data-tab-header="main.jsx"><code>import { createRoot } from 'react-dom/client'
+import Car from './Vehicle.jsx';
+
+createRoot(document.getElementById('root')).render(
+  &lt;Car /&gt;
+);
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreactc339.html?filename=demo_react_components_import">Run 
+Example &raquo;</a>
+</p>
+
+</div>
+<hr>
+
+
+
+<hr>

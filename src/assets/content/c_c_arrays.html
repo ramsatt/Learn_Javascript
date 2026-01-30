@@ -1,0 +1,111 @@
+<h1>C <span class="color_h1">Arrays</span></h1>
+
+<hr>
+
+
+<h2>Arrays</h2>
+<p>Arrays are used to store multiple values in a single variable, instead of declaring separate variables for each 
+value.</p>
+<p>To create an array, define the data type (like <code class="w3-codespan">int</code>) and specify the name 
+of the array followed by <strong>square brackets []</strong>.
+
+</p>
+<p>To insert values to it, use a comma-separated list inside curly braces, and 
+make sure all values are of the same data type:</p>
+<div class="w3-example">
+<div class="w3-code notranslate javaHigh">
+  int myNumbers[] = {25, 
+  50, 75, 100};<br>
+ </div>
+</div>
+
+<p>We have now created a variable that holds an array of four integers.</p>
+
+<hr>
+
+
+<h2>Access the Elements of an Array</h2>
+<p>To access an array element, refer to its<strong> index number</strong>.</p>
+<p>Array indexes start with <strong>0</strong>: [0] is the first element. [1] is the second element, etc.</p>
+<p>This statement accesses the value of the <strong>first element [0]</strong> in 
+<code class="w3-codespan">myNumbers</code>:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  int myNumbers[] = {25, 50, 75, 100};<br>
+  printf(&quot;%d&quot;, myNumbers[0]);<br><br>// Outputs 25<br>
+ </div>
+
+</div>
+
+
+<hr>
+
+
+<h2>Change an Array Element</h2>
+
+<p>To change the value of a specific element, refer to the index number:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  myNumbers[0] = 33;<br>
+ </div>
+</div>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  int myNumbers[] = {25, 50, 75, 100};<br>myNumbers[0] = 33;<br><br>
+  printf(&quot;%d&quot;, myNumbers[0]);<br><br>
+  // Now outputs 33 instead of 25<br>
+ </div>
+
+</div>
+
+<hr id="arrayloop">
+<hr>
+
+<h2>Set Array Size</h2>
+<p>Another common way to create arrays, is to specify the size of the array, and add 
+elements later:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  // Declare an array of four integers:<br>int myNumbers[4];<br><br>// Add 
+  elements<br>myNumbers[0] = 25;<br>myNumbers[1] = 50;<br>myNumbers[2] = 75;<br>
+  myNumbers[3] = 100;<br>
+ </div>
+
+</div>
+<p>Using this method, <strong>you should know the number of array elements in advance,</strong> 
+in order for the program to store enough memory.</p>
+<p>You are not able to change the size of the array after creation.</p>
+
+<hr>
+
+
+<h2>Avoid Mixing Data Types</h2>
+<p>It is important to note that all elements in an array <strong>must be of the same 
+<a href="c_data_types.html">data type</a></strong>.</p>
+<p>This means you cannot mix different types of values, like <strong>integers</strong> and 
+<strong>floating point</strong> numbers, in the same array:</p>
+
+<div class="w3-example w3-pale-red">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh w3-border-red">
+  int myArray[] = {25, 50, 75, 
+  3.15, 5.99};<br>
+ </div>
+
+</div>
+<p>In the example above, the values <code class="w3-codespan">3.15</code> and <code class="w3-codespan">5.99</code> will be truncated to <code class="w3-codespan">3</code> and <code class="w3-codespan">5</code>. In some cases it might also result in an error, so 
+it is important to always make sure that the elements in the array are of the 
+same type.</p>
+
+<hr>
+
+<hr>
+
+<br>

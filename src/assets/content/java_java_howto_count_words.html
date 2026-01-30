@@ -1,0 +1,22 @@
+<h1>Java <span class="color_h1">How To Count Words</span></h1>
+
+<hr>
+
+<h2>Count Number of Words in a String</h2>
+<p>You can easily count the number of words in a string with the following example:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>String words = "One Two Three Four";
+int countWords = words.split("\\s").length;
+System.out.println(countWords);</code></pre>
+
+</div>
+<p><b>Explanation:</b> The method <code class="w3-codespan">split(&quot;\\s&quot;)</code> breaks the string into an array wherever it finds a space.  
+<br>In the example, the string <code class="w3-codespan">&quot;One Two Three Four&quot;</code> is split into 4 words.  
+<br>The <code class="w3-codespan">length</code> of that array tells us the total number of words.</p>
+<hr>
+<h2>Related Pages</h2>
+<p><a href="java_strings.html">Java String Tutorial</a></p>
+<p><a href="java_ref_string.html">Java String Methods</a></p>
+
+<br>

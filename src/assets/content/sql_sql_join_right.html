@@ -1,0 +1,112 @@
+<h1>SQL <span class="color_h1">RIGHT JOIN</span> Keyword</h1>
+
+<hr>
+
+<h2>SQL RIGHT JOIN Keyword</h2>
+<p>The <code class="w3-codespan">RIGHT JOIN</code> keyword returns all records from the right table (table2), and the 
+matching records from the left table (table1). The result is 0 records from the left side, 
+if there is no match.</p>
+
+<h3>RIGHT JOIN Syntax</h3>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+SELECT <em>column_name(s)</em><br>
+FROM <em>table1</em><br>
+RIGHT JOIN <em>table2<br> </em>ON <em>table1.column_name </em>=<em> table2.column_name</em>;
+</div></div>
+<p><b>Note:</b> In some databases <code class="w3-codespan">RIGHT JOIN</code> is called 
+<code class="w3-codespan">RIGHT OUTER JOIN</code>.</p>
+<p style="text-align:center;"><img class="invert-on-dark" alt="SQL RIGHT JOIN" src="assets/content/images/img_right_join.png"></p>
+
+<hr>
+<h2>Demo Database</h2>
+<p>In this tutorial we will use the well-known Northwind sample database.</p>
+<p>Below is a selection from the &quot;Orders&quot; table:</p>
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+  <tr>
+    <th style="width:15%">OrderID</th>
+    <th>CustomerID</th>
+    <th>EmployeeID</th>
+    <th>OrderDate</th>
+    <th>ShipperID</th>
+  </tr>
+  <tr>
+    <td>10308</td>
+    <td>2</td>
+    <td>7</td>
+    <td>1996-09-18</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <td>10309</td>
+    <td>37</td>
+    <td>3</td>
+    <td>1996-09-19</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td>10310</td>
+    <td>77</td>
+    <td>8</td>
+    <td>1996-09-20</td>
+    <td>2</td>
+  </tr>
+</table>
+</div>
+
+<p>And a selection from the &quot;Employees&quot; table:</p>
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+  <tr>
+    <th>EmployeeID</th>
+    <th>LastName</th>
+    <th>FirstName</th>
+    <th>BirthDate</th>
+    <th>Photo</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>Davolio</td>
+    <td>Nancy</td>
+    <td>12/8/1968</td>
+    <td>EmpID1.pic</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Fuller</td>
+    <td>Andrew</td>
+    <td>2/19/1952</td>
+    <td>EmpID2.pic</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Leverling</td>
+    <td>Janet</td>
+    <td>8/30/1963</td>
+    <td>EmpID3.pic</td>
+  </tr>
+</table>
+</div>
+<hr>
+
+<h2>SQL RIGHT JOIN Example</h2>
+<p>The following SQL statement will return all employees, and any orders they 
+might have placed:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+ SELECT Orders.OrderID, Employees.LastName, Employees.FirstName<br>FROM Orders<br>RIGHT JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID<br>
+ ORDER BY Orders.OrderID;</div>
+
+</div>
+
+<p><strong>Note:</strong> The <code class="w3-codespan">RIGHT JOIN</code> keyword returns all records from the 
+right table (Employees), even if there are no matches in the left table 
+(Orders).</p>
+
+<hr>
+
+<hr>
+
+<br>

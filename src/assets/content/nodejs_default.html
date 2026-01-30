@@ -1,0 +1,192 @@
+<h1>Node.js <span class="color_h1">Tutorial</span></h1>
+
+
+<div class="w3-panel ws-info w3-padding-24">
+<h2>What is Node.js?</h2>
+<p><b>Node.js</b> is a free, open source tool that lets you run JavaScript outside the web browser.</p>
+<p>With Node.js, you can build fast and scalable applications like web servers, APIs, tools, and more.</p>
+<a class="w3-btn w3-margin-bottom" href="nodejs_intro.html" style="font-size: 18px;padding-left:25px;padding-right:25px;font-family: 'Source Sans Pro', sans-serif;margin-top:6px;">Start learning Node.js now &raquo;</a>
+</div>
+
+<hr>
+
+<h2>What Can You Build With Node.js?</h2>
+<p>Node.js uses an <b>event-driven</b>, <b>non-blocking</b> model.</p>
+<p>It can handle many connections at once without waiting for one to finish before starting another.</p>
+<p>This makes it great for real-time apps and high-traffic websites.</p>
+<p>Here are some examples of what you can build with Node.js:</p>
+<ul>
+  <li>Web servers and websites</li>
+  <li>REST APIs</li>
+  <li>Real-time apps (like chat)</li>
+  <li>Command-line tools</li>
+  <li>Working with files and databases</li>
+  <li>IoT and hardware control</li>
+</ul>
+<hr>
+
+<h2>How to Run Node.js Code</h2>
+<p>Save your code in a file, for example <code class="w3-codespan">app.js</code>, then run it in your terminal or command prompt with:</p>
+<div class="w3-example">
+<div class="w3-code notranslate">node app.js</div>
+</div>
+<p>This will start your Node.js program.</p>
+<hr>
+
+<hr>
+<h2>Learning by Examples</h2>
+<p>Our &quot;Show Node.js&quot; tool makes it easy to learn Node.js, it shows both the code and the result.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+let http = require('http');<br><br>
+http.createServer(function (req, res) {<br>
+&nbsp;&nbsp;res.writeHead(200, {'Content-Type': 'text/plain'});<br>
+&nbsp;&nbsp;res.end('Hello World!');<br>
+}).listen(8080); </div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="shownodejsbb0b.html?filename=demo_intro">Run example &raquo;</a>
+</div>
+<p><b>Click on the &quot;Run example&quot; button to see how it works.</b></p>
+<hr>
+<h2>Examples Running in the Command Line Interface</h2>
+
+<p>In this tutorial there will be some examples that are better explained by displaying the result in the command line interface.</p>
+<p>When this happens, The "Show Node.js" tool will show the result in a black screen on the right:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+console.log('This example is different!');<br>
+console.log('The result is displayed in the Command Line Interface'); </div>
+
+</div>
+<p><b>Click on the &quot;Run example&quot; button to see how it works.</b></p>
+<hr>
+
+<div class="ws-hide-on-logged-in">
+<style>
+.containerlog {
+  display: flex;
+  gap: 50px;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  margin-right:-16px;
+}
+
+.left-panel {
+  flex: 50%;
+}
+
+.left-panel h2 {
+  margin-bottom: 18px;
+}
+
+.checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.checklist li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.checklist img {
+  width: 20px;
+  height: 20px;
+  margin-right: 15px;
+}
+
+.right-panel {
+  flex: 50%;
+  display: flex;
+  background-image: url("../images/img_db2.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top:-50px;
+  border-radius:8px;
+  border:1px solid #f1f1f1;
+}
+
+@media (max-width: 1250px) and (min-width: 993px) {
+  .right-panel {
+    display: none;
+  }
+}
+
+@media (max-width: 860px) and (min-width: 0px) {
+  .right-panel {
+    display: none;
+  }
+  .containerlog {
+  margin-right: 0!important;
+}
+
+}
+
+.darkpagetheme .right-panel {
+  background-image: url("../images/banner_dm.png");
+  border:1px solid #333;
+}
+
+</style>
+<h2>Track Your Progress</h2>
+
+<p style="margin-top:16px;"><strong>Note:</strong> This is an optional feature. You can study at W3Schools without creating an account.</p>
+
+
+<hr>
+</div>
+
+<h2>Node.js Built-in Modules</h2>
+<p>Node.js comes with many <b>built-in modules</b> to help you work with files, servers, paths, the operating system, and more.</p>
+<p>You can use them by importing them with <code class="w3-codespan">require()</code>.</p>
+<div class="w3-example">
+<h3>Example: Using the OS Module</h3>
+<div class="w3-code notranslate jsHigh">
+const os = require('os');<br>
+console.log(os.platform());</div>
+
+</div>
+<p>See the <a href="ref_modules.html">full list of built-in modules</a>.</p>
+<hr>
+
+<h2>What is npm?</h2>
+<p><b>npm</b> is the package manager for Node.js.</p>
+<p>It helps you install and manage third-party packages (libraries) to add more features to your apps.</p>
+<div class="w3-example">
+<h3>Example: Installing a Package</h3>
+<div class="w3-code notranslate">npm install express</div>
+</div>
+<p>This command installs the popular <b>Express</b> web framework.</p>
+<p>You can then use it in your code:</p>
+<div class="w3-example">
+<div class="w3-code notranslate jsHigh">
+const express = require('express');<br>
+const app = express();<br>
+app.get('/', (req, res) => res.send('Hello World!'));<br>
+app.listen(8080);
+</div><a target="_blank" class="w3-btn w3-margin-bottom" href="shownodejs82a5.html?filename=demo_intro_express">Run example &raquo;</a>
+</div>
+<hr>
+
+<h2>Download Node.js</h2>
+<p>Download Node.js from the official Node.js web site:
+<a target="_blank" href="https://nodejs.org/">https://nodejs.org</a></p>
+<hr>
+
+<h2>Node.js Exercises</h2>
+<p>Many chapters in this tutorial end with an exercise where you can check your level of knowledge.</p>
+
+
+<p><a class="w3-btn w3-margin-bottom ws-green" href="nodejs_exercises.html" style="border-radius:5px;font-size: 18px;padding-left:25px;padding-right:25px;font-family: 'Source Sans Pro', sans-serif;margin-top:6px;">See all Node.js Exercises</a></p>
+<hr>
+
+<h2>Node.js Quiz</h2>
+<p>Test your Node.js skills with a quiz.</p>
+<p><a href="nodejs_quiz.html" class="w3-button w3-blue w3-round">Start Node.js Quiz</a></p>
+<hr>
+<br>

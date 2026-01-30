@@ -1,0 +1,95 @@
+<h1>Java <span class="color_h1">While Loop</span></h1>
+
+<hr>
+<h2>Loops</h2>
+<p>Loops can execute a block of code as long as a specified condition is true.</p>
+<p>Loops are handy because they save time, reduce errors, and they make code 
+more readable.</p>
+<hr>
+
+<h2>Java While Loop</h2>
+
+<p>The <code class="w3-codespan">while</code> loop repeats a block of code as long as the specified condition is <b>true</b>:</p>
+
+<div class="w3-example">
+<h3>Syntax</h3>
+<pre class="language-java w3-white"><code>while (condition) {
+  // code block to be executed
+}
+</code></pre>
+</div>
+
+<p>In the example below, the code in the loop will run again and again, as long as 
+a variable (<code class="w3-codespan">i</code>) is less than 5:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>int i = 0;
+while (i < 5) {
+  System.out.println(i);
+  i++;
+}
+</code></pre>
+<p>
+
+</p>
+</div>
+
+<div class="w3-panel ws-note">
+<p><strong>Note:</strong> Do not forget to increase the variable used in the condition (<code class="w3-codespan">i++</code>), otherwise 
+the loop will never end!</p>
+<p>Do you wonder why we used the letter <code class="w3-codespan">i</code> in 
+the example above? It's a <strong>counter</strong> variable and a common choice in simple loops because it's short, traditional, and stands for 'index' or 'iterator'.</p>
+</div>
+<hr>
+
+<h2>Countdown Example</h2>
+<p>You can also use a <code class="w3-codespan">while</code> loop to count down.  
+This example counts from 3 to 1, and then prints "Happy New Year!!" at the end:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>int countdown = 3;
+
+while (countdown > 0) {
+  System.out.println(countdown);
+  countdown--;
+}
+
+System.out.println("Happy New Year!!");
+</code></pre>
+<p>
+
+</p>
+</div>
+<hr>
+
+<h2>While Loop With False Condition</h2>
+<p>In the previous examples, the condition was <b>true</b> at the start, 
+so the loop ran one or more times.  
+But if the condition is <b>false</b> at the beginning, the code inside the loop will never run:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white w3-border-red"><code>int i = 10;
+
+while (i &lt; 5) {
+  System.out.println("This will never be printed");
+  i++;
+}
+</code></pre>
+<p>
+
+</p>
+</div>
+
+<div class="ws-note ws-panel">
+<p><strong>Note:</strong> A <code class="w3-codespan">while</code> loop may never run if the condition is false from the start.  
+In the next chapter, you will learn about the <a href="java_while_loop_do.html"><code class="w3-codespan">do while</code></a> loop, which always runs the code at least once before checking the condition.</p>
+</div>
+
+<hr>
+
+<hr>
+
+<br>

@@ -1,0 +1,73 @@
+<h1>jQuery - <span class="color_h1">AJAX load() Method</span></h1>
+
+<hr>
+<h2>jQuery load() Method</h2>
+<p>The jQuery <code class="w3-codespan">load()</code> method is a simple, but powerful AJAX method.</p>
+<p>The <code class="w3-codespan">load()</code> method loads data from a 
+server and puts the returned data into the selected element.</p>
+<p><b>Syntax:</b></p>
+<div class="w3-code w3-border notranslate">
+ <div>
+$(<i>selector</i>).load(<i>URL,data,callback</i>);
+</div></div>
+<p>The required URL parameter specifies the URL you wish to load.</p>
+<p>The optional data parameter specifies a set of querystring key/value pairs to send along with 
+the request.</p>
+<p>The optional callback parameter is the name of a function to be executed 
+after the <code class="w3-codespan">load()</code> method is completed.</p>
+<p><b>Here is the content of our example file: &quot;demo_test.txt&quot;:</b></p>
+<div class="w3-code w3-border notranslate htmlHigh">
+ <div>
+&lt;h2&gt;jQuery and AJAX is FUN!!!&lt;/h2&gt;<br>
+&lt;p id=&quot;p1&quot;&gt;This is some text in a paragraph.&lt;/p&gt;</div></div>
+<p>The following example loads the content of the file &quot;demo_test.txt&quot; into a 
+specific <code class="w3-codespan">&lt;div&gt;</code> element:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;#div1&quot;).load(&quot;demo_test.txt&quot;);</div>
+
+</div>
+<p>It is also possible to add a jQuery selector to the URL parameter. </p>
+<p>The following example loads the content of the element with id=&quot;p1&quot;, inside 
+the file &quot;demo_test.txt&quot;, into a specific <code class="w3-codespan">&lt;div&gt;</code> element:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;#div1&quot;).load(&quot;demo_test.txt #p1&quot;);</div>
+
+</div>
+<p>The optional callback parameter specifies a callback function to run when the 
+<code class="w3-codespan">load()</code> method is completed. The callback function can have different parameters:</p>
+<ul>
+  <li><code class="w3-codespan">responseTxt</code> - contains the resulting content if the call succeeds</li>
+  <li><code class="w3-codespan">statusTxt</code> - contains the status of the call</li>
+  <li><code class="w3-codespan">xhr</code> - contains the XMLHttpRequest object</li>
+</ul>
+<p>The following example displays an alert box after the load() method 
+completes. If the <code class="w3-codespan">load()</code> method has succeeded, it displays &quot;External content 
+loaded successfully!&quot;, and if it fails it displays an error message:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;button&quot;).click(function(){<br>
+&nbsp;&nbsp;$(&quot;#div1&quot;).load(&quot;demo_test.txt&quot;, function(responseTxt, statusTxt, xhr){<br>
+  &nbsp;&nbsp;&nbsp; if(statusTxt == &quot;success&quot;)<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; alert(&quot;External content loaded successfully!&quot;);<br>
+  &nbsp;&nbsp;&nbsp; if(statusTxt == &quot;error&quot;)<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; alert(&quot;Error: &quot; + xhr.status + &quot;: &quot; + xhr.statusText);<br>
+  &nbsp; });<br>
+});</div>
+
+</div>
+<hr>
+
+<h2>jQuery AJAX Reference</h2>
+
+<p>For a complete overview of all jQuery AJAX methods, please go to our <a href="jquery_ref_ajax.html">jQuery 
+AJAX Reference</a>.</p>
+
+<br>

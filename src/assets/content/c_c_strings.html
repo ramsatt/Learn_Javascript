@@ -1,0 +1,165 @@
+<h1>C <span class="color_h1">Strings</span></h1>
+
+<hr>
+
+
+<h2>Strings</h2>
+<p>Strings are used for storing text/characters.</p>
+<p>For example, "Hello World" is a string of characters.</p>
+<p>Unlike many other programming languages, C does not have a <strong>String type</strong> 
+to easily create string variables. Instead, you must use the <code class="w3-codespan">char</code> type and create 
+an <a href="c_arrays.html">array</a> of characters to make a string in C:</p>
+
+<div class="w3-example">
+<div class="w3-code notranslate javaHigh">
+  char greetings[] = &quot;Hello World!&quot;;<br>
+ </div>
+</div>
+
+<p>Note that you have to use double quotes (<code class="w3-codespan">&quot;&quot;</code>).</p>
+<p>To output the string, you can use the <code class="w3-codespan">printf()</code> function together with the format specifier  <code class="w3-codespan">%s</code> to tell C that we are now working with strings:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  char greetings[] = &quot;Hello World!&quot;;<br>
+  printf(&quot;%s&quot;, greetings);<br>
+ </div>
+
+</div>
+
+<hr>
+
+
+<h2>Access Strings</h2>
+<p>Since strings are actually <a href="c_arrays.html">arrays</a> in C, you can access a string by referring to its index number inside square brackets <code class="w3-codespan">[]</code>.</p>
+<p>This example prints the <strong>first character (0)</strong> in <strong>greetings</strong>:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  char greetings[] = &quot;Hello World!&quot;;<br>
+  printf(&quot;%c&quot;, greetings[0]);<br>
+ </div>
+
+</div>
+
+<div class="ws-note w3-panel">
+<p>Note that we have to use the <code class="w3-codespan">%c</code> format specifier to print a 
+<strong>single character</strong>.</p>
+</div>
+
+<hr>
+
+
+<h2>Modify Strings</h2>
+<p>To change the value of a specific character in a string, refer to the index number, and use 
+<strong>single quotes</strong>:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  char greetings[] = &quot;Hello World!&quot;;<br>greetings[0] = 'J';<br>
+  printf(&quot;%s&quot;, greetings);<br>// Outputs Jello World! instead of Hello 
+  World!<br>
+ </div>
+
+</div>
+
+<hr>
+<hr>
+
+
+<h2>Loop Through a String</h2>
+<p>You can also loop through the characters of a string, 
+using a <code class="w3-codespan">for</code> 
+loop:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  char carName[] = &quot;Volvo&quot;;<br>int i;<br><br>for (i = 0; i &lt; 5; ++i) {<br>&nbsp; 
+  printf(&quot;%c\n&quot;, carName[i]);<br>}<br>
+ </div>
+
+</div>
+
+<p>And like we specified in the <a href="c_arrays_loop.html">arrays loop</a> chapter, you should use the <em>sizeof formula</em> (instead of manually 
+write the size of the array in the loop condition  <code class="w3-codespan">(i  
+&lt; 5)</code>) to make the loop more sustainable:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  char carName[] = &quot;Volvo&quot;;<br>int length = sizeof(carName) / 
+  sizeof(carName[0]);<br>int i;<br><br>for (i = 0; i &lt; length; ++i) {<br>&nbsp; 
+  printf(&quot;%c\n&quot;, carName[i]);<br>}<br>
+ </div>
+
+</div>
+
+
+<hr>
+
+
+<h2>Another Way Of Creating Strings</h2>
+<p>In the examples above, we used a &quot;string literal&quot; to create a string 
+variable. This is the easiest way to create a string in C. </p>
+<p>You should also note that you can create a string with a set of characters. This example will 
+produce the same result as the example in the beginning of this page:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  char greetings[] = {'H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd', 
+  '!', '\0'};<br>
+  printf(&quot;%s&quot;, greetings);<br>
+ </div>
+
+</div>
+<div class="ws-note w3-panel">
+<p><strong>Why do we include the <code class="w3-codespan">\0</code> character at the end?</strong> This is 
+known as the &quot;null terminating character&quot;, and must be included when creating 
+strings using this method. It tells C that this is the end of the string.</p>
+</div>
+
+<hr>
+
+
+<h2>Differences</h2>
+<p>The difference between the two ways of creating strings, is that the first method is easier 
+to write, and you do not have to include the <code class="w3-codespan">\0</code> character, as C will do it for 
+you. </p>
+<p>You should 
+note that the size of both arrays is the same: They both have <strong>13 characters</strong> 
+(space also counts as a character by the way), including the <code class="w3-codespan">\0</code> character:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  char greetings[] = {'H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd', 
+  '!', '\0'};<br>char greetings2[] = &quot;Hello World!&quot;;<br><br>printf(&quot;%zu\n&quot;, 
+  sizeof(greetings));&nbsp;&nbsp; // Outputs 13<br>printf(&quot;%zu\n&quot;, 
+  sizeof(greetings2));&nbsp; // Outputs 13<br>
+ </div>
+
+</div>
+
+<hr>
+
+
+<h2>Real-Life Example</h2>
+
+<p>Use strings to create a simple welcome message:</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+<div class="w3-code javaHigh notranslate">
+  char message[] = &quot;Good to see you,&quot;;<br>char fname[] = &quot;John&quot;;<br><br>printf(&quot;%s 
+  %s!&quot;, message, fname);<br></div>
+
+</div>
+
+
+<hr>
+
+<hr>
+
+<br>

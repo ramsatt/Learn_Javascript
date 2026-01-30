@@ -1,0 +1,182 @@
+<h1>Bootstrap 5 <span class="color_h1">Modal</span></h1>
+
+<hr>
+
+<h2>Modals</h2>
+<p>The Modal component is a dialog box/popup window that is displayed on top of the current 
+page:</p>
+
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+    Open modal
+  </button>
+
+
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      
+      <div class="modal-header">
+        <h4 class="modal-title">Modal Heading</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      
+      <div class="modal-body">
+        Modal body..
+      </div>
+
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<hr>
+
+<h2>How To Create a Modal</h2>
+<p>The following example shows how to create a basic modal:</p>
+<div class="w3-example">
+ <h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;!-- Button to Open the Modal --&gt;<br>&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot; 
+  data-bs-toggle=&quot;modal&quot; data-bs-target=&quot;#myModal&quot;&gt;<br>&nbsp; Open modal<br>&lt;/button&gt;<br>
+  <br>&lt;!-- The Modal --&gt;<br>&lt;div class=&quot;modal&quot; id=&quot;myModal&quot;&gt;<br>&nbsp; &lt;div class=&quot;modal-dialog&quot;&gt;<br>&nbsp;&nbsp;&nbsp; 
+  &lt;div class=&quot;modal-content&quot;&gt;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!-- Modal 
+  Header --&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div class=&quot;modal-header&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  &lt;h4 class=&quot;modal-title&quot;&gt;Modal Heading&lt;/h4&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  &lt;button type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;modal&quot;&gt;&lt;/button&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  &lt;/div&gt;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!-- Modal body --&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  &lt;div class=&quot;modal-body&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Modal 
+  body..<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  &lt;!-- Modal footer --&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div 
+  class=&quot;modal-footer&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;button 
+  type=&quot;button&quot; class=&quot;btn btn-danger&quot; data-bs-dismiss=&quot;modal&quot;&gt;Close&lt;/button&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  &lt;/div&gt;<br><br>&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br>&nbsp; &lt;/div&gt;<br>&lt;/div&gt;<br></div>
+
+</div>
+<hr>
+<h2>Add animation</h2>
+<p>Use the <code class="w3-codespan">.fade</code> class to add a fading effect when opening and closing the modal:</p>
+<div class="w3-example">
+ <h3>Example</h3>
+  <div class="w3-code notranslate htmlHigh">
+    &lt;!-- Fading modal --&gt;<br>&lt;div class=&quot;modal fade&quot;&gt;&lt;/div&gt;<br><br>&lt;!-- 
+    Modal without animation --&gt;<br>&lt;div class=&quot;modal&quot;&gt;&lt;/div&gt;<br></div>
+
+</div>
+<hr>
+<hr>
+
+<h2>Modal Size</h2>
+<p>Change the size of the modal by adding the <code class="w3-codespan">.modal-sm</code> 
+class for 
+small modals (max-width 300px), <code class="w3-codespan">.modal-lg</code> class for large modals&nbsp; 
+(max-width 800px), or <code class="w3-codespan">.modal-xl</code> for extra large modals&nbsp; 
+(max-width 1140px). Default is 500px max-width.</p>
+<p>Add the size class to the <code class="w3-codespan">&lt;div&gt;</code> element with class <code class="w3-codespan">.modal-dialog</code>:</p>
+<div class="w3-example">
+<h3>Small Modal</h3>
+<div class="w3-code notranslate htmlHigh">
+ &lt;div class=&quot;modal-dialog modal-sm&quot;&gt;<br></div>
+
+</div>
+<div class="w3-example">
+<h3>Large Modal</h3>
+<div class="w3-code notranslate htmlHigh">
+ &lt;div class=&quot;modal-dialog modal-lg&quot;&gt;<br></div>
+
+</div>
+<div class="w3-example">
+<h3>Extra Large Modal</h3>
+<div class="w3-code notranslate htmlHigh">
+ &lt;div class=&quot;modal-dialog modal-xl&quot;&gt;<br></div>
+
+</div>
+<div class="w3-panel ws-note">
+  <p style="margin-bottom:8px">By default, modals are &quot;medium&quot; in size (500px 
+  max-width).</p>
+</div>
+<hr>
+
+<h2>Fullscreen Modals</h2>
+<p>If you want the modal to span the whole width and height of the page, use the 
+<code class="w3-codespan">.modal-fullscreen</code> class:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+ &lt;div class=&quot;modal-dialog modal-fullscreen&quot;&gt;<br></div>
+
+</div>
+<hr>
+
+<h2>Responsive Fullscreen Modals</h2>
+<p>You can also control when the modal should be in fullscreen, with the <code class="w3-codespan">.modal-fullscreen-*-*</code> classes:</p>
+
+<table class="ws-table-all notranslate">
+  <tr>
+    <th style="width:35%;">Class</th>
+    <th style="width:53%;">Description</th>
+    <th style="width:12%;">Example</th>
+  </tr>
+  <tr>
+    <td><code class="w3-codespan">.modal-fullscreen-sm-down</code></td>
+    <td>Fullscreen below 576px</td>
+    <td><a target="_blank" class="w3-btn btnsmall" href="tryitd85b.html?filename=trybs_modal_fullscreen_sm">Try it</a></td>
+  </tr>
+  <tr>
+    <td><code class="w3-codespan">.modal-fullscreen-md-down</code></td>
+    <td>Fullscreen below 768px</td>
+    <td><a target="_blank" class="w3-btn btnsmall" href="tryitb237.html?filename=trybs_modal_fullscreen_md">Try it</a></td>
+  </tr>
+  <tr>
+    <td><code class="w3-codespan">.modal-fullscreen-lg-down</code></td>
+    <td>Fullscreen below 992px</td>
+    <td><a target="_blank" class="w3-btn btnsmall" href="tryit5dd7.html?filename=trybs_modal_fullscreen_lg">Try it</a></td>
+  </tr>
+  <tr>
+    <td><code class="w3-codespan">.modal-fullscreen-xl-down</code></td>
+    <td>Fullscreen below 1200px</td>
+    <td><a target="_blank" class="w3-btn btnsmall" href="tryitb132.html?filename=trybs_modal_fullscreen_xl&amp;stacked=h">Try it</a></td>
+  </tr>
+  <tr>
+    <td><code class="w3-codespan">.modal-fullscreen-xxl-down</code></td>
+    <td>Fullscreen below 1400px</td>
+    <td><a target="_blank" class="w3-btn btnsmall" href="tryit17c7.html?filename=trybs_modal_fullscreen_xxl&amp;stacked=h">Try it</a></td>
+  </tr>
+</table>
+<hr>
+
+
+<h2>Centered Modal</h2>
+<p>Center the modal vertically and horizontally within the page, with the <code class="w3-codespan">.modal-dialog-centered</code> 
+class:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+ &lt;div class=&quot;modal-dialog modal-dialog-centered&quot;&gt;<br></div>
+
+</div>
+<hr>
+
+<h2>Scrolling Modal</h2>
+<p>When you have a lot of content inside the modal, a scrollbar is added to the page. See the examples below to understand it:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+ &lt;div class=&quot;modal-dialog&quot;&gt;<br></div>
+
+</div>
+<p>However, it is possible to only scroll inside the modal, instead of the page itself, by adding <code class="w3-codespan">.modal-dialog-scrollable</code> to <code class="w3-codespan">.modal-dialog</code>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+ &lt;div class=&quot;modal-dialog modal-dialog-scrollable&quot;&gt;<br></div>
+
+</div>
+<hr>
+
+
+<br>

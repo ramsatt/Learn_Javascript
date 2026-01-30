@@ -1,0 +1,159 @@
+<h1>PHP <span class="color_h1">switch</span> Statement</h1>
+
+<hr>
+
+<h2>The PHP switch Statement</h2>
+<p>The <code class="w3-codespan"><a href="keyword_switch.html">switch</a></code> statement is used to perform different actions based on different conditions.</p>
+<p>Use the <code class="w3-codespan">switch</code> statement to <strong>select one of many blocks 
+of code to be executed</strong>.</p>
+<h3>Syntax</h3>
+
+<div class="w3-example">
+<pre class="language-php notranslate w3-white"><code>switch (<i>expression</i>) {
+  case <i>label1:</i>
+    //<i>code block</i>
+    break;
+  case <i>label2:</i>
+    //<i>code block;</i>
+    break;
+  case <i>label3:</i>
+    //<i>code block</i>
+    break;
+  default:
+    //<i>code block</i>
+}
+</code></pre>
+</div>
+
+<p>This is how it works:</p>
+
+<ul>
+<li>The <em>expression</em> is evaluated once</li>
+<li>The value of the expression is compared with the values of each case</li>
+<li>If there is a match, the associated block of code is executed</li>
+<li>The <code class="w3-codespan"><a href="keyword_break.html">break</a></code> keyword breaks out of the switch block</li>
+<li>The <code class="w3-codespan"><a href="keyword_default.html">default</a></code> code block is executed if there is no match</li>
+</ul>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-php notranslate w3-white"><code>$favcolor = &quot;red&quot;;
+
+switch ($favcolor) {
+  case &quot;red&quot;:
+    echo &quot;Your favorite color is red!&quot;;
+    break;
+  case &quot;blue&quot;:
+    echo &quot;Your favorite color is blue!&quot;;
+    break;
+  case &quot;green&quot;:
+    echo &quot;Your favorite color is green!&quot;;
+    break;
+  default:
+    echo &quot;Your favorite color is neither red, blue, nor green!&quot;;
+}
+</code></pre>
+
+</div>
+<hr>
+
+<hr>
+
+<h2>The PHP break Keyword</h2>
+
+<p>When PHP reaches a <code class="w3-codespan"><a href="keyword_break.html">break</a></code> keyword, it breaks out of the switch block.</p>
+
+<p>This will stop the execution of code, and no more cases are tested.</p>
+
+<p>The last code block does not need a break, the block breaks (ends) there anyway.</p>
+
+<div class="w3-panel ws-note">
+<p><strong>Warning:</strong>
+If you omit the <code class="w3-codespan">break</code> statement in a case that 
+is not the last,
+and that case gets a match,
+the next case will also be executed even if the evaluation does not match the case!</p>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>What happens if we remove the <code class="w3-codespan">
+break</code> statement 
+from case &quot;red&quot;?</p>
+<p><code class="w3-codespan">$favcolor</code> is red, so the code block from case "red" is executed,
+but since it has no <code class="w3-codespan">break</code> statement, the code block from case "blue"
+will also be executed:</p>
+<pre class="language-php notranslate w3-white"><code>$favcolor = &quot;red&quot;;
+
+switch ($favcolor) {
+  case &quot;red&quot;:
+    echo &quot;Your favorite color is red!&quot;;
+  case &quot;blue&quot;:
+    &quot;Your favorite color is blue!&quot;;
+    break;
+  case &quot;green&quot;:
+    echo &quot;Your favorite color is green!&quot;;
+    break;
+  default:
+    echo &quot;Your favorite color is neither red, blue, nor green!&quot;;
+}
+</code></pre>
+
+</div>
+
+<hr>
+
+<h2>The PHP default Keyword</h2>
+<p>The <code class="w3-codespan"><a href="keyword_default.html">default</a></code> keyword specifies the code to run if there is no 
+case match:</p>
+<div class="w3-example">
+<h3>Example</h3>
+  <p>If no cases get a match, the <code class="w3-codespan">
+  default</code> block 
+  is executed:</p>
+<pre class="language-php notranslate w3-white"><code>$d = 4;
+
+switch ($d) {
+  case 6:
+    echo &quot;Today is Saturday&quot;;
+    break;
+  case 0:
+    echo &quot;Today is Sunday&quot;;
+    break;
+  default:
+    echo &quot;Looking forward to the Weekend&quot;;
+}
+</code></pre>
+
+</div>
+<hr>
+
+<h2>Combining Cases</h2>
+<p>
+If you want multiple cases to use the same code block, you can specify the cases like this:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>More than one case for each code block:</p>
+<pre class="language-php notranslate w3-white"><code>$d = 3;
+
+switch ($d) {
+  case 1:
+  case 2:
+  case 3:
+  case 4:
+  case 5:  
+    echo "The week feels so long!";
+    break;
+  case 6:
+  case 0:
+    echo "Weekends are best!";
+    break;
+  default:
+    echo &quot;Something went wrong&quot;;
+}
+</code></pre>
+
+</div>
+<hr>
+
+<hr>

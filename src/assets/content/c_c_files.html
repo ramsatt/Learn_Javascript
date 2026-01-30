@@ -1,0 +1,95 @@
+<h1>C <span class="color_h1">Files</span></h1>
+
+<hr>
+
+
+<h2>File Handling</h2>
+<p>In C, you can create, open, read, and write to files by declaring a <a href="c_pointers.html">pointer</a> of type 
+<code class="w3-codespan">FILE</code>, and use the <code class="w3-codespan">fopen()</code> function:</p>
+
+<div class="w3-example">
+  <div class="w3-code notranslate javaHigh">
+    FILE *fptr;<br>fptr = fopen(<em>filename</em>, <em>mode</em>);</div>
+</div>
+<p><code class="w3-codespan">FILE</code> is basically a data type, and we need 
+to create a pointer variable to work with it (<code class="w3-codespan">fptr</code>). For now, this 
+line is not important. It's just something you need when working with files.</p>
+<p>To actually open a file, use the <code class="w3-codespan">fopen()</code> function, which takes two parameters:</p>
+
+<div class="w3-responsive" style="margin:-16px 0;">
+<table class="ws-table-all notranslate">
+<tbody>
+<tr>
+<th style="width:26%">Parameter</th>
+<th style="width:74%">Description</th>
+</tr>
+<tr>
+<td><em>filename</em></td>
+<td>The name of the actual file you want to open (or create), like <code class="w3-codespan">filename.txt</code></td>
+</tr>
+<tr>
+<td><em>mode</em></td>
+<td>
+A single character, which represents 
+  what you want to do with the file (read, write or append):
+  <p>
+    <code class="w3-codespan">w</code> - Writes to a file<br>
+    <code class="w3-codespan">a</code> - Appends new data to a file<br>
+    <code class="w3-codespan">r</code> - Reads from a file
+</p>
+  </td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+<hr>
+
+
+<h2>Create a File</h2>
+<p>To create a file, you can use the <code class="w3-codespan">w</code> mode inside the <code class="w3-codespan">fopen()</code> function.</p>
+<p>The <code class="w3-codespan">w</code> mode is used to write to a file. 
+<strong>However</strong>, if the file does 
+not exist, it will create one for you:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+  <div class="w3-code notranslate javaHigh">
+    FILE *fptr;<br><br>// Create a file<br>fptr = fopen(&quot;filename.txt&quot;, &quot;w&quot;);<br>
+    <br>// Close the file<br>fclose(fptr);</div>
+<p><strong>Note:</strong> The file is 
+created in the same directory as your other C files, if nothing else is 
+specified.</p>
+  <p>On our computer, it looks like this:</p>
+  <div class="w3-white w3-padding">
+   <img src="assets/content/images/c_files_create.png" style="width:100%;max-width:100%;"> </div>
+<a target="_blank" class="w3-btn w3-margin-bottom w3-margin-top" href="../cpp/showcpp665a.html?filename=c_demo_files_create&amp;stacked=h">Run example &raquo;</a>
+</div>
+
+<p><strong>Tip:</strong> If you want to create the file in a specific folder, just provide an absolute path 
+(remember to use double backslashes to create a single backslash (<code class="w3-codespan">\</code>), like we specified in <a href="c_strings_esc.html">strings special 
+characters</a>):</p>
+<div class="w3-example">
+  <div class="w3-code notranslate javaHigh">
+    fptr = fopen(&quot;C:\\directoryname\\filename.txt&quot;, &quot;w&quot;);</div>
+</div>
+
+<div class="ws-note w3-panel">
+<h4>Closing the file</h4>
+<p>Did you notice the <code class="w3-codespan">fclose()</code> function in our example above?</p>
+<p>This will close the file when we are done with it.</p>
+<p>It is considered as good practice, because it makes sure that:</p>
+  <ul>
+    <li>Changes are saved properly</li>
+    <li>Other programs can use the file (if you want)</li>
+    <li>Clean up unnecessary memory space</li>
+  </ul>
+</div>
+
+<p>In the next chapters, you will learn how to write content to a file and read from it.</p>
+
+<hr>
+
+<hr>
+<br>

@@ -1,0 +1,102 @@
+<h1>jQuery Traversing - <span class="color_h1">Siblings</span></h1>
+
+<hr>
+<p class="intro">With jQuery you can traverse sideways in the DOM 
+tree to find siblings of an element.</p>
+<p class="intro">Siblings share the same parent.&nbsp;</p>
+<hr>
+<h2>Traversing Sideways in The DOM Tree</h2>
+<p>There are many useful jQuery methods for traversing sideways in the DOM tree:</p>
+<ul>
+  <li><code class="w3-codespan">siblings()</code></li>
+  <li><code class="w3-codespan">next()</code></li>
+  <li><code class="w3-codespan">nextAll()</code></li>
+  <li><code class="w3-codespan">nextUntil()</code></li>
+  <li><code class="w3-codespan">prev()</code></li>
+  <li><code class="w3-codespan">prevAll()</code></li>
+  <li><code class="w3-codespan">prevUntil()</code></li>
+</ul>
+<hr>
+<h2>jQuery siblings() Method</h2>
+<p>The <code class="w3-codespan">siblings()</code> method returns all sibling elements of the selected element.</p>
+<p>The following example returns all sibling elements of <code class="w3-codespan">&lt;h2&gt;</code>:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+ $(document).ready(function(){<br>&nbsp; $(&quot;h2&quot;).siblings();<br>}); </div>
+
+</div>
+<p>You can also use an optional parameter to filter the search for siblings.</p>
+<p>The following example returns all sibling elements of <code class="w3-codespan">&lt;h2&gt;</code> that are <code class="w3-codespan">&lt;p&gt;</code> 
+elements:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+ $(document).ready(function(){<br>&nbsp;&nbsp;$(&quot;h2&quot;).siblings(&quot;p&quot;);<br>}); </div>
+
+</div>
+<hr>
+
+<hr>
+<h2>jQuery next() Method</h2>
+<p>The <code class="w3-codespan">next()</code> method returns the next sibling element of the selected element.</p>
+<p>The following example returns the next sibling of <code class="w3-codespan">&lt;h2&gt;</code>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+ $(document).ready(function(){<br>&nbsp;&nbsp;$(&quot;h2&quot;).next();<br>}); </div>
+
+</div>
+<hr>
+<h2>jQuery nextAll() Method</h2>
+<p>The <code class="w3-codespan">nextAll()</code> method returns all next sibling elements of the selected element.</p>
+<p>The following example returns all next sibling elements of 
+<code class="w3-codespan">&lt;h2&gt;</code>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+ $(document).ready(function(){<br>&nbsp; $(&quot;h2&quot;).nextAll();<br>}); </div>
+
+</div>
+<hr>
+<h2>jQuery nextUntil() Method</h2>
+<p>The <code class="w3-codespan">nextUntil()</code> method returns all next sibling elements between two given 
+arguments.</p>
+<p>The following example returns all&nbsp;sibling elements 
+between a <code class="w3-codespan">&lt;h2&gt;</code> and a <code class="w3-codespan">&lt;h6&gt;</code> element:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+ $(document).ready(function(){<br>&nbsp; $(&quot;h2&quot;).nextUntil(&quot;h6&quot;);<br>}); </div>
+
+</div>
+<hr>
+<h2>jQuery prev(), prevAll() &amp; prevUntil() Methods</h2>
+<p>The <code class="w3-codespan">prev()</code>, <code class="w3-codespan">prevAll()</code> and <code class="w3-codespan">prevUntil()</code> methods work just like the methods above but with reverse functionality: they 
+return previous sibling elements (traverse backwards along sibling 
+elements in the DOM tree, instead of forward).</p>
+<hr>
+
+<h2>jQuery Exercises</h2>
+<form autocomplete="off" id="w3-exerciseform" action="https://www.w3schools.com/jquery/exercise_jq.asp?filename=exercise_jq_traversing5" method="post" target="_blank">
+<h2>Test Yourself With Exercises</h2>
+<div class="exercisewindow">
+<h2>Exercise:</h2>
+<p>Use a jQuery method to get all siblings elements of an &lt;h2&gt; element.</p>
+<div class="exerciseprecontainer">
+<pre style="background-color:transparent;border:none;">
+$("h2").<input name="ex1" maxlength="8" style="width:85px;">();
+</pre>
+</div>
+<br>
+<button type="submit" class="w3-btn w3-margin-bottom">Submit Answer &raquo;</button>
+<p><a target="_blank" href="exercise_jqf063.html?filename=exercise_jq_traversing5">Start the Exercise</a></p>
+</div>
+</form>
+<hr>
+
+<h2>jQuery Traversing Reference</h2>
+<p>For a complete overview of all jQuery Traversing methods, please go to our
+<a href="jquery_ref_traversing.html">jQuery Traversing Reference</a>.</p>
+<br>

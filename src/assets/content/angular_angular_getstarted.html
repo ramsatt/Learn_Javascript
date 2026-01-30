@@ -1,0 +1,97 @@
+<h1>Angular Get Started</h1>
+
+
+<hr>
+<p class="intro">To use Angular, you need npm which is included with <a href="https://nodejs.org/" target="_blank" rel="noopener">Node.js</a>.</p>
+<hr>
+<h2>Check Node.js</h2>
+<p>Angular's tooling (the CLI and build tools) runs on Node.js and uses npm to install packages.</p>
+<p>Run these to confirm Node.js and npm are installed and on your PATH:</p>
+<div class="w3-example">
+  <div class="w3-code notranslate w3-black">
+    node -v
+  </div>
+</div>
+<p>This prints your installed Node.js version, like:</p>
+<div class="w3-example"><div class="w3-code notranslate w3-black">v20.x.x</div></div>
+<p>Angular works best with the current LTS (Long Term Support) release (18 or 20).</p>
+<p>If you get a "command not found" error, install Node.js (visit our <a href="../nodejs/default.html">Node.js tutorial</a> for details).</p>
+<p>You can also check npm:</p>
+<div class="w3-example">
+  <div class="w3-code notranslate w3-black">npm -v</div>
+</div>
+<p>npm is Node's package manager.</p>
+<p>This prints your npm version, like:</p>
+<div class="w3-example"><div class="w3-code notranslate w3-black">10.x.x</div></div>
+<p>npm should be automatically installed with Node.js.</p>
+<hr>
+<h2>Install Angular CLI</h2>
+<p>The Angular CLI is the official tool to create, build, and serve Angular apps.</p>
+<p>The CLI (Command Line Interface) creates projects, runs a dev server, and provides helpful commands.</p>
+<p>Install the Angular CLI globally:</p>
+<div class="w3-example">
+  <div class="w3-code notranslate w3-black">
+    npm install -g @angular/cli
+  </div>
+</div>
+<p>Installing it globally makes the <code class="w3-codespan">ng</code> command available everywhere.</p>
+<p>You can also use <code class="w3-codespan">npx</code> without a global install.</p>
+<p>If you hit permission errors, use <code class="w3-codespan">npx</code> or run your terminal with elevated rights.</p>
+<hr>
+
+<hr>
+<h2>Verify Angular CLI</h2>
+<p>Verify the installation to ensure <code class="w3-codespan">ng</code> is on your PATH and versions are compatible.</p>
+<div class="w3-example">
+  <div class="w3-code notranslate w3-black">ng version</div>
+</div>
+<p>Displays the Angular CLI, Node.js, and Angular package versions so you can confirm the installation:</p>
+<div class="w3-example"><div class="w3-code notranslate w3-black">Angular CLI: 18.x.x<br>
+  Node: 20.x.x<br>
+  Package Manager: npm 10.x.x</div>
+</div>  
+<p><code class="w3-codespan">PATH</code> is the list of folders your system searches for commands like <code class="w3-codespan">ng</code>.</p>
+<hr>
+<h2>Create an Angular Application</h2>
+<p>Create a project named <code class="w3-codespan">my-angular-app</code>:</p>
+<div class="w3-example">
+  <div class="w3-code notranslate w3-black">
+    ng new my-angular-app
+  </div>
+</div>
+<p>This creates the project files and folders and installs dependencies.</p>
+<p>It may take a few minutes and will ask a few prompts (see recommended choices below).</p>
+<div class="w3-panel ws-note">
+  <p><b>Recommended choices</b> when prompted:</p>
+  <ul>
+    <li>Stylesheet format: <b>CSS</b> (you can change later)</li>
+    <li>Server-side rendering (SSR): <b>No</b> for now (you can add later with <code class="w3-codespan">ng add @angular/ssr</code>)</li>
+    <li>Zoneless application: <b>No</b> for now (you can change later with <code class="w3-codespan">ng add @angular/zoneless</code>)</li>
+    <li>Other prompts: keep the defaults</li>
+  </ul>
+</div>
+<p>If you don't want to install the CLI globally, you can use <code class="w3-codespan">npx</code>:</p>
+<div class="w3-example">
+  <div class="w3-code notranslate w3-black">npx @angular/cli@latest new my-angular-app</div>
+</div>
+<hr>
+<h2>Run the Angular Application</h2>
+<div class="w3-example">
+  <div class="w3-code notranslate w3-black">
+    cd my-angular-app<br>
+    ng serve
+  </div>
+</div>
+<p><code class="w3-codespan">cd</code> enters your new project folder.</p>
+<p><code class="w3-codespan">ng serve</code> starts a local dev server and watches for changes.</p>
+<p>The first build can take a minute.</p>
+<div class="w3-example"><div class="w3-code notranslate w3-black">✔ Compiled successfully.
+✔ Browser application bundle generation complete.</div></div>
+<p>You can add the <code class="w3-codespan">--open</code> flag to automatically open the app in your default browser:</p>
+<div class="w3-example">
+  <div class="w3-code notranslate w3-black">ng serve --open</div>
+</div>
+<p>By default the dev server runs on <code class="w3-codespan">http://localhost:4200</code>.</p>
+<hr>
+
+<hr>

@@ -1,0 +1,197 @@
+<h1>HTML <span class="color_h1">Input form* Attributes</span></h1>
+
+<hr>
+
+<p class="intro">This chapter describes the different <code class="w3-codespan">form*</code> attributes for the HTML <code class="w3-codespan">&lt;input&gt;</code> element. </p>
+<hr>
+
+<h2>The form Attribute</h2>
+<p>The input <code class="w3-codespan">form</code> attribute specifies the form 
+the <code class="w3-codespan">&lt;input&gt;</code> element belongs to.</p>
+<p>The value of this attribute must be equal to the id attribute of the &lt;form&gt; 
+element it belongs to.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>An input field located outside of the HTML form (but still a part of the form):</p>
+<div class="w3-code notranslate htmlHigh">
+  
+    &lt;form action=&quot;/action_page.php&quot; id=&quot;form1&quot;&gt;<br>&nbsp; &lt;label for=&quot;fname&quot;&gt;First 
+    name:&lt;/label&gt;<br>&nbsp; &lt;input type=&quot;text&quot; id=&quot;fname&quot; name=&quot;fname&quot;&gt;&lt;br&gt;&lt;br&gt;<br>&nbsp; 
+    &lt;input type=&quot;submit&quot; value=&quot;Submit&quot;&gt;<br>&lt;/form&gt;<br><br>&lt;label for=&quot;lname&quot;&gt;Last 
+    name:&lt;/label&gt;<br>&lt;input type=&quot;text&quot; id=&quot;lname&quot; 
+    name=&quot;lname&quot; form=&quot;form1&quot;&gt;<br>
+  </div>
+
+</div>
+
+<hr>
+
+<h2>The formaction Attribute</h2>
+<p>The input <code class="w3-codespan">formaction</code> attribute specifies the URL of 
+the file that will process the input when the form is submitted.</p>
+<p><strong>Note:</strong> This attribute overrides the <code class="w3-codespan">
+action</code> attribute of the <code class="w3-codespan">&lt;form&gt;</code> element.</p>
+<p>The <code class="w3-codespan">formaction</code> attribute works with the 
+following input types: submit and image.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>An HTML form with two submit buttons, with different actions:</p>
+<div class="w3-code notranslate htmlHigh">
+  
+    &lt;form action=&quot;/action_page.php&quot;&gt;<br>&nbsp; &lt;label for=&quot;fname&quot;&gt;First 
+    name:&lt;/label&gt;<br>&nbsp; &lt;input type=&quot;text&quot; id=&quot;fname&quot; name=&quot;fname&quot;&gt;&lt;br&gt;&lt;br&gt;<br>&nbsp; 
+    &lt;label for=&quot;lname&quot;&gt;Last name:&lt;/label&gt;<br>&nbsp; &lt;input type=&quot;text&quot; id=&quot;lname&quot; 
+    name=&quot;lname&quot;&gt;&lt;br&gt;&lt;br&gt;<br>&nbsp; &lt;input type=&quot;submit&quot; value=&quot;Submit&quot;&gt;<br>&nbsp; 
+    &lt;input type=&quot;submit&quot; formaction=&quot;/action_page2.php&quot; value=&quot;Submit as Admin&quot;&gt;<br>
+    &lt;/form&gt; </div>
+
+</div>
+
+<hr>
+
+<h2>The formenctype Attribute</h2>
+<p>The input <code class="w3-codespan">formenctype</code>  attribute specifies how the form-data should be encoded when submitted (only for forms with method=&quot;post&quot;).</p>
+<p><strong>Note:</strong> This attribute overrides the enctype attribute of the <code class="w3-codespan">&lt;form&gt;</code> element.</p>
+<p>The <code class="w3-codespan">formenctype</code> attribute works with the 
+following input types: submit and image.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>A form with two submit buttons. The first sends the form-data with default encoding, 
+the second sends the form-data encoded as &quot;multipart/form-data&quot;:</p>
+<div class="w3-code notranslate htmlHigh">
+  
+    &lt;form action=&quot;/action_page_binary.asp&quot; method=&quot;post&quot;&gt;<br>&nbsp; &lt;label for=&quot;fname&quot;&gt;First 
+    name:&lt;/label&gt;<br>&nbsp; &lt;input type=&quot;text&quot; id=&quot;fname&quot; name=&quot;fname&quot;&gt;&lt;br&gt;&lt;br&gt;<br>&nbsp; 
+    &lt;input type=&quot;submit&quot; value=&quot;Submit&quot;&gt;<br>&nbsp; &lt;input type=&quot;submit&quot; 
+    formenctype=&quot;multipart/form-data&quot;<br>&nbsp; value=&quot;Submit as 
+    Multipart/form-data&quot;&gt;<br>&lt;/form&gt;   
+</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>The formmethod Attribute</h2>
+<p>The input <code class="w3-codespan">formmethod</code>  attribute defines the HTTP method for sending form-data to the action URL.</p>
+<p><strong>Note:</strong> This attribute overrides the method  attribute of the <code class="w3-codespan">&lt;form&gt;</code> element.</p>
+<p>The <code class="w3-codespan">formmethod</code> attribute works with the 
+following input types: submit and image.</p>
+<p>The form-data can be sent as URL variables (method=&quot;get&quot;) or as an HTTP post 
+transaction (method=&quot;post&quot;).</p>
+<p><strong>Notes on the &quot;get&quot; method:</strong></p>
+<ul>
+  <li>This method appends the form-data to the URL in name/value pairs</li>
+  <li>This method is useful for form submissions where a user want to bookmark 
+  the result</li>
+  <li>There is a limit to how much data you can place in a URL (varies between 
+  browsers), therefore, you cannot be sure that all of the form-data will be 
+  correctly transferred</li>
+  <li>Never use the &quot;get&quot; method to pass sensitive information! (password or 
+  other sensitive information will be visible in the browser's address bar)</li>
+</ul>
+<p><strong>Notes on the &quot;post&quot; method:</strong></p>
+<ul>
+  <li>This method sends the form-data as an HTTP post transaction</li>
+  <li>Form submissions with the &quot;post&quot; method cannot be bookmarked</li>
+  <li>The &quot;post&quot; method is more robust and secure than &quot;get&quot;, and &quot;post&quot; does 
+  not have size limitations</li>
+</ul>
+<div class="w3-example">
+<h3>Example</h3>
+<p>A form with two submit buttons. The first sends the form-data with 
+method=&quot;get&quot;. The second sends the form-data with method=&quot;post&quot;:</p>
+<div class="w3-code notranslate htmlHigh">
+    &lt;form action=&quot;/action_page.php&quot; method=&quot;get&quot;&gt;<br>&nbsp; &lt;label for=&quot;fname&quot;&gt;First 
+    name:&lt;/label&gt;<br>&nbsp; &lt;input type=&quot;text&quot; id=&quot;fname&quot; name=&quot;fname&quot;&gt;&lt;br&gt;&lt;br&gt;<br>&nbsp; 
+    &lt;label for=&quot;lname&quot;&gt;Last name:&lt;/label&gt;<br>&nbsp; &lt;input type=&quot;text&quot; id=&quot;lname&quot; 
+    name=&quot;lname&quot;&gt;&lt;br&gt;&lt;br&gt;<br>&nbsp; &lt;input type=&quot;submit&quot; value=&quot;Submit using 
+    GET&quot;&gt;<br>&nbsp; &lt;input type=&quot;submit&quot; formmethod=&quot;post&quot; value=&quot;Submit using 
+    POST&quot;&gt;<br>&lt;/form&gt; </div>
+
+</div>
+
+<hr>
+
+<h2>The formtarget Attribute</h2>
+<p>The input <code class="w3-codespan">formtarget</code> attribute specifies a name or a keyword that indicates where 
+to display the response that is received after submitting the form.</p>
+<p><strong>Note:</strong> This attribute overrides the target attribute of the <code class="w3-codespan">&lt;form&gt;</code> element.</p>
+<p>The <code class="w3-codespan">formtarget</code> attribute works with the 
+following input types: submit and image.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>A form with two submit buttons, with different target windows:</p>
+<div class="w3-code notranslate htmlHigh">
+    &lt;form action=&quot;/action_page.php&quot;&gt;<br>&nbsp; &lt;label for=&quot;fname&quot;&gt;First 
+    name:&lt;/label&gt;<br>&nbsp; &lt;input type=&quot;text&quot; id=&quot;fname&quot; name=&quot;fname&quot;&gt;&lt;br&gt;&lt;br&gt;<br>&nbsp; 
+    &lt;label for=&quot;lname&quot;&gt;Last name:&lt;/label&gt;<br>&nbsp; &lt;input type=&quot;text&quot; id=&quot;lname&quot; 
+    name=&quot;lname&quot;&gt;&lt;br&gt;&lt;br&gt;<br>&nbsp; &lt;input type=&quot;submit&quot; value=&quot;Submit&quot;&gt;<br>&nbsp; 
+    &lt;input type=&quot;submit&quot; formtarget=&quot;_blank&quot; value=&quot;Submit to a new window/tab&quot;&gt;<br>
+    &lt;/form&gt; </div>
+
+</div>
+
+<hr>
+
+<h2>The formnovalidate Attribute</h2>
+<p>The input <code class="w3-codespan">formnovalidate</code> attribute specifies 
+that an &lt;input&gt; element should not be validated when submitted.</p>
+<p><strong>Note:</strong> This attribute overrides the novalidate attribute of the <code class="w3-codespan">&lt;form&gt;</code> 
+element.</p>
+<p>The <code class="w3-codespan">formnovalidate</code> attribute works with the 
+following input types: submit.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>A form with two submit buttons (with and without validation):</p>
+<div class="w3-code notranslate htmlHigh">
+    &lt;form action=&quot;/action_page.php&quot;&gt;<br>&nbsp; &lt;label for=&quot;email&quot;&gt;Enter your 
+    email:&lt;/label&gt;<br>&nbsp; &lt;input type=&quot;email&quot; id=&quot;email&quot; name=&quot;email&quot;&gt;&lt;br&gt;&lt;br&gt;<br>&nbsp; 
+    &lt;input type=&quot;submit&quot; value=&quot;Submit&quot;&gt;<br>&nbsp; &lt;input type=&quot;submit&quot; 
+    formnovalidate=&quot;formnovalidate&quot;<br>&nbsp; value=&quot;Submit without validation&quot;&gt;<br>
+    &lt;/form&gt; </div>
+
+</div>
+
+<hr>
+
+<h2>The novalidate Attribute</h2>
+<p>The <code class="w3-codespan">novalidate</code> attribute is a <code class="w3-codespan">&lt;form&gt;</code> attribute.</p>
+<p>When present, novalidate specifies that all of the form-data should not be validated when submitted.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Specify that no form-data should be validated on submit:</p>
+<div class="w3-code notranslate htmlHigh">
+   
+    &lt;form action=&quot;/action_page.php&quot; novalidate&gt;<br>&nbsp; &lt;label 
+    for=&quot;email&quot;&gt;Enter your email:&lt;/label&gt;<br>&nbsp; &lt;input type=&quot;email&quot; 
+    id=&quot;email&quot; name=&quot;email&quot;&gt;&lt;br&gt;&lt;br&gt;<br>&nbsp; &lt;input type=&quot;submit&quot; 
+    value=&quot;Submit&quot;&gt;<br>&lt;/form&gt; </div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>HTML Form and Input Elements</h2>
+<table class="ws-table-all notranslate">
+<tr>
+<th>Tag</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="../tags/tag_form.html">&lt;form&gt;</a></td>
+<td> Defines an HTML form for user input</td>
+</tr>
+<tr>
+<td><a href="../tags/tag_input.html">&lt;input&gt;</a></td>
+<td>Defines an input control</td>
+</tr>
+</table>
+<div class="ws-note w3-panel">
+  <p>For a complete list of all available HTML tags, visit our <a href="../tags/default.html">HTML Tag Reference</a>.</p>
+</div>
+
+<br>

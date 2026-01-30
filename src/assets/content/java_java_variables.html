@@ -1,0 +1,124 @@
+<h1>Java <span class="color_h1">Variables</span></h1>
+
+<hr>
+
+<h2>Java Variables</h2>
+
+
+
+<p>Variables are containers for storing data values. </p>
+<p>In Java, there are different <strong>types</strong> of variables, for example:</p>
+<ul>
+ <li><code class="w3-codespan">String</code> - stores text, such as "Hello". String values are 
+ surrounded by double quotes</li>
+ <li><code class="w3-codespan">int</code> - stores integers (whole numbers), without decimals, such as 123 or -123</li>
+ <li><code class="w3-codespan">float</code> - stores floating point numbers, with decimals, such as 19.99 or -19.99</li>
+ <li><code class="w3-codespan">char</code> - stores single characters, such as 
+ 'a' or 'B'. Char values are surrounded by single quotes</li>
+ <li><code class="w3-codespan">boolean</code> - stores values with two states: 
+ true or false</li>
+</ul>
+<hr>
+<h2>Declaring (Creating) Variables</h2>
+
+<p>To create a variable in Java, you need to:</p>
+<ul>
+  <li>Choose a <strong>type</strong> (like <code class="w3-codespan">int</code> or <code class="w3-codespan">String</code>)</li>
+  <li>Give the variable a <strong>name</strong> (like <code class="w3-codespan">x</code>, <code class="w3-codespan">age</code>, or <code class="w3-codespan">name</code>)</li>
+  <li>Optionally assign it a <strong>value</strong> using <code class="w3-codespan">=</code></li>
+</ul>
+
+<p>Here's the basic syntax:</p>
+
+<div class="w3-example">
+<h3>Syntax</h3>
+<pre class="language-java w3-white" style="font-style: italic"><code>type variableName = value;
+</code></pre>
+</div>
+
+<p>For example, if you want to store some text, you can use a <code class="w3-codespan">String</code>:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Create a variable called <strong>name</strong> of type <code class="w3-codespan">String</code> and assign it the value "<strong>John</strong>&quot;.<br>
+Then we use <code class="w3-codespan">println()</code> to print the <strong>name</strong> variable:</p>
+<pre class="language-java w3-white"><code>String name = "John";
+System.out.println(name);
+</code></pre>
+<p>
+
+</p>
+</div>
+
+<p>To create a variable that should store a number, you can use <code class="w3-codespan">int</code>:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Create a variable called <strong>myNum</strong> of type <code class="w3-codespan">int</code> and assign it the value <strong>15</strong>:</p>
+<pre class="language-java w3-white"><code>int myNum = 15;
+System.out.println(myNum);
+</code></pre>
+<p>
+
+</p>
+</div>
+
+<p>You can also declare a variable without assigning the value, and assign the value later:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>int myNum;
+myNum = 15;
+System.out.println(myNum);
+</code></pre>
+<p>
+
+</p>
+</div>
+
+<p>Note that if you assign a new value to an existing variable, it will overwrite the previous value:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Change the value of <code class="w3-codespan">myNum</code> from <code class="w3-codespan">15</code> to <code class="w3-codespan">20</code>:</p>
+<pre class="language-java w3-white"><code>int myNum = 15;
+myNum = 20;  // myNum is now 20
+System.out.println(myNum);
+</code></pre>
+<p>
+
+</p>
+</div>
+<hr>
+
+<h2>Final Variables</h2>
+<p>If you don't want others (or yourself) to overwrite existing values, use the <code class="w3-codespan">final</code> keyword (this will declare the variable as "final" or "constant", which means unchangeable and read-only):</p>
+<div class="w3-example w3-pale-red">
+<h3>Example</h3>
+<pre class="language-java w3-white w3-border-red"><code>final int myNum = 15;
+myNum = 20;  // will generate an error: cannot assign a value to a final variable
+</code></pre>
+<p>
+
+</p>
+</div>
+
+<hr>
+
+<h2>Other Types</h2>
+<p>A demonstration of how to declare variables of other types:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>int myNum = 5;
+float myFloatNum = 5.99f;
+char myLetter = 'D';
+boolean myBool = true;
+String myText = &quot;Hello&quot;;
+</code></pre>
+</div>
+<div class="ws-note w3-panel">
+<p>You will learn more about <a href="java_data_types.html">data types</a> in the next section.</p>
+</div>
+
+<hr>
+
+<hr>

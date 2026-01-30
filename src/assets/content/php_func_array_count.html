@@ -1,0 +1,75 @@
+<h1>PHP <span class="color_h1">count()</span> Function</h1>
+<p><a href="php_ref_array.html" class="w3-btn w3-white w3-border" title="PHP Array Reference">&#10094; PHP Array Reference</a></p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Count the number of elements in an array:</p>
+<div class="w3-code notranslate htmlHigh">
+&lt;?php<br>
+ $cars=array(&quot;Volvo&quot;,&quot;BMW&quot;,&quot;Toyota&quot;);<br>echo count($cars);<br>?&gt;
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="phptryitae90.html?filename=tryphp_func_count">Try it Yourself &raquo;</a>
+</div>
+<hr>
+
+<h2>Definition and Usage</h2>
+<p>The count() function returns the number of elements in an array or in a 
+countable object.</p>
+<hr>
+
+<h2>Syntax</h2>
+<div class="w3-code w3-border notranslate"><div>
+count(<em>value, mode</em>)
+</div></div>
+<h2>Parameter Values</h2>
+<table class="ws-table-all notranslate"> 
+  <tr>
+    <th style="width:20%">Parameter</th>
+    <th style="width:80%">Description</th>
+  </tr>  
+  <tr>
+    <td><em>value</em></td>
+    <td>Required. Specifies an array or countable object</td>
+  </tr>
+  <tr>
+    <td><em>mode</em></td>
+    <td>Optional. Specifies the mode. Possible values:<ul>
+    <li>0 - Default. Does not count all elements of multidimensional arrays</li>
+    <li>1 - Counts the array recursively (counts all the elements of  multidimensional arrays)</li>
+ </ul>
+    </td>
+  </tr>
+</table>
+<hr>
+
+<hr>
+<h2>Technical Details</h2>
+<table class="ws-table-all">
+<tr>
+ <th style="width:20%">Return Value:</th>
+ <td style="width:80%">Returns the number of elements in the array</td>
+</tr>
+<tr>
+  <th>PHP Version:</th>
+  <td>4+</td>
+</tr>
+<tr>
+  <th>Changelog:</th>
+  <td>PHP 8.0 - Will throw TypeError on invalid countable types passed to the 
+  value parameter.</td>
+</tr>
+</table>
+<hr>
+
+<h2>More Examples</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Count the array recursively:</p>
+<div class="w3-code notranslate htmlHigh">
+&lt;?php<br>
+ $cars=array<br>&nbsp; (<br>&nbsp; &quot;Volvo&quot;=&gt;array<br>&nbsp; (<br>&nbsp; &quot;XC60&quot;,<br>&nbsp; &quot;XC90&quot;<br>&nbsp; ),<br>&nbsp; &quot;BMW&quot;=&gt;array<br>&nbsp; (<br>&nbsp; &quot;X3&quot;,<br>&nbsp; &quot;X5&quot;<br>&nbsp; ),<br>&nbsp; &quot;Toyota&quot;=&gt;array<br>&nbsp; (<br>
+ &nbsp; &quot;Highlander&quot;<br>&nbsp; )<br>&nbsp; ); <br><br>echo &quot;Normal count: &quot; . count($cars).&quot;&lt;br&gt;&quot;;<br>echo &quot;Recursive count: &quot; . count($cars,1);<br>?&gt;
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="phptryit6e5e.html?filename=tryphp_func_count2">Try it Yourself &raquo;</a>
+</div>
+<hr>
+<a href="php_ref_array.html" class="w3-btn w3-white w3-border" title="PHP Array Reference">&#10094; PHP Array Reference</a>

@@ -1,0 +1,201 @@
+<h1>CSS <span class="color_h1">Pseudo-elements</span></h1>
+
+<hr>
+
+<h2>CSS Pseudo-Elements</h2>
+<p>A CSS pseudo-element is a keyword that can be added to a selector, to style a 
+specific part of an element.</p>
+<p>Some common use for pseudo-elements:</p>
+<ul>
+  <li>Style the first letter or first line, of an element</li>
+  <li>Insert content before or after an element</li>
+  <li>Style the markers of list items</li>
+  <li>Style the user-selected portion of an element</li>
+  <li>Style the viewbox behind a dialog box</li>
+</ul>
+
+<h3>Syntax</h3>
+<p>Pseudo-elements are denoted by a double colon (::) followed by the pseudo-element name:</p>
+<div class="w3-example">
+<div class="w3-code notranslate cssHigh">
+selector::pseudo-element-name {<br><em>&nbsp;&nbsp;CSS properties</em><br>}</div>
+</div>
+
+<hr>
+
+<h2>The CSS ::first-line Pseudo-element</h2>
+<p>The <code class="w3-codespan"><a href="../cssref/sel_firstline.html">::first-line</a></code> pseudo-element is used to add a special style 
+to the first line of a text.</p>
+
+<p><strong>Note:</strong> The <code class="w3-codespan">
+::first-line</code> pseudo-element can only be applied to block-level 
+elements.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Format the first line of text in all &lt;p&gt; 
+elements:&nbsp;</p>
+<div class="w3-code notranslate cssHigh">
+p::first-line 
+{<br>
+  &nbsp;
+color: red;<br>&nbsp; font-variant: small-caps;<br>
+  &nbsp;
+font-size: 19px;<br>
+}</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>The CSS ::first-letter Pseudo-element</h2>
+<p>The <code class="w3-codespan"><a href="../cssref/sel_firstletter.html">::first-letter</a></code> pseudo-element is used to add a special style to the first 
+letter of a text.</p>
+
+<p><strong>Note:</strong> The <code class="w3-codespan">
+::first-letter</code> pseudo-element can only be applied to block-level 
+elements.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Format the first letter of the text in all &lt;p&gt; 
+elements:&nbsp;&nbsp;</p>
+<div class="w3-code notranslate cssHigh">
+p::first-letter 
+{<br>
+  &nbsp;
+color: red;<br>&nbsp;
+font-size: xx-large;<br>
+}</div>
+
+</div>
+
+<hr>
+
+<h2>The CSS ::before Pseudo-element</h2>
+<p>The <code class="w3-codespan"><a href="../cssref/sel_before.html">::before</a></code> pseudo-element 
+is used to insert some content before the content of a specified element.</p>
+<p>Use the <code class="w3-codespan"><a href="../cssref/pr_gen_content.html">
+content</a></code> property to specify the content to insert.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Insert an image before the content of each &lt;h3&gt; element:&nbsp;</p>
+<div class="w3-code notranslate cssHigh">
+h3::before 
+{<br>
+&nbsp;&nbsp;content: url(smiley.gif);<br>
+}</div>
+
+</div>
+
+<hr>
+
+<h2>The CSS ::after Pseudo-element</h2>
+<p>The <code class="w3-codespan"><a href="../cssref/sel_after.html">::after</a></code> pseudo-element 
+is used to insert some content after the content of a specified element.</p>
+<p>Use the <code class="w3-codespan"><a href="../cssref/pr_gen_content.html">
+content</a></code> property to specify the content to insert.&nbsp;</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Insert an image after the content of each &lt;h3&gt; element:</p>
+<div class="w3-code notranslate cssHigh">
+h3::after
+{<br>
+&nbsp;&nbsp;content: url(smiley.gif);<br>
+}</div>
+
+</div>
+
+<hr>
+
+<h2>The CSS ::marker Pseudo-element</h2>
+<p>The <code class="w3-codespan"><a href="../cssref/sel_marker.html">::marker</a></code> pseudo-element 
+is used to style the list item markers.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Style the markers of list items:&nbsp;</p>
+<div class="w3-code notranslate cssHigh">
+::marker { <br>
+&nbsp;&nbsp;color: red;<br>&nbsp; font-size: 23px;<br>
+}</div>
+
+</div>
+
+<hr>
+
+<h2>The CSS ::selection Pseudo-element</h2>
+<p>The <code class="w3-codespan"><a href="../cssref/sel_selection.html">::selection</a></code> pseudo-element is used to style the part of a text that is selected by a user.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Style the user-selected text with a red color, and a yellow background:&nbsp;</p>
+<div class="w3-code notranslate cssHigh">
+::selection {<br>&nbsp;&nbsp;color: red; <br>&nbsp; 
+background: yellow;<br>}</div>
+
+</div>
+
+<hr>
+
+<h2>The CSS ::backdrop Pseudo-element</h2>
+<p>The <code class="w3-codespan"><a href="../cssref/sel_backdrop.html">::backdrop</a></code> pseudo-element 
+is used to style the viewbox behind a dialog box or popover element..</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Style the viewbox behind a dialog box:&nbsp;</p>
+<div class="w3-code notranslate cssHigh">
+  dialog::backdrop {<br>&nbsp; background-color: lightgreen;<br>}</div>
+
+</div>
+
+<hr>
+
+<h2>Pseudo-elements and HTML Classes</h2>
+<p>Pseudo-elements can easily be combined with HTML classes.&nbsp;</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Display the first letter of &lt;p&gt; elements with 
+class=&quot;intro&quot;, in red and in a larger size:&nbsp;</p>
+<div class="w3-code notranslate cssHigh">
+p.intro::first-letter {<br>&nbsp;&nbsp;color: #ff0000;<br>&nbsp; 
+font-size: 200%;<br>} </div>
+
+</div>
+
+<hr>
+
+<h2>Multiple Pseudo-elements</h2>
+<p>Several pseudo-elements can also be combined.</p>
+<p>In the following example, the first letter of &lt;p&gt; elements will be red and in 
+an xx-large font size. The rest of the first line will be blue and in 
+small-caps. The rest of the paragraph will be in the default font size and color:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+p::first-letter
+{<br>
+&nbsp;&nbsp;color: red;<br>
+&nbsp;&nbsp;font-size: xx-large;<br>
+}<br><br>
+p::first-line 
+{<br>
+  &nbsp;
+color: blue;<br>
+  &nbsp;
+font-variant: small-caps;<br>
+}</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>CSS Pseudo-elements Reference</h2>
+
+<div class="ws-note w3-panel">
+  <p>For a complete list of all CSS Pseudo-elements, visit our   <a href="../cssref/css_ref_pseudo_elements.html">CSS Pseuodo-elements Reference</a>.</p>
+</div>
+
+<br>

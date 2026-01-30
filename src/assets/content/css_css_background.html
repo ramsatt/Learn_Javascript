@@ -1,0 +1,148 @@
+<h1>CSS <span class="color_h1">Backgrounds</span></h1>
+
+<hr>
+
+<h2>CSS Backgrounds</h2>
+<p>The CSS background properties are used to add background effects for elements.</p>
+
+<div style="color:#000;width:100%;border:1px solid gray;padding:16px;background:#e1efbb url('mountain.jpg')">
+<p>In these chapters, you will learn about the following CSS background properties:</p>
+<ul>
+  <li> <code class="w3-codespan" style="color:crimson">background-color</code></li>
+  <li> <code class="w3-codespan" style="color:crimson">background-image</code></li>
+  <li> <code class="w3-codespan" style="color:crimson">background-repeat</code></li>
+  <li> <code class="w3-codespan" style="color:crimson">background-attachment</code></li>
+  <li> <code class="w3-codespan" style="color:crimson">background-position</code></li>
+  <li> <code class="w3-codespan" style="color:crimson">background</code> (shorthand property)</li>
+</ul>
+</div>
+<hr>
+
+<h2>CSS background-color</h2>
+<p>The <code class="w3-codespan"><a href="../cssref/pr_background-color.html">background-color</a></code> property specifies the background color of an element.</p>
+<div class="w3-example">
+<h3>Example</h3>
+  <p>The background color of a page is set like this:</p>
+<div class="w3-code notranslate cssHigh">
+body {<br>&nbsp;&nbsp;background-color: lightblue;<br>}
+</div>
+
+</div>
+<p>With CSS, a color is most often specified by:</p>
+<ul>
+<li>a valid color name - like &quot;red&quot;</li>
+<li>a HEX value - like &quot;#ff0000&quot;</li>
+<li>an RGB value - like &quot;rgb(255,0,0)&quot;</li>
+</ul>
+
+<p>Look at <a href="../cssref/css_colors_legal.html">CSS Color Values</a> for a complete 
+list of possible color values.</p>
+<hr>
+
+<h2>Other Elements</h2>
+<p>You can set the background color for any HTML elements:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Here, the &lt;h1&gt;, &lt;p&gt;, and &lt;div&gt; elements will have different background colors:&nbsp;</p>
+<div class="w3-code notranslate cssHigh">
+h1 {<br>&nbsp;&nbsp;background-color: green;<br>}<br><br>
+div {<br>&nbsp;&nbsp;background-color: lightblue;<br>}<br><br>p {<br>&nbsp;&nbsp;background-color: 
+yellow;<br>}</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>Opacity / Transparency</h2>
+<p>The <code class="w3-codespan"><a href="../cssref/css3_pr_opacity.html">opacity</a></code> property specifies the opacity/transparency of an element. It can take a value from 0.0 - 1.0. The lower value, the more transparent:</p>
+
+<div class="w3-cell-row">
+<div class="w3-cell w3-mobile w3-center">
+<div style="background-color:#04AA6D;opacity:1;padding:50px;color:black"><p>opacity 1</p></div>
+</div>
+
+<div class="w3-cell w3-mobile w3-center">
+<div style="background-color:#04AA6D;opacity:0.6;padding:50px;color:black"><p>opacity 0.6</p></div>
+</div>
+
+<div class="w3-cell w3-mobile w3-center">
+<div style="background-color:#04AA6D;opacity:0.3;padding:50px;color:black"><p>opacity 0.3</p></div>
+</div>
+
+<div class="w3-cell w3-mobile w3-center">
+<div style="background-color:#04AA6D;opacity:0.1;padding:50px;color:black"><p>opacity 0.1</p></div>
+</div>
+
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+div {<br>&nbsp; background-color: green;<br>&nbsp;&nbsp;opacity: 0.3;<br>}</div>
+
+</div>
+
+<div class="ws-note w3-panel">
+<p><strong>Note:</strong> When using the <code class="w3-codespan">
+<a href="../cssref/css3_pr_opacity.html">opacity</a></code> property to add transparency to the background of an element, all of its child elements 
+inherit the same transparency. This can make the text inside a fully transparent element hard to read.</p>
+
+</div>
+
+<hr>
+
+<h2>Transparency using RGBA</h2>
+<p>If you do not want to apply opacity to child elements, like in our example above, use <strong>RGBA</strong> color values. 
+The following example sets the opacity for the background color and not the text:</p>
+
+<div class="w3-cell-row">
+<div class="w3-cell w3-mobile w3-center">
+<div style="background:rgb(4, 170, 109);padding:50px;color:black"><p>100% opacity</p></div>
+</div>
+
+<div class="w3-cell w3-mobile w3-center">
+<div style="background:rgba(4, 170, 109,0.6);padding:50px;color:black"><p>60% opacity</p></div>
+</div>
+
+<div class="w3-cell w3-mobile w3-center">
+<div style="background:rgba(4, 170, 109,0.3);padding:50px;color:black"><p>30% opacity</p></div>
+</div>
+
+<div class="w3-cell w3-mobile w3-center">
+<div style="background:rgba(4, 170, 109,0.1);padding:50px;color:black"><p>10% opacity</p></div>
+</div>
+
+</div>
+<p>You learned from our <a href="css_colors.html">CSS Colors Chapter</a>, that you can use RGB as a color value. In addition to RGB, 
+you can use an RGB color value with an <strong>alpha</strong> channel (RGB<strong>A</strong>) - which specifies the opacity for a color.</p>
+<p>An RGBA color value is specified with: rgba(red, green, blue, <em>alpha</em>). The 
+<em>alpha</em> parameter is a number between 0.0 (fully transparent) and 1.0 (fully opaque).</p>
+<p><strong>Tip:</strong> You will learn more about RGBA Colors in our <a href="css3_colors.html">CSS Colors Chapter</a>.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+div {<br>&nbsp; background: rgba(0, 128, 0, 0.3) /* Green background with 30% opacity */<br>}</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>The CSS Background Color Property</h2>
+
+<table class="ws-table-all notranslate">
+  <tr>
+    <th style="width:30%">Property</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_background-color.html">background-color</a></td>
+    <td>Sets the background color of an element</td>
+  </tr>
+  </table>
+
+<hr>

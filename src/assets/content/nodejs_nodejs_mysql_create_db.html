@@ -1,0 +1,34 @@
+<h1>Node.js <span class="color_h1">MySQL</span> Create Database</h1>
+
+<hr>
+
+<h2>Creating a Database</h2>
+<p>To create a database in MySQL, use the &quot;CREATE DATABASE&quot; statement:</p>
+<div class="w3-example">
+<h2>Example</h2>
+<p>Create a database named "mydb":</p>
+<div class="w3-code notranslate jsHigh">
+  let mysql = require('mysql');<br><br>let con = mysql.createConnection({<br>&nbsp; 
+  host: &quot;localhost&quot;,<br>&nbsp; user: &quot;<em>yourusername</em>&quot;,<br>&nbsp; password: &quot;<em>yourpassword</em>&quot;<br>
+  });<br><br>con.connect(function(err) {<br>&nbsp; if (err) throw err;<br>&nbsp; console.log(&quot;Connected!&quot;);<br>&nbsp; 
+  con.query(&quot;<strong>CREATE DATABASE mydb</strong>&quot;, function (err, result) {<br>
+  &nbsp;&nbsp;&nbsp; if (err) throw err;<br>&nbsp;&nbsp;&nbsp; console.log(&quot;Database 
+  created&quot;);<br>&nbsp; });<br>});<br></div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="shownodejs_cmd6cfc.html?filename=demo_create_db">Run example &raquo;</a>
+</div>
+
+<p>Save the code above in a file called "demo_create_db.js" and run the file:</p>
+<div class="w3-example">
+<p>Run "demo_create_db.js"</p>
+<div class="w3-code notranslate w3-black">
+C:\Users\<em>Your Name</em>&gt;node demo_create_db.js
+</div>
+</div>
+<p>Which will give you this result:</p>
+<div class="w3-example">
+<div class="w3-code notranslate w3-black">
+Connected!<br>Database created</div>
+</div>
+<hr>
+
+<hr>

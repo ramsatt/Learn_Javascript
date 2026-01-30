@@ -1,0 +1,36 @@
+<h1>PHP <span class="color_h1">FILTER_SANITIZE_URL</span> Filter</h1>
+<hr>
+<a href="php_ref_filter.html" class="w3-btn w3-white w3-border" title="PHP Filter Reference">&#10094; Complete PHP Filter Reference</a>
+<hr>
+
+<h2>Definition and Usage</h2>
+
+<p>The FILTER_SANITIZE_URL filter removes all illegal URL characters from a 
+string.</p>
+<p>This filter allows all letters, digits and $-_.+!*'(),{}|\\^~[]`&quot;&gt;&lt;#%;/?:@&amp;=</p>
+<ul>
+  <li>Name: &quot;url&quot;</li>
+  <li>ID-number: 518</li>
+</ul>
+<hr>
+<h2>Example</h2>
+
+<div class="w3-code w3-border notranslate"><div>
+
+&lt;?php<br>
+$var=&quot;https://www.w3schoo��ls.co�m&quot;;<br>
+<br>
+var_dump(filter_var($var, FILTER_SANITIZE_URL));<br>
+?&gt;
+
+</div></div>
+
+<p>The output of the code will be:</p>
+
+<div class="w3-code w3-border notranslate"><div>
+
+string(24) &quot;https://www.w3schools.com&quot;
+
+</div></div>
+<hr>
+<a href="php_ref_filter.html" class="w3-btn w3-white w3-border" title="PHP Filter Reference">&#10094; Complete PHP Filter Reference</a>

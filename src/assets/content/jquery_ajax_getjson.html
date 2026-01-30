@@ -1,0 +1,55 @@
+<h1>jQuery <span class="color_h1">getJSON()</span> Method</h1>
+<p><a href="jquery_ref_ajax.html" class="w3-btn w3-white w3-border" title="jQuery AJAX Methods">&#10094; jQuery AJAX Methods</a></p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Get JSON data using an AJAX request, and output the result:</p>
+<div class="w3-code notranslate jsHigh">
+$(&quot;button&quot;).click(function(){<br>
+&nbsp;
+  $.getJSON(&quot;demo_ajax_json.js&quot;, function(result){<br>
+  &nbsp;&nbsp;&nbsp; $.each(result, function(i, field){<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $(&quot;div&quot;).append(field + &quot; &quot;);<br>
+  &nbsp;&nbsp;&nbsp; });<br>
+&nbsp;&nbsp;});<br>
+});
+</div>
+<a class="w3-btn w3-margin-bottom" href="tryitaef2.html?filename=tryjquery_ajax_getjson" target="_blank">Try it Yourself &raquo;</a>
+</div>
+<hr>
+
+<h2>Definition and Usage</h2>
+<p>The getJSON() method is used to get JSON data using an AJAX HTTP GET request.</p>
+<hr>
+
+<h2>Syntax</h2>
+<div class="w3-code w3-border notranslate"><div>
+$(<i>selector</i>).getJSON(<i>url,data,success(data,status,xhr))</i></div></div>
+<br>
+<table class="ws-table-all notranslate"> 
+  <tr>
+    <th style="width:20%">Parameter</th>
+    <th>Description</th>
+  </tr>  
+  <tr>
+    <td><em>url</em></td>
+    <td>Required. Specifies the url to send the request to</td>
+    </tr>
+  <tr>
+    <td><em>data</em></td>
+    <td>Optional. Specifies data to be sent to the server</td>
+    </tr>
+  <tr>
+    <td><em>success(<i>data,status,xhr</i>)</em></td>
+    <td>Optional. Specifies the function to run if the request succeeds<br>
+ Additional parameters:<ul>
+    <li><em>data</em> - contains the data returned from the server.</li>
+    <li><em>status</em> - contains a string containing request status (&quot;success&quot;, &quot;notmodified&quot;, &quot;error&quot;, &quot;timeout&quot;, or &quot;parsererror&quot;).</li>
+    <li><em>xhr</em> - contains the XMLHttpRequest object</li>
+ </ul>
+  </td>
+  </tr>
+</table>
+<hr>
+
+<p><a href="jquery_ref_ajax.html" class="w3-btn w3-white w3-border" title="jQuery AJAX Methods">&#10094; jQuery AJAX Methods</a></p>

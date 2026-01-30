@@ -1,0 +1,100 @@
+<h1>CSS <span class="color_h1">Outline</span></h1>
+
+<hr>
+
+<div style="width:98%;border:2px solid black;outline:#04AA6D solid 10px;padding:20px;margin:auto;text-align:center">
+<p>An outline is a line drawn around an element, outside the element's border.</p>
+<p>This element has a black border and a green outline with a width of 10px.</p>
+</div>
+<br>
+<a target="_blank" href="tryitc2f5.html?filename=trycss_outline_intro" class="ws-btn">Try it Yourself &raquo;</a>
+
+<hr>
+
+<h2>CSS Outline</h2>
+<p>An outline is a line that is drawn around elements, OUTSIDE the borders, to make the element &quot;stand out&quot;.</p>
+
+<div class="w3-panel ws-note">
+<p><b>Note:</b> Outline differs from <a href="css_border.html">borders</a>! The outline is 
+drawn outside the element's border, and may overlap other content. Also, the outline is 
+NOT a part of the element's dimensions; the element's total width and height
+is not affected by the width of the outline.</p>
+</div>
+
+<div class="w3-boxmodel">
+<div class="outline w3-theme">
+    <div class="border">
+      <div class="content"></div>
+     </div>
+</div>
+</div>
+
+<p>CSS has the following outline properties:</p>
+<ul>
+  <li> <code class="w3-codespan"><a href="../cssref/pr_outline-style.html">outline-style</a></code> - Specifies the style of the outline</li>
+  <li> <code class="w3-codespan"><a href="../cssref/pr_outline-color.html">outline-color</a></code> - Specifies the color of the outline</li>
+  <li> <code class="w3-codespan"><a href="../cssref/pr_outline-width.html">outline-width</a></code> - Specifies the width of the outline</li>
+  <li> <code class="w3-codespan"><a href="../cssref/pr_outline-offset.html">outline-offset</a></code> - Adds space between the outline and the edge/border of an element</li>
+  <li> <code class="w3-codespan"><a href="../cssref/pr_outline.html">outline</a></code> - A shorthand property</li>
+</ul>
+
+<hr>
+
+<hr>
+
+<h2>CSS The outline-style Property</h2>
+<p>The <code class="w3-codespan"><a href="../cssref/pr_outline-style.html">outline-style</a></code> property specifies the style of the outline, 
+and can have one of the following values:</p>
+<ul>
+<li><code class="w3-codespan">dotted</code> - Defines a dotted outline</li>
+<li><code class="w3-codespan">dashed</code> - Defines a dashed outline</li>
+<li><code class="w3-codespan">solid</code> - Defines a solid outline</li>
+<li><code class="w3-codespan">double</code> - Defines a double outline</li>
+<li><code class="w3-codespan">groove</code> - Defines a 3D grooved outline</li>
+<li><code class="w3-codespan">ridge</code> - Defines a 3D ridged outline</li>
+<li><code class="w3-codespan">inset</code> - Defines a 3D inset outline</li>
+<li><code class="w3-codespan">outset</code> - Defines a 3D outset outline</li>
+<li><code class="w3-codespan">none</code> - Defines no outline</li>
+<li><code class="w3-codespan">hidden</code> - Defines a hidden outline</li>
+</ul>
+
+<p>The following example shows the different <code class="w3-codespan">
+<a href="../cssref/pr_outline-style.html">outline-style</a></code> values:</p>
+
+
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Demonstration of the different outline styles:</p>
+<div class="w3-code notranslate cssHigh">
+  p.dotted {outline-style: dotted;}<br>
+p.dashed {outline-style: dashed;}<br>p.solid {outline-style: solid;}<br>
+p.double {outline-style: double;}<br>p.groove {outline-style: groove;}<br>
+p.ridge {outline-style: ridge;}<br>p.inset {outline-style: inset;}<br>
+p.outset {outline-style: outset;}
+</div>
+<p>Result:</p>
+<div class="w3-white w3-padding notranslate">
+
+<p style="outline-style:dotted;outline-color:green;padding:6px">A dotted outline.</p>
+<p style="outline-style:dashed;outline-color:green;padding:6px">A dashed outline.</p>
+<p style="outline-style:solid;outline-color:green;padding:6px">A solid outline.</p>
+<p style="outline-style:double;outline-color:green;padding:6px">A double outline.</p>
+<p style="outline-style:groove;outline-color:green;padding:6px">A groove outline. The effect depends on the outline-color value.</p>
+<p style="outline-style:ridge;outline-color:green;padding:6px">A ridge outline. The effect depends on the outline-color value.</p>
+<p style="outline-style:inset;outline-color:green;padding:6px">An inset outline. The effect depends on the outline-color value.</p>
+<p style="outline-style:outset;outline-color:green;padding:6px">An outset outline. The effect depends on the outline-color value.</p>
+</div>
+
+</div>
+
+
+<div class="w3-panel ws-note">
+  <p><b>Note:</b> None of the other outline properties (which you will learn more about in the next chapters) will have ANY effect unless the 
+  <code class="w3-codespan"><a href="../cssref/pr_outline-style.html">outline-style</a></code> property is set!</p>
+</div>
+
+<hr>
+
+<hr>
+
+<br>

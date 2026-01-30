@@ -1,0 +1,231 @@
+<h1>Go Variables</h1>
+
+<hr>
+<p class="intro">Variables are containers for storing data values.</p>
+<hr>
+
+<h2>Go Variable Types</h2>
+<p>In Go, there are different <strong>types</strong> of variables, for example:</p>
+
+<ul>
+  <li><code class="w3-codespan">int</code>- stores integers (whole numbers), such as 123 or -123</li>
+  <li><code class="w3-codespan">float32</code>- stores floating point numbers, with decimals, such as 19.99 or -19.99</li>
+  <li><code class="w3-codespan">string</code> - stores text, such as "Hello World". String values are surrounded by double quotes</li>
+  <li><code class="w3-codespan">bool</code>- stores values with two states: true or false</li>
+</ul> 
+<p>More about different variable types, will be explained in the <a href="go_data_types.html">Go Data Types</a> chapter.</p>
+<hr>
+
+<h2>Declaring (Creating) Variables</h2>
+<p>In Go, there are two ways to declare a variable:</p>
+<h4>1. With the <code class="w3-codespan">var</code> keyword:</h4>
+<p>Use the <code class="w3-codespan">var</code> keyword, followed by variable name and type:</p>
+<div class="w3-example">
+  <h3>Syntax</h3>
+      <div class="w3-code notranslate javaHigh">
+        var <em>variablename type</em> = <em>value</em>
+      </div>
+</div> 
+<p><strong>Note:</strong> You always have to specify either <code class="w3-codespan">type</code> 
+or <code class="w3-codespan">value</code> (or both).</p>
+<h4>2. With the <code class="w3-codespan">:=</code> sign:</h4>
+<p>Use the <code class="w3-codespan">:=</code> sign, followed by the variable value:</p>
+<div class="w3-example">
+<h3>Syntax</h3>
+<div class="w3-code notranslate javaHigh">
+<em>variablename </em> := <em>value</em>
+</div>
+</div> 
+
+<p><strong>Note: </strong> In this case, the type of the variable is <strong>inferred</strong> from the value 
+(means that the compiler decides the type of the variable, based on the value).</p>
+  <p><strong>Note:</strong> It is not possible to declare a variable using
+  <code class="w3-codespan">:=</code>, without assigning a value to it.</p>
+<hr>
+
+<h2>Variable Declaration With Initial Value</h2>
+<p>If the value of a variable is known from the start, you can declare the variable and assign a value to it 
+on one line:</p>
+<div class="w3-example">
+  <h3>Example</h3>
+  <div class="w3-code notranslate javaHigh">
+    package main<br>
+    import ("fmt")<br><br>
+    func main() {<br>
+    &nbsp;&nbsp;var student1 string = "John" <em>//type is 
+    string</em> <br>
+    &nbsp;&nbsp;var student2 = "Jane&quot; <em>//type is inferred</em><br>
+    &nbsp;&nbsp;x := 2 <em>//type is inferred</em><br>
+    <br>&nbsp;&nbsp;fmt.Println(student1)<br>
+    &nbsp;&nbsp;fmt.Println(student2)<br>
+    &nbsp;&nbsp;fmt.Println(x)<br>
+    }
+  </div>
+  
+</div>
+
+<p><strong>Note:</strong> The variable types of <code class="w3-codespan">student2</code> and <code class="w3-codespan">x</code> is <strong>inferred</strong> from 
+their values.</p>
+
+<hr>
+<hr>
+<h2>Variable Declaration Without Initial Value</h2>
+
+<p>In Go, all variables are initialized. So, if you declare a variable without an initial value, 
+its value will be set to the default value of its type: </p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <div class="w3-code notranslate javaHigh">
+    package main<br>
+    import ("fmt")<br><br>
+    func main() {<br>
+    &nbsp;&nbsp;var a string<br>
+    &nbsp;&nbsp;var b int<br>
+    &nbsp;&nbsp;var c bool<br>
+    <br>
+    &nbsp;&nbsp;fmt.Println(a)<br>
+    &nbsp;&nbsp;fmt.Println(b)<br>
+    &nbsp;&nbsp;fmt.Println(c)<br>
+    }
+  </div>
+  
+</div>
+
+<h4>Example explained</h4>
+
+<p>In this example there are 3 variables:</p>
+
+<ul>
+  <li><code class="w3-codespan">a</code></li>
+  <li><code class="w3-codespan">b</code></li>
+  <li><code class="w3-codespan">c</code></li>
+</ul>
+
+<p>These variables are declared but they have not been assigned initial values.</p>
+
+<p>By running the code, we can see that they already have the default values of their respective types:</p>
+
+<ul>
+  <li><code class="w3-codespan">a</code> is <code class="w3-codespan">""</code></li>
+  <li><code class="w3-codespan">b</code> is <code class="w3-codespan">0</code></li>
+  <li><code class="w3-codespan">c</code> is <code class="w3-codespan">false</code></li>
+</ul>
+
+<hr>
+
+<h2>Value Assignment After Declaration</h2>
+
+<p>It is possible to assign a value to a variable after it is declared. This is helpful for cases the value is not initially known.</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <div class="w3-code notranslate javaHigh">
+    package main<br>
+    import ("fmt")<br><br>
+    func main() {<br>
+    &nbsp;&nbsp;var student1 string<br>
+    &nbsp;&nbsp;student1 = "John"<br>
+    &nbsp;&nbsp;fmt.Println(student1)<br>
+    }
+  </div>
+  
+</div>
+
+<div class="w3-panel ws-note">
+  <p><strong>Note:</strong> It is not possible to declare a variable using "<code class="w3-codespan">:=</code>" without assigning a value to it.</p>
+</div>
+
+
+<hr>
+
+<h2>Difference Between var and :=</h2>
+
+<p>There are some small differences between the <code class="w3-codespan">var</code> var <code class="w3-codespan">:=</code>:</p>
+
+<table class="ws-table-all notranslate">
+<tr>
+    <th>var</th>
+    <th>:=</th>
+</tr>
+<tr>
+    <td>Can be used <strong>inside </strong> and <strong>outside</strong> of functions</td>
+    <td>Can only be used <strong>inside</strong> functions</td>
+</tr>
+<tr>
+    <td>Variable declaration and value assignment <strong>can be done separately</strong></td>
+    <td>Variable declaration and value assignment <strong>cannot be done separately</strong> 
+    (must be done in the same line)</td>
+</tr>
+</table>  
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <p>This example shows declaring variables outside of a function, with the <code class="w3-codespan">var</code> 
+  keyword:</p>
+  <div class="w3-code notranslate javaHigh">
+    package main<br>
+    import ("fmt")<br><br>
+
+    var a int<br>
+    var b int = 2<br>
+    var c = 3<br><br>
+
+    func main() {<br>
+    &nbsp;&nbsp;a = 1<br>
+    &nbsp;&nbsp;fmt.Println(a)<br>
+    &nbsp;&nbsp;fmt.Println(b)<br>
+    &nbsp;&nbsp;fmt.Println(c)<br>
+    }
+  </div>
+  
+</div>
+
+<div class="w3-example w3-pale-red" >
+  <h3>Example</h3>
+  <p>Since <code class="w3-codespan">:=</code> is used outside of a function, running the program results in an error. </p>
+  <div class="w3-code notranslate javaHigh w3-border-red">
+    package main<br>
+    import ("fmt")<br>
+    <br>
+    a :=  1<br><br>
+
+    func main() {<br>
+    &nbsp;&nbsp;fmt.Println(a)<br>   
+  }
+  </div>
+  <p>Result:</p>
+        <div class="notranslate w3-black w3-padding">
+        <code>
+          ./prog.go:5:1: syntax error: non-declaration statement outside function body
+        </code>
+        </div>
+  
+</div>
+<hr>
+
+<div>
+<h2>Go Exercises</h2>
+<form autocomplete="off" spellcheck="false" id="w3-exerciseform" action="https://www.w3schools.com/go/exercise.php?filename=exercise_variables1" method="post" target="_blank">
+<h2>Test Yourself With Exercises</h2>
+<div class="exercisewindow">
+<h2>Exercise:</h2>
+<p>Create a variable named <code class="w3-codespan">myNum</code> and assign the value <code class="w3-codespan">50</code> to it.</p>
+<div class="exerciseprecontainer">
+<pre style="overflow: auto;">
+package main   
+import ("fmt") <br>
+func main() {
+  var <input name="ex1" maxlength="5" style="width:65px;"> = <input name="ex2" maxlength="2" style="width:25px;">
+  fmt.Println(<input name="ex3" maxlength="5" style="width:65px;">)
+}
+</pre>
+</div>
+<br>
+<button type="submit" class="w3-btn w3-margin-bottom">Submit Answer &raquo;</button>
+<p><a target="_blank" href="exercise4829.html?filename=exercise_variables1">Start the Exercise</a></p>
+</div>
+</form>
+</div>
+
+<br>

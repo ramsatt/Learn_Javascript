@@ -1,0 +1,52 @@
+<h1>Bootstrap 5 <span class="color_h1">Tooltip</span></h1>
+
+<hr>
+
+<h2>Tooltips</h2>
+<p>The Tooltip component is small pop-up box that appears when the user moves the 
+mouse pointer over an element:</p>
+<button type="button" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Hooray!">
+  Hover over me!
+</button>
+
+
+<hr>
+
+<h2>How To Create a Tooltip</h2>
+<p>To create a tooltip, add the <code class="w3-codespan">data-bs-toggle=&quot;tooltip&quot;</code> 
+attribute to an element. </p>
+<p>Use the <code class="w3-codespan">title</code> attribute to specify the text that should be 
+displayed inside the tooltip:</p>
+<div class="w3-example">
+<div class="w3-code notranslate htmlHigh">
+  &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot; data-bs-toggle=&quot;tooltip&quot; 
+  title=&quot;Hooray!&quot;&gt;Hover over me!&lt;/button&gt;</div>
+</div>
+<p><strong>Note:</strong> Tooltips must be initialized with JavaScript to work.</p>
+<p>The following code will enable all tooltips in the document:</p>
+<div class="w3-example">
+ <h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;script&gt;<br>var tooltipTriggerList = 
+  [].slice.call(document.querySelectorAll('[data-bs-toggle=&quot;tooltip&quot;]'))<br>var 
+  tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {<br>&nbsp; 
+  return new bootstrap.Tooltip(tooltipTriggerEl)<br>})<br>&lt;/script&gt;<br></div>
+
+</div>
+<hr>
+
+<h2>Positioning Tooltips</h2>
+<p>By default, the tooltip will appear on top of the element.</p>
+<p>Use the <code class="w3-codespan">data-bs-placement</code> attribute to set the position of the 
+tooltip on top, bottom, left or the right side of the element:</p>
+
+<div class="w3-example">
+ <h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+ &lt;a href=&quot;#&quot; data-bs-toggle=&quot;tooltip&quot; data-bs-placement=&quot;top&quot; title=&quot;Hooray!&quot;&gt;Hover&lt;/a&gt;<br>&lt;a href=&quot;#&quot; data-bs-toggle=&quot;tooltip&quot; data-bs-placement=&quot;bottom&quot; title=&quot;Hooray!&quot;&gt;Hover&lt;/a&gt;<br>&lt;a href=&quot;#&quot; data-bs-toggle=&quot;tooltip&quot; data-bs-placement=&quot;left&quot; title=&quot;Hooray!&quot;&gt;Hover&lt;/a&gt;<br>&lt;a href=&quot;#&quot; data-bs-toggle=&quot;tooltip&quot; data-bs-placement=&quot;right&quot; title=&quot;Hooray!&quot;&gt;Hover&lt;/a&gt;<br></div>
+
+</div>
+<hr>
+
+
+<br>

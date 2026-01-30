@@ -1,0 +1,143 @@
+[
+  {
+    "title": "jQuery Tutorial",
+    "items": [
+      {
+        "title": "jQuery Tutorial",
+        "file": "jquery_default.html"
+      },
+      {
+        "title": "jQuery Introduction",
+        "file": "jquery_jquery_intro.html"
+      },
+      {
+        "title": "jQuery Get Started",
+        "file": "jquery_jquery_get_started.html"
+      },
+      {
+        "title": "jQuery Syntax",
+        "file": "jquery_jquery_syntax.html"
+      },
+      {
+        "title": "jQuery Selectors",
+        "file": "jquery_jquery_selectors.html"
+      },
+      {
+        "title": "jQuery Event Methods",
+        "file": "jquery_jquery_events.html"
+      }
+    ]
+  },
+  {
+    "title": "jQuery Effects",
+    "items": [
+      {
+        "title": "jQuery Effects - Hide and Show",
+        "file": "jquery_jquery_hide_show.html"
+      },
+      {
+        "title": "jQuery Effects - Fading",
+        "file": "jquery_jquery_fade.html"
+      },
+      {
+        "title": "jQuery Effects - Sliding",
+        "file": "jquery_jquery_slide.html"
+      },
+      {
+        "title": "jQuery Effects - Animation",
+        "file": "jquery_jquery_animate.html"
+      },
+      {
+        "title": "jQuery Stop Animations",
+        "file": "jquery_jquery_stop.html"
+      },
+      {
+        "title": "jQuery Callback Functions",
+        "file": "jquery_jquery_callback.html"
+      },
+      {
+        "title": "jQuery - Chaining",
+        "file": "jquery_jquery_chaining.html"
+      }
+    ]
+  },
+  {
+    "title": "jQuery HTML",
+    "items": [
+      {
+        "title": "jQuery - Get Content and Attributes",
+        "file": "jquery_jquery_dom_get.html"
+      },
+      {
+        "title": "jQuery - Set Content and Attributes",
+        "file": "jquery_jquery_dom_set.html"
+      },
+      {
+        "title": "jQuery - Add Elements",
+        "file": "jquery_jquery_dom_add.html"
+      },
+      {
+        "title": "jQuery - Remove Elements",
+        "file": "jquery_jquery_dom_remove.html"
+      },
+      {
+        "title": "jQuery - Get and Set CSS Classes",
+        "file": "jquery_jquery_css_classes.html"
+      },
+      {
+        "title": "jQuery - css() Method",
+        "file": "jquery_jquery_css.html"
+      },
+      {
+        "title": "jQuery - Dimensions",
+        "file": "jquery_jquery_dimensions.html"
+      }
+    ]
+  },
+  {
+    "title": "jQuery Traversing",
+    "items": [
+      {
+        "title": "jQuery Traversing",
+        "file": "jquery_jquery_traversing.html"
+      },
+      {
+        "title": "jQuery Traversing - Ancestors",
+        "file": "jquery_jquery_traversing_ancestors.html"
+      },
+      {
+        "title": "jQuery Traversing - Descendants",
+        "file": "jquery_jquery_traversing_descendants.html"
+      },
+      {
+        "title": "jQuery Traversing - Siblings",
+        "file": "jquery_jquery_traversing_siblings.html"
+      },
+      {
+        "title": "jQuery Traversing - Filtering",
+        "file": "jquery_jquery_traversing_filtering.html"
+      }
+    ]
+  },
+  {
+    "title": "jQuery AJAX",
+    "items": [
+      {
+        "title": "jQuery - AJAX Introduction",
+        "file": "jquery_jquery_ajax_intro.html"
+      },
+      {
+        "title": "jQuery - AJAX load() Method",
+        "file": "jquery_jquery_ajax_load.html"
+      },
+      {
+        "title": "jQuery - AJAX get() and post() Methods",
+        "file": "jquery_jquery_ajax_get_post.html"
+      },
+      {
+        "title": "jQuery - The noConflict() Method",
+        "file": "jquery_jquery_noconflict.html"
+      }
+    ]
+  }
+]

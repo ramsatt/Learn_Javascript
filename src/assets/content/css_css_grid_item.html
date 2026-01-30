@@ -1,0 +1,221 @@
+<h1>CSS <span class="color_h1">Grid Items</span></h1>
+
+<hr>
+
+<h2>CSS Grid Items</h2>
+<p>A grid container contains one or more grid items.</p>
+<p>All direct child elements of a grid container automatically become grid items.</p>
+<p>Below is a grid container with five grid items:</p>
+
+<div class="grid-container">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>  
+  <div>4</div>
+  <div>5</div>
+</div>
+<p><a class="ws-btn" target="_blank" href="tryit2d70.html?filename=trycss_grid_item">Try it Yourself &raquo;</a></p>
+
+<hr>
+
+<h2>CSS Sizing/Spanning Grid Items</h2>
+<p>A grid item can span over mulitiple columns or rows.</p>
+<p>We can specify where to start and end a grid item by using the following properties:</p>
+<ul>
+  <li><code class="w3-codespan">grid-column-start</code> - Specifies on which column-line the grid item will start</li>
+  <li><code class="w3-codespan">grid-column-end</code> - Specifies on which column-line the grid item will end</li>
+  <li><code class="w3-codespan">grid-column</code> - Shorthand property for <code class="w3-codespan">grid-column-start</code> and <code class="w3-codespan">grid-column-end</code></li>
+  <li><code class="w3-codespan">grid-row-start</code> - Specifies on which row-line the grid item will start</li>
+  <li><code class="w3-codespan">grid-row-end</code> - Specifies on which row-line the grid item will end</li>
+  <li><code class="w3-codespan">grid-row</code> - Shorthand property for <code class="w3-codespan">grid-row-start</code> and <code class="w3-codespan">grid-row-end</code></li>
+</ul>
+<p>The lines between the columns in a grid are called <em>column-lines</em>, and the lines between the rows in a grid are called <em>row-lines</em>.</p>
+<p>We can refer to line numbers when placing a grid item in a grid container.</p>
+
+<hr>
+
+
+<h2>CSS grid-column-start and grid-column-end</h2>
+<p>The <code class="w3-codespan"><a href="../cssref/pr_grid-column-start.html">grid-column-start</a></code> property 
+specifies on which column-line the grid item will start.</p>
+<p>The <code class="w3-codespan"><a href="../cssref/pr_grid-column-end.html">grid-column-end</a></code> property 
+specifies on which column-line the grid item will end.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Let the first grid item start at column-line 1, and end on column-line 3:</p>
+<div class="w3-code notranslate cssHigh">
+  .item1 {<br><strong>
+  &nbsp; </strong>grid-column-start: 1;<br>&nbsp; grid-column-end: 3;<br>}</div>
+<p>Result:</p>
+<div class="w3-white notranslate w3-padding">
+<div class="grid-container">
+  <div style="grid-column-start:1;grid-column-end:3;">1</div>
+  <div>2</div>
+  <div>3</div>  
+  <div>4</div>
+  <div>5</div>
+</div>
+</div>
+<p></p>
+</div>
+
+<hr>
+
+<hr>
+
+<h2>The CSS grid-column Property</h2>
+<p>The <code class="w3-codespan"><a href="../cssref/pr_grid-column.html">grid-column</a></code> property is a shorthand property for the <code class="w3-codespan">
+<a href="../cssref/pr_grid-column-start.html">grid-column-start</a></code> and the <code class="w3-codespan">
+<a href="../cssref/pr_grid-column-end.html">grid-column-end</a></code> properties.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Let the first grid item start at column-line 1, and let it span 2 columns:</p>
+<div class="w3-code notranslate cssHigh">
+  .item1 {<br><strong>
+  &nbsp; </strong>grid-column: 1 / span 
+  2;<br>}</div>
+<p>Result:</p>
+<div class="w3-white notranslate w3-padding">
+<div class="grid-container">
+  <div style="grid-column:1/span 2;">1</div>
+  <div>2</div>
+  <div>3</div>  
+  <div>4</div>
+  <div>5</div>
+</div>
+</div>
+<p></p>
+</div>
+
+<hr>
+
+<h2>CSS grid-row-start and grid-row-end</h2>
+<p>The <code class="w3-codespan"><a href="../cssref/pr_grid-row-start.html">grid-row-start</a></code> property 
+specifies on which row-line the grid item will start.</p>
+<p>The <code class="w3-codespan"><a href="../cssref/pr_grid-row-end.html">grid-row-end</a></code> property 
+specifies on which row-line the grid item will end.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Let the first grid item start at row-line 1, and end on row-line 3:</p>
+<div class="w3-code notranslate cssHigh">
+  .item1 {<br><strong>
+  &nbsp; </strong>grid-row-start: 1;<br>&nbsp; grid-row-end: 3;<br>}</div>
+<p>Result:</p>
+<div class="w3-white notranslate w3-padding">
+<div class="grid-container">
+  <div style="grid-row-start:1;grid-row-end:3;">1</div>
+  <div>2</div>
+  <div>3</div>  
+  <div>4</div>
+  <div>5</div>
+</div>
+</div>
+<p></p>
+</div>
+
+<hr>
+
+<h2>The CSS grid-row Property</h2>
+<p>The <code class="w3-codespan"><a href="../cssref/pr_grid-row.html">grid-row</a></code> property is a shorthand property for the <code class="w3-codespan">
+<a href="../cssref/pr_grid-row-start.html">grid-row-start</a></code> and the <code class="w3-codespan">
+<a href="../cssref/pr_grid-row-end.html">grid-row-end</a></code> properties.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Let the first grid item start at row-line 1, and let it span 2 rows:</p>
+<div class="w3-code notranslate cssHigh">
+  .item1 {<br><strong>
+  &nbsp; </strong>grid-row: 1 / span 2;<br>}</div>
+<p>Result:</p>
+<div class="w3-white notranslate w3-padding">
+<div class="grid-container">
+  <div style="grid-row:1/span 2;">1</div>
+  <div>2</div>
+  <div>3</div>  
+  <div>4</div>
+  <div>5</div>
+</div>
+</div>
+<p></p>
+</div>
+
+<hr>
+
+<h2>Combine grid-column and grid-row</h2>
+<p>Here we use both the <code class="w3-codespan"><a href="../cssref/pr_grid-column.html">grid-column</a></code> 
+and <code class="w3-codespan"><a href="../cssref/pr_grid-row.html">grid-row</a></code> properties 
+to let a grid item span both columns and rows.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Let the first grid item start at column-line 1, and let it span 2 columns, also let the first grid item start at row-line 1, and let it span 2 rows:</p>
+<div class="w3-code notranslate cssHigh">
+  .item1 {<br>&nbsp; grid-column: 1 / span 2;<br>&nbsp; grid-row: 1 / span 2;<br>}</div>
+<p>Result:</p>
+<div class="w3-white notranslate w3-padding">
+<div class="grid-container">
+  <div style="grid-column:1/span 2;grid-row:1/span 2;">1</div>
+  <div>2</div>
+  <div>3</div>  
+  <div>4</div>
+  <div>5</div>
+  <div>6</div>  
+</div>
+</div>
+<p></p>
+</div>
+
+<hr>
+
+<hr>
+
+
+<h2>All CSS Grid Item Properties</h2>
+
+<table class="ws-table-all notranslate">
+  <tr>
+    <th style="width:30%">Property</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><a href="../cssref/css3_pr_align-self.html">align-self</a></td>
+    <td>Aligns the content for a specific grid item along the column axis</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_grid-area.html">grid-area</a></td>
+    <td>A shorthand property for the <em>grid-row-start, grid-column-start</em>, <em>grid-row-end </em>and the <em>grid-column-end</em> properties</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_grid-column.html">grid-column</a></td>
+    <td>A shorthand property for the <em>grid-column-start</em> and the <em>grid-column-end</em> properties</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_grid-column-end.html">grid-column-end</a></td>
+    <td>Specifies where to end the grid item</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_grid-column-start.html">grid-column-start</a></td>
+    <td>Specifies where to start the grid item</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_grid-row.html">grid-row</a></td>
+    <td>A shorthand property for the <em>grid-row-start</em> and the <em>grid-row-end</em> properties</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_grid-row-end.html">grid-row-end</a></td>
+    <td>Specifies where to end the grid item</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_grid-row-start.html">grid-row-start</a></td>
+    <td>Specifies where to start the grid item</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/css_pr_justify-self.html">justify-self</a></td>
+    <td>Aligns the content for a specific grid item along the row axis</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/css_pr_place-self.html">place-self</a></td>
+    <td>A shorthand property for the <em>align-self</em> and the <em>
+    justify-self</em> properties</td>
+  </tr>
+  </table>
+
+<br>

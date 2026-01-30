@@ -1,0 +1,144 @@
+<h1>React Memo</h1>
+
+
+<hr>
+
+<p class="intro">Using <code class="w3-codespan">memo</code> will cause React to skip rendering a component if its props have not changed.</p>
+
+<p class="intro">This can improve performance.</p>
+
+<div class="w3-panel ws-note">
+<p>This section uses React Hooks. See the <a href="react_hooks.html">React Hooks</a> section for more information on Hooks.</p>
+</div>
+
+<hr>
+
+<h2>Problem</h2>
+
+<p>In this example, the <code class="w3-codespan">Todos</code> component re-renders even when the todos have not changed.</p>
+
+<div class="w3-example">
+<h3>Example:</h3>
+  <p><code class="w3-codespan">index.js</code>:</p>
+<pre class="language-jsx w3-white"><code>import { useState } from &quot;react&quot;;
+import ReactDOM from &quot;react-dom/client&quot;;
+import Todos from &quot;./Todos&quot;;
+
+const App = () =&gt; {
+  const [count, setCount] = useState(0);
+  const [todos, setTodos] = useState([&quot;todo 1&quot;, &quot;todo 2&quot;]);
+
+  const increment = () =&gt; {
+    setCount((c) =&gt; c + 1);
+  };
+
+  return (
+    &lt;&gt;
+      &lt;Todos todos={todos} /&gt;
+      &lt;hr /&gt;
+      &lt;div&gt;
+        Count: {count}
+        &lt;button onClick={increment}&gt;+&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/&gt;
+  );
+};
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(&lt;App /&gt;);
+</code></pre>
+  <p><code class="w3-codespan">Todos.js</code>:</p>
+<pre class="language-jsx w3-white"><code>const Todos = ({ todos }) =&gt; {
+  console.log(&quot;child render&quot;);
+  return (
+    &lt;&gt;
+      &lt;h2&gt;My Todos&lt;/h2&gt;
+      {todos.map((todo, index) =&gt; {
+        return &lt;p key={index}&gt;{todo}&lt;/p&gt;;
+      })}
+    &lt;/&gt;
+  );
+};
+
+export default Todos;
+</code></pre>
+
+<p>
+<a target="_blank" class="w3-btn" href="showreacte49d.html?filename=demo2_react_memo1">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<p>When you click the increment button, the <code class="w3-codespan">Todos</code> component re-renders.</p>
+
+<p>If this component was complex, it could cause performance issues.</p>
+
+<hr>
+
+<hr>
+
+<h2>Solution</h2>
+
+<p>To fix this, we can use <code class="w3-codespan">memo</code>.</p>
+
+<p>Use <code class="w3-codespan">memo</code>to keep the <code class="w3-codespan">Todos</code> component from needlessly re-rendering.</p>
+
+<p>Wrap the <code class="w3-codespan">Todos</code> component export in <code class="w3-codespan">memo</code>:</p>
+
+
+<div class="w3-example">
+<h3>Example:</h3>
+  <p><code class="w3-codespan">index.js</code>:</p>
+<pre class="language-jsx w3-white"><code>import { useState } from &quot;react&quot;;
+import ReactDOM from &quot;react-dom/client&quot;;
+import Todos from &quot;./Todos&quot;;
+
+const App = () =&gt; {
+  const [count, setCount] = useState(0);
+  const [todos, setTodos] = useState([&quot;todo 1&quot;, &quot;todo 2&quot;]);
+
+  const increment = () =&gt; {
+    setCount((c) =&gt; c + 1);
+  };
+
+  return (
+    &lt;&gt;
+      &lt;Todos todos={todos} /&gt;
+      &lt;hr /&gt;
+      &lt;div&gt;
+        Count: {count}
+        &lt;button onClick={increment}&gt;+&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/&gt;
+  );
+};
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(&lt;App /&gt;);
+</code></pre>
+  <p><code class="w3-codespan">Todos.js</code>:</p>
+<pre class="language-jsx w3-white"><code>import { memo } from &quot;react&quot;;
+
+const Todos = ({ todos }) =&gt; {
+  console.log(&quot;child render&quot;);
+  return (
+    &lt;&gt;
+      &lt;h2&gt;My Todos&lt;/h2&gt;
+      {todos.map((todo, index) =&gt; {
+        return &lt;p key={index}&gt;{todo}&lt;/p&gt;;
+      })}
+    &lt;/&gt;
+  );
+};
+
+export default memo(Todos);
+</code></pre>
+
+<p>
+<a target="_blank" class="w3-btn" href="showreact0cc8.html?filename=demo2_react_memo2">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<p>Now the <code class="w3-codespan">Todos</code> component only re-renders when the <code class="w3-codespan">todos</code> that are passed to it through props are updated.</p>
+<hr>

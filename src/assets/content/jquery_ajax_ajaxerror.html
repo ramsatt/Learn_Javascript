@@ -1,0 +1,52 @@
+<h1>jQuery <span class="color_h1">ajaxError()</span> Method</h1>
+<p><a href="jquery_ref_ajax.html" class="w3-btn w3-white w3-border" title="jQuery AJAX Methods">&#10094; jQuery AJAX Methods</a></p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Trigger an alert box when an AJAX request fails:</p>
+<div class="w3-code notranslate jsHigh">
+$(document).ajaxError(function(){<br>
+  &nbsp; alert(&quot;An error occurred!&quot;);<br>
+});
+</div>
+<a class="w3-btn w3-margin-bottom" href="tryit400b.html?filename=tryjquery_ajax_ajaxerror" target="_blank">Try it Yourself &raquo;</a>
+</div>
+<hr>
+
+<h2>Definition and Usage</h2>
+<p>The ajaxError() method specifies a function to be run when an AJAX request fails.</p>
+<p><strong>Note:</strong> As of jQuery version 1.8, this method should only be attached to document.</p>
+<hr>
+
+<h2>Syntax</h2>
+<div class="w3-code w3-border notranslate"><div>
+$(document).ajaxError(<i>function(event,xhr,options,exc))</i></div></div>
+<br>
+<table class="ws-table-all notranslate"> 
+  <tr>
+    <th style="width:20%">Parameter</th>
+    <th>Description</th>
+  </tr>  
+  <tr>
+    <td><em>function(event,xhr,options,exc)</em></td>
+    <td>
+ Required. Specifies the function to run if the request fails<br>
+ Additional parameters:<br>
+ <ul><li><em>event</em> - contains the event object</li>
+    <li><em>xhr</em> - contains the XMLHttpRequest object</li>
+    <li><em>options</em> - contains the options used in the AJAX request</li>
+    <li><em>exc</em> - contains the JavaScript exception, if one occurred</li></ul>
+    </td>
+  </tr>
+</table>
+<hr>
+
+<div class="w3-container w3-theme">
+<h2>Try it Yourself - Examples</h2>
+</div>
+<p>
+<a href="tryit6ffb.html?filename=tryjquery_ajax_ajaxerror_options" target="_blank">
+Use the xhr and options parameter</a><br>
+How to use the options parameter to get a more useful error message.</p>
+<hr>
+<p><a href="jquery_ref_ajax.html" class="w3-btn w3-white w3-border" title="jQuery AJAX Methods">&#10094; jQuery AJAX Methods</a></p>

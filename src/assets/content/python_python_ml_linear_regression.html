@@ -1,0 +1,240 @@
+<h1>Machine Learning - Linear Regression</h1>
+
+<hr>
+
+<h2>Regression</h2>
+<p>The term regression is used when you try to find the relationship between variables.</p>
+
+<p>In Machine Learning, and in statistical modeling, that relationship is used to predict the outcome of future events.</p>
+
+<hr>
+<h2>Linear Regression</h2>
+
+<p>Linear regression uses the relationship between the data-points to draw a straight line through 
+all them.</p>
+
+<p>This line can be used to predict future values.</p>
+
+<img src="assets/content/images/img_linear_regression.png" style="max-width:100%">
+
+<p>In Machine Learning, predicting the future is very important.</p>
+<hr>
+<h2>How Does it Work?</h2>
+<p>Python has methods for finding a relationship between data-points and to draw a line of linear regression. 
+We will show you 
+how to use these methods instead of going through the mathematic formula.</p>
+<p>In the example below, the x-axis represents age, and the y-axis represents speed. We have registered the age and speed of 13 cars as they were passing a 
+tollbooth. Let us see if the data we collected could be used in a linear 
+regression:</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <p>Start by drawing a scatter plot:</p>
+<div class="w3-code notranslate pythonHigh">
+  import matplotlib.pyplot as plt<br><br>x = [5,7,8,7,2,17,2,9,4,11,12,9,6]<br>y = 
+  [99,86,87,88,111,86,103,87,94,78,77,85,86]<br><br>plt.scatter(x, y)<br>plt.show()</div>
+<h3>Result:</h3>
+<p><img src="assets/content/images/img_matplotlib_scatter.png" style="max-width:100%"></p>
+
+<a target="_blank" class="w3-btn w3-margin-bottom" href="trypython86a4.html?filename=demo_ml_scatterplot">Run example &raquo;</a>
+</div>
+
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <p>Import <code class="w3-codespan">scipy</code> and draw the line of Linear Regression:</p>
+<div class="w3-code notranslate pythonHigh">
+  import matplotlib.pyplot as plt<br>from scipy import stats<br>
+  <br>x = [5,7,8,7,2,17,2,9,4,11,12,9,6]<br>y = 
+  [99,86,87,88,111,86,103,87,94,78,77,85,86]<br><br>slope, intercept, r, 
+  p, std_err = stats.linregress(x, y)<br><br>def myfunc(x):<br>&nbsp; 
+  return slope * x + intercept<br><br>mymodel = list(map(myfunc, x))<br><br>
+  plt.scatter(x, y)<br>plt.plot(x, mymodel)<br>plt.show()</div>
+<h3>Result:</h3>
+<p><img src="assets/content/images/img_linear_regression.png" style="max-width:100%"></p>
+
+<a target="_blank" class="w3-btn w3-margin-bottom" href="trypython4442.html?filename=demo_ml_linear_regression">Run example &raquo;</a>
+</div>
+
+<h3>Example Explained</h3>
+
+<p>Import the modules you need.</p>
+
+<p>You can learn about the Matplotlib module in our <a href="matplotlib_intro.html">Matplotlib Tutorial</a>.</p>
+
+<p>You can learn about the SciPy module in our <a href="scipy/scipy_intro.html">SciPy Tutorial</a>.</p>
+
+<div class="w3-example ws-light-grey">
+  <p><code class="pythonHigh">import matplotlib.pyplot as plt<br>from scipy 
+  import stats</code></p>
+</div>
+
+<p>Create the arrays that represent the values of the x and y axis:</p>
+
+<div class="w3-example ws-light-grey w3-responsive">
+  <p><code class="pythonHigh">
+x = [5,7,8,7,2,17,2,9,4,11,12,9,6]<br>y = [99,86,87,88,111,86,103,87,94,78,77,85,86]
+</code></p>
+</div>
+
+<p>Execute a method that returns some important key values of Linear Regression:</p>
+
+<div class="w3-example ws-light-grey">
+  <p><code class="pythonHigh">
+slope, intercept, r, 
+  p, std_err = stats.linregress(x, y)</code></p>
+</div>
+
+<p>Create a function that uses the <code class="w3-codespan">slope</code> and 
+<code class="w3-codespan">intercept</code> values to return a new value. This 
+new value represents where on the y-axis the corresponding x value will be 
+placed:</p>
+
+<div class="w3-example ws-light-grey">
+  <p><code class="pythonHigh">
+def myfunc(x):<br>
+&nbsp; return slope * x + intercept</code></p>
+</div>
+
+<p>Run each value of the x array through the function. This will result in a new 
+array with new values for the y-axis:</p>
+
+<div class="w3-example ws-light-grey">
+  <p><code class="pythonHigh">
+  mymodel = list(map(myfunc, x))</code></p>
+</div>
+
+<p>Draw the original scatter plot:</p>
+
+<div class="w3-example ws-light-grey">
+  <p><code class="pythonHigh">
+plt.scatter(x, y)</code></p>
+</div>
+
+<p>Draw the line of linear regression:</p>
+
+<div class="w3-example ws-light-grey">
+  <p><code class="pythonHigh">
+  plt.plot(x, mymodel)</code></p>
+</div>
+
+
+<p>Display the diagram:</p>
+
+<div class="w3-example ws-light-grey">
+  <p><code class="pythonHigh">
+  plt.show()</code></p>
+</div>
+
+<hr>
+
+<hr>
+
+<h2>R for Relationship</h2>
+<p>It is important to know how the relationship between the values of the 
+x-axis and the values of the y-axis is, if there are no relationship the linear 
+regression can not be used to predict anything.</p>
+<p>This relationship - the coefficient of correlation - is called
+<code class="w3-codespan">r</code>.</p>
+
+<p>The <code class="w3-codespan">r</code> value ranges from -1 to 1, where 0 means no relationship, and 1 
+(and -1) 
+means 100% related.</p>
+<p>Python and the Scipy module will compute this value for you, all you have to 
+do is feed it with the x and y values.</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <p>How well does my data fit in a linear regression?</p>
+<div class="w3-code notranslate pythonHigh">
+  from scipy import stats<br><br>x = 
+  [5,7,8,7,2,17,2,9,4,11,12,9,6]<br>y = 
+  [99,86,87,88,111,86,103,87,94,78,77,85,86]<br><br>slope, intercept, r, 
+  p, std_err = stats.linregress(x, y)<br><br>print(r)<br>
+</div>
+
+</div>
+
+<div class="w3-panel ws-note">
+  <p><strong>Note:</strong> The result -0.76 shows that there is a relationship, 
+  not perfect, but it indicates that we could use linear regression in future 
+  predictions.</p>
+</div>
+
+<hr>
+<h2>Predict Future Values</h2>
+
+<p>Now we can use the information we have gathered to predict future values.</p>
+
+<p>Example: Let us try to predict the speed of a 10 years old car.</p>
+<p>To do so, we need the same <code class="w3-codespan">myfunc()</code> function 
+from the example above:</p>
+
+<div class="w3-example ws-light-grey">
+  <p><code class="pythonHigh">
+def myfunc(x):<br>
+&nbsp; return slope * x + intercept</code></p>
+</div>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <p>Predict the speed of a 10 years old car:</p>
+<div class="w3-code notranslate pythonHigh">
+  from scipy import stats<br>
+  <br>x = [5,7,8,7,2,17,2,9,4,11,12,9,6]<br>y = 
+  [99,86,87,88,111,86,103,87,94,78,77,85,86]<br><br>slope, intercept, r, 
+  p, std_err = stats.linregress(x, y)<br><br>def myfunc(x):<br>&nbsp; 
+  return slope * x + intercept<br><br>speed = myfunc(10)<br><br>
+  print(speed)</div>
+
+<a target="_blank" class="w3-btn w3-margin-bottom" href="trypython64e6.html?filename=demo_ml_r_squared2">Run example &raquo;</a>
+</div>
+
+<p>The example predicted a speed at 85.6, which we also could read from the 
+diagram:</p>
+
+<img src="assets/content/images/img_linear_regression2.png" style="max-width:100%">
+
+
+<hr>
+<h2>Bad Fit?</h2>
+
+<p>Let us create an example where linear regression would not be the best method 
+to predict future values.</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <p>These values for the x- and y-axis should result in a very bad fit for linear 
+  regression:</p>
+<div class="w3-code notranslate pythonHigh">
+  import matplotlib.pyplot as plt<br>from scipy import stats<br>
+  <br>x = [89,43,36,36,95,10,66,34,38,20,26,29,48,64,6,5,36,66,72,40]<br>y = 
+  [21,46,3,35,67,95,53,72,58,10,26,34,90,33,38,20,56,2,47,15]<br><br>slope, 
+  intercept, r, p, std_err = stats.linregress(x, y)<br><br>def 
+  myfunc(x):<br>&nbsp; return slope * x + intercept<br><br>mymodel = list(map(myfunc, 
+  x))<br><br>plt.scatter(x, y)<br>plt.plot(x, mymodel)<br>plt.show()</div>
+<h3>Result:</h3>
+<p><img src="assets/content/images/img_linear_regression_badfit.png" style="max-width:100%"></p>
+
+<a target="_blank" class="w3-btn w3-margin-bottom" href="trypythonade9.html?filename=demo_ml_bad_fit">Run example &raquo;</a>
+</div>
+
+<p>And the <code class="w3-codespan">r</code> for relationship?</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <p>You should get a very low <code class="w3-codespan">r</code> value.</p>
+<div class="w3-code notranslate pythonHigh">
+  import numpy<br>from scipy import stats<br><br>x = 
+  [89,43,36,36,95,10,66,34,38,20,26,29,48,64,6,5,36,66,72,40]<br>y = 
+  [21,46,3,35,67,95,53,72,58,10,26,34,90,33,38,20,56,2,47,15]<br><br>slope, intercept, r, 
+  p, std_err = stats.linregress(x, y)<br><br>print(r)<br>
+</div>
+
+</div>
+
+<div class="w3-panel ws-note">
+  <p>The result: 0.013 indicates a very bad relationship, and tells us that this data set is not suitable for linear regression.</p>
+</div>
+
+<hr>

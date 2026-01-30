@@ -1,0 +1,151 @@
+<h1>Java <span class="color_h1">Threads</span></h1>
+
+<hr>
+
+<h2>Java Threads</h2>
+<p>Threads allows a program to operate more efficiently by doing multiple things at the same
+time.</p>
+<p>Threads can be used to perform complicated tasks in the background without interrupting
+the main program.</p>
+<hr>
+
+<h2>Creating a Thread</h2>
+<p>There are two ways to create a thread.</p>
+<p>It can be created by extending the <code class="w3-codespan">Thread</code> class and overriding its <code class="w3-codespan">run()</code> 
+method:</p>
+<div class="w3-example">
+<h3>Extend Syntax</h3>
+<pre class="language-java w3-white"><code>public class Main extends Thread {
+  public void run() {
+    System.out.println(&quot;This code is running in a thread&quot;);
+  </code>}<code>
+</code>}</pre>
+</div>
+
+<p>Another way to create a thread is to implement the <code class="w3-codespan">Runnable</code> interface:</p> 
+<div class="w3-example">
+<h3>Implement Syntax</h3>
+<pre class="language-java w3-white"><code>public class Main implements Runnable {
+  public void run() {
+    System.out.println(&quot;This code is running in a thread&quot;);
+  }
+}</code></pre>
+</div>
+<hr>
+
+<h2>Running Threads</h2>
+<p>If the class extends the <code class="w3-codespan">Thread</code> class, the thread can be run by creating an instance of the
+class and call its <code class="w3-codespan">start()</code> method:</p>
+
+<div class="w3-example">
+<h3>Extend Example</h3>
+<pre class="language-java w3-white"><code>public class Main extends Thread {
+  public static void main(String[] args) {
+    Main thread = new Main();
+    thread.start();
+    System.out.println(&quot;This code is outside of the thread&quot;);
+  }
+  public void run() {
+    System.out.println(&quot;This code is running in a thread&quot;);
+  }
+}</code></pre>
+<p>
+
+</p>
+</div>
+<p>If the class implements the <code class="w3-codespan">Runnable</code> interface, the thread can be run by passing an
+instance of the class to a <code class="w3-codespan">Thread</code> object's constructor and then calling the thread's
+<code class="w3-codespan">start()</code> method:</p>
+
+<div class="w3-example">
+<h3>Implement Example</h3>
+<pre class="language-java w3-white"><code>public class Main implements Runnable {
+  public static void main(String[] args) {
+    Main obj = new Main();
+    Thread thread = new Thread(obj);
+    thread.start();
+    System.out.println(&quot;This code is outside of the thread&quot;);
+  }
+  public void run() {
+    System.out.println(&quot;This code is running in a thread&quot;);
+  }
+}</code></pre>
+<p>
+
+</p>
+</div>
+
+<div class="ws-note w3-panel">
+<p><strong>Differences between &quot;extending&quot; and &quot;implementing&quot; Threads</strong></p>
+<p>The major difference is that when a class extends the Thread class, you cannot extend any other class, but by implementing the Runnable interface, 
+it is possible to extend from another class as well, like: class <code class="w3-codespan">MyClass extends OtherClass implements Runnable</code>.</p>
+</div>
+<hr>
+
+<h2>Concurrency Problems</h2>
+
+<p>Because threads run at the same time as other parts of the program, there is no way to
+know in which order the code will run. When the threads and main program are reading
+and writing the same variables, the values are unpredictable. The problems that result
+from this are called concurrency problems.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>A code example where the value of the variable <strong>amount</strong> is unpredictable:</p>
+<pre class="language-java w3-white"><code>public class Main extends Thread {
+  public static int amount = 0;
+
+  public static void main(String[] args) {
+    Main thread = new Main();
+    thread.start();
+    System.out.println(amount);
+    amount++;
+    System.out.println(amount);
+  </code>}<code>
+
+  public void run() {
+    amount++;
+  </code>}<code>
+</code>}</pre>
+<p>
+
+</p>
+</div>
+
+<p>To avoid concurrency problems, it is best to share as few attributes between threads as
+possible. If attributes need to be shared, one possible solution is to use the <code class="w3-codespan">isAlive()</code>
+method of the thread to check whether the thread has finished running before using any 
+attributes that the thread can change.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Use <code class="w3-codespan">isAlive()</code> to prevent concurrency problems:</p>
+<pre class="language-java w3-white"><code>public class Main extends Thread {
+  public static int amount = 0;
+
+  public static void main(String[] args) {
+    Main thread = new Main();
+    thread.start();
+    // Wait for the thread to finish
+    while(thread.isAlive()) {
+      System.out.println(&quot;Waiting...&quot;);
+    </code>}<code>
+    // Update amount and print its value
+    System.out.println(&quot;Main: &quot; + amount);
+    amount++;
+    System.out.println(&quot;Main: &quot; + amount);
+  </code>}<code>
+  public void run() {
+    amount++;
+  </code>}<code>
+</code>}</pre>
+<p>
+
+</p>
+</div>
+
+<hr>
+
+<hr>
+
+<br>

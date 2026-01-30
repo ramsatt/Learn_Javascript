@@ -1,0 +1,62 @@
+<h1>Python MongoDB <span class="color_h1">Create Collection</span></h1>
+
+<hr>
+<div class="w3-panel ws-note">
+  <p>A <strong>collection</strong> in MongoDB is the same as a <strong>table</strong> in SQL databases.</p>
+</div>
+
+<h2>Creating a Collection</h2>
+<p>To create a collection in MongoDB, use database object and specify the name 
+of the collection you want to create.</p>
+<p>MongoDB will create the collection if it does not exist.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Create a collection called "customers":</p>
+<div class="w3-code notranslate pythonHigh">
+  import pymongo<br><br>myclient = pymongo.MongoClient(&quot;mongodb://localhost:27017/&quot;)<br>
+  mydb = myclient[&quot;mydatabase&quot;]<br><br>mycol = mydb[&quot;customers&quot;]<br></div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showpythone284.html?filename=demo_mongodb_create_collection">Run example &raquo;</a>
+</div>
+
+<div class="w3-panel ws-note">
+  <p><strong>Important:</strong> In MongoDB, a collection is not created until it 
+  gets content!</p>
+</div>
+
+<p>MongoDB waits until you have inserted a document before it actually creates the collection.</p>
+
+<hr>
+
+<h2>Check if Collection Exists</h2>
+<div class="w3-panel ws-note">
+  <p><strong>Remember:</strong> In MongoDB, a collection is not created until it 
+  gets content, so if this is your first time creating a collection, you should 
+  complete the next chapter (create document) before 
+  you check if the collection exists!</p>
+</div>
+
+<p>You can check if a collection exist in a database by listing all collections:</p>
+
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Return a list of all collections in your database:</p>
+<div class="w3-code notranslate pythonHigh">
+  print(mydb.list_collection_names())<br></div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showpythond5a5.html?filename=demo_mongodb_check_collection">Run example &raquo;</a>
+</div>
+
+
+<p>Or you can check a specific collection by name:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Check if the &quot;customers&quot; collection exists:</p>
+<div class="w3-code notranslate pythonHigh">
+  collist = mydb.list_collection_names()<br>if &quot;customers&quot; in collist:<br>&nbsp; 
+  print(&quot;The collection exists.&quot;)<br></div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showpython97bf.html?filename=demo_mongodb_check_collection2">Run example &raquo;</a>
+</div>
+
+
+<hr>

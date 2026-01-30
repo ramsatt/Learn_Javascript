@@ -1,0 +1,63 @@
+<h1>C <span class="color_h1">time</span> (time.h) Library</h1>
+
+<hr>
+
+<h2>C time Functions</h2>
+<p>The <code class="w3-codespan">&lt;time.h&gt;</code> header provides functions for working with dates, times, and measuring durations in C.</p>
+<p>A list of common <code class="w3-codespan">time.h</code> functions can be found in the table below:</p>
+
+<table class="ws-table-all notranslate">
+  <tr>
+    <th style="width:20%">Function</th>
+    <th style="width:80%">Description</th>
+  </tr>
+  <tr>
+    <td>time()</td>
+    <td>Returns the current calendar time as a <code class="w3-codespan">time_t</code> value (seconds since Jan 1, 1970)</td>
+  </tr>
+  <tr>
+    <td>localtime()</td>
+    <td>Converts a <code class="w3-codespan">time_t</code> value to local time and returns a pointer to a <code class="w3-codespan">struct tm</code></td>
+  </tr>
+  <tr>
+    <td>gmtime()</td>
+    <td>Converts a <code class="w3-codespan">time_t</code> value to UTC time (also as a <code class="w3-codespan">struct tm</code>)</td>
+  </tr>
+  <tr>
+    <td>ctime()</td>
+    <td>Converts a <code class="w3-codespan">time_t</code> value into a readable string (e.g. <code>Thu Jun 26 10:30:00 2025</code>)</td>
+  </tr>
+  <tr>
+    <td>asctime()</td>
+    <td>Converts a <code class="w3-codespan">struct tm</code> to a string in a standard date/time format</td>
+  </tr>
+  <tr>
+    <td>strftime()</td>
+    <td>Formats a <code class="w3-codespan">struct tm</code> into a custom date and time string</td>
+  </tr>
+  <tr>
+    <td>difftime()</td>
+    <td>Calculates the difference (in seconds) between two <code class="w3-codespan">time_t</code> values</td>
+  </tr>
+  <tr>
+    <td>mktime()</td>
+    <td>Converts a filled <code class="w3-codespan">struct tm</code> into a <code class="w3-codespan">time_t</code> value</td>
+  </tr>
+  <tr>
+    <td>clock()</td>
+    <td>Returns the number of processor clock ticks used by the program (can be used to measure execution time)</td>
+  </tr>
+</table>
+
+<div class="ws-note ws-panel">
+<h4>What is struct tm?</h4>
+<p>Several functions return or use a special structure called struct tm, which holds individual parts of the date and time like year, month, hour, and minute.</p>
+
+<p>You can use this structure to format and access each time component separately.</p>
+</div>
+<hr>
+
+<h2>Related Pages</h2>
+<p><a href="c_date_time.html">C Date and Time Tutorial</a></p>
+
+<br>

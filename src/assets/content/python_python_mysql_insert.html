@@ -1,0 +1,78 @@
+<h1>Python MySQL <span class="color_h1">Insert Into Table</span></h1>
+
+<hr>
+
+<h2>Insert Into Table</h2>
+<p>To fill a table in MySQL, use the &quot;INSERT INTO&quot; statement.</p>
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Insert a record in the &quot;customers&quot; table:</p>
+<div class="w3-code notranslate jsHigh">
+  import mysql.connector<br><br>mydb = mysql.connector.connect(<br>&nbsp; host=&quot;localhost&quot;,<br>
+  &nbsp;
+  user=&quot;<em>yourusername</em>&quot;,<br>&nbsp; password=&quot;<em>yourpassword</em>&quot;,<br>&nbsp; database=&quot;mydatabase&quot;<br>)<br>
+  <br>mycursor = mydb.cursor()<br><br>sql = &quot;INSERT INTO customers (name, 
+  address) VALUES (%s, %s)&quot;<br>val = (&quot;John&quot;, &quot;Highway 21&quot;)<br>mycursor.execute(sql, 
+  val)<br>
+  <strong><br>mydb.commit()<br></strong><br>print(mycursor.rowcount, &quot;record inserted.&quot;)<br></div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showpythonea66.html?filename=demo_mysql_insert">Run example &raquo;</a>
+</div>
+
+<div class="w3-panel ws-note">
+  <p><strong>Important!:</strong> Notice the statement: 
+  <code class="w3-codespan">mydb.commit()</code>. It is required to make the 
+  changes, otherwise no 
+  changes are made to the table.</p>
+</div>
+
+<hr>
+
+<h2>Insert Multiple Rows</h2>
+<p>To insert multiple rows into a table, use the <code class="w3-codespan">
+executemany()</code> method.</p>
+<p>The second parameter of the <code class="w3-codespan">executemany()</code> method 
+is a list of tuples, containing the data you want to insert:</p>
+<div class="w3-example">
+  <h3>Example</h3>
+<p>Fill the &quot;customers&quot; table with data:</p>
+<div class="w3-code notranslate pythonHigh">
+  import mysql.connector<br><br>mydb = mysql.connector.connect(<br>&nbsp; host=&quot;localhost&quot;,<br>
+  &nbsp;
+  user=&quot;<em>yourusername</em>&quot;,<br>&nbsp; password=&quot;<em>yourpassword</em>&quot;,<br>&nbsp; database=&quot;mydatabase&quot;<br>)<br>
+  <br>mycursor = mydb.cursor()<br><br>sql = &quot;INSERT INTO customers (name, 
+  address) VALUES (%s, %s)&quot;<br>val = [<br>&nbsp; ('Peter', 'Lowstreet 4'),<br>&nbsp; 
+  ('Amy', 'Apple st 652'),<br>&nbsp; ('Hannah', 'Mountain 21'),<br>&nbsp; 
+  ('Michael', 'Valley 345'),<br>&nbsp; ('Sandy', 'Ocean blvd 2'),<br>&nbsp; 
+  ('Betty', 'Green Grass 1'),<br>&nbsp; ('Richard', 'Sky st 331'),<br>&nbsp; 
+  ('Susan', 'One way 98'),<br>&nbsp; ('Vicky', 'Yellow Garden 2'),<br>&nbsp; 
+  ('Ben', 'Park Lane 38'),<br>&nbsp; ('William', 'Central st 954'),<br>&nbsp; 
+  ('Chuck', 'Main Road 989'),<br>&nbsp; ('Viola', 'Sideway 1633')<br>]<br><br>
+  mycursor.executemany(sql, val)<br><br>mydb.commit()<br><br>print(mycursor.rowcount, &quot;was inserted.&quot;)</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showpythonb67c.html?filename=demo_mysql_insert_many">Run example &raquo;</a>
+</div>
+
+<hr>
+
+<hr>
+<h2>Get Inserted ID</h2>
+<p>You can get the id of the row you 
+just inserted by asking the cursor object.</p>
+<div class="w3-panel ws-note">
+<p><strong>Note:</strong> If you insert more than one row, the id of the last 
+inserted row is returned.</p>
+</div>
+<div class="w3-example">
+  <h3>Example</h3>
+<p>Insert one row, and return the ID:</p>
+<div class="w3-code notranslate pythonHigh">
+  import mysql.connector<br><br>mydb = mysql.connector.connect(<br>&nbsp; host=&quot;localhost&quot;,<br>
+  &nbsp;
+  user=&quot;<em>yourusername</em>&quot;,<br>&nbsp; password=&quot;<em>yourpassword</em>&quot;,<br>&nbsp; database=&quot;mydatabase&quot;<br>)<br>
+  <br>mycursor = mydb.cursor()<br><br>sql = &quot;INSERT INTO customers (name, 
+  address) VALUES (%s, %s)&quot;<br>val = (&quot;Michelle&quot;, &quot;Blue Village&quot;)<br>
+  mycursor.execute(sql, val)<br><br>mydb.commit()<br><br>print(&quot;1 record 
+  inserted, ID:&quot;, mycursor.lastrowid)</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showpython4a1b.html?filename=demo_mysql_insert_id">Run example &raquo;</a>
+</div>
+
+<hr>

@@ -1,0 +1,76 @@
+<h1>Python <span class="color_h1">File Write</span></h1>
+
+<hr>
+
+<h2>Write to an Existing File</h2>
+
+<p>To write to an existing file, you must add a parameter to the
+<code class="w3-codespan"><a href="ref_func_open.html">open()</a></code> function:</p>
+<p><code class="w3-codespan">"a"</code> - Append - will append to the end of the file</p>
+<p><code class="w3-codespan">"w"</code> - Write - will overwrite any existing content</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Open the file "demofile.txt" and append content to the file:</p>
+<div class="w3-code notranslate pythonHigh">
+  with open(&quot;demofile.txt&quot;, &quot;a&quot;) as f:<br>&nbsp; f.write(&quot;Now the file has more content!&quot;)<br>
+  <br>#open and read the file after the appending:<br>with open(&quot;demofile.txt&quot;) 
+  as f:<br>&nbsp; print(f.read())</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showpythonac7b.html?filename=demo_file_append">Run Example &raquo;</a>
+</div>
+
+
+<h2>Overwrite Existing Content</h2>
+
+<p>To overwrite the existing content to the file, use the <code class="w3-codespan">w</code> parameter:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Open the file "demofile.txt" and overwrite the content:</p>
+<div class="w3-code notranslate pythonHigh">
+  with open(&quot;demofile.txt&quot;, &quot;w&quot;) as f:<br>
+  &nbsp;
+  f.write(&quot;Woops! I have deleted the content!&quot;)<br><br>
+  #open and read the file after the overwriting:<br>with open(&quot;demofile.txt&quot;) 
+  as f:<br>
+  &nbsp;
+  print(f.read())</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showpython39c4.html?filename=demo_file_write">Run Example &raquo;</a>
+</div>
+
+<div class="w3-panel ws-note">
+  <p><strong>Note:</strong> the "w" method will overwrite the entire file.</p>
+</div>
+
+<hr>
+
+<h2>Create a New File</h2>
+
+<p>To create a new file in Python, use the <code class="w3-codespan"><a href="ref_func_open.html">open()</a></code> method, 
+with one of the following parameters:</p>
+<p><code class="w3-codespan">"x&quot;</code> - Create - will create a file, returns 
+an error if the file exists</p>
+<p><code class="w3-codespan">"a"</code> - Append - will create a file if the 
+specified file does not exists</p>
+<p><code class="w3-codespan">"w"</code> - Write - will create a file if the 
+specified file does not exists</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+<p>Create a new file called "myfile.txt":</p>
+<div class="w3-code notranslate pythonHigh">
+f = open(&quot;myfile.txt&quot;, &quot;x&quot;)
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showpython4c68.html?filename=demo_file_create_new">Run Example &raquo;</a>
+
+</div>
+
+<p>Result: a new empty file is created.</p>
+<div class="w3-panel ws-note">
+  <p><strong>Note:</strong> If the file already exist, an error will be raised.</p>
+</div>
+
+
+<hr>
+
+<hr>

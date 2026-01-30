@@ -1,0 +1,63 @@
+<h1>SQL <span class="color_h1">BACKUP DATABASE</span> for SQL Server</h1>
+
+<hr>
+
+<h2>The SQL BACKUP DATABASE Statement</h2>
+<p>The <code class="w3-codespan">BACKUP DATABASE</code> statement is used in SQL Server to create a full back up of an existing SQL database.</p>
+<h3>Syntax</h3>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+BACKUP DATABASE <em>databasename</em><br>TO DISK = '<em>filepath</em>'; </div>
+</div>
+<hr>
+
+<h2>The SQL BACKUP WITH DIFFERENTIAL Statement</h2>
+<p>A differential back up only backs up the parts of the database that have 
+changed since the last full database backup.</p>
+<h3>Syntax</h3>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+BACKUP DATABASE <em>databasename</em><br>TO DISK = '<em>filepath</em>'<br>WITH 
+  DIFFERENTIAL;</div>
+</div>
+
+<hr>
+
+<h2>BACKUP DATABASE Example</h2>
+<p>The following SQL statement creates a full back up of the existing database &quot;testDB&quot; 
+to the D disk:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+BACKUP DATABASE testDB<br>TO DISK = 'D:\backups\testDB.bak';</div>
+</div>
+
+<div class="w3-panel ws-note">
+<p><b>Tip:</b> Always back up the database to a different drive than the 
+actual database. Then, if you get a disk crash, you will not lose your backup 
+file along with the database.</p>
+</div>
+
+<hr>
+
+<hr>
+
+
+<h2>BACKUP WITH DIFFERENTIAL Example</h2>
+<p>The following SQL statement creates a differential back up of the database &quot;testDB&quot;:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+BACKUP DATABASE testDB<br>TO DISK = 'D:\backups\testDB.bak'<br>WITH 
+  DIFFERENTIAL;</div>
+</div>
+
+<div class="w3-panel ws-note">
+<p><b>Tip:</b> A differential back up reduces the back up time (since only the changes are backed up).</p>
+</div>
+
+<hr>
+
+<hr>
+
+<br>

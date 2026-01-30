@@ -1,0 +1,43 @@
+[
+  {
+    "title": "Angular Tutorial",
+    "items": [
+      {
+        "title": "Angular Tutorial",
+        "file": "angular_default.html"
+      },
+      {
+        "title": "Angular Intro",
+        "file": "angular_angular_intro.html"
+      },
+      {
+        "title": "Angular Get Started",
+        "file": "angular_angular_getstarted.html"
+      },
+      {
+        "title": "Angular Components",
+        "file": "angular_angular_components.html"
+      },
+      {
+        "title": "Angular Templates",
+        "file": "angular_angular_templates.html"
+      },
+      {
+        "title": "Angular Directives",
+        "file": "angular_angular_directives.html"
+      },
+      {
+        "title": "Angular Pipes",
+        "file": "angular_angular_pipes.html"
+      },
+      {
+        "title": "Angular Services &amp; Dependency Injection",
+        "file": "angular_angular_services.html"
+      },
+      {
+        "title": "Angular Forms",
+        "file": "angular_angular_forms.html"
+      }
+    ]
+  }
+]

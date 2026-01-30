@@ -1,0 +1,94 @@
+<h1>jQuery <span class="color_h1">width()</span> Method</h1>
+<p><a href="jquery_ref_html.html" class="w3-btn w3-white w3-border" title="jQuery HTML/CSS Methods">&#10094; jQuery HTML/CSS Methods</a></p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Return the width of a  &lt;div&gt; element:</p>
+<div class="w3-code notranslate jsHigh">
+$(&quot;button&quot;).click(function(){<br>
+ &nbsp;&nbsp;&nbsp; alert($(&quot;div&quot;).width());<br>});&nbsp;   
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="tryitdcc4.html?filename=tryjquery_css_width_ref">Try it Yourself &raquo;</a>
+</div>
+<hr>
+
+<h2>Definition and Usage</h2>
+<p>The width() method sets or returns the width of the selected elements.</p>
+<p>When this method is used to <strong>return</strong> width, it returns the width of the FIRST matched element.</p>
+<p>When this method is used to <strong>set</strong> width, it sets the width of ALL matched elements.</p>
+<p>As the image below illustrates, this method does not include padding, border, or margin. </p>
+<p><img border="0" alt="jQuery Dimensions" src="assets/content/images/img_width.gif"></p>
+<hr>
+
+<p>Related methods:</p>
+<ul>
+  <li><a href="css_height.html">height()</a> - Sets or returns the height of an element</li>
+  <li><a href="html_innerwidth.html">innerWidth()</a> - Returns the width of an element (includes padding)</li>
+    <li><a href="html_innerheight.html">innerHeight()</a> - Returns the height of an element (includes padding)</li>
+  <li><a href="html_outerwidth.html">outerWidth()</a> - Returns the width of an element (includes padding and border).</li>
+  <li><a href="html_outerheight.html">outerHeight()</a> - Returns the height of an element (includes padding and border).</li> 
+</ul>
+<hr>
+
+<hr>
+<h2>Syntax</h2>
+<p>Return the width:</p>
+<div class="w3-code w3-border notranslate"><div>
+$(<i>selector</i>).width()
+</div>
+</div>
+
+<p>Set the width:</p>
+<div class="w3-code w3-border notranslate"><div>
+$(<i>selector</i>).width(<i>value</i>)
+</div>
+</div>
+
+<p>Set the width using a function:</p>
+<div class="w3-code w3-border notranslate"><div>
+$(<i>selector</i>).width(function<i>(index,currentwidth)</i>)
+</div>
+</div>
+<br>
+
+<table class="ws-table-all notranslate"> 
+  <tr>
+    <th style="width:30%">Parameter</th>
+    <th>Description</th>
+  </tr>  
+   <tr>
+    <td><em>value</em></td>
+    <td>Required for setting width. Specifies the width in px, em, pt, etc. Default unit is px</td>
+  </tr>
+  <tr>
+    <td>function<i>(index,currentwidth)</i></td>
+    <td>Optional. Specifies a function that returns the new width of selected elements<ul>
+    <li><i>index</i> - Returns the index position of the element in the set</li>
+    <li><i>currentwidth</i> - Returns the current width of the selected element</li>
+ </ul></td>
+  </tr>
+</table>
+<hr>
+
+<div class="w3-container w3-theme">
+<h2>Try it Yourself - Examples</h2>
+</div>
+
+<p><a target="_blank" href="tryit6ea4.html?filename=tryjquery_css_width_set_values">Set the width of an element</a><br>
+How to set the width of an element using different units.</p>
+
+<p><a target="_blank" href="tryit2ff9.html?filename=tryjquery_css_width_set_func">Decrease the width using a function</a><br>
+How to use a function to decrease the width of an element.</p>
+
+<p><a target="_blank" href="tryit517a.html?filename=tryjquery_css_width_doc_win">Return the width of the document and window elements</a><br>
+How to return the current width of the document and window elements.</p>
+
+<p><a target="_blank" href="tryite416.html?filename=tryjquery_html_all_dimensions_ref">Display dimensions with related methods</a><br>
+How to use width(), height(), innerHeight(), innerWidth(), outerWidth() and outerHeight().</p>
+
+<p><a target="_blank" href="tryitde66.html?filename=tryjquery_css_width_responsive">Responsive Design with width()</a><br>
+How to change the background color of the page on smaller screens.</p>
+
+<hr>
+
+<p><a href="jquery_ref_html.html" class="w3-btn w3-white w3-border" title="jQuery HTML/CSS Methods">&#10094; jQuery HTML/CSS Methods</a></p>

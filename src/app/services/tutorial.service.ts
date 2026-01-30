@@ -3,6 +3,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { AuthService } from './auth.service';
+import { Firestore, doc, getDoc, setDoc } from '@angular/fire/firestore';
+import { User } from '@angular/fire/auth';
 
 export interface TutorialItem {
   title: string;
@@ -12,13 +15,25 @@ export interface TutorialItem {
 export interface TutorialSection {
   title: string;
   items: TutorialItem[];
+  progress?: number; // Add progress to section interface
+}
+
+export interface Course {
+  id: string;
+  title: string;
+  icon: string;
+  color: string;
+  file: string;
+  description: string;
 }
 
 @Injectable({
   providedIn: 'root'
 })
 export class TutorialService {
-  private menuPath = 'assets/menu_data.json';
+  private coursesPath = 'assets/courses.json';
+  private menuPath = 'assets/data/javascript.json'; // Default
+  private currentCoursePathKey = 'current_course_path';
   private contentPath = 'assets/content/';
   private completedKey = 'js_mastery_progress';
   private gamificationKey = 'js_mastery_gamification';
@@ -31,27 +46,69 @@ export class TutorialService {
   lastLoginDate: string | null = null;
   gems = 0;
 
-  constructor(private http: HttpClient) {
-      this.loadProgress();
+  constructor(
+    private http: HttpClient,
+    private authService: AuthService,
+    private firestore: Firestore
+  ) {
+      this.loadCurrentCourse();
       this.checkStreak();
+      
+      // Reactive progress loading when user changes
+      this.authService.user$.subscribe(async (user: User | null) => {
+          await this.loadProgress(); // Wait for cloud data if available
+          if (user) {
+              // Only sync if we have something or want to ensure cloud has latest
+              await this.syncLocalToFirebase(user.uid);
+          }
+      });
+  }
+
+  private loadCurrentCourse() {
+      const saved = localStorage.getItem(this.currentCoursePathKey);
+      if (saved) {
+          this.menuPath = saved;
+          const courseId = saved.split('/').pop()?.replace('.json', '') || 'default';
+          this.completedKey = `${courseId}_mastery_progress`;
+      }
+  }
+
+  setCourse(path: string) {
+      this.menuPath = path;
+      localStorage.setItem(this.currentCoursePathKey, path);
+      
+      const courseId = path.split('/').pop()?.replace('.json', '') || 'default';
+      this.completedKey = `${courseId}_mastery_progress`;
+      
+      this.loadProgress();
+      this.initLocks();
+  }
+
+
+  getCourses(): Observable<Course[]> {
+    return this.http.get<Course[]>(this.coursesPath);
   }
 
   getMenu(): Observable<TutorialSection[]> {
     return this.http.get<TutorialSection[]>(this.menuPath);
   }
 
+
   getContent(fileName: string): Observable<string> {
     return this.http.get(this.contentPath + fileName, { responseType: 'text' });
   }
   
   // Progress Logic
-  private loadProgress() {
+  async loadProgress() {
+      const user = this.authService.getCurrentUser();
+      
+      // Always load Local Storage first as a base
       const saved = localStorage.getItem(this.completedKey);
       if (saved) {
           try {
               const list = JSON.parse(saved);
               this.completedTutorials = new Set(list);
-          } catch(e) { console.error('Error loading progress', e); }
+          } catch(e) { console.error('Error loading local progress', e); }
       }
 
       const savedGame = localStorage.getItem(this.gamificationKey);
@@ -63,7 +120,39 @@ export class TutorialService {
               this.currentStreak = gameData.currentStreak || 0;
               this.lastLoginDate = gameData.lastLoginDate || null;
               this.gems = gameData.gems || 0;
-          } catch(e) { console.error('Error loading gamification', e); }
+          } catch(e) { console.error('Error loading local gamification', e); }
+      }
+
+      if (user) {
+          // Merge with Firebase if logged in
+          const userDoc = doc(this.firestore, `users/${user.uid}`);
+          const docSnap = await getDoc(userDoc);
+          
+          if (docSnap.exists()) {
+              const data = docSnap.data();
+              const cloudProgress = data['progress'] || {};
+              const cloudList = cloudProgress[this.completedKey] || [];
+              
+              // Merge Logic: Combine sets to ensure no progress is lost
+              cloudList.forEach((file: string) => this.completedTutorials.add(file));
+              
+              const cloudGame = data['gamification'] || {};
+              // Take the higher values (simple merge)
+              this.xp = Math.max(this.xp, cloudGame.xp || 0);
+              this.level = Math.max(this.level, cloudGame.level || 1);
+              this.gems = Math.max(this.gems, cloudGame.gems || 0);
+              this.currentStreak = Math.max(this.currentStreak, cloudGame.currentStreak || 0);
+              
+              // Save the merged result back to local
+              localStorage.setItem(this.completedKey, JSON.stringify(Array.from(this.completedTutorials)));
+              localStorage.setItem(this.gamificationKey, JSON.stringify({
+                  xp: this.xp,
+                  level: this.level,
+                  currentStreak: this.currentStreak,
+                  lastLoginDate: this.lastLoginDate,
+                  gems: this.gems
+              }));
+          }
       }
   }
 
@@ -71,12 +160,10 @@ export class TutorialService {
       if (!this.completedTutorials.has(fileName)) {
           this.completedTutorials.add(fileName);
           this.saveProgress();
-          
-          // Award XP for new completion
           this.awardXP(50);
-          return true; // First time complete
+          return true;
       }
-      return false; // Already complete
+      return false;
   }
 
   isComplete(fileName: string): boolean {
@@ -89,9 +176,7 @@ export class TutorialService {
       return Math.round((completedCount / items.length) * 100);
   }
 
-  private saveProgress() {
-      localStorage.setItem(this.completedKey, JSON.stringify(Array.from(this.completedTutorials)));
-      
+  private async saveProgress() {
       const gameData = {
           xp: this.xp,
           level: this.level,
@@ -99,7 +184,40 @@ export class TutorialService {
           lastLoginDate: this.lastLoginDate,
           gems: this.gems
       };
+
+      localStorage.setItem(this.completedKey, JSON.stringify(Array.from(this.completedTutorials)));
       localStorage.setItem(this.gamificationKey, JSON.stringify(gameData));
+
+      const user = this.authService.getCurrentUser();
+      if (user) {
+          const userDoc = doc(this.firestore, `users/${user.uid}`);
+          await setDoc(userDoc, {
+              progress: {
+                  [this.completedKey]: Array.from(this.completedTutorials)
+              },
+              gamification: gameData,
+              updatedAt: new Date()
+          }, { merge: true });
+      }
+  }
+
+  private async syncLocalToFirebase(uid: string) {
+      const userDoc = doc(this.firestore, `users/${uid}`);
+      const gameData = {
+          xp: this.xp,
+          level: this.level,
+          currentStreak: this.currentStreak,
+          lastLoginDate: this.lastLoginDate,
+          gems: this.gems
+      };
+
+      await setDoc(userDoc, {
+          progress: {
+              [this.completedKey]: Array.from(this.completedTutorials)
+          },
+          gamification: gameData,
+          lastSyncAt: new Date()
+      }, { merge: true });
   }
 
   // Gamification Methods
@@ -155,9 +273,18 @@ export class TutorialService {
   private unlockedModules: Set<string> = new Set<string>();
 
   initLocks() {
-      const saved = localStorage.getItem('unlocked_modules');
+      this.unlockedModules = new Set<string>();
+      const key = 'unlocked_modules_' + (this.menuPath || 'default');
+      const saved = localStorage.getItem(key);
+      
       if (saved) {
           this.unlockedModules = new Set(JSON.parse(saved));
+      } else {
+          // Backward compatibility for JS
+          if (this.menuPath && this.menuPath.includes('javascript')) {
+             const oldSaved = localStorage.getItem('unlocked_modules');
+             if (oldSaved) this.unlockedModules = new Set(JSON.parse(oldSaved));
+          }
       }
   }
 
@@ -182,6 +309,7 @@ export class TutorialService {
   }
 
   private saveLocks() {
-      localStorage.setItem('unlocked_modules', JSON.stringify(Array.from(this.unlockedModules)));
+      const key = 'unlocked_modules_' + (this.menuPath || 'default');
+      localStorage.setItem(key, JSON.stringify(Array.from(this.unlockedModules)));
   }
 }

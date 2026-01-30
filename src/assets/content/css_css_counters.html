@@ -1,0 +1,149 @@
+<h1>CSS <span class="color_h1">Counters</span></h1>
+
+<hr>
+
+<h2>CSS Counters</h2>
+<p>With CSS counters, you can create dynamic numbering of elements (like 
+headings, sections, or list items) without using JavaScript.</p>
+<p>CSS counters are &quot;variables&quot; maintained by CSS, and their values can 
+be incremented (or decremented) by CSS rules.</p>
+
+<div class="w3-dark-grey">
+<div class="container w3-content" style="max-width:500px">
+  <h3>Pizza</h3>
+  <h3>Hamburger</h3>
+  <h3>Hotdogs</h3>
+</div>
+</div>
+
+<hr>
+
+<h2>CSS Automatic Numbering With Counters</h2>
+<p>CSS counters are like &quot;variables&quot;. The variable values can be incremented 
+(or decremented) by CSS rules.</p>
+<p>To work with CSS counters we will use the following properties:</p>
+<ul>
+<li><code class="w3-codespan"><a href="../cssref/pr_gen_counter-reset.html">counter-reset</a></code> - Creates or resets a counter</li>
+<li><code class="w3-codespan"><a href="../cssref/pr_gen_counter-increment.html">counter-increment</a></code> - Increments or decrements a counter</li>
+<li><code class="w3-codespan"><a href="../cssref/pr_gen_content.html">content</a></code> - Inserts generated content 
+(used inside <code class="w3-codespan"><a href="../cssref/sel_before.html">::before</a></code> and <code class="w3-codespan">
+<a href="../cssref/sel_after.html">::after</a></code>, to insert the generated content)</li>
+<li><code class="w3-codespan"><a href="../cssref/func_counter.html">counter()</a></code> and <code class="w3-codespan"><a href="../cssref/func_counters.html">counters()</a></code> functions - Adds the value of a counter to an element</li>
+</ul>
+<p>To use a CSS counter, it must first be created with the <code class="w3-codespan">
+<a href="../cssref/pr_gen_counter-reset.html">counter-reset</a></code> property.</p>
+<hr>
+
+<h2>CSS Increase and Decrease Counter</h2>
+<p>The following example creates a counter for the page (in the body selector), 
+then it increments the counter value by 1 for each &lt;h2&gt; element and adds the text &quot;Section 
++ <em>countervalue</em>:&quot; 
+to the beginning of each &lt;h2&gt; element:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+body {<br>&nbsp;&nbsp;counter-reset: section;<br>}<br><br>h2::before {<br>&nbsp; counter-increment: section;<br>&nbsp;&nbsp;content: &quot;Section &quot; counter(section) &quot;: &quot;;<br>}
+</div>
+
+</div>
+
+<p>The <code class="w3-codespan"><a href="../cssref/pr_gen_counter-increment.html">counter-increment</a></code> 
+property has a second parameter. The default value of this is 1 (which 
+increments the counter by one). To decrease the counter value, you can set it to 
+-1.</p>
+<p>The following example is the same as above, but here we decrement the counter value for each &lt;h2&gt; element and adds 
+the text &quot;Section + <em>countervalue</em>:&quot; 
+to the beginning of each &lt;h2&gt; element:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+body {<br>&nbsp;&nbsp;counter-reset: section;<br>}<br><br>h2::before {<br>&nbsp; counter-increment: section 
+  -1;<br>&nbsp;&nbsp;content: &quot;Section &quot; counter(section) &quot;: &quot;;<br>}
+</div>
+
+</div>
+
+<p>The following example is the same as above, but here we increment the counter value 
+by 2 for each &lt;h2&gt; element and adds 
+the text &quot;Section + <em>countervalue</em>:&quot; 
+to the beginning of each &lt;h2&gt; element:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+body {<br>&nbsp;&nbsp;counter-reset: section;<br>}<br><br>h2::before {<br>&nbsp; counter-increment: section 
+  2;<br>&nbsp;&nbsp;content: &quot;Section &quot; counter(section) &quot;: &quot;;<br>}
+</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>CSS Using Two Counters</h2>
+<p>The following example creates one counter for the page (named &quot;section&quot;) and one 
+counter for each &lt;h1&gt; element (named &quot;subsection&quot;). The &quot;section&quot; counter will be 
+counted for each &lt;h1&gt; element with &quot;Section +&nbsp; <em>sectioncounter</em>&gt;.&quot;, 
+and the &quot;subsection&quot; counter will be counted for each &lt;h2&gt; element with &quot;<em>sectioncounter</em>.<em>subsectioncounter</em>&quot;:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+body {<br>&nbsp;&nbsp;counter-reset: section;<br>}<br><br>h1 {<br>&nbsp; 
+counter-reset: subsection;<br>}<br><br>h1::before {<br>&nbsp; counter-increment: 
+section;<br>&nbsp; content: &quot;Section &quot; counter(section) &quot;. &quot;;<br>
+}<br><br>h2::before {<br>&nbsp; 
+counter-increment: subsection;<br>&nbsp; content: 
+counter(section) &quot;.&quot; counter(subsection) &quot; &quot;;<br>} </div>
+
+</div>
+<hr>
+
+<h2>The CSS counters() Function</h2>
+<p>The <code class="w3-codespan"><a href="../cssref/func_counters.html">counters()</a></code> 
+function returns the current values of the named and nested counters, as a 
+string.</p>
+<p>Here we use the <code class="w3-codespan">counters()</code> function to 
+insert a string between different levels of nested counters:</p>
+<div class="w3-example">
+  <h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+ol {<br>&nbsp; counter-reset: section;<br>&nbsp; 
+list-style-type: none;<br>}<br><br>
+li::before {<br>&nbsp; counter-increment: section;<br>&nbsp; 
+content: counters(section,&quot;.&quot;) &quot; &quot;;<br>} </div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>CSS Counter Properties</h2>
+<table class="ws-table-all notranslate">
+  <tr>
+    <th style="width:30%">Property</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_gen_content.html">content</a></td>
+    <td>Used with the ::before and ::after pseudo-elements, to insert generated content</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_gen_counter-increment.html">counter-increment</a></td>
+    <td>Increments one or more counter values</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_gen_counter-reset.html">counter-reset</a></td>
+    <td>Creates or resets one or more counters</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/func_counter.html">counter()</a></td>
+    <td>Returns the current value of the named counter</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/func_counters.html">counters()</a></td>
+    <td>Returns the current values of the named and nested counters</td>
+  </tr>
+</table>
+
+<br>

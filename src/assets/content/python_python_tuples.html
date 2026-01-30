@@ -1,0 +1,187 @@
+<h1>Python <span class="color_h1">Tuples</span></h1>
+
+<hr>
+
+<div class="w3-codeline notranslate pythonHigh">
+mytuple = ("apple", "banana", "cherry")
+</div>
+
+<hr>
+<h2>Tuple</h2>
+
+<p>Tuples are used to store multiple items in a single variable.</p>
+
+<p>Tuple is one of 4 built-in data types in Python used to store collections of 
+data, the other 3 are <a href="python_lists.html">List</a>, 
+<a href="python_sets.html">Set</a>, and <a href="python_dictionaries.html">Dictionary</a>, all with different qualities and usage.</p>
+
+<p>A tuple is a collection which is ordered and <strong>unchangeable</strong>.</p>
+
+<p>Tuples are written with round brackets.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Create a Tuple:</p>
+<div class="w3-code notranslate pythonHigh">
+thistuple = ("apple", "banana", "cherry")<br>
+print(thistuple)
+</div>
+
+</div>
+
+<hr>
+
+<h2>Tuple Items</h2>
+
+<p>Tuple items are ordered, unchangeable, and allow duplicate values.</p>
+
+<p>Tuple items are indexed, the first item has index <code class="w3-codespan">[0]</code>, the second item has index <code class="w3-codespan">[1]</code> etc.</p>
+
+<hr>
+
+<h2>Ordered</h2>
+
+<p>When we say that tuples are ordered, it means that the items have a defined order, and that order will not change.</p>
+
+<hr>
+
+<h2>Unchangeable</h2>
+
+<p>Tuples are unchangeable, meaning that we cannot change, add or remove items after the tuple has been created.</p>
+
+<hr>
+
+<h2>Allow Duplicates</h2>
+<p>Since tuples are indexed, they can have items with the same value:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Tuples allow duplicate values:</p>
+<div class="w3-code notranslate pythonHigh">
+thistuple = ("apple", "banana", "cherry", &quot;apple&quot;, &quot;cherry&quot;)<br>
+print(thistuple)
+</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>Tuple Length</h2>
+
+<p>To determine how many items a tuple has, use the <code class="w3-codespan"><a href="ref_func_len.html">len()</a></code> function:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Print the number of items in the tuple:</p>
+<div class="w3-code notranslate pythonHigh">
+thistuple = (&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;)<br>
+print(len(thistuple))
+</div>
+
+</div>
+
+<hr>
+
+<h2>Create Tuple With One Item</h2>
+
+<p>To create a tuple with only one item, you have to add a comma after the item, 
+otherwise Python will not recognize it as a tuple.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>One item tuple, remember the comma:</p>
+<div class="w3-code notranslate pythonHigh">
+thistuple = ("apple",)<br>
+  print(type(thistuple))<br><br>#NOT a tuple<br>thistuple = (&quot;apple&quot;)<br>
+  print(type(thistuple))</div>
+
+</div>
+
+<hr>
+
+<h2>Tuple Items - Data Types</h2>
+
+<p>Tuple items can be of any data type:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>String, int and boolean data types:</p>
+<div class="w3-code notranslate pythonHigh">
+tuple1 = ("apple", "banana", "cherry")<br>
+tuple2 = (1, 5, 7, 9, 3)<br>
+tuple3 = (True, False, False)
+</div>
+
+</div>
+
+<p>A tuple can contain different data types:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>A tuple with strings, integers and boolean values:</p>
+<div class="w3-code notranslate pythonHigh">
+tuple1 = ("abc", 34, True, 40, "male")
+</div>
+
+</div>
+
+<hr>
+
+<h2>type()</h2>
+
+<p>From Python's perspective, tuples are defined as objects with the data type 'tuple':</p>
+
+<div class="w3-codeline notranslate">
+&lt;class 'tuple'&gt;
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>What is the data type of a tuple?</p>
+<div class="w3-code notranslate pythonHigh">
+mytuple = ("apple", "banana", "cherry")<br>
+print(type(mytuple))
+</div>
+
+</div>
+
+<hr>
+
+<h2>The tuple() Constructor</h2>
+<p>It is also possible to use the <span class="w3-codespan"><a href="ref_func_tuple.html">tuple()</a></span> constructor to make a tuple.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Using the tuple() method to make a tuple:</p>
+<div class="w3-code notranslate pythonHigh">
+thistuple = tuple(("apple", "banana", "cherry")) # note the double round-brackets<br>
+print(thistuple)
+</div>
+
+</div>
+
+<hr>
+
+<h2>Python Collections (Arrays)</h2>
+<p>There are four collection data types in the Python programming language:</p>
+<ul>
+<li><strong><a href="python_lists.html">List</a></strong> is a collection which is ordered and changeable. Allows duplicate members.</li>
+<li><strong>Tuple</strong> is a collection which is ordered and unchangeable. Allows duplicate members.</li>
+<li><strong><a href="python_sets.html">Set</a></strong> is a collection which is unordered, 
+unchangeable*, and unindexed. No duplicate members.</li>
+<li><strong><a href="python_dictionaries.html">Dictionary</a></strong> is a collection which is ordered** 
+and changeable. No duplicate members.</li>
+</ul>
+
+<div class="w3-panel ws-note">
+  <p>*Set <em>items</em> are unchangeable, but you can remove and/or add items 
+  whenever you like.</p>
+  <p>**As of Python version 3.7, dictionaries are <em>ordered</em>. 
+  In Python 3.6 and earlier, dictionaries are <em>unordered</em>.</p>
+</div>
+
+<p>When choosing a collection type, it is useful to understand the properties of that type. Choosing the right type for a particular data set could mean retention of meaning, and, it could mean an increase in efficiency or security.</p>
+
+<hr>
+
+<hr>

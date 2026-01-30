@@ -1,0 +1,112 @@
+<section id="mainContent">
+<h1>Git <span class="color_h1">Reset</span></h1>
+
+<hr>
+<div style="position:relative">
+<div class="pagemenu">
+<h2>Change Platform:</h2>
+<hr>
+<a href="git_reset74ab.html?remote=github"><img src="assets/content/images/img_remote_github.png" alt="Shift focus to GitHub" style="height:100%;max-height:25px;margin:auto;margin-right:10px;">GitHub</a>
+<a href="git_reset678d.html?remote=bitbucket"><img src="assets/content/images/img_remote_bitbucket.png" alt="Shift focus to Bitbucket" style="height:100%;max-height:25px;margin-right:10px;">Bitbucket</a>
+<a href="git_reset99fa.html?remote=gitlab"><img src="assets/content/images/img_remote_gitlab.png" alt="Shift focus to GitLab" style="height:100%;max-height:25px;margin-right:10px;">GitLab</a>
+</div>
+</div>
+<h2>What Does Git Reset Do?</h2>
+<p>The <code class="language-shell">git reset</code> command moves your current branch (HEAD) to a different commit.</p>
+<p>Depending on the option, it can also change which changes are staged or even delete changes from your working directory.</p>
+<p>Use it to undo commits, unstage files, or clean up your history.</p>
+<hr>
+<h2>Summary of Git Reset Commands and Options</h2>
+<ul>
+  <li><code class="language-shell">git reset --soft &lt;commit&gt;</code> - Move HEAD to commit, keep changes staged</li>
+  <li><code class="language-shell">git reset --mixed &lt;commit&gt;</code> - Move HEAD to commit, unstage changes (default)</li>
+  <li><code class="language-shell">git reset --hard &lt;commit&gt;</code> - Move HEAD to commit, discard all changes</li>
+  <li><code class="language-shell">git reset &lt;file&gt;</code> - Unstage a file</li>
+  <li><code class="language-shell">git log --oneline</code> - Show commit history</li>
+</ul>
+<hr>
+<h2>How to Find the Commit to Reset To</h2>
+<p>First, you need to find the commit you want to go back to.</p>
+<p>Use <code class="language-shell">git log --oneline</code> to see a summary of your commit history:</p>
+<p><img class="invert-on-dark" src="assets/content/images/img_reset_part1.gif" alt="Git Reset Step 1" style="width:100%;max-width:1280px"></p>
+<p>Step 2: Move the repository back to that step:</p>
+<p><img class="invert-on-dark" src="assets/content/images/img_reset_part2.gif" alt="Git Reset Step 2" style="width:100%;max-width:1280px"></p>
+
+<p>After the previous chapter, we have a part in our <code class="language-shell">commit</code> history we could go back to.</p>
+<p>Let's try and do that with <code class="language-shell">reset</code>.</p>
+<hr>
+<h2>Git Reset Find Commit in Log</h2>
+<p>First thing, we need to find the point we want to return to.</p>
+<p>To do that, we need to go through the 
+<code class="language-shell">log</code>.</p>
+<p>To avoid the very long <code class="language-shell">log</code> list, we are going to use the 
+<code class="language-shell">--oneline</code> option, 
+which gives just one line per <code class="language-shell">commit</code> showing:</p>
+<ul>
+  <li>The first seven characters of the <code class="language-shell">commit hash</code> - this is what we need to 
+  refer to in our reset command.</li>
+  <li>the <code class="language-shell">commit message</code></li>
+</ul>
+<p>So let's find the point we want to <code class="language-shell">reset</code> to:</p>
+<div class="w3-example">
+  <h3>Example</h3>
+<pre class="command-line" data-output="2-18" data-user="user" data-host="localhost"><code class="language-shell">git log --oneline
+e56ba1f (HEAD -&gt; master) Revert &quot;Just a regular update, definitely no accidents here...&quot;
+52418f7 Just a regular update, definitely no accidents here...
+9a9add8 (origin/master) Added .gitignore
+81912ba Corrected spelling error
+3fdaa5b Merge pull request #1 from w3schools-test/update-readme
+836e5bf (origin/update-readme, update-readme) Updated readme for GitHub Branches
+daf4f7c (origin/html-skeleton, html-skeleton) Updated index.html with basic meta
+facaeae (gh-page/master) Merge branch 'master' of https://github.com/w3schools-test/hello-world
+e7de78f Updated index.html. Resized image
+5a04b6f Updated README.md with a line about focus
+d29d69f Updated README.md with a line about GitHub
+e0b6038 merged with hello-world-images after fixing conflicts
+1f1584e added new image
+dfa79db updated index.html with emergency fix
+0312c55 Added image to Hello World
+09f4acd Updated index.html with a new line
+221ec6e First release of Hello World!</code></pre>
+</div>
+<p>We want to return to the <code class="language-shell">commit</code>: 
+<code class="language-shell">9a9add8 (origin/master) Added .gitignore</code>, 
+the last one before we started to mess with things.</p>
+<hr>
+
+<hr>
+<h2>Git Reset --soft</h2>
+<p><code class="language-shell">git reset --soft &lt;commit&gt;</code> moves HEAD to the specified commit, but keeps all your changes staged (in the index).</p>
+<p>This is useful if you want to combine several commits into one, or just want to rewrite history but keep your work ready to commit.</p>
+<div class="w3-example">
+  <h3>Example</h3>
+<pre class="command-line"><code class="language-shell">git reset --soft 9a9add8</code></pre>
+</div>
+<p>All changes after <code class="language-shell">9a9add8</code> are now staged, ready for a new commit.</p>
+<hr>
+<h2>Git Reset --mixed (default)</h2>
+<p><code class="language-shell">git reset --mixed &lt;commit&gt;</code> (or just <code class="language-shell">git reset &lt;commit&gt;</code>) moves HEAD to the specified commit and unstages any changes, but keeps them in your working directory.</p>
+<p>This is the default option and is useful if you want to "undo" a commit but keep your changes for editing or recommitting.</p>
+<div class="w3-example">
+  <h3>Example</h3>
+<pre class="command-line"><code class="language-shell">git reset --mixed 9a9add8</code></pre>
+</div>
+<p>All changes after <code class="language-shell">9a9add8</code> are now unstaged, but still in your files.</p>
+<hr>
+<h2>Review Changes</h2>
+<p>After running Git Reset, review your changes to make sure everything is as expected.</p>
+<hr>
+<h2>Tips & Best Practices</h2>
+<p>Use Git Reset with caution, as it can rewrite your commit history.</p>
+<p>Make sure to communicate with your team before making changes to the remote repository.</p>
+<hr>
+<h2>Troubleshooting</h2>
+<p>If you encounter issues with Git Reset, try using <code class="language-shell">git status</code> to see the current state of your repository.</p>
+<hr>
+<h2>Warnings</h2>
+<p>Be careful when using Git Reset, as it can delete changes and rewrite your commit history.</p>
+<p>Make sure to use it only when necessary.</p>
+<hr>
+
+<hr>
+<br>

@@ -1,0 +1,127 @@
+[
+  {
+    "title": "PostgreSQL Tutorial",
+    "items": [
+      {
+        "title": "PostgreSQL Tutorial",
+        "file": "postgresql_index.html"
+      },
+      {
+        "title": "PostgreSQL ADD COLUMN",
+        "file": "postgresql_postgresql_add_column.html"
+      },
+      {
+        "title": "PostgreSQL ALL Operator",
+        "file": "postgresql_postgresql_all.html"
+      },
+      {
+        "title": "PostgreSQL ALTER COLUMN",
+        "file": "postgresql_postgresql_alter_column.html"
+      },
+      {
+        "title": "PostgreSQL ANY Operator",
+        "file": "postgresql_postgresql_any.html"
+      },
+      {
+        "title": "PostgreSQL AS",
+        "file": "postgresql_postgresql_as.html"
+      },
+      {
+        "title": "PostgreSQL AVG Function",
+        "file": "postgresql_postgresql_avg.html"
+      },
+      {
+        "title": "PostgreSQL BETWEEN Operator",
+        "file": "postgresql_postgresql_between.html"
+      },
+      {
+        "title": "PostgreSQL CASE Expression",
+        "file": "postgresql_postgresql_case.html"
+      },
+      {
+        "title": "PostgreSQL COUNT, AVG, and SUM Functions",
+        "file": "postgresql_postgresql_count_avg_sum.html"
+      },
+      {
+        "title": "PostgreSQL COUNT Function",
+        "file": "postgresql_postgresql_count.html"
+      },
+      {
+        "title": "Create Demo Database",
+        "file": "postgresql_postgresql_create_demodatabase.html"
+      },
+      {
+        "title": "PostgreSQL Create Table",
+        "file": "postgresql_postgresql_create_table.html"
+      },
+      {
+        "title": "PostgreSQL CROSS JOIN",
+        "file": "postgresql_postgresql_cross_join.html"
+      },
+      {
+        "title": "PostgreSQL DELETE",
+        "file": "postgresql_postgresql_delete.html"
+      },
+      {
+        "title": "PostgreSQL DROP COLUMN",
+        "file": "postgresql_postgresql_drop_column.html"
+      },
+      {
+        "title": "PostgreSQL DROP TABLE",
+        "file": "postgresql_postgresql_drop_table.html"
+      },
+      {
+        "title": "W3Schools PostgreSQL Certificate",
+        "file": "postgresql_postgresql_exam.html"
+      },
+      {
+        "title": "PostgreSQL EXISTS Operator",
+        "file": "postgresql_postgresql_exists.html"
+      },
+      {
+        "title": "PostgreSQL Select Data",
+        "file": "postgresql_postgresql_fetch_data.html"
+      },
+      {
+        "title": "PostgreSQL FULL JOIN",
+        "file": "postgresql_postgresql_full_join.html"
+      },
+      {
+        "title": "PostgreSQL Get Started",
+        "file": "postgresql_postgresql_getstarted.html"
+      },
+      {
+        "title": "PostgreSQL GROUP BY Clause",
+        "file": "postgresql_postgresql_groupby.html"
+      },
+      {
+        "title": "PostgreSQL HAVING Clause",
+        "file": "postgresql_postgresql_having.html"
+      },
+      {
+        "title": "PostgreSQL IN Operator",
+        "file": "postgresql_postgresql_in.html"
+      },
+      {
+        "title": "PostgreSQL INNER JOIN",
+        "file": "postgresql_postgresql_inner_join.html"
+      },
+      {
+        "title": "PostgreSQL Insert Data",
+        "file": "postgresql_postgresql_insert_into.html"
+      },
+      {
+        "title": "Install Introduction",
+        "file": "postgresql_postgresql_install.html"
+      },
+      {
+        "title": "PostgreSQL Introduction",
+        "file": "postgresql_postgresql_intro.html"
+      },
+      {
+        "title": "PostgreSQL JOINS",
+        "file": "postgresql_postgresql_joins.html"
+      }
+    ]
+  }
+]

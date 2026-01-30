@@ -1,0 +1,49 @@
+<h1>PHP <span class="color_h1">if </span> Statements</h1>
+
+<hr>
+
+<h2>PHP Conditional Statements</h2>
+<p>Conditional statements are used to perform different actions based on different conditions.</p>
+<p>In PHP, we have the following conditional statements:</p>
+<ul>
+  <li><code class="w3-codespan">if</code> statement - executes some code if one condition is true</li>
+  <li><code class="w3-codespan"><a href="php_if_else_if.html">if...else</a></code> statement - executes some code if a condition is true and another code if that condition is false</li>
+  <li><code class="w3-codespan"><a href="php_if_else_if.html">if...elseif...else</a></code> statement  - executes different codes for more than two conditions</li>
+  <li><code class="w3-codespan"><a href="php_switch.html">switch</a></code> statement - selects one of many blocks of code to be executed</li>
+</ul>
+<hr>
+
+<h2>PHP - The if Statement</h2>
+<p>The <code class="w3-codespan"><a href="keyword_if.html">if</a></code> statement executes some code 
+only if the specified condition is true.</p>
+
+<h3>Syntax</h3>
+<div class="w3-example">
+<pre class="language-php notranslate w3-white"><code>if (<i>condition</i>) {
+  <i>// code to be executed if condition is true</i>;
+}</code></pre></div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Output &quot;Have a good day!&quot; if 5 is larger than 3:</p>
+<pre class="language-php notranslate w3-white"><code>if (5 > 3) {
+  echo &quot;Have a good day!&quot;;
+}</code></pre>
+
+</div>
+
+<p>It is common to use variables in the <code class="w3-codespan"><a href="keyword_if.html">if</a></code> statement:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Output &quot;Have a good day!&quot; if <code class="w3-codespan">$t</code> is less than 20:</p>
+<pre class="language-php notranslate w3-white"><code>$t = 14;
+if ($t &lt; 20) {
+  echo &quot;Have a good day!&quot;;
+}</code></pre>
+
+</div>
+
+<hr>
+
+<hr>

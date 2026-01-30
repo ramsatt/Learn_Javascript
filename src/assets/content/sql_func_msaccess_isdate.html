@@ -1,0 +1,81 @@
+<h1>MS Access <span class="color_h1">IsDate()</span> Function</h1>
+
+<div class="w3-clear w3-center nextprev">
+<a class="w3-left w3-btn" href="func_msaccess_environ.html">&#10094;<span class="w3-hide-small"> Previous</span></a>
+<a class="w3-btn" title="MS Access Functions" href="sql_ref_msaccess.html">&#10094; MS Access Functions</a>
+<a class="w3-right w3-btn" href="func_msaccess_isnull.html"><span class="w3-hide-small">Next </span>&#10095;</a>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Check whether the expression can be converted to a date:</p>
+<div class="w3-code notranslate sqlHigh">
+  SELECT 
+  IsDate(Now());</div>
+<a target="_blank" href="trysql06dc.html?filename=trysql_func_ms_isdate&amp;ss=-1" class="w3-btn w3-margin-bottom">Try it Yourself &raquo;</a>
+</div>
+<hr>
+
+<h2>Definition and Usage</h2>
+<p>The IsDate() function checks whether an expression can be converted to a 
+date.</p>
+<p>This function returns a Boolean value. TRUE (-1) indicates that the expression is a valid date, 
+and FALSE (0) indicates that the expression is not a valid date.</p>
+
+<h2>Syntax</h2>
+<div class="w3-code w3-border notranslate">
+  IsDate(<em>expression</em>)</div>
+
+<h2>Parameter Values</h2>
+<table class="ws-table-all notranslate"> 
+  <tr>
+    <th style="width:23%">Parameter</th>
+    <th>Description</th>  </tr>  
+  <tr>
+    <td><em>expression</em></td>
+    <td>Required. The value to test</td>
+  </tr>
+  </table>
+
+<h2>Technical Details</h2>
+<table class="ws-table-all">
+<tr>
+ <th style="width:23%">Works in:</th>
+  <td>From Access 2000</td>
+</tr>
+</table>
+<hr>
+
+<h2>More Examples</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Return TRUE if the expression is a valid date, otherwise FALSE:</p>
+<div class="w3-code notranslate sqlHigh">
+  SELECT
+  IsDate(&quot;Hello&quot;);</div>
+<a target="_blank" href="trysql247d.html?filename=trysql_func_ms_isdate2&amp;ss=-1" class="w3-btn w3-margin-bottom">Try it Yourself &raquo;</a>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Return TRUE if the expression is a valid date, otherwise FALSE:</p>
+<div class="w3-code notranslate sqlHigh">
+  SELECT
+  IsDate(&quot;August 25, 2017&quot;);</div>
+<a target="_blank" href="trysqlba7d.html?filename=trysql_func_ms_isdate3&amp;ss=-1" class="w3-btn w3-margin-bottom">Try it Yourself &raquo;</a>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Return TRUE if the expression is a valid date, otherwise FALSE:</p>
+<div class="w3-code notranslate sqlHigh">
+  SELECT IsDate(#25/8/2017#);</div>
+<a target="_blank" href="trysql9263.html?filename=trysql_func_ms_isdate4&amp;ss=-1" class="w3-btn w3-margin-bottom">Try it Yourself &raquo;</a>
+</div>
+<br>
+
+<div class="w3-clear w3-center nextprev">
+<a class="w3-left w3-btn" href="func_msaccess_environ.html">&#10094;<span class="w3-hide-small"> Previous</span></a>
+<a class="w3-btn" title="MS Access Functions" href="sql_ref_msaccess.html">&#10094; MS Access Functions</a>
+<a class="w3-right w3-btn" href="func_msaccess_isnull.html"><span class="w3-hide-small">Next </span>&#10095;</a>
+</div>

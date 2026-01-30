@@ -1,0 +1,97 @@
+<h1>SQL <span class="color_h1">DEFAULT</span> Constraint</h1>
+
+<hr>
+
+
+<h2>SQL DEFAULT Constraint</h2>
+<p>The <code class="w3-codespan">DEFAULT</code> constraint is used to set a default value for a column.</p>
+<p>The default value will be added to all new records, if no other value is specified.</p>
+<hr>
+
+<h2>SQL DEFAULT on CREATE TABLE</h2>
+<p>The following SQL sets a <code class="w3-codespan">DEFAULT</code> value for the &quot;City&quot; column when the &quot;Persons&quot; table is created:</p>
+
+<p><b>My SQL / SQL Server / Oracle / MS Access:</b></p>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+CREATE TABLE Persons
+(<br>
+&nbsp;&nbsp;&nbsp; ID int NOT NULL,<br>
+&nbsp;&nbsp;&nbsp;
+LastName varchar(255) NOT NULL,<br>
+&nbsp;&nbsp;&nbsp;
+FirstName varchar(255),<br>
+&nbsp;&nbsp;&nbsp;
+Age int,<br>
+&nbsp;&nbsp;&nbsp;
+City varchar(255) DEFAULT 'Sandnes'<br>
+);</div></div>
+
+<p>The <code class="w3-codespan">DEFAULT</code> constraint can also be used to insert system values, by using functions like <code class="w3-codespan">
+<a href="func_sqlserver_getdate.html">GETDATE()</a></code>:</p>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+CREATE TABLE Orders
+(<br>
+&nbsp;&nbsp;&nbsp; ID int NOT NULL,<br>
+&nbsp;&nbsp;&nbsp;
+OrderNumber int NOT NULL,<br>
+&nbsp;&nbsp;&nbsp;
+OrderDate date DEFAULT GETDATE()<br>
+);</div></div>
+
+
+<hr>
+
+<hr>
+
+
+<h2>SQL DEFAULT on ALTER TABLE</h2>
+<p>To create a <code class="w3-codespan">DEFAULT</code> constraint on the &quot;City&quot; column when the table is already created, use the following SQL:</p>
+<p><b>MySQL:</b></p>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+ALTER TABLE Persons<br>
+ALTER City SET DEFAULT 'Sandnes';</div></div>
+
+<p><b>SQL Server:</b></p>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+ALTER TABLE Persons<br>ADD CONSTRAINT df_City <br>DEFAULT 'Sandnes' FOR City;</div></div>
+
+<p><b>MS Access:</b></p>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+ALTER TABLE Persons<br>
+ALTER COLUMN City SET DEFAULT 'Sandnes';</div></div>
+
+<p><b>Oracle:</b></p>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+ALTER TABLE Persons<br>
+MODIFY City DEFAULT 'Sandnes';</div></div>
+
+
+<hr>
+
+
+<h2>DROP a DEFAULT Constraint</h2>
+<p>To drop a <code class="w3-codespan">DEFAULT</code> constraint, use the following SQL:</p>
+<p><b>MySQL:</b></p>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+ALTER TABLE Persons<br>
+ALTER City DROP DEFAULT;</div></div>
+
+<p><b>SQL Server / Oracle / MS Access:</b></p>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+ALTER TABLE Persons<br>
+ALTER COLUMN City DROP DEFAULT;</div></div>
+
+
+<hr>
+
+<hr>
+
+<br>

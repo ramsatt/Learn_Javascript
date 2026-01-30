@@ -1,0 +1,114 @@
+<h1>SQL <span class="color_h1">NULL</span> Functions</h1>
+
+<hr>
+
+<h2>SQL IFNULL(), ISNULL(), COALESCE(), and NVL() Functions</h2>
+<p>Look at the following &quot;Products&quot; table:</p>
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+  <tr>
+    <th>P_Id</th>
+    <th>ProductName</th>
+    <th>UnitPrice</th>
+    <th>UnitsInStock</th>
+    <th>UnitsOnOrder</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>Jarlsberg</td>
+    <td>10.45</td>
+    <td>16</td>
+    <td>15</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Mascarpone</td>
+    <td>32.56</td>
+    <td>23</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Gorgonzola</td>
+    <td>15.67</td>
+    <td>9</td>
+    <td>20</td>
+  </tr>
+</table>
+</div>
+<p>Suppose that the &quot;UnitsOnOrder&quot; column is optional, and may contain NULL values.</p>
+<p>Look at the following SELECT statement:</p>
+
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+SELECT ProductName, UnitPrice * (UnitsInStock + UnitsOnOrder)<br>
+FROM Products;</div>
+</div>
+
+<p>In the example above, if any of the &quot;UnitsOnOrder&quot; values are NULL, the result 
+will be NULL.</p>
+
+<hr>
+
+<h2>Solutions</h2>
+
+<p><b>MySQL</b></p>
+<p>The MySQL <code class="w3-codespan"><a href="func_mysql_ifnull.html">IFNULL()</a></code> function lets you 
+return an alternative value if an expression is NULL:</p>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+SELECT ProductName, UnitPrice * (UnitsInStock + IFNULL(UnitsOnOrder, 0))<br>
+FROM Products;</div></div>
+
+<p>or we can use the <code class="w3-codespan">
+<a href="func_mysql_coalesce.html">COALESCE()</a></code> function, like this:</p>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+SELECT ProductName, UnitPrice * (UnitsInStock + COALESCE(UnitsOnOrder, 0))<br>
+FROM Products;</div></div>
+
+<p><b>SQL Server</b></p>
+<p>The SQL Server <code class="w3-codespan"><a href="func_sqlserver_isnull.html">
+ISNULL()</a></code> function lets 
+you return an alternative value when an expression is NULL:</p>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+SELECT ProductName, UnitPrice * (UnitsInStock + ISNULL(UnitsOnOrder, 0))<br>
+FROM Products;</div></div>
+
+<p>or we can use the <code class="w3-codespan"><a href="func_sqlserver_coalesce.html">COALESCE()</a></code>
+function, like this:</p>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+SELECT ProductName, UnitPrice * (UnitsInStock + COALESCE(UnitsOnOrder, 0))<br>
+FROM Products;</div></div>
+
+<p><b>MS Access</b></p>
+<p>The MS Access <code class="w3-codespan"><a href="func_msaccess_isnull.html">
+IsNull()</a></code> function returns 
+TRUE (-1) if the expression is a null value, otherwise FALSE (0):</p>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+SELECT ProductName, UnitPrice * (UnitsInStock + IIF(IsNull(UnitsOnOrder), 0, UnitsOnOrder))<br>
+FROM Products;</div></div>
+
+<p><b>Oracle</b></p>
+<p>The Oracle <code class="w3-codespan">NVL()</code> function achieves the same result:</p>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+SELECT ProductName, UnitPrice * (UnitsInStock + NVL(UnitsOnOrder, 0))<br>
+FROM Products;</div></div>
+
+<p>or we can use the <code class="w3-codespan">COALESCE()</code>
+function, like this:</p>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+SELECT ProductName, UnitPrice * (UnitsInStock + COALESCE(UnitsOnOrder, 0))<br>
+FROM Products;</div></div>
+
+<hr>
+
+
+<hr>
+
+<br>

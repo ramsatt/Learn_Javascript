@@ -1,0 +1,42 @@
+<h1>C <span class="color_h1">Memory Address</span></h1>
+
+<hr>
+
+
+<h2>Memory Address</h2>
+<p>When a variable is created in C, a memory address is assigned to the variable.</p>
+<p>The memory address is the 
+location of where the variable is stored on the computer.
+</p>
+<p>When we assign a value to the variable, it is stored in this memory 
+address. </p>
+<p>To access it, use the reference 
+operator (<code class="w3-codespan">&amp;</code>), and the result represents where the variable is stored:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  int myAge = 43;<br>printf(&quot;%p&quot;, <strong>&amp;myAge</strong>); // Outputs 0x7ffe5367e044<br>
+ </div>
+
+</div>
+
+<p><strong>Note:</strong> The memory address is in hexadecimal form (0x..). You 
+will probably not get the same result in your program, as this depends on where 
+the variable is stored on your computer.</p>
+<p>You should also note that <code class="w3-codespan">&amp;myAge</code> is often called a "pointer". A pointer basically stores the memory address of a variable as its value. To print pointer values, 
+we use the <code class="w3-codespan">%p</code> format specifier.</p>
+<p>You will learn much more about 
+<a href="c_pointers.html">pointers</a> in the next chapter.</p>
+
+<div class="ws-note w3-panel">
+<h4>Why is it useful to know the memory address?</h4>
+  <p><a href="c_pointers.html"><strong>Pointers</strong></a> are important in C, because they allow us to manipulate the data in the computer's memory - <strong>this can reduce the code and improve the performance</strong>.</p>
+  <p>Pointers are one of the things that make C stand out from other 
+  programming languages, like <a href="../python/default.html">Python</a> and <a href="../java/default.html">Java</a>.</p>
+</div>
+
+<hr>
+
+<hr>
+
+<br>

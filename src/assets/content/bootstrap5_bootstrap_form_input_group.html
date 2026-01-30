@@ -1,0 +1,176 @@
+<h1>Bootstrap 5 <span class="color_h1">Input Groups</span></h1>
+
+<hr>
+
+<h2>Input Groups</h2>
+<p>The <code class="w3-codespan">.input-group</code> class is a container to enhance an input by adding an icon, text or a button in front or behind the input field as a "help text".</p>
+<p>To style the specified help text, use the <code class="w3-codespan">.input-group-text</code> class:</p>
+<div class="input-group mb-3">
+    <span class="input-group-text">@</span>
+  <input type="text" class="form-control" placeholder="Username" style="z-index:0">
+</div>
+
+<div class="input-group mb-3">
+  <input type="text" class="form-control" placeholder="Your Email" style="z-index:0">
+    <span class="input-group-text">@example.com</span>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+ &lt;form&gt;<br>&nbsp; &lt;div class=&quot;input-group&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;span class=&quot;input-group-text&quot;&gt;@&lt;/span&gt;<br>&nbsp;&nbsp;&nbsp; &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Username&quot;&gt;<br>
+  &nbsp;
+  &lt;/div&gt;<br><br>&nbsp; &lt;div class=&quot;input-group&quot;&gt;<br>&nbsp;&nbsp;&nbsp; &lt;input type=&quot;text&quot; 
+  class=&quot;form-control&quot; placeholder=&quot;Your Email&quot;&gt;<br>&nbsp;&nbsp;&nbsp; &lt;span class=&quot;input-group-text&quot;&gt;@example.com&lt;/span&gt;<br>&nbsp; &lt;/div&gt;<br>&lt;/form&gt;</div>
+
+</div>
+
+<hr>
+
+<h2>Input Group Size</h2>
+<p>Use the <code class="w3-codespan">.input-group-sm</code> class for small input groups and <code class="w3-codespan">.input-group-lg</code> for large inputs groups:</p>
+<div class="input-group mb-3 input-group-sm">
+    <span class="input-group-text">Small</span>
+  <input type="text" class="form-control" style="z-index:0">
+</div>
+
+<div class="input-group mb-3">
+    <span class="input-group-text">Default</span>
+  <input type="text" class="form-control" style="z-index:0">
+</div>
+
+<div class="input-group mb-3 input-group-lg">
+    <span class="input-group-text">Large</span>
+  <input type="text" class="form-control" style="z-index:0">
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;div class=&quot;input-group mb-3 input-group-sm&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&lt;span class=&quot;input-group-text&quot;&gt;Small&lt;/span&gt;<br>&nbsp;&nbsp;&lt;input type=&quot;text&quot; class=&quot;form-control&quot;&gt;<br>&lt;/div&gt;<br><br>&lt;div class=&quot;input-group mb-3&quot;&gt;<br>
+  &nbsp;&nbsp;&lt;span 
+  class=&quot;input-group-text&quot;&gt;Default&lt;/span&gt;<br>&nbsp; &lt;input 
+  type=&quot;text&quot; class=&quot;form-control&quot;&gt;<br>&lt;/div&gt;<br><br>&lt;div 
+  class=&quot;input-group mb-3 input-group-lg&quot;&gt;<br>&nbsp;&nbsp;&lt;span 
+  class=&quot;input-group-text&quot;&gt;Large&lt;/span&gt;<br>&nbsp;&nbsp;&lt;input type=&quot;text&quot; class=&quot;form-control&quot;&gt;<br>&lt;/div&gt;</div>
+
+</div>
+<hr>
+
+<h2>Multiple Inputs and Helpers</h2>
+<p>Add multiple inputs or addons:</p>
+<div class="input-group mb-3">
+    <span class="input-group-text">Person</span>
+  <input type="text" class="form-control" placeholder="First Name" style="z-index:0">
+  <input type="text" class="form-control" placeholder="Last Name" style="z-index:0">
+</div>
+<div class="input-group mb-3">
+    <span class="input-group-text">One</span>
+    <span class="input-group-text">Two</span>
+    <span class="input-group-text">Three</span>
+  <input type="text" class="form-control" style="z-index:0">
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;!-- Multiple inputs --&gt;<br>&lt;div class=&quot;input-group mb-3&quot;&gt;<br>&nbsp;&nbsp;&lt;span 
+  class=&quot;input-group-text&quot;&gt;Person&lt;/span&gt;<br>&nbsp;&nbsp;&lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;First Name&quot;&gt;<br>&nbsp;&nbsp;&lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Last Name&quot;&gt;<br>&lt;/div&gt;<br><br>&lt;!-- Multiple addons / help text --&gt;<br>&lt;div class=&quot;input-group mb-3&quot;&gt;<br>&nbsp;&nbsp;&lt;span 
+  class=&quot;input-group-text&quot;&gt;One&lt;/span&gt;<br>&nbsp;&nbsp;&lt;span 
+  class=&quot;input-group-text&quot;&gt;Two&lt;/span&gt;<br>&nbsp;&nbsp;&lt;span 
+  class=&quot;input-group-text&quot;&gt;Three&lt;/span&gt;<br>&nbsp;&nbsp;&lt;input type=&quot;text&quot; class=&quot;form-control&quot;&gt;<br>&lt;/div&gt;</div>
+
+</div>
+
+<hr>
+<hr>
+
+<h2>Input Group with Checkboxes and Radios</h2>
+<p>You can also use checkboxes or radio buttons instead of text:</p>
+<div class="input-group mb-3">
+    <div class="input-group-text">
+      <input type="checkbox" style="z-index:0"> 
+  </div>
+  <input type="text" class="form-control" placeholder="Some text" style="z-index:0">
+</div>
+
+<div class="input-group mb-3">
+    <div class="input-group-text">
+      <input type="radio" style="z-index:0"> 
+  </div>
+  <input type="text" class="form-control" placeholder="Some text" style="z-index:0">
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;div class=&quot;input-group mb-3&quot;&gt;<br>&nbsp; 
+  &lt;div class=&quot;input-group-text&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;input 
+  type=&quot;checkbox&quot;&gt; <br>&nbsp; &lt;/div&gt;<br>&nbsp; &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Some text&quot;&gt;<br>&lt;/div&gt;<br><br>&lt;div class=&quot;input-group mb-3&quot;&gt;<br>&nbsp;&nbsp;&lt;div class=&quot;input-group-text&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;input 
+  type=&quot;radio&quot;&gt; <br>&nbsp;&nbsp;&lt;/div&gt;<br>&nbsp; &lt;input 
+  type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Some text&quot;&gt;<br>&lt;/div&gt;</div>
+
+</div>
+<hr>
+
+<h2>Input Group Buttons</h2>
+<div class="input-group mb-3">
+    <button class="btn btn-outline-primary" type="button" style="z-index:1">Basic Button</button>  
+  <input type="text" class="form-control" placeholder="Some text" style="z-index:0">
+</div>
+
+<div class="input-group mb-3">
+  <input type="text" class="form-control" placeholder="Search" style="z-index:0">
+    <button class="btn btn-success" type="button" style="z-index:1">Go</button>  
+</div>
+
+<div class="input-group mb-3">
+  <input type="text" class="form-control" placeholder="Something clever.." style="z-index:0">
+    <button class="btn btn-primary" type="button" style="z-index:1">OK</button>  
+    <button class="btn btn-danger" type="button" style="z-index:1">Cancel</button>  
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;div class=&quot;input-group mb-3&quot;&gt;<br>&nbsp;&nbsp;&lt;button class=&quot;btn btn-outline-primary&quot; type=&quot;button&quot;&gt;Basic Button&lt;/button&gt; <br>&nbsp; &lt;input type=&quot;text&quot; class=&quot;form-control&quot; 
+  placeholder=&quot;Some text&quot;&gt;<br>&lt;/div&gt;<br><br>&lt;div class=&quot;input-group mb-3&quot;&gt;<br>&nbsp; 
+  &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Search&quot;&gt;<br>&nbsp;&nbsp;&lt;button class=&quot;btn btn-success&quot; 
+  type=&quot;submit&quot;&gt;Go&lt;/button&gt; <br>&lt;/div&gt;<br><br>&lt;div 
+  class=&quot;input-group mb-3&quot;&gt;<br>&nbsp; &lt;input type=&quot;text&quot; class=&quot;form-control&quot; 
+  placeholder=&quot;Something clever..&quot;&gt;<br>&nbsp;&nbsp;&lt;button class=&quot;btn btn-primary&quot; type=&quot;button&quot;&gt;OK&lt;/button&gt; <br>&nbsp;&nbsp;&lt;button class=&quot;btn btn-danger&quot; type=&quot;button&quot;&gt;Cancel&lt;/button&gt; <br>
+  &lt;/div&gt;</div>
+
+</div>
+<hr>
+
+<h2>Input Group with Dropdown Button</h2>
+  <p>Add a dropdown button in the input group. Note that you don't need the .dropdown wrapper, as you normally would.</p>
+  <div class="input-group mt-3 mb-3" style="z-index:1">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+      Dropdown button
+    </button>
+    <ul class="dropdown-menu" style="z-index:0">
+      <li><a class="dropdown-item" href="javascrip:void(0)">Link 1</a></li>
+      <li><a class="dropdown-item" href="javascrip:void(0)">Link 2</a></li>
+      <li><a class="dropdown-item" href="javascrip:void(0)">Link 3</a></li>
+    </ul>
+    <input type="text" class="form-control" placeholder="Username">
+  </div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;div class=&quot;input-group mt-3 mb-3&quot;&gt;<br>&nbsp; &lt;button type=&quot;button&quot; class=&quot;btn 
+  btn-primary dropdown-toggle&quot; data-bs-toggle=&quot;dropdown&quot;&gt;<br>&nbsp;&nbsp;&nbsp; 
+  Dropdown button<br>&nbsp; &lt;/button&gt;<br>&nbsp; &lt;ul class=&quot;dropdown-menu&quot;&gt;<br>&nbsp;&nbsp;&nbsp; 
+  &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Link 1&lt;/a&gt;&lt;/li&gt;<br>&nbsp;&nbsp;&nbsp; 
+  &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Link 2&lt;/a&gt;&lt;/li&gt;<br>&nbsp;&nbsp;&nbsp; 
+  &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Link 3&lt;/a&gt;&lt;/li&gt;<br>&nbsp; &lt;/ul&gt;<br>&nbsp; 
+  &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Username&quot;&gt;<br>&lt;/div&gt;</div>
+
+</div>
+<hr>
+
+
+<br>

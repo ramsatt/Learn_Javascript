@@ -1,0 +1,125 @@
+<h1>HTML <span class="color_h1">Background Images</span></h1>
+
+<hr>
+<p class="intro">A background image can be specified for almost any HTML element.</p>
+
+<hr>
+
+
+<h2>Background Image on an HTML element</h2>
+<p>To add a background image on an HTML element, use the HTML <code class="w3-codespan">style</code> attribute 
+and the CSS <code class="w3-codespan">background-image</code> property:</p>
+<div class="w3-example">
+  <h3>Example</h3>
+  <p>Add a background image on a &lt;p&gt; element:</p>
+<div class="w3-code notranslate htmlHigh">
+  &lt;p style=&quot;background-image: url('img_girl.jpg');&quot;&gt;</div>
+
+</div>
+
+<p>You can also specify the background image in the <code class="w3-codespan">&lt;style&gt;</code> 
+element, in the <code class="w3-codespan">&lt;head&gt;</code> 
+section:</p>
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Specify the background image in the <code class="w3-codespan">&lt;style&gt;</code> 
+  element:</p>
+<div class="w3-code notranslate htmlHigh">
+  &lt;style&gt;<br>p {<br>&nbsp; background-image: url('img_girl.jpg');<br>
+  }<br>&lt;/style&gt;</div>
+
+</div>
+
+<hr>
+
+<h2>Background Image on a Page</h2>
+<p>If you want the entire page to have a background image, you must 
+specify the background image on the <code class="w3-codespan">&lt;body&gt;</code> element:</p>
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Add a background image for the entire page:</p>
+<div class="w3-code notranslate htmlHigh">
+  &lt;style&gt;<br>body {<br>&nbsp; background-image: url('img_girl.jpg');<br>
+  }<br>&lt;/style&gt;</div>
+
+</div>
+
+<hr>
+
+<h2>Background Repeat</h2>
+<p>If the background image is smaller than the element, the image will repeat itself, 
+horizontally and vertically, until it reaches the end of the element:</p>
+
+<div style="height:300px;background-image:url('example_img_girl.jpg');">
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;style&gt;<br>body {<br>&nbsp; background-image: url('example_img_girl.jpg');<br>}<br>&lt;/style&gt;</div>
+
+</div>
+
+<p>To avoid the background image from repeating itself, set the <code class="w3-codespan">background-repeat</code> property 
+to <code class="w3-codespan">no-repeat</code>.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;style&gt;<br>body {<br>&nbsp; background-image: url('example_img_girl.jpg');<br>&nbsp; 
+  background-repeat: no-repeat;<br>}<br>&lt;/style&gt;</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+
+<h2>Background Cover</h2>
+<p>If you want the background image to cover the entire element, you 
+can set the <code class="w3-codespan">background-size</code> property to
+<code class="w3-codespan">cover.</code></p>
+<p>Also, to make sure the entire element is always covered, set the 
+<code class="w3-codespan">background-attachment</code> property to <code class="w3-codespan">fixed:</code></p>
+<p>This way, the background image will cover the entire element, with no stretching (the image will 
+keep its original proportions):</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;style&gt;<br>body {<br>&nbsp; background-image: url('img_girl.jpg');<br>&nbsp; 
+  background-repeat: no-repeat;<br>&nbsp; background-attachment: fixed; <br>&nbsp; 
+  background-size: cover;<br>
+  }<br>&lt;/style&gt;</div>
+
+</div>
+
+<hr>
+
+
+<h2>Background Stretch</h2>
+<p>If you want the background image to stretch to fit the entire element, you 
+can set the <code class="w3-codespan">background-size</code> property to
+<code class="w3-codespan">100% 100%</code>: </p>
+<div style="height:300px;background-image:url('img_girl.jpg');background-size:100% 100%;">
+</div>
+<p>Try resizing the browser window, and you will see that the image will stretch, but always cover the entire element.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;style&gt;<br>body {<br>&nbsp; background-image: url('img_girl.jpg');<br>&nbsp; 
+  background-repeat: no-repeat;<br>&nbsp; background-attachment: fixed; <br>&nbsp; 
+  background-size: 100% 100%;<br>
+  }<br>&lt;/style&gt;</div>
+
+</div>
+
+
+<hr>
+
+<hr>
+
+<h2>Learn More CSS</h2>
+<p>From the examples above you have learned that background images can be styled by using the CSS background properties.</p>
+<p>To learn more about CSS background properties, study our <a href="../css/css_background.html">CSS Background Tutorial</a>.</p>
+
+<br>

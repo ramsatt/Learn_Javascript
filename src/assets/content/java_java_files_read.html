@@ -1,0 +1,101 @@
+<h1>Java <span class="color_h1">Read Files</span></h1>
+
+<hr>
+
+<h2>Read a File</h2>
+<p>In the previous chapters, you learned how to create and write to a file.</p>
+<p>In the 
+following example, we use the <code class="w3-codespan">Scanner</code> class to 
+<strong>read the contents</strong> of the text file we created in the previous chapter:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>import java.io.File;                  // Import the File class
+import java.io.FileNotFoundException; // Import this class to handle errors
+import java.util.Scanner;             // Import the Scanner class to read text files
+
+public class ReadFile {
+  public static void main(String[] args) {
+    File myObj = new File("filename.txt");
+
+    // try-with-resources: Scanner will be closed automatically
+    try (Scanner myReader = new Scanner(myObj)) {
+      while (myReader.hasNextLine()) {
+        String data = myReader.nextLine();
+        System.out.println(data);
+      }
+    } catch (FileNotFoundException e) {
+      System.out.println("An error occurred.");
+      e.printStackTrace();
+    }
+  }
+}</code></pre>
+<p>The output will be:</p>
+<div class="notranslate w3-black w3-padding">
+<code>
+Files in Java might be tricky, but it is fun enough!</code>
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom w3-margin-top" href="showjava7843.html?filename=demo_files_read">Run Example &raquo;</a>
+</div>
+<p><strong>Explanation:</strong> This program opens the file named <code class="w3-codespan">filename.txt</code> 
+and reads it line by line using a <code class="w3-codespan">Scanner</code>.  
+Each line is printed to the console.  
+If the file cannot be found, the program will print <code class="w3-codespan">"An error occurred."</code> instead.</p>
+<hr>
+
+<h2>Get File Information</h2>
+<p>To get more information about a file, use any of the <code class="w3-codespan">File</code> methods:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>import java.io.File;&nbsp; // Import the File class
+
+public class GetFileInfo { <br>&nbsp; public static void main(String[] args) {
+&nbsp;&nbsp;&nbsp; File myObj = new File(&quot;filename.txt&quot;);
+&nbsp;&nbsp;&nbsp; if (myObj.exists()) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(&quot;File name: &quot; + myObj.getName());
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(&quot;Absolute path: &quot; + myObj.getAbsolutePath());
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(&quot;Writeable: &quot; + myObj.canWrite());
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(&quot;Readable &quot; + myObj.canRead());
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(&quot;File size in bytes &quot; + myObj.length());
+&nbsp;&nbsp;&nbsp; } else {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(&quot;The file does not exist.&quot;);
+&nbsp;&nbsp;&nbsp; }
+&nbsp; }
+}
+</code></pre>
+<p>The output will be:</p>
+<div class="notranslate w3-black w3-padding">
+<code>
+File name: filename.txt<br>
+Absolute path: C:\Users\MyName\filename.txt<br>
+Writeable: true<br>
+Readable: true<br>
+File size in bytes: 0
+</code>
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom w3-margin-top" href="showjavaaed8.html?filename=demo_files_get">Run Example &raquo;</a>
+</div>
+<hr>
+
+<h2>Other Ways to Read Files</h2>
+<p>There are several classes you can use to read files in Java:</p>
+<ul>
+  <li><code class="w3-codespan">Scanner</code> - best for <strong>simple text</strong> and when you want to parse numbers or words easily.</li>
+  <li><code class="w3-codespan">BufferedReader</code> - best for <strong>large text files</strong>, because it is faster and reads line by line.</li>
+  <li><code class="w3-codespan">FileInputStream</code> - best for <strong>binary data</strong> (images, audio, PDFs) or when you need full control of raw bytes.</li>
+</ul>
+
+<p>You will learn more about 
+  <a href="java_fileinputstream.html"><code class="w3-codespan">FileInputStream</code></a> and <a href="java_bufferedreader.html"><code class="w3-codespan">BufferedReader</code></a> 
+   in later chapters.
+</p>
+
+<div class="ws-note w3-panel">
+<p><strong>Tip:</strong> To delete a file, read our <a href="java_files_delete.html">Java Delete Files</a> chapter.</p>
+<p><strong>Tip:</strong> For a list of all Scanner methods, go to our <a href="java_ref_scanner.html">Java Scanner Reference</a>.</p>
+</div>
+<hr>
+
+<hr>
+
+
+<br>

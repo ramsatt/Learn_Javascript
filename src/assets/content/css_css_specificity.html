@@ -1,0 +1,188 @@
+<h1>CSS <span class="color_h1">Specificity</span></h1>
+
+<hr>
+
+<h2>CSS Specificity</h2>
+<p>CSS specificity is an algorithm that determines which style declaration is ultimately applied to an element.</p>
+<p>If two or more CSS rules point to the same element, the declaration with the highest specificity will &quot;win&quot;, and 
+that style will be applied to the HTML element.</p>
+
+<p>Look at the following examples:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Here, we have specified a red color for &lt;p&gt; elements. <strong>Result:</strong> The text will be red:</p>
+<div class="w3-code notranslate htmlHigh">
+  &lt;html&gt;<br>&lt;head&gt;<br>&nbsp; &lt;style&gt;<br>&nbsp;&nbsp;&nbsp; p {color: red;} <br>&nbsp; 
+  &lt;/style&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br><br>&lt;p&gt;Hello World!&lt;/p&gt;<br>
+  <br>&lt;/body&gt;<br>
+  &lt;/html&gt;</div>
+<p></p>
+</div>
+
+<p>Now, look at next example:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Here, we have added a class selector (named &quot;test&quot;), and specified a green 
+color for this class. <strong>Result:</strong> The text will be green, because the class selector has higher 
+specificity:</p>
+<div class="w3-code notranslate htmlHigh">
+  &lt;html&gt;<br>&lt;head&gt;<br>&nbsp; &lt;style&gt;<br>&nbsp;&nbsp;&nbsp; .test {color: green;}
+  <br>&nbsp;&nbsp;&nbsp; p {color: red;} <br>&nbsp; &lt;/style&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>
+  <br>&lt;p class=&quot;test&quot;&gt;Hello World!&lt;/p&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</div>
+<p></p>
+</div>
+
+<p>Now, look at next example:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Here, we have added the id selector (named &quot;demo&quot;). <strong>Result:</strong> The text will be 
+blue, because the id selector has higher specificity:</p>
+<div class="w3-code notranslate htmlHigh">
+  &lt;html&gt;<br>&lt;head&gt;<br>&nbsp; &lt;style&gt;<br>&nbsp;&nbsp;&nbsp; #demo {color: blue;}<br>&nbsp;&nbsp;&nbsp; 
+  .test {color: green;} <br>&nbsp;&nbsp;&nbsp; p {color: red;} <br>&nbsp; 
+  &lt;/style&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br><br>&lt;p id=&quot;demo&quot; class=&quot;test&quot;&gt;Hello 
+  World!&lt;/p&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</div>
+<p></p>
+</div>
+
+<p>Now, look at next example:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Here, we have added an inline style for the &lt;p&gt; element. <strong>Result:</strong> The 
+text will be pink, because the inline style has the highest specificity:</p>
+<div class="w3-code notranslate htmlHigh">
+  &lt;html&gt;<br>&lt;head&gt;<br>&nbsp; &lt;style&gt;<br>&nbsp;&nbsp;&nbsp; #demo {color: blue;}<br>&nbsp;&nbsp;&nbsp; 
+  .test {color: green;} <br>&nbsp;&nbsp;&nbsp; p {color: red;} <br>&nbsp; 
+  &lt;/style&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br><br>&lt;p id=&quot;demo&quot; class=&quot;test&quot; 
+  style=&quot;color: pink;&quot;&gt;Hello World!&lt;/p&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</div>
+<p></p>
+</div>
+
+<hr>
+
+<h2>CSS Specificity Hierarchy </h2>
+<p>Each type of CSS selector has a position in the specificity hierarchy, and the selector types carry different &quot;weights&quot;.</p>
+
+<table class="ws-table-all notranslate">
+  <tr>
+    <th>Selector</th>
+    <th>Example</th>
+    <th>Description</th>
+    <th>Weight</th>
+  </tr>
+  <tr>
+    <td>Inline styles</td>
+    <td>&lt;h1 style=&quot;color: pink;&quot;&gt;</td>
+    <td>Highest priority, will override all other selectors</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Id selectors</td>
+    <td>#navbar</td>
+    <td>Second highest priority</td>
+    <td>1-0-0</td>
+  </tr>
+  <tr>
+    <td>Classes, attribute selectors and pseudo-classes</td>
+    <td>.test, [type=&quot;text&quot;], :hover</td>
+    <td>Third highest priority</td>
+    <td>0-1-0</td>
+  </tr>
+  <tr>
+    <td>Elements and pseudo-elements</td>
+    <td>&nbsp;h1, ::before, ::after</td>
+    <td>Low priority</td>
+    <td>0-0-1</td>
+  </tr>
+  <tr>
+    <td>Universal selector and :where()</td>
+    <td>*, where()</td>
+    <td>No priority</td>
+    <td>0-0-0</td>
+  </tr>
+  </table>
+  
+<p>The declaration with the highest specificity/weight value will be applied to the element.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>The specificity hierarchy and weight:</p>
+<div class="w3-code notranslate htmlHigh">
+  &lt;html&gt;<br>&lt;head&gt;<br>&nbsp; &lt;style&gt;<br>&nbsp;&nbsp;&nbsp; 
+  #demo {color: blue;} /* weight: 1-0-0 */<br>&nbsp;&nbsp;&nbsp; p#demo {color: 
+  orange;} /* weight: 1-0-1 WINS! */<br>&nbsp;&nbsp;&nbsp; .test {color: green;} 
+  /* weight: 0-1-0 */<br>&nbsp;&nbsp;&nbsp; p.test {color: green;} /* weight: 
+  0-1-1 */<br>&nbsp;&nbsp;&nbsp; p {color: red;} /* weight: 0-0-1 */<br>&nbsp; 
+  &lt;/style&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br><br>&lt;p id=&quot;demo&quot; class=&quot;test&quot;&gt;Hello World!&lt;/p&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</div>
+<p></p>
+</div>
+
+<hr>
+
+<hr>
+
+<h2>More Specificity Examples</h2>
+
+<h3>Equal specificity: the latest rule wins</h3>
+<p>If the same rule is written twice in the external style sheet, the latest rule wins:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+h1 {background-color: yellow;}<br>
+h1 {background-color: red;}
+</div>
+<p></p>
+</div>
+<hr>
+
+<h3>ID selectors beats attribute selectors</h3>
+<p>Look at the following code lines - Here, the first rule has higher specificity than the second, and will therefore be applied:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+  #myDiv {background-color: yellow;}<br>div[id=myDiv] {background-color: blue;}
+</div>
+<p></p>
+</div>
+<hr>
+
+<h3>A class selector beats element selectors</h3>
+<p>A class selector such as .intro beats h1, p, div, etc:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+  .intro {background-color: yellow;}<br>h1 {background-color: 
+  red;}
+</div>
+<p></p>
+</div>
+<hr>
+
+<h3>The universal selector (*)</h3>
+<p>The universal selector (*) has no specificity weight value:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+  * {background-color: yellow;}<br>h1 {background-color: red;}
+</div>
+<p></p>
+</div>
+<hr>
+
+<h3>Inline style sheet are more specific than external style sheet</h3>
+<p>The embedded style sheet is closer to the element to be styled. So in the 
+following situation the last rule will be applied:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+/*From external CSS file:*/<br>#content h1 {background-color: red;}<br><br>
+/*In HTML file:*/<br>&lt;style&gt;<br>#content h1 {background-color: 
+yellow;}<br>&lt;/style&gt;
+</div>
+</div>
+
+<hr>
+
+<hr>
+
+<br>

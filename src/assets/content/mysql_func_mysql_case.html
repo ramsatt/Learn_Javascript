@@ -1,0 +1,65 @@
+<h1>MySQL <span class="color_h1">CASE</span> Function</h1>
+<p>
+<a class="w3-btn w3-white w3-border" href="mysql_ref_functions.html" title="MySQL Functions">&#10094; MySQL Functions</a></p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Go through conditions and return a value when the first condition is met:</p>
+<div class="w3-code notranslate sqlHigh">
+  SELECT OrderID, Quantity,<br>CASE<br>&nbsp;&nbsp;&nbsp; WHEN Quantity &gt; 30 
+  THEN &quot;The quantity is greater than 30&quot;<br>&nbsp;&nbsp;&nbsp; WHEN Quantity = 
+  30 THEN &quot;The quantity is 30&quot;<br>&nbsp;&nbsp;&nbsp; ELSE &quot;The quantity is 
+  under 30&quot;<br>END<br>FROM OrderDetails;</div>
+<a target="_blank" href="trymysqld945.html?filename=trysql_case" class="w3-btn w3-margin-bottom">Try it Yourself &raquo;</a>
+</div>
+<hr>
+
+<h2>Definition and Usage</h2>
+<p>The CASE statement goes through conditions and return a value when the first condition is 
+met (like an IF-THEN-ELSE statement). So, once a condition is true, it will stop 
+reading and return the result.</p>
+<p>If no conditions are true, it will return the value in the ELSE clause. </p>
+<p>If there is no ELSE part and no conditions are true, it returns NULL.</p>
+
+<h2>Syntax</h2>
+<div class="w3-code w3-border notranslate">
+  CASE<br>&nbsp;&nbsp;&nbsp; WHEN <em>condition1</em> THEN <em>result1</em><br>&nbsp;&nbsp;&nbsp; 
+  WHEN <em>condition2</em> THEN <em>result2</em><br>&nbsp;&nbsp;&nbsp; WHEN 
+  <em>conditionN</em> THEN <em>resultN</em><br>&nbsp;&nbsp;&nbsp; ELSE <em>result</em><br>END;</div>
+
+<h2>Parameter Values</h2>
+<table class="ws-table-all notranslate"> 
+  <tr>
+    <th style="width:23%">Parameter</th>
+    <th>Description</th>  </tr>  
+  <tr>
+    <td><em>condition1, condition2, ...conditionN</em></td>
+    <td>Required. The conditions. These are evaluated in the same order as they 
+    are listed</td>
+  </tr>
+  <tr>
+    <td><em>result1, result2, ...resultN</em></td>
+    <td>Required. The value to return once a condition is true</td>
+  </tr>
+  </table>
+
+<h2>Technical Details</h2>
+<table class="ws-table-all">
+<tr>
+ <th style="width:23%">Works in:</th>
+  <td>From MySQL 4.0</td>
+</tr>
+</table>
+<hr>
+
+<h2>More Examples</h2>
+<p>The following SQL will order the customers by City. However, if City is NULL, then order by Country:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+  SELECT CustomerName, City, Country<br>FROM Customers<br>ORDER BY<br>(CASE<br>&nbsp;&nbsp;&nbsp; 
+  WHEN City IS NULL THEN Country<br>&nbsp;&nbsp;&nbsp; ELSE City<br>END);</div>
+<a target="_blank" href="trymysql8936.html?filename=trysql_case2" class="w3-btn w3-margin-bottom">Try it Yourself &raquo;</a>
+</div>
+
+<hr>
+<p><a class="w3-btn w3-white w3-border" href="mysql_ref_functions.html" title="MySQL Functions">&#10094; MySQL Functions</a></p>

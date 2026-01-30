@@ -1,0 +1,352 @@
+<h1>Machine Learning - Decision Tree</h1>
+
+<hr>
+<p style="text-align:center"><img src="assets/content/images/img_ml_decision_tree.png" style="max-width:100%;"></p>
+<hr>
+<h2>Decision Tree</h2>
+
+<p>In this chapter we will show you how to make a &quot;Decision Tree&quot;. A Decision 
+Tree is a Flow Chart, and can help you make decisions based on previous experience.</p>
+<p>In the example, a person will try to decide if he/she should go to a comedy show or 
+not.</p>
+<p>Luckily our example person has registered every time there was a comedy show 
+in town, and registered some information about the comedian, and also 
+registered if he/she went or not.</p>
+
+<table class="ws-table-all co2cars">
+<tr>
+<td>Age</td>
+<td>Experience</td>
+<td>Rank</td>
+<td>Nationality</td>
+<td>Go</td>
+<tr>
+<td>36</td>
+<td>10</td>
+<td>9</td>
+<td>UK</td>
+<td>NO</td>
+</tr>
+<tr>
+<td>42</td>
+<td>12</td>
+<td>4</td>
+<td>USA</td>
+<td>NO</td>
+</tr>
+<tr>
+<td>23</td>
+<td>4</td>
+<td>6</td>
+<td>N</td>
+<td>NO</td>
+</tr>
+<tr>
+<td>52</td>
+<td>4</td>
+<td>4</td>
+<td>USA</td>
+<td>NO</td>
+</tr>
+<tr>
+<td>43</td>
+<td>21</td>
+<td>8</td>
+<td>USA</td>
+<td>YES</td>
+</tr>
+<tr>
+<td>44</td>
+<td>14</td>
+<td>5</td>
+<td>UK</td>
+<td>NO</td>
+</tr>
+<tr>
+<td>66</td>
+<td>3</td>
+<td>7</td>
+<td>N</td>
+<td>YES</td>
+</tr>
+<tr>
+<td>35</td>
+<td>14</td>
+<td>9</td>
+<td>UK</td>
+<td>YES</td>
+</tr>
+<tr>
+<td>52</td>
+<td>13</td>
+<td>7</td>
+<td>N</td>
+<td>YES</td>
+</tr>
+<tr>
+<td>35</td>
+<td>5</td>
+<td>9</td>
+<td>N</td>
+<td>YES</td>
+</tr>
+<tr>
+<td>24</td>
+<td>3</td>
+<td>5</td>
+<td>USA</td>
+<td>NO</td>
+</tr>
+<tr>
+<td>18</td>
+<td>3</td>
+<td>7</td>
+<td>UK</td>
+<td>YES</td>
+</tr>
+<tr>
+<td>45</td>
+<td>9</td>
+<td>9</td>
+<td>UK</td>
+<td>YES</td>
+</tr>
+</table>
+
+<p>Now, based on this data set, Python can create a decision tree that can be used to decide 
+if any new shows are worth attending to.</p>
+<hr>
+
+<hr>
+<h2>How Does it Work?</h2>
+
+<p>First, read the dataset with pandas:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Read and print the data set:</p>
+<div class="w3-code notranslate pythonHigh">
+  import pandas<br><br>df = pandas.read_csv(&quot;data.csv&quot;)<br>
+  <br>print(df)</div>
+<p>
+<a target="_blank" class="w3-btn" href="trypandas67f0.html?filename=demo_ml_dtree1">Run example &raquo;</a>
+</p>
+</div>
+
+<p>To make a decision tree, all data has to be numerical.</p>
+<p>We have to convert the non numerical columns 'Nationality' and 'Go' into numerical values.</p>
+<p>Pandas has a <code class="w3-codespan">map()</code> method that takes a dictionary with information on how to 
+convert the values.</p>
+<p><code class="w3-codespan">{'UK': 0, 'USA': 1, 'N': 2}</code></p>
+<p>Means convert the values 'UK' to 0, 'USA' to 1, and 'N' to 2.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Change string values into numerical values:</p>
+<div class="w3-code notranslate pythonHigh">
+  d = {'UK': 0, 
+  'USA': 1, 'N': 2}<br>df['Nationality'] = df['Nationality'].map(d)<br>d = 
+  {'YES': 1, 'NO': 0}<br>df['Go'] = df['Go'].map(d)<br><br>print(df)</div>
+<p>
+<a target="_blank" class="w3-btn" href="trypandas1de8.html?filename=demo_ml_dtree2">Run example &raquo;</a>
+</p>
+</div>
+
+<p>Then we have to separate the <em>feature</em> columns from the <em>target</em> column.</p>
+<p>The feature columns are the columns that we try to predict <em>from</em>, and 
+the target column is the column with the values we try to predict.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p><code class="w3-codespan">X</code> is the feature columns, 
+<code class="w3-codespan">y</code> is the target column:</p>
+<div class="w3-code notranslate pythonHigh">
+  features = ['Age', 'Experience', 'Rank', 'Nationality']<br><br>X = df[features]<br>y = df['Go']<br><br>
+  print(X)<br>print(y)</div>
+<p>
+<a target="_blank" class="w3-btn" href="trypandasecf8.html?filename=demo_ml_dtree3">Run example &raquo;</a>
+</p>
+</div>
+
+<p>Now we can create the actual decision tree, fit it with our details. Start by 
+importing the modules we need:</p>
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Create and display a Decision Tree:</p>
+<div class="w3-code notranslate pythonHigh">
+  import pandas<br>from sklearn import tree<br>from sklearn.tree import 
+  DecisionTreeClassifier<br>import matplotlib.pyplot as plt<br><br>df = 
+  pandas.read_csv(&quot;data.csv&quot;)<br><br>d = {'UK': 0, 'USA': 1, 'N': 2}<br>df['Nationality'] 
+  = df['Nationality'].map(d)<br>d = {'YES': 1, 'NO': 0}<br>df['Go'] = df['Go'].map(d)<br>
+  <br>features = ['Age', 'Experience', 'Rank', 'Nationality']<br><br>X = df[features]<br>
+  y = df['Go']<br><br>dtree = DecisionTreeClassifier()<br>dtree = dtree.fit(X, 
+  y)<br><br>tree.plot_tree(dtree, feature_names=features)</div>
+<p>
+<a target="_blank" class="w3-btn" href="trypandas1490.html?filename=demo_ml_dtree4">Run example &raquo;</a>
+</p>
+</div>
+
+<hr>
+
+<h2>Result Explained</h2>
+
+<p>The decision tree uses your earlier decisions to calculate the odds for you to wanting to go see 
+a comedian or not.</p>
+<p>Let us read the different aspects of the decision tree:</p>
+<p style="text-align:center"><img src="assets/content/images/img_decisiontree1.png" style="max-width:100%;"></p>
+<h3>Rank</h3>
+<p><code class="w3-codespan">Rank &lt;= 6.5</code> means that every comedian with a rank of 6.5 or 
+lower will follow the 
+<code class="w3-codespan">True</code> arrow (to the left), and the rest will 
+follow the <code class="w3-codespan">False</code> arrow (to the right).</p>
+<p><code class="w3-codespan">gini = 0.497</code> refers to the quality of the 
+split, and is always a number between 0.0 and 0.5, where 0.0 would mean all of 
+the samples got the same result, and 0.5 would mean that the split is done 
+exactly in the middle.</p>
+<p><code class="w3-codespan">samples = 13</code> means that there are 13 
+comedians left at this point in the decision, which is all of them since this is 
+the first step.</p>
+<p><code class="w3-codespan">value = [6, 7]</code> means that of these 13 
+comedians, 6 will get a &quot;NO&quot;, and 7 will get a 
+&quot;GO&quot;.</p>
+
+
+<div class="w3-panel ws-note">
+<h3>Gini</h3>
+  <p>There are many ways to split the samples, we use the GINI method in this tutorial.</p>
+  <p>The Gini method uses this formula:</p>
+  <p><code class="w3-codespan">Gini = 1 - (x/n)<sup>2</sup> - (y/n)<sup>2</sup></code></p>
+<p>Where <code class="w3-codespan">x</code> is the number of positive answers("GO"), 
+<code class="w3-codespan">n</code> is the number of samples, and 
+<code class="w3-codespan">y</code> is the number of negative answers ("NO"), 
+which gives us this calculation:</p>
+  <p><code class="w3-codespan">1 - (7 / 13)<sup>2</sup> - (6 / 13)<sup>2</sup> = 0.497</code></p>
+
+  
+
+</div>
+
+
+
+<p style="text-align:center"><img src="assets/content/images/img_decisiontree2.png" style="max-width:100%;"></p>
+<p>The next step contains two boxes, one box for the comedians with a 'Rank' of 
+6.5 or lower, and one box with the rest.</p>
+<h3>True - 5 Comedians End Here:</h3>
+<p><code class="w3-codespan">gini = 0.0</code> means all of the samples got the 
+same result.</p>
+<p><code class="w3-codespan">samples = 5</code> means that there are 5 comedians 
+left in this branch (5 comedian with a Rank of 6.5 or lower).</p>
+<p><code class="w3-codespan">value = [5, 0]</code> means that 5 will get a &quot;NO&quot; 
+and 0 will get a &quot;GO&quot;.</p>
+<h3>False - 8 Comedians Continue:</h3>
+<h3>Nationality</h3>
+<p><code class="w3-codespan">Nationality &lt;= 0.5</code> means that the comedians 
+with a nationality value of less than 0.5 will follow the arrow to the left 
+(which means everyone from the UK, ), and the rest will follow the arrow to the 
+right.</p>
+<p><code class="w3-codespan">gini = 0.219</code> means that about 22% of the 
+samples would go in one direction.</p>
+<p><code class="w3-codespan">samples = 8</code> means that there are 8 comedians 
+left in this branch (8 comedian with a Rank higher than 6.5).</p>
+<p><code class="w3-codespan">value = [1, 7]</code> means that of these 8 
+comedians, 1 will get a &quot;NO&quot; and 7 will get a &quot;GO&quot;.</p>
+<br>
+<hr>
+<br>
+<p style="text-align:center"><img src="assets/content/images/img_decisiontree3_2.png" style="max-width:100%;"></p>
+<h3>True - 4 Comedians Continue:</h3>
+<h3>Age</h3>
+<p><code class="w3-codespan">Age &lt;= 35.5</code> means that comedians 
+at the age of 35.5 or younger will follow the arrow to the left, and the rest will follow the arrow to the 
+right.</p>
+<p><code class="w3-codespan">gini = 0.375</code> means that about 37,5% of the 
+samples would go in one direction.</p>
+<p><code class="w3-codespan">samples = 4</code> means that there are 4 comedians 
+left in this branch (4 comedians from the UK).</p>
+<p><code class="w3-codespan">value = [1, 3]</code> means that of these 4 
+comedians, 1 will get a &quot;NO&quot; and 3 will get a &quot;GO&quot;.</p>
+<h3>False - 4 Comedians End Here:</h3>
+<p><code class="w3-codespan">gini = 0.0</code> means all of the samples got the 
+same result.</p>
+<p><code class="w3-codespan">samples = 4</code> means that there are 4 comedians 
+left in this branch (4 comedians not from the UK).</p>
+<p><code class="w3-codespan">value = [0, 4]</code> means that of these 4 
+comedians, 0 will get a &quot;NO&quot; and 4 will get a &quot;GO&quot;.</p>
+<br>
+<hr>
+<br>
+<p style="text-align:center"><img src="assets/content/images/img_decisiontree4_2.png" style="max-width:100%;"></p>
+<h3>True - 2 Comedians End Here:</h3>
+<p><code class="w3-codespan">gini = 0.0</code> means all of the samples got the 
+same result.</p>
+<p><code class="w3-codespan">samples = 2</code> means that there are 2 comedians 
+left in this branch (2 comedians at the age 35.5 or younger).</p>
+<p><code class="w3-codespan">value = [0, 2]</code> means that of these 2 
+comedians, 0 will get a &quot;NO&quot; and 2 will get a &quot;GO&quot;.</p>
+<h3>False - 2 Comedians Continue:</h3>
+<h3>Experience</h3>
+<p><code class="w3-codespan">Experience &lt;= 9.5</code> means that comedians 
+with 9.5 years of experience, or less, will follow the arrow to the left, and the rest will follow the arrow to the 
+right.</p>
+<p><code class="w3-codespan">gini = 0.5</code> means that 50% of the samples 
+would go in one direction.</p>
+<p><code class="w3-codespan">samples = 2</code> means that there are 2 comedians 
+left in this branch (2 comedians older than 35.5).</p>
+<p><code class="w3-codespan">value = [1, 1]</code> means that of these 2 
+comedians, 1 will get a &quot;NO&quot; and 1 will get a &quot;GO&quot;.</p>
+<br>
+<hr>
+<br>
+<p style="text-align:center"><img src="assets/content/images/img_decisiontree5.png" style="max-width:100%;"></p>
+<h3>True - 1 Comedian Ends Here:</h3>
+<p><code class="w3-codespan">gini = 0.0</code> means all of the samples got the 
+same result.</p>
+<p><code class="w3-codespan">samples = 1</code> means that there is 1 comedian 
+left in this branch (1 comedian with 9.5 years of experience or less).</p>
+<p><code class="w3-codespan">value = [0, 1]</code> means that 0 will get a &quot;NO&quot; and 
+1 will get a &quot;GO&quot;.</p>
+<h3>False - 1 Comedian Ends Here:</h3>
+<p><code class="w3-codespan">gini = 0.0</code> means all of the samples got the 
+same result.</p>
+<p><code class="w3-codespan">samples = 1</code> means that there is 1 comedians 
+left in this branch (1 comedian with more than 9.5 years of experience).</p>
+<p><code class="w3-codespan">value = [1, 0]</code> means that 1 will get a &quot;NO&quot; and 
+0 will get a &quot;GO&quot;.</p>
+<hr>
+
+<h2>Predict Values</h2>
+
+<p>We can use the Decision Tree to predict new values.</p>
+<p>Example: Should I go see a show starring a 40 years old American comedian, with 10 years of experience, 
+and a comedy ranking of 7?</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Use predict() method to predict new values:</p>
+<div class="w3-code notranslate pythonHigh">
+  print(dtree.predict([[40, 10, 7, 1]]))</div>
+<p>
+<a target="_blank" class="w3-btn" href="trypandas53b2.html?filename=demo_ml_dtree_predict1">Run example &raquo;</a>
+</p>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>What would the answer be if the comedy rank was 6?</p>
+<div class="w3-code notranslate pythonHigh">
+  print(dtree.predict([[40, 10, 6, 1]]))</div>
+<p>
+<a target="_blank" class="w3-btn" href="trypandascef2.html?filename=demo_ml_dtree_predict2">Run example &raquo;</a>
+</p>
+</div>
+<hr>
+<div class="w3-panel ws-note">
+<h3>Different Results</h3>
+  <p>You will see that the Decision Tree gives you different results if you run 
+  it enough times, even if you feed it with the same data.</p>
+  <p>That is because the Decision Tree does not give us a 100% certain answer. It is based on the 
+  probability of an outcome, and the answer will vary.</p>
+</div>
+
+
+<hr>

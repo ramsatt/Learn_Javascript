@@ -1,0 +1,51 @@
+<h1>jQuery <span class="color_h1">clearQueue()</span> Method</h1>
+<p><a href="jquery_ref_effects.html" class="w3-btn w3-white w3-border" title="jQuery Effect Methods">&#10094; jQuery Effect Methods</a></p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Stop the remaining functions in the queue:</p>
+<div class="w3-code notranslate jsHigh">
+$(&quot;button&quot;).click(function(){<br>&nbsp; $(&quot;div&quot;).clearQueue();<br> });
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="tryitefe2.html?filename=tryjquery_eff_clearqueue">Try it Yourself &raquo;</a>
+</div>
+<hr>
+
+<h2>Definition and Usage</h2>
+<p>The clearQueue() method removes all items from the queue that have not yet 
+been run. Note that when a function has started to run, it runs until it is completed.</p>
+<p>Related methods:</p>
+<ul>
+  <li><a href="eff_queue.html">queue()</a> - Shows the queued functions</li>
+  <li><a href="eff_dequeue.html">dequeue()</a> - Removes the next function from the queue, and then executes the function</li>
+</ul>
+<p><b>Tip:</b> Unlike the <a href="eff_stop.html">stop()</a> method (that only works with animation), the clearQueue() 
+method can remove any queued functions.</p>
+<hr>
+
+<h2>Syntax</h2>
+<div class="w3-code w3-border notranslate"><div>
+$(<i>selector</i>).clearQueue(<i>queueName</i>)</div></div>
+<br>
+<table class="ws-table-all notranslate"> 
+  <tr>
+    <th style="width:20%">Parameter</th>
+    <th>Description</th>
+  </tr>  
+  <tr>
+    <td><i>queueName</i></td>
+    <td>Optional. Specifies the name of the queue<br>
+ <br>
+ The default is &quot;fx&quot;, the standard effects queue</td>
+  </tr>
+  </table>
+<hr>
+
+<h2>Try it Yourself - Example</h2>
+
+<p>
+<a target="_blank" href="tryit64ae.html?filename=tryjquery_eff_queue_all">Using queue-related methods together</a><br>
+How to use queue(), dequeue() and clearQueue() together.</p>
+<hr>
+
+<p><a href="jquery_ref_effects.html" class="w3-btn w3-white w3-border" title="jQuery Effect Methods">&#10094; jQuery Effect Methods</a></p>

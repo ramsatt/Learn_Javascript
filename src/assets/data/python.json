@@ -1,0 +1,309 @@
+[
+  {
+    "title": "Python Tutorial",
+    "items": [
+      {
+        "title": "Python Tutorial",
+        "file": "python_default.html"
+      },
+      {
+        "title": "Python Introduction",
+        "file": "python_python_intro.html"
+      },
+      {
+        "title": "Python Getting Started",
+        "file": "python_python_getstarted.html"
+      },
+      {
+        "title": "Python Syntax",
+        "file": "python_python_syntax.html"
+      },
+      {
+        "title": "Python Comments",
+        "file": "python_python_comments.html"
+      },
+      {
+        "title": "Python Variables",
+        "file": "python_python_variables.html"
+      },
+      {
+        "title": "Python Data Types",
+        "file": "python_python_datatypes.html"
+      },
+      {
+        "title": "Python Numbers",
+        "file": "python_python_numbers.html"
+      },
+      {
+        "title": "Python Casting",
+        "file": "python_python_casting.html"
+      },
+      {
+        "title": "Python Strings",
+        "file": "python_python_strings.html"
+      },
+      {
+        "title": "Python Booleans",
+        "file": "python_python_booleans.html"
+      },
+      {
+        "title": "Python Operators",
+        "file": "python_python_operators.html"
+      },
+      {
+        "title": "Python Lists",
+        "file": "python_python_lists.html"
+      },
+      {
+        "title": "Python Tuples",
+        "file": "python_python_tuples.html"
+      },
+      {
+        "title": "Python Sets",
+        "file": "python_python_sets.html"
+      },
+      {
+        "title": "Python Dictionaries",
+        "file": "python_python_dictionaries.html"
+      },
+      {
+        "title": "Python If Statement",
+        "file": "python_python_conditions.html"
+      },
+      {
+        "title": "Python While Loops",
+        "file": "python_python_while_loops.html"
+      },
+      {
+        "title": "Python For Loops",
+        "file": "python_python_for_loops.html"
+      },
+      {
+        "title": "Python Functions",
+        "file": "python_python_functions.html"
+      },
+      {
+        "title": "Python Lambda",
+        "file": "python_python_lambda.html"
+      },
+      {
+        "title": "Python Arrays",
+        "file": "python_python_arrays.html"
+      },
+      {
+        "title": "Python Classes and Objects",
+        "file": "python_python_classes.html"
+      },
+      {
+        "title": "Python Inheritance",
+        "file": "python_python_inheritance.html"
+      },
+      {
+        "title": "Python Iterators",
+        "file": "python_python_iterators.html"
+      },
+      {
+        "title": "Python Polymorphism",
+        "file": "python_python_polymorphism.html"
+      },
+      {
+        "title": "Python Scope",
+        "file": "python_python_scope.html"
+      },
+      {
+        "title": "Python Modules",
+        "file": "python_python_modules.html"
+      },
+      {
+        "title": "Python Datetime",
+        "file": "python_python_datetime.html"
+      },
+      {
+        "title": "Python Math",
+        "file": "python_python_math.html"
+      },
+      {
+        "title": "Python JSON",
+        "file": "python_python_json.html"
+      },
+      {
+        "title": "Python RegEx",
+        "file": "python_python_regex.html"
+      },
+      {
+        "title": "Python PIP",
+        "file": "python_python_pip.html"
+      },
+      {
+        "title": "Python Try Except",
+        "file": "python_python_try_except.html"
+      },
+      {
+        "title": "Python User Input",
+        "file": "python_python_user_input.html"
+      },
+      {
+        "title": "Python String Formatting",
+        "file": "python_python_string_formatting.html"
+      }
+    ]
+  },
+  {
+    "title": "File Handling",
+    "items": [
+      {
+        "title": "Python File Open",
+        "file": "python_python_file_handling.html"
+      },
+      {
+        "title": "Python File Open",
+        "file": "python_python_file_open.html"
+      },
+      {
+        "title": "Python File Write",
+        "file": "python_python_file_write.html"
+      },
+      {
+        "title": "Python Delete File",
+        "file": "python_python_file_remove.html"
+      }
+    ]
+  },
+  {
+    "title": "Python DSA",
+    "items": [
+      {
+        "title": "DSA with Python",
+        "file": "python_python_dsa.html"
+      },
+      {
+        "title": "Binary Search with Python",
+        "file": "python_python_dsa_binarysearch.html"
+      },
+      {
+        "title": "Bubble Sort with Python",
+        "file": "python_python_dsa_bubblesort.html"
+      },
+      {
+        "title": "Linked Lists with Python",
+        "file": "python_python_dsa_linkedlists.html"
+      },
+      {
+        "title": "Stacks with Python",
+        "file": "python_python_dsa_stacks.html"
+      },
+      {
+        "title": "Queues with Python",
+        "file": "python_python_dsa_queues.html"
+      }
+    ]
+  },
+  {
+    "title": "Python ML",
+    "items": [
+      {
+        "title": "Machine Learning",
+        "file": "python_python_ml_getting_started.html"
+      },
+      {
+        "title": "Machine Learning - Mean Median Mode",
+        "file": "python_python_ml_mean_median_mode.html"
+      },
+      {
+        "title": "Machine Learning - Linear Regression",
+        "file": "python_python_ml_linear_regression.html"
+      },
+      {
+        "title": "Machine Learning - Decision Tree",
+        "file": "python_python_ml_decision_tree.html"
+      }
+    ]
+  },
+  {
+    "title": "Python MySQL",
+    "items": [
+      {
+        "title": "Python MySQL",
+        "file": "python_python_mysql_getstarted.html"
+      },
+      {
+        "title": "Python MySQL Create Database",
+        "file": "python_python_mysql_create_db.html"
+      },
+      {
+        "title": "Python MySQL Create Table",
+        "file": "python_python_mysql_create_table.html"
+      },
+      {
+        "title": "Python MySQL Insert Into Table",
+        "file": "python_python_mysql_insert.html"
+      },
+      {
+        "title": "Python MySQL Select From",
+        "file": "python_python_mysql_select.html"
+      }
+    ]
+  },
+  {
+    "title": "Python MongoDB",
+    "items": [
+      {
+        "title": "Python MongoDB",
+        "file": "python_python_mongodb_getstarted.html"
+      },
+      {
+        "title": "Python MongoDB Create Database",
+        "file": "python_python_mongodb_create_db.html"
+      },
+      {
+        "title": "Python MongoDB Create Collection",
+        "file": "python_python_mongodb_create_collection.html"
+      },
+      {
+        "title": "Python MongoDB Insert Document",
+        "file": "python_python_mongodb_insert.html"
+      },
+      {
+        "title": "Python MongoDB Find",
+        "file": "python_python_mongodb_find.html"
+      }
+    ]
+  },
+  {
+    "title": "Python References",
+    "items": [
+      {
+        "title": "Python Reference",
+        "file": "python_python_reference.html"
+      },
+      {
+        "title": "Python Glossary",
+        "file": "python_python_ref_glossary.html"
+      },
+      {
+        "title": "Python Keywords",
+        "file": "python_python_ref_keywords.html"
+      },
+      {
+        "title": "Python Built in Functions",
+        "file": "python_python_ref_functions.html"
+      },
+      {
+        "title": "Python String Methods",
+        "file": "python_python_ref_string.html"
+      },
+      {
+        "title": "Python List/Array Methods",
+        "file": "python_python_ref_list.html"
+      },
+      {
+        "title": "Python Dictionary Methods",
+        "file": "python_python_ref_dictionary.html"
+      },
+      {
+        "title": "Python Tuple Methods",
+        "file": "python_python_ref_tuple.html"
+      }
+    ]
+  }
+]

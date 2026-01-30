@@ -1,0 +1,177 @@
+<h1>CSS <span class="color_h1">Gradients</span></h1>
+
+<hr>
+
+<h2>CSS Gradients</h2>
+<p>The CSS gradient functions let you display smooth transitions between two or more colors 
+within an element.</p>
+<p>CSS defines three types of gradients:</p>
+<ul>
+  <li><strong>Linear Gradients</strong> - The color transition goes down, up, left, right, 
+  or diagonally</li>
+  <li><strong>Radial Gradients</strong> - The color transition goes out from a 
+  central point</li>
+  <li><strong>Conic Gradients</strong> - The color transition is rotated around a center point</li>
+</ul>
+<p>The CSS gradient functions are used within the <code class="w3-codespan">
+<a href="../cssref/pr_background-image.html">background-image</a></code> property.</p>
+<div id="grad1" style="text-align:center;margin:auto;color:#f3f3f3;font-size:30px;font-weight:bold;padding-top:105px;">
+A Linear Gradient Background</div>
+
+<hr>
+
+<h2>CSS linear-gradient() Function</h2>
+<p>The CSS <code class="w3-codespan"><a href="../cssref/func_linear-gradient.html">
+linear-gradient()</a></code> function creates a linear gradient.</p>
+<p>A linear gradient defines a color transition that goes in a straight line, it 
+can go down, up, to left, to right, 
+  or diagonally.</p>
+<p>A linear gradient requires 
+at least two color stops. Color stops are the colors you want to render smooth transitions 
+among. You can also set a starting point and a direction (or an angle) along 
+with the gradient effect.</p>
+
+<h3>Syntax</h3>
+<div class="w3-code w3-border notranslate">
+background-image: linear-gradient(<em>direction</em>, <em>color-stop1</em>, <em>color-stop2, ...</em>);
+</div>
+
+<h3>Direction - Top to Bottom (this is default)</h3>
+<p>The following example shows a linear gradient that goes from top to bottom. It starts red, transitioning to yellow:</p>
+<div id="grad2" style="text-align:center;">top to bottom (default)</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+   #grad {<br>&nbsp;&nbsp;background-image: linear-gradient(to bottom, red, yellow);<br>} </div>
+
+</div>
+
+<h3>Direction - Bottom to Top</h3>
+<p>The following example shows a linear gradient that goes from bottom to top. It starts red, transitioning to yellow:</p>
+<div id="grad2_2" style="text-align:center;">bottom to top</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+   #grad {<br>&nbsp;&nbsp;background-image: linear-gradient(to top, red, yellow);<br>} </div>
+
+</div>
+
+<h3>Direction - Left to Right</h3>
+<p>The following example shows a linear gradient that goes from left to right. It starts red, transitioning to 
+yellow:</p>
+<div id="grad3" style="text-align:center;">left to right</div>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+   #grad {<br>&nbsp; background-image: linear-gradient(to right, red , yellow);<br>} </div>
+
+</div>
+
+<h3>Direction - Diagonal</h3>
+<p>The following example shows a linear gradient that goes from top-left to bottom-right. It starts red, transitioning to yellow:</p>
+<div id="grad4" style="text-align:center;">top left to bottom right</div>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+    #grad {<br>&nbsp; background-image: linear-gradient(to bottom right, red, yellow);<br>} </div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>Linear Gradient - Using Angles</h2>
+<p>If you want more control over the direction of the gradient, you can define 
+an <code class="w3-codespan">angle</code> parameter, instead of the predefined directions (to bottom, to 
+top, to right, to left, to bottom right, etc.).</p>
+<ul>
+  <li>A value of 0deg is equivalent to 
+&quot;to top&quot;.</li>
+  <li>A value of 90deg is equivalent to &quot;to right&quot;.</li>
+  <li>A value of 
+180deg is equivalent to &quot;to bottom&quot;.</li>
+  <li>A value of 270deg equivalent to &quot;to left&quot;</li>
+</ul>
+<h3>Syntax</h3>
+<div class="w3-code w3-border notranslate">
+<div>
+background-image: linear-gradient(<em>angle</em>, <em>color-stop1</em>, <em>color-stop2</em>);
+</div></div>
+
+<p>The following example shows how to use angles on linear gradients:</p>
+<div id="grad5" style="text-align:center;">180deg</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+   #grad {<br>&nbsp; background-image: linear-gradient(180deg, red, yellow);<br>
+} </div>
+
+</div>
+
+<hr>
+
+<h2>Linear Gradient - Multiple Color Stops</h2>
+<p>The following example shows a linear gradient (from top to bottom) with 
+multiple color stops:</p>
+<div id="grad6"></div>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+   #grad {<br>&nbsp; background-image: linear-gradient(red, yellow, green);<br>} </div>
+
+</div>
+<p>The following example shows a linear gradient (from left to 
+right) with the color of the rainbow and some text:</p>
+<div id="grad7" style="text-align:center;margin:auto;color:#888888;font-size:40px;font-weight:bold">
+Rainbow Background
+</div>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+    #grad {<br>&nbsp; background-image: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet); <br>} </div>
+
+</div>
+
+<hr>
+
+<h2>Linear Gradient - Transparency&nbsp;</h2>
+<p>CSS gradients also support transparency, which can be used to create fading effects.</p>
+<p>To add transparency, we use the rgba() function to define the color stops. 
+The last parameter in the rgba() function can be a value from 0 to 1, and it 
+defines the transparency of the color: 0 indicates full transparency, 1 
+indicates full color (no transparency).</p>
+<p>The following example shows a linear gradient that goes from left to right. It starts fully transparent, transitioning to full color red:</p>
+<div id="grad8"></div>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+   #grad {<br>&nbsp; background-image: linear-gradient(to right, rgba(255,0,0,0), 
+rgba(255,0,0,1));<br>} </div>
+
+</div>
+
+<hr>
+
+<h2>CSS repeating-linear-gradient() Function</h2>
+<p>The CSS <code class="w3-codespan">
+<a href="../cssref/func_repeating-linear-gradient.html">
+repeating-linear-gradient()</a></code> function is used to repeat linear gradients:</p>
+<div id="grad9"></div>
+<div class="w3-example">
+<h3>Example</h3>
+<p>A repeating linear gradient:</p>
+<div class="w3-code notranslate cssHigh">
+    #grad {<br>&nbsp; background-image: 
+repeating-linear-gradient(red, yellow 10%, green 20%);<br>} </div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<br>

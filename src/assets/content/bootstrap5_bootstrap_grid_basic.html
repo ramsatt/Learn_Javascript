@@ -1,0 +1,144 @@
+<h1>Bootstrap 5 <span class="color_h1">Grids</span></h1>
+
+<hr>
+<h2>Bootstrap 5 Grid System</h2>
+<p>Bootstrap's grid system is built with flexbox and allows up to 12 columns across the page.</p>
+<p>If you do not want to use all 12 columns individually, you can group the 
+columns together to create wider columns:</p>
+<div class="w3-responsive">
+<table class="table grid">
+<tr>
+  <td>span 1</td>
+  <td>span 1</td>  
+  <td>span 1</td>
+  <td>span 1</td>
+  <td>span 1</td>  
+  <td>span 1</td>
+  <td>span 1</td>
+  <td>span 1</td>  
+  <td>span 1</td>
+  <td>span 1</td>
+  <td>span 1</td>  
+  <td>span 1</td>
+</tr>
+<tr>
+  <td colspan="4">&nbsp;span 4</td>
+  <td colspan="4">&nbsp;span 4</td>  
+  <td colspan="4">&nbsp;span 4</td>
+</tr>
+<tr>
+  <td colspan="4">span 4</td>
+  <td colspan="8">span 8</td>  
+</tr>
+<tr>
+  <td colspan="6">span 6</td>
+  <td colspan="6">span 6</td>  
+</tr>
+<tr>
+  <td colspan="12">span 12</td>
+</tr>
+</table>
+</div>
+<p>The grid system is responsive, and the columns will re-arrange automatically depending on the screen size.</p>
+<p>Make sure that the sum adds up to 12 or fewer (it is not required that you 
+use all 12 available columns).</p>
+<hr>
+
+<h2>Grid Classes</h2>
+<p>The Bootstrap 5 grid system has six classes:</p>
+<ul>
+  <li><code class="w3-codespan">.col-</code> (extra small devices - screen width less than 576px)</li>
+  <li><code class="w3-codespan">.col-sm-</code> (small devices - screen width equal to or greater than 576px)</li>
+  <li><code class="w3-codespan">.col-md-</code> (medium devices - screen width equal to or greater than 768px)</li>
+  <li><code class="w3-codespan">.col-lg-</code> (large devices - screen width equal to or greater than 992px)</li>
+  <li><code class="w3-codespan">.col-xl-</code> (xlarge devices - screen width equal to or greater than 1200px)</li>
+  <li><code class="w3-codespan">.col-xxl-</code> (xxlarge devices - screen width equal to or greater than 1400px)</li>
+</ul>
+<p>The classes above can be combined to create more dynamic and flexible layouts.</p>
+<p><strong>Tip:</strong> Each class scales up, so if you want to set the same widths for 
+<code class="w3-codespan">sm</code> and <code class="w3-codespan">md</code>, you only need to specify <code class="w3-codespan">sm</code>.</p>
+<hr>
+
+<h2>Basic Structure of a Bootstrap 5 Grid</h2>
+<p>The following is a basic structure of a Bootstrap 5 grid:</p>
+<div class="w3-example">
+ <div class="w3-code notranslate htmlHigh">
+   &lt;!-- Control the column width, and how they should appear on different 
+   devices --&gt;<br>&lt;div class=&quot;row&quot;&gt;<br>&nbsp; &lt;div class=&quot;col-*-*&quot;&gt;&lt;/div&gt;<br>&nbsp; 
+   &lt;div class=&quot;col-*-*&quot;&gt;&lt;/div&gt;<br>&lt;/div&gt;<br>&lt;div class=&quot;row&quot;&gt;<br>&nbsp; &lt;div class=&quot;col-*-*&quot;&gt;&lt;/div&gt;<br>&nbsp; &lt;div class=&quot;col-*-*&quot;&gt;&lt;/div&gt;<br>&nbsp; &lt;div class=&quot;col-*-*&quot;&gt;&lt;/div&gt;<br>&lt;/div&gt;<br>
+   <br>&lt;!-- Or let Bootstrap automatically handle the layout --&gt;<br>&lt;div class=&quot;row&quot;&gt;<br>&nbsp; &lt;div class=&quot;col&quot;&gt;&lt;/div&gt;<br>&nbsp; &lt;div class=&quot;col&quot;&gt;&lt;/div&gt;<br>&nbsp; &lt;div class=&quot;col&quot;&gt;&lt;/div&gt;<br>&lt;/div&gt;</div>
+</div>
+<p>First example: create a row (<code class="w3-codespan">&lt;div 
+class="row"&gt;</code>). Then, add the desired number of columns (tags with appropriate 
+<code class="w3-codespan">.col-*-*</code> classes). The first star (*) 
+represents the responsiveness: sm, md, lg, xl or xxl, while the second star 
+represents a number, which should add up to 12 for each row.</p>
+<p>Second example: instead of adding a number to each <code class="w3-codespan">col</code>, let bootstrap handle 
+the layout, to create equal width columns: two <code class="w3-codespan">&quot;col&quot;</code> elements = 50% width to 
+each col, while three cols = 33.33% width to each col. Four cols = 25% width, etc. You 
+can also use <code class="w3-codespan">.col-sm|md|lg|xl|xxl</code> to make the columns responsive.</p>
+<p>Below we have collected some examples of basic Bootstrap 5 grid layouts.</p>
+<hr>
+<hr>
+
+<h2>Three Equal Columns</h2>
+<div class="row test">
+  <div class="col-4 ws-grey">.col</div>
+  <div class="col-4 ws-grey">.col</div>
+  <div class="col-4 ws-grey">.col</div>
+</div>
+<p>The following example shows how to create three equal-width columns, on all 
+devices and screen widths:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+ &lt;div class=&quot;row&quot;&gt;<br>&nbsp; &lt;div class=&quot;col&quot;&gt;.col&lt;/div&gt;<br>&nbsp; &lt;div class=&quot;col&quot;&gt;.col&lt;/div&gt;<br>&nbsp; &lt;div class=&quot;col&quot;&gt;.col&lt;/div&gt;<br>&lt;/div&gt;</div>
+
+</div>
+<hr>
+
+<h2>Responsive Columns</h2>
+<div class="row test">
+  <div class="col-sm-3 ws-grey">.col-sm-3</div>
+  <div class="col-sm-3 ws-grey">.col-sm-3</div>
+  <div class="col-sm-3 ws-grey">.col-sm-3</div>
+  <div class="col-sm-3 ws-grey">.col-sm-3</div>
+</div>
+<p>The following example shows how to create four equal-width columns starting at tablets and scaling to 
+extra large desktops. <strong>On mobile phones or screens that are less than 576px wide, the columns will automatically stack 
+on top of each other</strong>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+ &lt;div class=&quot;row&quot;&gt;<br>&nbsp; &lt;div class=&quot;col-sm-3&quot;&gt;.col-sm-3&lt;/div&gt;<br>&nbsp; &lt;div class=&quot;col-sm-3&quot;&gt;.col-sm-3&lt;/div&gt;<br>&nbsp; &lt;div class=&quot;col-sm-3&quot;&gt;.col-sm-3&lt;/div&gt;<br>&nbsp; 
+  &lt;div class=&quot;col-sm-3&quot;&gt;.col-sm-3&lt;/div&gt;<br>&lt;/div&gt;</div>
+
+</div>
+<hr>
+
+<h2>Two Unequal Responsive Columns</h2>
+<div class="row test">
+  <div class="col-sm-4 ws-grey">.col-sm-4</div>
+  <div class="col-sm-8 ws-grey">.col-sm-8</div>
+</div>
+
+<p>The following example shows how to get two various-width columns starting at 
+tablets and scaling to large extra desktops:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+ &lt;div class=&quot;row&quot;&gt;<br>&nbsp; &lt;div class=&quot;col-sm-4&quot;&gt;.col-sm-4&lt;/div&gt;<br>&nbsp; &lt;div class=&quot;col-sm-8&quot;&gt;.col-sm-8&lt;/div&gt;<br>&lt;/div&gt;</div>
+
+</div>
+
+<div class="w3-panel ws-note">
+<p style="margin-bottom:8px"><strong>Tip:</strong> You will learn more about the <a href="bootstrap_grid_system.html">grid system</a> later in this tutorial.</p>
+</div>
+<hr>
+<div class="ws-info">
+<h2>Did You Know?</h2>
+<p class="w3-large"><a href="../w3css/default.html">W3.CSS</a> is an excellent alternative to Bootstrap.</p>
+<p class="w3-large"><a href="../w3css/default.html">W3.CSS</a> is smaller, faster, and easier to use.</p>
+</div>
+
+<br>

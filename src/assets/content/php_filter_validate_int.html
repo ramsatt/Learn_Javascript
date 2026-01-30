@@ -1,0 +1,41 @@
+<h1>PHP <span class="color_h1">FILTER_VALIDATE_INT</span> Filter</h1>
+<p><a href="php_ref_filter.html" class="w3-btn w3-white w3-border" title="PHP Filter Reference">&#10094; PHP Filter Reference</a></p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Check if the variable $int is an integer:</p>
+<div class="w3-code notranslate">
+ &lt;?php<br>$int = 0;<br><br>if (filter_var($int, FILTER_VALIDATE_INT)!== false) {<br>&nbsp;&nbsp;&nbsp; echo("Variable is an integer");<br>} else {<br>&nbsp;&nbsp;&nbsp; echo("Variable is not an integer");<br>}<br>?&gt;
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="phptryita1d9.html?filename=tryphp_func_validate_int">Try it Yourself &raquo;</a>
+</div>
+<hr>
+
+<h2>Definition and Usage</h2>
+<p>The FILTER_VALIDATE_INT filter is used to validate value as integer.</p>
+<p>FILTER_VALIDATE_INT also allows us to specify a range for the integer 
+variable.</p>
+<p>Possible options and flags:</p>
+<ul>
+  <li>min_range - specifies the minimum integer value</li>
+  <li>max_range - specifies the maximum integer value</li>
+  <li>FILTER_FLAG_ALLOW_OCTAL - allows octal number values</li>
+  <li>FILTER_FLAG_ALLOW_HEX - allows hexadecimal number values</li>
+</ul>
+<p><b>Note: </b>When specifying options in an array. The options must be in an 
+associative multidimensional array with the name &quot;options&quot;.</p>
+<hr>
+
+<hr>
+
+<h2>More Examples</h2>
+<div class="w3-example">
+  <h3>Example</h3>
+<p>Check if a variable is both of type INT, and between 1 and 200:</p>
+<div class="w3-code notranslate">
+ &lt;?php<br>$int = 122;<br>$min = 1;<br>$max = 200;<br><br>if (filter_var($int, FILTER_VALIDATE_INT, array(&quot;options&quot; =&gt; array(&quot;min_range&quot;=&gt;$min, &quot;max_range&quot;=&gt;$max))) === false) {<br>&nbsp;&nbsp;&nbsp; echo(&quot;Variable value is not within the legal range&quot;);<br>} else {<br>&nbsp;&nbsp;&nbsp; echo(&quot;Variable value is within the legal range&quot;);<br>}<br>?&gt;
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="phptryitf83b.html?filename=tryphp_func_validate_int3">Try it Yourself &raquo;</a>
+</div>
+
+<hr>
+<a href="php_ref_filter.html" class="w3-btn w3-white w3-border" title="PHP Filter Reference">&#10094; PHP Filter Reference</a>

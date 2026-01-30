@@ -1,0 +1,58 @@
+<h1>jQuery <span class="color_h1">Syntax</span></h1>
+
+<hr>
+<p class="intro">With jQuery you select (query) HTML elements and perform &quot;actions&quot; on them.</p>
+<hr>
+
+<h2>jQuery Syntax</h2>
+<p>The jQuery syntax is tailor-made for <b>selecting</b> HTML elements and performing some <b>action</b> on the element(s).</p>
+<p>Basic syntax is: <b>$(<i>selector</i>).<i>action</i>()</b></p>
+<ul>
+  <li>A $ sign to define/access jQuery</li>
+  <li>A (<i>selector</i>) to &quot;query (or find)&quot; HTML elements</li>
+  <li>A jQuery <i>action</i>() to be performed on the element(s)</li>
+</ul>
+<p>Examples:</p>
+<p><code class="w3-codespan">$(this).hide()</code> - hides the current element.</p>
+<p><code class="w3-codespan">$(&quot;p&quot;).hide()</code> - hides all &lt;p&gt; elements.</p>
+<p><code class="w3-codespan">$(&quot;.test&quot;).hide()</code> - hides all elements with class=&quot;test&quot;.</p>
+<p><code class="w3-codespan">$(&quot;#test&quot;).hide()</code> - hides the element with id=&quot;test&quot;.</p>
+
+
+<div class="w3-panel ws-note">
+<p><b>Are you familiar with CSS selectors?</b><br><br>
+jQuery uses CSS syntax to select elements. You will learn more about the selector syntax in the next chapter of this tutorial.</p>
+<p><strong>Tip:</strong> If you don't know CSS, you can read our <a href="../css/default.html">CSS Tutorial</a>.</p>
+</div>
+
+<hr>
+
+<h2>The Document Ready Event</h2>
+<p>You might have noticed that all jQuery methods in our examples, are inside a document ready event:</p>
+<div class="w3-code w3-border notranslate jsHigh">
+<div>
+$(document).ready(function(){<br>
+<br>&nbsp; <i>// jQuery methods go here...</i><br><br>
+});
+</div>
+</div>
+<p>This is to prevent any jQuery code from running before the document is finished loading (is ready).</p>
+<p>It is good practice to wait for the document to be fully loaded and ready before working with it.
+This also allows you to have your JavaScript code before the body of your document, in the head section. </p>
+<p>Here are some examples of actions that can fail if methods are run before the document is fully loaded:</p>
+<ul>
+  <li>Trying to hide an element that is not created yet</li>
+  <li>Trying to get the size of an image that is not loaded yet</li>
+</ul>
+<p><b>Tip:</b> The jQuery team has also created an even shorter method for the 
+document ready event:</p>
+<div class="w3-code w3-border notranslate jsHigh">
+<div>
+$(function(){<br>
+<br>&nbsp; <i>// jQuery methods go here...</i><br><br>
+});
+</div>
+</div>
+<p>Use the syntax you prefer. We think that the document ready event is easier to understand when reading the code.</p>
+
+<br>

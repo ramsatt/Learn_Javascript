@@ -1,0 +1,150 @@
+<h1>React Conditional Rendering</h1>
+
+
+<hr>
+
+<p class="intro">In React, you can conditionally render components.</p>
+<p class="intro">There are several ways to do this.</p>
+
+<hr>
+
+<h2><code class="w3-codespan">if</code> Statement</h2>
+
+<p>We can use the <code class="w3-codespan">if</code> JavaScript operator to decide which component to render.</p>
+
+<div class="w3-example">
+<h3>Example:</h3>
+  <p>We'll use these two components:</p>
+<pre class="language-jsx w3-white"><code>function MissedGoal() {
+  return &lt;h1&gt;MISSED!&lt;/h1&gt;;
+}
+
+function MadeGoal() {
+  return &lt;h1&gt;Goal!&lt;/h1&gt;;
+}
+</code></pre>
+</div>
+
+
+<div class="w3-example">
+  <h3>Example:</h3>
+  <p>Now, we'll create another component that chooses which component to render based on a condition:</p>
+<pre class="language-jsx w3-white"><code>function Goal(props) {
+  const isGoal = props.isGoal;
+  if (isGoal) {
+    return &lt;MadeGoal/&gt;;
+  }
+  return &lt;MissedGoal/&gt;;
+}
+
+createRoot(document.getElementById('root')).render(
+  &lt;Goal isGoal={false} /&gt;
+);
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreact6fb9.html?filename=demo_react_if">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<p>Try changing the <code class="w3-codespan">isGoal</code> attribute to <code class="w3-codespan">true</code>:</p>
+
+<div class="w3-example">
+  <h3>Example:</h3>
+<pre class="language-jsx w3-white"><code>createRoot(document.getElementById('root')).render(
+  &lt;Goal isGoal={true} /&gt;
+);
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreact720b.html?filename=demo_react_if2">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+
+<hr>
+
+<hr>
+<h2>Logical <code class="w3-codespan">&amp;&amp;</code> Operator</h2>
+<p>Another way to conditionally render a React component is by using the <code class="w3-codespan">&amp;&amp;</code> operator.</p>
+
+<p>In the example below, the heading will only be
+  rendered if the <code class="w3-codespan">props.brand</code> property is not empty:</p>
+
+<div class="w3-example">
+<h3>Example:</h3>
+<p>The right side of <code class="w3-codespan">&amp;&amp;</code> will only be rendered if the left side is true:</p>
+<pre class="language-jsx w3-white"><code>function Car(props) {
+  return (
+    &lt;&gt;
+      {props.brand &amp;&amp; &lt;h1&gt;My car is a {props.brand}!&lt;/h1&gt;}
+    &lt;/&gt;
+  );
+}
+
+createRoot(document.getElementById('root')).render(
+  &lt;Car brand="Ford" /&gt;
+);
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreactc48d.html?filename=demo_react_conditionals_logical">Run 
+Example &raquo;</a>
+</p>
+</div>
+    
+<p>If <code class="w3-codespan">props.brand</code> evaluates to true,
+the expression after <code class="w3-codespan">&amp;&amp;</code> will render.</p>
+
+<p>Try emptying the <code class="w3-codespan">brand</code> property:</p>
+
+<div class="w3-example">
+<h3>Example:</h3>
+<pre class="language-jsx w3-white"><code>createRoot(document.getElementById('root')).render(
+  &lt;Car /&gt;
+);</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreacte57e.html?filename=demo_react_conditionals_logical2">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<hr>
+<h2>Ternary Operator</h2>
+<p>Another way to conditionally render elements is by using a ternary operator.</p>
+
+<div class="w3-example">
+<pre class="language-jsx w3-white"><code>condition ? true : false
+</code></pre>
+</div>
+
+<p>We will go back to the goal example.</p>
+<div class="w3-example">
+<h3>Example:</h3>
+  <p>Return the <code class="w3-codespan">MadeGoal</code> component if
+  <code class="w3-codespan">isGoal</code> is <code class="w3-codespan">true</code>, 
+  otherwise return the <code class="w3-codespan">MissedGoal</code> component:</p>
+<pre class="language-jsx w3-white"><code>function Goal(props) {
+  const isGoal = props.isGoal;
+  return (
+    &lt;&gt;
+      { isGoal ? &lt;MadeGoal/&gt; : &lt;MissedGoal/&gt; }
+    &lt;/&gt;
+  );
+}
+
+createRoot(document.getElementById('root')).render(
+  &lt;Goal isGoal={false} /&gt;
+);
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreact7d71.html?filename=demo_react_conditionals_ternary">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<p>To learn more, see the <a href="react_es6_ternary.html">ternary operator</a> section.</p>
+<hr>
+
+
+
+<hr>

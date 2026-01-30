@@ -1,0 +1,110 @@
+<h1>Go <span class="color_h1">Syntax</span></h1>
+
+
+
+<hr>
+
+<h2>Go Syntax</h2>
+
+<p>A Go file consists of the following parts:</p>
+<ul>
+  <li>Package declaration</li>
+  <li>Import packages</li>
+  <li>Functions</li>
+  <li>Statements and expressions</li>
+</ul> 
+
+<p>Look at the following code, to understand it better:</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+    <div class="w3-code notranslate javaHigh">
+      package main<br>
+      import ("fmt")<br>
+      <br>
+      func main() { <br>
+      &nbsp;&nbsp;fmt.Println("Hello World!") <br>
+      }<br>  
+    </div>
+    
+</div>
+
+<h3>Example explained</h3>
+
+<p><strong>Line 1:</strong> In Go, every program is part of a package. We define this using the <code class="w3-codespan">
+package</code> keyword. In this example, the program belongs to the <code class="w3-codespan">
+main</code> package.</p>
+<p><strong>Line 2:</strong> <code class="w3-codespan">import ("fmt")</code> lets us import files included in 
+the <code class="w3-codespan">fmt</code> package.</p>
+<p><strong>Line 3:</strong> A blank line. Go ignores white space. Having white spaces in code makes it more readable.</p>
+<p><strong>Line 4:</strong> <code class="w3-codespan">func main() {}</code> is a function. Any code inside its curly brackets <code class="w3-codespan">{}</code> will be executed.</p>
+<p><strong>Line 5:</strong> <code class="w3-codespan">fmt.Println()</code> is a function made available from the <code class="w3-codespan">fmt</code> package. It is used to output/print text. In our example it will output "Hello World!". </p>
+
+<div class="w3-panel ws-note">
+  <p><strong>Note:</strong> In Go, any executable code belongs to the <code class="w3-codespan">
+  main</code> 
+  package.</p>
+</div>
+
+<hr>
+
+<h2>Go Statements</h2>
+
+<p><code class="w3-codespan">fmt.Println("Hello World!")</code> is a statement.</p> 
+<p>In Go, statements are separated by ending a line (hitting the Enter key) or by 
+a semicolon "<code class="w3-codespan">;</code>". 
+<p>Hitting the Enter key adds "<code class="w3-codespan">;</code>" to the end of the line implicitly (does not show up in the source code). </p>
+<p>The left curly bracket <code class="w3-codespan">{</code> cannot come at the start of a line.</p>
+<p>Run the following code and see what happens:</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+    <div class="w3-code notranslate javaHigh">
+      package main<br>
+      import ("fmt")<br>
+      <br>
+      func main() <br>{ <br>
+      &nbsp;&nbsp;fmt.Println("Hello World!") <br>
+      } <br>  
+    </div>
+    
+  </div>
+<hr>
+<h2>Go Compact Code</h2>
+
+<p>You can write more compact code, like shown below (this is not recommended because it makes the code 
+more difficult to read):</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+    <div class="w3-code notranslate javaHigh">
+      package main; import ("fmt"); func main() { fmt.Println("Hello World!");}<br>  
+    </div>
+    
+  </div>
+<hr>
+
+<div>
+<h2>Go Exercises</h2>
+<form autocomplete="off" spellcheck="false" id="w3-exerciseform" action="https://www.w3schools.com/go/exercise.php?filename=exercise_syntax1" method="post" target="_blank">
+<h2>Test Yourself With Exercises</h2>
+<div class="exercisewindow">
+<h2>Exercise:</h2>
+<p>Insert the missing part of the code below to output "Hello World".</p>
+<div class="exerciseprecontainer">
+<pre style="overflow: auto;">
+package main   
+import ("fmt")<br>
+func main() {  
+  <input name="ex1" maxlength="11" style="width: 115px;">("Hello World!")
+}
+</pre>
+</div>
+<br>
+<button type="submit" class="w3-btn w3-margin-bottom">Submit Answer &raquo;</button>
+<p><a target="_blank" href="exercisef5ec.html?filename=exercise_syntax1">Start the Exercise</a></p>
+</div>
+</form>
+</div>
+
+<br>

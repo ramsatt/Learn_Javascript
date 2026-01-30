@@ -1,0 +1,71 @@
+<h1>PHP <span class="color_h1">array_column()</span> Function</h1>
+<p><a href="php_ref_array.html" class="w3-btn w3-white w3-border" title="PHP Array Reference">&#10094; PHP Array Reference</a></p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Get column of last names from a recordset:</p>
+<div class="w3-code notranslate htmlHigh">
+ &lt;?php<br>// An array that represents a possible record set returned from a database<br>$a = array(<br>&nbsp; array(<br>&nbsp;&nbsp;&nbsp; 'id' =&gt; 5698,<br>&nbsp;&nbsp;&nbsp; 'first_name' =&gt; 'Peter',<br>&nbsp;&nbsp;&nbsp; 'last_name' =&gt; 'Griffin',<br>&nbsp; ),<br>&nbsp; array(<br>&nbsp;&nbsp;&nbsp; 'id' =&gt; 4767,<br>&nbsp;&nbsp;&nbsp; 'first_name' =&gt; 'Ben',<br>&nbsp;&nbsp;&nbsp; 'last_name' =&gt; 'Smith',<br>&nbsp; ),<br>&nbsp; array(<br>&nbsp;&nbsp;&nbsp; 'id' =&gt; 3809,<br>&nbsp;&nbsp;&nbsp; 'first_name' =&gt; 'Joe',<br>&nbsp;&nbsp;&nbsp; 'last_name' =&gt; 'Doe',<br>&nbsp; )<br>);<br><br>$last_names = array_column($a, 'last_name');<br>print_r($last_names);<br>?&gt;
+</div>
+<p>Output:</p>
+<div class="w3-code notranslate htmlHigh">Array<br>(<br>&nbsp; [0] =&gt; Griffin<br>&nbsp; [1] =&gt; Smith<br>&nbsp; [2] =&gt; Doe<br>)</div>
+<br>
+</div>
+<hr>
+
+<h2>Definition and Usage</h2>
+<p>The array_column() function returns the values from a single column in the input array.</p>
+<hr>
+
+<h2>Syntax</h2>
+<div class="w3-code w3-border notranslate"><div>
+array_column(<em>array</em>,<em> column_key</em>,<em> index_key</em>)</div></div>
+<h2>Parameter Values</h2>
+<table class="ws-table-all notranslate"> 
+  <tr>
+    <th style="width:20%">Parameter</th>
+    <th style="width:80%">Description</th>
+  </tr>  
+  <tr>
+    <td>array</td>
+    <td>Required. Specifies the multi-dimensional array (record-set) to use. As 
+    of PHP 7.0, this can also be an array of objects.</td>
+  </tr>
+  <tr>
+    <td>column_key</td>
+    <td>Required. An integer key or a string key name of the column of values to return. This parameter can also be NULL to return complete arrays (useful together with index_key to re-index the array)</td>
+  </tr>
+  <tr>
+    <td>index_key</td>
+    <td>Optional. The column to use as the index/keys for the returned array</td>
+  </tr>
+  </table>
+<hr>
+
+<hr>
+<h2>Technical Details</h2>
+<table class="ws-table-all">
+<tr>
+ <th style="width:20%">Return Value:</th>
+ <td style="width:80%">Returns an array of values that represents a single column from the input array </td>
+</tr>
+<tr>
+  <th>PHP Version:</th>
+  <td>5.5+</td>
+</tr>
+</table>
+<hr>
+
+<h2>More Examples</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Get column of last names from a recordset, indexed by the &quot;id&quot; column:</p>
+<div class="w3-code notranslate htmlHigh">
+ &lt;?php<br>// An array that represents a possible record set returned from a database<br>$a = array(<br>&nbsp; array(<br>&nbsp;&nbsp;&nbsp; 'id' =&gt; 5698,<br>&nbsp;&nbsp;&nbsp; 'first_name' =&gt; 'Peter',<br>&nbsp;&nbsp;&nbsp; 'last_name' =&gt; 'Griffin',<br>&nbsp; ),<br>&nbsp; array(<br>&nbsp;&nbsp;&nbsp; 'id' =&gt; 4767,<br>&nbsp;&nbsp;&nbsp; 'first_name' =&gt; 'Ben',<br>&nbsp;&nbsp;&nbsp; 'last_name' =&gt; 'Smith',<br>&nbsp; ),<br>&nbsp; array(<br>&nbsp;&nbsp;&nbsp; 'id' =&gt; 3809,<br>&nbsp;&nbsp;&nbsp; 'first_name' =&gt; 'Joe',<br>&nbsp;&nbsp;&nbsp; 'last_name' =&gt; 'Doe',<br>&nbsp; )<br>);<br><br>$last_names = array_column($a, 'last_name', 'id');<br>print_r($last_names);<br>
+ ?&gt; </div>
+<p>Output:</p>
+<div class="w3-code notranslate htmlHigh">Array<br>(<br>&nbsp; [5698] =&gt; Griffin<br>&nbsp; [4767] =&gt; Smith<br>&nbsp; [3809] =&gt; Doe<br>)</div>
+<br>
+</div>
+<hr>
+<a href="php_ref_array.html" class="w3-btn w3-white w3-border" title="PHP Array Reference">&#10094;  PHP Array Reference</a>

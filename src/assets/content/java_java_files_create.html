@@ -1,0 +1,67 @@
+<h1>Java <span class="color_h1">Create Files</span></h1>
+
+<hr>
+
+<h2>Create a File</h2>
+
+<p>In Java, you can create a new file with the <code class="w3-codespan">createNewFile()</code> method from the <code class="w3-codespan">File</code> class.</p>
+
+<p>This method returns:</p>
+<ul>
+  <li><code class="w3-codespan">true</code> - if the file was created successfully</li>
+  <li><code class="w3-codespan">false</code> - if the file already exists</li>
+</ul>
+
+<p>Note that the method is enclosed in a <code class="w3-codespan">try...catch</code> 
+block. This is necessary because it throws an <code class="w3-codespan">IOException</code> if an error occurs (if the 
+file cannot be created for some reason):</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>import java.io.File;       // Import the File class
+import java.io.IOException; // Import IOException to handle errors
+
+public class CreateFile {
+  public static void main(String[] args) {
+    try {
+      File myObj = new File("filename.txt"); // Create File object
+      if (myObj.createNewFile()) {           // Try to create the file
+        System.out.println("File created: " + myObj.getName());
+      } else {
+        System.out.println("File already exists.");
+      }
+    } catch (IOException e) {
+      System.out.println("An error occurred.");
+      e.printStackTrace(); // Print error details
+    }
+  }
+}
+</code></pre>
+<p>The output will be:</p>
+<div class="notranslate w3-black w3-padding">
+<code>File created: filename.txt</code>
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom w3-margin-top" href="showjava248d.html?filename=demo_files_create">Run Example &raquo;</a>
+</div>
+<p><strong>Explanation:</strong> The program tries to create a file called <code class="w3-codespan">filename.txt</code>.  
+If the file does not exist, it will be created and a success message is printed.  
+If the file already exists, you will see the message <code class="w3-codespan">"File already exists."</code> instead.</p>
+<div class="ws-note ws-panel">
+<p><strong>Note:</strong> The <code class="w3-codespan">createNewFile()</code> method only creates an <em>empty</em> file.  
+It does not add any content inside. You will learn how to <a href="java_files_write.html">write text to files</a> in the next chapter.</p>
+</div>
+<hr>
+
+<h2>Create a File in a Specific Folder</h2>
+<p>To create a file in a specific directory (requires permission), specify the path of the file and use double backslashes to escape the "<code class="w3-codespan">\</code>" character (for Windows). On Mac and Linux you can just write the path, like: /Users/name/filename.txt</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>File myObj = new File("C:\\Users\\MyName\\filename.txt");
+</code></pre>
+<p><a target="_blank" class="w3-btn" href="showjava7ac3.html?filename=demo_files_create2">Run Example &raquo;</a></p>
+</div>
+<hr>
+
+<hr>
+
+<br>

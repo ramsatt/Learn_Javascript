@@ -1,0 +1,90 @@
+<h1>Responsive Web Design - <span class="color_h1">Building a Grid View</span></h1>
+
+<hr>
+
+<h2>What is a Grid-View?</h2>
+<p>Many web pages are based on a <a href="css_grid.html">grid-view</a>, which means that the page is divided into rows and columns.</p>
+<p>A responsive grid-view often has 6 or 12 columns, and will shrink and expand as you resize the browser window.</p>
+<hr>
+
+<h2>Building a Grid View</h2>
+
+<p>Lets start building a grid-view.</p>
+
+<p>First ensure that all HTML elements have the <code class="w3-codespan">box-sizing</code> property set to 
+<code class="w3-codespan">border-box</code>. 
+This makes sure that the padding and border are included in the total width and height of 
+the elements.</p>
+<p>Add the following at the top of your CSS:</p>
+<div class="w3-code w3-border notranslate cssHigh">
+<div>
+  * {<br>&nbsp; box-sizing: border-box;<br>}</div>
+</div>
+<p>Read more about the <code class="w3-codespan">box-sizing</code> property in our <a href="css3_box-sizing.html">CSS Box Sizing</a> chapter.</p>
+<hr>
+
+<h2>The HTML</h2>
+<p>We create a grid container with five grid items (header, menu, content, facts, 
+footer):</p>
+
+<div class="w3-example">
+<h3>HTML</h3>
+  <p>Here is the complete HTML:</p>
+<div class="w3-code notranslate htmlHigh">
+  &lt;div class=&quot;grid-container&quot;&gt;<br><br>&lt;div class=&quot;header&quot;&gt;&lt;h1&gt;Chania&lt;/h1&gt;&lt;/div&gt;<br>
+  <br>&lt;div class=&quot;menu&quot;&gt;<br>&nbsp; &lt;ul&gt;<br>&nbsp;&nbsp;&nbsp; &lt;li&gt;The 
+  Flight&lt;/li&gt;<br>&nbsp;&nbsp;&nbsp; &lt;li&gt;The City&lt;/li&gt;<br>&nbsp;&nbsp;&nbsp; 
+  &lt;li&gt;The Island&lt;/li&gt;<br>&nbsp;&nbsp;&nbsp; &lt;li&gt;The Food&lt;/li&gt;<br>&nbsp; &lt;/ul&gt;<br>
+  &lt;/div&gt;<br><br>&lt;div class=&quot;content&quot;&gt;<br>&nbsp; &lt;h1&gt;The City&lt;/h1&gt;<br>&nbsp; 
+  &lt;p&gt;Chania is the capital of the Chania region on the island of Crete.&lt;/p&gt;<br>&nbsp; 
+  &lt;p&gt;The city can be divided in two parts, the old town and the modern city. The 
+  old town is situated next to the old harbour and is the matrix around which 
+  the whole urban area was developed.&lt;/p&gt;<br>&nbsp; &lt;p&gt;Chania lies along the 
+  north west coast of the island Crete.&lt;/p&gt;<br>&lt;/div&gt; <br><br>&lt;div 
+  class=&quot;facts&quot;&gt;<br>&nbsp; &lt;h2&gt;Facts:&lt;/h2&gt;<br>&nbsp; &lt;ul&gt;<br>&nbsp;&nbsp;&nbsp; 
+  &lt;li&gt;Chania is a city on the island of Crete&lt;/li&gt;<br>&nbsp;&nbsp;&nbsp; 
+  &lt;li&gt;Crete is a Greek island in the Mediterranean Sea&lt;/li&gt;<br>&nbsp; &lt;/ul&gt;<br>
+  &lt;/div&gt;<br><br>&lt;div class=&quot;footer&quot;&gt;&lt;p&gt;A footer.&lt;/p&gt;&lt;/div&gt;<br><br>&lt;/div&gt;</div>
+</div>
+<hr>
+
+<hr>
+
+<h2>The CSS</h2>
+<p>Add some styles and colors to make it look better:</p>
+
+<div class="w3-panel ws-note">
+<p><strong>Note:</strong> Look at the next chapter to add mediaqueries and 
+breakpoints for different screen sizes!</p>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Here is the complete CSS:</p>
+<div class="w3-code notranslate cssHigh">
+  * {<br>&nbsp; box-sizing: border-box;<br>}<br><br>body {<br>&nbsp; 
+  font-family: &quot;Lucida Sans&quot;, sans-serif;<br>&nbsp; font-size: 17px;<br>}<br>
+  <br>.grid-container {<br>&nbsp; display: grid;<br>&nbsp; grid-template-areas:<br>&nbsp; 
+  'header'<br>&nbsp; 'menu'<br>&nbsp; 'main'<br>&nbsp; 'facts'<br>&nbsp; 
+  'footer';<br>&nbsp; background-color: white;<br>&nbsp; gap: 10px; <br>}<br>
+  <br>.header {<br>&nbsp; grid-area: header;<br>&nbsp; background-color: purple;<br>&nbsp; 
+  text-align: center;<br>&nbsp; color: #ffffff;<br>}<br><br>.header &gt; h1 {<br>&nbsp; 
+  font-size: 40px;<br>}<br><br>.menu {<br>&nbsp; grid-area: menu;<br>}<br><br>
+  .menu ul {<br>&nbsp; list-style-type: none;<br>&nbsp; margin: 0;<br>&nbsp; 
+  padding: 0;<br>}<br><br>.menu li {<br>&nbsp; padding: 8px;<br>&nbsp; 
+  margin-bottom: 7px;<br>&nbsp; background-color: #33b5e5;<br>&nbsp; color: 
+  #ffffff;<br>}<br><br>.menu li:hover {<br>&nbsp; background-color: #0099cc;<br>
+  }<br><br>.content {<br>&nbsp; grid-area: main;<br>}<br><br>.content &gt; h1 {<br>&nbsp; 
+  font-size: 30px;<br>&nbsp; margin-bottom: 7px;<br>}<br><br>.content &gt; p {<br>&nbsp; 
+  margin-bottom: 7px;<br>}<br><br>.facts {<br>&nbsp; grid-area: facts;<br>&nbsp; 
+  border: 1px solid #0099cc;<br>&nbsp; background-color: beige;<br>&nbsp; 
+  padding: 10px;<br>}<br><br>.facts &gt; h2 {<br>&nbsp; font-size: 20px;<br>}<br>
+  <br>.facts li {<br>&nbsp; margin-bottom: 5px;<br>}<br><br>.footer {<br>&nbsp; 
+  grid-area: footer;<br>&nbsp; background-color: #0099cc;<br>&nbsp; color: 
+  #ffffff;<br>&nbsp; text-align: center;<br>}</div>
+
+</div>
+<hr>
+
+<hr>
+<br>

@@ -1,0 +1,164 @@
+<h1>React <code class="w3-codespan">useRef</code> Hook</h1>
+
+
+<hr>
+
+<p class="intro">The <code class="w3-codespan">useRef</code> Hook allows you to persist values between renders.</p>
+<p class="intro">It can be used to store a mutable value that does not cause a re-render when updated.</p>
+<p class="intro">It can be used to access a DOM element directly.</p>
+
+<hr>
+
+<h2>Does Not Cause Re-renders</h2>
+
+<p>If we tried to count how many times our application renders using the <code class="w3-codespan">useState</code> Hook, we would be caught in an infinite loop since this Hook itself causes a re-render.</p>
+
+<p>To avoid this, we can use the <code class="w3-codespan">useRef</code> Hook.</p>
+
+<div class="w3-example">
+<h3>Example:</h3>
+  <p>Use <code class="w3-codespan">useRef</code> to track application renders.</p>
+<pre class="language-jsx w3-white"><code>import { useState, useRef, useEffect } from 'react';
+import { createRoot } from 'react-dom/client';
+
+function App() {
+  const [inputValue, setInputValue] = useState(&quot;&quot;);
+  const count = useRef(0);
+
+  useEffect(() =&gt; {
+    count.current = count.current + 1;
+  });
+
+  return (
+    &lt;&gt;
+      &lt;p&gt;Type in the input field:&lt;/p&gt;
+      &lt;input
+        type=&quot;text&quot;
+        value={inputValue}
+        onChange={(e) =&gt; setInputValue(e.target.value)}
+      /&gt;
+      &lt;h1&gt;Render Count: {count.current}&lt;/h1&gt;
+    &lt;/&gt;
+  );
+}
+
+createRoot(document.getElementById('root')).render(
+  &lt;App /&gt;
+);
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreact6a50.html?filename=demo_react_useref">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<p><code class="w3-codespan">useRef()</code> only returns one item. It returns an Object called <code class="w3-codespan">current</code>.</p>
+
+<p>When we initialize <code class="w3-codespan">useRef</code> we set the initial value: <code class="w3-codespan">useRef(0)</code>.</p>
+
+<div class="w3-panel ws-note">
+<p>It's like doing this: <code class="w3-codespan">const count = {current: 0}</code>. We can access the count by using <code class="w3-codespan">count.current</code>.</p>
+</div>
+
+<hr>
+
+<hr>
+
+<h2>Accessing DOM Elements</h2>
+
+<p>The <code class="w3-codespan">useRef</code> Hook is often used to 
+  access DOM elements directly.</p>
+
+<p>First, we create a ref using the <code class="w3-codespan">useRef</code> Hook: <code class="w3-codespan">const inputElement = useRef();</code>.</p>
+
+<p>Then, we attach the ref to a DOM element using the ref attribute in JSX: <code class="w3-codespan">&lt;input type="text" ref={inputElement} /&gt;</code>.</p>
+
+<p>Finally, we can access the DOM element using the <code class="w3-codespan">current</code> property: <code class="w3-codespan">inputElement.current</code>.</p>
+
+<div class="w3-example">
+<h3>Example:</h3>
+  <p>Use <code class="w3-codespan">useRef</code> to focus the input:</p>
+<pre class="language-jsx w3-white"><code>import { useRef } from 'react';
+import { createRoot } from 'react-dom/client';
+
+function App() {
+  const inputElement = useRef();
+
+  const focusInput = () =&gt; {
+    inputElement.current.focus();
+  };
+
+  return (
+    &lt;&gt;
+      &lt;input type=&quot;text&quot; ref={inputElement} /&gt;
+      &lt;button onClick={focusInput}&gt;Focus Input&lt;/button&gt;
+    &lt;/&gt;
+  );
+}
+
+createRoot(document.getElementById('root')).render(
+  &lt;App /&gt;
+);
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreact7556.html?filename=demo_react_useref2">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<p>In the example, the input field gets focus when the button is clicked, because the onClick function calls
+  <code class="w3-codespan">inputElement.current.focus()</code>.</p>
+
+<hr>
+
+<h2>Tracking State Changes</h2>
+
+<p>The <code class="w3-codespan">useRef</code> Hook can also be used to keep track of previous state values.</p>
+
+<p>This is because we are able to persist <code class="w3-codespan">useRef</code> values between renders.</p>
+
+
+<div class="w3-example">
+<h3>Example:</h3>
+  <p>Use <code class="w3-codespan">useRef</code> to keep track of previous state values:</p>
+<pre class="language-jsx w3-white"><code>import { useRef, useState, useEffect } from 'react';
+import { createRoot } from 'react-dom/client';
+
+function App() {
+  const [inputValue, setInputValue] = useState(&quot;&quot;);
+  const previousInputValue = useRef(&quot;&quot;);
+
+  useEffect(() =&gt; {
+    previousInputValue.current = inputValue;
+  }, [inputValue]);
+
+  return (
+    &lt;&gt;
+      &lt;input
+        type=&quot;text&quot;
+        value={inputValue}
+        onChange={(e) =&gt; setInputValue(e.target.value)}
+      /&gt;
+      &lt;h2&gt;Current Value: {inputValue}&lt;/h2&gt;
+      &lt;h2&gt;Previous Value: {previousInputValue.current}&lt;/h2&gt;
+    &lt;/&gt;
+  );
+}
+
+createRoot(document.getElementById('root')).render(
+  &lt;App /&gt;
+);
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreact391d.html?filename=demo_react_useref3">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<p>This time we use a combination of <code class="w3-codespan">useState</code>, <code class="w3-codespan">useEffect</code>, and <code class="w3-codespan">useRef</code> to keep track of the previous state.</p>
+
+<p>In the <code class="w3-codespan">useEffect</code>, we are updating the <code class="w3-codespan">useRef</code> current value each time the <code class="w3-codespan">inputValue</code> is updated by entering text into the input field.</p>
+
+<hr>
+
+<hr>

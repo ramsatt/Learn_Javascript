@@ -1,0 +1,252 @@
+<h1>HTML <span class="color_h1">Entities</span></h1>
+
+<hr>
+<p class="intro">Reserved characters in HTML must be replaced with entities:</p>
+<ul>
+<li>&lt; (less than) = <b>&amp;lt;</b></li>
+<li>&gt; (greater than) = <b>&amp;gt;</b></li>
+</ul>
+<hr>
+
+<h2>HTML Character Entities</h2>
+<p>Some characters are reserved in HTML.</p>
+<p>If you use the less than (&lt;) or greater than (&gt;) signs in your HTML text, the browser might mix them with tags.</p>
+<p>Entity names or entity numbers can be used to display reserved HTML characters.</p>
+
+<p>Entity names look like this:</p>
+<div class="w3-example">
+<div class="w3-code notranslate htmlHigh">
+&amp;<i>entity_name</i>;
+</div></div>
+
+<p>Entity numbers look like this:</p>
+<div class="w3-example">
+<div class="w3-code notranslate htmlHigh">
+&amp;#<i>entity_number</i>;
+</div></div>
+
+<p>To display a less than sign (&lt;) we must write: <b>&amp;lt;</b> or <b>&amp;#60;</b></p>
+<div class="w3-panel ws-note">
+<p><b>Entity names</b> are easier to remember than entity numbers.</p>
+</div>
+
+<hr>
+
+<h2>Non-breaking Space</h2>
+<p>A commonly used HTML entity is the non-breaking space: <strong>&amp;nbsp;</strong></p>
+<p>A non-breaking space is a space that will not break into a new line.</p>
+<p>Two words 
+separated by a non-breaking space will stick together (not break into a new 
+line). This 
+is handy when breaking the words might be disruptive.</p>
+<p>Examples:</p>
+<ul>
+ <li>&sect; 10</li>
+ <li>10 km/h</li>
+ <li>10 PM</li>
+</ul>
+
+<p>Another common use of the non-breaking space is to prevent browsers from truncating spaces in HTML pages.</p>
+<p>If you write 10 spaces in your text, the browser will remove 9 of them. To add real spaces to your text, 
+you can use the <strong>&amp;nbsp;</strong> character entity.</p>
+
+<div class="w3-panel ws-note">
+<p>The non-breaking hyphen (<a href="../charsets/ref_utf_punctuation.html">&amp;#8209;</a>) 
+is used to define a hyphen character (&#8209;) that does not break into a new 
+line.</p>
+</div>
+
+<hr>
+
+
+<hr>
+
+<h2>Some Useful HTML Character Entities</h2>
+<table class="ws-table-all notranslate">
+    <tr>
+      <th>Result</th>
+      <th>Description</th>
+      <th>Name</th>
+      <th>Number</th>
+      <th></th>      
+    </tr>
+    <tr>
+      <td></td>
+      <td>non-breaking space</td>
+      <td>&amp;nbsp;</td>
+      <td>&amp;#160;</td>
+      <td><a target="_blank" class="w3-btn btnsmall" href="tryit4b7b.html?filename=tryhtml_ent_nbsp">Try it &raquo;</a></td>      
+    </tr>
+    <tr>
+      <td>&lt;</td>
+      <td>less than</td>
+      <td>&amp;lt;</td>
+      <td>&amp;#60;</td>
+      <td><a target="_blank" class="w3-btn btnsmall" href="tryit8d43.html?filename=tryhtml_ent_lt">Try it &raquo;</a></td>
+    </tr>
+    <tr>
+      <td>&gt;</td>
+      <td>greater than</td>
+      <td>&amp;gt;</td>
+      <td>&amp;#62;</td>
+      <td><a target="_blank" class="w3-btn btnsmall" href="tryita8f9.html?filename=tryhtml_ent_gt">Try it &raquo;</a></td>
+    </tr>
+    <tr>
+      <td>&amp;</td>
+      <td>ampersand</td>
+      <td>&amp;amp;</td>
+      <td>&amp;#38;</td>
+      <td><a target="_blank" class="w3-btn btnsmall" href="tryita10d.html?filename=tryhtml_ent_amp">Try it &raquo;</a></td>
+    </tr>
+    <tr>
+      <td>&quot;</td>
+      <td>double quotation mark </td>
+      <td>&amp;quot;</td>
+      <td>&amp;#34;</td>
+      <td><a target="_blank" class="w3-btn btnsmall" href="tryit5a20.html?filename=tryhtml_ent_quot">Try it &raquo;</a></td>
+    </tr>
+    <tr>
+      <td>&apos;</td>
+      <td>single quotation mark</td>
+      <td>&amp;apos;</td>
+      <td>&amp;#39;</td>
+      <td><a target="_blank" class="w3-btn btnsmall" href="tryit8543.html?filename=tryhtml_ent_apos">Try it &raquo;</a></td>
+    </tr>
+    <tr>
+      <td>&cent;</td>
+      <td>cent</td>
+      <td>&amp;cent;</td>
+      <td>&amp;#162;</td>
+      <td><a target="_blank" class="w3-btn btnsmall" href="tryit76ce.html?filename=tryhtml_ent_cent">Try it &raquo;</a></td>
+    </tr>
+    <tr>
+      <td>&pound;</td>
+      <td>pound</td>
+      <td>&amp;pound;</td>
+      <td>&amp;#163;</td>
+      <td><a target="_blank" class="w3-btn btnsmall" href="tryite007.html?filename=tryhtml_ent_pound">Try it &raquo;</a></td>
+    </tr>
+    <tr>
+      <td>&yen;</td>
+      <td>yen</td>
+      <td>&amp;yen;</td>
+      <td>&amp;#165;</td>
+      <td><a target="_blank" class="w3-btn btnsmall" href="tryit4f4a.html?filename=tryhtml_ent_yen">Try it &raquo;</a></td>
+    </tr>
+    <tr>
+      <td>&euro;</td>
+      <td>euro</td>
+      <td>&amp;euro;</td>
+      <td>&amp;#8364;</td>
+      <td><a target="_blank" class="w3-btn btnsmall" href="tryit7a7e.html?filename=tryhtml_ent_euro">Try it &raquo;</a></td>
+    </tr>
+    <tr>
+      <td>&copy;</td>
+      <td>copyright</td>
+      <td>&amp;copy;</td>
+      <td>&amp;#169;</td>
+      <td><a target="_blank" class="w3-btn btnsmall" href="tryitb41f.html?filename=tryhtml_ent_copy">Try it &raquo;</a></td>
+    </tr>
+    <tr>
+      <td>&#174;</td>
+      <td>registered trademark</td>
+      <td>&amp;reg;</td>
+      <td>&amp;#174;</td>
+      <td><a target="_blank" class="w3-btn btnsmall" href="tryita100.html?filename=tryhtml_ent_reg">Try it &raquo;</a></td>
+    </tr>
+    <tr>
+      <td>&#8482;</td>
+      <td>trademark</td>
+      <td>&amp;trade;</td>
+      <td>&amp;#8482;</td>
+      <td><a target="_blank" class="w3-btn btnsmall" href="tryit57bb.html?filename=tryhtml_ent_trad">Try it &raquo;</a></td>
+    </tr>
+    </table>
+
+<div class="w3-panel ws-note">
+<h2>Note</h2>
+<p>Entity names are case sensitive.</p>
+</div>
+
+<hr>
+
+<h2>Combining Diacritical Marks</h2>
+<p>A diacritical mark is a &quot;glyph&quot; added to a letter.</p>
+<p>Some diacritical marks, like grave (&nbsp; &#768;) and acute (&nbsp; &#769;) are called accents. </p>
+<p>Diacritical marks can be used in combination with alphanumeric characters to produce a character that is not present in 
+the character set (encoding) used in the page.</p>
+<p>Here are some examples:</p>
+<table class="ws-table-all notranslate">
+<tr>
+<th>Mark</th>
+<th>Character</th>
+<th>Construct</th>
+<th>Result</th>
+<th></th>      
+</tr>
+<tr>
+      <td>&nbsp;&#768;</td>
+      <td>a</td>
+      <td>a&amp;#768;</td>
+      <td>a&#768;</td>
+      <td><a target="_blank" class="w3-btn btnsmall" href="tryit8bec.html?filename=tryhtml_ent_a768">Try it &raquo;</a></td>
+</tr>
+<tr>
+      <td>&nbsp;&#769;</td>
+      <td>a</td>
+      <td>a&amp;#769;</td>
+      <td>a&#769;</td>
+      <td><a target="_blank" class="w3-btn btnsmall" href="tryitaaa0.html?filename=tryhtml_ent_a769">Try it &raquo;</a></td>
+</tr>
+<tr>
+      <td>&#770;</td>
+      <td>a</td>
+      <td>a&amp;#770;</td>
+      <td>a&#770;</td>
+      <td><a target="_blank" class="w3-btn btnsmall" href="tryit3960.html?filename=tryhtml_ent_a770">Try it &raquo;</a></td>
+</tr>
+<tr>
+      <td>&nbsp;&#771;</td>
+      <td>a</td>
+      <td>a&amp;#771;</td>
+      <td>a&#771;</td>
+      <td><a target="_blank" class="w3-btn btnsmall" href="tryit7735.html?filename=tryhtml_ent_a771">Try it &raquo;</a></td>
+</tr>
+<tr>
+      <td>&nbsp;&#768;</td>
+      <td>O</td>
+      <td>O&amp;#768;</td>
+      <td>O&#768;</td>
+      <td><a target="_blank" class="w3-btn btnsmall" href="tryitedd7.html?filename=tryhtml_ent_o768">Try it &raquo;</a></td>
+</tr>
+<tr>
+      <td>&nbsp;&#769;</td>
+      <td>O</td>
+      <td>O&amp;#769;</td>
+      <td>O&#769;</td>
+      <td><a target="_blank" class="w3-btn btnsmall" href="tryitb2e3.html?filename=tryhtml_ent_o769">Try it &raquo;</a></td>
+</tr>
+<tr>
+      <td>&#770;</td>
+      <td>O</td>
+      <td>O&amp;#770;</td>
+      <td>O&#770;</td>
+      <td><a target="_blank" class="w3-btn btnsmall" href="tryite4f7.html?filename=tryhtml_ent_o770">Try it &raquo;</a></td>
+</tr>
+<tr>
+      <td>&nbsp;&#771;</td>
+      <td>O</td>
+      <td>O&amp;#771;</td>
+      <td>O&#771;</td>
+      <td><a target="_blank" class="w3-btn btnsmall" href="tryit8457.html?filename=tryhtml_ent_o771">Try it &raquo;</a></td>
+</tr>
+</table>
+
+
+<div class="w3-panel ws-note">
+<p>There are more examples in the next chapter.</p>
+</div>
+
+<hr>
+
+<hr>

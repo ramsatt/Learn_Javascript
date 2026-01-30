@@ -1,0 +1,68 @@
+<h1>jQuery <span class="color_h1">Stop Animations</span></h1>
+
+<hr>
+<p class="intro">The jQuery stop() method is used to stop animations or effects before it is finished.</p>
+<button class="flip ws-btn w3-blue">Start sliding</button>
+<button style="margin-left:15px;" id="stop" class="ws-btn w3-red">Stop sliding</button>
+<br><br>
+<p class="flip">Click to slide down/up the panel</p>
+<div class="panel"><p>Because time is valuable, we deliver quick and easy learning.</p>
+<p>At W3Schools, you can study everything you need to learn, in an accessible and handy format.</p>
+</div>
+<hr>
+
+<h2>Examples</h2>
+<p><a target="_blank" href="tryitf25f.html?filename=tryjquery_stop_slide">jQuery stop() sliding</a><br>
+Demonstrates the jQuery stop() method.</p>
+<p><a target="_blank" href="tryitfc38.html?filename=tryjquery_stop_params">jQuery 
+stop() animation (with parameters)</a><br>
+Demonstrates the jQuery stop() method.</p>
+<hr>
+
+<h2>jQuery stop() Method</h2>
+<p>The jQuery <code class="w3-codespan">stop()</code> method is used to stop an animation or effect before it is finished.</p>
+<p>The <code class="w3-codespan">stop()</code> method works for all jQuery effect functions, including sliding, fading and custom animations.</p>
+<p><b>Syntax:</b></p>
+<div class="w3-code w3-border notranslate"><div>
+$(<i>selector</i>).stop(<i>stopAll,goToEnd</i>);</div></div>
+<p>The optional stopAll parameter specifies whether also the animation queue 
+should be cleared or not. Default is false, which means that only the active 
+animation will be stopped, allowing any queued animations to be performed 
+afterwards.</p>
+<p>The optional goToEnd parameter specifies whether or 
+not to complete the current animation immediately. Default is false.</p>
+<p>So, by default, the <code class="w3-codespan">stop()</code> method kills the current animation being performed 
+on the selected element.</p>
+<p>The following example demonstrates the <code class="w3-codespan">stop()</code> method, with no parameters:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;#stop&quot;).click(function(){<br>
+&nbsp;&nbsp;$(&quot;#panel&quot;).stop();<br>
+});</div>
+
+</div>
+<hr>
+
+<h2>jQuery Exercises</h2>
+<form autocomplete="off" id="w3-exerciseform" action="https://www.w3schools.com/jquery/exercise_jq.asp?filename=exercise_jq_stop1" method="post" target="_blank">
+<h2>Test Yourself With Exercises</h2>
+<div class="exercisewindow">
+<h2>Exercise:</h2>
+<p>Use a jQuery method to <strong>stop</strong> the animation effect of a &lt;div&gt; element.</p>
+<div class="exerciseprecontainer">
+<pre style="background-color:transparent;border:none;">
+$("div").<input name="ex1" maxlength="4" style="width:45px;">();
+</pre>
+</div>
+<br>
+<button type="submit" class="w3-btn w3-margin-bottom">Submit Answer &raquo;</button>
+<p><a target="_blank" href="exercise_jqb6d4.html?filename=exercise_jq_stop1">Start the Exercise</a></p>
+</div>
+</form>
+<hr>
+
+<h2>jQuery Effects Reference</h2>
+<p>For a complete overview of all jQuery effects, please go to our <a href="jquery_ref_effects.html">jQuery Effect Reference</a>.</p>
+
+<br>

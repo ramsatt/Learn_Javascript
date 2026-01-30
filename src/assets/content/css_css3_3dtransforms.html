@@ -1,0 +1,164 @@
+<h1>CSS <span class="color_h1">3D Transforms</span></h1>
+
+<hr>
+
+<h2>CSS 3D Transforms</h2>
+<p>The CSS <code class="w3-codespan"><a href="../cssref/css3_pr_transform.html">transform</a></code> 
+property applies a 2D or 3D transformation to an element. This property allows 
+you to rotate, scale, move, and skew elements.</p>
+<p>Mouse over the elements below to see the difference between a 2D 
+and a 3D transformation:</p>
+<div style="height:80px;">
+<div onmouseover="rotateDIV()" id="rotate2D">2D rotate</div>
+<div onmouseover="rotateYDIV()" id="rotate3D">3D rotate</div>
+</div>
+<hr>
+
+<h2>CSS 3D Transforms Functions </h2>
+<p>With the CSS <code class="w3-codespan"><a href="../cssref/css3_pr_transform.html">transform</a></code> 
+property you can use 
+the following 3D transformation functions:</p>
+<ul>
+<li><code class="w3-codespan"><a href="../cssref/func_rotatex.html">rotateX()</a></code></li>
+<li><code class="w3-codespan"><a href="../cssref/func_rotatey.html">rotateY()</a></code></li>
+<li><code class="w3-codespan"><a href="../cssref/func_rotatez.html">rotateZ()</a></code></li>
+</ul>
+
+<hr>
+
+<h2>The CSS rotateX() Function</h2>
+<p>The <code class="w3-codespan"><a href="../cssref/func_rotatex.html">rotateX()</a></code> function rotates an element around its X-axis at a given degree:</p>
+<div style="height:140px"><div style="background:white;padding:20px;width:auto;position:absolute;"><img src="assets/content/images/transform_rotatex.gif" alt="Rotate X" /></div></div>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+  #myDiv
+{<br>
+  &nbsp;
+transform: rotateX(150deg);<br>
+}
+</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>The CSS rotateY() Function</h2>
+<p>The <code class="w3-codespan"><a href="../cssref/func_rotatey.html">rotateY()</a></code> function rotates an element around its Y-axis at a given degree:</p>
+<div style="height:140px"><div style="background:white;padding:20px;width:auto;position:absolute;"><img src="assets/content/images/transform_rotatey.gif" alt="Rotate Y" /></div></div>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+  #myDiv
+{<br>
+  &nbsp;
+transform: rotateY(150deg);<br>
+}
+</div>
+
+</div>
+
+<hr>
+
+<h2>The CSS rotateZ() Function</h2>
+<p>The <code class="w3-codespan"><a href="../cssref/func_rotatez.html">rotateZ()</a></code> function rotates an element around its Z-axis at a given degree:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+  #myDiv
+{<br>
+  &nbsp;
+transform: rotateZ(90deg);<br>
+}
+</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>CSS Transform Properties</h2>
+<p>The following table lists all the 3D transform properties:</p>
+<table class="ws-table-all notranslate">
+ <tr>
+   <th style="width:22%">Property</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><a href="../cssref/css3_pr_transform.html">transform</a></td>
+    <td>Applies a 2D or 3D transformation to an element</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/css3_pr_transform-origin.html">transform-origin</a></td>
+    <td>Allows you to change the position on transformed elements</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/css3_pr_transform-style.html">transform-style</a></td>
+    <td>Specifies how nested elements are rendered in 3D space</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/css3_pr_perspective.html">perspective</a></td>
+    <td>Specifies the perspective on how 3D elements are viewed</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/css3_pr_perspective-origin.html">perspective-origin</a></td>
+    <td>Specifies the bottom position of 3D elements</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/css3_pr_backface-visibility.html">backface-visibility</a></td>
+    <td>Defines whether or not an element should be visible when not facing the screen</td>
+  </tr>
+</table>
+  
+<h2>CSS 3D Transform Functions</h2>
+<table class="ws-table-all notranslate">
+  <tr>
+    <th style="width:22%">Function</th>
+    <th>Description</th>
+  </tr>  
+  <tr>
+    <td><a href="../cssref/func_matrix3d.html">matrix3d()</a></td>
+    <td>Defines a 3D transformation, using a 4x4 matrix of 16 values</td>
+  </tr>
+  <tr>
+    <td>translate3d()</td>
+    <td>Defines a 3D translation</td>
+  </tr>
+  <tr>
+    <td>translateZ()</td>
+    <td>Defines a 3D translation, using only the value for the Z-axis</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/func_scale3d.html">scale3d()</a></td>
+    <td>Defines a 3D scale transformation</td>
+  </tr>
+  <tr>
+    <td>scaleZ()</td>
+    <td>Defines a 3D scale transformation by giving a value for the Z-axis</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/func_rotate3d.html">rotate3d()</a></td>
+    <td>Defines a 3D rotation</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/func_rotatex.html">rotateX()</a></td>
+    <td>Defines a 3D rotation along the X-axis</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/func_rotatey.html">rotateY()</a></td>
+    <td>Defines a 3D rotation along the Y-axis</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/func_rotatez.html">rotateZ()</a></td>
+    <td>Defines a 3D rotation along the Z-axis</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/func_perspective.html">perspective()</a></td>
+    <td>Defines a perspective view for a 3D transformed element</td>
+  </tr>
+</table>
+
+<br>

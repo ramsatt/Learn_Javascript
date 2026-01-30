@@ -1,0 +1,264 @@
+<h1>SQL <span class="color_h1">Aliases</span></h1>
+
+<hr>
+
+<h2>SQL Aliases</h2>
+<p>SQL aliases are used to give a table, or a column in a table, a temporary name.</p>
+<p>Aliases are often used to make column names more readable.</p>
+<p>An alias only exists for the duration of that query.</p>
+<p>An alias is created with the <code class="w3-codespan">AS</code> keyword.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+ SELECT CustomerID AS ID<br>
+ FROM Customers;</div>
+
+</div>
+
+<hr>
+
+<h2>AS is Optional</h2>
+<p>Actually, in most database languages, you can skip the AS keyword and get the same result:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+ SELECT CustomerID ID<br>
+ FROM Customers;</div>
+
+</div>
+
+<hr>
+<h2>Syntax</h2>
+
+<p>When alias is used on column:</p>
+
+<div class="w3-example ws-light-grey">
+<p><code class="sqlHigh">
+ SELECT <em>column_name</em> AS <em>alias_name</em><br>
+ FROM <em>table_name;</em></code></p>
+</div>
+
+<p>When alias is used on table:</p>
+
+<div class="w3-example ws-light-grey">
+<p><code class="sqlHigh">
+ SELECT <em>column_name(s)</em><br>
+ FROM <em>table_name </em>AS <em>alias_name;</em>
+</code></p>
+</div>
+
+<hr>
+
+<h2>Demo Database</h2>
+<p>Below is a selection from the
+<a href="trysql734a.html?filename=trysql_customers" target="_blank"><strong>Customers</strong></a>
+and 
+<a href="trysqlbb10.html?filename=trysql_orders" target="_blank"><strong>Orders</strong></a> tables used in the examples:</p>
+
+<h3>Customers</h3>
+
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+  <tr>
+    <th>CustomerID</th>
+    <th>CustomerName</th>
+    <th>ContactName</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>PostalCode</th>
+    <th>Country</th>
+  </tr>
+  <tr>
+    <td>1<br><br></td>
+    <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Obere Str. 57</td>
+    <td>Berlin</td>
+    <td>12209</td>
+    <td>Germany</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Ana Trujillo Emparedados y helados</td>
+    <td>Ana Trujillo</td>
+    <td>Avda. de la Constitución 2222</td>
+    <td>México D.F.</td>
+    <td>05021</td>
+    <td>Mexico</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Antonio Moreno Taquería</td>
+    <td>Antonio Moreno</td>
+    <td>Mataderos 2312</td>
+    <td>México D.F.</td>
+    <td>05023</td>
+    <td>Mexico</td>
+  </tr>
+</table>
+</div>
+
+<h3>Orders</h3>
+
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+  <tr>
+    <th>OrderID</th>
+    <th>CustomerID</th>
+    <th>EmployeeID</th>
+    <th>OrderDate</th>
+    <th>ShipperID</th>
+  </tr>
+  <tr>
+    <td>10248</td>
+    <td>90</td>
+    <td>5</td>
+    <td>7/4/1996</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <td>10249</td>
+    <td>81</td>
+    <td>6</td>
+    <td>7/5/1996</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td>10250</td>
+    <td>34</td>
+    <td>4</td>
+    <td>7/8/1996</td>
+    <td>2</td>
+  </tr>
+</table>
+</div>
+
+<hr>
+
+<hr>
+
+<h2>Alias for Columns</h2>
+<p>The following SQL statement creates two aliases, one for the CustomerID 
+column and one for the CustomerName column:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+ SELECT CustomerID AS ID, CustomerName AS Customer<br>
+ FROM Customers;</div>
+
+</div>
+
+<hr>
+
+<h2>Using Aliases With a Space Character</h2>
+
+<p>If you want your alias to contain one or more spaces, like "<code class="w3-codespan">My Great Products</code>",
+surround your alias with square brackets or double quotes.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Using [square brackets] for aliases with space characters:</p>
+<div class="w3-code notranslate sqlHigh">
+ SELECT ProductName AS [My Great Products]<br>
+ FROM Products;</div>
+
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Using "double quotes" for aliases with space characters:</p>
+<div class="w3-code notranslate sqlHigh">
+ SELECT ProductName AS "My Great Products"<br>
+ FROM Products;</div>
+
+</div>
+
+<div class="w3-panel ws-note">
+<p><b>Note:</b> Some database systems allows both [] and "", and some only allows one of them.</p>
+</div>
+
+<hr>
+
+<h2>Concatenate Columns</h2>
+<p>The following SQL statement creates an alias named "Address" that combine four columns (Address, PostalCode, 
+City and Country):</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+  SELECT CustomerName, Address + ', ' + PostalCode + ' ' + City + ', ' + Country 
+  AS Address<br>
+ FROM Customers;</div>
+
+</div>
+
+<p><strong>Note:</strong> To get the SQL statement above to work in MySQL use the following:</p>
+<div class="w3-example">
+<h3>MySQL Example</h3>
+<div class="w3-code notranslate sqlHigh">
+SELECT CustomerName, CONCAT(Address,', ',PostalCode,', ',City,', ',Country) AS Address<br>
+FROM Customers;</div>
+
+</div>
+
+<p><strong>Note:</strong> To get the SQL statement above to work in Oracle use the following:</p>
+<div class="w3-example">
+<h3>Oracle Example</h3>
+<div class="w3-code notranslate sqlHigh">
+  SELECT CustomerName, (Address || ', ' || PostalCode || ' ' || City || ', ' || 
+  Country) AS Address<br>FROM Customers;</div></div>
+
+
+<hr>
+
+<h2>Alias for Tables</h2>
+
+<p>The same rules applies when you want to use an alias for a table.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Refer to the Customers table as Persons instead:</p>
+<div class="w3-code notranslate sqlHigh">
+ SELECT * FROM Customers AS Persons;
+</div>
+
+</div>
+
+<p>It might seem useless to use aliases on tables, but when you are using more than one table in your queries,
+it can make the SQL statements shorter.</p>
+
+<p>The following SQL statement selects all the orders from the customer with 
+CustomerID=4 (Around the Horn). We use the "Customers" and "Orders" tables, and 
+give them the table aliases of "c" and "o" respectively (Here we use 
+aliases to make the SQL shorter):</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+ SELECT o.OrderID, o.OrderDate, c.CustomerName<br>FROM Customers AS c, Orders AS o<br>WHERE c.CustomerName='Around the Horn' AND c.CustomerID=o.CustomerID;
+</div>
+
+</div>
+
+<p>The following SQL statement is the same as above, but without aliases:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+ SELECT Orders.OrderID, Orders.OrderDate, Customers.CustomerName<br>FROM Customers, Orders<br>WHERE Customers.CustomerName='Around the Horn' AND Customers.CustomerID=Orders.CustomerID;
+</div>
+
+</div>
+
+<p>Aliases can be useful when:</p>
+<ul>
+  <li>There are more than one table involved in a query</li>
+  <li>Functions are used in the query</li>
+  <li>Column names are big or not very readable</li>
+  <li>Two or more columns are combined together</li>
+</ul>
+
+
+<hr>
+
+<hr>
+
+<br>

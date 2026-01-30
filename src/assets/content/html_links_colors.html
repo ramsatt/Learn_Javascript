@@ -1,0 +1,69 @@
+<h1>HTML <span class="color_h1">Links - Different Colors</span></h1>
+
+<hr>
+<p class="intro">An HTML link is displayed in a different color depending on 
+whether it has been visited, is unvisited, or is active.</p>
+<hr>
+
+<h2>HTML Link Colors</h2>
+<p>By default, a link will appear like this (in all browsers):</p>
+<ul>
+  <li>An unvisited link is underlined and blue</li>
+  <li>A visited link is underlined and purple</li>
+  <li>An active link is underlined and red</li>
+</ul>
+<p>You can change the link state colors, by using CSS:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Here, an unvisited link will be green with no underline. A visited link 
+will be pink with no underline. An active link will be yellow and underlined. 
+In addition, when mousing over a link (a:hover) it will become red and underlined:</p>
+<div class="w3-code notranslate cssHigh">
+&lt;style&gt;<br>a:link {<br>&nbsp;&nbsp;color: green; <br>&nbsp;&nbsp;background-color: transparent; 
+  <br>&nbsp;&nbsp;text-decoration: none;<br>}<br><br>
+a:visited {<br>&nbsp; color: pink;<br>&nbsp; background-color: transparent;<br>&nbsp; 
+  text-decoration: none;<br>}<br><br>a:hover {<br>&nbsp; color: red;<br>&nbsp; background-color: transparent;<br>
+  &nbsp; text-decoration: underline;<br>}<br><br>
+  a:active {<br>&nbsp; color: yellow;<br>&nbsp; background-color: transparent;<br>&nbsp; 
+  text-decoration: underline;<br>}<br>&lt;/style&gt;
+</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>Link Buttons</h2>
+<p>A link can also be styled as a button, by using CSS:</p>
+<a class="mytestbtn" href="javascript:void(0)">This is a link</a>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+&lt;style&gt;<br>a:link, a:visited {<br>&nbsp; background-color: #f44336;<br>&nbsp; 
+  color: white;<br>&nbsp; padding: 15px 25px;<br>&nbsp; text-align: center;<br>&nbsp; 
+  text-decoration: none;<br>&nbsp; display: inline-block;<br>}<br><br>a:hover, a:active {<br>&nbsp; 
+  background-color: red;<br>}<br>&lt;/style&gt;
+</div>
+
+</div>
+
+
+<div class="ws-note w3-panel">
+<p>To learn more about CSS, go to our <a href="../css/default.html">CSS Tutorial</a>.</p></div>
+
+<hr>
+<h2>HTML Link Tags</h2>
+<table class="ws-table-all notranslate">
+<tr>
+<th style="width:30%">Tag</th>
+<th>Description</th></tr><tr>
+<td><a href="../tags/tag_a.html">&lt;a&gt;</a></td><td>Defines a hyperlink</td></tr>
+</table>
+<div class="ws-note w3-panel">
+  <p>For a complete list of all available HTML tags, visit our <a href="../tags/default.html">HTML Tag Reference</a>.</p>
+</div>
+
+<hr>
+
+<hr>

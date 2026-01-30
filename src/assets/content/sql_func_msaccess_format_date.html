@@ -1,0 +1,117 @@
+<h1>MS Access <span class="color_h1">Format()</span> Function</h1>
+
+<div class="w3-clear w3-center nextprev">
+<a class="w3-left w3-btn" href="func_msaccess_day.html">&#10094;<span class="w3-hide-small"> Previous</span></a>
+<a class="w3-btn" title="MS Access Functions" href="sql_ref_msaccess.html">&#10094; MS Access Functions</a>
+<a class="w3-right w3-btn" href="func_msaccess_hour.html"><span class="w3-hide-small">Next </span>&#10095;</a>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Format the "BirthDate" column to a long date:</p>
+<div class="w3-code notranslate sqlHigh">
+  SELECT Format(BirthDate, "Long Date") AS FormattedBirthDate<br>FROM Employees; </div>
+<a target="_blank" href="trysqlca5d.html?filename=trysql_func_ms_format_date&amp;ss=-1" class="w3-btn w3-margin-bottom">Try it Yourself &raquo;</a>
+</div>
+<hr>
+
+<h2>Definition and Usage</h2>
+<p>The Format() function formats a date value with the specified format.</p>
+
+<h2>Syntax</h2>
+<div class="w3-code w3-border notranslate">
+Format(<em>value</em>, <em>format</em>, <em>firstdayofweek</em>, <em>firstweekofyear</em>)
+</div>
+
+<h2>Parameter Values</h2>
+<table class="ws-table-all notranslate"> 
+  <tr>
+    <th style="width:23%">Parameter</th>
+    <th>Description</th>  </tr>  
+  <tr>
+    <td style="width: 23%"><em>value</em></td>
+    <td>Required. The date value to format</td>
+  </tr>
+  <tr>
+    <td style="width: 23%"><em>format</em></td>
+    <td>Optional. The format to use.<br>
+    <table class="ws-table-all notranslate"> 
+  <tr>
+    <th>Format</th>
+    <th>Description</th>
+  </tr>  
+  <tr>
+    <td>General Date</td>
+    <td>Shows <em>value</em> as a date based on the system settings</td>
+  </tr>
+  <tr>
+    <td>Long Date</td>
+    <td>Shows <em>value</em> as a date based on the system's long date settings</td>
+  </tr>
+  <tr>
+    <td>Medium Date</td>
+    <td>Shows <em>value</em> as a date based on the system's medium date settings</td>
+  </tr>
+  <tr>
+    <td>Short Date</td>
+    <td>Shows <em>value</em> as a date based on the system's short date settings</td>
+  </tr>
+  <tr>
+    <td>Long Time</td>
+    <td>Shows <em>value</em> as a date based on the system's long time settings</td>
+  </tr>
+  <tr>
+    <td>Medium Time</td>
+    <td>Shows <em>value</em> as a date based on the system's medium time settings</td>
+  </tr>
+  <tr>
+    <td>Short Time</td>
+    <td>Shows <em>value</em> as a date based on 
+    the system's short time settings</td>
+  </tr>
+</table>
+    </td>
+  </tr>
+  <tr>
+    <td style="width: 23%"><em>firstdayofweek</em></td>
+    <td>Optional. Specifies the first day of the week. 
+    Can be one of the following values:
+    <ul>
+      <li>0 = Use the NLS API setting</li>
+      <li>1 = Sunday (this is default)</li>
+      <li>2 = Monday</li>
+      <li>3 = Tuesday</li>
+      <li>4 = Wednesday</li>
+      <li>5 = Thursday</li>
+      <li>6 = Friday</li>
+      <li>7 = Saturday</li>
+    </ul>
+  </td>
+  </tr>
+    <tr>
+    <td style="width: 23%"><em>firstdayofyear</em></td>
+    <td>Optional. Specifies the first week of the year. Can be one of the following values:
+    <ul>
+      <li>0 = Use the NLS API setting</li>
+      <li>1 = Use the first week that includes Jan 1st (default)</li>
+      <li>2 = Use the first week in the year that has at least 4 days</li>
+      <li>3 = Use the first full week of the year</li>
+    </ul>
+    </td>
+  </tr>  
+</table>
+
+<h2>Technical Details</h2>
+<table class="ws-table-all">
+<tr>
+ <th style="width:23%">Works in:</th>
+  <td>From Access 2000</td>
+</tr>
+</table>
+<br>
+
+<div class="w3-clear w3-center nextprev">
+<a class="w3-left w3-btn" href="func_msaccess_day.html">&#10094;<span class="w3-hide-small"> Previous</span></a>
+<a class="w3-btn" title="MS Access Functions" href="sql_ref_msaccess.html">&#10094; MS Access Functions</a>
+<a class="w3-right w3-btn" href="func_msaccess_hour.html"><span class="w3-hide-small">Next </span>&#10095;</a>
+</div>

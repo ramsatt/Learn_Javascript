@@ -1,0 +1,107 @@
+<h1>SQL <span class="color_h1">Comments</span></h1>
+
+<hr>
+
+<h2>SQL Comments</h2>
+<p class="intro">Comments are used to explain sections of SQL statements, or to prevent execution 
+of SQL statements.</p>
+
+<div class="w3-panel ws-note">
+<p><strong>Note: Comments are not supported in Microsoft Access databases!</strong></p>
+</div>
+
+<hr>
+<h2>Single Line Comments</h2>
+<p>Single line comments start with <code class="w3-codespan">--</code>.</p>
+<p>Any text between -- and the end of the line will be ignored (will not be executed).</p>
+
+<p>The following example uses a single-line comment as an explanation:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+-- Select all:<br>
+SELECT * FROM Customers;
+</div>
+
+</div>
+
+<p>The following example uses a single-line comment to ignore the end of a line:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+SELECT * FROM Customers -- WHERE City='Berlin';
+</div>
+
+</div>
+
+<p>The following example uses a single-line comment to ignore a statement:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+-- SELECT * FROM Customers;<br>
+SELECT * FROM Products;
+</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>Multi-line Comments</h2>
+<p>Multi-line comments start with <code class="w3-codespan">/*</code> and end with 
+<code class="w3-codespan">*/</code>.</p>
+<p>Any text between /* and */ will be ignored.</p>
+
+<p>The following example uses a multi-line comment as an explanation:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+/*Select all the columns<br>
+of all the records<br>
+in the Customers table:*/<br>
+SELECT * FROM Customers;
+</div>
+
+</div>
+
+<p>The following example uses a multi-line comment to ignore many statements:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+/*SELECT * FROM Customers;<br>
+SELECT * FROM Products;<br>
+SELECT * FROM Orders;<br>
+SELECT * FROM Categories;*/<br>
+SELECT * FROM Suppliers;
+</div>
+
+</div>
+<p>To ignore just a part of a statement, also use the /* */ comment.</p>
+
+<p>The following example uses a comment to ignore part of a line:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+SELECT CustomerName, /*City,*/ Country FROM Customers;
+</div>
+
+</div>
+
+<p>The following example uses a comment to ignore part of a statement:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+SELECT * FROM Customers WHERE (CustomerName LIKE 'L%'<br>
+OR CustomerName LIKE 'R%' /*OR CustomerName LIKE 'S%'<br>
+OR CustomerName LIKE 'T%'*/ OR CustomerName LIKE 'W%')<br>
+AND Country='USA'<br>
+ORDER BY CustomerName;</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<br>

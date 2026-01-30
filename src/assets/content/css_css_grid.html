@@ -1,0 +1,191 @@
+<h1>CSS <span class="color_h1">Grid Layout</span></h1>
+
+<hr>
+
+<h2>CSS Grid Layout Module</h2>
+<p>The Grid Layout Module offers a grid-based layout system, with rows and columns.</p>
+<p>The Grid Layout Module allows developers to easily create complex web layouts.</p>
+<p>The Grid Layout Module makes it easy to design a responsive layout structure, 
+without using <code class="w3-codespan">
+<a href="../cssref/pr_class_float.html">float</a></code> or positioning.</p>
+
+<div class="container">
+  <div class="header"><h2>My Header</h2></div>
+  <div class="menu"><a href="#">Link 1</a><br><a href="#">Link 2</a><br><a href="#">Link 3</a></div>
+  <div class="content"><h3>Lorem Ipsum</h3><p>Lorem ipsum odor amet, consectetuer adipiscing elit. Ridiculus sit nisl laoreet facilisis aliquet. Potenti dignissim litora eget montes rhoncus sapien neque urna. Cursus libero sapien integer magnis ligula lobortis quam ut.</p></div>
+  <div class="footer"><h4>Footer</h4></div>
+</div>
+<p><a class="ws-btn" target="_blank" href="tryit2c32.html?filename=trycss_grid_layout_named">Try it Yourself &raquo;</a></p>
+
+<div class="w3-panel ws-note">
+  <h3>Grid vs. Flexbox</h3>
+  <p>CSS Grid is used for two-dimensional layout, with rows AND columns.</p>
+  <p><a href="css3_flexbox.html">CSS Flexbox</a> is used for one-dimensional layout, with rows OR columns.</p>
+</div>
+
+<hr>
+
+<h2>CSS Grid Components</h2>
+<p>A grid always consists of:</p>
+<ul>
+  <li><strong>A Grid Container</strong> - The parent (container) element, where the <code class="w3-codespan"><a href="../cssref/pr_class_display.html">display</a></code> property is set to <code class="w3-codespan">
+  grid</code> or <code class="w3-codespan">inline-grid</code></li>
+  <li><strong>One or more Grid Items</strong> - The direct children of the grid container automatically becomes grid items</li>
+</ul>
+
+<hr>
+
+<hr>
+
+<h2>A Grid Container with Five Grid Items</h2>
+<p>The element below represents a <strong>grid container</strong> (the blue area) with five <strong>grid items</strong>.</p>
+
+<div class="grid-container">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+  <div>4</div>
+  <div>5</div>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+  <p>A grid container with five grid items:</p>
+<div class="w3-code notranslate htmlHigh">
+  &lt;html&gt;<br>&lt;head&gt;<br>&lt;style&gt;<br>.container {<br>&nbsp; display: grid;<br>&nbsp; 
+  grid-template-columns: auto auto auto;<br>&nbsp; background-color: dodgerblue;<br>&nbsp; 
+  padding: 10px;<br>}<br>.container div {<br>&nbsp; background-color: #f1f1f1;<br>&nbsp; 
+  border: 1px solid black;<br>&nbsp; padding: 10px;<br>&nbsp; font-size: 30px;<br>&nbsp; 
+  text-align: center;<br>}<br>&lt;/style&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br><br>&lt;div class=&quot;container&quot;&gt;<br>&nbsp; 
+  &lt;div&gt;1&lt;/div&gt;<br>&nbsp; &lt;div&gt;2&lt;/div&gt;<br>&nbsp; &lt;div&gt;3&lt;/div&gt; <br>&nbsp; 
+  &lt;div&gt;4&lt;/div&gt;<br>&nbsp; &lt;div&gt;5&lt;/div&gt;<br>&lt;/div&gt;<br><br>&lt;/body&gt;<br>
+  &lt;/html&gt;</div>
+<p></p>
+</div>
+
+<div class="w3-panel ws-note">
+  <p><strong>Note:</strong> You will learn more about grid containers and grid items in the next chapters.</p>
+</div>
+
+
+<h2>All CSS Grid Properties</h2>
+<table class="ws-table-all notranslate">
+  <tr>
+    <th style="width:30%">Property</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><a href="../cssref/css3_pr_align-content.html">align-content</a></td>
+    <td>Vertically aligns the whole grid inside the container (when total grid 
+    size is smaller than container)</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/css3_pr_align-items.html">align-items</a></td>
+    <td>Specifies the default alignment for items inside a flexbox or grid 
+    container</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/css3_pr_align-self.html">align-self</a></td>
+    <td>Aligns the content for a specific grid item along the column axis</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_class_display.html">display</a></td>
+    <td>Specifies the display behavior (the type of rendering box) of an element</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/css3_pr_column-gap.html">column-gap</a></td>
+    <td>Specifies the gap between the columns</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/css3_pr_gap.html">gap</a></td>
+    <td>A shorthand property for the <em>row-gap</em> and the <em>column-gap</em> properties</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_grid.html">grid</a></td>
+    <td>A shorthand property for the <em>grid-template-rows, 
+    grid-template-columns, grid-template-areas, grid-auto-rows, 
+    grid-auto-columns</em>, and the <em>grid-auto-flow</em> properties</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_grid-area.html">grid-area</a></td>
+    <td>Either specifies a name for the grid item, or this property is a shorthand property for the <em>grid-row-start</em>, <em>grid-column-start</em>, <em>grid-row-end</em>, and <em>grid-column-end</em> properties</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_grid-auto-columns.html">grid-auto-columns</a></td>
+    <td>Specifies a default column size</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_grid-auto-flow.html">grid-auto-flow</a></td>
+    <td>Specifies how auto-placed items are inserted in the grid</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_grid-auto-rows.html">grid-auto-rows</a></td>
+    <td>Specifies a default row size</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_grid-column.html">grid-column</a></td>
+    <td>A shorthand property for the <em>grid-column-start</em> and the <em>grid-column-end</em> properties</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_grid-column-end.html">grid-column-end</a></td>
+    <td>Specifies where to end the grid item</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_grid-column-start.html">grid-column-start</a></td>
+    <td>Specifies where to start the grid item</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_grid-row.html">grid-row</a></td>
+    <td>A shorthand property for the <em>grid-row-start</em> and the <em>grid-row-end</em> properties</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_grid-row-end.html">grid-row-end</a></td>
+    <td>Specifies where to end the grid item</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_grid-row-start.html">grid-row-start</a></td>
+    <td>Specifies where to start the grid item</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_grid-template.html">grid-template</a></td>
+    <td>A shorthand property for the <em>grid-template-rows</em>, <em>grid-template-columns</em> 
+    and <em>grid-areas</em> properties</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_grid-template-areas.html">grid-template-areas</a></td>
+    <td>Specifies how to display columns and rows, using named grid items</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_grid-template-columns.html">grid-template-columns</a></td>
+    <td>Specifies the size of the columns, and how many columns in a grid layout</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_grid-template-rows.html">grid-template-rows</a></td>
+    <td>Specifies the size of the rows in a grid layout</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/css3_pr_justify-content.html">justify-content</a></td>
+    <td>Horizontally aligns the whole grid inside the container (when total grid 
+    size is smaller than container)</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/css_pr_justify-self.html">justify-self</a></td>
+    <td>Aligns the content for a specific grid item along the row axis</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/css_pr_place-self.html">place-self</a></td>
+    <td>A shorthand property for the <em>align-self</em> and the <em>
+    justify-self</em> properties</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/css_pr_place-content.html">place-content</a></td>
+    <td>A shorthand property for the <em>align-content</em> and the <em>
+    justify-content</em> properties</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/css3_pr_row-gap.html">row-gap</a></td>
+    <td>Specifies the gap between the grid rows</td>
+  </tr>
+</table>
+
+<br>

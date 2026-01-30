@@ -1,0 +1,84 @@
+<h1>Bootstrap 5 <span class="color_h1">Form Floating Labels</span></h1>
+
+<hr>
+
+<h2>Floating Labels / Animated Labels</h2>
+<p>By default, when using labels, they normally appear on top of the input field:</p>
+  <div class=" mb-3 mt-3 w3-padding w3-round ws-grey w3-border w3-padding-16">
+      <label for="email">Email Label</label>
+      <input type="text" class="form-control"  style="margin-top:5px!important" id="email" placeholder="Enter email" name="email">
+    </div>
+
+<p>With floating labels, you can insert the label inside the input field, and make them float/animate when you click on the input field:</p>
+<div class="container-fluid mt-3 w3-border w3-padding w3-round ws-grey">
+  <div class="form-floating mb-3 mt-3">
+      <input type="text" class="form-control"  style="margin-top:5px!important" id="email" placeholder="Enter email" name="email">
+      <label for="email">Email</label>
+    </div>
+  <div class="form-floating mt-3 mb-3">
+      <input type="text" class="form-control" id="pwd" style="margin-top:5px!important"  placeholder="Enter password" name="pswd">
+      <label for="pwd">Password</label>
+    </div>
+</div>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;div class=&quot;form-floating mb-3 mt-3&quot;&gt;<br>&nbsp; &lt;input type=&quot;text&quot; 
+  class=&quot;form-control&quot; id=&quot;email&quot; placeholder=&quot;Enter email&quot; name=&quot;email&quot;&gt;<br>&nbsp; 
+  &lt;label for=&quot;email&quot;&gt;Email&lt;/label&gt;<br>&lt;/div&gt;<br><br>&lt;div class=&quot;form-floating 
+  mt-3 mb-3&quot;&gt;<br>&nbsp; &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;pwd&quot; 
+  placeholder=&quot;Enter password&quot; name=&quot;pswd&quot;&gt;<br>&nbsp; &lt;label 
+  for=&quot;pwd&quot;&gt;Password&lt;/label&gt;<br>&lt;/div&gt;</div>
+
+</div>
+
+<div class="ws-note w3-panel"><p><strong>Notes on floating labels:</strong> The 
+  &lt;label&gt; elements must come after the &lt;input&gt; element, and the <code class="w3-codespan">placeholder</code> attribute 
+  is required for each 
+  &lt;input&gt; element (even though it is not shown).</p></div>
+<hr>
+
+<h2>Textarea</h2>
+<p>It also works for textareas:</p>
+
+<div class="container-fluid mt-3 w3-border w3-padding w3-round ws-grey">
+    <div class="form-floating mb-3 mt-3">
+      <textarea class="form-control" rows="5" id="comment" name="text" placeholder="Comment goes here"></textarea>
+      <label for="comment">Comments</label>
+    </div>
+    </div>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;div class=&quot;form-floating&quot;&gt;<br>&nbsp; &lt;textarea class=&quot;form-control&quot; 
+  id=&quot;comment&quot; name=&quot;text&quot; placeholder=&quot;Comment goes here&quot;&gt;&lt;/textarea&gt;<br>&nbsp; 
+  &lt;label for=&quot;comment&quot;&gt;Comments&lt;/label&gt;<br>&lt;/div&gt;</div>
+
+</div>
+<hr>
+<hr>
+
+<h2>Select Menus</h2>
+ <p>You can also use "floating-labels" on select menus. However, they will not float/get animated. The label will always appear in the top left corner, inside the select menu:</p>
+    <div class="form-floating mb-3 mt-3">
+      <select class="form-select" id="sel1" name="sellist1">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+      </select>
+      <label for="sel1" class="form-label">Select list (select one):</label>
+    </div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;div class=&quot;form-floating&quot;&gt;<br>&nbsp; &lt;select class=&quot;form-select&quot; id=&quot;sel1&quot; 
+  name=&quot;sellist&quot;&gt;<br>&nbsp;&nbsp;&nbsp; &lt;option&gt;1&lt;/option&gt;<br>&nbsp;&nbsp;&nbsp; 
+  &lt;option&gt;2&lt;/option&gt;<br>&nbsp;&nbsp;&nbsp; &lt;option&gt;3&lt;/option&gt;<br>&nbsp;&nbsp;&nbsp; 
+  &lt;option&gt;4&lt;/option&gt;<br>&nbsp; &lt;/select&gt;<br>&nbsp; &lt;label for=&quot;sel1&quot; 
+  class=&quot;form-label&quot;&gt;Select list (select one):&lt;/label&gt;<br>&lt;/div&gt;</div>
+
+</div>
+
+<br>

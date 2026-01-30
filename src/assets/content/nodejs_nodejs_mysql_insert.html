@@ -1,0 +1,143 @@
+<h1>Node.js <span class="color_h1">MySQL</span> Insert Into</h1>
+
+<hr>
+<h2>Insert Into Table</h2>
+<p>To fill a table in MySQL, use the "INSERT INTO" statement.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Insert a record in the "customers" table:</p>
+
+<div class="w3-code notranslate jsHigh">
+  let mysql = require('mysql');<br><br>let con = mysql.createConnection({<br>&nbsp; 
+  host: &quot;localhost&quot;,<br>&nbsp; user: &quot;<em>yourusername</em>&quot;,<br>&nbsp; password: &quot;<em>yourpassword</em>&quot;,<br>
+  &nbsp; database: &quot;mydb&quot;<br>
+  });<br><br>con.connect(function(err) {<br>&nbsp; if (err) throw err;<br>&nbsp; console.log(&quot;Connected!&quot;);<br>
+  <strong>&nbsp; let sql = &quot;INSERT INTO customers (name, address) 
+  VALUES ('Company Inc', 'Highway 37')&quot;;<br></strong>&nbsp; 
+  con.query(sql, function (err, result) {<br>&nbsp;&nbsp;&nbsp; if (err) throw err;<br>&nbsp;&nbsp;&nbsp; console.log(&quot;1 record inserted&quot;);<br>&nbsp; });<br>});<br></div>
+
+<a target="_blank" class="w3-btn w3-margin-bottom" href="shownodejs_cmddb85.html?filename=demo_db_insert">Run example &raquo;</a>
+</div>
+
+<p>Save the code above in a file called "demo_db_insert.js", and run the file:</p>
+<div class="w3-example">
+<p>Run "demo_db_insert.js"</p>
+<div class="w3-code notranslate w3-black">
+C:\Users\<em>Your Name</em>&gt;node demo_db_insert.js
+</div>
+</div>
+<p>Which will give you this result:</p>
+<div class="w3-example">
+<div class="w3-code notranslate w3-black">
+Connected!<br>1 record inserted</div>
+</div>
+<hr>
+
+<hr>
+<h2>Insert Multiple Records</h2>
+<p>To insert more than one record, make an array containing the values, and 
+insert a question mark in the sql, which will be replaced by the value array:<br>
+<code class="w3-codespan">INSERT INTO customers (name, address) VALUES ?</code></p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Fill the "customers" table with data:</p>
+<div class="w3-code notranslate jsHigh">
+  let mysql = require('mysql');<br><br>let con = mysql.createConnection({<br>&nbsp; 
+  host: &quot;localhost&quot;,<br>&nbsp; user: &quot;<em>yourusername</em>&quot;,<br>&nbsp; 
+  password: &quot;<em>yourpassword</em>&quot;,<br>&nbsp; database: &quot;mydb&quot;<br>});<br><br>
+  con.connect(function(err) {<br>&nbsp; if (err) throw err;<br>&nbsp; 
+  console.log(&quot;Connected!&quot;);<br>&nbsp; let sql = &quot;INSERT INTO customers (name, 
+  address) VALUES ?&quot;;<br>&nbsp; let values = [<br>&nbsp;&nbsp;&nbsp; ['John', 
+  'Highway 71'],<br>&nbsp;&nbsp;&nbsp; ['Peter', 'Lowstreet 4'],<br>&nbsp;&nbsp;&nbsp; 
+  ['Amy', 'Apple st 652'],<br>&nbsp;&nbsp;&nbsp; ['Hannah', 'Mountain 21'],<br>&nbsp;&nbsp;&nbsp; 
+  ['Michael', 'Valley 345'],<br>&nbsp;&nbsp;&nbsp; ['Sandy', 'Ocean blvd 2'],<br>&nbsp;&nbsp;&nbsp; 
+  ['Betty', 'Green Grass 1'],<br>&nbsp;&nbsp;&nbsp; ['Richard', 'Sky st 331'],<br>&nbsp;&nbsp;&nbsp; 
+  ['Susan', 'One way 98'],<br>&nbsp;&nbsp;&nbsp; ['Vicky', 'Yellow Garden 2'],<br>&nbsp;&nbsp;&nbsp; 
+  ['Ben', 'Park Lane 38'],<br>&nbsp;&nbsp;&nbsp; ['William', 'Central st 954'],<br>&nbsp;&nbsp;&nbsp; 
+  ['Chuck', 'Main Road 989'],<br>&nbsp;&nbsp;&nbsp; ['Viola', 'Sideway 1633']<br>&nbsp; 
+  ];<br>&nbsp; con.query(sql,<strong> [values]</strong>, function (err, result) 
+  {<br>&nbsp;&nbsp;&nbsp; if (err) throw err;<br>&nbsp;&nbsp;&nbsp; console.log(&quot;Number 
+  of records inserted: &quot; + result.affectedRows);<br>&nbsp; });<br>});<br></div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="shownodejs_cmdff3a.html?filename=demo_db_insert_multiple">Run example &raquo;</a>
+</div>
+
+<p>Save the code above in a file called "demo_db_insert_multple.js", and run the file:</p>
+<div class="w3-example">
+<p>Run "demo_db_insert_multiple.js"</p>
+<div class="w3-code notranslate w3-black">
+C:\Users\<em>Your Name</em>&gt;node demo_db_insert_multiple.js
+</div>
+</div>
+<p>Which will give you this result:</p>
+<div class="w3-example">
+<div class="w3-code notranslate w3-black">
+Connected!<br>Number of records inserted: 14</div>
+</div>
+
+<hr>
+<h2>The Result Object</h2>
+<p>When executing a query, a result object is returned.</p>
+<p>The result object contains information about how the query  
+affected the table.</p>
+<p>The result object returned from the example above looks like this:</p>
+<div class="w3-example">
+<div class="w3-code notranslate jsHigh">
+  {<br>&nbsp; fieldCount: 0,<br>&nbsp; affectedRows: 14,<br>&nbsp; insertId: 0,<br>&nbsp; 
+  serverStatus: 2,<br>&nbsp; warningCount: 0,<br>&nbsp; message: '\'Records:14&nbsp; 
+  Duplicated: 0&nbsp; Warnings: 0',<br>&nbsp; protocol41: true,<br>&nbsp; 
+  changedRows: 0<br>}</div>
+</div>
+
+<p>The values of the properties can be displayed like this:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Return the  number of affected rows:</p>
+<div class="w3-code notranslate w3-black">
+console.log(result.affectedRows)
+</div>
+</div>
+<p>Which will produce this result:</p>
+<div class="w3-example">
+<div class="w3-code notranslate w3-black">
+14</div>
+</div>
+<hr>
+<h2>Get Inserted ID</h2>
+<p>For tables with an auto increment id field, you can get the id of the row you 
+just inserted by asking the result object.</p>
+<div class="w3-panel ws-note">
+<p><strong>Note:</strong> To be able to get the inserted id, <strong>only one row</strong> can be inserted.</p>
+</div>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Insert a record in the "customers" table, and return the ID:</p>
+
+<div class="w3-code notranslate jsHigh">
+  let mysql = require('mysql');<br><br>let con = mysql.createConnection({<br>&nbsp; 
+  host: &quot;localhost&quot;,<br>&nbsp; user: &quot;<em>yourusername</em>&quot;,<br>&nbsp; password: &quot;<em>yourpassword</em>&quot;,<br>
+  &nbsp; database: &quot;mydb&quot;<br>
+  });<br><br>con.connect(function(err) {<br>&nbsp; if (err) throw err;<br>&nbsp; let sql = &quot;INSERT INTO customers (name, address) 
+  VALUES ('Michelle', 'Blue Village 1')&quot;;<br>&nbsp; 
+  con.query(sql, function (err, result) {<br>&nbsp;&nbsp;&nbsp; if (err) throw err;<br>&nbsp;&nbsp;&nbsp; console.log(&quot;1 record inserted, 
+  ID: &quot; + <strong>result.insertId</strong>);<br>&nbsp; });<br>});<br></div>
+
+<a target="_blank" class="w3-btn w3-margin-bottom" href="shownodejs_cmda4c2.html?filename=demo_db_insert_id">Run example &raquo;</a>
+</div>
+
+<p>Save the code above in a file called "demo_db_insert_id.js", and run the file:</p>
+<div class="w3-example">
+<p>Run "demo_db_insert_id.js"</p>
+<div class="w3-code notranslate w3-black">
+C:\Users\<em>Your Name</em>&gt;node demo_db_insert_id.js
+</div>
+</div>
+<p>Which will give you something like this in return:</p>
+<div class="w3-example">
+<div class="w3-code notranslate w3-black">
+  1 record inserted, ID: 15</div>
+</div>
+
+<hr>
+
+<hr>

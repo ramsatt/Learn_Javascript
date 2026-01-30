@@ -1,0 +1,289 @@
+<h1>SQL <span class="color_h1">ANY and ALL Operators</span></h1>
+
+<hr>
+
+<h2>The SQL ANY and ALL Operators</h2>
+<p>The <code class="w3-codespan">ANY</code> and <code class="w3-codespan">ALL</code> operators allow you to perform a comparison between a single 
+column value and a range of other values.</p>
+<hr>
+<h2>The SQL ANY Operator</h2>
+<p>The <code class="w3-codespan">ANY</code> operator:</p>
+<ul>
+  <li>returns a boolean value as a result</li>
+  <li>returns TRUE if ANY of the subquery values meet the condition</li>
+</ul>
+<p><code class="w3-codespan">ANY</code> means that the condition will be true if the operation is true for 
+any of the values in the range.</p>
+<h3>ANY Syntax</h3>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+  SELECT <em>column_name(s)</em><br>
+  FROM <em>table_name</em><br>
+  WHERE 
+  <em>column_name operator</em> ANY<br>&nbsp; (SELECT <em>column_name<br>&nbsp; </em>FROM <em>table_name<br>&nbsp; </em>WHERE
+  <em>condition</em>);</div></div>
+
+<div class="w3-panel ws-note">
+  <p><strong>Note:</strong> The <em>operator</em> must be a standard comparison 
+operator (=, &lt;&gt;, !=, &gt;, &gt;=, &lt;, or &lt;=).</p>
+</div>
+
+<hr>
+
+<h2>The SQL ALL Operator</h2>
+<p>The <code class="w3-codespan">ALL</code> operator:</p>
+<ul>
+  <li>returns a boolean value as a result</li>
+  <li>returns TRUE if ALL of the subquery values meet the condition</li>
+  <li>is used with <code class="w3-codespan">SELECT</code>, 
+  <code class="w3-codespan">WHERE</code> and <code class="w3-codespan">HAVING</code> statements</li>
+</ul>
+<p><code class="w3-codespan">ALL</code> means that the condition will be true only if the operation is true 
+for all values in the range.&nbsp;</p>
+
+<h3>ALL Syntax With SELECT</h3>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+  SELECT ALL <em>column_name(s)</em><br>
+  FROM <em>table_name</em><br>
+  WHERE 
+  <em>condition</em>;</div></div>
+  
+<h3>ALL Syntax With WHERE or HAVING</h3>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+  SELECT <em>column_name(s)</em><br>
+  FROM <em>table_name</em><br>
+  WHERE 
+  <em>column_name operator</em> ALL<br>&nbsp; (SELECT <em>column_name<br>&nbsp; </em>FROM <em>table_name<br>&nbsp; </em>WHERE <em>condition</em>);</div></div>
+  
+<div class="w3-panel ws-note">
+<p><strong>Note:</strong> The <em>operator</em> must be a standard comparison 
+operator (=, &lt;&gt;, !=, &gt;, &gt;=, &lt;, or &lt;=).</p>
+</div>
+
+<hr>
+
+<h2>Demo Database</h2>
+<p>Below is a selection from the <strong>"Products"</strong> table in the Northwind sample database:</p>
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+  <tr>
+    <th>ProductID</th>
+    <th>ProductName</th>
+    <th>SupplierID</th>
+    <th>CategoryID</th>
+    <th>Unit</th>
+    <th>Price</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>Chais</td>
+    <td>1</td>
+    <td>1</td>
+    <td>10 boxes x 20 bags</td>
+    <td>18</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Chang</td>
+    <td>1</td>
+    <td>1</td>
+    <td>24 - 12 oz bottles</td>
+    <td>19</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Aniseed Syrup</td>
+    <td>1</td>
+    <td>2</td>
+    <td>12 - 550 ml bottles</td>
+    <td>10</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>Chef Anton's Cajun Seasoning</td>
+    <td>2</td>
+    <td>2</td>
+    <td>48 - 6 oz jars</td>
+    <td>22</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>Chef Anton's Gumbo Mix</td>
+    <td>2</td>
+    <td>2</td>
+    <td>36 boxes</td>
+    <td>21.35</td>
+  </tr>
+  <tr>
+    <td>6</td>
+    <td>Grandma's Boysenberry Spread</td>
+    <td>3</td>
+    <td>2</td>
+    <td>12 - 8 oz jars</td>
+    <td>25</td>
+  </tr>
+  <tr>
+    <td>7</td>
+    <td>Uncle Bob's Organic Dried Pears</td>
+    <td>3</td>
+    <td>7</td>
+    <td>12 - 1 lb pkgs.</td>
+    <td>30</td>
+  </tr>
+  <tr>
+    <td>8</td>
+    <td>Northwoods Cranberry Sauce</td>
+    <td>3</td>
+    <td>2</td>
+    <td>12 - 12 oz jars</td>
+    <td>40</td>
+  </tr>
+  <tr>
+    <td>9</td>
+    <td>Mishi Kobe Niku</td>
+    <td>4</td>
+    <td>6</td>
+    <td>18 - 500 g pkgs.</td>
+    <td>97</td>
+  </tr>
+</table>
+</div>
+
+<p>And a selection from the <strong>"OrderDetails"</strong> table:</p>
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+  <tr>
+    <th>OrderDetailID</th>
+    <th>OrderID</th>
+    <th>ProductID</th>
+    <th>Quantity</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>10248</td>
+    <td>11</td>
+    <td>12</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>10248</td>
+    <td>42</td>
+    <td>10</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>10248</td>
+    <td>72</td>
+    <td>5</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>10249</td>
+    <td>14</td>
+    <td>9</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>10249</td>
+    <td>51</td>
+    <td>40</td>
+  </tr>
+  <tr>
+    <td>6</td>
+    <td>10250</td>
+    <td>41</td>
+    <td>10</td>
+  </tr>
+  <tr>
+    <td>7</td>
+    <td>10250</td>
+    <td>51</td>
+    <td>35</td>
+  </tr>
+  <tr>
+    <td>8</td>
+    <td>10250</td>
+    <td>65</td>
+    <td>15</td>
+  </tr>
+  <tr>
+    <td>9</td>
+    <td>10251</td>
+    <td>22</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>10</td>
+    <td>10251</td>
+    <td>57</td>
+    <td>15</td>
+  </tr>
+</table>
+</div>
+
+<hr>
+
+<hr>
+
+<h2>SQL ANY Examples</h2>
+<p>The following SQL statement lists the ProductName if it 
+finds ANY records in the OrderDetails table has Quantity equal to 10 (this will 
+return TRUE because the Quantity column has some values of 10):</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+  SELECT ProductName<br>FROM Products<br>WHERE ProductID = ANY<br>&nbsp; (SELECT ProductID<br>&nbsp; FROM OrderDetails<br>&nbsp; WHERE Quantity = 10);</div>
+
+</div>
+
+<p>The following SQL statement lists the ProductName if it 
+finds ANY records in the OrderDetails table has Quantity larger than 99 (this 
+will return TRUE because the Quantity column has some values larger than 99):</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+  SELECT ProductName<br>FROM Products<br>WHERE ProductID = ANY<br>&nbsp; (SELECT ProductID<br>&nbsp; 
+  FROM OrderDetails<br>&nbsp; WHERE Quantity &gt; 99);</div>
+
+</div>
+
+<p>The following SQL statement lists the ProductName if it 
+finds ANY records in the OrderDetails table has Quantity larger than 1000 (this 
+will return FALSE because the Quantity column has no values larger than 1000):</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+  SELECT ProductName<br>FROM Products<br>WHERE ProductID = ANY<br>&nbsp; (SELECT ProductID<br>&nbsp; 
+  FROM OrderDetails<br>&nbsp; WHERE Quantity &gt; 1000);</div>
+
+</div>
+
+<hr>
+
+<h2>SQL ALL Examples</h2>
+<p>The following SQL statement lists ALL the product names:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+  SELECT ALL ProductName<br>FROM Products<br>WHERE TRUE;</div>
+
+</div>
+
+<p>The following SQL statement lists the ProductName if ALL the records in the 
+OrderDetails table has Quantity equal to 10. This will of course return FALSE 
+because the Quantity column has many different values (not only the value of 10):</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+  SELECT ProductName<br>FROM Products<br>WHERE ProductID = ALL<br>&nbsp; (SELECT ProductID<br>&nbsp; FROM OrderDetails<br>&nbsp; WHERE Quantity = 10);</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+
+<br>

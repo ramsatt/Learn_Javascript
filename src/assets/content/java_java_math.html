@@ -1,0 +1,137 @@
+<h1>Java <span class="color_h1">Math</span></h1>
+
+<hr>
+<p class="intro">The Java Math class has many methods that allows you to perform mathematical tasks on numbers.</p>
+<hr>
+
+<h2>Math.max(<em>x,y</em>)</h2>
+<p>The <code class="w3-codespan">Math.max(<em>x</em>,<em>y</em>)</code> method can be used to find the highest value of <em>x</em> and
+<em>y</em>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>Math.max(5, 10);
+</code></pre>
+<p>
+
+</p>
+</div>
+<hr>
+
+<h2>Math.min(<em>x,y</em>)</h2>
+<p>The <code class="w3-codespan">Math.min(<em>x</em>,<em>y</em>)</code> method can be used to find the lowest value of <em>x</em> 
+and <em>y</em>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>Math.min(5, 10);
+</code></pre>
+<p>
+
+</p>
+</div>
+<hr>
+
+<h2>Math.sqrt(<em>x</em>)</h2>
+<p>The <code class="w3-codespan">Math.sqrt(<em>x</em>)</code> method returns the square root of <em>x</em>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>Math.sqrt(64);
+</code></pre>
+<p>
+
+</p>
+</div>
+<hr>
+
+<hr>
+
+<h2>Math.abs(<em>x</em>)</h2>
+<p>The <code class="w3-codespan">Math.abs(<em>x</em>)</code> method returns the absolute (positive) value of <em>x</em>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>Math.abs(-4.7);
+</code></pre>
+<p>
+
+</p>
+</div>
+<hr>
+
+<h2>Math.pow(<em>x, y</em>)</h2>
+<p>The <code class="w3-codespan">Math.pow(<em>x, y</em>)</code> method returns the value of <em>x</em> raised to the power of <em>y</em>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>Math.pow(2, 8);  // 256.0
+</code></pre>
+<p>
+
+</p>
+</div>
+
+<div class="ws-note ws-panel">
+<p><strong>Note:</strong> <code class="w3-codespan">Math.pow(2, 8)</code> means 
+<code class="w3-codespan">2</code> multiplied by itself 8 times:<br>
+2 * 2 * 2 * 2 * 2 * 2 * 2 * 2 = 256</p>
+<p><strong>Note:</strong> The <code class="w3-codespan">Math.pow()</code> method always returns a 
+<code class="w3-codespan">double</code>, even if the result is a whole number.  
+For example, <code class="w3-codespan">Math.pow(2, 8)</code> returns <code class="w3-codespan">256.0</code> (not <code class="w3-codespan">256</code>).</p>
+</div>
+<hr>
+
+<h2>Rounding Methods</h2>
+<p>Java has several methods for rounding numbers:</p>
+
+<ul>
+  <li><code class="w3-codespan">Math.round(x)</code> - rounds to the nearest integer</li>
+  <li><code class="w3-codespan">Math.ceil(x)</code> - rounds up (returns the smallest integer greater than or equal to x)</li>
+  <li><code class="w3-codespan">Math.floor(x)</code> - rounds down (returns the largest integer less than or equal to x)</li>
+</ul>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>Math.round(4.6);  // 5
+Math.ceil(4.1);   // 5.0
+Math.floor(4.9);  // 4.0</code></pre>
+<p>
+
+</p>
+</div>
+<hr>
+
+<h2>Random Numbers</h2>
+<p><code class="w3-codespan">Math.random()</code> returns a random number between 0.0 (inclusive), and 1.0 (exclusive):</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>Math.random();
+</code></pre>
+<p>
+
+</p>
+</div>
+
+<p>To get more control over the random number, for example, if you only want a random 
+number between 0 and 100, you can use the following formula:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>int randomNum = (int)(Math.random() * 101);  // 0 to 100</code></pre>
+<p>
+
+</p>
+</div>
+
+<div class="ws-note ws-panel">
+<p><strong>Note:</strong> <code class="w3-codespan">Math.random()</code> returns a 
+<code class="w3-codespan">double</code>. To get an integer, you need to <a href="java_type_casting.html">cast</a> it with 
+<code class="w3-codespan">(int)</code>.</p>
+</div>
+<hr>
+
+<div>
+<h2>Complete Math Reference</h2>
+<p>For a complete reference of Math methods, go to our <a href="java_ref_math.html">Java Math Methods Reference</a>.</p>
+
+</div>
+<hr>
+
+<hr>
+
+<br>

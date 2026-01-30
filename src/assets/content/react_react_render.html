@@ -1,0 +1,235 @@
+<h1>React Render HTML</h1>
+
+
+<hr>
+
+<p class="intro">React's goal is in many ways to render HTML in a web page.</p>
+<p class="intro">React renders HTML to the web page via a container, and a function called
+<code class="w3-codespan">createRoot()</code>.</p>
+
+<hr>
+
+<h2>The Container</h2>
+
+<p>React uses a container to render HTML in a web page.</p>
+
+<p>Typically, this container is a <code class="w3-codespan">&lt;div id="root"&gt;&lt;/div&gt;</code> element in the <code class="w3-codespan">index.html</code> file.</p>
+
+<p>If you have followed the steps in the previous chapter, you should have a file called <code class="w3-codespan">index.html</code> in the root directory of your project:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>The default content of the <code class="w3-codespan">index.html</code> file:</p>
+<pre class="language-html w3-white" data-tab-header="index-2.html"><code>&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&nbsp;&nbsp;&lt;head&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta charset="UTF-8" /&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;link rel="icon" type="image/svg+xml" href="/vite.svg" /&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Vite + React&lt;/title&gt;
+&nbsp;&nbsp;&lt;/head&gt;
+&nbsp;&nbsp;&lt;body&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div id="root"&gt;&lt;/div&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;script type="module" src="/src/main.jsx"&gt;&lt;/script&gt;
+&nbsp;&nbsp;&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+</div>
+
+<p>To better understand the content of the <code class="w3-codespan">index.html</code> file, let's remove all the code we don't need.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>The <code class="w3-codespan">index.html</code> file should now look like this:</p>
+<pre class="language-html w3-white" data-tab-header="index-2.html"><code>&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&nbsp;&nbsp;&lt;body&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div id="root"&gt;&lt;/div&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;script type="module" src="/src/main.jsx"&gt;&lt;/script&gt;
+&nbsp;&nbsp;&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+</div>
+  
+<p>The file is now stripped from unnecessary code, and we can concentrate on learning React without any disturbing elements.</p>
+
+<hr>
+
+<h2>The createRoot Function</h2>
+
+<p>The <code class="w3-codespan">createRoot</code> function is located in the <code class="w3-codespan">main.jsx</code>
+file in the <code class="w3-codespan">src</code> folder, and is a built-in function that is used to create a root node for a React application.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>The default content of the <code class="w3-codespan">src/main.jsx</code> file:</p>
+<pre class="language-jsx w3-white" data-tab-header="main.jsx"><code>import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.jsx'
+
+createRoot(document.getElementById('root')).render(
+  &lt;StrictMode&gt;
+      &lt;App /&gt;
+    &lt;/StrictMode&gt;
+  )  
+</code></pre>
+</div>
+
+<p>The <code class="w3-codespan">createRoot()</code> function takes one argument, an HTML element.</p>
+
+<p>The purpose of the function is to define the HTML element where a React component should be displayed.</p>
+  
+<p>To better understand the <code class="w3-codespan">createRoot</code> function, let's remove unnecessary code and write our own "Hello React!" example:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>The <code class="w3-codespan">src/main.jsx</code> file should now look like this:</p>
+<pre class="language-jsx w3-white" data-tab-header="main.jsx"><code>import { createRoot } from 'react-dom/client'
+
+createRoot(document.getElementById('root')).render(
+  &lt;h1&gt;Hello React!&lt;/h1&gt;
+)  
+</code></pre>
+</div>
+
+<p>If you save the file, the result in the browser will look like this:</p>
+  
+<div class="w3-container w3-margin-top">
+<img src="assets/content/images/react_helloreact.png" style="max-width:100%">
+</div>
+
+<hr>
+  
+<h2>The render Method</h2>
+
+<p>Did you notice the <code class="w3-codespan">render</code> method?</p>
+
+<p>The <code class="w3-codespan">render</code> method defines what to render in the HTML container.</p>
+
+<p>The result is displayed in the <code class="w3-codespan">&lt;div id="root"></code> element.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Display a paragraph inside the &quot;root&quot; element:</p>
+<pre class="language-jsx w3-white" data-tab-header="main.jsx"><code>import { createRoot } from 'react-dom/client'
+
+createRoot(document.getElementById('root')).render(
+  &lt;p&gt;Welcome!&lt;/p&gt;
+) 
+</code></pre>
+
+
+</div>
+
+<p>The result will look like this:</p>
+  
+<div class="w3-container w3-margin-top">
+<img src="assets/content/images/react_welcome.png" style="max-width:100%">
+</div>
+
+<hr>
+
+<div class="w3-panel ws-note">
+<p><b>Note:</b> the element id does not have to be "root", but this is the standard convention.</p>
+</div>
+<hr>
+
+<hr>
+
+<h2>Show React</h2>
+
+<p>W3Schools has its own "Show React" tool where we will show the result of the code we explain in the tutorial.</p>
+
+<p>Click the "Run Example" button to see the result:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>The same example shown in our "Show React" tool:</p>
+<pre class="language-jsx w3-white" data-tab-header="main.jsx"><code>import { createRoot } from 'react-dom/client'
+
+createRoot(document.getElementById('root')).render(
+  &lt;p&gt;Welcome!&lt;/p&gt;
+) 
+</code></pre>
+<a target="_blank" class="w3-btn" href="showreactad9d.html?filename=demo_react_render">Run Example &raquo;</a>  
+</div>
+  
+<hr>
+
+<h2>The HTML Code</h2>
+
+<p>The HTML code in this tutorial uses JSX which allows you to write HTML tags 
+inside the JavaScript code:</p>
+
+<p>Don't worry if the syntax is unfamiliar, you will learn more about JSX later in this tutorial.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Create a variable that contains HTML code and display it in the &quot;root&quot; node:</p>
+<pre class="language-jsx w3-white" data-tab-header="main.jsx"><code>import { createRoot } from 'react-dom/client'
+
+const myelement = (
+  &lt;table&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Name&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;John&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Elsa&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+);
+
+createRoot(document.getElementById('root')).render(
+  myelement
+)
+</code></pre>
+
+<p>
+<a target="_blank" class="w3-btn" href="showreact77a2.html?filename=demo_react_render2">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<hr>
+
+<h2>The Root Node</h2>
+
+<p>The root node is the HTML element where you want to display the result.</p>
+
+<p>It is like a <em>container</em> for content, managed by React.</p>
+
+<p>It does NOT have to be a <code class="w3-codespan">&lt;div&gt;</code> element and it does 
+NOT have to 
+have the <code class="w3-codespan">id='root'</code>:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>The root node can be called whatever you like.</p>
+<p>Display the result in the <code class="w3-codespan">&lt;header id="sandy"></code> element:</p>
+
+<pre class="language-html w3-white" data-tab-header="index-2.html"><code>&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&nbsp;&nbsp;&lt;body&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;header id="sandy"&gt;&lt;/header&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;script type="module" src="/src/main.jsx"&gt;&lt;/script&gt;
+&nbsp;&nbsp;&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<pre class="language-jsx w3-white" data-tab-header="main.jsx"><code>import { createRoot } from 'react-dom/client'
+
+createRoot(document.getElementById('sandy')).render(
+  &lt;p&gt;Welcome!&lt;/p&gt;
+) 
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreact3296.html?filename=demo_react_render3">Run 
+Example &raquo;</a>
+</p>
+</div>
+<hr>
+
+<hr>

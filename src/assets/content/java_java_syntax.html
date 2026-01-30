@@ -1,0 +1,93 @@
+<h1>Java <span class="color_h1">Syntax</span></h1>
+
+<hr>
+
+<h2>Java Syntax</h2>
+
+<p>In the previous chapter, we created a Java file called <code class="w3-codespan">Main.java</code>, and we used the following code to print "Hello World" to the screen:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white" data-tab-header="Main.java"><code>public class Main {
+  public static void main(String[] args) {
+    System.out.println("Hello World");
+  }
+}
+</code></pre>
+<p>
+
+</div>
+
+<h3>Example explained</h3>
+
+<p>Every line of code that runs in Java must be inside a <code class="w3-codespan">class</code>.  
+The class name should always start with an uppercase first letter. In our example, we named the class <strong>Main</strong>.</p>
+
+<p><strong>Note:</strong> Java is case-sensitive.  
+<code class="w3-codespan">MyClass</code> and <code class="w3-codespan">myclass</code> would be treated as two completely different names.</p>
+
+<p>The name of the Java file <strong>must match</strong> the class name.  
+So if your class is called <code class="w3-codespan">Main</code>, the file must be saved as <code class="w3-codespan">Main.java</code>.  
+This is because Java uses the class name to find and run your code. If the names don't match, Java will give an error and the program will not run.</p>
+
+<p>When saving the file, save it using the class name and add <code class="w3-codespan">.java</code> to the end of the filename.  
+To run the example above on your computer, make sure that Java is properly installed:  
+Go to the <a href="java_getstarted.html">Get Started Chapter</a> for how to install Java. The output should be:</p>
+
+<div class="w3-example w3-padding-16">
+<div class="notranslate w3-black w3-padding">
+<code class="notranslate">
+Hello World
+</code>
+</div>
+</div>
+<hr>
+
+<h2>The main Method</h2>
+<p>The <code class="w3-codespan">main()</code> method is required in every Java program. It is where the program starts running:</p>
+<div class="w3-example">
+<pre class="language-java w3-white"><code>public static void <strong>main</strong>(String[] args)
+</code></pre>
+</div>
+
+<p>Any code placed inside the <code class="w3-codespan">main()</code> method will be executed.</p>
+
+<p>For now, you don't need to understand the keywords <code class="w3-codespan">public</code>, <code class="w3-codespan">static</code>, and <code class="w3-codespan">void</code>.  
+You will learn about them later in this tutorial.  
+Just remember: <code class="w3-codespan">main()</code> is the starting point of every Java program.</p>
+
+<hr>
+
+<h2>System.out.println()</h2>
+<p>Inside the <code class="w3-codespan">main()</code> method, we can use the <code class="w3-codespan">println()</code> 
+method to print a line of text to the screen:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>public static void main(String[] args) {
+  System.out.println("Hello World");
+}
+</code></pre>
+<p>
+
+</div>
+
+<div class="ws-note w3-panel">
+<p><strong>Note:</strong> The curly braces <code class="w3-codespan">{}</code> mark the beginning and the end of a block of code.</p>
+
+<p><code class="w3-codespan">System.out.println()</code> may look long, but you can think of it as a single command that means:  
+<strong>"Send this text to the screen."</strong></p>
+
+<p>Here's what each part means (you will learn the details later):</p>
+<ul>
+  <li><code class="w3-codespan">System</code> is a built-in Java class.</li>
+  <li><code class="w3-codespan">out</code> is a member of <code class="w3-codespan">System</code>, short for "output".</li>
+  <li><code class="w3-codespan">println()</code> is a method, short for "print line".</li>
+</ul>
+
+<p>Finally, remember that each Java statement must end with a semicolon (<code class="w3-codespan">;</code>).</p>
+</div>
+
+<hr>
+
+<hr>

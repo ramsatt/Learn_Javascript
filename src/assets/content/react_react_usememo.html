@@ -1,0 +1,162 @@
+<h1>React <code class="w3-codespan">useMemo</code> Hook</h1>
+
+
+<hr>
+
+<p>The React <code class="w3-codespan">useMemo</code> Hook returns a memoized value.</p>
+
+<div class="w3-panel ws-note">
+<p>Think of memoization as caching a value so that it does not need to be recalculated.</p>
+</div>
+
+<p>The <code class="w3-codespan">useMemo</code> Hook only runs when one of its dependencies update.</p>
+
+<p>This can improve performance.</p>
+
+<div class="w3-panel ws-note">
+<p>The <code class="w3-codespan">useMemo</code> and <code class="w3-codespan">useCallback</code> Hooks are similar:</p>
+<p><code class="w3-codespan">useMemo</code> returns a memoized value.</p>
+<p><code class="w3-codespan">useCallback</code> returns a memoized function.</p>
+<p>Learn more about <code class="w3-codespan">useCallback</code> in the <a href="react_usecallback.html">useCallback chapter</a>.</p>
+</div>
+
+
+<hr>
+
+<h2>Without <code class="w3-codespan">useMemo</code></h2>
+
+<p>The <code class="w3-codespan">useMemo</code> Hook can be used to keep expensive, resource intensive functions from needlessly running.</p>
+
+<p>In this example, we have an expensive function that runs on every render.</p>
+
+<p>When changing the count or adding a todo, you will notice a delay in execution.</p>
+
+<div class="w3-example">
+<h3>Example:</h3>
+<p>A poor performing function. The <code class="w3-codespan">expensiveCalculation</code> function runs on every render:</p>
+<pre class="language-jsx w3-white"><code>import { useState } from 'react';
+import { createRoot } from 'react-dom/client';
+
+const App = () =&gt; {
+  const [count, setCount] = useState(0);
+  const [todos, setTodos] = useState([]);
+  const calculation = expensiveCalculation(count);
+
+  const increment = () =&gt; {
+    setCount((c) =&gt; c + 1);
+  };
+  const addTodo = () =&gt; {
+    setTodos((t) =&gt; [...t, &quot;New Todo&quot;]);
+  };
+
+  return (
+    &lt;div&gt;
+      &lt;div&gt;
+        &lt;h2&gt;My Todos&lt;/h2&gt;
+        {todos.map((todo, index) =&gt; {
+          return &lt;p key={index}&gt;{todo}&lt;/p&gt;;
+        })}
+        &lt;button onClick={addTodo}&gt;Add Todo&lt;/button&gt;
+      &lt;/div&gt;
+      &lt;hr /&gt;
+      &lt;div&gt;
+        Count: {count}
+        &lt;button onClick={increment}&gt;+&lt;/button&gt;
+        &lt;h2&gt;Expensive Calculation&lt;/h2&gt;
+        {calculation}
+        &lt;p&gt;Note that this example executes the expensive function also when you click on the Add Todo button.&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  );
+};
+
+const expensiveCalculation = (num) =&gt; {
+  console.log(&quot;Calculating...&quot;);
+  for (let i = 0; i &lt; 1000000000; i++) {
+    num += 1;
+  }
+  return num;
+};
+
+createRoot(document.getElementById('root')).render(
+  &lt;App /&gt;
+);
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreact626f.html?filename=demo_react_usememo_without">Run 
+Example &raquo;</a>
+</p>
+</div>
+<hr>
+
+<hr>
+<h2>Use <code class="w3-codespan">useMemo</code></h2>
+
+<p>To fix this performance issue, we can use the <code class="w3-codespan">useMemo</code> Hook to memoize the <code class="w3-codespan">expensiveCalculation</code> function. This will cause the function to only run when needed.</p>
+
+<p>We can wrap the expensive function call with <code class="w3-codespan">useMemo</code>.</p>
+
+<p>The <code class="w3-codespan">useMemo</code>Hook accepts a second parameter to declare 
+dependencies. The expensive function will only run when its dependencies have changed.</p>
+
+<p>In the following example, the expensive function will only run when <code class="w3-codespan">count</code> 
+is changed and not when todo's are added.</p>
+
+<div class="w3-example">
+<h3>Example:</h3>
+<p>Performance example using the <code class="w3-codespan">useMemo</code> Hook:</p>
+<pre class="language-jsx w3-white"><code>import { useState, useMemo } from 'react';
+import { createRoot } from 'react-dom/client';
+
+const App = () =&gt; {
+  const [count, setCount] = useState(0);
+  const [todos, setTodos] = useState([]);
+  const calculation = useMemo(() =&gt; expensiveCalculation(count), [count]);
+
+  const increment = () =&gt; {
+    setCount((c) =&gt; c + 1);
+  };
+  const addTodo = () =&gt; {
+    setTodos((t) =&gt; [...t, &quot;New Todo&quot;]);
+  };
+
+  return (
+    &lt;div&gt;
+      &lt;div&gt;
+        &lt;h2&gt;My Todos&lt;/h2&gt;
+        {todos.map((todo, index) =&gt; {
+          return &lt;p key={index}&gt;{todo}&lt;/p&gt;;
+        })}
+        &lt;button onClick={addTodo}&gt;Add Todo&lt;/button&gt;
+      &lt;/div&gt;
+      &lt;hr /&gt;
+      &lt;div&gt;
+        Count: {count}
+        &lt;button onClick={increment}&gt;+&lt;/button&gt;
+        &lt;h2&gt;Expensive Calculation&lt;/h2&gt;
+        {calculation}
+      &lt;/div&gt;
+    &lt;/div&gt;
+  );
+};
+
+const expensiveCalculation = (num) =&gt; {
+  console.log(&quot;Calculating...&quot;);
+  for (let i = 0; i &lt; 1000000000; i++) {
+    num += 1;
+  }
+  return num;
+};
+
+createRoot(document.getElementById('root')).render(
+  &lt;App /&gt;
+);
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreact6d10.html?filename=demo_react_usememo_with">Run 
+Example &raquo;</a>
+</p>
+</div>
+<hr>
+
+<hr>

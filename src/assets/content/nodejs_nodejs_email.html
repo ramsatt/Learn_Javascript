@@ -1,0 +1,75 @@
+<h1>Node.js <span class="color_h1">Send an Email</span></h1>
+
+<hr>
+
+<h2>The Nodemailer Module</h2>
+<p>The Nodemailer module makes it easy to send emails from your computer.</p>
+<p>The Nodemailer module can be downloaded and installed using npm:</p>
+<div class="w3-example">
+<div class="w3-code notranslate w3-black">
+C:\Users\<em>Your Name</em>&gt;npm install nodemailer</div>
+</div>
+<p>After you have downloaded the Nodemailer module, you can include the module 
+in any application:</p>
+<div class="w3-example">
+<div class="w3-code notranslate jsHigh">
+  let nodemailer = require('nodemailer');</div>
+</div>
+
+<hr>
+
+<h2>Send an Email</h2>
+<p>Now you are ready to send emails from your server.</p>
+<p>Use the username and password from your selected email provider to send an 
+email. This tutorial will show you how to use your Gmail account to send an 
+email:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+  let nodemailer = require('nodemailer');<br><br>let transporter = 
+  nodemailer.createTransport({<br>&nbsp; service: 'gmail',<br>&nbsp; auth: {<br>&nbsp;&nbsp;&nbsp; 
+  user: '<em>youremail@gmail.com</em>',<br>&nbsp;&nbsp;&nbsp; 
+  pass: '<em>yourpassword</em>'<br>&nbsp; }<br>});<br><br>let mailOptions = {<br>&nbsp; 
+  from: '<em>youremail@gmail.com</em>',<br>&nbsp; 
+  to: '<em>myfriend@yahoo.com</em>',<br>&nbsp; subject: 'Sending Email using Node.js',<br>&nbsp; text: 
+  'That was easy!'<br>};<br><br>transporter.sendMail(mailOptions, 
+  function(error, info){<br>&nbsp; if (error) {<br>&nbsp;&nbsp;&nbsp; console.log(error);<br>&nbsp; } else {<br>
+  &nbsp;&nbsp;&nbsp;
+  console.log('Email sent: ' + info.response);<br>&nbsp; }<br>});</div>
+</div>
+
+<p>And that's it! Now your server is able to send emails.</p>
+<hr>
+
+<hr>
+<h2>Multiple Receivers</h2>
+
+<p>To send an email to more than one receiver, add them to the "to" property of the mailOptions object, separated by commas:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Send email to more than one address:</p>
+<div class="w3-code notranslate jsHigh">
+  let mailOptions = {<br>&nbsp; 
+  from: '<em>youremail</em>@gmail.com',<br><strong>&nbsp; 
+  to: </strong>'<em><strong>myfriend@yahoo.com</strong></em><strong>, </strong> <em>
+  <strong>myotherfriend@yahoo.com</strong></em><strong>',<br>
+  </strong>&nbsp; subject: 'Sending Email using Node.js',<br>&nbsp; text: 
+'That was easy!'<br>}</div>
+</div>
+
+
+<hr>
+<h2>Send HTML</h2>
+
+<p>To send HTML formatted text in your email, use the &quot;html&quot; property instead of 
+the &quot;text&quot; property:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Send email containing HTML:</p>
+<div class="w3-code notranslate jsHigh">
+  let mailOptions = {<br>&nbsp; 
+  from: '<em>youremail</em>@gmail.com',<br>&nbsp; 
+  to: '<em>myfriend@yahoo.com</em>',<br>
+&nbsp; subject: 'Sending Email using Node.js',<br><strong>&nbsp; html: 
+'&lt;h1&gt;Welcome&lt;/h1&gt;&lt;p&gt;That was easy!&lt;/p&gt;'<br></strong>}</div>
+</div>

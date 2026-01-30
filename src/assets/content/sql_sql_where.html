@@ -1,0 +1,186 @@
+<h1>SQL <span class="color_h1">WHERE</span> Clause</h1>
+
+<hr>
+
+<h2>The SQL WHERE Clause</h2>
+<p>The <code class="w3-codespan">WHERE</code> clause is used to filter records.</p>
+<p>It is used to extract only those records that fulfill a specified 
+condition.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Select all customers from Mexico:</p>
+<div class="w3-code notranslate sqlHigh">
+SELECT * FROM Customers<br>
+WHERE Country='Mexico';</div>
+
+</div>
+<hr>
+
+<h2>Syntax</h2>
+
+<div class="w3-example ws-light-grey">
+<p><code class="sqlHigh">
+SELECT <em>column1</em>,<em> column2, ...</em><br>
+FROM <em>table_name</em><br>
+WHERE <em>condition</em>;
+</code></p>
+</div>
+
+<div class="w3-panel ws-note">
+<p><strong>Note:</strong> The <code class="w3-codespan">WHERE</code> clause is not only used in <code class="w3-codespan">
+SELECT</code> statements, it is also used in <code class="w3-codespan">UPDATE</code>,
+<code class="w3-codespan">DELETE</code>, etc.!</p>
+</div>
+
+<hr>
+<h2>Demo Database</h2>
+<p>Below is a selection from the <a href="trysql734a.html?filename=trysql_customers" target="_blank"><strong>Customers</strong></a> table used in the examples:</p>
+
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+  <tr>
+    <th>CustomerID</th>
+    <th>CustomerName</th>
+    <th>ContactName</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>PostalCode</th>
+    <th>Country</th>
+  </tr>
+  <tr>
+    <td>1<br><br></td>
+    <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Obere Str. 57</td>
+    <td>Berlin</td>
+    <td>12209</td>
+    <td>Germany</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Ana Trujillo Emparedados y helados</td>
+    <td>Ana Trujillo</td>
+    <td>Avda. de la Constitución 2222</td>
+    <td>México D.F.</td>
+    <td>05021</td>
+    <td>Mexico</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Antonio Moreno Taquería</td>
+    <td>Antonio Moreno</td>
+    <td>Mataderos 2312</td>
+    <td>México D.F.</td>
+    <td>05023</td>
+    <td>Mexico</td>
+  </tr>
+  <tr>
+    <td>4<br><br></td>
+    <td>Around the Horn</td>
+    <td>Thomas Hardy</td>
+    <td>120 Hanover Sq.</td>
+    <td>London</td>
+    <td>WA1 1DP</td>
+    <td>UK</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>Berglunds snabbköp</td>
+    <td>Christina Berglund</td>
+    <td>Berguvsvägen 8</td>
+    <td>Luleå</td>
+    <td>S-958 22</td>
+    <td>Sweden</td>
+  </tr>
+</table>
+</div>
+
+<hr>
+
+<hr>
+
+<h2>Text Fields vs. Numeric Fields</h2>
+<p>SQL requires single quotes around text values (most database systems will 
+also allow double quotes).</p>
+<p>However, numeric fields should not be enclosed in quotes:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+ SELECT * FROM Customers<br>
+ WHERE CustomerID=1;</div>
+
+</div>
+
+<hr>
+
+<h2>Operators in The WHERE Clause</h2>
+
+<p>You can use other operators than the <code class="w3-codespan">=</code> operator to filter the search.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Select all customers with a CustomerID greater than 80:</p>
+<div class="w3-code notranslate sqlHigh">
+ SELECT * FROM Customers<br>
+ WHERE CustomerID > 80;</div>
+
+</div>
+
+<p>The following operators can be used in the <code class="w3-codespan">WHERE</code> clause:</p>
+<table class="ws-table-all notranslate">
+  <tr>
+    <th style="width:20%">Operator</th>
+    <th style="width:70%">Description</th>
+    <th style="width:10%">Example</th>
+  </tr>
+  <tr>
+    <td>=</td>
+    <td>Equal</td>
+    <td><a target="_blank" class="w3-btn btnsmall" href="trysql5c63.html?filename=trysql_op_equal_to">Try it</a></td>
+  </tr>
+  <tr>
+    <td>&gt;</td>
+    <td>Greater than</td>
+  <td><a target="_blank" class="w3-btn btnsmall" href="trysql015f.html?filename=trysql_op_greater_than">Try it</a></td>
+  </tr>
+  <tr>
+    <td>&lt;</td>
+    <td>Less than</td>
+  <td><a target="_blank" class="w3-btn btnsmall" href="trysqlef1e.html?filename=trysql_op_less_than">Try it</a></td>
+  </tr>
+  <tr>
+    <td>&gt;=</td>
+    <td>Greater than or equal</td>
+  <td><a target="_blank" class="w3-btn btnsmall" href="trysql12f8.html?filename=trysql_op_greater_than2">Try it</a></td>
+  </tr>
+  <tr>
+    <td>&lt;=</td>
+    <td>Less than or equal</td>
+  <td><a target="_blank" class="w3-btn btnsmall" href="trysql262a.html?filename=trysql_op_less_than2">Try it</a></td>
+  </tr>
+  <tr>
+    <td>&lt;&gt;</td>
+    <td>Not equal. <b>Note:</b> In some versions of SQL this operator may be written as !=</td>
+  <td><a target="_blank" class="w3-btn btnsmall" href="trysql8c94.html?filename=trysql_op_not_equal_to">Try it</a></td>
+  </tr>
+  <tr>
+    <td>BETWEEN</td>
+    <td>Between a certain range</td>
+  <td><a target="_blank" class="w3-btn btnsmall" href="trysql3fd0.html?filename=trysql_op_between">Try it</a></td>
+  </tr>
+  <tr>
+    <td>LIKE</td>
+    <td>Search for a pattern</td>
+  <td><a target="_blank" class="w3-btn btnsmall" href="trysql6665.html?filename=trysql_op_like">Try it</a></td>
+  </tr>
+  <tr>
+    <td>IN</td>
+    <td>To specify multiple possible values for a column</td>
+  <td><a target="_blank" class="w3-btn btnsmall" href="trysql559d.html?filename=trysql_op_in">Try it</a></td>
+  </tr>
+</table>
+
+<hr>
+
+<hr>

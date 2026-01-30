@@ -1,0 +1,104 @@
+<h1>Angular Templates</h1>
+  
+
+  <hr>
+  <p class="intro">Templates are the HTML that a component renders.</p>
+  <p>Templates combine plain HTML with Angular template syntax to show data and react to user events.</p>
+  <hr>
+  <h2>Components, Templates, and Selectors</h2>
+  <ul>
+    <li>A <b>component</b> is a class that controls a view (its <b>template</b>).</li>
+    <li>Each component has a <b>selector</b> (e.g., <code class="w3-codespan">app-root</code>) that you place in HTML.</li>
+    <li>The <b>root component</b> renders inside <code class="w3-codespan">index.html</code>'s <code class="w3-codespan">&lt;app-root&gt;</code>.</li>
+  </ul>
+  <hr>
+  <h2>How templates work</h2>
+  <ol>
+    <li><b>Initial render</b>: Angular creates the component and processes the template, wiring bindings between the DOM and component fields.</li>
+    <li><b>Change detection</b>: On user events, timers, or async work, Angular re-evaluates template expressions and updates only what changed.</li>
+    <li><b>Directives</b>: Create/destroy embedded views (DOM fragments) based on state.</li>
+    <li><b>Binding flow</b>: Interpolation/Property binding push data to the view. Event binding captures browser events back to the component.</li>
+  </ol>
+<div class="w3-panel ws-note">
+  <p><b>Note</b>: Interpolation escapes HTML.</p>
+  <p>Use property/attribute bindings for dynamic attributes. Use <code class="w3-codespan">?.</code> to avoid null errors.</p>
+</div>
+  <div class="w3-example">
+    <h3>Syntax</h3>
+    <pre class="language-ts" data-tab-header="main.ts"><code>import { bootstrapApplication } from '@angular/platform-browser';
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  template: `
+    &lt;h3&gt;Hello {{ name }}&lt;/h3&gt;
+    &lt;button (click)="name = 'Angular'"&gt;Reset&lt;/button&gt;
+  `
+})
+export class App {
+  name = 'World';
+}
+
+bootstrapApplication(App);</code></pre>
+    <pre class="language-html" data-tab-header="index.html"><code>&lt;app-root&gt;&lt;/app-root&gt;</code></pre>
+    <p><a target="_blank" rel="noopener" class="w3-btn" href="showangularcfa8.html?filename=demo_templates_syntax">Run Example &raquo;</a></p>
+  </div>
+  <h3>Example explained</h3>
+  <ul>
+    <li><code class="w3-codespan">{{ name }}</code>: Interpolation reads the <code class="w3-codespan">name</code> field and inserts it as text.</li>
+    <li><code class="w3-codespan">(click)</code>: Event binding updates the component state when the button is clicked.</li>
+  </ul>
+  <div class="w3-panel ws-note">
+    <p><b>Note:</b> Template expressions run in the component context.</p>
+    <p>Keep them fast and side-effect free; do work in the class, not inline in the template.</p>
+  </div>
+  
+  <hr>
+  <h2>Template Essentials</h2>
+  <p>Key concepts:</p>
+  <ul>
+    <li><b>Templates</b> are the HTML that Angular renders for a component.</li>
+    <li><b>Bindings</b>: interpolation <code class="w3-codespan">{{ ... }}</code>, property <code class="w3-codespan">[prop]</code>, and event <code class="w3-codespan">(event)</code>.</li>
+    <li><b>Template refs</b>: local names like <code class="w3-codespan">#box</code> to reference elements or directives.</li>
+    <li><b>Structural directives</b> (<code class="w3-codespan">*ngIf</code>, <code class="w3-codespan">*ngFor</code>) change the DOM layout.</li>
+  </ul>
+  <div class="w3-example">
+    <pre class="language-ts"><code>&lt;p&gt;Hello {{ name }}&lt;/p&gt;
+&lt;img [src]="url" (error)="onMissing()"&gt;
+&lt;input #box (input)="save(box.value)"&gt;
+&lt;li *ngFor="let item of items; index as i"&gt;{{ i }}. {{ item }}&lt;/li&gt;</code></pre>
+  </div>
+  <h3>Code explained</h3>
+  <ul>
+    <li><code class="w3-codespan">{{ name }}</code>: Interpolation for text.</li>
+    <li><code class="w3-codespan">[src]</code>: Property binding to set an element property.</li>
+    <li><code class="w3-codespan">(error)</code>: Event binding to react to the image error event.</li>
+    <li><code class="w3-codespan">#box</code>: Template reference variable; <code class="w3-codespan">box.value</code> reads the current input value.</li>
+    <li><code class="w3-codespan">*ngFor ... index as i</code>: Structural directive to loop with the zero-based index.</li>
+  </ul>
+  <div class="w3-panel ws-note">
+    <p><b>Note:</b> See <a href="angular_data_binding.html">Data Binding</a> for property/class/style binding, and <a href="angular_conditional_rendering.html">Conditional Rendering</a> for showing/hiding content.</p>
+  </div>
+  
+  <hr>
+  
+  <hr>
+  <h2>Templates Overview</h2>
+  <p>Explore templates step by step in these next chapters:</p>
+  <ul>
+    <li><a href="angular_templates_interpolation.html">Interpolation</a> - show values with <code class="w3-codespan">{{ ... }}</code>.</li>
+    <li><a href="angular_templates_refvars.html">Template Reference Variables</a> - use <code class="w3-codespan">#var</code> to reference elements.</li>
+    <li><a href="angular_templates_nullsafe.html">Null-Safe Navigation (?.)</a> - read optional values safely.</li>
+    <li><a href="angular_templates_microsyntax.html">Structural Directives: Micro-syntax</a> - the <code class="w3-codespan">*</code> shorthand.</li>
+    <li id="ngtemplateoutlet"><a href="angular_templates_ngtemplateoutlet.html">ngTemplateOutlet</a> - render a template by reference.</li>
+    <li><a href="angular_templates_statements.html">Template Statements and $event</a> - handle events and inputs.</li>
+    <li><a href="angular_templates_ngif_as.html">Alias with as in *ngIf</a> - create local aliases.</li>
+    <li><a href="angular_templates_pipes.html">Pipes in Templates (|)</a> - format and transform values.</li>
+    <li><a href="angular_templates_attr_binding.html">Attribute Binding with attr.</a> - bind to HTML attributes.</li>
+    <li><a href="angular_templates_trackby.html">TrackBy with *ngFor</a> - keep lists fast and stable.</li>
+  </ul>
+
+  <hr>
+  
+  <hr>

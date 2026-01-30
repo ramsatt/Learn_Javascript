@@ -1,0 +1,187 @@
+<h1>Bootstrap 5 <span class="color_h1">Buttons</span></h1>
+
+<hr>
+
+
+<h2>Button Styles</h2>
+<p>Bootstrap 5 provides different styles of buttons:</p>
+<p>
+<button type="button" class="btn" style="color:#555;">Basic</button>
+<button type="button" class="btn btn-primary">Primary</button>
+<button type="button" class="btn btn-secondary">Secondary</button>
+<button type="button" class="btn btn-success">Success</button>
+<button type="button" class="btn btn-info">Info</button>
+<button type="button" class="btn btn-warning">Warning</button>
+<button type="button" class="btn btn-danger">Danger</button>
+<button type="button" class="btn btn-dark">Dark</button>
+<button type="button" class="btn btn-light">Light</button>
+<button type="button" class="btn btn-link">Link</button>
+</p>
+
+<div class="w3-example">
+ <h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+ &lt;button type=&quot;button&quot; class=&quot;btn&quot;&gt;Basic&lt;/button&gt;<br>&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Primary&lt;/button&gt;<br>&lt;button type=&quot;button&quot; class=&quot;btn btn-secondary&quot;&gt;Secondary&lt;/button&gt;<br>&lt;button type=&quot;button&quot; class=&quot;btn btn-success&quot;&gt;Success&lt;/button&gt;<br>&lt;button type=&quot;button&quot; class=&quot;btn btn-info&quot;&gt;Info&lt;/button&gt;<br>&lt;button type=&quot;button&quot; class=&quot;btn btn-warning&quot;&gt;Warning&lt;/button&gt;<br>&lt;button type=&quot;button&quot; class=&quot;btn btn-danger&quot;&gt;Danger&lt;/button&gt;<br>
+  &lt;button type=&quot;button&quot; class=&quot;btn btn-dark&quot;&gt;Dark&lt;/button&gt;<br>&lt;button 
+  type=&quot;button&quot; class=&quot;btn btn-light&quot;&gt;Light&lt;/button&gt;<br>&lt;button type=&quot;button&quot; class=&quot;btn btn-link&quot;&gt;Link&lt;/button&gt;</div>
+
+</div>
+<p>The button classes can be used on <code class="w3-codespan">&lt;a&gt;</code>, <code class="w3-codespan">&lt;button&gt;</code>, or 
+<code class="w3-codespan">&lt;input&gt;</code> elements:</p>
+<div class="w3-example">
+ <h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;a href=&quot;#&quot; class=&quot;btn btn-success&quot;&gt;Link Button&lt;/a&gt;<br>&lt;button type=&quot;button&quot; 
+  class=&quot;btn btn-success&quot;&gt;Button&lt;/button&gt;<br>&lt;input type=&quot;button&quot; class=&quot;btn 
+  btn-success&quot; value=&quot;Input Button&quot;&gt;<br>&lt;input type=&quot;submit&quot; class=&quot;btn 
+  btn-success&quot; value=&quot;Submit Button&quot;&gt;<br>&lt;input type=&quot;reset&quot; class=&quot;btn 
+  btn-success&quot; value=&quot;Reset Button&quot;&gt;</div>
+
+</div>
+<div class="w3-panel ws-note">
+<p class="margin-bottom-add"><strong>Why do we put a # in the href attribute of the link?<br></strong><br>Since 
+we do not have any page to link it to, and we do not want to get a &quot;404&quot; 
+message, we put # as the link. In real life it should of course been a real URL to the &quot;Search&quot; page.</p>
+</div>
+
+<hr>
+
+<h2>Button Outline</h2>
+<p>Bootstrap 5 also provides eight outline/bordered buttons.</p>
+<p>Move the 
+mouse over them to see an additional "hover" effect:</p>
+<p>
+<button type="button" class="btn btn-outline-primary">Primary</button>
+<button type="button" class="btn btn-outline-secondary">Secondary</button>
+<button type="button" class="btn btn-outline-success">Success</button>
+<button type="button" class="btn btn-outline-info">Info</button>
+<button type="button" class="btn btn-outline-warning">Warning</button>
+<button type="button" class="btn btn-outline-danger">Danger</button>
+<button type="button" class="btn btn-outline-dark">Dark</button>
+<button type="button" class="btn btn-outline-light text-dark">Light</button>
+</p>
+
+<div class="w3-example">
+ <h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-primary&quot;&gt;Primary&lt;/button&gt;<br>
+  &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-secondary&quot;&gt;Secondary&lt;/button&gt;<br>
+  &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-success&quot;&gt;Success&lt;/button&gt;<br>
+  &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-info&quot;&gt;Info&lt;/button&gt;<br>&lt;button 
+  type=&quot;button&quot; class=&quot;btn btn-outline-warning&quot;&gt;Warning&lt;/button&gt;<br>&lt;button 
+  type=&quot;button&quot; class=&quot;btn btn-outline-danger&quot;&gt;Danger&lt;/button&gt;<br>
+  &lt;button type=&quot;button&quot; class=&quot;btn btn-outline-dark&quot;&gt;Dark&lt;/button&gt;<br>&lt;button 
+  type=&quot;button&quot; class=&quot;btn btn-outline-light text-dark&quot;&gt;Light&lt;/button&gt;<br></div>
+
+</div>
+<hr>
+<hr>
+
+<h2>Button Sizes</h2>
+<p>Use the <code class="w3-codespan">.btn-lg</code> class for large buttons or <code class="w3-codespan">.btn-sm</code> class for small buttons:</p>
+<p>
+<button type="button" class="btn btn-primary btn-lg">Large</button>
+<button type="button" class="btn btn-primary">Default</button>
+<button type="button" class="btn btn-primary btn-sm">Small</button>
+</p>
+
+<div class="w3-example">
+ <h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+ &lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-lg&quot;&gt;Large&lt;/button&gt;<br>&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Default&lt;/button&gt;<br>&lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-sm&quot;&gt;Small&lt;/button&gt;<br></div>
+
+</div>
+<hr>
+
+<h2>Block Level Buttons</h2>
+<p>To create a block level button 
+that spans the entire width of the parent element, use the <code class="w3-codespan">.d-grid</code> "helper" class on the parent element:</p>
+<div class="d-grid">
+    <button type="button" class="btn btn-primary btn-block">Full-Width Button</button>
+</div>
+
+<div class="w3-example">
+ <h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;div class=&quot;d-grid&quot;&gt;<br>&nbsp; &lt;button type=&quot;button&quot; class=&quot;btn btn-primary 
+  btn-block&quot;&gt;Full-Width Button&lt;/button&gt;<br>&lt;/div&gt;</div>
+
+</div>
+
+<p>If you have many block-level buttons, you can control the space between them with the <code class="w3-codespan">.gap-*</code> class:</p>
+
+<div class="d-grid gap-3">
+    <button type="button" class="btn btn-primary btn-block">Full-Width Button</button>
+    <button type="button" class="btn btn-primary btn-block">Full-Width Button</button>
+    <button type="button" class="btn btn-primary btn-block">Full-Width Button</button>
+</div>
+
+<div class="w3-example">
+ <h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;div class=&quot;d-grid gap-3&quot;&gt;<br>&nbsp; &lt;button type=&quot;button&quot; class=&quot;btn btn-primary 
+  btn-block&quot;&gt;Full-Width Button&lt;/button&gt;<br>&nbsp; &lt;button type=&quot;button&quot; class=&quot;btn btn-primary 
+  btn-block&quot;&gt;Full-Width Button&lt;/button&gt;<br>&nbsp; &lt;button type=&quot;button&quot; class=&quot;btn btn-primary 
+  btn-block&quot;&gt;Full-Width Button&lt;/button&gt;<br>&lt;/div&gt;</div>
+
+</div>
+
+<hr>
+
+<h2>Active/Disabled Buttons</h2>
+<p>A button can be set to an active (appear pressed) or a disabled (unclickable) state:</p>
+<p>
+<button type="button" class="btn btn-primary active">Active Primary</button>
+<button type="button" class="btn btn-primary disabled" disabled>Disabled Primary</button>
+</p>
+<p>The class <code class="w3-codespan">.active</code> makes a button appear 
+pressed, and the <code class="w3-codespan">disabled</code> attribute 
+makes a button unclickable. Note that &lt;a&gt; elements do not support the disabled 
+attribute and must therefore use the <code class="w3-codespan">.disabled</code> class to make it visually appear 
+disabled.</p>
+<div class="w3-example">
+ <h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+ &lt;button type=&quot;button&quot; class=&quot;btn btn-primary active&quot;&gt;Active Primary&lt;/button&gt;<br>
+ &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&nbsp;disabled&gt;Disabled Primary&lt;/button&gt;<br>&lt;a href=&quot;#&quot; class=&quot;btn btn-primary 
+  disabled&quot;&gt;Disabled Link&lt;/a&gt;</div>
+
+</div>
+<hr>
+
+
+<h2>Spinner Buttons</h2>
+<p>You can also add "spinners" to a button, which you will learn more about in our <a href="bootstrap_spinners.html">BS5 Spinners Tutorial</a>:</p>
+<div class="w3-section">
+<button class="btn btn-primary">
+  <span class="spinner-border spinner-border-sm"></span>
+</button>
+
+<button class="btn btn-primary">
+  <span class="spinner-border spinner-border-sm"></span>
+  Loading..
+</button>
+<button class="btn btn-primary" disabled>
+  <span class="spinner-border spinner-border-sm"></span>
+  Loading..
+</button>
+  <button class="btn btn-primary" disabled>
+    <span class="spinner-grow spinner-grow-sm"></span>
+    Loading..
+  </button>
+</div>
+<div class="w3-example">
+ <h3>Example</h3>
+  <div class="w3-code notranslate htmlHigh">
+    &lt;button class=&quot;btn btn-primary&quot;&gt;<br>&nbsp; &lt;span class=&quot;spinner-border 
+    spinner-border-sm&quot;&gt;&lt;/span&gt;<br>&lt;/button&gt;<br><br>&lt;button class=&quot;btn 
+    btn-primary&quot;&gt;<br>&nbsp; &lt;span class=&quot;spinner-border 
+    spinner-border-sm&quot;&gt;&lt;/span&gt;<br>&nbsp; Loading..<br>&lt;/button&gt;<br><br>&lt;button 
+    class=&quot;btn btn-primary&quot; disabled&gt;<br>&nbsp; &lt;span class=&quot;spinner-border 
+    spinner-border-sm&quot;&gt;&lt;/span&gt;<br>&nbsp; Loading..<br>&lt;/button&gt;<br>
+    <br>&lt;button class=&quot;btn btn-primary&quot; disabled&gt;<br>&nbsp; &lt;span 
+    class=&quot;spinner-grow spinner-grow-sm&quot;&gt;&lt;/span&gt;<br>&nbsp; Loading..<br>
+    &lt;/button&gt;<br></div>
+
+</div>
+<br>

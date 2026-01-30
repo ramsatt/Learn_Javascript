@@ -1,0 +1,150 @@
+<h1>Java <span class="color_h1">Recursion</span></h1>
+
+<hr>
+<h2>Java Recursion</h2>
+<p>Recursion is the technique of making a function call itself. This technique provides a way
+to break complicated problems down into simpler problems which are easier to solve.</p>
+
+<p>Recursion may be a bit difficult to understand. The
+best way to figure out how it works is to experiment with it.</p>
+<hr>
+
+<h2>Recursion Example</h2>
+<p>Adding two numbers together is easy to do, but adding a range of numbers is more
+complicated. In the following example, recursion is used to add a range of numbers
+together by breaking it down into the simple task of adding two numbers:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Use recursion to add all numbers from 1 to 10.</p>
+<pre class="language-java w3-white"><code>public class Main {
+&nbsp;&nbsp;public static int sum(int k) {
+&nbsp;&nbsp;&nbsp;&nbsp;if (k &gt; 0) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return k + sum(k - 1);
+&nbsp;&nbsp;&nbsp;&nbsp;} else {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return 0;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;}
+
+&nbsp;&nbsp;public static void main(String[] args) {
+&nbsp;&nbsp;&nbsp;&nbsp;int result = sum(10);
+&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(result);
+&nbsp;&nbsp;}
+}</code></pre>
+<p>
+
+</p>
+</div>
+
+<h3>Example Explained</h3>
+<p>When the <code class="w3-codespan">sum()</code> method is called, it adds parameter <code class="w3-codespan">k</code> to the sum of all numbers smaller
+than <code class="w3-codespan">k</code> and returns the result. When <code class="w3-codespan">k</code> becomes 0, the method just returns 0. When
+running, the program follows these steps:</p>
+
+<div class="ws-note w3-panel" style="background-color:#2196F3!important;color:white">
+10 + sum(9)<br>
+10 + ( 9 + sum(8) )<br>
+10 + ( 9 + ( 8 + sum(7) ) )<br>
+...<br>
+10 + 9 + 8 + 7 + 6 + 5 + 4 + 3 + 2 + 1 + sum(0)<br>
+10 + 9 + 8 + 7 + 6 + 5 + 4 + 3 + 2 + 1 + 0
+</div>
+
+<p>Since the method does not call itself when <code class="w3-codespan">k</code> is 0, the program stops there and returns the
+result.</p>
+<hr>
+
+<h2>Halting Condition</h2>
+<p>Just as loops can run into the problem of infinite looping, recursive methods can run into
+the problem of infinite recursion. Infinite recursion is when the method never stops calling
+itself. Every recursive method should have a halting condition, which is the condition
+where the method stops calling itself. In the previous example, the halting condition is
+when the parameter <code class="w3-codespan">k</code> becomes 0.</p>
+
+<p>It is helpful to see a variety of different examples to better understand the concept. In this
+example, the method adds a range of numbers between a start and an end. The halting
+condition for this recursive method is when <strong>end</strong> is not greater than <strong>start</strong>:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Use recursion to add all numbers from 5 to 10 (5+6+7+8+9+10):</p>
+<pre class="language-java w3-white"><code>public class Main {
+&nbsp;&nbsp;public static int sum(int start, int end) {
+&nbsp;&nbsp;&nbsp;&nbsp;if (end &gt; start) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return end + sum(start, end - 1);
+&nbsp;&nbsp;&nbsp;&nbsp;} else {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return end;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;}
+
+&nbsp;&nbsp;public static void main(String[] args) {
+&nbsp;&nbsp;&nbsp;&nbsp;int result = sum(5, 10);
+&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(result);
+&nbsp;&nbsp;}
+}</code></pre>
+<p>
+
+</p>
+</div>
+
+<div class="ws-note ws-panel">
+<p>Be careful with recursion: it's easy to accidentally write a method that never stops or uses too much memory. But when written correctly, recursion can be both efficient and elegant.</p>
+</div>
+<hr>
+
+<h2>Countdown with Recursion</h2>
+<p>This example demonstrates how to use recursion to create a countdown function:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>public class Main {
+&nbsp;&nbsp;static void countdown(int n) {
+&nbsp;&nbsp;&nbsp;&nbsp;if (n &gt; 0) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.print(n + " ");
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;countdown(n - 1);
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;}
+
+&nbsp;&nbsp;public static void main(String[] args) {
+&nbsp;&nbsp;&nbsp;&nbsp;countdown(5);
+&nbsp;&nbsp;}
+}
+</code></pre>
+
+</div>
+
+<p>The method calls itself with <code class="w3-codespan">n - 1</code> until <code class="w3-codespan">n</code> becomes <code class="w3-codespan">0</code>.</p>
+<hr>
+
+<h2>Calculate Factorial with Recursion</h2>
+<p>This example uses a recursive method to calculate the factorial of 5:</p>
+
+<div class="w3-example">
+<pre class="language-java w3-white"><code>public class Main {
+&nbsp;&nbsp;static int factorial(int n) {
+&nbsp;&nbsp;&nbsp;&nbsp;if (n &gt; 1) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return n * factorial(n - 1);
+&nbsp;&nbsp;&nbsp;&nbsp;} else {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return 1;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;}
+
+&nbsp;&nbsp;public static void main(String[] args) {
+&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Factorial of 5 is " + factorial(5));
+&nbsp;&nbsp;}
+}
+</code></pre>
+
+</div>
+
+<div class="ws-note ws-panel">
+<p>Factorial means multiplying a number by every number below it, down to 1.  
+For example, the factorial of 5 is: 5 * 4 * 3 * 2 * 1 = 120.  
+By definition, <code class="w3-codespan">0!</code> is also 1.</p>
+</div>
+
+<hr>
+
+<hr>
+
+<br>

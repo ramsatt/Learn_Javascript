@@ -1,0 +1,188 @@
+<h1>Go Output Functions</h1>
+
+<hr>
+<p class="intro">Go has three functions to output text:</p>
+<ul>
+  <li><code class="w3-codespan">Print()</code></li>
+  <li><code class="w3-codespan">Println()</code></li>
+  <li><code class="w3-codespan">Printf()</code></li>
+</ul>
+<hr>
+
+<h2>The Print() Function</h2>
+<p>The <code class="w3-codespan">Print()</code> function prints its arguments with their default format.</p>
+<div class="w3-example">
+  <h3>Example</h3>
+  <p>Print the values of <code class="w3-codespan">i</code> and <code class="w3-codespan">j</code>:</p>
+    <div class="w3-code notranslate javaHigh">
+      package main<br>
+      import ("fmt")<br>
+      <br>
+      func main() {<br>
+      &nbsp;&nbsp;var i,j string = "Hello","World"<br>
+      <br>
+      &nbsp;&nbsp;fmt.Print(i)<br>
+      &nbsp;&nbsp;fmt.Print(j)<br>
+      }
+    </div>
+  <p>Result:</p>
+  <div class="notranslate w3-black w3-padding">
+    <code>
+      HelloWorld <br> 
+    </code>
+  </div>
+  
+</div>
+
+<div class="w3-example">
+  <h3>Example</h3>
+    <p>If we want to print the arguments in new lines, we need to use <code class="w3-codespan">\n</code>. </p>
+    <div class="w3-code notranslate javaHigh">
+      package main<br>
+      import ("fmt")<br>
+      <br>
+      func main() {<br>
+      &nbsp;&nbsp;var i,j string = &quot;Hello","World"<br>
+      <br>
+      &nbsp;&nbsp;fmt.Print(i, "\n")<br>
+      &nbsp;&nbsp;fmt.Print(j, "\n")<br> 
+      }
+    </div>
+  <p>Result:</p>
+  <div class="notranslate w3-black w3-padding">
+    <code>
+      Hello<br> 
+      World<br> 
+    </code>
+  </div>
+  
+</div>
+
+<div class="w3-panel ws-note">
+  <p><strong>Tip:</strong> <code class="w3-codespan">\n</code> creates new lines.</p>
+</div>
+
+<div class="w3-example">
+  <h3>Example</h3>
+    <p>It is also possible to only use one <code class="w3-codespan">Print()</code> for printing multiple variables. </p>
+    <div class="w3-code notranslate javaHigh">
+      package main<br>
+      import ("fmt")<br>
+      <br>
+      func main() {<br>
+      &nbsp;&nbsp;var i,j string = &quot;Hello","World"<br>
+      <br>
+      &nbsp;&nbsp;fmt.Print(i, "\n",j)<br>
+      }
+    </div>
+  <p>Result:</p>
+  <div class="notranslate w3-black w3-padding">
+    <code>
+      Hello<br> 
+      World<br> 
+    </code>
+  </div>
+  
+</div>
+
+<div class="w3-example">
+  <h3>Example</h3>
+    <p>If we want to add a space between string arguments, we need to use &quot; &quot;: </p>
+    <div class="w3-code notranslate javaHigh">
+      package main<br>
+      import ("fmt")<br>
+      <br>
+      func main() {<br>
+      &nbsp;&nbsp;var i,j string = &quot;Hello","World"<br>
+      <br>
+      &nbsp;&nbsp;fmt.Print(i, " ", j)<br>
+      }
+    </div>
+  <p>Result:</p>
+  <div class="notranslate w3-black w3-padding">
+    <code>
+      Hello World <br>
+    </code>
+  </div>
+  
+</div>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <p> <code class="w3-codespan">Print()</code> inserts a space between the arguments if <strong>neither</strong> 
+  are strings:</p>
+    <div class="w3-code notranslate javaHigh">
+      package main<br>
+      import ("fmt")<br>
+      <br>
+      func main() {<br>
+      &nbsp;&nbsp;var i,j = 10,20<br>
+      <br>
+      &nbsp;&nbsp;fmt.Print(i,j)<br>
+      }
+    </div>
+  <p>Result:</p>
+  <div class="notranslate w3-black w3-padding">
+    <code>
+      10 20 <br> 
+    </code>
+  </div>
+  
+</div>
+<hr>
+<hr>
+<h2>The Println() Function</h2>
+<p>The <code class="w3-codespan">Println()</code> function is similar to <code class="w3-codespan">Print()</code> with the difference that 
+a whitespace is added between the arguments, and a newline is added at the end:</p>
+<div class="w3-example">
+  <h3>Example</h3>
+    <div class="w3-code notranslate javaHigh">
+      package main<br>
+      import ("fmt")<br>
+      <br>
+      func main() {<br>
+      &nbsp;&nbsp;var i,j string = &quot;Hello","World"<br>
+      <br>
+      &nbsp;&nbsp;fmt.Println(i,j)<br>
+      }
+    </div>
+  <p>Result:</p>
+  <div class="notranslate w3-black w3-padding">
+    <code>
+      Hello World</code></div>
+  
+</div>
+<hr>
+
+<h2>The Printf() Function</h2>
+<p>The <code class="w3-codespan">Printf()</code> function first formats its argument based on the given formatting 
+verb and then prints them.</p>
+<p>Here we will use two formatting verbs:</p>
+<ul>
+  <li><code class="w3-codespan">%v</code> is used to print the <strong>value</strong> 
+  of the arguments</li>
+  <li><code class="w3-codespan">%T</code> is used to print the <strong>type</strong> 
+  of the arguments</li>
+</ul>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <div class="w3-code notranslate javaHigh">
+    package main <br>
+    import ("fmt")<br><br>
+    func main() {<br>&nbsp; var i string = &quot;Hello&quot;<br>&nbsp; var j int = 15<br>
+    <br>&nbsp; fmt.Printf(&quot;i has value: %v and type: %T\n&quot;, i, i)<br>&nbsp; 
+    fmt.Printf(&quot;j has value: %v and type: %T&quot;, j, j) <br>}
+  </div>
+  <p>Result:</p>
+  <div class="notranslate w3-black w3-padding">
+    <code>i has value: Hello and type: string<br>j has value: 15 and type: int</code></div>
+  
+</div>
+
+<div class="w3-panel ws-note">
+<p><strong>Tip:</strong> Look at all the formatting verbs in the
+<a href="go_formatting_verbs.html">Go Formatting Verbs</a> chapter. </p>
+</div>
+
+<br>

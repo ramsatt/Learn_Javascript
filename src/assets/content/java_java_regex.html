@@ -1,0 +1,177 @@
+<h1>Java <span class="color_h1">Regular Expressions</span></h1>
+
+<hr>
+
+<h2>What is a Regular Expression?</h2>
+<p>A regular expression is a sequence of characters that forms a search pattern.
+When you search for data in a text, you can use this search pattern to describe what you
+are searching for.</p>
+<p>A regular expression can be a single character, or a more complicated pattern.</p>
+<p>Regular expressions can be used to perform all types of <strong>text search</strong> and <strong>text replace</strong>
+operations.</p>
+<p>Java does not have a built-in Regular Expression class, but we can import the <code class="w3-codespan">java.util.regex</code> 
+package to work with regular expressions. The package includes the following 
+classes:</p>
+
+<ul>
+<li><code class="w3-codespan">Pattern</code> Class - Defines a pattern (to be used in a search)</li>
+<li><code class="w3-codespan">Matcher</code> Class - Used to search for the 
+pattern</li>
+<li><code class="w3-codespan">PatternSyntaxException</code> Class - Indicates syntax error in a regular 
+expression pattern</li>
+</ul>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Find out if there are any occurrences of the word &quot;w3schools&quot; in a sentence:</p>
+<pre class="language-java w3-white"><code>import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class Main {
+  public static void main(String[] args) {
+    Pattern pattern = Pattern.compile(&quot;w3schools&quot;, Pattern.CASE_INSENSITIVE);
+    Matcher matcher = pattern.matcher(&quot;Visit W3Schools!&quot;);
+    boolean matchFound = matcher.find();
+    if(matchFound) {
+      System.out.println(&quot;Match found&quot;);
+    } else {
+      System.out.println(&quot;Match not found&quot;);
+    }
+  }
+}
+// Outputs Match found
+</code></pre>
+<p>
+
+</p>
+</div>
+<h3>Example Explained</h3>
+<p>In this example, The word "w3schools" is being searched for in a sentence.</p>
+<p>First, the pattern is created using the <code class="w3-codespan">Pattern.compile()</code> method. The first parameter
+indicates which pattern is being searched for and the second parameter has a flag to
+indicates that the search should be case-insensitive. The second parameter is optional.</p>
+
+<p>The <code class="w3-codespan">matcher()</code> method is used to search for the pattern in a string. It returns a Matcher
+object which contains information about the search that was performed.</p>
+<p>The <code class="w3-codespan">find()</code> method returns true if the pattern was found in the string and false if it was not
+found.</p>
+<hr>
+
+<hr>
+
+<h2>Flags</h2>
+
+<p>Flags in the <code class="w3-codespan">compile()</code> method change how the search is performed. Here are a few of
+them:</p>
+<ul>
+<li><code class="w3-codespan">Pattern.CASE_INSENSITIVE</code> - The case of letters will be ignored when performing
+a search.</li>
+<li><code class="w3-codespan">Pattern.LITERAL</code> - Special characters in the pattern will not have any special
+meaning and will be treated as ordinary characters when performing a search.</li>
+<li><code class="w3-codespan">Pattern.UNICODE_CASE</code> - Use it together with the <code class="w3-codespan">CASE_INSENSITIVE</code> flag to
+also ignore the case of letters outside of the English alphabet</li>
+</ul>
+<hr>
+
+<h2>Regular Expression Patterns</h2>
+<p>The first parameter of the <code class="w3-codespan">Pattern.compile()</code> method is the pattern. It describes what
+is being searched for.</p>
+<p>Brackets are used to find a range of characters:</p>
+<table class="ws-table-all notranslate">
+  <tr>
+    <th style="width:22%">Expression</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>[abc]</td>
+    <td>Find one character from the options between the brackets</td>
+  </tr>
+  <tr>
+    <td>[^abc]</td>
+    <td>Find one character NOT between the brackets</td>
+  </tr>
+  <tr>
+    <td>[0-9]</td>
+    <td>Find one character from the range 0 to 9</td>
+  </tr>
+</table>
+
+<h2>Metacharacters</h2>
+<p>Metacharacters are characters with a special meaning:</p>
+<table class="ws-table-all notranslate">
+  <tr>
+    <th style="width:22%">Metacharacter</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>|</td>
+    <td>Find a match for any one of the patterns separated by | as in: cat|dog|fish</td>
+  </tr>
+  <tr>
+    <td>.</td>
+    <td>Find just one instance of any character</td>
+  </tr>
+  <tr>
+    <td>^</td>
+    <td>Finds a match as the beginning of a string as in: ^Hello</td>
+  </tr>
+  <tr>
+    <td>$</td>
+    <td>Finds a match at the end of the string as in: World$</td>
+  </tr>
+  <tr>
+    <td>\d</td>
+    <td>Find a digit</td>
+  </tr>
+  <tr>
+    <td>\s</td>
+    <td>Find a whitespace character</td>
+  </tr>
+  <tr>
+    <td>\b</td>
+    <td>Find a match at the beginning of a word like this: \bWORD, or at the end of a word like this: WORD\b</td>
+  </tr>
+  <tr>
+    <td>\uxxxx</td>
+    <td>Find the Unicode character specified by the hexadecimal number xxxx</td>
+  </tr>
+</table>
+
+<h2>Quantifiers</h2>
+<p>Quantifiers define quantities:</p>
+<table class="ws-table-all notranslate">
+  <tr>
+    <th style="width:22%">Quantifier</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>n+</td>
+    <td>Matches any string that contains at least one <em>n</em></td>
+  </tr>
+  <tr>
+    <td>n*</td>
+    <td>Matches any string that contains zero or more occurrences of <em>n</em></td>
+  </tr>
+  <tr>
+    <td>n?</td>
+    <td>Matches any string that contains zero or one occurrences of <em>n</em></td>
+  </tr>
+  <tr>
+    <td>n{x}</td>
+    <td>Matches any string that contains a sequence of <i>X</i> <i>n</i>'s</td>
+  </tr>
+  <tr>
+    <td>n{x,y}</td>
+    <td>Matches any string that contains a sequence of X to Y <i>n</i>'s</td>
+  </tr>
+  <tr>
+    <td>n{x,}</td>
+    <td>Matches any string that contains a sequence of at least X <i>n</i>'s</td>
+  </tr>
+</table>
+
+<hr>
+
+<hr>
+
+<br>

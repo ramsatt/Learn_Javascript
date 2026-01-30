@@ -1,0 +1,134 @@
+<h1>React Custom Hooks</h1>
+
+
+<hr>
+
+<p class="intro">You can make your own Hooks!</p>
+<p class="intro">When you have components that can be used by multiple components,
+  we can extract that component into a custom Hook.</p>
+<p class="intro">Custom Hooks start with "use". Example: <code class="w3-codespan">useFetch</code>.</p>
+<hr>
+
+<h2>Build a Hook</h2>
+
+<p>First, let us make an example without a custom Hook.</p>
+
+<p>In the following code, we are fetching data from a URL and displaying it.</p>
+
+<p>We will use the <a href="https://jsonplaceholder.typicode.com/" target="_blank">JSONPlaceholder</a> service to fetch some fake data.</p>
+
+<p>To learn more about fetching data, check out the <a href="../js/js_api_fetch.html">JavaScript Fetch API</a> section.</p>
+
+<div class="w3-example">
+<h3>Example:</h3>
+<p>Use the JSONPlaceholder service to fetch some fake titles and display them:</p>
+<pre class="language-jsx w3-white"><code>import { useState, useEffect } from 'react';
+import { createRoot } from 'react-dom/client';
+
+const Home = () =&gt; {
+  const [data, setData] = useState(null);
+
+  useEffect(() =&gt; {
+    fetch(&quot;https://jsonplaceholder.typicode.com/todos&quot;)
+      .then((res) =&gt; res.json())
+      .then((data) =&gt; setData(data));
+ }, []);
+
+  return (
+    &lt;&gt;
+      {data &amp;&amp;
+        data.map((item) =&gt; {
+          return &lt;p key={item.id}&gt;{item.title}&lt;/p&gt;;
+        })}
+    &lt;/&gt;
+  );
+};
+
+createRoot(document.getElementById('root')).render(
+  &lt;Home /&gt;
+);
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreact59fe.html?filename=demo_react_customhook_without">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<p>The logic behind the fetch may be needed in other components as well, so we will turn that into a custom Hook.</p>
+
+<p>Move the fetch logic to a new file to be used as a custom Hook.</p>
+
+<p>The file name must start with <code class="w3-codespan">use</code>,
+  and end with <code class="w3-codespan">.js</code>, and be placed in the same directory as the component.</p>
+
+<p>We will name the file <code class="w3-codespan">useFetch.js</code>.</p>
+
+<div class="w3-example">
+<h3>Example:</h3>
+<p>Move the fetch component into the new file:</p>
+<pre class="language-jsx w3-white" data-tab-header="useFetch.html"><code>import { useState, useEffect } from &quot;react&quot;;
+
+const useFetch = (url) =&gt; {
+  const [data, setData] = useState(null);
+
+  useEffect(() =&gt; {
+    fetch(url)
+      .then((res) =&gt; res.json())
+      .then((data) =&gt; setData(data));
+  }, [url]);
+
+  return [data];
+};
+
+export default useFetch;
+</code></pre>
+</div>
+
+<p>Now we can import this Hook, and use it in any other component:</p>
+
+<div class="w3-example">
+<h3>Example:</h3>
+<p>Import and use the newly created custom Hook:</p>
+<pre class="language-jsx w3-white" data-tab-header="main.jsx"><code>import { createRoot } from 'react-dom/client';
+import useFetch from &quot;./useFetch&quot;;
+
+const Home = () =&gt; {
+  const [data] = useFetch(&quot;https://jsonplaceholder.typicode.com/todos&quot;);
+
+  return (
+    &lt;&gt;
+      {data &amp;&amp;
+        data.map((item) =&gt; {
+          return &lt;p key={item.id}&gt;{item.title}&lt;/p&gt;;
+        })}
+    &lt;/&gt;
+  );
+};
+
+createRoot(document.getElementById('root')).render(
+  &lt;Home /&gt;
+);
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreact807e.html?filename=demo_react_customhook_with">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<hr>
+
+<h2>Example Explained</h2>
+
+<p>We have created a new file called <code class="w3-codespan">useFetch.js</code> containing a function called <code class="w3-codespan">useFetch</code> which contains all of the logic needed to fetch our data.</p>
+
+<p>We removed the hard-coded URL and replaced it with a <code class="w3-codespan">url</code> variable that can be passed to the custom Hook.</p>
+
+<p>Lastly, we are returning our data from our Hook.</p>
+
+<p>In <code class="w3-codespan">main.jsx</code>, we are importing our <code class="w3-codespan">useFetch</code> Hook and utilizing it like any other Hook. This is where we pass in the URL to fetch data from.</p>
+
+<p>Now we can reuse this custom Hook in any component to fetch data from any URL.</p>
+
+<hr>
+
+<hr>

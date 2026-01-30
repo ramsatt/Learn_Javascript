@@ -1,0 +1,249 @@
+<h1>React Tutorial</h1>
+
+
+<div class="w3-panel ws-info intro w3-padding-24" style="background-color:#f3ecea;color:#000;">
+  <h2>Learn React</h2>
+  <div class="w3-hide-small" style="float:right;font-size:70px;color:#ffc0c7">[+:</div>
+  <p>React is a JavaScript library for building user interfaces.</p>
+  <p>React is used to build single-page applications.</p>
+  <p>React allows us to create reusable UI components.</p>
+  <a class="w3-btn w3-margin-bottom startlearningbtn" href="react_intro.html">Start learning React now &#10095;</a>
+</div>
+
+
+<hr>
+
+<h2>Learning by Examples</h2>
+
+<p>Our "Show React" tool makes it easy to demonstrate React. It shows both the code and the result.</p>
+
+<div class="w3-example">
+<h3>Example:</h3>
+
+<pre class="language-jsx" data-tab-header="main.jsx"><code>import { createRoot } from 'react-dom/client';
+
+function Hello() {
+  return (
+    &lt;h1&gt;Hello World!&lt;/h1&gt;
+  );
+}
+
+createRoot(document.getElementById('root')).render(
+  &lt;Hello /&gt;
+);
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreact99ba.html?filename=demo_default">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<hr>
+<h2>Learning by Exercises</h2>
+<p>Many chapters in this tutorial end with an exercise where you can check you level of knowledge.</p>
+
+<p><a class="w3-btn w3-margin-bottom ws-green" href="react_exercises.html" style="border-radius:5px;font-size: 18px;padding-left:25px;padding-right:25px;font-family: 'Source Sans Pro', sans-serif;margin-top:6px;">See all React Exercises</a></p>
+<hr>
+
+<hr>
+
+<h2>React Quiz</h2>
+<p>Test your React skills with a quiz.</p>
+<p><a href="react_quiz.html" class="w3-button w3-blue w3-round">React Quiz</a></p>
+<hr>
+
+<div class="ws-hide-on-logged-in">
+<style>
+.containerlog {
+  display: flex;
+  gap: 50px;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  margin-right:-16px;
+}
+
+.left-panel {
+  flex: 50%;
+}
+
+.left-panel h2 {
+  margin-bottom: 18px;
+}
+
+.checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.checklist li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.checklist img {
+  width: 20px;
+  height: 20px;
+  margin-right: 15px;
+}
+
+.right-panel {
+  flex: 50%;
+  display: flex;
+  background-image: url("../images/img_db2.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top:-50px;
+  border-radius:8px;
+  border:1px solid #f1f1f1;
+}
+
+@media (max-width: 1250px) and (min-width: 993px) {
+  .right-panel {
+    display: none;
+  }
+}
+
+@media (max-width: 860px) and (min-width: 0px) {
+  .right-panel {
+    display: none;
+  }
+  .containerlog {
+  margin-right: 0!important;
+}
+
+}
+
+.darkpagetheme .right-panel {
+  background-image: url("../images/banner_dm.png");
+  border:1px solid #333;
+}
+
+</style>
+<h2>Track Your Progress</h2>
+
+<p style="margin-top:16px;"><strong>Note:</strong> This is an optional feature. You can study at W3Schools without creating an account.</p>
+
+
+<hr>
+</div>
+
+<h2>What You Should Already Know</h2>
+<p>Before you continue you should have a basic understanding of the following:</p>
+<ul>
+  <li><a href="../html/default.html">HTML</a></li>
+  <li><a href="../css/default.html">CSS</a></li>
+  <li><a href="../js/default.html">JavaScript</a></li>
+</ul>
+<p>If you want to study these subjects first, find the tutorials on our
+<a href="../default.html">Home page</a>.</p>
+<p>In addition, you should also have some experience with the new JavaScript features 
+introduced in ECMAScript 6 (ES6), you will learn about them in the <a href="react_es6.html">React ES6</a> chapter.</p>
+<hr>
+<style>  
+
+#w3_cert_badge {
+  position: absolute;
+  right: 5%;
+  width: 220px;
+  transform: rotate(10deg);
+  bottom: -20%;
+}
+
+#w3_cert_arrow {
+  position: absolute;
+  right: 220px;
+  width: 220px;
+  transform: rotate(10deg);
+  bottom: 0;
+  z-index: 1;
+}
+
+#getdiploma {
+  position: relative;
+  padding: 0 60px 50px 60px;
+  margin-bottom: 125px;
+  border-radius: 16px;
+  background-color: #282A35;
+  color: #FFC0C7;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+#getdiploma h2 {
+  font-size:50px;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  font-family: 'Source Sans Pro', sans-serif
+}
+
+#getdiploma p {
+  font-size: 42px;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  font-family: 'Source Sans Pro', sans-serif
+}
+
+#getdiploma a {
+  border-radius: 50px;
+  mxargin-top: 50px;
+  font-size: 18px;
+  background-color: #04AA6D;
+  padding: 17px 55px
+}
+
+#getdiploma a:hover,
+#getdiploma a:active {
+  background-color: #059862 !important;
+}
+
+
+@media screen and (max-width: 1442px) {
+  #w3_cert_arrow {
+    right: 212px;
+    bottom: -15px;
+  }
+}
+
+
+@media screen and (max-width: 1202px) {
+  #w3_cert_arrow {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  #w3_cert_arrow {
+    display: block;
+  }
+}
+
+
+@media screen and (max-width: 800px) {
+  #w3_cert_arrow {
+    display: none;
+  }
+  #getdiploma h2 {
+    font-size: 44px;
+  }
+  #getdiploma p {
+    font-size: 30px;
+  }
+
+  #getdiploma a {
+    width: 100%;
+  }
+  #w3_cert_badge {
+    top: -16px;
+    right: -8px;
+    width: 100px;
+  }
+  #getdiploma  {
+    margin-bottom: 55px;
+  }
+}
+</style>
+
+
+<hr>

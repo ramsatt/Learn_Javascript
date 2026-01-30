@@ -1,0 +1,54 @@
+<h1>TypeScript Union Types</h1>
+
+
+
+<hr>
+
+<p><strong>Union types</strong> are used when a value can be more than a single type.</p>
+<p>Such as when a property would be <code class="w3-codespan">string</code> or <code class="w3-codespan">number</code>.</p>
+
+<hr>
+
+<h2>Union | (OR)</h2>
+<p>Using the <code class="w3-codespan">|</code> we are saying our parameter is a <code class="w3-codespan">string</code> or <code class="w3-codespan">number</code>:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+
+<div class="w3-code notranslate jsHigh">
+function printStatusCode(code: string | number) {<br>
+&nbsp;&nbsp;console.log(`My status code is ${code}.`)<br>
+}<br>
+printStatusCode(404);<br>
+printStatusCode('404');
+</div>
+
+</div>
+<hr>
+<hr>
+
+<h2>Union Type Errors</h2>
+
+<p><strong>Note:</strong> you need to know what your type is when union types are being used to avoid type errors:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+
+<div class="w3-code notranslate jsHigh">
+function printStatusCode(code: string | number) {<br>
+&nbsp;&nbsp;console.log(`My status code is ${code.toUpperCase()}.`) // error: Property 'toUpperCase' does not exist on type 'string | number'. Property 'toUpperCase' does not exist on type 'number'<br>
+}
+</div>
+
+<p>In our example we are having an issue invoking <code class="w3-codespan">toUpperCase()</code> as its a
+<code class="w3-codespan">string</code> method and <code class="w3-codespan">number</code> doesn't have access
+to it.
+</p>
+
+
+</div>
+
+<hr>
+
+<hr>
+<br>

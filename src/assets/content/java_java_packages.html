@@ -1,0 +1,160 @@
+<h1>Java <span class="color_h1">Packages</span></h1>
+
+<hr>
+
+<h2>Java Packages &amp; API</h2>
+<p>A package in Java is used to group related classes. Think of it as
+<strong>a folder in a file directory</strong>. We use packages to avoid name conflicts, and 
+to write a better maintainable code. Packages are divided into two categories:</p>
+<ul>
+<li>Built-in Packages (packages from the Java API)</li>
+<li>User-defined Packages (create your own packages)</li>
+</ul>
+<hr>
+<h2>Built-in Packages</h2>
+<p>The Java API is a library of prewritten classes, that are free to use, included in the
+Java Development Environment.</p>
+<p>The library contains components for managing input, database programming, and much much 
+more. The complete list can be found at Oracles website: <a href="https://docs.oracle.com/javase/8/docs/api/" target="_blank">https://docs.oracle.com/javase/8/docs/api/</a>.</p>
+<p>The library is divided into <strong>packages</strong> and <strong>classes</strong>. 
+Meaning you can either import a single class (along with its methods and 
+attributes), or a whole package that contain 
+all the classes that belong to the specified package.</p>
+<p>To use a class or a package from the library, you need to use the <code class="w3-codespan">import</code> 
+keyword:</p>
+
+<div class="w3-example">
+<h3>Syntax</h3>
+<pre class="language-java w3-white"><code>import <em>package</em>.<em>name</em>.<em>Class</em>;   // Import a single class
+import <em>package</em>.<em>name</em>.*;   // Import the whole package
+</code></pre>
+</div>
+
+<hr>
+
+<h2>Import a Class</h2>
+<p>If you find a class you want to use, for example, the <code class="w3-codespan">Scanner</code> class, <strong>which is used to get 
+user input</strong>, write the following code:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>import java.util.Scanner;
+</code></pre>
+</div>
+
+<p>In the example above, <code class="w3-codespan">java.util</code> is a package, while <code class="w3-codespan">Scanner</code> is a class of 
+the <code class="w3-codespan">java.util</code> package.</p>
+
+<p>To use the <code class="w3-codespan">Scanner</code> class, create an object of the class and use any of the available methods found in the <code class="w3-codespan">Scanner</code> class documentation. 
+In our example, we will use the <code class="w3-codespan">nextLine()</code> method, which is used to read a 
+complete line:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Using the <code class="w3-codespan">Scanner</code> class to get user input:</p>
+<pre class="language-java w3-white"><code>import java.util.Scanner;
+
+class Main {
+&nbsp; public static void main(String[] args) {
+&nbsp;&nbsp;&nbsp; Scanner myObj = new Scanner(System.in);
+&nbsp;&nbsp;&nbsp; System.out.println(&quot;Enter username&quot;);
+
+&nbsp;&nbsp;&nbsp; String userName = myObj.nextLine();
+&nbsp;&nbsp;&nbsp; System.out.println(&quot;Username is: &quot; + userName);
+&nbsp; }
+}
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showjava5cf6.html?filename=demo_api_scanner">Run Example &raquo;</a>
+</p>
+</div>
+<hr>
+
+<hr>
+
+<h2>Import a Package</h2>
+
+<p>There are many packages to choose from. In the previous example, we used the <code class="w3-codespan">Scanner</code> class from the <code class="w3-codespan">java.util</code> package. This package also contains date and time 
+facilities, random-number generator and other utility classes.</p>
+<p>To import a whole package, end the sentence with an asterisk sign (<code class="w3-codespan">*</code>). 
+The following example 
+will import ALL the classes in the <code class="w3-codespan">java.util</code> package:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>import java.util.*;
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showjavad46c.html?filename=demo_api_scanner_package">Run Example &raquo;</a>
+</p>
+</div>
+<hr>
+
+<h2>User-defined Packages</h2>
+<p>To create your own package, you need to understand that Java uses a file system directory to store them. Just like folders on your computer:</p>
+<div class="w3-example">
+<h3>Example</h3>
+  <div class="w3-white notranslate javaHigh w3-margin-bottom" style="padding:1px 16px">
+    <pre>
+&#9492;&#9472;&#9472; root
+  &#9492;&#9472;&#9472; mypack
+    &#9492;&#9472;&#9472; MyPackageClass.java
+</pre>
+</div>
+</div>
+
+<p>To create a package, use the <code class="w3-codespan">package</code> keyword:</p>
+<div class="w3-example">
+<h3>MyPackageClass.java</h3>
+<pre class="language-java w3-white"><code>package mypack;
+class MyPackageClass {
+&nbsp; public static void main(String[] args) {
+&nbsp;&nbsp;&nbsp; System.out.println(&quot;This is my package!&quot;);
+&nbsp; }
+}
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showjava0ce2.html?filename=demo_package">Run Example &raquo;</a>
+</p>
+</div>
+
+<p>Save the file as <b>MyPackageClass.java</b>, and compile it:</p>
+<div class="w3-example">
+<div class="w3-code notranslate w3-black">
+C:\Users\<em>Your Name</em>&gt;javac MyPackageClass.java
+</div>
+</div>
+
+<p>Then compile the package:</p>
+<div class="w3-example">
+<div class="w3-code notranslate w3-black">
+C:\Users\<em>Your Name</em>&gt;javac -d . MyPackageClass.java</div>
+</div>
+<div class="ws-note w3-panel">
+<p>This forces the compiler to create the "mypack" package.</p>
+  <p>The <code class="w3-codespan">-d</code> keyword specifies the destination for where to save the class file. You 
+  can use any directory name, like c:/user (windows), or, if you want to keep 
+  the package within the same directory, you can use the dot sign &quot;<code class="w3-codespan">.</code>&quot;, like in 
+  the example above.</p>
+<p><strong>Note:</strong> The package name should be written in lower case to avoid conflict with class names.</p>
+</div>
+  <p>When we compiled the package in the example above, a new folder was created, called "mypack".</p>
+<p>To run the <b>MyPackageClass.java</b> file, write the following:</p>
+<div class="w3-example">
+<div class="w3-code notranslate w3-black">
+C:\Users\<em>Your Name</em>&gt;java mypack.MyPackageClass
+</div>
+</div>
+<p>The output will be:</p>
+<div class="w3-example w3-padding-16">
+<div class="w3-padding notranslate w3-black">
+<code class="notranslate">
+This is my package!
+</code>
+</div>
+</div>
+
+<hr>
+
+<hr>
+
+<br>

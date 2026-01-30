@@ -1,0 +1,126 @@
+<h1>HTML <span class="color_h1">Table Colspan &amp; Rowspan</span></h1>
+
+<hr>
+<p class="intro">HTML tables can have cells that span over multiple rows and/or columns.</p>
+<hr>
+
+<div id="tableborders" style="overflow:auto;">
+<table class="table1" style="width:30%;float:left;">
+<tr>
+<th colspan="2">NAME</th>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<table class="table1" style="width:30%;float:left;margin-left:5%;">
+<tr>
+<th rowspan="3">APRIL</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<table class="table1" style="width:30%;float:right;">
+<tr>
+<th colspan="3">2022</th>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th colspan="2" rowspan="2">FIESTA</th>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+</div>
+<hr>
+
+<h2>HTML Table - Colspan</h2>
+<p>To make a cell span over multiple columns, use the <code class="w3-codespan">colspan</code> attribute:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;table&gt;<br>&nbsp; &lt;tr&gt;<br>&nbsp;&nbsp;&nbsp; &lt;th colspan=&quot;2&quot;&gt;Name&lt;/th&gt;<br>&nbsp;&nbsp;&nbsp; 
+  &lt;th&gt;Age&lt;/th&gt;<br>&nbsp; &lt;/tr&gt;<br>&nbsp; &lt;tr&gt;<br>&nbsp;&nbsp;&nbsp; 
+  &lt;td&gt;Jill&lt;/td&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td&gt;Smith&lt;/td&gt;<br>&nbsp;&nbsp;&nbsp; 
+  &lt;td&gt;43&lt;/td&gt;<br>&nbsp; &lt;/tr&gt;<br>&nbsp; &lt;tr&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td&gt;Eve&lt;/td&gt;<br>&nbsp;&nbsp;&nbsp; 
+  &lt;td&gt;Jackson&lt;/td&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td&gt;57&lt;/td&gt;<br>&nbsp; &lt;/tr&gt;<br>&lt;/table&gt;</div>
+
+</div>
+
+<div class="w3-panel ws-note">
+<p><b>Note:</b> The value of the <code class="w3-codespan">colspan</code> attribute represents the number of columns to span.</p>
+</div>
+
+<hr>
+
+<h2>HTML Table - Rowspan</h2>
+<p>To make a cell span over multiple rows, use the <code class="w3-codespan">rowspan</code> attribute:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;table&gt;<br>&nbsp; &lt;tr&gt;<br>&nbsp;&nbsp;&nbsp; &lt;th&gt;Name&lt;/th&gt;<br>&nbsp;&nbsp;&nbsp; 
+  &lt;td&gt;Jill&lt;/td&gt;<br>&nbsp; &lt;/tr&gt;<br>&nbsp; &lt;tr&gt;<br>&nbsp;&nbsp;&nbsp; &lt;th rowspan=&quot;2&quot;&gt;Phone&lt;/th&gt;<br>&nbsp;&nbsp;&nbsp; 
+  &lt;td&gt;555-1234&lt;/td&gt;<br>&nbsp; &lt;/tr&gt;<br>&nbsp; &lt;tr&gt;<br>&nbsp;&nbsp;&nbsp; 
+  &lt;td&gt;555-8745&lt;/td&gt;<br>&lt;/tr&gt;<br>&lt;/table&gt;</div>
+
+</div>
+
+<div class="w3-panel ws-note">
+<p><b>Note:</b> The value of the <code class="w3-codespan">rowspan</code> attribute represents the number of 
+rows to span.</p>
+</div>
+
+<hr>
+
+<hr>
+
+<hr>
+
+<br>

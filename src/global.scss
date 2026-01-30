@@ -77,50 +77,52 @@ ion-router-outlet {
 
     /* Navigation Buttons */
     .nextprev {
-        font-family: 'Inter', system-ui, sans-serif; /* Keep nav sans-serif */
+        font-family: 'Inter', system-ui, sans-serif;
         display: flex;
-        justify-content: space-between; /* Split buttons left and right */
+        justify-content: space-between;
         align-items: center;
-        margin-bottom: 40px;
-        margin-top: 24px;
+        margin: 32px 0 24px;
+        padding-top: 24px;
+        border-top: 1px solid #f1f5f9;
         width: 100%;
 
         .w3-btn {
-            font-weight: 600;
-            font-size: 0.95rem;
-            padding: 10px 24px;
-            border-radius: 50px; /* Pill shape */
-            transition: all 0.2s ease;
+            font-weight: 800 !important;
+            font-size: 0.9rem !important;
+            padding: 12px 24px !important;
+            border-radius: 14px !important; /* Squircle */
+            transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
-            text-decoration: none;
+            text-decoration: none !important;
             float: none !important;
             letter-spacing: 0.02em;
         }
 
         /* Previous Button (Ghost) */
-        .w3-btn:first-child {
-            background: transparent !important;
-            color: var(--ion-text-color) !important;
-            border: 1px solid rgba(var(--ion-text-color-rgb), 0.2);
+        .w3-btn:first-child, .w3-left {
+            background: #ffffff !important;
+            color: #64748b !important;
+            border: 1px solid #e2e8f0 !important;
             
             &:hover {
-                background: rgba(var(--ion-text-color-rgb), 0.05) !important;
-                border-color: var(--ion-text-color);
+                background: #f8fafc !important;
+                border-color: #cbd5e1 !important;
+                color: #0f172a !important;
             }
         }
 
-        /* Next Button (Solid Primary) */
-        .w3-btn:last-child {
-            background: var(--ion-color-secondary) !important;
+        /* Next Button (Solid Indigo) */
+        .w3-btn:last-child, .w3-right {
+            background: #4f46e5 !important;
             color: #ffffff !important;
-            border: 1px solid var(--ion-color-secondary);
-            box-shadow: 0 4px 12px rgba(var(--ion-color-secondary-rgb), 0.3);
+            border: none !important;
+            box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.4) !important;
 
             &:hover {
-                background: var(--ion-color-secondary-tint) !important;
-                box-shadow: 0 6px 16px rgba(var(--ion-color-secondary-rgb), 0.4);
-                transform: translateY(-1px);
+                background: #4338ca !important;
+                box-shadow: 0 15px 25px -5px rgba(79, 70, 229, 0.5) !important;
+                transform: translateY(-2px);
             }
         }
     }
@@ -130,7 +132,7 @@ ion-router-outlet {
         font-size: 1.5rem;
         font-weight: 700;
         color: #242424;
-        margin-top: 48px; /* More spacing for distinct sections */
+        margin-top: 32px; /* Reduced from 48px */
         margin-bottom: 18px;
         padding-bottom: 0;
         border-bottom: none; /* Cleaner look */
@@ -344,6 +346,18 @@ ion-router-outlet {
     
     div:empty {
         display: none;
+    }
+
+    hr {
+        border: none;
+        border-top: 1px solid #f1f5f9;
+        margin: 1.5rem 0 !important;
+        height: 0;
+    }
+
+    /* Hide redundant multiple hr tags */
+    hr + hr {
+        display: none !important;
     }
 }
 

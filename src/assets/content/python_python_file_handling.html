@@ -1,0 +1,64 @@
+<h1>Python <span class="color_h1">File Open</span></h1>
+
+<hr>
+
+<p class="intro">File handling is an important part of any web application.</p>
+<p class="intro">Python has several functions for creating, reading, updating, and 
+deleting files.</p>
+<hr>
+<h2>File Handling</h2>
+<p>The key function for working with files in Python is the
+<code class="w3-codespan"><a href="ref_func_open.html">open()</a></code> function.</p>
+<p>The <code class="w3-codespan"><a href="ref_func_open.html">open()</a></code> function takes two parameters;
+<em>filename</em>, and <em>mode</em>.</p>
+<p>There are four different methods (modes) for opening a file:</p>
+
+<div class="w3-example">
+<p><code class="w3-codespan">"r&quot;</code> - Read - Default value. Opens a 
+file for reading, error if the file does not exist</p>
+<p><code class="w3-codespan">"a"</code> - Append - Opens a file for 
+appending, creates the file if it does not exist</p>
+<p><code class="w3-codespan">"w"</code> - Write - Opens a file for writing, 
+creates the file if it does not exist</p>
+<p><code class="w3-codespan">"x&quot;</code> - Create - Creates the specified file, returns 
+an error if the file exists</p>
+</div>
+
+<p>In addition you can specify if the file should be handled as binary or text mode</p>
+
+<div class="w3-example">
+  <p><code class="w3-codespan">"t&quot;</code> - Text - Default value. Text mode</p>
+  <p><code class="w3-codespan">"b&quot;</code> - Binary - Binary mode (e.g. 
+  images)</p>
+</div>
+
+<hr>
+
+<h2>Syntax</h2>
+
+<p>To open a file for reading it is enough to specify the name of the file:</p>
+
+<div class="w3-example">
+<div class="w3-code notranslate pythonHigh">
+f = open(&quot;demofile.txt&quot;)
+</div>
+</div>
+
+<p>The code above is the same as:</p>
+
+<div class="w3-example">
+<div class="w3-code notranslate pythonHigh">
+f = open(&quot;demofile.txt&quot;, "rt")
+</div>
+</div>
+
+<p>Because <code class="w3-codespan">"r"</code> for read, and 
+<code class="w3-codespan">"t"</code> for text are the default values, you do not need to specify them.</p>
+
+<div class="w3-panel ws-note">
+  <p><strong>Note:</strong> Make sure the file exists, or else you will get an error.</p>
+</div>
+
+<hr>
+
+<hr>

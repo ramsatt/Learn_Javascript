@@ -1,0 +1,233 @@
+<h1>Angular Directives</h1>
+  
+
+  <hr>
+  <p class="intro">Directives add behavior to existing elements and components.</p>
+  <hr>
+  <h2>Directive Essentials</h2>
+  <ul>
+    <li>Add behavior to elements with <code class="w3-codespan">@Directive</code> and a selector.</li>
+    <li><b>Structural directives</b> (<code class="w3-codespan">*ngIf</code>, <code class="w3-codespan">*ngFor</code>) add/remove DOM.</li>
+    <li><b>Attribute directives</b> (<code class="w3-codespan">[ngClass]</code>, custom <code class="w3-codespan">[w3X]</code>) change look/behavior without creating/removing nodes.</li>
+    <li>Star syntax (<code class="w3-codespan">*</code>) is sugar that expands to <code class="w3-codespan">&lt;ng-template&gt;</code>.</li>
+    <li>Expose directive inputs with <code class="w3-codespan">@Input()</code>; alias with <code class="w3-codespan">@Input('alias')</code> to bind via <code class="w3-codespan">[alias]</code>.</li>
+  </ul>
+  <div class="w3-example">
+    <pre class="language-ts"><code>*ngIf="condition"
+*ngFor="let item of items"
+@Directive({ selector: '[w3Highlight]' })
+&lt;div w3Highlight&gt;&lt;/div&gt;</code></pre>
+  </div>
+  <div class="w3-panel ws-note">
+    <p><b>Notes:</b></p>
+    <ul>
+      <li>Related: See <a href="angular_templates.html">Templates</a>, <a href="angular_data_binding.html">Data Binding</a>, <a href="angular_conditional_rendering.html">Conditional Rendering</a>, and <a href="angular_lists.html">Lists</a>.</li>
+    </ul>
+  </div>
+  <hr>
+  <h2>Basic Directives</h2>
+  <ul>
+    <li><code class="w3-codespan">*ngIf</code> shows/hides content based on a condition.</li>
+    <li><code class="w3-codespan">*ngFor</code> repeats a block for each list item.</li>
+    <li>Toggle a flag to add/remove the list; render items with <code class="w3-codespan">*ngFor</code>.</li>
+  </ul>
+  <div class="w3-example">
+    <pre class="language-ts"><code>&lt;p *ngIf="items.length &gt; 0"&gt;We have {{ items.length }} items&lt;/p&gt;
+&lt;li *ngFor="let item of items"&gt;{{ item }}&lt;/li&gt;</code></pre>
+  </div>
+  <div class="w3-example">
+    <h3 id="example-basic">Example</h3>
+    <pre class="language-ts" data-tab-header="main.ts"><code>import { bootstrapApplication } from '@angular/platform-browser';
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [CommonModule],
+  template: `
+    &lt;h3&gt;Directives&lt;/h3&gt;
+    &lt;p *ngIf="items.length &gt; 0"&gt;We have {{ items.length }} items&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li *ngFor="let item of items"&gt;{{ item }}&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;button (click)="toggle()"&gt;Toggle Items&lt;/button&gt;
+  `
+})
+export class App {
+  show = true;
+  get items() { return this.show ? ['Angular', 'Components', 'Directives'] : []; }
+  toggle() { this.show = !this.show; }
+}
+
+bootstrapApplication(App);
+</code></pre>
+    <pre class="language-html" data-tab-header="index.html"><code>&lt;app-root&gt;&lt;/app-root&gt;</code></pre>
+    <p><a target="_blank" rel="noopener" class="w3-btn" href="showangulard95e.html?filename=demo_directives_basic">Run Example &raquo;</a></p>
+  </div>
+  <h3>Example explained</h3>
+  <ul>
+    <li><b>*ngIf</b>: Adds/removes the paragraph from the DOM when the condition is truthy/falsy.</li>
+    <li><b>*ngFor</b>: Repeats the <code class="w3-codespan">&lt;li&gt;</code> block for each item in <code class="w3-codespan">items</code>.</li>
+    <li><b>Toggle</b>: The button flips <code class="w3-codespan">show</code>, which changes the computed <code class="w3-codespan">items</code> getter.</li>
+  </ul>
+  <div class="w3-panel ws-note">
+    <p><b>Notes:</b></p>
+    <ul>
+      <li><b>CommonModule required:</b> Import <code class="w3-codespan">CommonModule</code> when using built-in directives in standalone components.</li>
+      <li><b>Star syntax is sugar:</b> <code class="w3-codespan">*ngIf</code>/<code class="w3-codespan">*ngFor</code> expand to <code class="w3-codespan">&lt;ng-template&gt;</code>; the DOM nodes truly appear/disappear.</li>
+      <li><b>Avoid heavy work in templates:</b> Don't call expensive functions in <code class="w3-codespan">*ngFor</code>. Compute in the component instead. For long lists, see <a href="angular_lists.html">Lists</a> and use <code class="w3-codespan">trackBy</code>.</li>
+      <li><b>One structural per host:</b> Don't put two <code class="w3-codespan">*</code> directives on the same element. Wrap one in <code class="w3-codespan">&lt;ng-container&gt;</code> if needed.</li>
+    </ul>
+  </div>
+  
+  <hr>
+  
+  <hr>
+  <h2>ngIf with else</h2>
+  <ul>
+    <li>Point <code class="w3-codespan">*ngIf</code> to a fallback template with <code class="w3-codespan">else</code>.</li>
+    <li>Use <code class="w3-codespan">then/else</code> syntax to make both branches explicit.</li>
+    <li>Angular adds/removes DOM blocks entirely.</li>
+  </ul>
+  <div class="w3-example">
+    <pre class="language-ts"><code>&lt;ng-container *ngIf="loggedIn; else loggedOut"&gt;&lt;/ng-container&gt;
+&lt;ng-template #loggedOut&gt;...&lt;/ng-template&gt;
+
+&lt;ng-container *ngIf="hasAccess; then accessTpl; else noAccessTpl"&gt;&lt;/ng-container&gt;</code></pre>
+  </div>
+  <div class="w3-example">
+    <h3 id="example-if-else">Example</h3>
+    <pre class="language-ts" data-tab-header="main.ts"><code>import { bootstrapApplication } from '@angular/platform-browser';
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [CommonModule],
+  template: `
+    &lt;h3&gt;ngIf with else&lt;/h3&gt;
+
+    &lt;button (click)="loggedIn = !loggedIn"&gt;
+      {{ loggedIn ? 'Log out' : 'Log in' }}
+    &lt;/button&gt;
+
+    &lt;ng-container *ngIf="loggedIn; else loggedOut"&gt;
+      &lt;p&gt;Welcome back, {{ user }}!&lt;/p&gt;
+    &lt;/ng-container&gt;
+
+    &lt;ng-template #loggedOut&gt;
+      &lt;p&gt;Please log in to continue.&lt;/p&gt;
+    &lt;/ng-template&gt;
+
+    &lt;hr&gt;
+
+    &lt;h4&gt;ngIf then/else syntax&lt;/h4&gt;
+    &lt;button (click)="hasAccess = !hasAccess"&gt;
+      Toggle Access ({{ hasAccess ? 'granted' : 'denied' }})
+    &lt;/button&gt;
+
+    &lt;ng-container *ngIf="hasAccess; then accessTpl; else noAccessTpl"&gt;&lt;/ng-container&gt;
+
+    &lt;ng-template #accessTpl&gt;
+      &lt;p style="color: seagreen"&gt;Access granted.&lt;/p&gt;
+    &lt;/ng-template&gt;
+    &lt;ng-template #noAccessTpl&gt;
+      &lt;p style="color: crimson"&gt;Access denied.&lt;/p&gt;
+    &lt;/ng-template&gt;
+  `
+})
+export class App {
+  loggedIn = false;
+  user = 'Angular User';
+  hasAccess = true;
+}
+
+bootstrapApplication(App);
+</code></pre>
+    <pre class="language-html" data-tab-header="index.html"><code>&lt;app-root&gt;&lt;/app-root&gt;</code></pre>
+    <p><a target="_blank" rel="noopener" class="w3-btn" href="showangular3b3f.html?filename=demo_directives_if_else">Run Example &raquo;</a></p>
+  </div>
+  <h3>Example explained</h3>
+  <ul>
+    <li><b>*ngIf ... else</b>: Renders the main block when the condition is true; otherwise renders the template referenced by <code class="w3-codespan">#loggedOut</code>.</li>
+    <li><b>then/else</b>: The <code class="w3-codespan">then/else</code> form makes both branches explicit via named templates.</li>
+    <li><b>State</b>: Buttons toggle <code class="w3-codespan">loggedIn</code> and <code class="w3-codespan">hasAccess</code> to demonstrate both branches.</li>
+  </ul>
+  <div class="w3-panel ws-note">
+    <p><b>Notes:</b></p>
+    <ul>
+      <li><b>Template refs:</b> The <code class="w3-codespan">#ref</code> you pass to <code class="w3-codespan">else</code>/<code class="w3-codespan">then</code> references an <code class="w3-codespan">&lt;ng-template&gt;</code>. Remember this code won't exist in the DOM until rendered.</li>
+      <li><b>Avoid extra DOM:</b> Use <code class="w3-codespan">&lt;ng-container&gt;</code> to group structure without adding extra elements.</li>
+    </ul>
+  </div>
+  
+  <hr>
+  <h2>Attribute Directive (hover highlight)</h2>
+  <ul>
+    <li>Runs on an existing element (no DOM created/destroyed).</li>
+    <li>Changes appearance or behavior (e.g., add styles, classes, attributes).</li>
+    <li>Example uses <code class="w3-codespan">@HostBinding</code> and <code class="w3-codespan">@HostListener</code> to set background on hover.</li>
+  </ul>
+  <div class="w3-example">
+    <pre class="language-ts"><code>@Directive({ selector: '[w3Highlight]' })
+&lt;div [w3Highlight]="'lightyellow'"&gt;Hover me&lt;/div&gt;</code></pre>
+  </div>
+  <div class="w3-example">
+    <h3 id="example-attr">Example</h3>
+    <pre class="language-ts" data-tab-header="main.ts"><code>import { bootstrapApplication } from '@angular/platform-browser';
+import { Component, Directive, Input, HostBinding, HostListener } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+@Directive({
+  selector: '[w3Highlight]',
+  standalone: true
+})
+export class HighlightDirective {
+  @Input('w3Highlight') highlightColor = 'lightyellow';
+  @HostBinding('style.transition') transition = 'background-color 150ms ease-in-out';
+  @HostBinding('style.backgroundColor') bg = '';
+
+  @HostListener('mouseenter') onEnter() { this.bg = this.highlightColor; }
+  @HostListener('mouseleave') onLeave() { this.bg = ''; }
+}
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [CommonModule, HighlightDirective],
+  styles: [`
+    .box { padding: 10px; border: 1px dashed #bbb; border-radius: 6px; }
+  `],
+  template: `
+    &lt;h3&gt;Attribute Directive (highlight)&lt;/h3&gt;
+    &lt;p&gt;Hover the first box to see the effect:&lt;/p&gt;
+    &lt;div class="box" [w3Highlight]="'lightyellow'"&gt;I get highlighted on hover&lt;/div&gt;
+    &lt;div class="box" style="margin-top:8px"&gt;I do not&lt;/div&gt;
+  `
+})
+export class App {}
+
+bootstrapApplication(App);
+</code></pre>
+    <pre class="language-html" data-tab-header="index.html"><code>&lt;app-root&gt;&lt;/app-root&gt;</code></pre>
+    <p><a target="_blank" rel="noopener" class="w3-btn" href="showangularb0f8.html?filename=demo_directives_attribute">Run Example &raquo;</a></p>
+  </div>
+  <h3>Example explained</h3>
+  <ul>
+    <li><b>[w3Highlight]="'lightyellow'"</b>: Passes a color into the directive via its input alias.</li>
+    <li><b>@HostBinding</b>: Binds the element's <code class="w3-codespan">style.backgroundColor</code> and transition properties from directive fields.</li>
+    <li><b>@HostListener</b>: Reacts to <code class="w3-codespan">mouseenter</code>/<code class="w3-codespan">mouseleave</code> to set/clear the background color.</li>
+  </ul>
+  <div class="w3-panel ws-note">
+    <p><b>Notes:</b></p>
+    <ul>
+      <li><b>Selector collisions:</b> Use specific selectors for custom directives (e.g., <code class="w3-codespan">[w3Highlight]</code>) to avoid clashing with other libraries.</li>
+      <li><b>Performance:</b> Keep host listeners light; avoid heavy synchronous work in <code class="w3-codespan">@HostListener</code> handlers.</li>
+    </ul>
+  </div>
+
+  <hr>
+  
+  <hr>

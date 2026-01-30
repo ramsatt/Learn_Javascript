@@ -1,0 +1,75 @@
+<h1>C <span class="color_h1">If ... Else</span></h1>
+
+<hr>
+
+
+<h2>Conditions and If Statements</h2>
+
+<p>You already know that C supports familiar comparison conditions from mathematics, such as:</p>
+<ul>
+<li>Less than: <span class="w3-codespan">a &lt; b</span></li>
+<li>Less than or equal to: <span class="w3-codespan">a &lt;= b</span></li>
+<li>Greater than: <span class="w3-codespan">a &gt; b</span></li>
+<li>Greater than or equal to: <span class="w3-codespan">a &gt;= b</span></li>
+<li>Equal to <span class="w3-codespan">a == b</span></li>
+<li>Not Equal to: <span class="w3-codespan">a != b</span></li>
+</ul>
+<p>You can use these conditions to perform different actions for different decisions.</p>
+<p>C has the following conditional statements:</p>
+<ul>
+  <li>Use <code class="w3-codespan">if</code> to specify a block of code to be executed, if a specified condition is 
+  <code class="w3-codespan">true</code></li>
+  <li>Use <code class="w3-codespan">else</code> to specify a block of code to be executed, if the same condition is 
+  <code class="w3-codespan">false</code></li>
+  <li>Use <code class="w3-codespan">else if</code> to specify a new condition to test, if the first condition is 
+  <code class="w3-codespan">false</code></li>
+  <li>Use <code class="w3-codespan">switch</code> to specify many alternative blocks of code to be executed</li>
+</ul>
+
+
+<hr>
+
+
+<h2>The if Statement</h2>
+
+<p>Use the <code class="w3-codespan">if</code> statement to specify a block of code to be executed if a condition is <code class="w3-codespan">true</code>.</p>
+
+<div class="w3-example">
+<h3>Syntax</h3>
+<div class="w3-code notranslate javaHigh">
+
+  if (<em>condition</em>) {<br>&nbsp; <em>// block of code to be executed if the 
+  condition is true</em><br>}<br>
+ </div>
+</div>
+
+<div class="w3-panel ws-note">
+<p>Note that <code class="w3-codespan">if</code> is in lowercase letters. Uppercase letters (If or IF) will generate an error.</p>
+</div>
+<p>In the example below, we test two values to find out if 20 is greater than 
+18. If the condition is <code class="w3-codespan">true</code>, print some text:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  if (20 &gt; 18) {<br>&nbsp; printf(&quot;20 is greater than 18&quot;);<br>}</div>
+
+</div>
+
+<p>We can also test variables:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  int x = 20;<br>int y = 18;<br>if (x &gt; y) {<br>&nbsp; printf(&quot;x is greater than 
+  y&quot;);<br>}</div>
+
+</div>
+<h4>Example explained</h4>
+<p>In the example above we use two variables, <strong>x</strong> and <strong>y</strong>, 
+to test whether x is greater than y 
+(using the <code class="w3-codespan">&gt;</code> operator). As x is 20, and y is 18, and we know that 20 is greater than 18, we print to the screen that "x is greater than y".</p>
+
+
+<hr>
+
+<hr>
+<br>

@@ -1,0 +1,188 @@
+<h1>React <code class="w3-codespan">useEffect</code> Hooks</h1>
+
+
+<hr>
+
+<p>The <code class="w3-codespan">useEffect</code> Hook allows you to perform side effects in your components.</p>
+
+<p>Some examples of side effects are: fetching data, directly updating the DOM, and timers.</p>
+
+<p><code class="w3-codespan">useEffect</code> accepts two arguments. The second argument is optional.</p>
+
+<p><code class="w3-codespan">useEffect(&lt;function>, &lt;dependency>)</code></p>
+
+<hr>
+
+<p>Let's use a timer as an example.</p>
+
+<div class="w3-example">
+<h3>Example:</h3>
+  <p>Use <code class="w3-codespan">setTimeout()</code> to count 1 second after initial render:</p>
+<pre class="language-jsx w3-white"><code>import { useState, useEffect } from 'react';
+import { createRoot } from 'react-dom/client';
+
+function Timer() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() =&gt; {
+    setTimeout(() =&gt; {
+      setCount((count) =&gt; count + 1);
+    }, 1000);
+  });
+
+  return &lt;h1&gt;I've rendered {count} times!&lt;/h1&gt;;
+}
+
+createRoot(document.getElementById('root')).render(
+  &lt;Timer /&gt;
+);</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreactc30c.html?filename=demo_react_useeffect_settimeout">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<p>But wait!! It keeps counting even though it should only count once!</p>
+
+<p><code class="w3-codespan">useEffect</code> runs on every render. That means that when the count changes, a render happens, which then triggers another effect.</p>
+
+<p>This is not what we want. There are several ways to control when side effects run.</p>
+
+<p>We should always include the second parameter which accepts an array.
+We can optionally pass dependencies to <code class="w3-codespan">useEffect</code> in this array.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>1. No dependency passed:</p>
+<pre class="language-jsx w3-white"><code>useEffect(() =&gt; {
+  //Runs on every render
+});</code></pre>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>2. An empty array:</p>
+<pre class="language-jsx w3-white"><code>useEffect(() =&gt; {
+  //Runs only on the first render
+}, []);</code></pre>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>3. Props or state values:</p>
+<pre class="language-jsx w3-white"><code>useEffect(() =&gt; {
+  //Runs on the first render
+  //And any time any dependency value changes
+}, [prop, state]);</code></pre>
+</div>
+
+<p>So, to fix this issue, let's only run this effect on the initial render.</p>
+
+<div class="w3-example">
+<h3>Example:</h3>
+  <p>Only run the effect on the initial render:</p>
+<pre class="language-jsx w3-white"><code>import { useState, useEffect } from 'react';
+import { createRoot } from 'react-dom/client';
+
+function Timer() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() =&gt; {
+    setTimeout(() =&gt; {
+      setCount((count) =&gt; count + 1);
+    }, 1000);
+  }, []); // &lt;- add empty brackets here
+
+  return &lt;h1&gt;I've rendered {count} times!&lt;/h1&gt;;
+}
+
+createRoot(document.getElementById('root')).render(
+  &lt;Timer /&gt;
+);</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreact8644.html?filename=demo_react_useeffect_settimeout2">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<div class="w3-example">
+<h3>Example:</h3>
+  <p>Here is an example of a <code class="w3-codespan">useEffect</code> Hook that is dependent on a variable. If the <code class="w3-codespan">count</code> variable updates, the effect will run again:</p>
+<pre class="language-jsx w3-white"><code>import { useState, useEffect } from 'react';
+import { createRoot } from 'react-dom/client';
+
+function Counter() {
+  const [count, setCount] = useState(0);
+  const [calculation, setCalculation] = useState(0);
+
+  useEffect(() =&gt; {
+    setCalculation(() =&gt; count * 2);
+  }, [count]); // &lt;- add the count variable here
+
+  return (
+    &lt;&gt;
+      &lt;p&gt;Count: {count}&lt;/p&gt;
+      &lt;button onClick={() =&gt; setCount((c) =&gt; c + 1)}&gt;+&lt;/button&gt;
+      &lt;p&gt;Calculation: {calculation}&lt;/p&gt;
+    &lt;/&gt;
+  );
+}
+
+createRoot(document.getElementById('root')).render(
+  &lt;Counter /&gt;
+);</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreact5a2f.html?filename=demo_react_useeffect_settimeout3">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<p>If there are multiple dependencies, they should be included in the <code class="w3-codespan">useEffect</code> dependency array.</p>
+<hr>
+
+<hr>
+<h2>Effect Cleanup</h2>
+<p>Some effects require cleanup to reduce memory leaks.</p>
+
+<p>Timeouts, subscriptions, event listeners, and other effects that are no longer needed should be disposed.</p>
+
+<p>We do this by including a return function at the end of the <code class="w3-codespan">useEffect</code> Hook.</p>
+<div class="w3-example">
+<h3>Example:</h3>
+  <p>Clean up the timer at the end of the <code class="w3-codespan">useEffect</code> Hook:</p>
+<pre class="language-jsx w3-white"><code>import { useState, useEffect } from 'react';
+import { createRoot } from 'react-dom/client';
+
+function Timer() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() =&gt; {
+    let timer = setTimeout(() =&gt; {
+      setCount((count) =&gt; count + 1);
+    }, 1000);
+
+    return () =&gt; clearTimeout(timer)
+  }, []);
+
+  return &lt;h1&gt;I've rendered {count} times!&lt;/h1&gt;;
+}
+
+createRoot(document.getElementById('root')).render(
+  &lt;Timer /&gt;
+);</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreact7a05.html?filename=demo_react_useeffect_settimeout_cleanup">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<div class="w3-panel ws-note">
+<p><strong>Note:</strong> To clear the timer, we had to name it.</p>
+</div>
+
+<hr>
+
+
+
+
+<hr>

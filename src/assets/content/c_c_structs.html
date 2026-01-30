@@ -1,0 +1,226 @@
+<h1>C <span class="color_h1">Structures (structs)</span></h1>
+
+<hr>
+
+
+<h2>Structures</h2>
+
+<p>Structures (also called structs) are a way to group several related variables into one place.</p>
+<p>Each variable in the structure is 
+known as a <strong>member</strong> of the structure.</p>
+
+<p>Unlike an <a href="c_arrays.html">array</a>, a structure can contain many 
+different data types (<code class="w3-codespan">int</code>, <code class="w3-codespan">float</code>, <code class="w3-codespan">char</code>, etc.).</p>
+
+<hr>
+
+
+<h2>Create a Structure</h2>
+<p>You can create a structure by using the <code class="w3-codespan">struct</code> 
+keyword and declare each of its members inside curly braces:</p>
+<div class="w3-example">
+<div class="w3-code notranslate javaHigh">
+  struct MyStructure {&nbsp;&nbsp;&nbsp;// Structure declaration<br>&nbsp; int myNum;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Member (int 
+  variable)<br>&nbsp; char myLetter;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; // Member (char variable)<br>}; 
+  // End the structure with a semicolon</div>
+</div>
+<p>To access the structure, you must create a variable of it.</p>
+<p>Use the <code class="w3-codespan">struct</code> keyword 
+inside the <code class="w3-codespan">main()</code> method, followed by the name 
+of the structure and then the name of the structure variable:</p>
+
+<div class="w3-example">
+<p>Create a struct variable with the name &quot;s1&quot;:</p>
+
+<div class="w3-code notranslate javaHigh">
+  struct myStructure {<br>&nbsp; int myNum;<br>&nbsp; char myLetter;<br>};<br><br>int main() 
+  {<br><strong>&nbsp; struct myStructure s1;</strong><br>&nbsp; return 0;<br>}</div>
+</div>
+
+
+<hr>
+
+
+<h2>Access Structure Members</h2>
+<p>To access members of a structure, use the dot syntax (<code class="w3-codespan">.</code>):</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <div class="w3-code notranslate javaHigh">
+    // Create a structure called myStructure<br>struct myStructure {<br>&nbsp; 
+    int myNum;<br>&nbsp; char myLetter;<br>};<br><br>int main() {<br>&nbsp; // Create a structure variable 
+    of myStructure called <strong>s1</strong><br>&nbsp; struct myStructure s1;<br>
+    <br>&nbsp; // Assign values to members of s1<br>&nbsp; s1.myNum = 13;<br>&nbsp; 
+    s1.myLetter = 'B';<br><br>&nbsp; // Print values<br>&nbsp; printf(&quot;My 
+    number: %d\n&quot;, s1.myNum);<br>&nbsp; printf(&quot;My letter: %c\n&quot;, s1.myLetter);<br>
+    <br>&nbsp; return 0;<br>}</div>
+
+</div>
+
+<p>Now you can easily create multiple structure variables with different values, using just one structure:</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <div class="w3-code notranslate javaHigh">
+    // Create different struct variables<br>struct myStructure s1;<br>struct myStructure s2;<br>
+    <br>// Assign values to different struct variables<br>s1.myNum = 13;<br>s1.myLetter = 'B';<br>
+    <br>s2.myNum = 20;<br>s2.myLetter = 'C';<br>
+    </div>
+
+</div>
+
+<hr>
+<hr>
+
+
+<h2>What About Strings in Structures?</h2>
+<p>Remember that strings in C are actually an array of characters, and 
+unfortunately, you can't assign a value to an array like this:</p>
+
+<div class="w3-example w3-pale-red">
+  <h3>Example</h3>
+  <div class="w3-code notranslate javaHigh w3-border-red">
+    struct myStructure {<br>&nbsp; 
+    int myNum;<br>&nbsp; char myLetter;<br>&nbsp; char myString[30];&nbsp; // 
+    String<br>};<br><br>int main() {<br>&nbsp; struct myStructure s1;<br><br>&nbsp; 
+    // Trying to assign a value to the string<br>&nbsp; s1.myString = &quot;Some text&quot;;<br><br>&nbsp; // Trying to print the value<br>&nbsp; printf(&quot;My string: %s&quot;, 
+    s1.myString);<br><br>&nbsp; return 0;<br>}</div>
+<p>An error will occur:</p>
+<div class="notranslate w3-black w3-padding">
+  <code>
+  prog.c:12:15: error: assignment to expression with array type</code>
+</div>
+
+</div>
+
+<p>However, there is a solution for this! You can use the <code class="w3-codespan">strcpy()</code> 
+function and assign the value to <code class="w3-codespan">s1.myString</code>, like this:</p>
+<div class="w3-example">
+  <h3>Example</h3>
+  <div class="w3-code notranslate javaHigh">
+    struct myStructure {<br>&nbsp; int myNum;<br>&nbsp; char myLetter;<br>&nbsp; 
+    char myString[30]; // String<br>};<br><br>int main() {<br>&nbsp; 
+    struct myStructure s1;<br><br>&nbsp; // Assign a value to the string using 
+    the strcpy function<br>&nbsp; strcpy(s1.myString, &quot;Some text&quot;);<br><br>&nbsp; 
+    // Print the value<br>&nbsp; printf(&quot;My string: %s&quot;, s1.myString);<br><br>&nbsp; 
+    return 0;<br>}</div>
+<p>Result:</p>
+<div class="notranslate w3-black w3-padding">
+  <code>
+  My string: Some text</code>
+</div>
+
+</div>
+
+<hr>
+
+
+<h2>Simpler Syntax</h2>
+<p>You can also assign values to members of a structure variable at declaration time, 
+in a single line.</p>
+<p>Just insert the values in a comma-separated list
+inside curly braces <code class="w3-codespan">{}</code>. Note that you don't 
+have to use the <code class="w3-codespan">strcpy()</code> function for string 
+values with this 
+technique:</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <div class="w3-code notranslate javaHigh">
+    // Create a structure<br>struct myStructure {<br>&nbsp; 
+    int myNum;<br>&nbsp; char myLetter;<br>&nbsp; char myString[30];<br>};<br><br>int main() {<br>
+    &nbsp; // Create a structure variable and assign values to it<br>&nbsp; struct myStructure s1 = {13, 
+    'B', &quot;Some text&quot;};<br><br>&nbsp; // Print values<br>&nbsp; printf(&quot;%d %c %s&quot;, s1.myNum, s1.myLetter, 
+    s1.myString);<br>
+    <br>&nbsp; return 0;<br>}</div>
+
+</div>
+
+<div class="ws-note w3-panel">
+  <p><strong>Note:</strong> The order of the inserted values must match the order of 
+  the variable types declared in the structure (13 for int, 'B' for char, etc).</p>
+</div>
+
+<hr>
+
+
+<h2>Copy Structures</h2>
+<p>You can also assign one structure to another.</p>
+<p>In the following example, the values of s1 are copied to s2:</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <div class="w3-code notranslate javaHigh">
+    struct myStructure s1 = {13, 'B', "Some text"};<br>struct myStructure s2;<br>
+    <br><strong>s2 = s1;</strong></div>
+
+</div>
+
+<hr>
+
+
+<h2>Modify Values</h2>
+<p>If you want to change/modify a value, you can use the dot syntax (<code class="w3-codespan">.</code>).</p>
+<p>And to modify a 
+string value, the <code class="w3-codespan">strcpy()</code> function is useful again:</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <div class="w3-code notranslate javaHigh">
+    struct myStructure {<br>&nbsp; int myNum;<br>&nbsp; 
+    char myLetter;<br>&nbsp; char myString[30];<br>};<br><br>int main() {<br>&nbsp; 
+    // Create a structure variable and assign values to it<br>&nbsp; struct 
+    myStructure s1 = {13, 'B', "Some text"};<br><br>&nbsp; // Modify values<br>&nbsp; 
+    s1.myNum = 30;<br>&nbsp; s1.myLetter = 'C';<br>&nbsp; strcpy(s1.myString, 
+    "Something else");<br><br>&nbsp; // Print values<br>&nbsp; printf("%d %c 
+    %s", s1.myNum, s1.myLetter, s1.myString);<br><br>&nbsp; return 0;<br>}</div>
+
+</div>
+
+<p>Modifying values are especially useful when you copy structure values:</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <div class="w3-code notranslate javaHigh">
+    // Create a structure variable and assign values to it<br>struct 
+    myStructure s1 = {13, 'B', "Some text"};<br><br>// Create another structure 
+    variable<br>struct myStructure s2;<br><br>// Copy s1 values to s2<br>s2 = 
+    s1;<br><br>// Change s2 values<br>s2.myNum = 30;<br>s2.myLetter = 'C';<br>strcpy(s2.myString, 
+    "Something else");<br><br>// Print values<br>printf("%d %c 
+    %s\n", s1.myNum, s1.myLetter, s1.myString);<br>printf("%d %c 
+    %s\n", s2.myNum, s2.myLetter, s2.myString);</div>
+
+</div>
+
+<div class="ws-note w3-panel">
+<h4>Ok, so, how are structures useful?</h4>
+<p>Imagine you have to write a program to store different information about Cars, such as brand, model, 
+and year. What's great about structures is that you can create a 
+single &quot;Car template&quot; and use it for every cars you make. See below for a real life example.</p></div>
+
+<hr>
+
+
+<h2>Real-Life Example</h2>
+
+<p>Use a structure to store different information about Cars:</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+<div class="w3-code javaHigh notranslate">
+  struct Car {<br>&nbsp; char brand[30];<br>&nbsp; char model[30];<br>&nbsp; int 
+  year;<br>};<br><br>int main() {<br>&nbsp; struct Car car1 = {&quot;BMW&quot;, &quot;X5&quot;, 
+  1999};<br>&nbsp; struct Car car2 = {&quot;Ford&quot;, &quot;Mustang&quot;, 1969};<br>&nbsp; struct 
+  Car car3 = {&quot;Toyota&quot;, &quot;Corolla&quot;, 2011};<br><br>&nbsp; printf(&quot;%s %s %d\n&quot;, 
+  car1.brand, car1.model, car1.year);<br>&nbsp; printf(&quot;%s %s %d\n&quot;, car2.brand, 
+  car2.model, car2.year);<br>&nbsp; printf(&quot;%s %s %d\n&quot;, car3.brand, car3.model, 
+  car3.year);<br><br>&nbsp; return 0;<br>}<br></div>
+
+</div>
+
+
+<hr>
+
+<hr>
+
+<br>

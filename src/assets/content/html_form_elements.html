@@ -1,0 +1,305 @@
+<h1>HTML <span class="color_h1">Form Elements</span></h1>
+
+<hr>
+
+<p class="intro">This chapter describes all the different HTML form elements. </p>
+<hr>
+
+<h2>The HTML &lt;form&gt; Elements</h2>
+<p>The HTML <code class="w3-codespan">&lt;form&gt;</code> element can contain one or more of the following form elements:</p>
+<ul>
+<li> <code class="w3-codespan">&lt;input&gt;</code></li>
+  <li> <code class="w3-codespan">&lt;label&gt;</code></li>
+  <li> <code class="w3-codespan">&lt;select&gt;</code></li>
+<li> <code class="w3-codespan">&lt;textarea&gt;</code></li>
+<li> <code class="w3-codespan">&lt;button&gt;</code></li>
+<li> <code class="w3-codespan">&lt;fieldset&gt;</code></li>
+  <li> <code class="w3-codespan">&lt;legend&gt;</code></li>
+  <li> <code class="w3-codespan">&lt;datalist&gt;</code></li>
+  <li> <code class="w3-codespan">&lt;output&gt;</code></li>
+<li> <code class="w3-codespan">&lt;option&gt;</code></li>
+<li> <code class="w3-codespan">&lt;optgroup&gt;</code></li>
+</ul>
+
+<hr>
+
+<h2>The &lt;input&gt; Element</h2>
+<p>One of the most used form elements is the <code class="w3-codespan">&lt;input&gt;</code> element. </p>
+<p>The <code class="w3-codespan">&lt;input&gt;</code> element can be displayed in several ways, depending on the <code class="w3-codespan">type</code> 
+attribute.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;label for=&quot;fname&quot;&gt;First name:&lt;/label&gt;<br>&lt;input type=&quot;text&quot; id=&quot;fname&quot; name=&quot;fname&quot;&gt;</div>
+
+</div>
+
+<p>All the different values of the <code class="w3-codespan">type</code> 
+attribute are covered in the next chapter:
+<a href="html_form_input_types.html">HTML Input Types</a>.
+</p>
+
+
+<hr>
+
+<h2>The &lt;label&gt; Element</h2>
+<p>The <code class="w3-codespan">&lt;label&gt;</code> element defines a label for 
+several 
+form elements.</p>
+<p>The <code class="w3-codespan">&lt;label&gt;</code> element is useful for 
+screen-reader users, because the screen-reader will read out loud the label when 
+the user focus on the input element.</p>
+<p>The <code class="w3-codespan">&lt;label&gt;</code> element also help users who have 
+difficulty clicking on very small regions (such as radio buttons or checkboxes) 
+- because when the user clicks the text within the <code class="w3-codespan">&lt;label&gt;</code> element, it toggles 
+the radio button/checkbox.</p>
+<p>The <code class="w3-codespan">for</code> attribute of the <code class="w3-codespan">&lt;label&gt;</code> tag should 
+be equal to the <code class="w3-codespan">id</code> attribute of the <code class="w3-codespan">&lt;input&gt;</code>  
+element to bind them together. </p>
+
+<hr>
+
+<h2>The &lt;select&gt; Element</h2>
+<p>The <code class="w3-codespan">&lt;select&gt;</code> element defines a drop-down list:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;label for=&quot;cars&quot;&gt;Choose a car:&lt;/label&gt;<br>&lt;select id=&quot;cars&quot; name=&quot;cars&quot;&gt;<br>&nbsp; &lt;option value=&quot;volvo&quot;&gt;Volvo&lt;/option&gt;<br>
+ &nbsp;
+ &lt;option value=&quot;saab&quot;&gt;Saab&lt;/option&gt;<br>&nbsp; &lt;option value=&quot;fiat&quot;&gt;Fiat&lt;/option&gt;<br>
+ &nbsp;
+ &lt;option value=&quot;audi&quot;&gt;Audi&lt;/option&gt;<br>&lt;/select&gt;</div>
+
+</div>
+
+<p>The <code class="w3-codespan">&lt;option&gt;</code> element defines an option that can be 
+selected.</p>
+<p>By default, the first item in the drop-down list is selected.</p>
+<p>To define a pre-selected option, add the <code class="w3-codespan">selected</code> attribute 
+to the option: </p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+ &lt;option value=&quot;fiat&quot; selected&gt;Fiat&lt;/option&gt;</div>
+
+</div>
+
+
+<h3>Visible Values:</h3>
+<p>Use the <code class="w3-codespan">size</code> attribute to specify the number of visible values:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;label for=&quot;cars&quot;&gt;Choose a car:&lt;/label&gt;<br>&lt;select id=&quot;cars&quot; name=&quot;cars&quot; size=&quot;3&quot;&gt;<br>&nbsp; &lt;option value=&quot;volvo&quot;&gt;Volvo&lt;/option&gt;<br>
+ &nbsp;
+ &lt;option value=&quot;saab&quot;&gt;Saab&lt;/option&gt;<br>&nbsp; &lt;option value=&quot;fiat&quot;&gt;Fiat&lt;/option&gt;<br>
+ &nbsp;
+ &lt;option value=&quot;audi&quot;&gt;Audi&lt;/option&gt;<br>&lt;/select&gt;</div>
+
+</div>
+
+
+<h3>Allow Multiple Selections:</h3>
+<p>Use the <code class="w3-codespan">multiple</code> attribute to allow the user to select more than one value:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;label for=&quot;cars&quot;&gt;Choose a car:&lt;/label&gt;<br>&lt;select id=&quot;cars&quot; name=&quot;cars&quot; size=&quot;4&quot;<strong> </strong>multiple&gt;<br>&nbsp; &lt;option value=&quot;volvo&quot;&gt;Volvo&lt;/option&gt;<br>
+ &nbsp;
+ &lt;option value=&quot;saab&quot;&gt;Saab&lt;/option&gt;<br>&nbsp; &lt;option value=&quot;fiat&quot;&gt;Fiat&lt;/option&gt;<br>
+ &nbsp;
+ &lt;option value=&quot;audi&quot;&gt;Audi&lt;/option&gt;<br>&lt;/select&gt;</div>
+
+</div>
+
+<hr>
+
+<h2>The &lt;textarea&gt; Element</h2>
+<p>The <code class="w3-codespan">&lt;textarea&gt;</code> element defines a multi-line input field (a text area):</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+ &lt;textarea name=&quot;message&quot; rows=&quot;10&quot; cols=&quot;30&quot;&gt;<br>The cat was playing in the garden.<br>&lt;/textarea&gt;</div>
+
+</div>
+
+<p>The <code class="w3-codespan">rows</code> attribute specifies the visible number of lines in 
+a text area.</p>
+<p>The <code class="w3-codespan">cols</code> attribute specifies the visible width of a text 
+area.</p>
+<p>This is how the HTML code above will be displayed in a browser:</p>
+<textarea rows="10" cols="30">
+The cat was playing in the garden.
+</textarea>
+<p>You can also define the size of the text area by using CSS:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+ &lt;textarea name=&quot;message&quot; 
+  style=&quot;width:200px; height:600px;&quot;&gt;<br>The cat was playing in the garden.<br>&lt;/textarea&gt;</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+
+<h2>The &lt;button&gt; Element</h2>
+<p>The <code class="w3-codespan">&lt;button&gt;</code> element defines a clickable 
+button:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+ &lt;button type=&quot;button&quot; 
+ onclick=&quot;alert('Hello World!')&quot;&gt;Click Me!&lt;/button&gt;</div>
+
+</div>
+<p>This is how the HTML code above will be displayed in a browser:</p>
+<button type="button" onclick="alert('Hello World!')">Click Me!</button>
+<br>
+<div class="w3-panel ws-note">
+<p><strong>Note:</strong> Always specify the <code class="w3-codespan">type</code> attribute for the button element. Different browsers may use different default types for the button element.
+</p>
+</div>
+
+<hr>
+
+<h2>The &lt;fieldset&gt; and &lt;legend&gt; Elements</h2>
+<p>The <code class="w3-codespan">&lt;fieldset&gt;</code> element is used to group related data in a form.</p>
+<p>The <code class="w3-codespan">&lt;legend&gt;</code> element defines a caption for the <code class="w3-codespan">
+&lt;fieldset&gt;</code>
+element.</p>
+<div class="w3-example">
+ <h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;form action=&quot;/action_page.php&quot;&gt;<br>&nbsp; &lt;fieldset&gt;<br>&nbsp;&nbsp;&nbsp; 
+  &lt;legend&gt;Personalia:&lt;/legend&gt;<br>&nbsp;&nbsp;&nbsp; &lt;label for=&quot;fname&quot;&gt;First 
+  name:&lt;/label&gt;&lt;br&gt;<br>&nbsp;&nbsp;&nbsp; &lt;input type=&quot;text&quot; id=&quot;fname&quot; name=&quot;fname&quot; 
+  value=&quot;John&quot;&gt;&lt;br&gt;<br>&nbsp;&nbsp;&nbsp; &lt;label for=&quot;lname&quot;&gt;Last name:&lt;/label&gt;&lt;br&gt;<br>&nbsp;&nbsp;&nbsp; 
+  &lt;input type=&quot;text&quot; id=&quot;lname&quot; name=&quot;lname&quot; value=&quot;Doe&quot;&gt;&lt;br&gt;&lt;br&gt;<br>&nbsp;&nbsp;&nbsp; 
+  &lt;input type=&quot;submit&quot; value=&quot;Submit&quot;&gt;<br>&nbsp; &lt;/fieldset&gt;<br>&lt;/form&gt; </div>
+
+</div>
+<p>This is how the HTML code above will be displayed in a browser:</p>
+<form action="https://www.w3schools.com/action_page.php" target="_blank">
+<fieldset>
+<legend>Personalia:</legend>
+First name:<br>
+<input type="text" name="firstname" value="John"><br>
+Last name:<br>
+<input type="text" name="lastname" value="Doe"><br><br>
+<input type="submit" value="Submit">
+</fieldset>
+</form> 
+
+<hr>
+
+<h2>The &lt;datalist&gt; Element</h2>
+<p>The <code class="w3-codespan">&lt;datalist&gt;</code> element specifies a list of pre-defined options for an <code class="w3-codespan">&lt;input&gt;</code> element.</p>
+<p>Users will see a drop-down list of the pre-defined options as they input data.</p>
+<p>The <code class="w3-codespan">list</code> attribute of the <code class="w3-codespan">&lt;input&gt;</code> element, must refer to the
+<code class="w3-codespan">id</code> attribute of the <code class="w3-codespan">&lt;datalist&gt;</code> element.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+&lt;form action=&quot;/action_page.php&quot;&gt;<br>&nbsp; &lt;input list=&quot;browsers&quot;&gt;<br>
+ &nbsp;
+ &lt;datalist id=&quot;browsers&quot;&gt;<br>
+ &nbsp;&nbsp;&nbsp; &lt;option value=&quot;Edge&quot;&gt;<br>
+&nbsp;
+&nbsp; &lt;option value=&quot;Firefox&quot;&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;option value=&quot;Chrome&quot;&gt;<br>
+&nbsp;
+&nbsp; &lt;option value=&quot;Opera&quot;&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;option value=&quot;Safari&quot;&gt;<br>
+ &nbsp;
+ &lt;/datalist&gt; <br>&lt;/form&gt;</div>
+
+</div>
+
+<hr>
+
+<h2>The &lt;output&gt; Element</h2>
+<p>The <code class="w3-codespan">&lt;output&gt;</code> element represents the result of a calculation (like one 
+performed by a script).</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Perform a calculation and show the result in an <code class="w3-codespan">&lt;output&gt;</code> element:</p>
+<div class="w3-code notranslate htmlHigh">
+    &lt;form action=&quot;/action_page.php&quot;<br>&nbsp; oninput=&quot;x.value=parseInt(a.value)+parseInt(b.value)&quot;&gt;<br>&nbsp; 0<br>
+    &nbsp;
+    &lt;input type=&quot;range&quot;&nbsp; id=&quot;a&quot; name=&quot;a&quot; value=&quot;50&quot;&gt;<br>&nbsp; 100 +<br>
+    &nbsp;
+    &lt;input type=&quot;number&quot; id=&quot;b&quot; name=&quot;b&quot; value=&quot;50&quot;&gt;<br>&nbsp; =<br>
+    &nbsp;
+    &lt;output name=&quot;x&quot; for=&quot;a b&quot;&gt;&lt;/output&gt;<br>&nbsp; &lt;br&gt;&lt;br&gt;<br>&nbsp; &lt;input type=&quot;submit&quot;&gt;<br>
+ &lt;/form&gt;</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>HTML Form Elements</h2>
+<table class="ws-table-all notranslate">
+<tr>
+<th>Tag</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="../tags/tag_form.html">&lt;form&gt;</a></td>
+<td> Defines an HTML form for user input</td>
+</tr>
+<tr>
+<td><a href="../tags/tag_input.html">&lt;input&gt;</a></td>
+<td>Defines an input control</td>
+</tr>
+<tr>
+<td><a href="../tags/tag_textarea.html">&lt;textarea&gt;</a></td>
+<td>Defines a multiline input control (text area)</td>
+</tr>
+<tr>
+<td><a href="../tags/tag_label.html">&lt;label&gt;</a></td>
+<td>Defines a label for an &lt;input&gt; element</td>
+</tr>
+<tr>
+<td><a href="../tags/tag_fieldset.html">&lt;fieldset&gt;</a></td>
+<td>Groups related elements in a form</td>
+</tr>
+<tr>
+<td><a href="../tags/tag_legend.html">&lt;legend&gt;</a></td>
+<td>Defines a caption for a &lt;fieldset&gt; element</td>
+</tr>
+<tr>
+<td><a href="../tags/tag_select.html">&lt;select&gt;</a></td>
+<td>Defines a drop-down list</td>
+</tr>
+<tr>
+<td><a href="../tags/tag_optgroup.html">&lt;optgroup&gt;</a></td>
+<td>Defines a group of related options in a drop-down list</td>
+</tr>
+<tr>
+<td><a href="../tags/tag_option.html">&lt;option&gt;</a></td>
+<td>Defines an option in a drop-down list</td>
+</tr>
+<tr>
+<td><a href="../tags/tag_button.html">&lt;button&gt;</a></td>
+<td>Defines a clickable button</td>
+</tr>
+<tr>
+<td><a href="../tags/tag_datalist.html">&lt;datalist&gt;</a></td>
+<td>Specifies a list of pre-defined options for input controls</td>
+</tr>
+<tr>
+<td><a href="../tags/tag_output.html">&lt;output&gt;</a></td>
+<td>Defines the result of a calculation</td>
+</tr>
+</table>
+<div class="ws-note w3-panel">
+  <p>For a complete list of all available HTML tags, visit our <a href="../tags/default.html">HTML Tag Reference</a>.</p>
+</div>
+
+<br>

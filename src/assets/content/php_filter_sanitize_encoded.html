@@ -1,0 +1,41 @@
+<h1>PHP <span class="color_h1">FILTER_SANITIZE_ENCODED</span> Filter</h1>
+<p><a href="php_ref_filter.html" class="w3-btn w3-white w3-border" title="PHP Filter Reference">&#10094; 
+PHP Filter Reference</a></p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Encode special characters in the $url variable:</p>
+<div class="w3-code notranslate">
+ &lt;?php<br>$url="https://www.w3schoolsÅÅ.com";<br><br>$url = filter_var($url, FILTER_SANITIZE_ENCODED);<br>echo $url;<br>?&gt;
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="phptryitbd95.html?filename=tryphp_func_sanitize_encoded">
+ Try it Yourself &raquo;</a>
+</div>
+<hr>
+
+<h2>Definition and Usage</h2>
+<p>The FILTER_SANITIZE_ENCODED filter removes or encodes special characters.</p>
+<p>This filter works a lot like the urlencode() function.</p>
+
+<p>Possible options and flags:</p>
+<ul>
+  <li>FILTER_FLAG_STRIP_LOW - Remove characters with ASCII value &lt; 32</li>
+  <li>FILTER_FLAG_STRIP_HIGH - Remove characters with ASCII value &gt; 127</li>
+  <li>FILTER_FLAG_ENCODE_LOW - Encode characters with ASCII value &lt; 32</li>
+  <li>FILTER_FLAG_ENCODE_HIGH - Encode characters with ASCII value &gt; 127</li>
+</ul>
+<hr>
+
+<h2>More Examples</h2>
+<div class="w3-example">
+<h3>Example 1</h3>
+<p>Encode special characters, and remove all characters with ASCII value &gt; 127:</p>
+<div class="w3-code notranslate">
+ &lt;?php<br>$url="https://www.w3schoolsÅÅ.com";<br><br>$url = filter_var($url, FILTER_SANITIZE_ENCODED, FILTER_FLAG_STRIP_HIGH);<br>echo $url;<br>?&gt;
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="phptryitc656.html?filename=tryphp_func_sanitize_encoded2">
+ Try it Yourself &raquo;</a>
+</div>
+
+<hr>
+<a href="php_ref_filter.html" class="w3-btn w3-white w3-border" title="PHP Filter Reference">&#10094; 
+PHP Filter Reference</a>

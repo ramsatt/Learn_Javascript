@@ -1,0 +1,159 @@
+<h1>SQL <span class="color_h1">AUTO INCREMENT</span> Field</h1>
+
+<hr>
+
+
+<h2>AUTO INCREMENT Field</h2>
+<p>Auto-increment allows a unique number to be generated automatically when a new record is inserted into a table.</p>
+<p>Often this is the primary key field that we would like to be created automatically every time a new record is inserted.</p>
+<hr>
+
+<h2>Syntax for MySQL</h2>
+<p>The following SQL statement defines the &quot;Personid&quot; column to be an auto-increment primary key field in the &quot;Persons&quot; table:</p>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+CREATE TABLE Persons
+(<br>
+ &nbsp;&nbsp;&nbsp;
+  Personid int NOT NULL AUTO_INCREMENT,<br>
+&nbsp;&nbsp;&nbsp;
+LastName varchar(255) NOT NULL,<br>
+&nbsp;&nbsp;&nbsp;
+FirstName varchar(255),<br>
+&nbsp;&nbsp;&nbsp; Age int,<br>
+&nbsp;&nbsp;&nbsp;
+PRIMARY KEY (Personid)<br>
+);</div></div>
+
+<p>MySQL uses the <code class="w3-codespan">AUTO_INCREMENT</code> keyword to perform an auto-increment feature.</p>
+<p>By default, the starting value for <code class="w3-codespan">AUTO_INCREMENT</code> is 1, and it will increment by 1 for each new record.</p>
+<p>To let the <code class="w3-codespan">AUTO_INCREMENT</code> sequence start with another value, use the following SQL statement:</p>
+
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+ALTER TABLE Persons AUTO_INCREMENT=100;</div></div>
+
+<p>To insert a new record into the &quot;Persons&quot; table, we will NOT have to specify a value for the &quot;Personid&quot;
+column (a unique value will be added automatically):</p>
+
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+INSERT INTO Persons (FirstName,LastName)<br>
+VALUES ('Lars','Monsen');</div></div>
+
+<p>The SQL statement above would insert a new record into the &quot;Persons&quot; table. The 
+&quot;Personid&quot; column would be assigned a unique value. The &quot;FirstName&quot; column would be set to 
+&quot;Lars&quot; and the &quot;LastName&quot; column would be set to &quot;Monsen&quot;.</p>
+
+
+<hr>
+
+
+<h2>Syntax for SQL Server</h2>
+<p>The following SQL statement defines the &quot;Personid&quot; column to be an auto-increment primary key field in the &quot;Persons&quot; table:</p>
+
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+CREATE TABLE Persons
+(<br>
+ &nbsp;&nbsp;&nbsp;
+  Personid int IDENTITY(1,1) PRIMARY KEY,<br>
+&nbsp;&nbsp;&nbsp;
+LastName varchar(255) NOT NULL,<br>
+&nbsp;&nbsp;&nbsp;
+FirstName varchar(255),<br>
+&nbsp;&nbsp;&nbsp;
+Age int<br>
+);</div></div>
+
+<p>The MS SQL Server uses the <code class="w3-codespan">IDENTITY</code> keyword to perform an auto-increment feature. </p>
+<p>In the example above, the starting value for <code class="w3-codespan">
+IDENTITY</code> is 1, and it will increment by 1 for each new record.</p>
+<p><strong>Tip:</strong> To specify that the &quot;Personid&quot; column should start at value 10 and increment by 5, change 
+it to <code class="w3-codespan">IDENTITY(10,5)</code>.</p>
+<p>To insert a new record into the &quot;Persons&quot; table, we will NOT have to specify a value for the &quot;Personid&quot; column (a unique value will be added automatically):</p>
+
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+INSERT INTO Persons (FirstName,LastName)<br>
+VALUES ('Lars','Monsen');</div></div>
+
+<p>The SQL statement above would insert a new record into the &quot;Persons&quot; table. The 
+&quot;Personid&quot; column would be assigned a unique value. The &quot;FirstName&quot; column would be set to 
+&quot;Lars&quot; and the &quot;LastName&quot; column would be set to &quot;Monsen&quot;.</p>
+
+
+<hr>
+
+<hr>
+
+
+<h2>Syntax for Access</h2>
+<p>The following SQL statement defines the &quot;Personid&quot; column to be an auto-increment primary key field in the &quot;Persons&quot; table:</p>
+
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+CREATE TABLE Persons
+(<br>
+ &nbsp;&nbsp;&nbsp;
+  Personid AUTOINCREMENT PRIMARY KEY,<br>
+&nbsp;&nbsp;&nbsp;
+LastName varchar(255) NOT NULL,<br>
+&nbsp;&nbsp;&nbsp;
+FirstName varchar(255),<br>
+&nbsp;&nbsp;&nbsp;
+Age int<br>
+);</div></div>
+
+<p>The MS Access uses the <code class="w3-codespan">AUTOINCREMENT</code> keyword to perform an auto-increment feature. </p>
+<p>By default, the starting value for <code class="w3-codespan">AUTOINCREMENT</code> is 1, and it will increment by 1 for each new record.</p>
+<p><strong>Tip:</strong> To specify that the &quot;Personid&quot; column should start at value 10 and increment by 5, change the autoincrement to <code class="w3-codespan">
+AUTOINCREMENT(10,5)</code>.</p>
+<p>To insert a new record into the &quot;Persons&quot; table, we will NOT have to specify a value for the &quot;Personid&quot; column (a unique value will be added 
+automatically):</p>
+
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+INSERT INTO Persons (FirstName,LastName)<br>
+VALUES ('Lars','Monsen');</div></div>
+
+<p>The SQL statement above would insert a new record into the &quot;Persons&quot; table. The 
+&quot;Personid&quot; column would be assigned a unique value. The &quot;FirstName&quot; column would be set to 
+&quot;Lars&quot; and the &quot;LastName&quot; column would be set to &quot;Monsen&quot;.</p>
+
+
+<hr>
+
+
+<h2>Syntax for Oracle</h2>
+<p>In Oracle the code is a little bit more tricky.</p>
+<p>You will have to create an auto-increment field with the sequence object (this object generates a number sequence).</p>
+<p>Use the following <code class="w3-codespan">CREATE SEQUENCE</code> syntax:</p>
+
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+CREATE SEQUENCE seq_person<br>
+MINVALUE 1<br>
+START WITH 1<br>
+INCREMENT BY 1<br>
+CACHE 10; </div></div>
+
+<p>The code above creates a sequence object called seq_person, that starts with 1 and will increment by 1.
+It will also cache up to 10 values for performance. The cache option specifies how many sequence values will be stored in memory for faster access.</p>
+<p>To insert a new record into the &quot;Persons&quot; table, we will have to use the nextval function (this function retrieves the next value from seq_person 
+sequence):</p>
+
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+INSERT INTO Persons (Personid,FirstName,LastName)<br>
+VALUES (seq_person.nextval,'Lars','Monsen');</div></div>
+
+<p>The SQL statement above would insert a new record into the &quot;Persons&quot; table. The &quot;Personid&quot; column would be assigned the next number from the seq_person 
+sequence. The &quot;FirstName&quot; column would be set to &quot;Lars&quot; and the &quot;LastName&quot; column would be set to &quot;Monsen&quot;.</p>
+
+
+<hr>
+
+<hr>
+
+<br>

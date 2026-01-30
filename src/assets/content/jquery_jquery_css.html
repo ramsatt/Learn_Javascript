@@ -1,0 +1,74 @@
+<h1>jQuery - <span class="color_h1">css() Method</span></h1>
+
+<hr>
+<h2>jQuery css() Method</h2>
+<p>The <code class="w3-codespan">css()</code> method sets or returns one or more style properties for the selected elements.</p>
+<hr>
+
+<h2>Return a CSS Property</h2>
+<p>To return the value of a specified CSS property, use the following syntax:</p>
+<div class="w3-code w3-border notranslate"><div>
+css(&quot;<i>propertyname</i>&quot;);</div></div>
+<p>The following example will return the background-color value of the FIRST matched element:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;p&quot;).css(&quot;background-color&quot;);
+</div>
+
+</div>
+<hr>
+
+<h2>Set a CSS Property</h2>
+<p>To set a specified CSS property, use the following syntax:</p>
+<div class="w3-code w3-border notranslate"><div>
+css(&quot;<i>propertyname</i>&quot;,&quot;<i>value</i>&quot;);</div></div>
+<p>The following example will set the background-color value for ALL matched elements:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;p&quot;).css(&quot;background-color&quot;, &quot;yellow&quot;);
+</div>
+
+</div>
+<hr>
+
+<hr>
+
+<h2>Set Multiple CSS Properties</h2>
+<p>To set multiple CSS properties, use the following syntax:</p>
+<div class="w3-code w3-border notranslate"><div>
+css({&quot;<i>propertyname</i>&quot;:&quot;<i>value</i>&quot;,&quot;<i>propertyname</i>&quot;:&quot;<i>value</i>&quot;,...});</div></div>
+<p>The following example will set a background-color and a font-size for ALL 
+matched elements:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;p&quot;).css({&quot;background-color&quot;: &quot;yellow&quot;, &quot;font-size&quot;: &quot;200%&quot;});
+</div>
+
+</div>
+<hr>
+
+<h2>jQuery Exercises</h2>
+<form autocomplete="off" id="w3-exerciseform" action="https://www.w3schools.com/jquery/exercise_jq.asp?filename=exercise_jq_css1" method="post" target="_blank">
+<h2>Test Yourself With Exercises</h2>
+<div class="exercisewindow">
+<h2>Exercise:</h2>
+<p>Use the <code class="w3-codespan">css()</code> method to add a pink background color to a &lt;p&gt; element.</p>
+<div class="exerciseprecontainer">
+<pre style="background-color:transparent;border:none;">
+$("p").<input name="ex1" maxlength="3" style="width:35px;">("<input name="ex2" maxlength="16" style="width:165px;">", "<input name="ex3" maxlength="4" style="width:45px;">");
+</pre>
+</div>
+<br>
+<button type="submit" class="w3-btn w3-margin-bottom">Submit Answer &raquo;</button>
+<p><a target="_blank" href="exercise_jq2282.html?filename=exercise_jq_css1">Start the Exercise</a></p>
+</div>
+</form>
+<hr>
+
+<h2>jQuery CSS Reference</h2>
+<p>For a complete overview of all jQuery CSS methods, please go to our <a href="jquery_ref_html.html">jQuery HTML/CSS Reference</a>.</p>
+
+<br>

@@ -1,0 +1,146 @@
+<h1>Machine Learning - Mean Median Mode</h1>
+
+<hr>
+
+<h2>Mean, Median, and Mode</h2>
+
+<p>What can we learn from looking at a group of numbers?</p>
+
+<p>In Machine Learning (and in mathematics) there are often three values that 
+interests us:</p>
+<ul>
+  <li><strong>Mean</strong> - The average value</li>
+  <li><strong>Median</strong> - The mid point value</li>
+  <li><strong>Mode</strong> - The most common value</li>
+</ul>
+
+<p>Example: We have registered the speed of 13 cars:</p>
+
+<div class="w3-example ws-light-grey w3-responsive">
+  <p><code class="pythonHigh">speed = [99,86,87,88,111,86,103,87,94,78,77,85,86]</code></p>
+</div>
+
+<p>What is the average, the middle, or the most common speed value?</p>
+
+<hr>
+
+<h2>Mean</h2>
+
+<p>The mean value is the average value.</p>
+<p>To calculate the mean, find the sum of all values, and divide the sum by the number of values:</p>
+
+<div class="w3-example ws-light-grey w3-responsive">
+  <p><code class="pythonHigh">(99+86+87+88+111+86+103+87+94+78+77+85+86) / 13 = 
+  89.77</code></p>
+</div>
+ 
+<p>The NumPy module has a method for this. Learn about the NumPy module in our <a href="numpy/default.html">NumPy Tutorial</a>.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Use the NumPy <code class="w3-codespan">mean()</code> method to find the 
+average speed:</p>
+<div class="w3-code notranslate pythonHigh">
+  import numpy<br><br>speed = [99,86,87,88,111,86,103,87,94,78,77,85,86]<br>
+  <br>x = numpy.mean(speed)<br><br>print(x)</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="trypythoncf4d.html?filename=demo_ml_mean">Run example &raquo;</a>
+</div>
+
+<hr>
+
+<hr>
+
+<h2>Median</h2>
+
+<p>The median value is the value in the middle, after you have sorted all the values:</p>
+
+<style>
+code.strong {
+  border-bottom: 3px double red;
+  color:red;
+  font-size:150%;
+}
+.darktheme code.strong {
+  border-bottom: 3px double #88c999!important;
+  color:#88c999!important;
+}
+code.underlined {
+  border-bottom: 1px solid red;
+  color:red;
+}
+.darktheme code.underlined {
+  border-bottom: 1px solid #88c999!important;
+  color:#88c999!important;
+}
+</style>
+<div class="w3-example ws-light-grey">
+  <p><code class="pythonHigh">77, 78, 85, 86, 86, 86, </code><code class="strong">87</code><code class="pythonHigh">, 87, 88, 94, 99, 103, 111</code></p>
+</div>
+
+<div class="w3-panel ws-note">
+  <p>It is important that the numbers are sorted before you can find the median.</p>
+</div>
+ 
+<p>The NumPy module has a method for this:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Use the NumPy <code class="w3-codespan">median()</code> method to find the 
+middle value:</p>
+<div class="w3-code notranslate pythonHigh">
+  import numpy<br><br>speed = [99,86,87,88,111,86,103,87,94,78,77,85,86]<br>
+  <br>x = numpy.median(speed)<br><br>print(x)</div>
+
+</div>
+
+<div class="w3-panel ws-note">
+  <p>If there are two numbers in the middle, divide the sum of those numbers by 
+  two.</p>
+</div>
+
+<div class="w3-example ws-light-grey">
+  <p><code class="pythonHigh">77, 78, 85, 86, 86, </code><code class="underlined">86, 87</code><code class="pythonHigh">, 
+  87, 94, 98, 99, 103<br><br>
+(86 + 87) / 2 = </code><code class="strong">86.5</code></p>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Using the NumPy module:</p>
+<div class="w3-code notranslate pythonHigh">
+  import numpy<br><br>speed = [99,86,87,88,86,103,87,94,78,77,85,86]<br>
+  <br>x = numpy.median(speed)<br><br>print(x)</div>
+
+</div>
+
+<hr>
+
+<h2>Mode</h2>
+
+<p>The Mode value is the value that appears the most number of times:</p>
+
+<div class="w3-example ws-light-grey">
+  <p><code class="pythonHigh">99,</code><code class="underlined">86</code><code class="pythonHigh">, 87, 88, 111,</code><code class="underlined">86</code><code class="pythonHigh">, 103, 87, 94, 78, 77, 85,</code><code class="underlined">86</code><code class="pythonHigh"> = 86</code></p>
+</div>
+ 
+<p>The SciPy module has a method for this. Learn about the SciPy module in our
+<a href="scipy/scipy_intro.html">SciPy Tutorial</a>.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Use the SciPy <code class="w3-codespan">mode()</code> method to find the 
+number that appears the most:</p>
+<div class="w3-code notranslate pythonHigh">
+  from scipy import stats<br><br>speed = 
+  [99,86,87,88,111,86,103,87,94,78,77,85,86]<br><br>x = stats.mode(speed)<br><br>print(x)</div>
+
+</div>
+
+<hr>
+
+<h2>Chapter Summary</h2>
+
+<p>The Mean, Median, and Mode are techniques that are often used in Machine 
+Learning, so it is important to understand the concept behind them.</p>
+
+<hr>

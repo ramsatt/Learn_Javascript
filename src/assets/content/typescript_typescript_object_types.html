@@ -1,0 +1,109 @@
+<h1>TypeScript Object Types</h1>
+
+
+
+<hr>
+
+<p>TypeScript has a specific syntax for typing objects.</p>
+<p>Read more about objects in our <a href="../js/js_objects.html" target="_blank">JavaScript Objects chapter</a>.</p>
+
+<hr>
+<div class="w3-example">
+<h3>Example</h3>
+
+<div class="w3-code notranslate jsHigh">
+const car: { type: string, model: string, year: number } = {<br>
+&nbsp;&nbsp;type: "Toyota",<br>
+&nbsp;&nbsp;model: "Corolla",<br>
+&nbsp;&nbsp;year: 2009<br>
+};
+</div>
+
+
+</div>
+
+<div class="w3-panel ws-info">
+<p>Object types like this can also be written separately, and even be reused, look at <a href="typescript_aliases_and_interfaces.html">interfaces</a> for more details.
+</p>
+</div>
+
+<hr>
+
+<hr>
+
+<h2>Type Inference</h2>
+
+<p>TypeScript can infer the types of properties based on their values.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+
+<div class="w3-code notranslate jsHigh">
+const car = {<br>
+&nbsp;&nbsp;type: "Toyota",<br>
+};<br>
+car.type = "Ford"; // no error<br>
+car.type = 2; // Error: Type 'number' is not assignable to type 'string'.<br>
+</div>
+
+
+</div>
+
+<hr>
+
+<h2>Optional Properties</h2>
+
+<p>Optional properties are properties that don't have to be defined in the object definition.</p>
+
+<div class="w3-example">
+<h3>Example without an optional property</h3>
+
+<div class="w3-code notranslate jsHigh">
+const car: { type: string, mileage: number } = { // Error: Property 'mileage' is missing in type '{ type: string;
+}' but required in type '{ type: string; mileage: number; }'.<br>
+&nbsp;&nbsp;type: "Toyota",<br>
+};<br>
+car.mileage = 2000;
+</div>
+</div>
+
+<div class="w3-example">
+<h3>Example with an optional property</h3>
+
+<div class="w3-code notranslate jsHigh">
+const car: { type: string, mileage?: number } = { // no error<br>
+&nbsp;&nbsp;type: "Toyota"<br>
+};<br>
+car.mileage = 2000;
+</div>
+
+
+</div>
+
+<hr>
+
+<h2>Index Signatures</h2>
+
+<p>Index signatures can be used for objects without a defined list of properties.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+
+<div class="w3-code notranslate jsHigh">
+const nameAgeMap: { [index: string]: number } = {};<br>
+nameAgeMap.Jack = 25; // no error<br>
+nameAgeMap.Mark = "Fifty"; // Error: Type 'string' is not assignable to type 'number'.
+</div>
+
+
+</div>
+
+<div class="w3-panel ws-info">
+<p>Index signatures like this one can also be expressed with utility types like <code class="w3-codespan">Record&lt;string, number&gt;</code>.</p>
+<p>Learn more about utility types like this in our <a href="typescript_utility_types.html">TypeScript Utility Types</a> chapter.</p>
+</div>
+
+<hr>
+
+<hr>
+<br>

@@ -1,0 +1,159 @@
+<h1>jQuery <span class="color_h1">animate()</span> Method</h1>
+<p><a href="jquery_ref_effects.html" class="w3-btn w3-white w3-border" title="jQuery Effect Methods">&#10094; jQuery Effect Methods</a></p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>&quot;Animate&quot; an element, by changing its height:</p>
+<div class="w3-code notranslate jsHigh">
+$(&quot;button&quot;).click(function(){<br>
+&nbsp;&nbsp;$(&quot;#box&quot;).animate({height: &quot;300px&quot;});<br>
+});
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="tryit1a0a.html?filename=tryjquery_eff_animate">Try it Yourself &raquo;</a>
+</div>
+<hr>
+
+<h2>Definition and Usage</h2>
+<p>The animate() method performs a custom animation of a set of CSS properties.</p>
+<p>This method changes an element from one state to another with CSS styles.
+The CSS property value is changed gradually, to create an animated effect.</p>
+<p>Only numeric values can be animated (like &quot;margin:30px&quot;). 
+String values cannot be animated (like &quot;background-color:red&quot;), except for 
+the strings &quot;show&quot;, &quot;hide&quot; and &quot;toggle&quot;. These values allow hiding and showing 
+the animated element.</p>
+<p><b>Tip:</b> Use &quot;+=&quot; or &quot;-=&quot; for relative animations.</p>
+<hr>
+
+<h2>Syntax</h2>
+<div class="w3-code w3-border notranslate"><div>
+(<i>selector</i>).animate(<i>{styles},speed,easing,callback</i>)</div></div>
+<br>
+
+<table class="ws-table-all notranslate"> 
+  <tr>
+    <th style="width:20%">Parameter</th>
+    <th>Description</th>
+  </tr>  
+  <tr>
+    <td><em>styles</em></td>
+    <td>Required. Specifies one or more CSS properties/values to animate.<p><b>Note:</b> The property names must be camel-cased when used with the animate() method: You will need to
+ write paddingLeft instead of padding-left, marginRight instead of margin-right, and so on.</p>
+ <p>Properties that can be animated:</p>
+ <ul>
+    <li><a target="_blank" href="tryitaf43.html?filename=tryjquery_eff_ani_backgroundpositionxy">backgroundPositionX</a></li>
+    <li><a target="_blank" href="tryitaf43.html?filename=tryjquery_eff_ani_backgroundpositionxy">backgroundPositionY</a></li>
+    <li><a target="_blank" href="tryit1223.html?filename=tryjquery_eff_ani_borderwidth">borderWidth</a></li>
+    <li><a target="_blank" href="tryitcfbe.html?filename=tryjquery_eff_ani_borderbottomwidth">borderBottomWidth</a></li>
+    <li><a target="_blank" href="tryit6b21.html?filename=tryjquery_eff_ani_borderleftwidth">borderLeftWidth</a></li>
+    <li><a target="_blank" href="tryit7b40.html?filename=tryjquery_eff_ani_borderrightwidth">borderRightWidth</a></li>
+    <li><a target="_blank" href="tryitc742.html?filename=tryjquery_eff_ani_bordertopwidth">borderTopWidth</a></li>
+    <li><a target="_blank" href="tryitb74b.html?filename=tryjquery_eff_ani_borderspacing">borderSpacing</a></li>
+    <li><a target="_blank" href="tryit7cd5.html?filename=tryjquery_eff_ani_margin">margin</a></li>
+    <li><a target="_blank" href="tryitee8d.html?filename=tryjquery_eff_ani_marginbottom">marginBottom</a></li>
+    <li><a target="_blank" href="tryitfd4c.html?filename=tryjquery_eff_ani_marginleft">marginLeft</a></li>
+    <li><a target="_blank" href="tryit056e.html?filename=tryjquery_eff_ani_marginright">marginRight</a></li>
+    <li><a target="_blank" href="tryit5954.html?filename=tryjquery_eff_ani_margintop">marginTop</a></li>
+    <li><a target="_blank" href="tryitc5da.html?filename=tryjquery_eff_ani_opacity">opacity</a></li>
+    <li><a target="_blank" href="tryitf2a1.html?filename=tryjquery_eff_ani_outlinewidth">outlineWidth</a></li>
+    <li><a target="_blank" href="tryitbb85.html?filename=tryjquery_eff_ani_padding">padding</a></li>
+    <li><a target="_blank" href="tryita5c4.html?filename=tryjquery_eff_ani_paddingbottom">paddingBottom</a></li>
+    <li><a target="_blank" href="tryit467a.html?filename=tryjquery_eff_ani_paddingleft">paddingLeft</a></li>
+    <li><a target="_blank" href="tryitd97a.html?filename=tryjquery_eff_ani_paddingright">paddingRight</a></li>
+    <li><a target="_blank" href="tryite16f.html?filename=tryjquery_eff_ani_paddingtop">paddingTop</a></li>
+    <li><a target="_blank" href="tryit3a6e.html?filename=tryjquery_eff_ani_height">height</a></li>
+    <li><a target="_blank" href="tryit555c.html?filename=tryjquery_eff_ani_width">width</a></li>    
+    <li><a target="_blank" href="tryit7bb9.html?filename=tryjquery_eff_ani_maxheight">maxHeight</a></li>
+    <li><a target="_blank" href="tryit426b.html?filename=tryjquery_eff_ani_maxwidth">maxWidth</a></li>    
+    <li><a target="_blank" href="tryitc4a8.html?filename=tryjquery_eff_ani_minheight">minHeight</a></li>
+    <li><a target="_blank" href="tryitd535.html?filename=tryjquery_eff_ani_minwidth">minWidth</a></li>    
+      <li><a target="_blank" href="tryit756f.html?filename=tryjquery_eff_ani_fontsize">fontSize</a></li>    
+      <li><a target="_blank" href="tryit2783.html?filename=tryjquery_eff_ani_bottom">bottom</a></li>    
+      <li><a target="_blank" href="tryitc0ee.html?filename=tryjquery_eff_ani_left">left</a></li>    
+      <li><a target="_blank" href="tryitf07e.html?filename=tryjquery_eff_ani_right">right</a></li>    
+      <li><a target="_blank" href="tryiteac9.html?filename=tryjquery_eff_ani_top">top</a></li>    
+      <li><a target="_blank" href="tryitba6d.html?filename=tryjquery_eff_ani_letterspacing">letterSpacing</a></li>
+      <li><a target="_blank" href="tryit1fb6.html?filename=tryjquery_eff_ani_wordspacing">wordSpacing</a></li>
+      <li><a target="_blank" href="tryit023f.html?filename=tryjquery_eff_ani_lineheight">lineHeight</a></li>     
+      <li><a target="_blank" href="tryit9feb.html?filename=tryjquery_eff_ani_textindent">textIndent</a></li>
+    </ul>
+ <br>
+ Only numeric values can be animated (like "margin:30px"). String values cannot be animated (like "background-color:red"), except for the strings "show", "hide" and "toggle". These values allow hiding and showing the animated element.<br>
+</td>
+  </tr>
+  <tr>
+    <td><em>speed</em></td>
+    <td>Optional. Specifies the speed of the animation. Default value is 400 milliseconds<p>Possible values:</p>
+ <ul>
+    <li>milliseconds (like 100, 1000, 5000, etc)</li>
+    <li>&quot;slow&quot;</li>
+    <li>&quot;fast&quot;</li>
+ </ul>
+  </td>
+  </tr>
+  <tr>
+    <td><em>easing</em></td>
+    <td>Optional. Specifies the speed of the element in different points of the animation. Default value is &quot;swing&quot;. Possible values:
+ <ul>
+    <li>&quot;swing&quot; - moves slower at the beginning/end, but faster in the middle</li>
+    <li>&quot;linear&quot; - moves in a constant speed</li>
+ </ul>
+ <b>Tip:</b> More easing functions are available in external plugins.</td>
+  </tr>
+  <tr>
+    <td><em>callback</em></td>
+    <td>Optional. A function to be executed after the animation completes. To learn more about callback, please read our <a href="jquery_callback.html">jQuery Callback</a> chapter</td>
+  </tr>
+</table>
+<hr>
+
+<hr>
+<h2>Alternate Syntax</h2>
+<div class="w3-code w3-border notranslate"><div>
+(<i>selector</i>).animate(<i>{styles},{options}</i>)</div></div>
+<br>
+<table class="ws-table-all notranslate"> 
+  <tr>
+    <th style="width:20%">Parameter</th>
+    <th>Description</th>
+  </tr>  
+  <tr>
+    <td><em>styles</em></td>
+    <td>Required. Specifies one or more CSS properties/values to animate (See possible values above)</td>
+  </tr>
+  <tr>
+    <td><em>options</em></td>
+    <td>Optional. Specifies additional options for the animation. Possible values:
+ <ul>
+    <li>duration - sets the speed of the animation</li>
+    <li>easing - specifies the easing function to use</li>
+    <li>complete - specifies a function to be executed after the animation completes</li>
+    <li>step - specifies a function to be executed for each step in the animation</li>
+    <li>progress - specifies a function to be executed after each step in the animation</li>
+    <li>queue - a Boolean value specifying whether or not to place the animation in the effects queue</li>
+    <li>specialEasing - a map of one or more CSS properties from the <i>styles</i> parameter, and their corresponding easing functions</li>
+    <li>start - specifies a function to be executed when the animation  begins</li>
+    <li>done - specifies a function to be executed when the animation ends</li>
+    <li>fail - specifies a function to be executed if the animation fails to  complete</li>
+    <li>always - specifies a function to be executed if the animation stops  without completing</li>
+ </ul>
+  </td>
+  </tr>
+</table>
+<hr>
+
+<h2>Try it Yourself - Example</h2>
+
+<p><a target="_blank" href="tryitf222.html?filename=tryjquery_eff_animate2">Using animate() with a callback function</a><br>
+How to use animate() with a callback function that repeats the animation.</p>
+
+<p><a target="_blank" href="tryit9d8a.html?filename=tryjquery_eff_animate_alt">Alternate Syntax Example</a><br>
+Using the alternate syntax to specify multiple animation styles and options.</p>
+
+<p><a target="_blank" href="tryit8fb2.html?filename=tryjquery_eff_animate_progressbar">Using animate() to create a progress bar</a><br>
+How to use the animate() method to create a progress bar.</p>
+
+<p><a target="_blank" href="tryit5cd0.html?filename=tryjquery_eff_animate_smoothscroll">Add smooth scrolling to page anchors</a><br>
+How to use animate() to add smooth scrolling to links.</p>
+<hr>
+
+<p><a href="jquery_ref_effects.html" class="w3-btn w3-white w3-border" title="jQuery Effect Methods">&#10094; jQuery Effect Methods</a></p>

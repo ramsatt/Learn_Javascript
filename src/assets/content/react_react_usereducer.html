@@ -1,0 +1,96 @@
+<h1>React <code class="w3-codespan">useReducer</code> Hook</h1>
+
+
+<hr>
+
+<p class="intro">The <code class="w3-codespan">useReducer</code> Hook is similar to the <code class="w3-codespan">useState</code> Hook.</p>
+<p class="intro">It allows for custom state logic.</p>
+<p class="intro">If you find yourself keeping track of multiple pieces of state that rely on complex logic, <code class="w3-codespan">useReducer</code> may be useful.</p>
+
+<hr>
+
+<h2>Syntax</h2>
+
+<p>The useReducer Hook accepts three arguments.</p>
+
+<pre class="language-jsx"><code>useReducer(<i>reducer</i>, <i>initialState</i>, <i>init</i>)
+</code></pre>
+
+<p>The <code class="w3-codespan">reducer</code> function contains your custom state logic and the <code class="w3-codespan">initialState</code>can be a simple value,
+   but generally will contain an object. The <code class="w3-codespan">init</code> argument is optional and is used to initialize the state.</p>
+
+<p>The <code class="w3-codespan">useReducer</code> Hook returns the current <code class="w3-codespan">state</code>and a <code class="w3-codespan">dispatch</code>method.</p>
+
+<p>Here is an example where we use <code class="w3-codespan">useReducer</code> to keep track of the score of two players:</p>
+
+<div class="w3-example">
+<h3>Example:</h3>
+<pre class="language-jsx w3-white"><code>import { useReducer } from 'react';
+import { createRoot } from 'react-dom/client';
+
+const initialScore = [
+  {
+    id: 1,
+    score: 0,
+    name: "John",
+  },
+  {
+    id: 2,
+    score: 0,
+    name: "Sally",
+  },
+];
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "INCREASE":
+      return state.map((player) => {
+        if (player.id === action.id) {
+          return { ...player, score: player.score + 1 };
+        } else {
+          return player;
+        }
+      });
+    default:
+      return state;
+  }
+};
+
+function Score() {
+  const [score, dispatch] = useReducer(reducer, initialScore);
+
+  const handleIncrease = (player) => {
+    dispatch({ type: "INCREASE", id: player.id });
+  };
+
+  return (
+    &lt;&gt;
+      {score.map((player) => (
+        &lt;div key={player.id}&gt;
+          &lt;label&gt;
+            &lt;input
+              type="button"
+              onClick={() => handleIncrease(player)}
+              value={player.name}
+            /&gt;
+            {player.score}
+          &lt;/label&gt;
+        &lt;/div&gt;
+      ))}
+    &lt;/&gt;
+  );
+}
+
+createRoot(document.getElementById('root')).render(
+  &lt;Score /&gt;
+);
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreactf54b.html?filename=demo_react_usereducer">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<hr>
+
+<hr>

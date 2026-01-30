@@ -1,0 +1,118 @@
+<h1>Python <span class="color_h1">User Input</span></h1>
+
+<hr>
+
+<h2>User Input</h2>
+
+<p>Python allows for user input.</p>
+<p>That means we are able to ask the user for input.</p>
+<p>The following example asks for your name, and when you enter a name, it gets printed on the screen:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Ask for user input:</p>
+<div class="w3-code notranslate pythonHigh">
+print("Enter your name:")<br>
+name = input()<br>
+print(f"Hello {name}")<br>
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showpython6d98.html?filename=demo_user_input_1">Run Example &raquo;</a>
+</div>
+
+<div class="w3-panel ws-note">
+<p>Python stops executing when it comes to the <code class="w3-codespan"><a href="ref_func_input.asp">input()</a></code> function, and continues 
+when the user has given some input.</p>
+</div>
+
+<hr>
+
+<h2>Using prompt</h2>
+
+<p>In the example above, the user had to input their name on a new line. The Python <code class="w3-codespan"><a href="ref_func_input.asp">input()</a></code> function has a <code class="w3-codespan">prompt</code> parameter,
+which acts as a message you can put in front of the user input, on the same line:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Add a message in front of the user input:</p>
+<div class="w3-code notranslate pythonHigh">
+name = input(&quot;Enter your name:&quot;)<br>
+print(f"Hello {name}")<br>
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showpythond804.html?filename=demo_user_input_prompt">Run Example &raquo;</a>
+</div>
+
+<hr>
+
+<h2>Multiple Inputs</h2>
+
+<p>You can add as many inputs as you want, Python will stop executing at each of them,
+waiting for user input:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Multiple inputs:</p>
+<div class="w3-code notranslate pythonHigh">
+name = input(&quot;Enter your name:&quot;)<br>
+print(f"Hello {name}")<br>
+fav1 = input(&quot;What is your favorite animal:&quot;)<br>
+fav2 = input(&quot;What is your favorite color:&quot;)<br>
+fav3 = input(&quot;What is your favorite number:&quot;)<br>
+print(f"Do you want a {fav2} {fav1} with {fav3} legs?")<br>
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showpython183a.html?filename=demo_user_input_multiple">Run Example &raquo;</a>
+</div>
+
+<hr>
+
+<hr>
+
+<h2>Input Number</h2>
+
+<p>The input from the user is treated as a string. Even if, in the example above, you can input a number,
+the Python interpreter will still treat it as a string.</p>
+
+<p>You can convert the input into a number with the <code class="w3-codespan"><a href="ref_func_float.html">float()</a></code>
+function:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>To find the square root, the input has to be converted into a number:</p>
+<div class="w3-code notranslate pythonHigh">
+x = input(&quot;Enter a number:&quot;)<br>
+<br>
+#find the square root of the number:<br>
+y = math.sqrt(float(x))<br>
+<br>
+print(f"The square root of {x} is {y}")<br>
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showpythona95e.html?filename=demo_user_input_number">Run Example &raquo;</a>
+</div>
+
+<hr>
+
+<h2>Validate Input</h2>
+
+<p>It is a good practice to validate any input from the user. In the example above, 
+an error will occur if the user inputs something other than a number.</p>
+
+<p>To avoid getting an error, we can test the input, and if it is not a number, the user could get a message like "Wrong input, please try again",
+and allowed to make a new input:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Keep asking until you get a number:</p>
+<div class="w3-code notranslate pythonHigh">
+y = True<br>
+while y == True:<br>
+&nbsp;&nbsp;x = input("Enter a number:")<br>
+&nbsp; try:<br>&nbsp;&nbsp;&nbsp; x = float(x);<br>&nbsp;&nbsp;&nbsp; y = False<br>&nbsp; 
+  except:<br>&nbsp;&nbsp;&nbsp; print("Wrong input, please try again.")<br>
+<br>
+print("Thank you!")</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showpython5c5b.html?filename=demo_user_input_validate">Run Example &raquo;</a>
+</div>
+
+
+<hr>
+
+<hr>

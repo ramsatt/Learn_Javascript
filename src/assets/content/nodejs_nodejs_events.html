@@ -1,0 +1,139 @@
+<h1>Node.js <span class="color_h1">Events</span></h1>
+
+<hr>
+<h2>Core Concepts of Events in Node.js</h2>
+<p>Every action on a computer is an event, like when a connection is made or a file is opened.</p>
+<p>Objects in Node.js can fire events, like the readStream object fires events when opening and closing a file:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">let fs = require('fs');<br>
+let rs = fs.createReadStream('./demofile.txt');<br>
+rs.on('open', function () {<br>
+&nbsp; console.log('The file is open');<br>
+});</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="shownodejs_cmd1c91.html?filename=demo_events_open">Run example &raquo;</a>
+</div>
+
+<hr>
+
+<h2>Getting Started with Events in Node.js</h2>
+<p>Node.js uses an event-driven architecture where objects called "emitters" emit named events that cause function objects ("listeners") to be called.</p>
+
+<div class="w3-example">
+<h3>Basic Example</h3>
+<div class="w3-code notranslate jsHigh">// Import the events module<br>
+  const EventEmitter = require('events');<br>
+  <br>
+  // Create an event emitter instance<br>
+  const myEmitter = new EventEmitter();<br>
+  <br>
+  // Register an event listener<br>
+  myEmitter.on('greet', () => {<br>
+    &nbsp; console.log('Hello there!');<br>
+  });<br>
+  <br>
+  // Emit the event<br>
+  myEmitter.emit('greet'); // Outputs: Hello there!</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="shownodejs_cmd69ef.html?filename=demo_events_basic">Run example &raquo;</a>
+</div>
+<hr>
+<h2>EventEmitter Class</h2>
+<p>The <code class="w3-codespan">EventEmitter</code> class is fundamental to Node.js's event-driven architecture.</p>
+<p>It provides the ability to create and handle custom events.</p>
+
+<h3>Creating an Event Emitter</h3>
+<p>To use the EventEmitter, you need to create an instance of it:</p>
+<div class="w3-example">
+<div class="w3-code notranslate jsHigh">let events = require('events');<br>
+let eventEmitter = new events.EventEmitter();</div>
+</div>
+<hr>
+
+<hr>
+
+<h2>The EventEmitter Object</h2>
+<p>You can assign event handlers to your own events with the EventEmitter object.</p>
+<p>In the example below we have created a function that will be executed when a &quot;scream&quot; event is fired.</p>
+<p>To fire an event, use the <code class="w3-codespan">emit()</code> method.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">let events = require('events');<br>
+let eventEmitter = new events.EventEmitter();<br>
+<br>
+//Create an event handler:<br>
+let myEventHandler = function () {<br>
+&nbsp; console.log('I hear a scream!');<br>
+}<br>
+<br>
+//Assign the event handler to an event:<br>
+eventEmitter.on('scream', myEventHandler);<br>
+<br>
+//Fire the 'scream' event:<br>
+eventEmitter.emit('scream');</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="shownodejs_cmd4f8c.html?filename=demo_eventemitter">Run example &raquo;</a>
+</div>
+
+<hr>
+
+<h2>Common EventEmitter Patterns</h2>
+
+<h3>1. Passing Arguments to Event Handlers</h3>
+<div class="w3-example">
+<h4>Example</h4>
+<div class="w3-code notranslate jsHigh">const EventEmitter = require('events');<br>
+const emitter = new EventEmitter();<br>
+<br>
+// Emit event with arguments<br>
+emitter.on('userJoined', (username, userId) => {<br>
+&nbsp; console.log(`${username} (${userId}) has joined the chat`);<br>
+});<br>
+<br>
+emitter.emit('userJoined', 'JohnDoe', 42);<br>
+// Outputs: JohnDoe (42) has joined the chat</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="shownodejs_cmdf6b5.html?filename=demo_events_args">Run example &raquo;</a>
+</div>
+
+<h3>2. Handling Events Only Once</h3>
+<div class="w3-example">
+<h4>Example</h4>
+<div class="w3-code notranslate jsHigh">const EventEmitter = require('events');<br>
+const emitter = new EventEmitter();<br>
+<br>
+// This listener will be called only once<br>
+emitter.once('connection', () => {<br>
+&nbsp; console.log('First connection established');<br>
+});<br>
+<br>
+emitter.emit('connection'); // This will trigger the listener<br>
+emitter.emit('connection'); // This won't trigger the listener again</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="shownodejs_cmd9cc8.html?filename=demo_events_once">Run example &raquo;</a>
+</div>
+
+<h3>3. Error Handling</h3>
+<div class="w3-example">
+<h4>Example</h4>
+<div class="w3-code notranslate jsHigh">const EventEmitter = require('events');<br>const emitter = new EventEmitter();<br><br>// Always handle 'error' events<br>emitter.on('error', (err) => {<br>&nbsp; console.error('An error occurred:', err.message);<br>});<br><br>// This will trigger the error handler<br>emitter.emit('error', new Error('Something went wrong'));</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="shownodejs_cmda6d5.html?filename=demo_events_error">Run example &raquo;</a>
+</div>
+<hr>
+<h2>Best Practices</h2>
+
+<div class="w3-example">
+<h3>1. Always Handle Errors</h3>
+<div class="w3-code notranslate jsHigh">// Good practice: Always listen for 'error' events<br>myEmitter.on('error', (err) => {<br>&nbsp; console.error('Error in event emitter:', err);<br>});</div>
+</div>
+
+<div class="w3-example">
+<h3>2. Use Named Functions for Better Stack Traces</h3>
+<div class="w3-code notranslate jsHigh">// Instead of anonymous functions<br>function handleData(data) {<br>&nbsp; console.log('Received data:', data);<br>}<br><br>myEmitter.on('data', handleData);</div>
+</div>
+
+<div class="w3-example">
+<h3>3. Clean Up Listeners</h3>
+<div class="w3-code notranslate jsHigh">// Add a listener<br>const listener = () => console.log('Event occurred');<br>myEmitter.on('event', listener);<br><br>// Later, remove the listener when no longer needed<br>myEmitter.off('event', listener);</div>
+</div>
+
+<hr>
+
+<hr>
+<br>

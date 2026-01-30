@@ -1,0 +1,39 @@
+<h1>jQuery <span class="color_h1">ajaxStop()</span> Method</h1>
+<p><a href="jquery_ref_ajax.html" class="w3-btn w3-white w3-border" title="jQuery AJAX Methods">&#10094; jQuery AJAX Methods</a></p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Trigger an alert box when all AJAX requests have completed:</p>
+<div class="w3-code notranslate jsHigh">
+$(document).ajaxStop(function(){<br>
+  &nbsp; alert(&quot;All AJAX requests completed&quot;);<br>
+});
+</div>
+<a class="w3-btn w3-margin-bottom" href="tryitcf6f.html?filename=tryjquery_ajax_ajaxstop" target="_blank">Try it Yourself &raquo;</a>
+</div>
+<hr>
+
+<h2>Definition and Usage</h2>
+<p>The ajaxStop() method specifies a function to run when ALL AJAX requests have completed.</p>
+<p>When an AJAX request completes, jQuery checks if there are any more AJAX 
+requests. The function specified with the ajaxStop() method will run if no other requests are pending.</p>
+<p><strong>Note:</strong> As of jQuery version 1.8, this method should only be attached to document.</p>
+<hr>
+
+<h2>Syntax</h2>
+<div class="w3-code w3-border notranslate"><div>
+$(document).ajaxStop(<i>function())</i></div></div>
+<br>
+<table class="ws-table-all notranslate"> 
+  <tr>
+    <th style="width:20%">Parameter</th>
+    <th>Description</th>
+  </tr>  
+  <tr>
+    <td><em>function()</em></td>
+    <td>Required. Specifies the function to run when all AJAX requests have completed</td>
+  </tr>
+</table>
+<hr>
+
+<p><a href="jquery_ref_ajax.html" class="w3-btn w3-white w3-border" title="jQuery AJAX Methods">&#10094; jQuery AJAX Methods</a></p>

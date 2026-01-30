@@ -1,0 +1,103 @@
+<h1>jQuery Effects - <span class="color_h1">Hide and Show</span></h1>
+
+<hr>
+<p class="intro">Hide, Show, Toggle, Slide, Fade, and Animate. WOW!</p>
+<p class="flip">Click to show/hide panel</p>
+<div class="panel">
+<p>Because time is valuable, we deliver quick and easy learning.</p>
+<p>At W3Schools, you can study everything you need to learn, in an accessible and handy format.</p>
+</div>
+<hr>
+
+<h2>Examples</h2>
+<p><a target="_blank" href="tryitac9f.html?filename=tryjquery_hide">jQuery hide()</a><br>
+Demonstrates a simple jQuery hide() method.</p>
+<p><a target="_blank" href="tryit58dc.asp?filename=tryjquery_hide_explanations">jQuery hide()</a><br>
+Another hide() demonstration. How to hide parts of text.</p>
+<hr>
+
+<h2>jQuery hide() and show()</h2>
+<p>With jQuery, you can hide and show HTML elements with the <code class="w3-codespan">hide()</code> and <code class="w3-codespan">show()</code> methods:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;#hide&quot;).click(function(){<br>
+&nbsp;&nbsp;$(&quot;p&quot;).hide();<br>
+});<br>
+<br>
+$(&quot;#show&quot;).click(function(){<br>
+&nbsp;&nbsp;$(&quot;p&quot;).show();<br>
+});</div>
+
+</div>
+<p><b>Syntax:</b></p>
+<div class="w3-code w3-border notranslate jsHigh"><div>
+$(<i>selector</i>).hide(<i>speed,callback</i>);<br>
+<br>
+$(<i>selector</i>).show(<i>speed,callback</i>);
+</div></div>
+<p>The optional speed parameter specifies the speed of the hiding/showing, and 
+can take the following values: &quot;slow&quot;, &quot;fast&quot;, or milliseconds.</p>
+<p>The optional callback parameter is a function to be executed after  
+the <code class="w3-codespan">hide()</code> or <code class="w3-codespan">show()</code> method completes (you will learn more about callback functions in a 
+later chapter).</p>
+<p>The following example demonstrates the speed parameter with <code class="w3-codespan">hide()</code>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;button&quot;).click(function(){<br>
+  &nbsp; $(&quot;p&quot;).hide(1000);<br>
+});</div>
+
+</div>
+<hr>
+
+<hr>
+
+<h2>jQuery toggle()</h2>
+<p>You can also toggle between hiding and showing an element with the <code class="w3-codespan">toggle()</code> method.</p>
+<p>Shown elements are hidden and hidden elements are shown:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;button&quot;).click(function(){<br>
+  &nbsp; $(&quot;p&quot;).toggle();<br>
+});</div>
+
+</div>
+
+<p><b>Syntax:</b></p>
+<div class="w3-code w3-border notranslate jsHigh"><div>
+$(<i>selector</i>).toggle(<i>speed,callback</i>);
+</div></div>
+<p>The optional speed parameter can take the following values: &quot;slow&quot;, &quot;fast&quot;, or milliseconds.</p>
+<p>The optional callback parameter is a function to be executed after  
+<code class="w3-codespan">toggle()</code> completes.</p>
+<hr>
+
+<h2>jQuery Exercises</h2>
+<form autocomplete="off" id="w3-exerciseform" action="https://www.w3schools.com/jquery/exercise_jq.asp?filename=exercise_jq_hide_show1" method="post" target="_blank">
+<h2>Test Yourself With Exercises</h2>
+<div class="exercisewindow">
+<h2>Exercise:</h2>
+<p>Use a jQuery method to <strong>hide</strong> a &lt;p&gt; element when it is clicked on.</p>
+<div class="exerciseprecontainer">
+<pre style="background-color:transparent;border:none;">
+
+$("p").click(function(){
+  $(this).<input name="ex1" maxlength="4" style="width: 45px;">();
+});
+</pre>
+</div>
+<br>
+<button type="submit" class="w3-btn w3-margin-bottom">Submit Answer &raquo;</button>
+<p><a target="_blank" href="exercise_jq8c93.html?filename=exercise_jq_hide_show1">Start the Exercise</a></p>
+</div>
+</form>
+<hr>
+
+<h2>jQuery Effects Reference</h2>
+<p>For a complete overview of all jQuery effects, please go to our <a href="jquery_ref_effects.html">
+jQuery Effect Reference</a>.</p>
+
+<br>

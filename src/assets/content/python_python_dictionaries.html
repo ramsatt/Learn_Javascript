@@ -1,0 +1,202 @@
+<h1>Python <span class="color_h1">Dictionaries</span></h1>
+
+
+<hr>
+
+<div class="w3-codeline notranslate pythonHigh">
+thisdict =  {<br>
+&nbsp;&nbsp;"brand": "Ford",<br>
+&nbsp;&nbsp;"model": "Mustang&quot;,<br>
+&nbsp;&nbsp;"year": 1964<br>
+}
+</div>
+
+<hr>
+
+<h2>Dictionary</h2>
+
+<p>Dictionaries are used to store data values in key:value pairs.</p>
+
+<p>A dictionary is a collection which is ordered*, changeable and do not 
+allow duplicates.</p>
+
+<div class="w3-panel ws-note">
+  <p>As of Python version 3.7, dictionaries are <em>ordered</em>. 
+  In Python 3.6 and earlier, dictionaries are <em>unordered</em>.</p>
+</div>
+
+<p>Dictionaries are written with curly brackets, and have keys and values:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Create and print a dictionary:</p>
+<div class="w3-code notranslate pythonHigh">
+thisdict =	{<br>
+&nbsp;&nbsp;"brand": "Ford",<br>
+&nbsp;&nbsp;"model": "Mustang&quot;,<br>
+&nbsp;&nbsp;"year": 1964<br>
+}<br>
+print(thisdict)<br>
+</div>
+
+</div>
+
+<hr>
+
+<h2>Dictionary Items</h2>
+
+<p>Dictionary items are ordered, changeable, and do not allow duplicates.</p>
+
+<p>Dictionary items are presented in key:value pairs, and can be referred to by 
+using the key name.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Print the "brand" value of the dictionary:</p>
+<div class="w3-code notranslate pythonHigh">
+thisdict =	{<br>
+&nbsp;&nbsp;"brand": "Ford",<br>
+&nbsp;&nbsp;"model": "Mustang&quot;,<br>
+&nbsp;&nbsp;"year": 1964<br>
+}<br>
+print(thisdict[&quot;brand&quot;])<br>
+</div>
+
+</div>
+
+<hr>
+
+<h2>Ordered or Unordered?</h2>
+
+<div class="w3-panel ws-note">
+  <p>As of Python version 3.7, dictionaries are <em>ordered</em>. 
+  In Python 3.6 and earlier, dictionaries are <em>unordered</em>.</p>
+</div>
+
+<p>When we say that dictionaries are ordered, it means that the items have a defined order, and that order will not change.</p>
+
+
+<p>Unordered means that the items do not 
+have a defined order, you cannot refer to an item by using an index.</p>
+
+<hr>
+
+<h2>Changeable</h2>
+
+<p>Dictionaries are changeable, meaning that we can change, add or remove items after the 
+dictionary has been created.</p>
+
+<hr>
+
+<h2>Duplicates Not Allowed</h2>
+<p>Dictionaries cannot have two items with the same key:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Duplicate values will overwrite existing values:</p>
+<div class="w3-code notranslate pythonHigh">
+thisdict =	{<br>
+&nbsp;&nbsp;"brand": "Ford",<br>
+&nbsp;&nbsp;"model": "Mustang&quot;,<br>
+&nbsp;&nbsp;"year": 1964,<br>&nbsp; &quot;year&quot;: 2020<br>
+}<br>
+print(thisdict)</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>Dictionary Length</h2>
+
+<p>To determine how many items a dictionary has, use the <code class="w3-codespan">
+<a href="ref_func_len.html">len()</a></code> function:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Print the number of items in the dictionary:</p>
+<div class="w3-code notranslate pythonHigh">
+print(len(thisdict))
+</div>
+
+</div>
+
+<hr>
+
+<h2>Dictionary Items - Data Types</h2>
+
+<p>The values in dictionary items can be of any data type:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>String, int, boolean, and list data types:</p>
+<div class="w3-code notranslate pythonHigh">
+thisdict =	{<br>
+&nbsp;&nbsp;"brand": "Ford",<br>
+&nbsp;&nbsp;"electric": False,<br>
+&nbsp;&nbsp;"year": 1964,<br>&nbsp; &quot;colors&quot;: [&quot;red&quot;, &quot;white&quot;, &quot;blue&quot;]<br>
+} </div>
+
+</div>
+
+<hr>
+
+<h2>type()</h2>
+
+<p>From Python's perspective, dictionaries are defined as objects with the data type 'dict':</p>
+
+<div class="w3-codeline notranslate">
+&lt;class 'dict'&gt;
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Print the data type of a dictionary:</p>
+<div class="w3-code notranslate pythonHigh">
+thisdict =	{<br>
+&nbsp;&nbsp;"brand": "Ford",<br>
+&nbsp;&nbsp;"model": "Mustang&quot;,<br>
+&nbsp;&nbsp;"year": 1964<br>
+}<br>
+print(type(thisdict))</div>
+
+</div>
+
+<hr>
+
+<h2>The dict() Constructor</h2>
+<p>It is also possible to use the <span class="w3-codespan"><a href="ref_func_dict.html">dict()</a></span> constructor to make a dictionary.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Using the dict() method to make a dictionary:</p>
+<div class="w3-code notranslate pythonHigh">
+thisdict = 
+  dict(name = &quot;John&quot;, age = 36, country = &quot;Norway&quot;)<br>
+print(thisdict)
+</div>
+
+</div>
+
+<hr>
+
+<h2>Python Collections (Arrays)</h2>
+<p>There are four collection data types in the Python programming language:</p>
+<ul>
+<li><strong><a href="python_lists.html">List</a></strong> is a collection which is ordered and changeable. Allows duplicate members.</li>
+<li><strong><a href="python_tuples.html">Tuple</a></strong> is a collection which is ordered and unchangeable. Allows duplicate members.</li>
+<li><strong><a href="python_sets.html">Set</a></strong> is a collection which is unordered, 
+unchangeable*, and unindexed. No duplicate members.</li>
+<li><strong>Dictionary</strong> is a collection which is ordered** and changeable. No duplicate members.</li>
+</ul>
+<div class="w3-panel ws-note">
+  <p>*Set <em>items</em> are unchangeable, but you can remove and/or add items 
+  whenever you like.</p>
+  <p>**As of Python version 3.7, dictionaries are <em>ordered</em>. 
+  In Python 3.6 and earlier, dictionaries are <em>unordered</em>.</p>
+</div>
+
+<p>When choosing a collection type, it is useful to understand the properties of that type. Choosing the right type for a particular data set could mean retention of meaning, and, it could mean an increase in efficiency or security.</p>
+
+<hr>
+
+<hr>

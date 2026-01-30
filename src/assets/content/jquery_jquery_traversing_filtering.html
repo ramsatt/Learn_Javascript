@@ -1,0 +1,98 @@
+<h1>jQuery Traversing - <span class="color_h1">Filtering</span></h1>
+
+<hr>
+<h2>The first(), last(), eq(), filter() and not() Methods</h2>
+<p>The most basic filtering methods are <code class="w3-codespan">first()</code>, <code class="w3-codespan">last()</code> and <code class="w3-codespan">eq()</code>, which 
+allow you to select a specific element based on its position in a group of 
+elements. </p>
+<p>Other filtering methods, like <code class="w3-codespan">filter()</code> and <code class="w3-codespan">not()</code> allow you to select elements 
+that match, or do not match, a certain criterion. </p>
+<hr>
+<h2>jQuery first() Method</h2>
+<p>The <code class="w3-codespan">first()</code> method returns the first element of the specified elements.</p>
+<p>The following example selects the first <code class="w3-codespan">&lt;div&gt;</code> 
+element:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+ $(document).ready(function(){<br>&nbsp;&nbsp;$(&quot;div&quot;).first();<br>}); </div>
+
+</div>
+<hr>
+<h2>jQuery last() Method</h2>
+<p>The <code class="w3-codespan">last()</code> method returns the last element of the specified elements.</p>
+<p>The following example selects the last <code class="w3-codespan">&lt;div&gt;</code> 
+element:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+ $(document).ready(function(){<br>&nbsp;&nbsp;$(&quot;div&quot;).last();<br>}); </div>
+
+</div>
+<hr>
+
+<hr>
+<h2>jQuery eq() method</h2>
+<p>The <code class="w3-codespan">eq()</code> method returns an element with a specific index number of the 
+selected elements.</p>
+<p>The index numbers start at 0, so the first element will have the index number 
+0 and not 1. The following example selects the second <code class="w3-codespan">&lt;p&gt;</code> element (index number 
+1):</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+ $(document).ready(function(){<br>&nbsp; $(&quot;p&quot;).eq(1);<br>}); </div>
+
+</div>
+<hr>
+<h2>jQuery filter() Method</h2>
+<p>The <code class="w3-codespan">filter()</code> method lets you specify a criteria. Elements that do not match 
+the criteria are removed from the selection, and those that match will be 
+returned.</p>
+<p>The following example returns all <code class="w3-codespan">&lt;p&gt;</code> elements with class name &quot;intro&quot;:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+ $(document).ready(function(){<br>&nbsp; $(&quot;p&quot;).filter(".intro");<br>}); </div>
+
+</div>
+<hr>
+<h2>jQuery not() Method</h2>
+<p>The <code class="w3-codespan">not()</code> method returns all elements that do not match the criteria.</p>
+<p><strong>Tip:</strong> The <code class="w3-codespan">not()</code> method is the opposite of <code class="w3-codespan">filter()</code>.</p>
+<p>The following example returns all <code class="w3-codespan">&lt;p&gt;</code> elements that do not have class name 
+&quot;intro&quot;:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+ $(document).ready(function(){<br>&nbsp;&nbsp;$(&quot;p&quot;).not(".intro");<br>}); </div>
+
+</div>
+<hr>
+
+<h2>jQuery Exercises</h2>
+<form autocomplete="off" id="w3-exerciseform" action="https://www.w3schools.com/jquery/exercise_jq.asp?filename=exercise_jq_traversing6" method="post" target="_blank">
+<h2>Test Yourself With Exercises</h2>
+<div class="exercisewindow">
+<h2>Exercise:</h2>
+<p>Use a jQuery method to get the first &lt;div&gt; element in the document.</p>
+<div class="exerciseprecontainer">
+<pre style="background-color:transparent;border:none;">
+$("div").<input name="ex1" maxlength="5" style="width:55px;">();
+</pre>
+</div>
+<br>
+<button type="submit" class="w3-btn w3-margin-bottom">Submit Answer &raquo;</button>
+<p><a target="_blank" href="exercise_jq1aa7.html?filename=exercise_jq_traversing6">Start the Exercise</a></p>
+</div>
+</form>
+<hr>
+
+<h2>jQuery Traversing Reference</h2>
+<p>For a complete overview of all jQuery Traversing methods, please go to our
+<a href="jquery_ref_traversing.html">jQuery Traversing Reference</a>.</p>
+<br>

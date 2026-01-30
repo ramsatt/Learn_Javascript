@@ -1,0 +1,163 @@
+<h1>Java <span class="color_h1">LinkedList</span></h1>
+
+<hr>
+
+<h2>Java LinkedList</h2>
+<p>In the previous chapter, you learned about the <a href="java_arraylist.html"><code class="w3-codespan">ArrayList</code></a> class. The <code class="w3-codespan">LinkedList</code> class is 
+almost identical to the 
+<code class="w3-codespan">ArrayList</code>:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>// Import the LinkedList class
+import java.util.LinkedList;
+
+public class Main {
+&nbsp; public static void main(String[] args) {
+&nbsp;&nbsp;&nbsp; LinkedList&lt;String&gt; cars = new LinkedList&lt;String&gt;();
+&nbsp;&nbsp;&nbsp; cars.add(&quot;Volvo&quot;);
+&nbsp;&nbsp;&nbsp; cars.add(&quot;BMW&quot;);
+&nbsp;&nbsp;&nbsp; cars.add(&quot;Ford&quot;);
+&nbsp;&nbsp;&nbsp; cars.add(&quot;Mazda&quot;);
+&nbsp;&nbsp;&nbsp; System.out.println(cars);
+&nbsp; }
+}
+</code></pre>
+<p>
+
+</p></div>
+<hr>
+
+<h2>ArrayList vs. LinkedList</h2>
+<p>The <code class="w3-codespan">LinkedList</code> class is a collection which can contain many objects of the same type,
+just like the <code class="w3-codespan">ArrayList</code>.</p>
+
+<p>The <code class="w3-codespan">LinkedList</code> class has the same methods as <code class="w3-codespan">ArrayList</code> because both follow the <a href="java_list.html"><code class="w3-codespan">List</code></a> interface.
+This means you can add, change, remove, or clear elements in a <code class="w3-codespan">LinkedList</code> just like you would with an <code class="w3-codespan">ArrayList</code>.</p>
+
+<p>However, while the <code class="w3-codespan">ArrayList</code> class and the <code class="w3-codespan">LinkedList</code> class can be used in the same way,
+they are built very differently.</p>
+
+<h3>How the ArrayList works</h3>
+<p>The <code class="w3-codespan">ArrayList</code> class has a regular array inside it. When an element is added, it is placed
+into the array. If the array is not big enough, a new, larger array is created to replace the
+old one and the old one is removed.</p>
+
+<h3>How the LinkedList works</h3>
+<p>The <code class="w3-codespan">LinkedList</code> stores its elements in "containers." The list has a link to the first container
+and each container has a link to the next container in the list. To add an element to the list,
+the element is placed into a new container and that container is linked to one of the other
+containers in the list.</p>
+
+<div class="ws-note w3-panel">
+<h3>When To Use</h3>
+<p>Use an <code class="w3-codespan">ArrayList</code> for storing and accessing data, and <code class="w3-codespan">LinkedList</code>  to 
+manipulate data.</p>
+</div>
+<hr>
+
+<h2>LinkedList Methods</h2>
+<p>For many cases, the <code class="w3-codespan">ArrayList</code> is more efficient as it is common to need access to
+random elements in the list, but the <code class="w3-codespan">LinkedList</code> provides several methods to do certain
+operations more efficiently:</p>
+
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+<tbody><tr>
+<th style="width:15%">Method</th>
+<th style="width:40%">Description</th>
+<th style="width:10%">Try it</th>
+</tr>
+<tr>
+<td><code class="w3-codespan">addFirst()</code></td>
+<td>Adds an element to the beginning of the list</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="tryjava6111.html?filename=demo_linkedlist_addfirst">Try it &raquo;</a></td>
+</tr>
+<tr>
+<td><code class="w3-codespan">addLast()</code></td>
+<td>Add an element to the end of the list</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="tryjava9f99.html?filename=demo_linkedlist_addlast">Try it &raquo;</a></td>
+</tr>
+
+<tr>
+<td><code class="w3-codespan">removeFirst()</code></td>
+<td>Remove an element from the beginning of the list</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="tryjava26a6.html?filename=demo_linkedlist_removefirst">Try it &raquo;</a></td>
+</tr>
+
+<tr>
+<td><code class="w3-codespan">removeLast()</code></td>
+<td>Remove an element from the end of the list</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="tryjavab766.html?filename=demo_linkedlist_removelast">Try it &raquo;</a></td>
+</tr>
+
+<tr>
+<td><code class="w3-codespan">getFirst()</code></td>
+<td>Get the element at the beginning of the list</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="tryjava7ff8.html?filename=demo_linkedlist_getfirst">Try it &raquo;</a></td>
+</tr>
+
+<tr>
+<td><code class="w3-codespan">getLast()</code></td>
+<td>Get the element at the end of the list</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="tryjava5547.html?filename=demo_linkedlist_getlast">Try it &raquo;</a></td>
+</tr>
+
+</tbody>
+</table>
+</div>
+<hr>
+
+<h2>The var Keyword</h2>
+
+<p>
+From Java 10, you can use the <code class="w3-codespan">var</code> keyword to declare a <code class="w3-codespan">LinkedList</code> variable without writing the type twice.  
+The compiler figures out the type from the value you assign.  
+</p>
+
+<p>
+This makes code shorter, <strong>but many developers still use the full type for clarity</strong>.  
+Since <code class="w3-codespan">var</code> is valid Java, you may see it in other code, so it's good to know that it exists:
+</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <pre class="language-java w3-white"><code>// Without var
+LinkedList&lt;String&gt; cars = new LinkedList&lt;String&gt;();
+
+// With var
+var cars = new LinkedList&lt;String&gt;();
+</code></pre>
+  <p>
+    
+  </p>
+</div>
+
+<hr>
+
+<h2>The List Interface</h2>
+<p><strong>Note:</strong> Sometimes you will see both <code class="w3-codespan">List</code> and <code class="w3-codespan">LinkedList</code> in Java code, like this:</p>
+
+<div class="w3-example">
+  <pre class="language-java w3-white"><code>import java.util.List;
+import java.util.LinkedList;
+
+List&lt;String&gt; cars = new LinkedList&lt;&gt;();</code></pre>
+<p>
+
+</p>
+</div>
+<p>This means the variable (cars) is declared as a <a href="java_list.html"><code class="w3-codespan">List</code></a> (the interface), but it stores a <code class="w3-codespan">LinkedList</code> object (the actual list). Since <code class="w3-codespan">LinkedList</code> implements the <code class="w3-codespan">List</code> interface, this is possible.</p>
+<p>It works the same way, but some developers prefer this style because it gives them more flexibility to change the type later.</p>
+<hr>
+
+
+<div>
+<h2>Complete LinkedList Reference</h2>
+<p>For a complete reference of LinkedList methods, go to our <a href="java_ref_linkedlist.html">Java LinkedList Reference</a>.</p>
+</div>
+<hr>
+
+<hr>
+
+<br>

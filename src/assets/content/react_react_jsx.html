@@ -1,0 +1,267 @@
+<h1>React JSX</h1>
+
+
+<hr>
+
+<h2>What is JSX?</h2>
+<p>JSX stands for JavaScript XML.</p>
+<p>JSX allows us to write HTML in React.</p>
+<p>JSX makes it easier to write and add HTML in React.</p>
+
+<hr>
+
+<h2>Coding JSX</h2>
+<p>JSX allows us to write HTML elements in JavaScript and place them in the DOM 
+without any <code class="w3-codespan">createElement()</code>&nbsp; and/or
+<code class="w3-codespan">appendChild()</code> methods.</p>
+<p>JSX converts HTML tags into react elements.</p>
+
+<div class="w3-panel ws-note">
+<p>You are not required to use JSX, but JSX makes it easier to write React applications.</p>
+</div>
+
+<p>Here are two examples. The first uses JSX and the second does 
+not:</p>
+
+<div class="w3-example">
+<h3>Example 1</h3>
+<p>JSX:</p>
+<pre class="language-jsx w3-white" data-tab-header="main.jsx"><code>const myElement = &lt;h1&gt;I Love JSX!&lt;/h1&gt;;
+
+createRoot(document.getElementById('root')).render(
+  myElement
+);
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreact74d5.html?filename=demo_react_jsx1">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<div class="w3-example">
+<h3>Example 2</h3>
+<p>Without JSX:</p>
+<pre class="language-jsx w3-white" data-tab-header="main.jsx"><code>const myElement = React.createElement('h1', {}, 'I do not use JSX!');
+
+createRoot(document.getElementById('root')).render(
+  myElement
+);
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreactfca6.html?filename=demo_react_nojsx">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<p>As you can see in the first example, JSX allows us to write HTML directly within the JavaScript code.</p>
+
+<p>JSX is an extension of the JavaScript language based on ES6, and is translated into regular JavaScript at runtime.</p>
+
+<hr>
+
+<hr>
+
+<h2>Expressions in JSX</h2>
+<p>With JSX you can write expressions inside curly braces <code class="w3-codespan">{ }</code>.</p>
+<p>The expression can be a React variable, or property, or any other valid JavaScript expression. JSX will execute the expression and return the result:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Execute the expression <code class="w3-codespan">5 + 5</code>:</p>
+<pre class="language-jsx w3-white" data-tab-header="main.jsx"><code>const myElement = &lt;h1&gt;React is {5 + 5} times better with JSX&lt;/h1&gt;;
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreact6e9c.html?filename=demo_react_jsx_expressions">Run 
+Example &raquo;</a>
+</p>
+</div>
+<hr>
+
+<h2>Inserting a Large Block of HTML</h2>
+<p>To write HTML on multiple lines, put the HTML inside parentheses:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Create a list with three list items:</p>
+<pre class="language-jsx w3-white" data-tab-header="main.jsx"><code>const myElement = (
+  &lt;ul>
+    &lt;li>Apples&lt;/li>
+    &lt;li>Bananas&lt;/li>
+    &lt;li>Cherries&lt;/li>
+  &lt;/ul>
+);
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreact7fa5.html?filename=demo_react_jsx_list">Run 
+Example &raquo;</a>
+</p>
+</div>
+<hr>
+<h2>One Top Level Element</h2>
+<p>The HTML code must be wrapped in <em>ONE</em> top level element.</p>
+
+<p>So if you like to write <em>two</em> paragraphs, you must put them inside a 
+parent element, like a <code class="w3-codespan">div</code> element.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Wrap two paragraphs inside one DIV element:</p>
+<pre class="language-jsx w3-white" data-tab-header="main.jsx"><code>const myElement = (
+  &lt;div&gt;
+    &lt;p&gt;I am a paragraph.&lt;/p&gt;
+    &lt;p&gt;I am a paragraph too.&lt;/p&gt;
+  &lt;/div&gt;
+);
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreact578f.html?filename=demo_react_jsx_toplevel">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<div class="w3-panel ws-note">
+<p>JSX will throw an error if the HTML is not correct, or if the HTML misses a 
+parent element.</p>
+</div>
+
+<p>Alternatively, you can use a "fragment" to wrap multiple lines.
+This will prevent unnecessarily adding extra nodes to the DOM.</p>
+
+<p>A fragment looks like an empty HTML tag: <code class="w3-codespan">&lt;>&lt;/></code>.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Wrap two paragraphs inside a fragment:</p>
+<pre class="language-jsx w3-white" data-tab-header="main.jsx"><code>const myElement = (
+  &lt;>
+    &lt;p&gt;I am a paragraph.&lt;/p&gt;
+    &lt;p&gt;I am a paragraph too.&lt;/p&gt;
+  &lt;/>
+);
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreact58e3.html?filename=demo_react_jsx_fragment">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<hr>
+<h2>Elements Must be Closed</h2>
+<p>JSX follows XML rules, and therefore HTML elements must be properly closed.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Close empty elements with <code class="w3-codespan">/&gt;</code></p>
+<pre class="language-jsx w3-white" data-tab-header="main.jsx"><code>const myElement = &lt;input type=&quot;text&quot; /&gt;;
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreact3b5e.html?filename=demo_react_jsx_close">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<div class="w3-panel ws-note">
+<p>JSX will throw an error if the HTML is not properly closed.</p>
+</div>
+
+<hr>
+<h2>Attribute class = className</h2>
+<p>The <code class="w3-codespan">class</code> attribute is a much used attribute 
+in HTML, but since JSX is rendered as JavaScript, and the
+<code class="w3-codespan">class</code> keyword is a reserved word in JavaScript, 
+you are not allowed to use it in JSX.</p>
+
+<div class="w3-panel ws-note">
+<p>Use attribute <code class="w3-codespan">className</code> instead.</p>
+</div>
+
+<p>JSX solved this by using <code class="w3-codespan">className</code> instead. 
+When JSX is rendered, it translates <code class="w3-codespan">className</code> 
+attributes into <code class="w3-codespan">class</code> attributes.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Use attribute <code class="w3-codespan">className</code> instead of 
+<code class="w3-codespan">class</code> in JSX:</p>
+<pre class="language-jsx w3-white" data-tab-header="main.jsx"><code>const myElement = &lt;h1 className=&quot;myclass&quot;&gt;Hello World&lt;/h1&gt;;
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreact04a3.html?filename=demo_react_jsx_classname">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<hr>
+<h2>Comments in JSX</h2>
+<p>Comments in JSX are written with <code class="w3-codespan">{/* */}</code></p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Comments in JSX:</p>
+<pre class="language-jsx w3-white" data-tab-header="main.jsx"><code>const myElement = &lt;h1&gt;Hello {/* Wonderful */} World &lt;/h1&gt;;
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreact7581.html?filename=demo_react_jsx_comments">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<hr>
+<h2>JSX in React Components</h2>
+<p>React uses components to build UIs. Components are independent and reusable bits of code.</p>
+
+<p>React components are like JavaScript functions, and return HTML.</p>
+
+<p>JSX works perfect inside React components</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>JSX in Components:</p>
+<pre class="language-jsx w3-white" data-tab-header="main.jsx"><code>function Car() {
+  return (
+    &lt;>
+      &lt;h2&gt;My Car&lt;/h2&gt;
+      &lt;p&gt;It is a Ford Mustang.&lt;/p&gt;
+    &lt;/&gt;
+  );
+}
+
+createRoot(document.getElementById('root')).render(
+  &lt;Car /&gt;
+)
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreact2b29.html?filename=demo_react_jsx_components">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<p>Inside the components, you can do some other operations before returning the HTML:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>JSX in Components:</p>
+<pre class="language-jsx w3-white" data-tab-header="main.jsx"><code>function Car() {
+  const brand = "Ford";
+  const model = "Mustang";
+  return (
+    &lt;>
+      &lt;h2&gt;My Car&lt;/h2&gt;
+      &lt;p&gt;It is a {brand} {model}.&lt;/p&gt;
+    &lt;/&gt;
+  );
+}
+
+createRoot(document.getElementById('root')).render(
+  &lt;Car /&gt;
+)
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreact7676.html?filename=demo_react_jsx_components2">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<hr>
+
+
+<hr>

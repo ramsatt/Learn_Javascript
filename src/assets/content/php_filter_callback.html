@@ -1,0 +1,72 @@
+<h1>PHP <span class="color_h1">FILTER_CALLBACK</span> Filter</h1>
+<hr>
+<a href="php_ref_filter.html" class="w3-btn w3-white w3-border" title="PHP Filter Reference">&#10094; Complete PHP Filter Reference</a>
+<hr>
+
+<h2>Definition and Usage</h2>
+
+<p>The FILTER_CALLBACK filter calls a user defined function to filter the value.</p>
+<p>This filter gives us full control over the data filtering</p>
+<p>The specified functions must be in an 
+associative array with the name &quot;options&quot;. See example below</p>
+<ul>
+  <li>Name: &quot;callback&quot;</li>
+  <li>ID-number: 1024</li>
+</ul>
+<hr>
+
+<h2>Tips and Notes</h2>
+
+<p><b>Tip: </b>You can create your own user defined function or use an existing 
+PHP function</p>
+<hr>
+<h2>Example 1</h2>
+<p>Using a user defined function:</p>
+
+<div class="w3-code w3-border notranslate"><div>
+
+&lt;?php<br>
+function convertSpace($string)<br>
+&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;return str_replace(&quot; &quot;, &quot;_&quot;, $string);<br>
+&nbsp;&nbsp;}<br>
+<br>
+$string = &quot;Peter is a great guy!&quot;;<br>
+<br>
+echo filter_var($string, FILTER_CALLBACK,<br>
+array(&quot;options&quot;=&gt;&quot;convertSpace&quot;));<br>
+?&gt;
+
+</div></div>
+
+<p>The output of the code will be:</p>
+
+<div class="w3-code w3-border notranslate"><div>
+
+Peter_is_a_great_guy!
+
+</div></div>
+<hr>
+<h2>Example 2</h2>
+<p>Using an existing PHP function</p>
+
+<div class="w3-code w3-border notranslate"><div>
+
+&lt;?php<br>
+$string=&quot;Peter is a great guy!&quot;;<br>
+<br>
+echo filter_var($string, FILTER_CALLBACK,<br>
+array(&quot;options&quot;=&gt;&quot;strtoupper&quot;));<br>
+?&gt;
+
+</div></div>
+
+<p>The output of the code will be:</p>
+
+<div class="w3-code w3-border notranslate"><div>
+
+PETER IS A GREAT GUY!
+
+</div></div>
+<hr>
+<a href="php_ref_filter.html" class="w3-btn w3-white w3-border" title="PHP Filter Reference">&#10094; Complete PHP Filter Reference</a>

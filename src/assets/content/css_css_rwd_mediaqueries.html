@@ -1,0 +1,161 @@
+<h1>Responsive Web Design <span class="color_h1">- Media Queries</span></h1>
+
+<hr>
+<h2>CSS Media Queries</h2>
+<p>CSS media queries allow you to apply styles based on the characteristics of a 
+device or the environment displaying the web page.</p>
+
+<p>CSS media queries are essential for creating responsive web pages.</p>
+
+<p>The CSS <code class="w3-codespan"><a href="../cssref/atrule_media.html">@media</a></code> rule 
+is used to add media queries to your style sheet.</p>
+<hr>
+
+<h2>Use Mediaqueries to Add a Breakpoint</h2>
+<p>On the previous page we made a grid layout web page. Now we want to add a 
+breakpoint with mediaqueries to rearrange the grid items on bigger screens.</p>
+<div class="w3-row-padding" style="text-align:center;font-weight:bold;">
+  <div class="w3-col m6 s12">
+    <img src="assets/content/images/rwd_phone.png" style="border:2px solid #dddddd;">
+    <br>Mobile phone
+  </div>
+  <div class="w3-col m6 s12">
+    <img src="assets/content/images/rwd_desktop.png" style="border:2px solid #dddddd;">
+    <br>Desktop
+  </div>
+</div>
+<br>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Here we use a media query to add a breakpoint at 600px:</p>
+<div class="w3-code notranslate cssHigh">
+  @media (min-width: 600px) {<br>&nbsp; .header {grid-area: 1 / span 6;}<br>&nbsp; 
+  .menu {grid-area: 2 / span 1;}<br>&nbsp; .content {grid-area: 2 / span 4;}<br>&nbsp; 
+  .facts {grid-area: 2 / span 1;}<br>&nbsp; .footer {grid-area: 3 / span 6;}<br>
+  }<br></div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>Another Breakpoint</h2>
+<p>You can add as many breakpoints as you like.</p>
+<div class="w3-row-padding" style="text-align:center;font-weight:bold;">
+  <div class="w3-col m6 s12">
+    <img src="assets/content/images/rwd_desktop.png" style="border:2px solid #dddddd;">
+    <br>Desktop
+  </div>
+  <div class="w3-col m4 s12">
+    <img src="assets/content/images/rwd_tablet.png" style="border:2px solid #dddddd;">
+    <br>Tablet
+  </div>
+  <div class="w3-col m2 s12">
+    <img src="assets/content/images/rwd_phone.png" style="border:2px solid #dddddd;">
+    <br>Phone
+  </div>
+</div>
+<br>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Here we use media queries to add breakpoints when screen is min 600px, and when screen is min 768px :</p>
+<div class="w3-code notranslate cssHigh">
+  @media (min-width: 600px) {<br>&nbsp; .header {grid-area: 1 / span 6;}<br>&nbsp; 
+  .menu {grid-area: 2 / span 1;}<br>&nbsp; .content {grid-area: 2 / span 4;}<br>&nbsp; 
+  .facts {grid-area: 3 / span 6;}<br>&nbsp; .footer {grid-area: 4 / span 6;}<br>
+  }<br><br>
+  @media (min-width: 768px) {<br>&nbsp; .header {grid-area: 1 / span 6;}<br>&nbsp; 
+  .menu {grid-area: 2 / span 1;}<br>&nbsp; .content {grid-area: 2 / span 4;}<br>&nbsp; 
+  .facts {grid-area: 2 / span 1;}<br>&nbsp; .footer {grid-area: 3 / span 6;}<br>
+  }<br></div>
+
+</div>
+<hr>
+
+<h2>Typical Device Breakpoints</h2>
+<p>There are tons of screens and devices with different heights and widths, so it is hard to create an exact breakpoint for each device. To keep things simple you could target 
+five groups:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+  /* 
+  Extra small devices (phones, 600px and down) */<br>@media only screen and (max-width: 600px) 
+  {...} <br><br>/* Small devices (portrait tablets and large phones, 600px and up) 
+  */<br>@media only screen and (min-width: 600px) {...} <br><br>/* Medium devices (landscape tablets, 768px and up) */<br>
+  @media only screen and (min-width: 768px) {...} <br><br>/* Large devices (laptops/desktops, 992px and up) 
+  */<br>
+  @media only screen and (min-width: 992px) {...} <br><br>/* Extra large devices (large 
+  laptops and desktops, 
+  1200px and up) */<br>@media only screen and (min-width: 1200px) {...} </div>
+
+</div>
+<hr>
+
+<h2>Media Queries for Screen Orientation</h2>
+<p>Media queries can also be used to change the layout of a page depending on the orientation of the screen.</p>
+<p>Here, we change the background-color of the body, if the screen orientation is in landscape mode: </p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+@media only screen and (orientation: 
+landscape) {<br>&nbsp;&nbsp;body {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;background-color: lightblue;<br>&nbsp;&nbsp;}<br>}</div>
+
+</div>
+<hr>
+<h2>Hide Elements With Media Queries</h2>
+
+<p>Here, we use media queries to hide an element on small screens:</p>
+<div class="w3-yellow w3-hide-small w3-padding">I will be hidden on small screens.</div>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+  /* Hide element if the viewport width is 600px or less */<br>@media 
+  screen and (max-width: 600px) {<br>&nbsp; #div1 {<br>&nbsp;&nbsp;&nbsp; 
+  display: none;<br>&nbsp; }<br>}<br>
+</div>
+
+</div>
+<hr>
+
+<h2>Change Font Size With Media Queries</h2>
+<p>Here, we use media queries to change the font size of an element on different viewport widths:</p>
+<div class="w3-example">
+  <h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+  /* If viewport width is 600px or more, set font-size to 80px */<br>@media screen and (min-width: 
+  600px) {<br>&nbsp; #div1 {<br>&nbsp;&nbsp;&nbsp; 
+  font-size: 80px;<br>&nbsp; }<br>}<br>
+</div>
+
+</div>
+<hr>
+
+<h2>Media Queries for User Preferences</h2>
+<p>Some users have motion sensitivity and prefer websites with less animation.</p>
+<p>The <code class="w3-codespan">prefers-reduced-motion</code> 
+media feature lets you check if
+   a user has asked to reduce motion, such as animations or transitions. Use 
+this feature to turn off animations 
+and transitions for the users who has activated this setting on their computer:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+@media (prefers-reduced-motion: reduce) {<br>
+&nbsp; * {<br>
+&nbsp;&nbsp;&nbsp; animation: none !important;<br>
+&nbsp;&nbsp;&nbsp; transition: none !important;<br>
+&nbsp; }<br>}</div>
+
+</div>
+<hr>
+
+<hr>
+
+<h2>CSS @media Reference</h2>
+<p>For a full overview of all the media types and features/expressions, please look at the
+<a href="../cssref/atrule_media.html">@media rule in our CSS reference</a>.</p>
+
+<br>

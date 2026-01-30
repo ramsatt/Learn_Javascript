@@ -1,0 +1,106 @@
+<h1>C <span class="color_h1">User Input</span></h1>
+
+<hr>
+
+
+<h2>User Input</h2>
+<p>You have already learned that <code class="w3-codespan">printf()</code> is used to <strong>output values</strong> in C.</p>
+<p>To get <strong>user input</strong>, you can use the <code class="w3-codespan">scanf()</code> function:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Output a number entered by the user:</p>
+<div class="w3-code notranslate javaHigh">
+  // Create an integer variable that will store the number we get from the user<br>int myNum;<br><br>// Ask the user to type a number<br>printf(&quot;Type a number: 
+  \n&quot;);<br><br>// Get and save the number the user types<br><strong>scanf</strong>(&quot;%d&quot;, &amp;myNum);<br>
+  <br>// Output the number the user typed<br>printf(&quot;Your number is: %d&quot;, myNum);<br>
+ </div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="../cpp/showcpp02c0.html?filename=demo_user_input_c">Run example &raquo;</a>
+</div>
+
+<div class="ws-note w3-panel">
+<p>The <code class="w3-codespan">scanf()</code> function takes two arguments: the format specifier of the variable (<code class="w3-codespan">%d</code> in the example above) and the 
+reference operator (<code class="w3-codespan">&amp;myNum</code>), which stores the memory address of the variable.</p>
+<p><strong>Tip:</strong> You will learn more about <a href="c_memory_address.html">memory addresses</a> and <a href="c_functions.html">functions</a> in the next chapter.</p>
+</div>
+
+<hr>
+
+
+<h2>Multiple Inputs</h2>
+
+<p>The <code class="w3-codespan">scanf()</code> function also allow multiple 
+inputs (an integer and a character in the following example):</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  // Create an int and a char variable<br>int myNum;<br>char myChar;<br><br>
+  // Ask the user to type a number AND a character<br>printf(&quot;Type a number AND 
+  a character and press enter: \n&quot;); <br><br>// Get and save the number AND 
+  character the user types<br><strong>scanf(&quot;%d %c&quot;, &amp;myNum, &amp;myChar);</strong><br><br>// Print 
+  the number<br>printf(&quot;Your number is: %d\n&quot;, myNum);<br><br>// Print the 
+  character<br>printf(&quot;Your character is: %c\n&quot;, myChar);<br>
+ </div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="../cpp/showcpp3d1e.html?filename=demo_user_input_c_multi">Run example &raquo;</a>
+</div>
+
+<hr>
+
+
+<h2>Take String Input</h2>
+
+<p>You can also get a string entered by the user:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Output the name of a user:</p>
+<div class="w3-code notranslate javaHigh">
+  // Create a string<br>char firstName[30];<br><br>// Ask the user to input some 
+  text<br>printf(&quot;Enter your first name: \n&quot;);<br><br>// Get and save the text<br>
+  scanf(&quot;%s&quot;, firstName);<br><br>// Output the text<br>printf(&quot;Hello %s&quot;, 
+  firstName);<br>
+ </div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="../cpp/showcppf188.html?filename=demo_user_input_str_c">Run example &raquo;</a>
+</div>
+
+<div class="ws-note w3-panel">
+<p><strong>Note:</strong> When working with strings in <code class="w3-codespan">scanf()</code>, you must specify the size of 
+the string/array (we used a very high number, 30 in our example, but at least then we are 
+certain it will store enough characters for the first name), and you don't have 
+to use the reference operator (<code class="w3-codespan">&</code>).</p>
+</div>
+
+<p>However, the <code class="w3-codespan">scanf()</code> function has some limitations: it considers space (whitespace, 
+tabs, etc) as a terminating character, which means that it can only display a 
+single word (even if you type many words). For example:</p>
+
+<div class="w3-example w3-pale-red">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh w3-border-red">
+  char fullName[30];<br><br>printf(&quot;Type your full name: \n&quot;);<br>
+  scanf(&quot;%s&quot;, &amp;fullName);<br><br>printf(&quot;Hello %s&quot;, 
+  fullName);<br><br>// Type your full name: John Doe<br>// Hello John<br>
+ </div>
+</div>
+<p>From the example above, you would expect the program to print "John Doe", but it only prints "John".</p>
+<p>That's why, when working with strings, we often use the <code class="w3-codespan">fgets()</code> function to 
+<strong>read a line of text</strong>. Note that you must include the following 
+arguments: the name of the string variable, <code class="w3-codespan">sizeof</code>(<em>string_name</em>), and <code class="w3-codespan">stdin</code>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  char fullName[30];<br><br>printf(&quot;Type your full name: \n&quot;);<br>
+  fgets(fullName, sizeof(fullName), stdin);<br><br>printf(&quot;Hello %s&quot;, 
+  fullName);<br><br>// Type your full name: John Doe<br>// Hello John Doe<br>
+ </div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="../cpp/showcpp7483.html?filename=demo_user_input_str_c2">Run example &raquo;</a>
+</div>
+
+<div class="ws-note w3-panel">
+<p>Use the <code class="w3-codespan">scanf()</code> function to get a single word as input, and use <code class="w3-codespan">fgets()</code> for multiple words.</p>
+</div>
+
+<hr>
+
+<hr>
+
+<br>

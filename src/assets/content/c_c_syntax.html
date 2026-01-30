@@ -1,0 +1,52 @@
+<h1>C <span class="color_h1">Syntax</span></h1>
+
+
+<hr>
+
+
+<h2>Syntax</h2>
+<p>You have already seen the following code a couple of times in the first chapters. Let's break it down and understand what each part does:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  #include &lt;stdio.h&gt;<br><br>int main() {<br>&nbsp; printf(&quot;Hello World!&quot;);<br>&nbsp;
+  return 0;<br>}</div>
+
+</div>
+
+<h3>Example explained</h3>
+
+<p><strong>Line 1:</strong> <code class="w3-codespan">#include &lt;stdio.h&gt;</code> tells C to include a <strong>header file</strong>.
+This header lets us use input/output functions such as <code class="w3-codespan">printf()</code> (used in line 4).</p>
+
+<div class="ws-note w3-panel">
+<p>Don't worry if you don't understand how&nbsp; <code class="w3-codespan">#include &lt;stdio.h&gt;</code> works. Just think of it as something that (almost) always appears in your program.</p>
+</div>
+<p><strong>Line 2:</strong> A blank line. C ignores extra spaces and blank lines, but we use them to make the code easier to read.</p>
+
+<p><strong>Line 3:</strong> <code class="w3-codespan">main()</code> is a special function. Your program starts running here.
+Any code inside the curly brackets <code class="w3-codespan">{}</code> will be executed.</p>
+
+<p><strong>Line 4:</strong> <code class="w3-codespan">printf()</code> is a function used to output (print) text to the screen.
+In our example, it prints <code class="w3-codespan">Hello World!</code>.</p>
+
+<div class="ws-note w3-panel">
+<p><strong>Note:</strong> Every C statement ends with a semicolon <code class="w3-codespan">;</code></p>
+<p><strong>Note:</strong> The body of <code class="w3-codespan">int main()</code> could also be written as:<br>
+<code class="w3-codespan">int main(){printf("Hello World!");return 0;}</code></p>
+<p><strong>Remember:</strong> The compiler ignores extra spaces and new lines, but using multiple lines makes code easier to read.</p>
+</div>
+
+<p><strong>Line 5:</strong> <code class="w3-codespan">return 0</code> ends the <code class="w3-codespan">main()</code> function and sends a value back to the operating system.</p>
+
+<p>Returning <code class="w3-codespan">0</code> usually means "everything worked". You will learn more about return values later.</p>
+
+<p><strong>Line 6:</strong> Do not forget the closing curly bracket <code class="w3-codespan">}</code> to end the <code class="w3-codespan">main()</code> function.</p>
+
+
+<hr>
+
+<hr>
+
+<br>

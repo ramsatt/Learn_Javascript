@@ -1,0 +1,349 @@
+<h1>Go For Loops</h1>
+
+
+<hr>
+
+<p class="intro">The <code class="w3-codespan">for</code> loop loops through a block of code a specified number of times.</p>
+<p class="intro">The <code class="w3-codespan">for</code> loop is the only loop 
+available in Go.</p>
+
+<hr>
+
+<h2>Go for Loop</h2>
+
+<p>Loops are handy if you want to run the same code over and over again, each time with a different value.</p>
+
+<p>Each execution of a loop is called an <strong>iteration</strong>.</p>
+
+<p>The <code class="w3-codespan">for</code> loop can take up to three statements:</p>
+
+<div class="w3-example">
+  <h3>Syntax</h3>
+      <div class="w3-code notranslate javaHigh">
+        for <em> statement1; statement2; statement3 </em>{ <br>
+        &nbsp;&nbsp;<em> // code to be executed for each iteration </em> <br>
+        }
+      </div>
+</div>
+
+<p><strong><em>statement1</em></strong> Initializes the loop counter value.</p>
+<p><strong><em>statement2</em></strong> Evaluated for each loop iteration. If it evaluates to TRUE, the loop continues. If it evaluates to FALSE, the loop ends.</p>
+<p><strong><em>statement3</em></strong> Increases the loop counter value.</p>
+
+
+<div class="w3-panel ws-note">
+  <p><strong>Note:</strong> These statements don't need to be present as loops arguments. However, they need to be present in the code in some form.</p>
+</div>
+<hr>
+
+<h2>for Loop Examples</h2>
+
+<div class="w3-example">
+  <h3>Example 1</h3>
+<p>This example will print the numbers from 0 to 4:&nbsp;&nbsp;</p>
+  <div class="w3-code notranslate javaHigh">
+    package main<br>
+    import ("fmt")<br>
+    <br>
+    func main() { <br>
+      &nbsp;&nbsp;for i:=0; i &lt; 5; i++ {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;fmt.Println(i)<br>
+      &nbsp;&nbsp;}<br>
+    }
+  </div>
+  <p>Result:</p>
+  <div class="notranslate w3-black w3-padding">
+    <code>
+      0<br>
+      1<br>
+      2<br>
+      3<br>
+      4<br>
+    </code>
+  </div>
+  
+</div>
+
+<h4>Example 1 explained</h4>
+<ul>
+  <li>i:=0; - Initialize the loop counter (i), and set the start value to 0</li>
+  <li>i &lt; 5; - Continue the loop as long as i is less than 5</li>
+  <li>i++ - Increase the loop counter value by 1 for each iteration</li>
+</ul>
+
+<div class="w3-example">
+  <h3>Example 2</h3>
+
+<p>This example counts to 100 by tens:&nbsp;</p>
+  <div class="w3-code notranslate javaHigh">
+    package main<br>
+    import ("fmt")<br>
+    <br>
+    func main() { <br>
+      &nbsp;&nbsp;for i:=0; i &lt;= 100; i+=10 {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;fmt.Println(i)<br>
+      &nbsp;&nbsp;}<br>
+    }
+  </div>
+  <p>Result:</p>
+  <div class="notranslate w3-black w3-padding">
+    <code>
+      0<br>
+      10<br>
+      20<br>
+      30<br>
+      40<br>
+      50<br>
+      60<br>
+      70<br>
+      80<br>
+      90<br>
+      100<br>
+    </code>
+  </div>
+  
+</div>
+<h4>Example 2 explained</h4>
+<ul>
+  <li>i:=0; - Initialize the loop counter (i), and set the start value to 0</li>
+  <li>i &lt;= 100; - Continue the loop as long as i is less than or equal to 100</li>
+  <li>i+=10 - Increase the loop counter value by 10 for each iteration</li>
+</ul>
+<hr>
+<hr>
+<h2>The continue Statement</h2>
+
+<p>The <code class="w3-codespan">continue</code> statement is used to skip one 
+or more iterations in the loop. It then continues with the next iteration in the loop.</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <p>This example skips the value of 3:</p>
+  <div class="w3-code notranslate javaHigh">
+    package main<br>
+    import ("fmt")<br>
+    <br>
+    func main() { <br>
+      &nbsp; for i:=0; i &lt; 5; i++ {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;if i == 3 {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue<br>  
+      &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+      &nbsp;&nbsp;&nbsp;fmt.Println(i)<br>
+      &nbsp;&nbsp;}<br>
+    }<br>
+  </div>
+  <p>Result:</p>
+  <div class="notranslate w3-black w3-padding">
+    <code>
+      0<br>
+      1<br>
+      2<br>
+      4<br>
+    </code>
+  </div>
+  
+</div>
+
+
+
+<hr>
+
+<h2>The break Statement</h2>
+
+<p>The <code class="w3-codespan">break</code> statement is used to break/terminate the loop execution.</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <p>This example breaks out of the loop when i is equal to 3:</p>
+  <div class="w3-code notranslate javaHigh">
+    package main<br>
+    import ("fmt")<br>
+    <br>
+    func main() { <br>
+      &nbsp;&nbsp;for i:=0; i &lt; 5; i++ {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;if i == 3 {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break<br>  
+      &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+      &nbsp;&nbsp;&nbsp;fmt.Println(i)<br>
+      &nbsp;&nbsp;}<br>
+    }<br>
+  </div>
+  <p>Result:</p>
+  <div class="notranslate w3-black w3-padding">
+    <code>
+      0<br>
+      1<br>
+      2<br>
+    </code>
+  </div>
+  
+</div>
+
+<div class="w3-panel ws-note">
+  <p><strong>Note:</strong> <code class="w3-codespan">continue</code> and <code class="w3-codespan">break</code> are usually used with <strong>conditions</strong>.</p>
+</div>
+
+<hr>
+<h2>Nested Loops</h2>
+
+<p>It is possible to place a loop inside another loop.</p>
+
+<p>Here, the "inner loop" will be executed one time for each iteration of the "outer loop":</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <div class="w3-code notranslate javaHigh">
+    package main<br>
+    import ("fmt")<br>
+    <br>
+    func main() {<br>
+      &nbsp;&nbsp;adj := [2]string{&quot;big&quot;, &quot;tasty&quot;}<br>
+      &nbsp;&nbsp;fruits := [3]string{&quot;apple&quot;, &quot;orange&quot;, &quot;banana&quot;}<br>
+      &nbsp;&nbsp;for i:=0; i &lt; len(adj); i++ {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;for j:=0; j &lt; len(fruits); j++ {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fmt.Println(adj[i],fruits[j])<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+      &nbsp;&nbsp;}<br>
+    }
+  </div>
+  <p>Result:</p>
+  <div class="notranslate w3-black w3-padding">
+    <code>
+      big apple<br>
+      big orange<br>
+      big banana<br>
+      tasty apple<br>
+      tasty orange<br>
+      tasty banana<br>
+    </code>
+  </div>
+  
+</div>
+
+<hr>
+
+<h2>The Range Keyword</h2>
+
+<p>The <code class="w3-codespan">range</code> keyword is used to more easily iterate 
+through the elements of an array, slice or map. It returns both the index and the value.</p>
+
+<p>The <code class="w3-codespan">range</code> keyword is used like this:</p>
+
+<div class="w3-example">
+  <h3>Syntax</h3>
+      <div class="w3-code notranslate javaHigh">
+        for <em> index, value := </em>range<em> array</em>|<em>slice</em>|<em>map  </em>{<br>
+        &nbsp;&nbsp;<em> // code to be executed for each iteration </em> <br>
+        }
+      </div>
+</div>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <p>This example uses <code class="w3-codespan">range</code> to iterate over an 
+  array and print both the indexes and the values at each (<code class="w3-codespan">idx</code> 
+  stores the index, <code class="w3-codespan">val</code> stores the value):</p>
+  <div class="w3-code notranslate javaHigh">
+    package main<br>
+    import ("fmt")<br>
+    <br>
+    func main() {<br>
+      &nbsp;&nbsp;fruits := [3]string{&quot;apple&quot;, &quot;orange&quot;, &quot;banana&quot;}<br>&nbsp;&nbsp;for 
+    idx, val := range fruits {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fmt.Printf("%v\t%v\n", idx, val)<br>
+      &nbsp;&nbsp;}<br>
+    }
+  </div>
+  <p>Result:</p>
+  <div class="notranslate w3-black w3-padding">
+    <code>
+      0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;apple <br>
+      1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;orange <br>
+      2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;banana <br>
+    </code>
+  </div>
+  
+</div>
+
+<p><strong>Tip:</strong> To only show the value or the index, you can omit the other output using an underscore (<code class="w3-codespan">_</code>).</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <p>Here, we want to omit the indexes (<code class="w3-codespan">idx</code> 
+  stores the index, <code class="w3-codespan">val</code> stores the value):</p>
+  <div class="w3-code notranslate javaHigh">
+    package main<br>
+    import ("fmt")<br>
+    <br>
+    func main() {<br>
+      &nbsp;&nbsp;fruits := [3]string{&quot;apple&quot;, &quot;orange&quot;, &quot;banana&quot;}<br>&nbsp;&nbsp;for _, 
+    val := range fruits {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fmt.Printf("%v\n", val)<br>
+      &nbsp;&nbsp;}<br>
+    }
+  </div>
+  <p>Result:</p>
+  <div class="notranslate w3-black w3-padding">
+    <code>
+      apple <br>
+      orange <br>
+      banana <br>
+    </code>
+  </div>
+  
+</div>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <p>Here, we want to omit the values (<code class="w3-codespan">idx</code> 
+  stores the index, <code class="w3-codespan">val</code> stores the value):</p>
+  <div class="w3-code notranslate javaHigh">
+    package main<br>
+    import ("fmt")<br>
+    <br>
+    func main() {<br>
+      &nbsp;&nbsp;fruits := [3]string{&quot;apple&quot;, &quot;orange&quot;, &quot;banana&quot;}<br><br>
+      &nbsp;&nbsp;for idx, _ := range fruits {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fmt.Printf("%v\n", idx)<br>
+      &nbsp;&nbsp;}<br>
+    }
+  </div>
+  <p>Result:</p>
+  <div class="notranslate w3-black w3-padding">
+    <code>
+      0<br>
+      1<br>
+      2<br>
+    </code>
+  </div>
+  
+</div>
+
+<hr>
+
+<div>
+<h2>Go Exercises</h2>
+<form autocomplete="off" spellcheck="false" id="w3-exerciseform" action="https://www.w3schools.com/go/exercise.php?filename=exercise_loops1" method="post" target="_blank">
+<h2>Test Yourself With Exercises</h2>
+<div class="exercisewindow">
+<h2>Exercise:</h2>
+<p>Print i as long as i is less than 6.</p>
+<div class="exerciseprecontainer">
+<pre style="overflow: auto;">
+package main   
+import ("fmt") <br>
+func main() {
+  <input name="ex1" maxlength="3" style="width:40px;"> i:=0; i &lt; 6; <input name="ex2" maxlength="3" style="width:40px;"> {
+    fmt.Println(i)
+  }
+}
+</pre>
+</div>
+<br>
+<button type="submit" class="w3-btn w3-margin-bottom">Submit Answer &raquo;</button>
+<p><a target="_blank" href="exercisecc79.html?filename=exercise_loops1">Start the Exercise</a></p>
+</div>
+</form>
+</div>
+
+<br>

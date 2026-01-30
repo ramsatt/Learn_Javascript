@@ -1,0 +1,86 @@
+<h1>PHP <span class="color_h1">compact()</span> Function</h1>
+<p><a href="php_ref_array.html" class="w3-btn w3-white w3-border" title="PHP Array Reference">&#10094; PHP Array Reference</a></p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Create an array from variables and their values:</p>
+<div class="w3-code notranslate htmlHigh">
+&lt;?php<br>
+$firstname = &quot;Peter&quot;;<br>
+$lastname = &quot;Griffin&quot;;<br>
+$age = &quot;41&quot;;<br>
+<br>
+$result = compact(&quot;firstname&quot;, &quot;lastname&quot;, &quot;age&quot;);<br>
+ <br>print_r($result);<br>
+?&gt;
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="phptryita1e7.html?filename=tryphp_func_compact">Try it Yourself &raquo;</a>
+</div>
+<hr>
+
+<h2>Definition and Usage</h2>
+<p>The compact() function creates an array from variables and their values.</p>
+<p><b>Note:</b> Any strings that does not match variable names will be skipped.</p>
+<hr>
+
+<h2>Syntax</h2>
+<div class="w3-code w3-border notranslate"><div>
+compact(<em>var1, var2...</em>)
+</div></div>
+
+<h2>Parameter Values</h2>
+<table class="ws-table-all notranslate">
+  <tr>
+    <th style="width:20%">Parameter</th>
+    <th style="width:80%">Description</th>
+  </tr>  
+  <tr>
+    <td><em>var1</em></td>
+    <td>Required. Can be a string with the variable name, or an array of variables</td>
+  </tr>
+  <tr>
+    <td><em>var2,...</em></td>
+    <td>Optional. Can be a string with the variable name, or an array of variables. Multiple parameters are allowed.</td>
+  </tr>
+</table>
+<hr>
+
+<hr>
+<h2>Technical Details</h2>
+<table class="ws-table-all">
+<tr>
+ <th style="width:20%">Return Value:</th>
+ <td style="width:80%">Returns an array with all the variables added to it</td>
+</tr>
+<tr>
+  <th>PHP Version:</th>
+  <td>4+</td>
+</tr>
+<tr>
+  <th>Change log:</th>
+  <td>As of version 7.3 this function issues an E_NOTICE level error if an unset variable is given</td>
+</tr>
+</table>
+<hr>
+
+<h2>More Examples</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Using a string that does not match a variable, and an array of variable 
+names:</p>
+<div class="w3-code notranslate htmlHigh">
+&lt;?php<br>
+$firstname = &quot;Peter&quot;;<br>
+$lastname = &quot;Griffin&quot;;<br>
+$age = &quot;41&quot;;<br>
+<br>
+$name = array(&quot;firstname&quot;, &quot;lastname&quot;);<br>
+$result = compact($name, &quot;location&quot;, &quot;age&quot;);<br>
+<br>
+print_r($result);<br>?&gt;
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="phptryitc14b.html?filename=tryphp_func_compact2">Try it Yourself &raquo;</a>
+</div>
+<hr>
+
+<a href="php_ref_array.html" class="w3-btn w3-white w3-border" title="PHP Array Reference">&#10094; PHP Array Reference</a>

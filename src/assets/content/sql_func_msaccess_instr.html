@@ -1,0 +1,74 @@
+<h1>MS Access <span class="color_h1">InStr()</span> Function</h1>
+
+<div class="w3-clear w3-center nextprev">
+<a class="w3-left w3-btn" href="func_msaccess_format.html">&#10094;<span class="w3-hide-small"> Previous</span></a>
+<a class="w3-btn" title="MS Access Functions" href="sql_ref_msaccess.html">&#10094; MS Access Functions</a>
+<a class="w3-right w3-btn" href="func_msaccess_instrrev.html"><span class="w3-hide-small">Next </span>&#10095;</a>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Search for "t" in string "Customer", and return position:</p>
+<div class="w3-code notranslate sqlHigh">
+  SELECT InStr("Customer", "t") AS MatchPosition;</div>
+<a target="_blank" href="trysqlb0e0.html?filename=trysql_func_ms_instr&amp;ss=-1" class="w3-btn w3-margin-bottom">Try it Yourself &raquo;</a>
+</div>
+<hr>
+
+<h2>Definition and Usage</h2>
+<p>The InStr() function gets the position of the first occurrence of a string in another.</p>
+<p>This function performs a case-insensitive search.</p>
+
+<h2>Syntax</h2>
+<div class="w3-code w3-border notranslate">
+  InStr(<em>start</em>, <em>string1</em>, <em>string2</em>, <em>
+  compare</em>)</div>
+
+<h2>Parameter Values</h2>
+<table class="ws-table-all notranslate"> 
+  <tr>
+    <th style="width:23%">Parameter</th>
+    <th>Description</th>  </tr>  
+  <tr>
+    <td><em>start</em></td>
+    <td>Optional. The start position for the search. Position 1 is default</td>
+  </tr>
+  <tr>
+    <td><em>string1</em></td>
+    <td>Required. The string to be searched</td>
+  </tr>
+  <tr>
+    <td><em>string2</em></td>
+    <td>Required. The string to search for</td>
+  </tr>
+  <tr>
+    <td><em>compare</em></td>
+    <td>Optional. The type of string comparison.<br><br>Possible values:<br>
+    -1: Use the setting of Option Compare<br>0: Binary comparison<br>1: Textual comparison<br>
+    2: Comparison based on info in your database</td>
+  </tr>
+</table>
+
+<h2>Return Values</h2>
+<ul>
+  <li>If string2 is not found within string1, this function returns 0</li>
+  <li>If string1 is zero-length, this function returns 0</li>
+  <li>If string1 is null, this function returns null</li>
+  <li>If string2 is zero-length, this function returns the value  
+  in the start parameter</li>
+  <li>If start is &gt; than the length of string2, this function returns 0</li>
+</ul>
+<h2>Technical Details</h2>
+<table class="ws-table-all">
+<tr>
+ <th style="width:23%">Works in:</th>
+  <td>From Access 2000</td>
+</tr>
+</table>
+<br>
+
+<div class="w3-clear w3-center nextprev">
+<a class="w3-left w3-btn" href="func_msaccess_format.html">&#10094;<span class="w3-hide-small"> Previous</span></a>
+<a class="w3-btn" title="MS Access Functions" href="sql_ref_msaccess.html">&#10094; MS Access Functions</a>
+<a class="w3-right w3-btn" href="func_msaccess_instrrev.html"><span class="w3-hide-small">Next </span>&#10095;</a>
+</div>

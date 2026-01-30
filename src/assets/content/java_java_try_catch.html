@@ -1,0 +1,209 @@
+<h1>Java Exceptions - <span class="color_h1">Try...Catch</span></h1>
+
+<hr>
+
+<h2>Java Exceptions</h2>
+<p>As mentioned in the <a href="java_errors.html">Errors chapter</a>, different types of errors can occur while running a program - such as coding mistakes, invalid input, or unexpected situations.</p>
+<p>When an error occurs, Java will normally stop and generate an error message. The technical term for this is: Java will throw an <b>exception</b> (throw an error).</p>
+<hr>
+
+<h2>Exception Handling (try and catch)</h2>
+<p>Exception handling lets you catch and handle errors during runtime - so your program doesn't crash.</p>
+<p>It uses different keywords:</p>
+<p>The <code class="w3-codespan">try</code> statement allows you to define a block of code to be 
+tested for errors while it is being executed.</p>
+<p>The <code class="w3-codespan">catch</code> statement allows you to define a block of code to 
+be executed, if an error occurs in the try block.</p>
+<p>The <code class="w3-codespan">try</code> and <code class="w3-codespan">catch</code> keywords 
+come in pairs:</p>
+
+<div class="w3-example">
+<h3>Syntax</h3>
+<pre class="language-java w3-white"><code>try {
+&nbsp;&nbsp;//&nbsp; <em>Block of code to try
+</em>}
+catch(Exception <em>e</em>) {
+&nbsp;&nbsp;//&nbsp; <em>Block of code to handle errors
+</em>}
+</code></pre>
+</div>
+<p>Consider the following example:</p>
+<div class="w3-example w3-pale-red">
+<p>This will generate an error, because <strong>myNumbers[10]</strong> does not exist.</p>
+
+<pre class="language-java w3-white w3-border-red"><code>public class Main {
+&nbsp; public static void main(String[ ] args) {
+&nbsp;&nbsp;&nbsp; int[] myNumbers = {1, 2, 3};
+&nbsp;&nbsp;&nbsp; System.out.println(myNumbers[10]); // error!
+&nbsp; }
+}
+</code></pre>
+<p>The output will be something like this:</p>
+<div class="w3-padding notranslate w3-black">
+<code>
+  Exception in thread &quot;main&quot; java.lang.ArrayIndexOutOfBoundsException: 10<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  at Main.main(Main.java:4)
+</code>
+</div>
+<p><strong>Note:</strong> <code class="w3-codespan">ArrayIndexOutOfBoundsException</code> occurs when you try to access an index number that does not exist.</p>
+
+</div>
+
+<p>If an error occurs, we can use <code class="w3-codespan">try...catch</code> to catch the error and execute some code to handle it:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white" data-line="3,6"><code>public class Main {
+&nbsp; public static void main(String[ ] args) {
+&nbsp;&nbsp;&nbsp; try {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int[] myNumbers = {1, 2, 3};
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(myNumbers[10]);
+&nbsp;&nbsp;&nbsp; } catch (Exception e) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(&quot;Something went wrong.&quot;);
+&nbsp;&nbsp;&nbsp; }
+&nbsp; }
+}
+</code></pre>
+<p>The output will be:</p>
+<div class="w3-padding notranslate w3-black">
+<code>
+Something went wrong.</code>
+</div>
+
+</div>
+<hr>
+
+<h2>Finally</h2>
+<p>The <code class="w3-codespan">finally</code> statement lets you execute code, after <code class="w3-codespan">try...catch</code>, regardless of the result:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white" data-line="8"><code>public class Main {
+&nbsp; public static void main(String[] args) {
+&nbsp;&nbsp;&nbsp; try {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int[] myNumbers = {1, 2, 3};
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(myNumbers[10]);
+&nbsp;&nbsp;&nbsp; } catch (Exception e) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(&quot;Something went wrong.&quot;);
+&nbsp;&nbsp;&nbsp; } finally {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(&quot;The 'try catch' is finished.&quot;);
+&nbsp;&nbsp;&nbsp; }
+&nbsp; }
+}
+</code></pre>
+<p>The output will be:</p>
+<div class="w3-padding notranslate w3-black">
+<code>
+Something went wrong.<br>
+The 'try catch' is finished.
+</code>
+</div>
+
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>The throw keyword</h2>
+<p>The <code class="w3-codespan">throw</code> statement allows you to create a custom error.</p>
+<p>The <code class="w3-codespan">throw</code> statement is used together with an <strong>exception type</strong>. There are many exception types available in Java: <code class="w3-codespan">ArithmeticException</code>, 
+<code class="w3-codespan">FileNotFoundException</code>, <code class="w3-codespan">ArrayIndexOutOfBoundsException</code>, <code class="w3-codespan">SecurityException</code>, etc:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Throw an exception if <strong>age</strong> is below 18 (print &quot;Access 
+denied&quot;). If age is 18 or older, print &quot;Access granted&quot;:</p>
+<pre class="language-java w3-white" data-line="4"><code>public class Main {
+&nbsp; static void checkAge(int age) {
+&nbsp;&nbsp;&nbsp; if (age &lt; 18) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; throw new ArithmeticException(&quot;Access denied - You must be at least 18 years old.&quot;);
+&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp; else {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(&quot;Access granted - You are old enough!&quot;);
+&nbsp;&nbsp;&nbsp; }
+&nbsp; }
+
+&nbsp; public static void main(String[] args) {
+&nbsp;&nbsp;&nbsp; checkAge(15); // Set age to 15 (which is below 18...)
+&nbsp; }
+}
+</code></pre>
+<p>The output will be:</p>
+<div style="white-space: nowrap;;overflow-x:scroll;width:100%" class="w3-padding notranslate w3-black">
+<code>
+Exception in thread "main" java.lang.ArithmeticException: Access denied - You must be at least 18 years old.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at Main.checkAge(Main.java:4)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at Main.main(Main.java:12)
+</code>
+</div>
+
+</div>
+<p>If <strong>age</strong> was 20, you would <strong>not</strong> get an exception:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>checkAge(20);
+</code></pre>
+<p>The output will be:</p>
+<div class="w3-padding notranslate w3-black">
+<code>
+Access granted - You are old enough!
+</code>
+</div>
+
+</div>
+<hr>
+
+<h2>Errors and Exception Types</h2>
+
+<p>The table below shows some of the most common errors and exceptions in Java, with a short description of each:</p>
+<div class="w3-responsive">
+<table class="ws-table-all notranslate" style="margin:0">
+  <tbody><tr>
+    <th style="width:30%">Error/Exception</th>
+    <th style="width:70%">Description</th>
+  </tr>
+  <tr>
+    <td>ArithmeticError</td>
+    <td>Occurs when a numeric calculation goes wrong</td>
+  </tr>
+  <tr>
+    <td>ArrayIndexOutOfBoundsException</td>
+    <td>Occurs when trying to access an index number that does not exist in an array</td>
+  </tr>
+  <tr>
+    <td>ClassNotFoundException</td>
+    <td>Occurs when trying to access a class that does not exist</td>
+  </tr>
+  <tr>
+    <td>FileNotFoundException</td>
+    <td>Occurs when a file cannot be accessed</td>
+  </tr>
+  <tr>
+    <td>InputMismatchException</td>
+    <td>Occurs when entering wrong input (e.g. text in a numerical input)</td>
+  </tr>
+  <tr>
+    <td>IOException</td>
+    <td>Occurs when an input or output operation fails</td>
+  </tr>
+  <tr>
+    <td>NullPointerException</td>
+    <td>Occurs when trying to access an object referece that is <code class="w3-codespan">null</code></td>
+  </tr>
+  <tr>
+    <td>NumberFormatException</td>
+    <td>Occurs when it is not possible to convert a specified string to a numeric type</td>
+  </tr>
+  <tr>
+    <td>StringIndexOutOfBoundsException</td>
+    <td>Occurs when trying to access a character in a String that does not exist</td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+<p><strong>Tip:</strong> For a list of all errors and exception types, go to our <a href="java_ref_errors.html">Java Errors and Exception Types Reference</a>.</p>
+<hr>
+
+<hr>
+
+<br>

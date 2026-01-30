@@ -1,0 +1,94 @@
+<h1>SQL <span class="color_h1">CASE</span> Expression</h1>
+
+<hr>
+
+<h2>The SQL CASE Expression</h2>
+<p>The <code class="w3-codespan">CASE</code> expression goes through conditions and returns a value when the first condition is 
+met (like an if-then-else statement). So, once a condition is true, it will stop 
+reading and return the result. If no conditions are true, it returns 
+the value in the <code class="w3-codespan">ELSE</code> clause. </p>
+<p>If there is no <code class="w3-codespan">ELSE</code> part and no conditions are true, it returns NULL.</p>
+
+<h2>CASE Syntax</h2>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+  CASE<br>&nbsp;&nbsp;&nbsp; WHEN <em>condition1</em> THEN <em>result1</em><br>&nbsp;&nbsp;&nbsp; 
+  WHEN <em>condition2</em> THEN <em>result2</em><br>&nbsp;&nbsp;&nbsp; WHEN 
+  <em>conditionN</em> THEN <em>resultN</em><br>&nbsp;&nbsp;&nbsp; ELSE <em>result</em><br>END;</div></div>
+
+<hr>
+
+<h2>Demo Database</h2>
+<p>Below is a selection from the "OrderDetails" table in the Northwind sample database:</p>
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+  <tr>
+    <th>OrderDetailID</th>
+    <th>OrderID</th>
+    <th>ProductID</th>
+    <th>Quantity</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>10248</td>
+    <td>11</td>
+    <td>12</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>10248</td>
+    <td>42</td>
+    <td>10</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>10248</td>
+    <td>72</td>
+    <td>5</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>10249</td>
+    <td>14</td>
+    <td>9</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>10249</td>
+    <td>51</td>
+    <td>40</td>
+  </tr>
+</table>
+</div>
+
+<hr>
+
+<hr>
+
+<h2>SQL CASE Examples</h2>
+
+<p>The following SQL goes through conditions and returns a value when the first condition is met:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+  SELECT OrderID, Quantity,<br>CASE<br>&nbsp;&nbsp;&nbsp; WHEN Quantity &gt; 30 
+  THEN 'The quantity is greater than 30'<br>&nbsp;&nbsp;&nbsp; WHEN Quantity = 30 THEN 'The 
+  quantity is 30'<br>&nbsp;&nbsp;&nbsp; ELSE 'The quantity is under 30'<br>END AS QuantityText<br>FROM OrderDetails;</div>
+
+</div>
+
+<p>The following SQL will order the customers by City. However, if City is NULL, then order by Country:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+  SELECT CustomerName, City, Country<br>FROM Customers<br>ORDER BY<br>(CASE<br>&nbsp;&nbsp;&nbsp; 
+  WHEN City IS NULL THEN Country<br>&nbsp;&nbsp;&nbsp; ELSE City<br>END);</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<br>

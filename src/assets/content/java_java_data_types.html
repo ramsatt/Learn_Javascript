@@ -1,0 +1,109 @@
+<h1>Java <span class="color_h1">Data Types</span></h1>
+
+<hr>
+
+<h2>Java Data Types</h2>
+<p>As explained in the previous chapter, a <a href="java_variables.html">variable</a> in Java must be a specified data type:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>int myNum = 5;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Integer (whole number)
+float myFloatNum = 5.99f;&nbsp;&nbsp;&nbsp; // Floating point number
+char myLetter = 'D';&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Character
+boolean myBool = true;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Boolean
+String myText = &quot;Hello&quot;;&nbsp;&nbsp;&nbsp;&nbsp; // String
+</code></pre>
+<p>
+
+</p>
+</div>
+
+<p>Data types are divided into two groups:</p>
+
+<ul>
+ <li>Primitive data types - includes <code class="w3-codespan">byte</code>, <code class="w3-codespan">short</code>, <code class="w3-codespan">int</code>, <code class="w3-codespan">long</code>, 
+ <code class="w3-codespan">float</code>, <code class="w3-codespan">double</code>, <code class="w3-codespan">boolean</code> and <code class="w3-codespan">char</code></li>
+ <li>Non-primitive data types - such as <code class="w3-codespan"><a href="java_strings.html">String</a></code>, <a href="java_arrays.html">Arrays</a> and  <a href="java_classes.html">Classes</a> (you will learn more about these in a later chapter)</li>
+</ul>
+
+<hr>
+
+<h2>Primitive Data Types</h2>
+<p>A primitive data type specifies the type of a variable and the kind of values it can hold.</p>
+<p>There are eight primitive data types in Java:</p>
+
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+<tbody><tr>
+<th style="width:16%">Data Type</th>
+
+<th style="width:84%">Description</th>
+</tr>
+<tr>
+<td><code class="w3-codespan">byte</code></td>
+
+<td>Stores whole numbers from -128 to 127</td>
+</tr>
+<tr>
+<td><code class="w3-codespan">short</code></td>
+
+<td>Stores whole numbers from -32,768 to 32,767</td>
+</tr>
+<tr>
+<td><code class="w3-codespan">int</code></td>
+
+<td>Stores whole numbers from -2,147,483,648 to 2,147,483,647</td>
+</tr>
+<tr>
+<td><code class="w3-codespan">long</code></td>
+
+<td>Stores whole numbers from -9,223,372,036,854,775,808 to 
+9,223,372,036,854,775,807</td>
+</tr>
+<tr>
+<td><code class="w3-codespan">float</code></td>
+
+<td>Stores fractional numbers. Sufficient for 
+storing 6 to 7 decimal digits</td>
+</tr>
+<tr>
+<td><code class="w3-codespan">double</code></td>
+
+<td>Stores fractional numbers. Sufficient for 
+storing 15 to 16 decimal digits</td>
+</tr>
+<tr>
+<td><code class="w3-codespan">boolean</code></td>
+
+<td>Stores true or false values</td>
+</tr>
+<tr>
+<td><code class="w3-codespan">char</code></td>
+
+<td>Stores a single character/letter or ASCII values</td>
+</tr>
+
+</tbody>
+</table>
+</div>
+<hr>
+
+<h2>You Cannot Change the Type</h2>
+<p>Once a variable is declared with a type, it cannot change to another type later in the program:</p><div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white w3-border-red"><code>int myNum = 5;       // myNum is an int
+// myNum = "Hello";  // Error: cannot assign a String to an int
+
+String myText = "Hi"; // myText is a String
+// myText = 123;      // Error: cannot assign a number to a String
+</code></pre>
+<p>
+
+</p>
+</div>
+<div class="ws-note ws-panel">
+<p><strong>Note:</strong> This rule makes Java safer, because the compiler will stop you if you try to mix up types by mistake.</p>
+<p>If you really need to change between types, you must use <a href="java_type_casting.html">type casting</a> or conversion methods (for example, turning an <code class="w3-codespan">int</code> into a <code class="w3-codespan">double</code>).</p>
+</div>
+<hr>
+
+<hr>

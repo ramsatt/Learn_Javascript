@@ -1,0 +1,72 @@
+<h1>MySQL <span class="color_h1">CONV()</span> Function</h1>
+<p>
+<a class="w3-btn w3-white w3-border" href="mysql_ref_functions.html" title="MySQL Functions">&#10094; MySQL Functions</a></p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Convert a number from numeric base system 10 to numeric base system 2:</p>
+<div class="w3-code notranslate sqlHigh">
+  SELECT CONV(15, 
+  10, 2);</div>
+<a target="_blank" href="trymysqlcda9.html?filename=trysql_func_mysql_conv" class="w3-btn w3-margin-bottom">Try it Yourself &raquo;</a>
+</div>
+<hr>
+
+<h2>Definition and Usage</h2>
+<p>The CONV() function converts a number from one numeric base system to another, and returns the result as 
+a string value.</p>
+<p><strong>Note:</strong> This function returns NULL if any of the parameters 
+are NULL.</p>
+<p><strong>Tip:</strong> Also look at the <a href="func_mysql_bin.html">BIN()</a> function.</p>
+
+<h2>Syntax</h2>
+<div class="w3-code w3-border notranslate">
+  CONV(<em>number</em>, <em>from_base</em>, <em>to_base</em>)</div>
+
+<h2>Parameter Values</h2>
+<table class="ws-table-all notranslate"> 
+  <tr>
+    <th style="width:23%">Parameter</th>
+    <th>Description</th>  </tr>  
+  <tr>
+    <td><em>number</em></td>
+    <td>Required. A number</td>
+  </tr>
+  <tr>
+    <td><em>from_base</em></td>
+    <td>The numeric base system of <em>number</em> (a number between 2 and 36)</td>
+  </tr>
+  <tr>
+    <td><em>to_base</em></td>
+    <td>The numeric base system to convert to (a number between 2 and 36 or 
+    -2 and -36)</td>
+  </tr>
+</table>
+
+<h2>Technical Details</h2>
+<table class="ws-table-all">
+<tr>
+ <th style="width:23%">Works in:</th>
+  <td>From MySQL 4.0</td>
+</tr>
+</table>
+<hr>
+
+<h2>More Examples</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Convert a number from numeric base system 2 to numeric base system 10:</p>
+<div class="w3-code notranslate sqlHigh">
+SELECT CONV(1111, 2, 10); </div>
+<a target="_blank" href="trymysql425d.html?filename=trysql_func_mysql_conv2" class="w3-btn w3-margin-bottom">Try it Yourself &raquo;</a>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Convert a number from numeric base system 10 to numeric base system 16:</p>
+<div class="w3-code notranslate sqlHigh">
+SELECT CONV(88, 10, 16); </div>
+<a target="_blank" href="trymysqle39a.html?filename=trysql_func_mysql_conv3" class="w3-btn w3-margin-bottom">Try it Yourself &raquo;</a>
+</div>
+
+<hr>
+<p><a class="w3-btn w3-white w3-border" href="mysql_ref_functions.html" title="MySQL Functions">&#10094; MySQL Functions</a></p>

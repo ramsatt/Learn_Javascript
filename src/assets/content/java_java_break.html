@@ -1,0 +1,146 @@
+<h1>Java <span class="color_h1">Break and Continue</span></h1>
+
+<hr>
+
+<h2>Break</h2>
+<p>You have already seen the <code class="w3-codespan">break</code> statement used in an earlier chapter of this tutorial. It was used to "jump out" of a <code class="w3-codespan">switch</code> statement.</p>
+<p>The <code class="w3-codespan">break</code> statement can also be used to jump out of a 
+<strong>loop</strong>.</p>
+<p>This example stops the loop when <code class="w3-codespan">i</code> is equal to 4:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white" data-line="3"><code>for (int i = 0; i &lt; 10; i++) {
+&nbsp; if (i == 4) {
+&nbsp;&nbsp;&nbsp; break;
+&nbsp; }
+&nbsp; System.out.println(i);
+}
+</code></pre>
+<p>
+
+</p>
+</div>
+
+<hr>
+
+<h2>Continue</h2>
+
+<p>The <code class="w3-codespan">continue</code> statement breaks one iteration (in the loop), if a specified condition occurs, and continues with the next iteration in the loop.</p>
+<p>This example skips the value of 4:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white" data-line="3"><code>for (int i = 0; i &lt; 10; i++) {
+&nbsp; if (i == 4) {
+&nbsp;&nbsp;&nbsp; continue;
+&nbsp; }
+&nbsp; System.out.println(i);
+}
+</code></pre>
+<p>
+
+</p>
+</div>
+
+<div class="ws-note ws-panel">
+<p><strong>Good to Remember:</strong></p>
+<ul>
+  <li><code class="w3-codespan">break</code> = stop the loop completely.</li>
+  <li><code class="w3-codespan">continue</code> = skip this round, but keep looping.</li>
+</ul>
+</div>
+<hr>
+
+<h2>Combining Break and Continue</h2>
+
+<p>You can also combine <code class="w3-codespan">break</code> and <code class="w3-codespan">continue</code>.</p>
+<p>This example skips printing 2 and stops the loop at 4:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white" data-line="3,6"><code>for (int i = 0; i &lt; 6; i++) {
+&nbsp;&nbsp;if (i == 2) {
+&nbsp;&nbsp;&nbsp;&nbsp;continue;
+&nbsp;&nbsp;}
+&nbsp;&nbsp;if (i == 4) {
+&nbsp;&nbsp;&nbsp;&nbsp;break;
+&nbsp;&nbsp;}
+&nbsp;&nbsp;System.out.println(i);
+</code>}</pre>
+<p>
+
+</p>
+</div>
+
+<hr>
+
+<hr>
+
+<h2>Break and Continue in While Loop</h2>
+<p>You can also use <code class="w3-codespan">break</code> and <code class="w3-codespan">continue</code> in while loops:</p>
+
+<div class="w3-example">
+<h3>Break Example</h3>
+<pre class="language-java w3-white" data-line="6"><code>int i = 0;
+while (i &lt; 10) {
+&nbsp;&nbsp;System.out.println(i);
+&nbsp;&nbsp;i++;
+&nbsp;&nbsp;if (i == 4) {
+&nbsp;&nbsp;&nbsp;&nbsp;break;
+&nbsp; }
+}
+</code></pre>
+<p>
+
+</p>
+</div>
+
+<div class="w3-example">
+<h3>Continue Example</h3>
+<pre class="language-java w3-white" data-line="5"><code>int i = 0;
+while (i &lt; 10) {
+&nbsp;&nbsp;if (i == 4) {
+&nbsp;&nbsp;&nbsp; i++;
+&nbsp;&nbsp;&nbsp;&nbsp;continue;
+&nbsp;&nbsp;}
+&nbsp;&nbsp;System.out.println(i);
+&nbsp;&nbsp;i++;
+}
+</code></pre>
+<p>
+
+</p>
+</div>
+<hr>
+
+<h2>Real-Life Example</h2>
+<p>Imagine processing a list of numbers where you want to skip negative values, but stop completely if you find a zero:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>int[] numbers = {3, -1, 7, 0, 9};
+
+for (int n : numbers) {
+  if (n &lt; 0) {
+    continue; // skip negative numbers
+  }
+  if (n == 0) {
+    break; // stop loop when zero is found
+  }
+  System.out.println(n);
+}
+</code></pre>
+<p>
+
+</p>
+</div>
+<div class="ws-note ws-panel">
+<p><strong>Note:</strong> Don't worry if you don't fully understand the example above.  
+It uses an <a href="java_arrays.html">array</a> (<code class="w3-codespan">int[] numbers = {3, -1, 7, 0, 9};</code>) to store the numbers,  
+and you will learn more about <a href="java_arrays.html">arrays</a> in the next chapter.</p>
+</div>
+<hr>
+
+<hr>
+<br>

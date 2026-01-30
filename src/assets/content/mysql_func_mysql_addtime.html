@@ -1,0 +1,82 @@
+<h1>MySQL <span class="color_h1">ADDTIME()</span> Function</h1>
+<p>
+<a class="w3-btn w3-white w3-border" href="mysql_ref_functions.html" title="MySQL Functions">&#10094; MySQL Functions</a></p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Add 2 seconds to a time and return the datetime:</p>
+<div class="w3-code notranslate sqlHigh">
+  SELECT ADDTIME(&quot;2017-06-15 
+  09:34:21&quot;, &quot;2&quot;);</div>
+<a target="_blank" href="trymysqlf2c6.html?filename=trysql_func_mysql_addtime" class="w3-btn w3-margin-bottom">Try it Yourself &raquo;</a>
+</div>
+<hr>
+
+<h2>Definition and Usage</h2>
+<p>The ADDTIME() function adds a time interval to a time/datetime and then returns the time/datetime.</p>
+
+<h2>Syntax</h2>
+<div class="w3-code w3-border notranslate">
+ADDTIME(<em>datetime</em>, <em>addtime</em>)</div>
+
+<h2>Parameter Values</h2>
+<table class="ws-table-all notranslate"> 
+  <tr>
+    <th style="width:23%">Parameter</th>
+    <th>Description</th>  </tr>  
+  <tr>
+    <td><em>datetime</em></td>
+    <td>Required.&nbsp; The time/datetime to be modified</td>
+  </tr>
+  <tr>
+    <td><em>addtime</em></td>
+    <td>Required. The time interval to add to <em>datetime</em>. Both 
+    positive and negative values are allowed</td>
+  </tr>
+  </table>
+
+<h2>Technical Details</h2>
+<table class="ws-table-all">
+<tr>
+ <th style="width:23%">Works in:</th>
+  <td>From MySQL 4.0</td>
+</tr>
+</table>
+<hr>
+
+<h2>More Examples</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Add 5 seconds and 3 microseconds to a time and return the datetime:</p>
+<div class="w3-code notranslate sqlHigh">
+  SELECT ADDTIME(&quot;2017-06-15 
+  09:34:21.000001&quot;, &quot;5.000003&quot;);</div>
+<a target="_blank" href="trymysqla512.html?filename=trysql_func_mysql_addtime2" class="w3-btn w3-margin-bottom">Try it Yourself &raquo;</a>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Add 2 hours, 10 minutes, 5 seconds, and 3 microseconds to a time and return the datetime:</p>
+<div class="w3-code notranslate sqlHigh">
+  SELECT ADDTIME(&quot;2017-06-15 09:34:21.000001&quot;, &quot;2:10:5.000003&quot;);</div>
+<a target="_blank" href="trymysqlf942.html?filename=trysql_func_mysql_addtime3" class="w3-btn w3-margin-bottom">Try it Yourself &raquo;</a>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Add 5 days, 2 hours, 10 minutes, 5 seconds, and 3 microseconds to a time and return the datetime:</p>
+<div class="w3-code notranslate sqlHigh">
+  SELECT ADDTIME(&quot;2017-06-15 
+  09:34:21.000001&quot;, &quot;5 2:10:5.000003&quot;);</div>
+<a target="_blank" href="trymysql75ad.html?filename=trysql_func_mysql_addtime4" class="w3-btn w3-margin-bottom">Try it Yourself &raquo;</a>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Add 2 hours, 10 minutes, 5 seconds, and 3 microseconds to a time and return the time:</p>
+<div class="w3-code notranslate sqlHigh">
+  SELECT ADDTIME(&quot;09:34:21.000001&quot;, &quot;2:10:5.000003&quot;);</div>
+<a target="_blank" href="trymysql5b05.html?filename=trysql_func_mysql_addtime5" class="w3-btn w3-margin-bottom">Try it Yourself &raquo;</a>
+</div>
+
+<hr>
+<p><a class="w3-btn w3-white w3-border" href="mysql_ref_functions.html" title="MySQL Functions">&#10094; MySQL Functions</a></p>

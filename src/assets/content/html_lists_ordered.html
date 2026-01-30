@@ -1,0 +1,201 @@
+<h1>HTML <span class="color_h1">Ordered Lists</span></h1>
+
+<hr>
+<p class="intro">The HTML <code class="w3-codespan">&lt;ol&gt;</code> tag defines an ordered list. An 
+ordered list can be numerical or alphabetical.</p>
+<hr>
+
+<h2>Ordered HTML List</h2>
+<p>An ordered list starts with the <code class="w3-codespan">&lt;ol&gt;</code> tag. Each list item starts with the <code class="w3-codespan">&lt;li&gt;</code> tag.</p>
+<p>The list items will be marked with numbers by default:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+&lt;ol&gt;<br>
+&nbsp;
+&lt;li&gt;Coffee&lt;/li&gt;<br>&nbsp; &lt;li&gt;Tea&lt;/li&gt;<br>
+&nbsp;
+&lt;li&gt;Milk&lt;/li&gt;<br>
+&lt;/ol&gt;
+</div>
+
+</div>
+
+<hr>
+
+<h2>Ordered HTML List - The Type Attribute</h2>
+<p>The <code class="w3-codespan">type</code> attribute of the <code class="w3-codespan">&lt;ol&gt;</code> tag, defines the type of the 
+list item marker:</p>
+<table class="ws-table-all notranslate">
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>type=&quot;1&quot;</td>
+<td>The list items will be numbered with numbers (default)</td>
+</tr>
+<tr>
+<td>type=&quot;A&quot;</td>
+<td>The list items will be numbered with uppercase letters</td>
+</tr>
+<tr>
+<td>type=&quot;a&quot;</td>
+<td>The list items will be numbered with lowercase letters</td>
+</tr>
+<tr>
+<td>type=&quot;I&quot;</td>
+<td>The list items will be numbered with uppercase roman numbers</td>
+</tr>
+<tr>
+<td>type=&quot;i&quot;</td>
+<td>The list items will be numbered with lowercase roman numbers</td>
+</tr>
+</table>
+
+<hr>
+
+<h3>Numbers</h3>
+<div class="w3-example">
+<h3>Numbers:</h3>
+<div class="w3-code notranslate htmlHigh">
+&lt;ol type=&quot;1&quot;&gt;<br>&nbsp; &lt;li&gt;Coffee&lt;/li&gt;<br>
+&nbsp; &lt;li&gt;Tea&lt;/li&gt;<br>&nbsp; &lt;li&gt;Milk&lt;/li&gt;<br>&lt;/ol&gt;
+</div>
+
+</div>
+
+<hr>
+
+<h3>Uppercase Letters</h3>
+<div class="w3-example">
+<h3>Uppercase Letters:</h3>
+<div class="w3-code notranslate htmlHigh">
+&lt;ol type=&quot;A&quot;&gt;<br>&nbsp; &lt;li&gt;Coffee&lt;/li&gt;<br>
+&nbsp; &lt;li&gt;Tea&lt;/li&gt;<br>&nbsp; &lt;li&gt;Milk&lt;/li&gt;<br>&lt;/ol&gt;
+</div>
+
+</div>
+
+<hr>
+
+<h3>Lowercase Letters</h3>
+<div class="w3-example">
+<h3>Lowercase Letters:</h3>
+<div class="w3-code notranslate htmlHigh">
+&lt;ol type=&quot;a&quot;&gt;<br>&nbsp; &lt;li&gt;Coffee&lt;/li&gt;<br>
+&nbsp; &lt;li&gt;Tea&lt;/li&gt;<br>&nbsp; &lt;li&gt;Milk&lt;/li&gt;<br>&lt;/ol&gt;
+</div>
+
+</div>
+
+<hr>
+
+<h3>Roman Numbers - Uppercase</h3>
+<div class="w3-example">
+<h3>Uppercase Roman Numbers:</h3>
+<div class="w3-code notranslate htmlHigh">
+&lt;ol type=&quot;I&quot;&gt;<br>&nbsp; &lt;li&gt;Coffee&lt;/li&gt;<br>
+&nbsp; &lt;li&gt;Tea&lt;/li&gt;<br>&nbsp; &lt;li&gt;Milk&lt;/li&gt;<br>&lt;/ol&gt;
+</div>
+
+</div>
+
+<hr>
+
+<h3>Roman Numbers - Lowercase</h3>
+<div class="w3-example">
+<h3>Lowercase Roman Numbers:</h3>
+<div class="w3-code notranslate htmlHigh">
+&lt;ol type=&quot;i&quot;&gt;<br>&nbsp; &lt;li&gt;Coffee&lt;/li&gt;<br>
+&nbsp; &lt;li&gt;Tea&lt;/li&gt;<br>&nbsp; &lt;li&gt;Milk&lt;/li&gt;<br>&lt;/ol&gt;
+</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>Control List Counting</h2>
+<p>By default, an ordered list will start counting from 1. If you want to start counting from a specified number, you can use the <code class="w3-codespan">start</code> attribute:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;ol start=&quot;50&quot;&gt;<br>&nbsp; &lt;li&gt;Coffee&lt;/li&gt;<br>&nbsp; &lt;li&gt;Tea&lt;/li&gt;<br>&nbsp; 
+  &lt;li&gt;Milk&lt;/li&gt;<br>&lt;/ol&gt;</div>
+
+</div>
+
+<hr>
+
+<h2>Nested HTML Lists</h2>
+<p>Lists can be nested (list inside list):</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+&lt;ol&gt;<br>&nbsp; &lt;li&gt;Coffee&lt;/li&gt;<br>&nbsp; &lt;li&gt;Tea<br>
+&nbsp; &nbsp; &lt;ol&gt;<br>&nbsp;&nbsp;&nbsp; &nbsp; 
+&lt;li&gt;Black tea&lt;/li&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;li&gt;Green tea&lt;/li&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;/ol&gt;<br>&nbsp; 
+&lt;/li&gt;<br>&nbsp; &lt;li&gt;Milk&lt;/li&gt;<br>&lt;/ol&gt;
+</div>
+
+</div>
+
+<div class="w3-panel ws-note">
+  <p><strong>Note:</strong> A list item (<code class="w3-codespan">&lt;li&gt;</code>) can contain 
+  a new list, and other HTML elements, like images and links, etc.</p>
+</div>
+
+<hr>
+
+<h2>Chapter Summary</h2>
+<ul>
+  <li>Use the HTML <code class="w3-codespan">&lt;ol&gt;</code> element to define an ordered list</li>
+  <li>Use the HTML <code class="w3-codespan">type</code> attribute to define the numbering type</li>
+  <li>Use the HTML <code class="w3-codespan">&lt;li&gt;</code> element to define a list item</li>
+  <li>Lists can be nested</li>
+  <li>List items can contain other HTML elements</li>
+</ul>
+
+<hr>
+
+<hr>
+
+<h2>HTML List Tags</h2>
+<table class="ws-table-all notranslate">
+<tr>
+<th>Tag</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="../tags/tag_ul.html">&lt;ul&gt;</a></td>
+<td>Defines an unordered list</td>
+</tr>
+<tr>
+<td><a href="../tags/tag_ol.html">&lt;ol&gt;</a></td>
+<td>Defines an ordered list</td>
+</tr>
+<tr>
+<td><a href="../tags/tag_li.html">&lt;li&gt;</a></td>
+<td>Defines a list item</td>
+</tr>
+<tr>
+<td><a href="../tags/tag_dl.html">&lt;dl&gt;</a></td>
+<td>Defines a description list</td>
+</tr>
+<tr>
+<td><a href="../tags/tag_dt.html">&lt;dt&gt;</a></td>
+<td>Defines a term in a description list</td>
+</tr>
+<tr>
+<td><a href="../tags/tag_dd.html">&lt;dd&gt;</a></td>
+<td>Describes the term in a description list</td>
+</tr>
+</table>
+<div class="ws-note w3-panel">
+  <p>For a complete list of all available HTML tags, visit our <a href="../tags/default.html">HTML Tag Reference</a>.</p>
+</div>
+
+<br>

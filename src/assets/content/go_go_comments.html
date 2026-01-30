@@ -1,0 +1,126 @@
+<h1>Go Comments</h1>
+
+
+
+<hr>
+
+<h2>Go Comments</h2>
+
+<p>A comment is a text that is ignored upon execution.</p>
+<p>Comments can be used to explain the code, and to make it more readable.</p>
+<p>Comments can also be used to prevent code execution when testing an alternative code.</p>
+<p>Go supports single-line or multi-line comments.</p>
+
+<hr>
+
+<h2>Go Single-line Comments</h2>
+
+<p>Single-line comments start with two forward slashes (<code class="w3-codespan">//</code>).</p>
+<p>Any text between <code class="w3-codespan">//</code> and the end of the line is ignored by the compiler (will not be executed).</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+    <div class="w3-code notranslate javaHigh">
+      <em>// This is a comment</em><br>
+      package main<br>
+      import ("fmt")<br>
+      <br>
+      func main() {<br>
+        &nbsp;&nbsp;<em>// This is a comment</em><br>
+        &nbsp;&nbsp;fmt.Println("Hello World!")<br>
+      }<br>  
+    </div>
+    
+</div>
+
+<p>The following example uses a single-line comment at the end of a code line:</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+    <div class="w3-code notranslate javaHigh">
+      package main<br>
+      import ("fmt")<br>
+      <br>
+      func main() {<br>
+        &nbsp;&nbsp;fmt.Println("Hello World!") <em>// This is a comment</em><br>
+      }<br>  
+    </div>
+    
+</div>
+
+<hr>
+
+<h2>Go Multi-line Comments</h2>
+
+<p>Multi-line comments start with <code class="w3-codespan">/*</code> and ends with <code class="w3-codespan">*/</code>.</p>
+
+<p>Any text between <code class="w3-codespan">/*</code> and <code class="w3-codespan">*/</code> will be ignored by the compiler:</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+    <div class="w3-code notranslate javaHigh">
+      package main<br>
+      import ("fmt")<br>
+      <br>
+      func main() {<br>
+        &nbsp;&nbsp;<em>/* The code below will print Hello World</em><br>
+        &nbsp;&nbsp;<em>to the screen, and it is amazing */</em><br>
+        &nbsp;&nbsp;fmt.Println("Hello World!")<br>
+      }<br>  
+    </div>
+    
+</div>
+
+<div class="w3-panel ws-note">
+  <p><strong>Tip:</strong> It is up to you which you want to use. Normally, we use <code class="w3-codespan">//</code> for short comments, and <code class="w3-codespan">/* */</code> for longer comments.</p>
+</div>
+
+<hr>
+<hr>
+<h2>Comment to Prevent Code Execution</h2>
+
+<p>You can also use comments to prevent the code from being executed. </p>
+
+<p>The commented code can be saved for later reference and troubleshooting.</p>
+
+
+<div class="w3-example">
+  <h3>Example</h3>
+    <div class="w3-code notranslate javaHigh">
+      package main<br>
+      import ("fmt")<br>
+      <br>
+      func main() {<br>
+        &nbsp;&nbsp;fmt.Println("Hello World!")<br>
+        &nbsp;&nbsp;<em>// fmt.Println("This line does not execute")</em><br>
+      }<br>  
+    </div>
+    
+</div>
+<hr>
+
+<div>
+<h2>Go Exercises</h2>
+<form autocomplete="off" spellcheck="false" id="w3-exerciseform" action="https://www.w3schools.com/go/exercise.php?filename=exercise_comments1" method="post" target="_blank">
+<h2>Test Yourself With Exercises</h2>
+<div class="exercisewindow">
+<h2>Exercise:</h2>
+<p>Comments in Go are written with a special character, which one?</p>
+<div class="exerciseprecontainer">
+<pre style="overflow: auto;">
+package main   
+import ("fmt") <br>
+func main() {
+  <input name="ex1" maxlength="2" style="width:25px;"> this is a comment  
+  fmt.Println("Hello World!")
+}
+</pre>
+</div>
+<br>
+<button type="submit" class="w3-btn w3-margin-bottom">Submit Answer &raquo;</button>
+<p><a target="_blank" href="exercise4045.html?filename=exercise_comments1">Start the Exercise</a></p>
+</div>
+</form>
+</div>
+
+<br>

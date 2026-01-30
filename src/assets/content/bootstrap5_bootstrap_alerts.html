@@ -1,0 +1,68 @@
+<h1>Bootstrap 5 <span class="color_h1">Alerts</span></h1>
+
+<hr>
+
+<h2>Alerts</h2>
+<p>Bootstrap 5 provides an easy way to create predefined alert messages:</p>
+
+<iframe src="assets/content/images/trybs_alerts_ifr.html" style="width:100%;border:3px solid #f1f1f1;background-color:#fff;height:300px;padding:20px 10px"></iframe>
+<p>Alerts are created with the <code class="w3-codespan">.alert</code> class, followed by one of the 
+contextual classes <code class="w3-codespan">.alert-success</code>, <code class="w3-codespan">.alert-info</code>, <code class="w3-codespan">.alert-warning</code>, 
+<code class="w3-codespan">.alert-danger</code>, <code class="w3-codespan">.alert-primary</code>, <code class="w3-codespan">.alert-secondary</code>, <code class="w3-codespan">.alert-light</code> or <code class="w3-codespan">.alert-dark</code>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+ &lt;div class=&quot;alert alert-success&quot;&gt;<br>&nbsp; &lt;strong&gt;Success!&lt;/strong&gt; Indicates a successful or positive action.<br>&lt;/div&gt;<br></div>
+
+</div>
+<hr>
+<hr>
+
+<h2>Alert Links</h2>
+<p>Add the <code class="w3-codespan">.alert-link</code> class to any links inside the alert box to create "matching colored links":</p>
+<iframe src="assets/content/images/trybs_alerts_link_ifr.html" style="width:100%;border:3px solid #f1f1f1;background-color:#fff;height:300px;padding:20px 10px"></iframe>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+ &lt;div class=&quot;alert alert-success&quot;&gt;<br>&nbsp; &lt;strong&gt;Success!&lt;/strong&gt; You should &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;read this message&lt;/a&gt;.<br>&lt;/div&gt;<br></div>
+
+</div>
+
+<hr>
+
+<h2>Closing Alerts</h2>
+  <div class="alert alert-success alert-dismissible" id="myAlertdis">
+    <button type="button" class="btn-close" style="cursor:pointer" onclick="document.getElementById('myAlertdis').style.display='none'"></button>
+    <strong>Success!</strong> This alert box could indicate a successful or positive action.
+  </div>
+
+<p>To close the alert message, add a <code class="w3-codespan">.alert-dismissible</code> 
+class to the alert container. Then add <code class="w3-codespan">class="btn-close"</code> and <code class="w3-codespan">data-bs-dismiss=&quot;alert&quot;</code> 
+to a link or a button element (when you click on this the alert box will 
+disappear).</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;div class=&quot;alert alert-success alert-dismissible&quot;&gt;<br>&nbsp; &lt;button 
+  type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;alert&quot;&gt;&lt;/button&gt;<br>&nbsp; 
+  &lt;strong&gt;Success!&lt;/strong&gt; This alert box could indicate a successful or 
+  positive action.<br>&lt;/div&gt;<br></div>
+
+</div>
+
+<hr>
+
+<h2>Animated Alerts</h2>
+
+<p>The <code class="w3-codespan">.fade</code> and <code class="w3-codespan">.show</code> classes adds a fading effect when 
+closing the alert message:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+ &lt;div class=&quot;alert alert-danger 
+  alert-dismissible fade show&quot;&gt;<br></div>
+
+</div>
+<hr>
+
+<br>

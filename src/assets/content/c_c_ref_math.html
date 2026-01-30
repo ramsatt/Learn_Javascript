@@ -1,0 +1,251 @@
+<h1>C <span class="color_h1">math</span> (math.h) Library</h1>
+
+<hr>
+
+<h2>C Math Functions</h2>
+<p>The <code class="w3-codespan">&lt;math.h&gt;</code> library has many functions that allow you to perform mathematical tasks on numbers.</p>
+
+<table class="ws-table-all notranslate">
+  <tr>
+    <th style="width:20%">Function</th>
+    <th style="width:80%">Description</th>
+  </tr>
+  <tr>
+    <td><a href="ref_math_acos.html">acos(x)</a></td>
+    <td>Returns the arccosine of x, in radians</td>
+  </tr>
+  <tr>
+    <td><a href="ref_math_acosh.html">acosh(x)</a></td>
+    <td>Returns the hyperbolic arccosine of x</td>
+  </tr>
+  <tr>
+    <td><a href="ref_math_asin.html">asin(x)</a></td>
+    <td>Returns the arcsine of x, in radians</td>
+  </tr>
+  <tr>
+    <td><a href="ref_math_asinh.html">asinh(x)</a></td>
+    <td>Returns the hyperbolic arcsine of x</td>
+  </tr>
+  <tr>
+    <td><a href="ref_math_atan.html">atan(x)</a></td>
+    <td>Returns the arctangent of x as a numeric value between -PI/2 and PI/2 radians</td>
+  </tr>
+  <tr>
+    <td><a href="ref_math_atan2.html">atan2(y, x)</a></td>
+    <td>Returns the angle theta from the conversion of rectangular coordinates (x, y) to polar coordinates (r, theta)</td>
+  </tr>
+  <tr>
+    <td><a href="ref_math_atanh.html">atanh(x)</a></td>
+    <td>Returns the hyperbolic arctangent of x</td>
+  </tr>
+  <tr>
+    <td><a href="ref_math_cbrt.html">cbrt(x)</a></td>
+    <td>Returns the cube root of x</td>
+  </tr>
+  <tr>
+    <td><a href="ref_math_ceil.html">ceil(x)</a></td>
+    <td>Returns the value of x rounded up to its nearest integer</td>
+  </tr>
+  <tr>
+    <td>copysign(x, y)</td>
+    <td>Returns the first floating point x with the sign of the second floating point y</td>
+  </tr>
+  <tr>
+    <td><a href="ref_math_cos.html">cos(x)</a></td>
+    <td>Returns the cosine of x (x is in radians)</td>
+  </tr>
+  <tr>
+    <td><a href="ref_math_cosh.html">cosh(x)</a></td>
+    <td>Returns the hyperbolic cosine of x</td>
+  </tr>
+  <tr>
+    <td><a href="ref_math_exp.html">exp(x)</a></td>
+    <td>Returns the value of E<sup>x</sup></td>
+  </tr>
+  <tr>
+    <td>exp2(x)</td>
+    <td>Returns the value of 2<sup>x</sup></td>
+  </tr>
+  <tr>
+    <td>expm1(x)</td>
+    <td>Returns e<sup>x</sup>-1</td>
+  </tr>
+  <tr>
+    <td>erf(x)</td>
+    <td>Returns the value of the error function at x</td>
+  </tr>
+  <tr>
+    <td>erfc(x)</td>
+    <td>Returns the value of the complementary error function at x</td>
+  </tr>
+  <tr>
+    <td><a href="ref_math_fabs.html">fabs(x)</a></td>
+    <td>Returns the absolute value of x</td>
+  </tr>
+  <tr>
+    <td>fdim(x)</td>
+    <td>Returns the positive difference between x and y</td>
+  </tr>
+  <tr>
+    <td><a href="ref_math_floor.html">floor(x)</a></td>
+    <td>Returns the value of x rounded down to its nearest integer</td>
+  </tr>
+  <tr>
+    <td><a href="ref_math_fma.html">fma(x, y, z)</a></td>
+    <td>Returns x*y+z without losing precision</td>
+  </tr>
+  <tr>
+    <td><a href="ref_math_fmax.html">fmax(x, y)</a></td>
+    <td>Returns the highest value of a floating x and y</td>
+  </tr>
+  <tr>
+    <td><a href="ref_math_fmin.html">fmin(x, y)</a></td>
+    <td>Returns the lowest value of a floating x and y</td>
+  </tr>
+  <tr>
+    <td><a href="ref_math_fmod.html">fmod(x, y)</a></td>
+    <td>Returns the floating point remainder of x/y</td>
+  </tr>
+  <tr>
+    <td>frexp(x, y)</td>
+    <td>With x expressed as <em>m*2<sup>n</sup></em>, returns the value of <em>m</em> (a value between 0.5 and 1.0) and writes the value of <em>n</em> to the memory at the pointer y</td>
+  </tr>
+  <tr>
+    <td><a href="ref_math_hypot.html">hypot(x, y)</a></td>
+    <td>Returns sqrt(x<sup>2</sup> +y<sup>2</sup>) without intermediate overflow or underflow</td>
+  </tr>
+  <tr>
+    <td>ilogb(x)</td>
+    <td>Returns the integer part of the floating-point base logarithm of x</td>
+  </tr>
+  <tr>
+    <td>ldexp(x, y)</td>
+    <td>Returns x*2<sup>y</sup></td>
+  </tr>
+  <tr>
+    <td>lgamma(x)</td>
+    <td>Returns the logarithm of the absolute value of the gamma function at x</td>
+  </tr>
+  <tr>
+    <td>llrint(x)</td>
+    <td>Rounds x to a nearby integer and returns the result as a long long integer</td>
+  </tr>
+  <tr>
+    <td>llround(x)</td>
+    <td>Rounds x to the nearest integer and returns the result as a long long integer</td>
+  </tr>
+  <tr>
+    <td><a href="ref_math_log.html">log(x)</a></td>
+    <td>Returns the natural logarithm of x</td>
+  </tr>
+  <tr>
+    <td><a href="ref_math_log10.html">log10(x)</a></td>
+    <td>Returns the base 10 logarithm of x</td>
+  </tr>
+  <tr>
+    <td>log1p(x)</td>
+    <td>Returns the natural logarithm of x+1</td>
+  </tr>
+  <tr>
+    <td><a href="ref_math_log2.html">log2(x)</a></td>
+    <td>Returns the base 2 logarithm of the absolute value of x</td>
+  </tr>
+  <tr>
+    <td>logb(x)</td>
+    <td>Returns the floating-point base logarithm of the absolute value of x</td>
+  </tr>
+  <tr>
+    <td>lrint(x)</td>
+    <td>Rounds x to a nearby integer and returns the result as a long integer</td>
+  </tr>
+  <tr>
+    <td>lround(x)</td>
+    <td>Rounds x to the nearest integer and returns the result as a long integer</td>
+  </tr>
+  <tr>
+    <td>modf(x, y)</td>
+    <td>Returns the decimal part of x and writes the integer part to the memory at the pointer y</td>
+  </tr>
+  <tr>
+    <td>nan(s)</td>
+    <td>Returns a NaN (Not a Number) value</td>
+  </tr>
+  <tr>
+    <td>nearbyint(x)</td>
+    <td>Returns x rounded to a nearby integer</td>
+  </tr>
+  <tr>
+    <td>nextafter(x, y)</td>
+    <td>Returns the closest floating point number to x in the direction of y</td>
+  </tr>
+  <tr>
+    <td>nexttoward(x, y)</td>
+    <td>Returns the closest floating point number to x in the direction of y</td>
+  </tr>
+  <tr>
+    <td><a href="ref_math_pow.html">pow(x, y)</a></td>
+    <td>Returns the value of x to the power of y</td>
+  </tr>
+  <tr>
+    <td><a href="ref_math_remainder.html">remainder(x, y)</a></td>
+    <td>Return the remainder of x/y rounded to the nearest integer</td>
+  </tr>
+  <tr>
+    <td>remquo(x, y, z)</td>
+    <td>Calculates x/y rounded to the nearest integer, writes the result to the memory at the pointer z and returns the remainder.</td>
+  </tr>
+  <tr>
+    <td>rint(x)</td>
+    <td>Returns x rounded to a nearby integer</td>
+  </tr>
+  <tr>
+    <td><a href="ref_math_round.html">round(x)</a></td>
+    <td>Returns x rounded to the nearest integer</td>
+  </tr>
+  <tr>
+    <td>scalbln(x, y)</td>
+    <td>Returns x*R<sup>y</sup> (R is usually 2)</td>
+  </tr>
+  <tr>
+    <td>scalbn(x, y)</td>
+    <td>Returns x*R<sup>y</sup> (R is usually 2)</td>
+  </tr>
+  <tr>
+    <td><a href="ref_math_sin.html">sin(x)</a></td>
+    <td>Returns the sine of x (x is in radians)</td>
+  </tr>
+  <tr>
+    <td><a href="ref_math_sinh.html">sinh(x)</a></td>
+    <td>Returns the hyperbolic sine of x</td>
+  </tr>
+  <tr>
+    <td><a href="ref_math_sqrt.html">sqrt(x)</a></td>
+    <td>Returns the square root of x</td>
+  </tr>
+  <tr>
+    <td><a href="ref_math_tan.html">tan(x)</a></td>
+    <td>Returns the tangent of x (x is in radians)</td>
+  </tr>
+  <tr>
+    <td><a href="ref_math_tanh.html">tanh(x)</a></td>
+    <td>Returns the hyperbolic tangent of x</td>
+  </tr>
+  <tr>
+    <td>tgamma(x)</td>
+    <td>Returns the value of the gamma function at x</td>
+  </tr>
+  <tr>
+    <td><a href="ref_math_trunc.html">trunc(x)</a></td>
+    <td>Returns the integer part of x</td>
+  </tr>
+</table>
+<hr>
+
+<h2>Related Pages</h2>
+<p><a href="c_math.html">C Math Tutorial</a></p>
+<p><a href="c_functions.html">C Functions Tutorial</a></p>
+<hr>
+
+
+
+<br>

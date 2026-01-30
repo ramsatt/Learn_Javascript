@@ -1,0 +1,316 @@
+<h1>CSS <span class="color_h1">Forms</span></h1>
+
+<hr>
+
+<h2>CSS Styling Forms</h2>
+<p>CSS is used to style HTML forms. The look of an HTML form can be greatly improved with CSS:</p>
+
+<div style="border-radius:5px;background-color:#f2f2f2;padding:40px;">
+<form action="https://www.w3schools.com/action_page.php" class="test">
+  <label for="fname">First Name</label>
+  <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+  <label for="lname">Last Name</label>
+  <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+  <label for="country">Country</label>
+  <select id="country" name="country">
+    <option value="usa">Australia</option>
+    <option value="usa">Canada</option>
+    <option value="usa">USA</option>
+  </select>
+  
+<a target="_blank" href="tryitdc9e.html?filename=trycss_forms" class="ws-btn w3-block w3-margin-top w3-padding-16">Try it Yourself &raquo;</a>
+</form>
+</div>
+
+<hr>
+
+<h2>Styling Form Input Fields</h2>
+<p>With CSS, you can style most of the different input types, like text fields, 
+password fields, checkboxes, radio buttons, and file inputs. You can also style 
+input labels and form buttons.</p>
+<p>Some commonly used CSS properties for styling input fields, are:</p>
+<ul>
+  <li> <code class="w3-codespan"><a href="../cssref/pr_dim_width.html">width</a></code>
+  </li>
+  <li> <code class="w3-codespan"><a href="../cssref/pr_padding.html">padding</a></code></li>
+  <li> <code class="w3-codespan"><a href="../cssref/pr_margin.html">margin</a></code></li>
+  <li> <code class="w3-codespan"><a href="../cssref/pr_border.html">border</a></code></li>
+  <li> <code class="w3-codespan"><a href="../cssref/css3_pr_border-radius.html">border-radius</a></code></li>
+  <li> <code class="w3-codespan"><a href="../cssref/pr_background-color.html">background-color</a></code></li>
+  <li> <code class="w3-codespan"><a href="../cssref/pr_text_color.html">color</a></code></li>
+  <li> <code class="w3-codespan"><a href="../cssref/pr_font_font-size.html">
+  font-size</a></code></li>
+</ul>
+<hr>
+
+<h2>Style Input Width</h2>
+<p>The <code class="w3-codespan"><a href="../cssref/pr_dim_width.html">width</a></code> property 
+is used to set the width of an input field.</p>
+<p><strong>Tip:</strong> The default width of an HTML input text field, is 20 characters.</p>
+<p>Here we set the width to 100%:</p>
+<label for="fname2">First Name</label>
+<input type="text" id="fname2" name="firstname" style="width:100%;">
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+input
+{<br>
+&nbsp;&nbsp;width: 100%;<br>
+}</div>
+
+</div>
+
+<p>The example above applies to all &lt;input&gt; elements. If you only want to 
+style a specific input type, you can use <a href="css_attribute_selectors.html">attribute selectors</a>:</p>
+<ul>
+<li><code class="w3-codespan">input[type=text]</code> - will only select text fields</li>
+<li><code class="w3-codespan">input[type=password]</code> - will only select password fields</li>
+<li><code class="w3-codespan">input[type=number]</code> - will only select number fields</li>
+<li>etc..</li>
+</ul>
+
+<hr>
+
+<hr>
+
+<h2>Style Input Padding</h2>
+<p>The <code class="w3-codespan"><a href="../cssref/pr_padding.html">padding</a></code> property 
+is used to add some space inside the text field.</p>
+<p><strong>Tip:</strong> When you have several input fields after each other, you might 
+also want to add some <code class="w3-codespan"><a href="../cssref/pr_margin.html">margin</a></code>, to add more space 
+around them:</p>
+<label for="fname3">First Name</label>
+<input type="text" id="fname3" name="firstname" class="inputpadding">
+<label for="lname3">Last Name</label>
+<input type="text" id="lname3" name="lastname" class="inputpadding">
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+input[type=text]
+{<br>
+  &nbsp; width: 100%;<br>&nbsp; padding: 12px;<br>&nbsp; margin: 10px 0;<br>&nbsp; 
+box-sizing: border-box;<br>
+}</div>
+
+</div>
+<div class="w3-panel ws-note">
+  <p>Note that we have set the <code class="w3-codespan">
+  <a href="../cssref/css3_pr_box-sizing.html">box-sizing</a></code> property to 
+<code class="w3-codespan">border-box</code>. This makes sure that the padding and eventually borders are included in the 
+total width and height of the elements. <br>Read more about the <code class="w3-codespan">box-sizing</code> property in our <a href="css3_box-sizing.html">CSS Box Sizing</a> chapter.</p>
+</div>
+
+<hr>
+
+<h2>Style Input Border</h2>
+<p>The <code class="w3-codespan"><a href="../cssref/pr_border.html">border</a></code> property 
+is used to change the border size and color, and 
+the <code class="w3-codespan"><a href="../cssref/css3_pr_border-radius.html">border-radius</a></code> property 
+can be used to add rounded corners:</p>
+
+<label for="fname4">First Name</label>
+<input type="text" id="fname4" name="firstname" class="inputborder">
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+input[type=text]
+{<br>&nbsp;&nbsp;border: 2px solid red;<br>&nbsp; 
+border-radius: 8px;<br>
+}</div>
+
+</div>
+
+<p>If you only want a bottom border, use the <code class="w3-codespan">
+<a href="../cssref/pr_border-bottom.html">border-bottom</a></code> property:</p>
+ <label for="fname7">First Name</label>
+ <input type="text" id="fname7" name="firstname" class="inputborder2">
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+input[type=text]
+{<br>&nbsp;&nbsp;border: none;<br>&nbsp; 
+border-bottom: 1px solid red;<br>
+}</div>
+
+</div>
+
+<hr>
+
+<h2>Style Input Background Color and Color</h2>
+<p>The <code class="w3-codespan"><a href="../cssref/pr_background-color.html">background-color</a></code> property 
+is used to add a background color to the input, and 
+the <code class="w3-codespan"><a href="../cssref/pr_text_color.html">color</a></code> property 
+is used to change the text color:</p>
+
+<input type="text" value="John" name="firstname" class="inputcolor">
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+input[type=text]
+{<br>&nbsp;&nbsp;background-color: #3CBC8D;<br>&nbsp; color: white;<br>
+}</div>
+
+</div>
+
+<hr>
+
+<h2>Style Input with Focus</h2>
+<p>By default, some browsers will add a blue outline around the input when it gets 
+focus (clicked on). You can remove this behavior by adding <code class="w3-codespan">
+<a href="../cssref/pr_outline.html">outline: none;</a></code> to the input.</p>
+<p>Use the <code class="w3-codespan"><a href="../cssref/sel_focus.html">:focus</a></code> selector to do something with the input field when it gets focus:</p>
+
+<div class="w3-row-padding" style="margin-left:-16px;margin-right:-16px;">
+<div class="w3-half">
+<input class="focus1" type="text" name="firstname">
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+input[type=text]:focus
+{<br>
+&nbsp;&nbsp;background-color: lightblue;<br>
+}</div>
+
+</div>
+</div>
+<div class="w3-half">
+<input class="focus2" type="text" name="firstname">
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+input[type=text]:focus
+{<br>
+&nbsp;&nbsp;border: 3px solid #555;<br>
+}</div>
+
+</div>
+</div>
+</div>
+
+<hr>
+
+<h2>Style Input with icon/image</h2>
+<p>If you want an icon inside the input, use the <code class="w3-codespan">
+<a href="../cssref/pr_background-image.html">background-image</a></code> property and 
+position it with the <code class="w3-codespan">
+<a href="../cssref/pr_background-position.html">background-position</a></code> property. Also notice that we 
+add a 
+large left padding to reserve the space of the icon:</p>
+
+<input type="text" name="search" placeholder="Search.." class="icon">
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+input[type=text]
+{<br>&nbsp; background-color: white;<br>&nbsp; background-image: url('searchicon.png');<br>&nbsp; 
+background-position: 10px 10px; <br>&nbsp; background-repeat: 
+no-repeat;<br>&nbsp; 
+padding-left: 40px;<br>
+}</div>
+
+</div>
+
+<hr>
+
+<h2>Animated Search Input</h2>
+<p>In this example we use the CSS <code class="w3-codespan">
+<a href="../cssref/css3_pr_transition.html">transition</a></code> property to animate 
+the width of the search input when it gets focus. You will learn more about the <code class="w3-codespan">
+<a href="../cssref/css3_pr_transition.html">transition</a></code> property later, in our <a href="css3_transitions.html">CSS Transitions</a> chapter.</p>
+
+<input id="myInp" type="text" name="search" placeholder="Search..">
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+input[type=text] {<br>&nbsp; transition: width 0.4s ease-in-out;<br>}<br><br>input[type=text]:focus {<br>
+  &nbsp; 
+width: 100%;<br>}</div>
+
+</div>
+
+<hr>
+
+<h2>Style Textarea</h2>
+<p>By default, a &lt;textarea&gt; can be resized with a &quot;grabber&quot; in the bottom right 
+corner. To remove the grabber, set the <code class="w3-codespan">
+<a href="../cssref/css3_pr_resize.html">resize</a></code> property to <code class="w3-codespan">
+none</code>:</p>
+<textarea name="firstname" style="background-color:#f8f8f8;width:100%;padding: 12px 20px;resize:none;height:150px;box-sizing: border-box;border:2px solid #ccc;border-radius:4px;">
+Some text...
+</textarea>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+textarea
+{<br>&nbsp; width: 100%;<br>&nbsp; height: 150px;<br>&nbsp; padding: 12px 20px;<br>&nbsp; 
+box-sizing: border-box;<br>&nbsp; border: 2px solid #ccc;<br>&nbsp; 
+border-radius: 4px;<br>&nbsp; background-color: #f8f8f8;<br>&nbsp; resize: none;<br>
+}</div>
+
+</div>
+
+<hr>
+
+<h2>Style a Dropdown Menu</h2>
+<form class="test">
+  <select id="country" name="country" style="background-color:#f1f1f1;border:none;">
+    <option value="usa">Australia</option>
+    <option value="usa">Canada</option>
+    <option value="usa">USA</option>
+  </select>
+</form>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+select
+{<br>&nbsp; width: 100%;<br>&nbsp; padding: 16px 20px;<br>&nbsp; 
+border: none;<br>&nbsp; border-radius: 4px;<br>&nbsp;&nbsp;background-color: #f1f1f1;<br>
+}</div>
+
+</div>
+
+<hr>
+
+<h2>Style Form Buttons</h2>
+<p>Form buttons of type &quot;button&quot;, &quot;submit&quot; and &quot;reset&quot; can also be styled with 
+CSS:</p>
+
+<input type="button" value="Button" class="button" style="cursor: pointer;">
+<input type="button" value="Button" class="button" style="width:100%;cursor: pointer;">
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+input[type=button], input[type=submit], input[type=reset]
+{<br>&nbsp; background-color: #04AA6D;<br>&nbsp; border: 
+none;<br>&nbsp; color: white;<br>&nbsp; padding: 
+16px 32px;<br>&nbsp; text-decoration: none;<br>&nbsp; 
+margin: 4px 2px;<br>&nbsp; cursor: pointer;<br>
+}<br><br>/* Tip: use <strong>width: 100%</strong> for full-width buttons */</div>
+
+</div>
+
+<p><strong>Tip:</strong> For more information about how to style buttons, read our <a href="css3_buttons.html">CSS Buttons Tutorial</a>.</p>
+<hr>
+
+<h2>CSS Responsive Form</h2>
+<p>The following example uses <a href="css3_mediaqueries.html">CSS media queries</a> to create a responsive form. You will learn more about 
+media queries in a later chapter.</p>
+<p>When the screen is less than 600px wide, we make the labels and input fields stack on top of each other, instead of next to each other.</p>
+<p>Resize the screen to see the form layout change!</p>
+<a target="_blank" href="tryit4694.html?filename=trycss_form_responsive" class="ws-btn w3-margin-bottom">Try it Yourself &raquo;</a>
+<iframe src="assets/content/images/trycss_form_responsive_ifr.html" style="margin-left:-8px;border:none;width:100%;height:535px;"></iframe>
+<hr>
+
+<hr>
+<br>

@@ -1,0 +1,186 @@
+<h1>Bubble Sort with Python</h1>
+
+<hr>
+
+<h2>Bubble Sort</h2>
+<p>Bubble Sort is an algorithm that sorts an array from the lowest value to the highest value.</p>
+<div id="vueApp">
+<br>
+    <button @click="action" :disabled="btnIsDisabled">{{ buttonText }}</button> {{ msgDone }}
+    <br>
+    <div class="frameDiv">
+      <transition-group>
+        <div v-for="x in dice" 
+          :key="x.keyNmbr" 
+          class="diceDiv" 
+          :class="{ 
+            'diceDiv-swapped': x.isSwapped, 
+            'diceDiv-finished': x.isFinished 
+          }" 
+          :style="{
+            height: x.dieNmbr + 'px',
+            transition: 'all ' + delay
+          }"
+        >
+          
+        </div>
+      </transition-group>
+      <div class="diceDiv" id="ghostDiv"></div>
+    </div>
+</div>
+
+<p>Run the simulation to see how it looks like when the Bubble Sort algorithm sorts an array of values. Each value in the array is represented by a column.</p>
+<p>The word 'Bubble' comes from how this algorithm works, it makes the highest values 'bubble up'.</p>
+<div class="ws-info">
+  <p><strong>How it works:</strong></p>
+  <ol>
+    <li>Go through the array, one value at a time.</li>
+    <li>For each value, compare the value with the next value.</li>
+    <li>If the value is higher than the next one, swap the values so that the highest value comes last.</li>
+    <li>Go through the array as many times as there are values in the array.</li>
+  </ol>
+</div>
+
+<hr>
+
+<h2>Manual Run Through</h2>
+<p>Before we implement the Bubble Sort algorithm in a programming language, let's manually run through a short array only one time, just to get the idea.</p>
+<p><strong>Step 1:</strong> We start with an unsorted array.</p>
+<div class="w3-code notranslate">
+  <code class="language-python w3-white">[7, 12, 9, 11, 3]</code>
+</div>
+<hr>
+<p><strong>Step 2:</strong> We look at the two first values. Does the lowest value come first? Yes, so we don't need to swap them.</p>
+<div class="w3-code notranslate">
+  <code class="language-python w3-white">[<mark class="dsa_mark">7, 12,</mark> 9, 11, 3]</code>
+</div>
+<hr>
+<p><strong>Step 3:</strong> Take one step forward and look at values 12 and 9. Does the lowest value come first? No.</p>
+<div class="w3-code notranslate">
+  <code class="language-python w3-white">[7, <mark class="dsa_mark">12, 9,</mark> 11, 3]</code>
+</div>
+<hr>
+<p><strong>Step 4:</strong> So we need to swap them so that 9 comes first.</p>
+<div class="w3-code notranslate">
+  <code class="language-python w3-white">[7, <mark class="dsa_mark">9, 12,</mark> 11, 3]</code>
+</div>
+<hr>
+<p><strong>Step 5:</strong> Taking one step forward, looking at 12 and 11.</p>
+<div class="w3-code notranslate">
+  <code class="language-python w3-white">[7, 9, <mark class="dsa_mark">12, 11,</mark> 3]</code>
+</div>
+<hr>
+<p><strong>Step 6:</strong> We must swap so that 11 comes before 12.</p>
+<div class="w3-code notranslate">
+  <code class="language-python w3-white">[7, 9, <mark class="dsa_mark">11, 12,</mark> 3]</code>
+</div>
+<hr>
+<p><strong>Step 7:</strong> Looking at 12 and 3, do we need to swap them? Yes.</p>
+<div class="w3-code notranslate">
+  <code class="language-python w3-white">[7, 9, 11, <mark class="dsa_mark">12, 3</mark>]</code>
+</div>
+<hr>
+<p><strong>Step 8:</strong> Swapping 12 and 3 so that 3 comes first.</p>
+<div class="w3-code notranslate">
+  <code class="language-python w3-white">[7, 9, 11, <mark class="dsa_mark">3, 12</mark>]</code>
+</div>
+<hr>
+<p>Repeat until no more swaps are needed and you will get a sorted array:</p>
+<div id="vueApp4">
+
+  <button @click="action" :disabled="btnIsDisabled">{{ buttonText }}</button> {{ msgDone }}
+  <div class="frameDiv">
+    [
+    <transition-group>
+      <div v-for="(x, index) in dice" 
+        :key="x.keyNmbr" 
+        class="diceDiv2"
+        :class="{ 
+          'diceDiv2-swapped': x.isSwapped 
+        }" 
+        :style="{
+          transition: 'all ' + delay
+        }"
+      >
+      {{ x.dieNmbr }}<template v-if="index < dice.length - 1">,</template>
+      </div>
+    </transition-group>
+    ]
+  </div>
+</div>
+
+<hr>
+
+<h2>Implement Bubble Sort in Python</h2>
+<p>To implement the Bubble Sort algorithm in Python, we need:</p>
+<ol>
+  <li>An array with values to sort.</li>
+  <li>An inner loop that goes through the array and swaps values if the first value is higher than the next value. This loop must loop through one less value each time it runs.</li>
+  <li>An outer loop that controls how many times the inner loop must run. For an array with n values, this outer loop must run n-1 times.</li>
+</ol>
+
+<p>The resulting code looks like this:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Create a Bubble Sort algorithm in Python:</p>
+<div class="w3-code notranslate pythonHigh">
+mylist = [64, 34, 25, 12, 22, 11, 90, 5]<br>
+<br>
+n = len(mylist)<br>
+for i in range(n-1):<br>
+&nbsp;&nbsp;for j in range(n-i-1):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if mylist[j] > mylist[j+1]:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mylist[j], mylist[j+1] = mylist[j+1], mylist[j]<br>
+<br>
+print(mylist)
+</div>
+<a class="w3-btn w3-margin-bottom" href="trypython8c31.html?filename=demo_dsa_bubblesort" target="_blank">Run Example »</a>
+</div>
+
+<hr>
+
+<h2>Bubble Sort Improvement</h2>
+<p>The Bubble Sort algorithm can be improved a little bit more.</p>
+<p>Imagine that the array is almost sorted already, with the lowest numbers at the start, like this for example:</p>
+<div class="w3-example">
+<div class="w3-code notranslate pythonHigh">
+mylist = [7, 3, 9, 12, 11]<br>
+</div>
+</div>
+
+<p>In this case, the array will be sorted after the first run, but the Bubble Sort algorithm will continue to run, without swapping elements, and that is not necessary.</p>
+<p>If the algorithm goes through the array one time without swapping any values, the array must be finished sorted, and we can stop the algorithm, like this:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Improved Bubble Sort algorithm:</p>
+<div class="w3-code notranslate pythonHigh">
+mylist = [7, 3, 9, 12, 11]<br>
+<br>
+n = len(mylist)<br>
+for i in range(n-1):<br>
+&nbsp;&nbsp;swapped = False<br>
+&nbsp;&nbsp;for j in range(n-i-1):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if mylist[j] > mylist[j+1]:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mylist[j], mylist[j+1] = mylist[j+1], mylist[j]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;swapped = True<br>
+&nbsp;&nbsp;if not swapped:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;break<br>
+<br>
+print(mylist)
+</div>
+<a class="w3-btn w3-margin-bottom" href="trypython4343.html?filename=demo_dsa_bubblesort2" target="_blank">Run Example »</a>
+</div>
+
+<hr>
+  
+<h2>Bubble Sort Time Complexity</h2>
+<p>The Bubble Sort algorithm loops through every value in the array, comparing it to the value next to it. So for an array of \(n\) values, there must be \(n\) such comparisons in one loop.</p>
+<p>And after one loop, the array is looped through again and again \(n\) times.</p>
+<p>This means there are \(n \cdot n\) comparisons done in total, so the time complexity for Bubble Sort is: \( O(n^2) \)</p>
+<p>The graph describing the Bubble Sort time complexity looks like this:</p>
+<img src="assets/content/images/img_runtime_bubbleSort.png" alt="Bubble Sort time complexity">
+<p>As you can see, the run time increases really fast when the size of the array is increased.</p>
+<p>Luckily there are sorting algorithms that are faster than this, like <a href="python_dsa_quicksort.html">Quicksort</a>, that we will look at later.</p>
+<hr>

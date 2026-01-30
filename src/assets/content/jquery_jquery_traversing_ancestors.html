@@ -1,0 +1,87 @@
+<h1>jQuery Traversing - <span class="color_h1">Ancestors</span></h1>
+
+<hr>
+<p class="intro">With jQuery you can traverse up the DOM tree to 
+find ancestors of an element.</p>
+<p class="intro">An ancestor is a parent, grandparent, great-grandparent, and so 
+on.</p>
+<hr>
+<h2>Traversing Up the DOM Tree</h2>
+<p>Three useful jQuery methods for traversing up the DOM tree are:</p>
+<ul>
+  <li><code class="w3-codespan">parent()</code></li>
+  <li><code class="w3-codespan">parents()</code></li>
+  <li><code class="w3-codespan">parentsUntil()</code></li>
+</ul>
+<hr>
+<h2>jQuery parent() Method</h2>
+<p>The <code class="w3-codespan">parent()</code> method returns the direct parent element of the selected element.</p>
+<p>This method only traverse a single level up the DOM tree.</p>
+<p>The following example returns the direct parent element of each <code class="w3-codespan">&lt;span&gt;</code> 
+elements:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+ $(document).ready(function(){<br>&nbsp;&nbsp;$(&quot;span&quot;).parent();<br>}); </div>
+
+</div>
+<hr>
+
+<hr>
+<h2>jQuery parents() Method</h2>
+<p>The <code class="w3-codespan">parents()</code> method returns all ancestor elements of the selected element, 
+all the way up to the document's root element (<code class="w3-codespan">&lt;html&gt;</code>).</p>
+<p>The following example returns all ancestors of all 
+<code class="w3-codespan">&lt;span&gt;</code> elements:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+ $(document).ready(function(){<br>&nbsp;&nbsp;$(&quot;span&quot;).parents();<br>}); </div>
+
+</div>
+<p>You can also use an optional parameter to filter the search for ancestors.</p>
+<p>The following example returns all ancestors of all <code class="w3-codespan">&lt;span&gt;</code> elements that are <code class="w3-codespan">&lt;ul&gt;</code> 
+elements:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+ $(document).ready(function(){<br>&nbsp; $(&quot;span&quot;).parents(&quot;ul&quot;);<br>}); </div>
+
+</div>
+<hr>
+<h2>jQuery parentsUntil() Method</h2>
+<p>The <code class="w3-codespan">parentsUntil()</code> method returns all ancestor elements between two given 
+arguments.</p>
+<p>The following example returns all&nbsp;ancestor elements 
+between a <code class="w3-codespan">&lt;span&gt;</code> and a <code class="w3-codespan">&lt;div&gt;</code> element:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+ $(document).ready(function(){<br>&nbsp; $(&quot;span&quot;).parentsUntil(&quot;div&quot;);<br>}); </div>
+
+</div>
+<hr>
+
+<h2>jQuery Exercises</h2>
+<form autocomplete="off" id="w3-exerciseform" action="https://www.w3schools.com/jquery/exercise_jq.asp?filename=exercise_jq_traversing1" method="post" target="_blank">
+<h2>Test Yourself With Exercises</h2>
+<div class="exercisewindow">
+<h2>Exercise:</h2>
+<p>Use a jQuery method to get the direct parent of a &lt;span&gt; element.</p>
+<div class="exerciseprecontainer">
+<pre style="background-color:transparent;border:none;">
+$("span").<input name="ex1" maxlength="6" style="width:65px;">();
+</pre>
+</div>
+<br>
+<button type="submit" class="w3-btn w3-margin-bottom">Submit Answer &raquo;</button>
+<p><a target="_blank" href="exercise_jqe11a.html?filename=exercise_jq_traversing1">Start the Exercise</a></p>
+</div>
+</form>
+<hr>
+
+<h2>jQuery Traversing Reference</h2>
+<p>For a complete overview of all jQuery Traversing methods, please go to our
+<a href="jquery_ref_traversing.html">jQuery Traversing Reference</a>.</p>
+<br>

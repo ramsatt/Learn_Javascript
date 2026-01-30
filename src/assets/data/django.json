@@ -1,0 +1,127 @@
+[
+  {
+    "title": "Django Tutorial",
+    "items": [
+      {
+        "title": "Members",
+        "file": "django_demo_add_css_to_project.html"
+      },
+      {
+        "title": "Members",
+        "file": "django_demo_add_css_to_project2.html"
+      },
+      {
+        "title": "Members",
+        "file": "django_demo_add_link_details.html"
+      },
+      {
+        "title": "My Tennis Club",
+        "file": "django_demo_add_main.html"
+      },
+      {
+        "title": "Demo index",
+        "file": "django_demo_django_index.html"
+      },
+      {
+        "title": "Members",
+        "file": "django_demo_link_to_home.html"
+      },
+      {
+        "title": "Emil Refsnes",
+        "file": "django_demo_master_details1.html"
+      },
+      {
+        "title": "Members",
+        "file": "django_demo_master_index.html"
+      },
+      {
+        "title": "Members",
+        "file": "django_demo_prepare.html"
+      },
+      {
+        "title": "Demo queryset filter or",
+        "file": "django_demo_queryset_filter_or.html"
+      },
+      {
+        "title": "Demo queryset filter q",
+        "file": "django_demo_queryset_filter_q.html"
+      },
+      {
+        "title": "Demo queryset filter startswith",
+        "file": "django_demo_queryset_filter_startswith.html"
+      },
+      {
+        "title": "Demo queryset filter",
+        "file": "django_demo_queryset_filter.html"
+      },
+      {
+        "title": "Demo queryset get",
+        "file": "django_demo_queryset_get.html"
+      },
+      {
+        "title": "Demo queryset get2",
+        "file": "django_demo_queryset_get2.html"
+      },
+      {
+        "title": "Demo queryset get3",
+        "file": "django_demo_queryset_get3.html"
+      },
+      {
+        "title": "Demo queryset orderby",
+        "file": "django_demo_queryset_orderby.html"
+      },
+      {
+        "title": "Demo queryset orderby2",
+        "file": "django_demo_queryset_orderby2.html"
+      },
+      {
+        "title": "Demo queryset orderby3",
+        "file": "django_demo_queryset_orderby3.html"
+      },
+      {
+        "title": "Demo queryset",
+        "file": "django_demo_queryset.html"
+      },
+      {
+        "title": "Apple",
+        "file": "django_demo_static_css_global.html"
+      },
+      {
+        "title": "Apple",
+        "file": "django_demo_static_css.html"
+      },
+      {
+        "title": "Hello <i>my</i> World!",
+        "file": "django_demo_tags_autoescape_off.html"
+      },
+      {
+        "title": "Hello &lt;i&gt;my&lt;/i&gt; World!",
+        "file": "django_demo_tags_autoescape_on.html"
+      },
+      {
+        "title": "Welcome",
+        "file": "django_demo_tags_block.html"
+      },
+      {
+        "title": "Welcome",
+        "file": "django_demo_tags_block2.html"
+      },
+      {
+        "title": "Welcome Everyone!",
+        "file": "django_demo_tags_comment.html"
+      },
+      {
+        "title": "Welcome Everyone!",
+        "file": "django_demo_tags_comment2.html"
+      },
+      {
+        "title": "Demo tags cycle",
+        "file": "django_demo_tags_cycle.html"
+      },
+      {
+        "title": "Demo tags cycle2",
+        "file": "django_demo_tags_cycle2.html"
+      }
+    ]
+  }
+]

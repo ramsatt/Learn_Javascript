@@ -1,0 +1,304 @@
+<h1>SQL <span class="color_h1">INSERT INTO</span> Statement</h1>
+
+
+<hr>
+<h2>The SQL INSERT INTO Statement</h2>
+<p>The <code class="w3-codespan">INSERT INTO</code> statement is used to insert new records in a table.</p>
+
+<h3>INSERT INTO Syntax</h3>
+<p>It is possible to write the <code class="w3-codespan">INSERT INTO</code> 
+statement in two ways:</p>
+
+<p>1. Specify both the column names and the values to be inserted:</p>
+<div class="w3-example ws-light-grey">
+<p><code class="sqlHigh">
+INSERT INTO <em>table_name</em> (<em>column1</em>,<em> column2</em>,<em> column3</em>, ...)<br>
+VALUES (<em>value1</em>,<em> value2</em>,<em> value3</em>, ...);</code></p>
+</div>
+
+<p>2. If you are adding values for all the columns of the table, you do not need to 
+specify the column names in the SQL query. However, make sure the order of the 
+values is in the same order as the columns in the table. Here, the <code class="w3-codespan">
+INSERT INTO</code> syntax 
+would be as follows:</p>
+<div class="w3-example ws-light-grey">
+<p><code class="sqlHigh">
+INSERT INTO <em>table_name</em><br>
+VALUES (<em>value1</em>,<em> value2</em>,<em> value3</em>, ...);</code></p>
+</div>
+
+<hr>
+
+<h2>Demo Database</h2>
+<p>Below is a selection from the <a href="trysql734a.html?filename=trysql_customers" target="_blank"><strong>Customers</strong></a> table used in the examples:</p>
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+  <tr>
+    <th>CustomerID</th>
+    <th>CustomerName</th>
+    <th>ContactName</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>PostalCode</th>
+    <th>Country</th>
+  </tr>
+  <tr>
+    <td>89</td>
+    <td>White Clover Markets</td>
+    <td>Karl Jablonski</td>
+    <td>305 - 14th Ave. S. Suite 3B</td>
+    <td>Seattle</td>
+    <td>98128</td>
+    <td>USA</td>
+  </tr>
+  <tr>
+    <td>90<br><br></td>
+    <td>Wilman Kala</td>
+    <td>Matti Karttunen</td>
+    <td>Keskuskatu 45</td>
+    <td>Helsinki</td>
+    <td>21240</td>
+    <td>Finland</td>
+  </tr>
+  <tr>
+    <td>91<br><br></td>
+    <td>Wolski</td>
+    <td>Zbyszek</td>
+    <td>ul. Filtrowa 68</td>
+    <td>Walla</td>
+    <td>01-012</td>
+    <td>Poland</td>
+  </tr>
+</table>
+</div>
+<hr>
+
+<hr>
+
+<h2>INSERT INTO Example</h2>
+<p>The following SQL statement inserts a new record in the &quot;Customers&quot; table:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Country)<br>
+VALUES ('Cardinal', 'Tom B. Erichsen', 'Skagen 21', 'Stavanger', '4006', 'Norway');
+</div>
+</div>
+
+<p>The selection from the &quot;Customers&quot; table will now look like this:</p>
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+  <tr>
+    <th>CustomerID</th>
+    <th>CustomerName</th>
+    <th>ContactName</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>PostalCode</th>
+    <th>Country</th>
+  </tr>
+  <tr>
+    <td>89</td>
+    <td>White Clover Markets</td>
+    <td>Karl Jablonski</td>
+    <td>305 - 14th Ave. S. Suite 3B</td>
+    <td>Seattle</td>
+    <td>98128</td>
+    <td>USA</td>
+  </tr>
+  <tr>
+    <td>90<br><br></td>
+    <td>Wilman Kala</td>
+    <td>Matti Karttunen</td>
+    <td>Keskuskatu 45</td>
+    <td>Helsinki</td>
+    <td>21240</td>
+    <td>Finland</td>
+  </tr>
+  <tr>
+    <td>91<br><br></td>
+    <td>Wolski</td>
+    <td>Zbyszek</td>
+    <td>ul. Filtrowa 68</td>
+    <td>Walla</td>
+    <td>01-012</td>
+    <td>Poland</td>
+  </tr>
+  <tr>
+    <td>92</td>
+    <td>Cardinal</td>
+    <td>Tom B. Erichsen</td>
+    <td>Skagen 21</td>
+    <td>Stavanger</td>
+    <td>4006</td>
+    <td>Norway</td>
+  </tr>
+</table>
+</div>
+
+<div class="w3-panel ws-note">
+<p><strong>Did you notice that we did not insert any number into the CustomerID 
+field?</strong><br>The CustomerID column is 
+an <a href="sql_autoincrement.html">auto-increment</a> field and will be 
+generated automatically when a new record is inserted into the table.</p>
+</div>
+
+<hr>
+
+<h2>Insert Data Only in Specified Columns</h2>
+<p>It is also possible to only insert data in specific columns.</p>
+<p>The following SQL statement will insert a new record, but only insert data in the &quot;CustomerName&quot;, 
+&quot;City&quot;, and &quot;Country&quot; columns (CustomerID will 
+be updated automatically):</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+INSERT INTO Customers (CustomerName, City, Country)<br>
+VALUES ('Cardinal', 'Stavanger', 'Norway');
+</div>
+</div>
+
+<p>The selection from the &quot;Customers&quot; table will now look like this:</p>
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+  <tr>
+    <th>CustomerID</th>
+    <th>CustomerName</th>
+    <th>ContactName</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>PostalCode</th>
+    <th>Country</th>
+  </tr>
+  <tr>
+    <td>89</td>
+    <td>White Clover Markets</td>
+    <td>Karl Jablonski</td>
+    <td>305 - 14th Ave. S. Suite 3B</td>
+    <td>Seattle</td>
+    <td>98128</td>
+    <td>USA</td>
+  </tr>
+  <tr>
+    <td>90<br><br></td>
+    <td>Wilman Kala</td>
+    <td>Matti Karttunen</td>
+    <td>Keskuskatu 45</td>
+    <td>Helsinki</td>
+    <td>21240</td>
+    <td>Finland</td>
+  </tr>
+  <tr>
+    <td>91<br><br></td>
+    <td>Wolski</td>
+    <td>Zbyszek</td>
+    <td>ul. Filtrowa 68</td>
+    <td>Walla</td>
+    <td>01-012</td>
+    <td>Poland</td>
+  </tr>
+  <tr>
+    <td>92</td>
+    <td>Cardinal</td>
+    <td>null</td>
+    <td>null&nbsp;</td>
+    <td>Stavanger</td>
+    <td>null</td>
+    <td>Norway</td>
+  </tr>
+</table>
+</div>
+
+<hr>
+
+<h2>Insert Multiple Rows</h2>
+<p>It is also possible to insert multiple rows in one statement.</p>
+
+<p>To insert multiple rows of data, we use the same <code class="w3-codespan">INSERT INTO</code> statement, but with multiple values:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Country)<br>
+VALUES<br>
+('Cardinal', 'Tom B. Erichsen', 'Skagen 21', 'Stavanger', '4006', 'Norway'),<br>
+('Greasy Burger', 'Per Olsen', 'Gateveien 15', 'Sandnes', '4306', 'Norway'),<br>
+('Tasty Tee', 'Finn Egan', 'Streetroad 19B', 'Liverpool', 'L1 0AA', 'UK');
+</div>
+</div>
+
+<p>Make sure you separate each set of values with a comma <code class="w3-codespan">,</code>.</p>
+
+<p>The selection from the &quot;Customers&quot; table will now look like this:</p>
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+  <tr>
+    <th>CustomerID</th>
+    <th>CustomerName</th>
+    <th>ContactName</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>PostalCode</th>
+    <th>Country</th>
+  </tr>
+  <tr>
+    <td>89</td>
+    <td>White Clover Markets</td>
+    <td>Karl Jablonski</td>
+    <td>305 - 14th Ave. S. Suite 3B</td>
+    <td>Seattle</td>
+    <td>98128</td>
+    <td>USA</td>
+  </tr>
+  <tr>
+    <td>90<br><br></td>
+    <td>Wilman Kala</td>
+    <td>Matti Karttunen</td>
+    <td>Keskuskatu 45</td>
+    <td>Helsinki</td>
+    <td>21240</td>
+    <td>Finland</td>
+  </tr>
+  <tr>
+    <td>91<br><br></td>
+    <td>Wolski</td>
+    <td>Zbyszek</td>
+    <td>ul. Filtrowa 68</td>
+    <td>Walla</td>
+    <td>01-012</td>
+    <td>Poland</td>
+  </tr>
+  <tr>
+    <td>92</td>
+    <td>Cardinal</td>
+    <td>Tom B. Erichsen</td>
+    <td>Skagen 21</td>
+    <td>Stavanger</td>
+    <td>4006</td>
+    <td>Norway</td>
+  </tr>
+  <tr>
+    <td>93</td>
+    <td>Greasy Burger</td>
+    <td>Per Olsen</td>
+    <td>Gateveien 15</td>
+    <td>Sandnes</td>
+    <td>4306</td>
+    <td>Norway</td>
+  </tr>
+  <tr>
+    <td>94</td>
+    <td>Tasty Tee</td>
+    <td>Finn Egan</td>
+    <td>Streetroad 19B</td>
+    <td>Liverpool</td>
+    <td>L1 0AA</td>
+    <td>UK</td>
+  </tr>
+</table>
+</div>
+
+<hr>
+
+<hr>

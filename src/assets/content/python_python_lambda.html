@@ -1,0 +1,183 @@
+<h1>Python <span class="color_h1">Lambda</span></h1>
+
+<hr>
+
+<h2>Lambda Functions</h2>
+<p>A lambda function is a small anonymous function.</p>
+<p>A lambda function can take any number of arguments, but can only have one expression.</p>
+<hr>
+
+<h2>Syntax</h2>
+<div class="w3-code w3-border notranslate">
+lambda <em>arguments </em>: <em>expression</em>
+</div>
+
+<p>The expression is executed and the result is returned:</p>
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Add 10 to argument <code class="w3-codespan">a</code>, and 
+  return the result:</p>
+<div class="w3-code notranslate pythonHigh">
+  x = lambda a : a + 10<br>print(x(5))</div>
+
+</div>
+
+<p>Lambda functions can take any number of arguments:</p>
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Multiply argument <code class="w3-codespan">a</code> with argument 
+  <code class="w3-codespan">b</code> and return the 
+  result:</p>
+<div class="w3-code notranslate pythonHigh">
+  x = lambda a, b : a * b<br>print(x(5, 6))</div>
+
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Summarize argument <code class="w3-codespan">a</code>, 
+  <code class="w3-codespan">b</code>, and <code class="w3-codespan">c</code> and 
+  return the 
+  result:</p>
+<div class="w3-code notranslate pythonHigh">
+  x = lambda a, b, c : a + b + c<br>print(x(5, 6, 
+  2))</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>Why Use Lambda Functions?</h2>
+
+<p>The power of lambda is better shown when you use them as an anonymous 
+function inside another function.</p>
+<p>Say you have a function definition that takes one argument, and that argument 
+will be multiplied with an unknown number:</p>
+
+<div class="w3-example">
+<div class="w3-code notranslate pythonHigh">
+def myfunc(n):<br>
+&nbsp;&nbsp;return lambda a : a * n
+</div>
+</div>
+
+<p>Use that function definition to make a function that always doubles the 
+number you send in:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate pythonHigh">
+def myfunc(n):<br>
+&nbsp;&nbsp;return lambda a : a * n<br>
+<br>
+  mydoubler = myfunc(2)<br>
+  <br>print(mydoubler(11))
+</div>
+
+</div>
+
+<p>Or, use the same function definition to make a function that always <em>triples</em> the 
+number you send in:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate pythonHigh">
+def myfunc(n):<br>
+&nbsp;&nbsp;return lambda a : a * n<br>
+<br>
+  mytripler = myfunc(3)<br>
+  <br>print(mytripler(11))
+</div>
+
+</div>
+
+<p>Or, use the same function definition to make both functions, in the same 
+program:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate pythonHigh">
+def myfunc(n):<br>
+&nbsp;&nbsp;return lambda a : a * n<br>
+<br>
+  mydoubler = myfunc(2)<br>mytripler = myfunc(3)<br>
+  <br>print(mydoubler(11))<br>print(mytripler(11))
+</div>
+
+</div>
+
+<div class="w3-panel ws-note">
+  <p>Use lambda functions when an anonymous function is required for a short period of time.</p>
+</div>
+
+
+
+<hr>
+
+
+<h2>Lambda with Built-in Functions</h2>
+
+<p>Lambda functions are commonly used with built-in functions like <code class="w3-codespan">map()</code>, <code class="w3-codespan">filter()</code>, and <code class="w3-codespan">sorted()</code>.</p>
+
+<h3>Using Lambda with map()</h3>
+
+<p>The <code class="w3-codespan">map()</code> function applies a function to every item in an iterable:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Double all numbers in a list:</p>
+<div class="w3-code notranslate pythonHigh">
+numbers = [1, 2, 3, 4, 5]<br>
+doubled = list(map(lambda x: x * 2, numbers))<br>
+print(doubled)
+</div>
+
+</div>
+
+<h3>Using Lambda with filter()</h3>
+
+<p>The <code class="w3-codespan">filter()</code> function creates a list of items for which a function returns <code class="w3-codespan">True</code>:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Filter out even numbers from a list:</p>
+<div class="w3-code notranslate pythonHigh">
+numbers = [1, 2, 3, 4, 5, 6, 7, 8]<br>
+odd_numbers = list(filter(lambda x: x % 2 != 0, numbers))<br>
+print(odd_numbers)
+</div>
+
+</div>
+
+<h3>Using Lambda with sorted()</h3>
+
+<p>The <code class="w3-codespan">sorted()</code> function can use a lambda as a key for custom sorting:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Sort a list of tuples by the second element:</p>
+<div class="w3-code notranslate pythonHigh">
+students = [("Emil", 25), ("Tobias", 22), ("Linus", 28)]<br>
+sorted_students = sorted(students, key=lambda x: x[1])<br>
+print(sorted_students)
+</div>
+
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Sort strings by length:</p>
+<div class="w3-code notranslate pythonHigh">
+words = ["apple", "pie", "banana", "cherry"]<br>
+sorted_words = sorted(words, key=lambda x: len(x))<br>
+print(sorted_words)
+</div>
+
+</div>
+
+
+<hr>
+
+<hr>

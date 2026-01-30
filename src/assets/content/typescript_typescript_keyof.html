@@ -1,0 +1,56 @@
+<h1>TypeScript Keyof</h1>
+
+
+
+<hr>
+<p><code class="w3-codespan">keyof</code> is a keyword in TypeScript which is used to extract the key type from an object type.</p>
+
+<hr>
+<h2><code class="w3-codespan">keyof</code> with explicit keys</h2>
+
+<p>When used on an object type with explicit keys, <code class="w3-codespan">keyof</code> creates a union type with those keys.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+
+<div class="w3-code notranslate jsHigh">
+interface Person {<br>
+&nbsp;&nbsp;name: string;<br>
+&nbsp;&nbsp;age: number;<br>
+}<br>
+// `keyof Person` here creates a union type of "name" and "age", other strings will not be allowed<br>
+function printPersonProperty(person: Person, property: keyof Person) {<br>
+&nbsp;&nbsp;console.log(`Printing person property ${property}: "${person[property]}"`);<br>
+}<br>
+let person = {<br>
+&nbsp;&nbsp;name: "Max",<br>
+&nbsp;&nbsp;age: 27<br>
+};<br>
+printPersonProperty(person, "name"); // Printing person property name: "Max"<br>
+</div>
+  
+</div>
+
+<hr>
+<hr>
+
+<h2><code class="w3-codespan">keyof</code> with index signatures</h2>
+
+<p><code class="w3-codespan">keyof</code> can also be used with index signatures to extract the index type.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+type StringMap = { [key: string]: unknown };<br>
+// `keyof StringMap` resolves to `string` here<br>
+function createStringPair(property: keyof StringMap, value: string): StringMap {<br>
+&nbsp;&nbsp;return { [property]: value };<br>
+}<br>
+</div>
+
+</div>
+
+<hr>
+
+<hr>
+<br>

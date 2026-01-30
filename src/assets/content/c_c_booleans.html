@@ -1,0 +1,122 @@
+<h1>C <span class="color_h1">Booleans</span></h1>
+
+<hr>
+
+
+<h2>Booleans</h2>
+<p>Very often, in programming, you will need a data type that can only have one of two values, like:</p>
+<ul>
+  <li>YES / NO</li>
+  <li>ON / OFF</li>
+  <li>TRUE / FALSE</li>
+</ul>
+<p>For this, C has a <code class="w3-codespan">bool</code> data type, which is 
+known as <strong>booleans</strong>.</p>
+<p>Booleans represent one of two values: <code class="w3-codespan">true</code> or <code class="w3-codespan">false</code>.</p>
+
+<hr>
+
+
+<h2>Boolean Variables</h2>
+<p>In C, the <code class="w3-codespan">bool</code> type is not a built-in data type, like <code class="w3-codespan">int</code> or <code class="w3-codespan">char</code>. </p>
+<p>It was introduced in C99, and you must <strong>import</strong> the following header file to use it:</p>
+<div class="w3-example">
+<div class="w3-code notranslate javaHigh">
+  #include &lt;stdbool.h&gt;</div>
+</div>
+
+<p>A boolean variable is declared with the <code class="w3-codespan">bool</code> keyword and can take the 
+values <code class="w3-codespan">true</code> or <code class="w3-codespan">false</code>:</p>
+
+<div class="w3-example">
+<div class="w3-code notranslate javaHigh">
+  bool isProgrammingFun = true;<br>bool isFishTasty = false;</div>
+</div>
+
+<p>Before trying to print the boolean variables, you should know that boolean 
+values are returned as <strong>integers</strong>:</p>
+
+<ul>
+  <li><code class="w3-codespan">1</code> (or any other number that is not 0) represents <code class="w3-codespan">true</code></li>
+  <li><code class="w3-codespan">0</code> represents <code class="w3-codespan">false</code></li>
+</ul>
+
+<p>Therefore, you must use the <code class="w3-codespan">%d</code> 
+format specifier to print a boolean value:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  // Create boolean variables<br>bool isProgrammingFun = true;<br>bool isFishTasty = false;<br><br>// 
+  Return boolean values<br>printf(&quot;%d&quot;, 
+  isProgrammingFun);&nbsp;&nbsp;&nbsp;// Returns 1 (true)<br>printf(&quot;%d&quot;, isFishTasty);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  // Returns 0 (false)</div>
+
+</div>
+
+<p>However, it is more common to return a boolean value by <strong>comparing</strong> values and 
+variables.</p>
+
+<hr>
+
+
+<h2>Comparing Values and Variables</h2>
+
+<p>Comparing values are useful in programming, because it helps us to find answers and make decisions.</p>
+<p>For example, you can use a <a href="c_operators.html">comparison operator</a>, 
+such as the <strong>greater than</strong> (<code class="w3-codespan">&gt;</code>) 
+operator, to compare two values:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  printf(&quot;%d&quot;, 10 &gt; 9);&nbsp; // Returns 1 (true) because 10 is greater than 9</div>
+
+</div>
+
+<div class="ws-note w3-panel">
+<p>From the example above, you can see that the return value is a boolean value (<code class="w3-codespan">1</code>).</p>
+</div>
+<p>You can also compare two variables:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  int x = 10;<br>int y = 9;<br>printf(&quot;%d&quot;, x &gt; y);</div>
+
+</div>
+
+<p>In the example below, we use the <strong>equal to</strong> (<code class="w3-codespan">==</code>) 
+operator to compare different values:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  printf(&quot;%d&quot;, 10 == 10); // Returns 1 (true), because 10 is equal to 10<br>
+  printf(&quot;%d&quot;, 10 == 15); // Returns 0 (false), because 10 is not equal 
+  to 15<br>printf(&quot;%d&quot;, 5 == 55);&nbsp; // Returns 0 (false) because 
+  5 is not equal to 55</div>
+
+</div>
+
+<p>You are not limited to only compare numbers. You can also compare boolean 
+variables, or even special structures, like <a href="c_arrays.html">arrays</a> (which you will learn more about in 
+a later chapter):</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  bool isHamburgerTasty = true;<br>bool isPizzaTasty = true;<br><br>// Find out 
+  if both hamburger and pizza is tasty<br>printf(&quot;%d&quot;, isHamburgerTasty == 
+  isPizzaTasty);</div>
+
+</div>
+<div class="ws-note w3-panel">
+<p>Remember to include the <code class="w3-codespan">&lt;stdbool.h&gt;</code> header file when working with <code class="w3-codespan">bool</code> variables.</p>
+</div>
+
+
+
+
+<hr>
+
+<hr>
+
+<br>

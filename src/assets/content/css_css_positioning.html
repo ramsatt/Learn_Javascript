@@ -1,0 +1,198 @@
+<h1>CSS <span class="color_h1">The position</span> Property</h1>
+
+<hr>
+
+<h2>CSS Positioning</h2>
+<p>CSS positioning is about controlling the placement of elements within a web page.</p>
+<p>With CSS positioning, you can override the normal document flow.</p>
+<hr>
+
+<h2>The CSS position Property</h2>
+<p>The <code class="w3-codespan"><a href="../cssref/pr_class_position.html">position</a></code> property specifies the positioning 
+type for an element.</p>
+<p>This property can have one of the following values: </p>
+<ul>
+<li><code class="w3-codespan">static</code> - This is default</li>
+<li><code class="w3-codespan">relative</code></li>
+<li><code class="w3-codespan">fixed</code></li>
+<li><code class="w3-codespan">absolute</code></li>
+<li><code class="w3-codespan">sticky</code></li>
+</ul>
+<p>Elements are then positioned to their final location with the <code class="w3-codespan">
+<a href="../cssref/pr_pos_top.html">top</a></code>, <code class="w3-codespan">
+<a href="../cssref/pr_pos_bottom.html">bottom</a></code>, <code class="w3-codespan">
+<a href="../cssref/pr_pos_left.html">left</a></code>, and <code class="w3-codespan">
+<a href="../cssref/pr_pos_right.html">right</a></code> properties.</p>
+
+<hr>
+
+<h2>CSS position: static</h2>
+<p>All HTML elements are positioned static by default.</p>
+<p>Static positioned elements are not affected by the top, bottom, left, and right properties.</p>
+<p>An element with <code class="w3-codespan">position: static;</code> is always positioned according to the normal flow of the page:</p>
+<div class="w3-theme-border w3-margin-bottom" style="border-width:3px;border-style:solid;position:static;">
+This &lt;div&gt; element has position: static;</div>
+<p>Here is the CSS that is used:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+div.static {<br>&nbsp;&nbsp;position: static;<br>&nbsp;&nbsp;border: 3px solid #73AD21;<br>}</div>
+
+</div>
+
+<hr>
+
+<h2>CSS position: relative</h2>
+<p>An element with <code class="w3-codespan">position: relative;</code> is positioned relative to its normal position 
+in the document flow.</p>
+<p>Setting the top, right, bottom, and left properties will cause
+the element to be adjusted away from its normal position. Other content will not be adjusted to fit into any gap left by the 
+element.</p>
+<div class="w3-theme-border w3-margin-bottom" style="border-width:3px;border-style:solid;position:relative;left:30px;">
+This &lt;div&gt; has position: relative, and is skewed 30 px to the right of its normal position</div>
+<p>Here is the CSS that is used:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+div.relative {<br>&nbsp; position: relative;<br>&nbsp; 
+left: 30px;<br>&nbsp; border: 3px solid #73AD21;<br>}</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>CSS position: fixed</h2>
+<p>An element with <code class="w3-codespan">position: fixed;</code> is positioned relative to the viewport, which means it always 
+stays in the same place even if the page is scrolled. The top, 
+right, bottom, and left properties are used set the final location of the element.</p>
+<p>A fixed element does not leave a gap in the page where it would normally have been located.</p>
+<div class="w3-theme-border" style="border-width:3px;background-color:#cae8ca;border-style:solid;position:fixed;padding:7px;bottom:0;right:0;max-width:450px;z-index:999">
+This &lt;div&gt; element has <code class="w3-codespan">position: fixed;</code></div>
+<p>Notice the fixed element in the lower-right corner of the page. Here is the CSS that is used:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+div.fixed {<br>&nbsp; position: fixed;<br>&nbsp; 
+bottom: 0;<br>&nbsp; right: 0;<br>&nbsp; width: 
+300px;<br>&nbsp; border: 3px solid #73AD21;<br>}</div>
+
+</div>
+
+<hr>
+
+<h2>CSS position: absolute</h2>
+<p>An element with <code class="w3-codespan">position: absolute;</code> is positioned relative to the nearest positioned ancestor 
+(with position other than static).</p>
+<p>However; if an absolute positioned element has no positioned ancestors, 
+it uses the document body, and moves along with page scrolling.</p>
+<p><b>Note:</b> Absolute positioned elements are removed from the normal 
+document flow, and can overlap other elements.</p>
+<p>Here is a simple example:</p>
+
+<div style="position: relative;width: 400px;height: 200px;border: 3px solid green;">
+This &lt;div&gt; element has position: relative;
+<div style="position: absolute;top: 80px;right: 0;width: 200px;height: 100px;border: 3px solid red;">
+This &lt;div&gt; element has position: absolute;
+</div>
+</div>
+
+<p>Here is the CSS that is used:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+div.relative {<br>&nbsp;&nbsp;position: relative;<br>&nbsp; 
+width: 400px;<br>&nbsp; height: 200px;<br>&nbsp; border: 3px solid green;<br>}
+<br><br>
+div.absolute {<br>&nbsp;&nbsp;position: absolute;<br>&nbsp;
+top: 80px;<br>&nbsp; right: 0;<br>&nbsp; width: 200px;<br>&nbsp; height: 100px;<br>&nbsp; border: 3px solid 
+  red;<br>}
+</div>
+
+</div>
+
+<hr>
+
+<h2>CSS position: sticky</h2>
+<p>An element with <code class="w3-codespan">position: sticky;</code> toggles between 
+a <code class="w3-codespan">relative</code> and <code class="w3-codespan">fixed</code> 
+position, depending on the scroll position.</p>
+<p>A sticky element is positioned relative until a certain scroll position is 
+reached - then it "sticks" in that place (like position:fixed).</p>
+<iframe src="assets/content/images/trycss_position_sticky_ifr.html" style="width:100%;border:4px solid #e5e5e5"></iframe>
+<div class="ws-note w3-panel">
+<p><strong>Note: </strong>You must specify at least one of the <code class="w3-codespan">top</code>, <code class="w3-codespan">right</code>, <code class="w3-codespan">bottom</code> or <code class="w3-codespan">left</code> 
+properties, for 
+sticky positioning to work.</p>
+</div><p>In this example, when the sticky element reach the top of the page 
+(top: 0), it sticks to this position:</p><div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+div.sticky {<br>&nbsp; position: 
+  sticky;<br>&nbsp; top: 0;<br>&nbsp; background-color: green;<br>&nbsp; 
+  border: 2px solid #4CAF50;<br>}</div>
+
+</div>
+
+<hr>
+
+<h2>Positioning Text On an Image</h2>
+<p>How to position text on an image:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="notranslate">
+  <div style="position:relative;text-align:center;">
+    <img src="assets/content/images/img_5terre_wide.jpg" alt="Cinque Terre" style="width:100%;height:auto;opacity:0.5">
+    <div style="position:absolute;bottom:8px;left:16px;font-size:20px">Bottom Left</div>
+    <div style="position:absolute;top:8px;left:16px;font-size:20px">Top Left</div>
+    <div style="position:absolute;top:8px;right:16px;font-size:20px">Top Right</div>
+    <div style="position:absolute;bottom:8px;right:16px;font-size:20px">Bottom Right</div>
+<div style="position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);font-size:20px">Centered</div>
+  </div>
+</div>
+
+<p>Try it Yourself:</p>
+<a target="_blank" href="tryit5822.html?filename=trycss_image_text_top_left" class="w3-btn w3-margin-bottom">Top Left &raquo;</a>
+<a target="_blank" href="tryitef9a.html?filename=trycss_image_text_top_right" class="w3-btn w3-margin-bottom">Top Right &raquo;</a>
+<a target="_blank" href="tryitd915.html?filename=trycss_image_text_bottom_left" class="w3-btn w3-margin-bottom">Bottom Left &raquo;</a>
+<a target="_blank" href="tryite5c6.html?filename=trycss_image_text_bottom_right" class="w3-btn w3-margin-bottom">Bottom Right &raquo;</a>
+<a target="_blank" href="tryitcf58.html?filename=trycss_image_text_center" class="w3-btn w3-margin-bottom">Centered &raquo;</a>
+</div>
+
+<hr>
+
+<hr>
+
+<h2>All CSS Positioning Properties</h2>
+<table class="ws-table-all notranslate">
+  <tr>
+    <th style="width:20%">Property</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_pos_bottom.html">bottom</a></td>
+    <td>Sets the bottom margin edge for a positioned box</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_pos_clip.html">clip</a></td>
+    <td>Clips an absolutely positioned element</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_pos_left.html">left</a></td>
+    <td>Sets the left margin edge for a positioned box</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_class_position.html">position</a></td>
+    <td>Specifies the type of positioning for an element</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_pos_right.html">right</a></td>
+    <td>Sets the right margin edge for a positioned box</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_pos_top.html">top</a></td>
+    <td>Sets the top margin edge for a positioned box</td>
+  </tr>
+  </table>
+<br>

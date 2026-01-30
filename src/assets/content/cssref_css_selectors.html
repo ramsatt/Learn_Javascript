@@ -1,0 +1,113 @@
+<h1>CSS <span class="color_h1">Selector</span> Reference</h1>
+
+<hr>
+
+<h2>CSS Selectors</h2>
+<p>CSS selectors are used to &quot;find&quot; (or select) the HTML elements you want to 
+style.</p>
+<p>Use our <a target="_blank" href="trysel.html">CSS Selector Tester</a> to demonstrate the different selectors.</p>
+<hr>
+
+<h2>CSS Simple Selectors</h2>
+<p>The simple selectors select elements based on element-name, id, and class. In 
+addition, there is the universal selector (*).</p>
+
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+  <tr>
+    <th style="width:20%">Selector</th>
+    <th style="width:20%">Example</th>
+    <th>Example description</th>
+  </tr>
+  <tr>
+    <td><i><a href="sel_element.html">element</a></i></td>
+    <td class="notranslate">p</td>
+    <td>Selects all &lt;p&gt; elements</td>
+  </tr>
+  <tr>
+    <td><a href="sel_id.html">#<i>id</i></a></td>
+    <td class="notranslate">#firstname</td>
+    <td>Selects the element with id=&quot;firstname&quot;</td>
+  </tr>  <tr>
+    <td><a href="sel_all.html">*</a></td>
+    <td class="notranslate">*</td>
+    <td>Selects all elements</td>
+  </tr>
+  <tr>
+    <td><a href="sel_class.html">.<i>class</i></a></td>
+    <td class="notranslate">.intro<br>p.intro</td>
+    <td>Selects all elements with class=&quot;intro&quot;<br>Selects all &lt;p&gt; elements with class=&quot;intro&quot;</td>
+  </tr>
+  </table>
+</div>
+<hr>
+
+<h2>CSS Attribute Selectors</h2>
+<p>The attribute selector selects HTML elements with a given attribute set.&nbsp;</p>
+
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+  <tr>
+    <th style="width:20%">Selector</th>
+    <th style="width:20%">Example</th>
+    <th>Example description</th>
+  </tr>
+  <tr>
+    <td><a href="sel_attribute.html">[<i>attribute</i>]</a></td>
+    <td class="notranslate">[lang]</td>
+    <td>Selects all elements with a lang attribute</td>
+  </tr>
+  <tr>
+    <td><a href="sel_attribute_value.html">[<i>attribute</i>=<i>value</i>]</a></td>
+    <td class="notranslate">[lang=&quot;it&quot;]</td>
+    <td>Selects all elements with lang=&quot;it&quot;</td>
+  </tr>
+  <tr>
+    <td><a href="sel_attribute_value_contains.html">[<i>attribute</i>~=<i>value</i>]</a></td>
+    <td class="notranslate">[title~=&quot;flower&quot;]</td>
+    <td>Selects all elements with a title attribute containing the word &quot;flower&quot;</td>
+  </tr>
+  <tr>
+    <td><a href="sel_attribute_value_lang.html">[<i>attribute</i>|=<i>value</i>]</a></td>
+    <td class="notranslate">[lang|=&quot;en&quot;]</td>
+    <td>Selects all elements with a lang attribute value equal to &quot;en&quot; or 
+    starting with &quot;en-&quot;</td>
+  </tr>
+  <tr>
+    <td><a href="sel_attr_begin.html">[<i>attribute</i>^=<i>value</i>]</a></td>
+    <td>[href^=&quot;https&quot;]</td>
+    <td>Selects all elements with a href attribute value that begins with &quot;https&quot;</td>
+  </tr>
+  <tr>
+    <td><a href="sel_attr_end.html">[<i>attribute</i>$=<i>value</i>]</a></td>
+    <td>[href$=&quot;.pdf&quot;]</td>
+    <td>Selects all elements with a href attribute value ends with &quot;.pdf&quot;</td>
+  </tr>
+  <tr>
+    <td><a href="sel_attr_contain.html">[<i>attribute</i>*=<i>value</i>]</a></td>
+    <td>[href*=&quot;w3schools&quot;]</td>
+    <td>Selects all elements with a href attribute value containing the substring &quot;w3schools&quot;</td>
+  </tr>
+  </table>
+</div>
+<hr>
+
+<h2>CSS Nesting Selector</h2>
+
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+  <tr>
+    <th style="width:20%">Selector</th>
+    <th style="width:20%">Example</th>
+    <th>Example description</th>
+  </tr>
+  <tr>
+    <td><a href="sel_nesting.html">&amp;</a></td>
+    <td class="notranslate">&amp;</td>
+    <td>Applies styles for an element within the context of another element</td>
+  </tr>
+  </table>
+</div>
+
+
+<br>

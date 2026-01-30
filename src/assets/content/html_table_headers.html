@@ -1,0 +1,307 @@
+<h1>HTML <span class="color_h1">Table Headers</span></h1>
+
+<hr>
+<p class="intro">HTML tables can have headers for each column or row, or for many columns/rows.</p>
+<hr>
+
+<div id="tableborders" style="overflow:auto;">
+<table class="table1 mqtable1">
+<tr>
+<th>EMIL</th>
+<th>TOBIAS</th>
+<th>LINUS</th>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<table class="table1 mqtable2">
+<tr>
+<th>8:00</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th>9:00</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th>10:00</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th>11:00</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th>12:00</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th>13:00</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<table class="table2 mqtable3">
+<tr>
+<th></th>
+<th>MON</th>
+<th>TUE</th>
+<th>WED</th>
+<th>THU</th>
+<th>FRI</th>
+</tr>
+<tr>
+<th>8:00</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th>9:00</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th>10:00</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th>11:00</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th>12:00</th>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<table class="table1 mqtable4">
+<tr>
+<th colspan="3">DECEMBER</th>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+</div>
+<hr>
+
+<h2>HTML Table Headers</h2>
+<p>Table headers are defined with <code class="w3-codespan">th</code> elements. 
+Each <code class="w3-codespan">th</code> element represents a table cell.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;table&gt;<br>&nbsp; &lt;tr&gt;<br>&nbsp;&nbsp;&nbsp; &lt;th&gt;Firstname&lt;/th&gt;<br>&nbsp;&nbsp;&nbsp; 
+  &lt;th&gt;Lastname&lt;/th&gt;<br>&nbsp;&nbsp;&nbsp; &lt;th&gt;Age&lt;/th&gt;<br>&nbsp; &lt;/tr&gt;<br>&nbsp; 
+  &lt;tr&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td&gt;Jill&lt;/td&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td&gt;Smith&lt;/td&gt;<br>&nbsp;&nbsp;&nbsp; 
+  &lt;td&gt;50&lt;/td&gt;<br>&nbsp; &lt;/tr&gt;<br>&nbsp; &lt;tr&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td&gt;Eve&lt;/td&gt;<br>&nbsp;&nbsp;&nbsp; 
+  &lt;td&gt;Jackson&lt;/td&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td&gt;94&lt;/td&gt;<br>&nbsp; &lt;/tr&gt;<br>&lt;/table&gt;</div>
+
+</div>
+
+<hr>
+
+<h2>Vertical Table Headers</h2>
+<p>To use the first column as table headers, define the first cell in each row as a <code class="w3-codespan">
+&lt;th&gt;</code> element:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;table&gt;<br>&nbsp; &lt;tr&gt;<br>&nbsp;&nbsp;&nbsp; &lt;th&gt;Firstname&lt;/th&gt;<br>&nbsp;&nbsp;&nbsp; 
+  &lt;td&gt;Jill&lt;/td&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td&gt;Eve&lt;/td&gt;<br>&nbsp; &lt;/tr&gt;<br>&nbsp; 
+  &lt;tr&gt;<br>&nbsp; &nbsp; 
+  &lt;th&gt;Lastname&lt;/th&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td&gt;Smith&lt;/td&gt;<br>&nbsp;&nbsp;&nbsp; 
+  &lt;td&gt;Jackson&lt;/td&gt;<br>&nbsp; &lt;/tr&gt;<br>&nbsp; &lt;tr&gt;<br>&nbsp;&nbsp;&nbsp; &lt;th&gt;Age&lt;/th&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td&gt;94&lt;/td&gt;<br>&nbsp;&nbsp;&nbsp; 
+  &lt;td&gt;50&lt;/td&gt;<br>&nbsp; &lt;/tr&gt;<br>&lt;/table&gt;</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>Align Table Headers</h2>
+<p>By default, table headers are bold and centered:</p>
+
+<table class="table3" style="width:50%;">
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>Age</th>
+  </tr>
+  <tr>
+    <td>Jill</td>
+    <td>Smith</td>
+    <td>50</td>
+  </tr>
+  <tr>
+    <td>Eve</td>
+    <td>Jackson</td>
+    <td>94</td>
+  </tr>
+</table>
+
+<p>To left-align the table headers, use the CSS <code class="w3-codespan">text-align</code> property:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+th {<br>&nbsp;&nbsp;text-align: left;<br>
+}
+</div>
+
+</div>
+
+<hr>
+
+<h2>Header for Multiple Columns</h2>
+
+<p>You can have a header that spans over two or more columns.</p>
+<table class="table3" style="width:50%;">
+  <tr>
+    <th colspan="2">Name</th>
+    <th>Age</th>
+  </tr>
+  <tr>
+    <td>Jill</td>
+    <td>Smith</td>
+    <td>50</td>
+  </tr>
+  <tr>
+    <td>Eve</td>
+    <td>Jackson</td>
+    <td>94</td>
+  </tr>
+</table>
+
+<p>To do this, use the <code class="w3-codespan">colspan</code> attribute on the 
+<code class="w3-codespan">&lt;th&gt;</code> element:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;table&gt;<br>&nbsp; &lt;tr&gt;<br>&nbsp;&nbsp;&nbsp; &lt;th colspan=&quot;2&quot;&gt;Name&lt;/th&gt;<br>&nbsp;&nbsp;&nbsp; &lt;th&gt;Age&lt;/th&gt;<br>&nbsp; &lt;/tr&gt;<br>&nbsp; 
+  &lt;tr&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td&gt;Jill&lt;/td&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td&gt;Smith&lt;/td&gt;<br>&nbsp;&nbsp;&nbsp; 
+  &lt;td&gt;50&lt;/td&gt;<br>&nbsp; &lt;/tr&gt;<br>&nbsp; &lt;tr&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td&gt;Eve&lt;/td&gt;<br>&nbsp;&nbsp;&nbsp; 
+  &lt;td&gt;Jackson&lt;/td&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td&gt;94&lt;/td&gt;<br>&nbsp; &lt;/tr&gt;<br>&lt;/table&gt;</div>
+
+</div>
+
+<hr>
+
+
+<div class="w3-panel ws-note">
+<p>You will learn more about colspan and rowspan in the <a href="html_table_colspan_rowspan.html">Table colspan &amp; rowspan</a> chapter.</p>
+</div>
+
+
+<hr>
+
+
+
+
+<h2>Table Caption</h2>
+
+<p>You can add a caption that serves as a heading for the entire table.</p>
+
+<table class="table3" style="width:50%;">
+  <caption>Monthly savings</caption>
+  <tr>
+    <th>Month</th>
+    <th>Savings</th>
+  </tr>
+  <tr>
+    <td>January</td>
+    <td>$100</td>
+  </tr>
+  <tr>
+    <td>February</td>
+    <td>$50</td>
+  </tr>
+</table>
+
+<p>To add a caption to a table, use the <code class="w3-codespan">&lt;caption&gt;</code> tag:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+ &lt;table style=&quot;width:100%&quot;&gt;<br>&nbsp; &lt;caption&gt;Monthly savings&lt;/caption&gt;<br>&nbsp; &lt;tr&gt;<br>&nbsp;&nbsp;&nbsp; &lt;th&gt;Month&lt;/th&gt;<br>&nbsp;&nbsp;&nbsp; &lt;th&gt;Savings&lt;/th&gt;<br>&nbsp; &lt;/tr&gt;<br>&nbsp; &lt;tr&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td&gt;January&lt;/td&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td&gt;$100&lt;/td&gt;<br>&nbsp; &lt;/tr&gt;<br>&nbsp; &lt;tr&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td&gt;February&lt;/td&gt;<br>&nbsp;&nbsp;&nbsp; &lt;td&gt;$50&lt;/td&gt;<br>&nbsp; &lt;/tr&gt;<br>
+ &lt;/table&gt;</div>
+
+</div>
+
+<div class="w3-panel ws-note">
+<p><strong>Note:</strong> The <code class="w3-codespan">&lt;caption&gt;</code> tag 
+should be inserted immediately after the <code class="w3-codespan">&lt;table&gt;</code> tag.</p>
+</div>
+
+<hr>
+
+<hr>

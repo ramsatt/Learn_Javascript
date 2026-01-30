@@ -1,0 +1,152 @@
+<h1>SQL <span class="color_h1">Stored Procedures for SQL Server</span></h1>
+
+<hr>
+
+<h2>What is a Stored Procedure?</h2>
+<p>A stored procedure is a prepared SQL code that you can save, so the 
+code can be reused over and over again.</p>
+<p>So if you have an SQL query that you write over and over again, save 
+it as a stored procedure, and then just call it to execute it.</p>
+<p>You can also pass parameters to a stored procedure, so that the stored procedure can act based on the parameter value(s) 
+that is passed.</p>
+<h3>Stored Procedure Syntax</h3>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+  CREATE PROCEDURE <em>procedure_name</em><br>
+  AS<br><em>sql_statement</em><br>
+  GO;</div></div>
+<h3>Execute a Stored Procedure</h3>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+  EXEC <em>procedure_name</em>;</div></div>
+
+<hr>
+
+<h2>Demo Database</h2>
+<p>Below is a selection from the "Customers" table in the Northwind sample database:</p>
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+  <tr>
+    <th>CustomerID</th>
+    <th>CustomerName</th>
+    <th>ContactName</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>PostalCode</th>
+    <th>Country</th>
+  </tr>
+  <tr>
+    <td>1<br><br></td>
+    <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Obere Str. 57</td>
+    <td>Berlin</td>
+    <td>12209</td>
+    <td>Germany</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Ana Trujillo Emparedados y helados</td>
+    <td>Ana Trujillo</td>
+    <td>Avda. de la Constitución 2222</td>
+    <td>México D.F.</td>
+    <td>05021</td>
+    <td>Mexico</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Antonio Moreno Taquería</td>
+    <td>Antonio Moreno</td>
+    <td>Mataderos 2312</td>
+    <td>México D.F.</td>
+    <td>05023</td>
+    <td>Mexico</td>
+  </tr>
+  <tr>
+    <td>4<br><br></td>
+    <td>Around the Horn</td>
+    <td>Thomas Hardy</td>
+    <td>120 Hanover Sq.</td>
+    <td>London</td>
+    <td>WA1 1DP</td>
+    <td>UK</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>Berglunds snabbköp</td>
+    <td>Christina Berglund</td>
+    <td>Berguvsvägen 8</td>
+    <td>Luleå</td>
+    <td>S-958 22</td>
+    <td>Sweden</td>
+  </tr>
+</table>
+</div>
+<hr>
+
+<h2>Stored Procedure Example</h2>
+<p>The following SQL statement creates a stored procedure named "SelectAllCustomers" 
+that selects all records from the "Customers" table:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+  CREATE PROCEDURE SelectAllCustomers<br>AS<br>SELECT * FROM Customers<br>GO;
+</div>
+</div>
+<p>Execute the stored procedure above as follows:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+  EXEC SelectAllCustomers;
+</div>
+</div>
+
+<hr>
+
+<hr>
+
+<h2>Stored Procedure With One Parameter</h2>
+<p>The following SQL statement creates a stored procedure  
+that selects Customers from a particular City from the "Customers" table:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+  CREATE PROCEDURE SelectAllCustomers 
+  @City nvarchar(30)<br>AS<br>SELECT * FROM Customers WHERE 
+  City = @City<br>GO;
+</div>
+</div>
+<p>Execute the stored procedure above as follows:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+  EXEC SelectAllCustomers @City = 'London';</div>
+</div>
+
+<hr>
+
+<h2>Stored Procedure With Multiple Parameters</h2>
+<p>Setting up multiple parameters is very easy. Just list each parameter and the 
+data type separated by a comma as shown below.</p>
+<p>The following SQL statement creates a stored procedure  
+that selects Customers from a particular City with a particular PostalCode from the "Customers" table:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+  CREATE PROCEDURE SelectAllCustomers 
+  @City nvarchar(30), @PostalCode nvarchar(10)<br>AS<br>SELECT * FROM Customers WHERE 
+  City = @City AND PostalCode = @PostalCode<br>GO;
+</div>
+</div>
+<p>Execute the stored procedure above as follows:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+  EXEC SelectAllCustomers @City = 'London', @PostalCode = 'WA1 1DP';</div>
+</div>
+
+<hr>
+
+<hr>
+
+<br>

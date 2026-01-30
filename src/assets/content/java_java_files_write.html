@@ -1,0 +1,128 @@
+<h1>Java <span class="color_h1">Write To Files</span></h1>
+
+<hr>
+
+<h2>Write To a File</h2>
+<p>If you are just starting with Java, the easiest way to write text to a file is by using the <code class="w3-codespan">FileWriter</code> class.</p>
+<p>In the example below, we use <code class="w3-codespan">FileWriter</code> together with its <code class="w3-codespan">write()</code> method to create and write some text into a file.</p>
+<p><strong>Note:</strong> When you are done, you should close the writer with the <code class="w3-codespan">close()</code> method:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white" data-line="7,8,9"><code>import java.io.FileWriter;   // Import the FileWriter class
+import java.io.IOException;  // Import the IOException class
+
+public class WriteToFile {
+  public static void main(String[] args) {
+    try {
+      FileWriter myWriter = new FileWriter("filename.txt");
+      myWriter.write("Files in Java might be tricky, but it is fun enough!");
+      myWriter.close();  // must close manually
+      System.out.println("Successfully wrote to the file.");
+    } catch (IOException e) {
+      System.out.println("An error occurred.");
+      e.printStackTrace();
+    }
+  }
+}
+</code></pre>
+<p>The output will be:</p>
+<div class="notranslate w3-black w3-padding">
+<code>
+Successfully wrote to the file.
+</code>
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom w3-margin-top" href="showjavadafa.html?filename=demo_files_write">Run Example &raquo;</a>
+</div>
+<p><strong>Explanation:</strong> This program tries to write some text 
+into a file named <code class="w3-codespan">filename.txt</code>.  
+If everything works, the program will print <code class="w3-codespan">"Successfully wrote to the file."</code> in the console.  
+If something goes wrong (for example, the file cannot be opened), it will print <code class="w3-codespan">"An error occurred."</code> instead.</p>
+<hr>
+
+<h2>Write To a File with try-with-resources</h2>
+<p>Since Java 7, you can use <a href="java_try_catch_resources.html"><b>try-with-resources</b></a>. 
+This makes sure the writer is closed automatically, even if an error occurs:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white" data-line="7"><code>import java.io.FileWriter;
+import java.io.IOException;
+
+public class WriteToFile {
+  public static void main(String[] args) {
+    // FileWriter will be closed automatically here
+    try (FileWriter myWriter = new FileWriter("filename.txt")) {
+      myWriter.write("Files in Java might be tricky, but it is fun enough!");
+      System.out.println("Successfully wrote to the file.");
+    } catch (IOException e) {
+      System.out.println("An error occurred.");
+      e.printStackTrace();
+    }
+  }
+}
+</code></pre>
+<p>The output will be:</p>
+<div class="notranslate w3-black w3-padding">
+<code>
+Successfully wrote to the file.
+</code>
+</div>
+<p><a target="_blank" class="w3-btn" href="showjava68cc.html?filename=demo_files_write_try">Run Example &raquo;</a></p>
+</div>
+<hr>
+
+<h2>Append to a File</h2>
+<p>Normally, <code class="w3-codespan">FileWriter</code> will <strong>overwrite</strong> a file if it already exists.  
+If you want to <strong>add new content</strong> at the end of the file (without deleting what's already there),  
+you can use the two-argument constructor and pass <code class="w3-codespan">true</code> as the second parameter.  
+This puts the writer into <strong>append mode</strong>:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white" data-line="7,8"><code>import java.io.FileWriter;
+import java.io.IOException;
+
+public class AppendToFile {
+  public static void main(String[] args) {
+    // true = append mode
+    try (FileWriter myWriter = new FileWriter("filename.txt", true)) {
+      myWriter.write("\nAppended text!");
+      System.out.println("Successfully appended to the file.");
+    } catch (IOException e) {
+      System.out.println("An error occurred.");
+      e.printStackTrace();
+    }
+  }
+}
+</code></pre>
+<p>The output will be:</p>
+<div class="notranslate w3-black w3-padding">
+<code>
+Successfully appended to the file.
+</code>
+</div>
+<p><a target="_blank" class="w3-btn" href="showjava73cb.html?filename=demo_files_write_append">Run Example &raquo;</a></p>
+</div>
+
+<p><strong>Explanation:</strong> This program adds the text  
+<code class="w3-codespan">"Appended text!"</code>  
+to the end of <code class="w3-codespan">filename.txt</code> instead of replacing the file's content.</p>
+
+<p><strong>Note:</strong> If the file does not already exist, Java will create it before appending.</p>
+
+<p><strong>Tip:</strong> To see what's inside the file, go to the <a href="java_files_read.html">Java Read Files</a> chapter.</p>
+<hr>
+
+<h2>Other Ways to Write to Files</h2>
+<p>There are several classes you can use to write files in Java:</p>
+<ul>
+  <li><code class="w3-codespan">FileWriter</code> - easiest choice for <strong>basic text</strong>.</li>
+  <li><code class="w3-codespan">BufferedWriter</code> - better for <strong>large text files</strong>, because it is faster and supports handy features.</li>
+  <li><code class="w3-codespan">FileOutputStream</code> - best for <strong>binary data</strong> (images, audio, PDFs)</li>
+</ul>
+
+<p>You will learn more about <a href="java_fileoutputstream.html"><code class="w3-codespan">FileOutputStream</code></a> and <a href="java_bufferedwriter.html"><code class="w3-codespan">BufferedWriter</code></a> in a later chapter.</p>
+
+
+<br>

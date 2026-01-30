@@ -1,0 +1,572 @@
+<h1>Python <span class="color_h1">RegEx</span></h1>
+
+<hr>
+
+<p class="intro">A RegEx, or Regular Expression, is a sequence of characters that forms a search pattern.</p>
+<p class="intro">RegEx can be used to check if a string contains the specified search pattern.</p>
+<hr>
+
+<h2>RegEx Module</h2>
+
+<p>Python has a built-in package called <code class="w3-codespan">re</code>, which can be used to work with 
+Regular Expressions.</p>
+
+<p>Import the <code class="w3-codespan">re</code> module:</p>
+
+<div class="w3-example">
+  <div class="w3-code notranslate pythonHigh">import re</div>
+</div>
+
+<hr>
+
+<h2>RegEx in Python</h2>
+
+<p>When you have imported the <code class="w3-codespan">re</code> module, you 
+can start using regular expressions:</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <p>Search the string to see if it starts with &quot;The&quot; and ends with &quot;Spain&quot;:</p>
+  <div class="w3-code notranslate pythonHigh">
+    import 
+    re<br><br>txt = &quot;The rain in Spain&quot;<br>x = re.search(&quot;^The.*Spain$&quot;, txt)</div>
+  
+</div>
+
+
+<hr>
+
+<h2>RegEx Functions</h2>
+
+<p>The <code class="w3-codespan">re</code> module offers a set of functions that allows 
+us to search a string for a match:</p>
+
+<table class="ws-table-all notranslate">
+<tr>
+<th style="width:120px">Function</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="#findall">findall</a></td>
+<td>Returns a list containing all matches</td>
+</tr>
+<tr>
+<td><a href="#search">search</a></td>
+<td>Returns a <a href="#matchobject">Match object</a> if there is a match anywhere in the string</td>
+</tr>
+<tr>
+<td><a href="#split">split</a></td>
+<td>Returns a list where the string has been split at each match </td>
+</tr>
+<tr>
+<td><a href="#sub">sub</a></td>
+<td>Replaces one or many matches with a string</td>
+</tr>
+</table>
+
+<hr>
+
+<hr>
+
+<h2>Metacharacters</h2>
+
+<p>Metacharacters are characters with a special meaning:</p>
+
+<table class="ws-table-all notranslate">
+<tr>
+<th style="width:120px">Character</th>
+<th>Description</th>
+<th style="width:120px">Example</th>
+<th style="width:75px">Try it</th>
+</tr>
+<tr>
+<td>[]</td>
+<td>A set of characters</td>
+<td>&quot;[a-m]&quot;</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypythoncb9d.html?filename=demo_regex_meta1">Try it &raquo;</a></td>
+</tr>
+<tr>
+<td>\</td>
+<td>Signals a special sequence (can also be used to escape special characters)</td>
+<td>&quot;\d&quot;</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypythondc71.html?filename=demo_regex_meta2">Try it &raquo;</a></td>
+</tr>
+<tr>
+<td>.</td>
+<td>Any character (except newline character)</td>
+<td>&quot;he..o&quot;</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypythone5c5.html?filename=demo_regex_meta3">Try it &raquo;</a></td>
+</tr>
+<tr>
+<td>^</td>
+<td>Starts with</td>
+<td>&quot;^hello&quot;</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypython99b3.html?filename=demo_regex_meta4">Try it &raquo;</a></td>
+</tr>
+  <tr>
+<td>$</td>
+<td>Ends with</td>
+<td>&quot;planet$&quot;</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypython3d24.html?filename=demo_regex_meta5">Try it &raquo;</a></td>
+  </tr>
+  <tr>
+<td>*</td>
+<td>Zero or more occurrences</td>
+<td>&quot;he.*o&quot;</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypythone584.html?filename=demo_regex_meta6">Try it &raquo;</a></td>
+  </tr>
+  <tr>
+<td>+</td>
+<td>One or more occurrences</td>
+<td>&quot;he.+o&quot;</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypythond4f5.html?filename=demo_regex_meta7">Try it &raquo;</a></td>
+  </tr>
+  <tr>
+<td>?</td>
+<td>Zero or one occurrences</td>
+<td>&quot;he.?o&quot;</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypython7646.html?filename=demo_regex_meta10">Try it &raquo;</a></td>
+  </tr>
+  <tr>
+<td>{}</td>
+<td>Exactly the specified number of occurrences</td>
+<td>&quot;he.{2}o&quot;</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypython5b50.html?filename=demo_regex_meta8">Try it &raquo;</a></td>
+  </tr>
+  <tr>
+<td>|</td>
+<td>Either or</td>
+<td>&quot;falls|stays&quot;</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypython4f94.html?filename=demo_regex_meta9">Try it &raquo;</a></td>
+  </tr>
+  <tr>
+<td>()</td>
+<td>Capture and group</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+  </tr>
+</table>
+
+<hr>
+
+<h2>Flags</h2>
+
+<p>You can add flags to the pattern when using regular expressions.</p>
+
+<table class="ws-table-all notranslate">
+<tr>
+<th style="width:120px">Flag</th>
+<th style="width:120px">Shorthand</th>
+<th>Description</th>
+<th style="width:75px">Try it</th>
+</tr>
+<tr>
+<td>re.ASCII</td>
+<td>re.A</td>
+<td>Returns only ASCII matches</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypythond618.html?filename=demo_regex_ascii">Try it &raquo;</a></td>
+</tr>
+<tr>
+<td>re.DEBUG</td>
+<td></td>
+<td>Returns debug information</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypython5d02.html?filename=demo_regex_debug">Try it &raquo;</a></td>
+</tr>
+<tr>
+<td>re.DOTALL</td>
+<td>re.S</td>
+<td>Makes the . character match all characters (including newline character)</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypythondbda.html?filename=demo_regex_dotall">Try it &raquo;</a></td>
+</tr>
+<tr>
+<td>re.IGNORECASE</td>
+<td>re.I</td>
+<td>Case-insensitive matching</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypython2827.html?filename=demo_regex_ignorecase">Try it &raquo;</a></td>
+</tr>
+<tr>
+<td>re.MULTILINE</td>
+<td>re.M</td>
+<td>Returns only matches at the beginning of each line</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypython2179.html?filename=demo_regex_multiline">Try it &raquo;</a></td>
+</tr>
+<tr>
+<td>re.NOFLAG</td>
+<td></td>
+<td>Specifies that no flag is set for this pattern</td>
+<td></td>
+</tr>
+<tr>
+<td>re.UNICODE</td>
+<td>re.U</td>
+<td>Returns Unicode matches. This is default from Python 3. For Python 2: use this flag to return only Unicode matches</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypythonacf2.html?filename=demo_regex_unicode">Try it &raquo;</a></td>
+</tr>
+<tr>
+<td>re.VERBOSE</td>
+<td>re.X</td>
+<td>Allows whitespaces and comments inside patterns. Makes the pattern more readable</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypython0bae.html?filename=demo_regex_verbose">Try it &raquo;</a></td>
+</tr>
+</table>
+
+<hr>
+
+<h2>Special Sequences</h2>
+
+<p>A special sequence is a <code class="w3-codespan">\</code> followed by one of the characters in the list below, and has a special meaning:</p>
+
+<table class="ws-table-all notranslate">
+<tr>
+<th style="width:120px">Character</th>
+<th>Description</th>
+<th style="width:120px">Example</th>
+<th style="width:75px">Try it</th>
+</tr>
+<tr>
+<td>\A</td>
+<td>Returns a match if the specified characters are at the beginning of the 
+string</td>
+<td>&quot;\AThe&quot;</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypythonad04.html?filename=demo_regex_seq1">Try it &raquo;</a></td>
+</tr>
+  <tr>
+<td>\b</td>
+<td>Returns a match where the specified characters are at the beginning or at the 
+end of a word<br>(the &quot;r&quot; in the beginning is making sure that the string is 
+being treated as a &quot;raw string&quot;)</td>
+<td>r&quot;\bain&quot;<br><br>r&quot;ain\b&quot;</td>
+<td>
+<a target="_blank" class="w3-btn btnsmall btnsmall" href="trypythonb50a.html?filename=demo_regex_seq2">Try it &raquo;</a>
+<br><br>
+<a target="_blank" class="w3-btn btnsmall btnsmall" href="trypythonb6e3.html?filename=demo_regex_seq2-2">Try it &raquo;</a>
+</td>
+</tr>
+<tr>
+<td>\B</td>
+<td>Returns a match where the specified characters are present, but NOT at the beginning 
+(or at 
+the end) of a word<br>(the &quot;r&quot; in the beginning is making sure that the string 
+is being treated as a &quot;raw string&quot;)</td>
+<td>r&quot;\Bain&quot;<br><br>r&quot;ain\B&quot;</td>
+<td>
+<a target="_blank" class="w3-btn btnsmall btnsmall" href="trypython00c7.html?filename=demo_regex_seq3">Try it &raquo;</a>
+<br><br>
+<a target="_blank" class="w3-btn btnsmall btnsmall" href="trypythona44c.html?filename=demo_regex_seq3-2">Try it &raquo;</a>
+</td>
+</tr>
+<tr>
+<td>\d</td>
+<td>Returns a match where the string contains digits (numbers from 0-9)</td>
+<td>&quot;\d&quot;</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypython3449.html?filename=demo_regex_seq4">Try it &raquo;</a></td>
+  </tr>
+  <tr>
+<td>\D</td>
+<td>Returns a match where the string DOES NOT contain digits</td>
+<td>&quot;\D&quot;</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypython45d5.html?filename=demo_regex_seq5">Try it &raquo;</a></td>
+  </tr>
+  <tr>
+<td>\s</td>
+<td>Returns a match where the string contains a white space character</td>
+<td>&quot;\s&quot;</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypython1898.html?filename=demo_regex_seq6">Try it &raquo;</a></td>
+  </tr>
+  <tr>
+<td>\S</td>
+<td>Returns a match where the string DOES NOT contain a white space character</td>
+<td>&quot;\S&quot;</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypythoneb28.html?filename=demo_regex_seq7">Try it &raquo;</a></td>
+  </tr>
+  <tr>
+<td>\w</td>
+<td>Returns a match where the string contains any word characters (characters from 
+a to Z, digits from 0-9, and the underscore _ character)</td>
+<td>&quot;\w&quot;</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypython087d.html?filename=demo_regex_seq8">Try it &raquo;</a></td>
+  </tr>
+  <tr>
+<td>\W</td>
+<td>Returns a match where the string DOES NOT contain any word characters</td>
+<td>&quot;\W&quot;</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypython9b06.html?filename=demo_regex_seq9">Try it &raquo;</a></td>
+  </tr>
+<tr>
+<td>\Z</td>
+<td>Returns a match if the specified characters are at the end of the string</td>
+<td>&quot;Spain\Z&quot;</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypythonac62.html?filename=demo_regex_seq10">Try it &raquo;</a></td>
+</tr>
+</table>
+
+<hr>
+
+<h2>Sets</h2>
+
+<p>A set is a set of characters inside a pair of square brackets <code class="w3-codespan">
+[]</code> with a special meaning:</p>
+
+<table class="ws-table-all notranslate">
+<tr>
+<th style="width:120px">Set</th>
+<th>Description</th>
+<th style="width:75px">Try it</th>
+</tr>
+  <tr>
+<td>[arn]</td>
+<td>Returns a match where one of the specified characters (<code class="w3-codespan">a</code>,
+<code class="w3-codespan">r</code>, or <code class="w3-codespan">n</code>) is 
+present</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypython6843.html?filename=demo_regex_set1">Try it &raquo;</a></td>
+  </tr>
+  <tr>
+<td>[a-n]</td>
+<td>Returns a match for any lower case character, alphabetically between
+<code class="w3-codespan">a</code> and <code class="w3-codespan">n</code></td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypython1fad.html?filename=demo_regex_set2">Try it &raquo;</a></td>
+  </tr>
+  <tr>
+<td>[^arn]</td>
+<td>Returns a match for any character EXCEPT <code class="w3-codespan">a</code>,
+<code class="w3-codespan">r</code>, and <code class="w3-codespan">n</code></td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypythone671.html?filename=demo_regex_set3">Try it &raquo;</a></td>
+  </tr>
+  <tr>
+<td>[0123]</td>
+<td>Returns a match where any of the specified digits (<code class="w3-codespan">0</code>,
+<code class="w3-codespan">1</code>, <code class="w3-codespan">2</code>, or <code class="w3-codespan">
+3</code>) are 
+present</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypython4240.html?filename=demo_regex_set4">Try it &raquo;</a></td>
+  </tr>
+  <tr>
+<td>[0-9]</td>
+<td>Returns a match for any digit between
+<code class="w3-codespan">0</code> and <code class="w3-codespan">9</code></td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypythond3e0.html?filename=demo_regex_set5">Try it &raquo;</a></td>
+  </tr>
+<tr>
+<td>[0-5][0-9]</td>
+<td>Returns a match for any two-digit numbers from <code class="w3-codespan">00</code> and <code class="w3-codespan">
+59</code></td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypython299b.html?filename=demo_regex_set6">Try it &raquo;</a></td>
+</tr>
+  <tr>
+<td>[a-zA-Z]</td>
+<td>Returns a match for any character alphabetically between
+<code class="w3-codespan">a</code> and <code class="w3-codespan">z</code>, lower case OR upper case</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypythoncf21.html?filename=demo_regex_set7">Try it &raquo;</a></td>
+  </tr>
+  <tr>
+<td>[+]</td>
+<td>In sets, <code class="w3-codespan">+</code>, <code class="w3-codespan">*</code>,
+<code class="w3-codespan">.</code>, <code class="w3-codespan">|</code>,
+<code class="w3-codespan">()</code>, <code class="w3-codespan">$</code>,<code class="w3-codespan">{}</code> 
+has no special meaning, so <code class="w3-codespan">[+]</code> means: return a match for any
+<code class="w3-codespan">+</code> character in the string</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="trypython7672.html?filename=demo_regex_set8">Try it &raquo;</a></td>
+  </tr>
+</table>
+
+<hr>
+
+<div style="position:absolute;margin-top:-70px;"><a name="findall">&nbsp;</a></div>
+<h2>The findall() Function</h2>
+<p>The <code class="w3-codespan">findall()</code> function returns a list containing all matches.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Print a list of all matches:</p>
+<div class="w3-code notranslate pythonHigh">
+  import re<br><br>txt = &quot;The rain in Spain&quot;<br>x = re.findall(&quot;ai&quot;, 
+  txt)<br>
+  print(x)</div>
+
+</div>
+
+<p>The list contains the matches in the order they are found.</p>
+<p>If no matches are found, an empty list is returned:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Return an empty list if no match was found:</p>
+<div class="w3-code notranslate pythonHigh">
+  import re<br><br>txt = &quot;The rain in Spain&quot;<br>x = re.findall(&quot;Portugal&quot;, 
+  txt)<br>
+  print(x)</div>
+
+</div>
+
+<hr>
+
+<div style="position:absolute;margin-top:-70px;"><a name="search">&nbsp;</a></div>
+<h2>The search() Function</h2>
+<p>The <code class="w3-codespan">search()</code> function searches the string 
+for a match, and returns a <a href="#matchobject">Match object</a> if there is a 
+match.</p>
+<p>If there is more than one match, 
+only the first occurrence of the match will be returned:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Search for the first white-space character in the string:</p>
+<div class="w3-code notranslate pythonHigh">
+  import re<br><br>txt = &quot;The rain in Spain&quot;<br>x = re.search(&quot;\s&quot;, 
+  txt)<br>
+  <br>print(&quot;The first white-space character is located in 
+  position:&quot;, x.start()) </div>
+
+</div>
+
+
+<p>If no matches are found, the value <code class="w3-codespan"><a href="ref_keyword_none.html">None</a></code> is returned:</p>
+<hr>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Make a search that returns no match:</p>
+<div class="w3-code notranslate pythonHigh">
+  import re<br><br>txt = &quot;The rain in Spain&quot;<br>x = re.search(&quot;Portugal&quot;, 
+  txt)<br>
+  print(x)</div>
+
+</div>
+
+<hr>
+
+<div style="position:absolute;margin-top:-70px;"><a name="split">&nbsp;</a></div>
+<h2>The split() Function</h2>
+<p>The <code class="w3-codespan">split()</code> function returns a list where 
+the string has been split at each match:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Split at each white-space character:</p>
+<div class="w3-code notranslate pythonHigh">
+  import re<br><br>txt = &quot;The rain in Spain&quot;<br>x = re.split(&quot;\s&quot;, 
+  txt)<br>
+  print(x)</div>
+
+</div>
+
+
+<p>You can control the number of occurrences by specifying the 
+<code class="w3-codespan">maxsplit</code> 
+parameter:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Split the string only at the first occurrence:</p>
+<div class="w3-code notranslate pythonHigh">
+  import re<br><br>txt = &quot;The rain in Spain&quot;<br>x = re.split(&quot;\s&quot;, 
+  txt, 
+  1)<br>
+  print(x)</div>
+
+</div>
+
+<hr>
+
+<div style="position:absolute;margin-top:-70px;"><a name="sub">&nbsp;</a></div>
+<h2>The sub() Function</h2>
+<p>The <code class="w3-codespan">sub()</code> function replaces the matches with 
+the text of your choice:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Replace every white-space character with the number 9:</p>
+<div class="w3-code notranslate pythonHigh">
+  import re<br><br>txt = &quot;The rain in Spain&quot;<br>x = re.sub(&quot;\s&quot;, 
+  &quot;9&quot;, txt)<br>
+  print(x)</div>
+
+</div>
+
+
+<p>You can control the number of replacements by specifying the
+<code class="w3-codespan">count</code> 
+parameter:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Replace the first 2 occurrences:</p>
+<div class="w3-code notranslate pythonHigh">
+  import re<br><br>txt = &quot;The rain in Spain&quot;<br>x = re.sub(&quot;\s&quot;, 
+  &quot;9&quot;, txt, 2)<br>
+  print(x)</div>
+
+</div>
+
+<hr>
+
+<div style="position:absolute;margin-top:-70px;"><a name="matchobject">&nbsp;</a></div>
+<h2>Match Object</h2>
+
+<p>A Match Object is an object containing information 
+about the search and the result.</p>
+
+<div class="w3-panel ws-note">
+  <p><strong>Note:</strong> If there is no match, the value <code class="w3-codespan"><a href="ref_keyword_none.html">None</a></code> will be 
+returned, instead of the Match Object.</p>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Do a search that will return a Match Object:</p>
+<div class="w3-code notranslate pythonHigh">
+  import re<br><br>txt = &quot;The rain in Spain&quot;<br>x = re.search(&quot;ai&quot;, 
+  txt)<br>
+  print(x) #this will print an object</div>
+
+</div>
+
+
+<p>The Match object has properties and methods used to retrieve information 
+about the search, and the result:</p>
+
+<p>
+<code class="w3-codespan">.span()</code> returns a tuple containing the start-, and end positions of the match.<br>
+<code class="w3-codespan">.string</code> returns the string passed into the function<br>
+<code class="w3-codespan">.group()</code> returns the part of the string where there was a match<br>
+</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+<p>Print the position (start- and end-position) of the first match occurrence.</p>
+  <p>The regular expression looks for any words that starts with an upper case 
+  &quot;S&quot;:</p>
+<div class="w3-code notranslate pythonHigh">
+    import re<br><br>
+    txt = &quot;The rain in Spain&quot;<br>
+    x = re.search(r&quot;\bS\w+&quot;, txt)<br>
+    print(<strong>x.span()</strong>)</div>
+
+</div>
+
+<div class="w3-example">
+  <h3>Example</h3>
+<p>Print the string passed into the function:</p>
+<div class="w3-code notranslate pythonHigh">
+    import re<br><br>
+    txt = &quot;The rain in Spain&quot;<br>
+    x = re.search(r&quot;\bS\w+&quot;, txt)<br>
+    print(<strong>x.string</strong>)</div>
+
+</div>
+
+<div class="w3-example">
+  <h3>Example</h3>
+<p>Print the part of the string where there was a match.</p>
+  <p>The regular expression looks for any words that starts with an upper case 
+  &quot;S&quot;:</p>
+<div class="w3-code notranslate pythonHigh">
+    import re<br><br>
+    txt = &quot;The rain in Spain&quot;<br>
+    x = re.search(r&quot;\bS\w+&quot;, txt)<br>
+    print(<strong>x.group()</strong>)</div>
+
+</div>
+<div class="w3-panel ws-note">
+  <p><strong>Note:</strong> If there is no match, the value <code class="w3-codespan"><a href="ref_keyword_none.html">None</a></code> will be 
+returned, instead of the Match Object.</p>
+</div>
+
+<hr>
+
+<hr>

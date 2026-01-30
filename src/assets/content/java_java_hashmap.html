@@ -1,0 +1,269 @@
+<h1>Java <span class="color_h1">HashMap</span></h1>
+
+<hr>
+
+<h2>Java HashMap</h2>
+
+<p>A <code class="w3-codespan">HashMap</code> stores items in <strong>key/value pairs</strong>, where each key maps to a specific value.</p>
+
+<p>
+  It is part of the <code class="w3-codespan">java.util</code> package and implements the 
+  <a href="java_map.html"><code class="w3-codespan">Map</code></a> interface.
+</p>
+
+<p>Instead of accessing elements by an index (like with <a href="java_arraylist.html">ArrayList</a>), you use a <strong>key</strong> to retrieve its associated <strong>value</strong>.</p>
+
+<p>A <code class="w3-codespan">HashMap</code> can store many different combinations, such as:</p>
+
+<ul>
+  <li><code class="w3-codespan">String</code> keys and <code class="w3-codespan">Integer</code> values</li>
+  <li><code class="w3-codespan">String</code> keys and <code class="w3-codespan">String</code> values</li>
+</ul>
+
+<hr>
+
+<h2>Create a HashMap</h2>
+<p>
+  Create a <code class="w3-codespan">HashMap</code> object called <code class="w3-codespan">capitalCities</code> that will store 
+  <code class="w3-codespan">String</code> keys and <code class="w3-codespan">String</code> values:
+</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <pre class="language-java w3-white"><code>import java.util.HashMap; // Import the HashMap class
+
+HashMap&lt;String, String&gt; capitalCities = new HashMap&lt;&gt;();</code></pre>
+</div>
+<p>
+  Now you can use methods like <code class="w3-codespan">put()</code> to add key/value pairs, 
+  <code class="w3-codespan">get()</code> to retrieve a value by key, 
+  and <code class="w3-codespan">remove()</code> to delete an entry - all by using keys instead of index numbers.
+</p>
+<hr>
+
+<h2>Add Items</h2>
+<p>To add items to a <code class="w3-codespan">HashMap</code>, use the <code class="w3-codespan">put()</code> method:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>// Import the HashMap class
+import java.util.HashMap;
+
+public class Main {
+&nbsp; public static void main(String[] args) {
+&nbsp;&nbsp;&nbsp; // Create a HashMap object called capitalCities
+&nbsp;&nbsp;&nbsp; HashMap&lt;String, String&gt; capitalCities = new HashMap&lt;String, String&gt;();
+
+&nbsp;&nbsp;&nbsp; // Add keys and values (Country, City)
+&nbsp;&nbsp;&nbsp; capitalCities.put(&quot;England&quot;, &quot;London&quot;);
+&nbsp;&nbsp;&nbsp; capitalCities.put(&quot;India&quot;, &quot;New Dehli&quot;);
+    capitalCities.put(&quot;Austria&quot;, &quot;Wien&quot;);
+&nbsp;&nbsp;&nbsp; capitalCities.put(&quot;Norway&quot;, &quot;Oslo&quot;);
+    capitalCities.put(&quot;Norway&quot;, &quot;Oslo&quot;); // Duplicate
+&nbsp;&nbsp;&nbsp; capitalCities.put(&quot;USA&quot;, &quot;Washington DC&quot;);
+
+&nbsp;&nbsp;&nbsp; System.out.println(capitalCities);
+&nbsp; }
+}
+</code></pre>
+<p>
+
+</p>
+</div>
+<p><strong>Note:</strong> In the example above, if the same key (like "Norway") is added more than once, the <em>latest</em> value will overwrite the previous one, because keys in a <code class="w3-codespan">HashMap</code> must be unique.</p>
+<hr>
+
+<h2>Access an Item</h2>
+<p>To access a value in the <code class="w3-codespan">HashMap</code>, use the <code class="w3-codespan">get()</code> method and refer to 
+its key:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>capitalCities.get(&quot;England&quot;);
+</code></pre>
+<p>
+
+</p>
+</div>
+<hr>
+
+<h2>Remove an Item</h2>
+
+<p>To remove an item, use the <code class="w3-codespan">remove()</code> method 
+and refer to the key:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>capitalCities.remove(&quot;England&quot;);
+</code></pre>
+<p>
+
+</p>
+</div>
+
+<p>To remove all items, use the <code class="w3-codespan">clear()</code> method:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>capitalCities.clear();
+</code></pre>
+<p>
+
+</p>
+</div>
+
+<hr>
+
+<hr>
+
+<h2>HashMap Size</h2>
+<p>To find out how many items there are, use the <code class="w3-codespan">size()</code> method:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>capitalCities.size();
+</code></pre>
+<p>
+
+</p>
+</div>
+<p><strong>Note:</strong> The size only counts unique keys. If a key is added more than once, only the latest value is kept.</p>
+<hr>
+
+<h2>Loop Through a HashMap</h2>
+<p>Loop through the items of a <code class="w3-codespan">HashMap</code> with a <strong>for-each</strong> loop.</p>
+<p><strong>Note:</strong> Use the <code class="w3-codespan">keySet()</code> method if you only want the keys, and use the <code class="w3-codespan">values()</code> method if you only want the values:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>// Print keys
+for (String i : capitalCities.keySet()) {
+&nbsp; System.out.println(i);
+}
+</code></pre>
+<p>
+
+</p>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>// Print values
+for (String i : capitalCities.values()) {
+&nbsp; System.out.println(i);
+}
+</code></pre>
+<p>
+
+</p>
+</div>
+
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>// Print keys and values
+for (String i : capitalCities.keySet()) {
+&nbsp; System.out.println(&quot;key: &quot; + i + &quot; value: &quot; + capitalCities.get(i));
+}
+</code></pre>
+<p>
+
+</p>
+</div>
+
+<hr>
+
+
+<h2>Other Types</h2>
+<p>Keys and values in a <code class="w3-codespan">HashMap</code> are actually objects. In the examples above, we used objects of type "String". Remember that a <code class="w3-codespan">String</code> in Java is an object (not a primitive type). To use other types, such as <code class="w3-codespan">int</code>, you must specify an equivalent <a href="java_wrapper_classes.html">wrapper class</a>: <code class="w3-codespan">Integer</code>. For other primitive types, 
+use: <code class="w3-codespan">Boolean</code> for boolean, <code class="w3-codespan">Character</code> for char, <code class="w3-codespan">Double</code> for double, 
+etc:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Create a <code class="w3-codespan">HashMap</code> object called <strong>
+people</strong> that will store <code class="w3-codespan">String</code> <strong>keys</strong> and <code class="w3-codespan">
+Integer</code>
+<strong>values</strong>:</p>
+<pre class="language-java w3-white"><code>// Import the HashMap class
+import java.util.HashMap;
+
+public class Main {
+&nbsp; public static void main(String[] args) {
+
+&nbsp;&nbsp;&nbsp; // Create a HashMap object called people
+&nbsp;&nbsp;&nbsp; HashMap&lt;String, Integer&gt; people = new HashMap&lt;String, Integer&gt;();
+
+&nbsp;&nbsp;&nbsp; // Add keys and values (Name, Age)
+&nbsp;&nbsp;&nbsp; people.put(&quot;John&quot;, 32);
+&nbsp;&nbsp;&nbsp; people.put(&quot;Steve&quot;, 30);
+&nbsp;&nbsp;&nbsp; people.put(&quot;Angie&quot;, 33);
+
+&nbsp;&nbsp;&nbsp; for (String i : people.keySet()) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(&quot;key: &quot; + i + &quot; value: &quot; + people.get(i));
+&nbsp;&nbsp;&nbsp; }
+&nbsp; }
+}
+</code></pre>
+<p>
+
+</p>
+</div>
+<hr>
+
+<h2>When Order Matters</h2>
+<p>In the next chapter, you will learn about <a href="java_treemap.html"><code class="w3-codespan">TreeMap</code></a>, which stores key/value pairs <strong>in sorted order by key</strong>.</p>
+<hr>
+
+<h2>The var Keyword</h2>
+
+<p>
+From Java 10, you can use the <code class="w3-codespan">var</code> keyword to declare a <code class="w3-codespan">HashMap</code> variable without writing the type twice.  
+The compiler figures out the type from the value you assign.  
+</p>
+
+<p>
+This makes code shorter, <strong>but many developers still use the full type for clarity</strong>.  
+Since <code class="w3-codespan">var</code> is valid Java, you may see it in other code, so it's good to know that it exists:
+</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <pre class="language-java w3-white"><code>// Without var
+HashMap&lt;String, String&gt; capitalCities = new HashMap&lt;String, String&gt;();
+
+// With var
+var capitalCities = new HashMap&lt;String, String&gt;();
+</code></pre>
+  <p>
+    
+  </p>
+</div>
+
+<hr>
+
+<h2>The Map Interface</h2>
+<p><strong>Note:</strong> Sometimes you will see both <code class="w3-codespan">Map</code> and <code class="w3-codespan">HashMap</code> in Java code, like this:</p>
+
+<div class="w3-example">
+  <pre class="language-java w3-white"><code>import java.util.Map;
+import java.util.HashMap;
+
+Map&lt;String, String&gt; capitalCities = new HashMap&lt;&gt;();
+</code></pre>
+<p>
+
+</p>
+</div>
+<p>This means the variable (capitalCities) is declared as a <a href="java_map.html"><code class="w3-codespan">Map</code></a> (the interface), but it stores a <code class="w3-codespan">HashMap</code> object (the actual map). Since <code class="w3-codespan">HashMap</code> implements the <code class="w3-codespan">Map</code> interface, this is possible.</p>
+<p>It works the same way, but some developers prefer this style because it gives them more flexibility to change the type later.</p>
+<hr>
+
+<div>
+<h2>Complete HashMap Reference</h2>
+<p>For a complete reference of HashMap methods, go to our <a href="java_ref_hashmap.html">Java HashMap Reference</a>.</p>
+</div>
+
+<hr>
+
+<hr>
+
+<br>

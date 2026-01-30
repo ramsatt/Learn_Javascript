@@ -1,0 +1,183 @@
+<h1>React useContext Hook</h1>
+
+
+<hr>
+<h2>React Context</h2>
+<p>React Context is a way to manage state globally.</p>
+
+<p>It can be used together with the <code class="w3-codespan">useState</code> Hook to share state between
+deeply nested components more easily than with <code class="w3-codespan">useState</code> alone.</p>
+
+<hr>
+
+<h2>The Problem</h2>
+
+<p>State should be held by the highest parent component in the stack that requires access to the state.</p>
+
+<p>To illustrate, we have many nested components. The component at the top and bottom of the stack need access to the state.</p>
+
+<p>To do this without Context, we will need to pass the state as "props" through each nested component. This is called "prop drilling".</p>
+
+<div class="w3-example">
+<h3>Example:</h3>
+  <p>Passing "props" through nested components:</p>
+<pre class="language-jsx w3-white"><code>import { useState } from 'react';
+import { createRoot } from 'react-dom/client';
+
+function Component1() {
+  const [user, setUser] = useState("Linus");
+
+  return (
+    &lt;&gt;
+      &lt;h1&gt;{`Hello ${user}!`}&lt;/h1&gt;
+      &lt;Component2 user={user} /&gt;
+    &lt;/&gt;
+  );
+}
+
+function Component2({ user }) {
+  return (
+    &lt;&gt;
+      &lt;h1&gt;Component 2&lt;/h1&gt;
+      &lt;Component3 user={user} /&gt;
+    &lt;/&gt;
+  );
+}
+
+function Component3({ user }) {
+  return (
+    &lt;&gt;
+      &lt;h1&gt;Component 3&lt;/h1&gt;
+      &lt;h2&gt;{`Hello ${user} again!`}&lt;/h2&gt;
+    &lt;/&gt;
+  );
+}
+
+createRoot(document.getElementById('root')).render(
+  &lt;Component1 /&gt;
+);
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreactaed9.html?filename=demo_react_usecontext">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<p>Even though component 2 did not need the state, it had to pass the state along so that it could reach component 3.</p>
+
+<hr>
+
+<hr>
+
+<h2>The Solution</h2>
+<p>The solution is to create context.</p>
+
+<h3>Create Context</h3>
+<p>To create context, you must Import <code class="w3-codespan">createContext</code> and initialize 
+it:</p>
+
+<div class="w3-example">
+<pre class="language-jsx w3-white"><code>import { useState, createContext, useContext } from 'react';
+import { createRoot } from 'react-dom/client';
+
+const UserContext = createContext();
+</code></pre>
+</div>
+
+<p>Next we'll use the Context Provider to wrap the tree of components that need the state Context.</p>
+
+<h3>Context Provider</h3>
+<p>Wrap child components in the Context Provider and supply the state value.</p>
+<div class="w3-example">
+<pre class="language-jsx w3-white"><code>function Component1() {
+  const [user, setUser] = useState(&quot;Linus&quot;);
+
+  return (
+    &lt;UserContext.Provider value={user}&gt;
+      &lt;h1&gt;{`Hello ${user}!`}&lt;/h1&gt;
+      &lt;Component2 /&gt;
+    &lt;/UserContext.Provider&gt;
+  );
+}</code></pre>
+</div>
+
+<p>Now, all components in this tree will have access to the user Context.</p>
+
+<h3>Use the <code class="w3-codespan">useContext</code> Hook</h3>
+<p>In order to use the Context in a child component, we need to access it using the <code class="w3-codespan">useContext</code> Hook.</p>
+<p>First, include the <code class="w3-codespan">useContext</code> in the import 
+statement:</p>
+<div class="w3-example">
+<pre class="language-jsx w3-white"><code>import { useState, createContext, useContext } from "react";
+</code></pre>
+</div>
+<p>Then you can access the user Context in all components:</p>
+<div class="w3-example">
+<pre class="language-jsx w3-white"><code>function Component3() {
+  const user = useContext(UserContext);
+
+  return (
+    &lt;&gt;
+      &lt;h1&gt;Component 3&lt;/h1&gt;
+      &lt;h2&gt;{`Hello ${user} again!`}&lt;/h2&gt;
+    &lt;/&gt;
+  );
+}
+</code></pre>
+
+</div>
+
+<hr>
+
+<h2>Full Example</h2>
+
+<div class="w3-example">
+<h3>Example:</h3>
+  <p>Here is the full example using React Context:</p>
+<pre class="language-jsx w3-white"><code>import { useState, createContext, useContext } from 'react';
+import { createRoot } from 'react-dom/client';
+
+const UserContext = createContext();
+
+function Component1() {
+  const [user, setUser] = useState(&quot;Linus&quot;);
+
+  return (
+    &lt;UserContext.Provider value={user}&gt;
+      &lt;h1&gt;{`Hello ${user}!`}&lt;/h1&gt;
+      &lt;Component2 /&gt;
+    &lt;/UserContext.Provider&gt;
+  );
+}
+
+function Component2() {
+  return (
+    &lt;&gt;
+      &lt;h1&gt;Component 2&lt;/h1&gt;
+      &lt;Component3 /&gt;
+    &lt;/&gt;
+  );
+}
+
+function Component3() {
+  const user = useContext(UserContext);
+
+  return (
+    &lt;&gt;
+      &lt;h1&gt;Component 3&lt;/h1&gt;
+      &lt;h2&gt;{`Hello ${user} again!`}&lt;/h2&gt;
+    &lt;/&gt;
+  );
+}
+
+createRoot(document.getElementById('root')).render(
+  &lt;Component1 /&gt;
+);</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreactd7fc.html?filename=demo_react_usecontext2">Run 
+Example &raquo;</a>
+</p>
+</div>
+<hr>
+
+<hr>

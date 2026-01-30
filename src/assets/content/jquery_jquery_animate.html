@@ -1,0 +1,158 @@
+<h1>jQuery Effects - <span class="color_h1">Animation</span></h1>
+
+<hr>
+
+<p class="intro">With jQuery, you can create custom animations.</p>
+<button id="bDemo" class="w3-btn w3-blue">Start Animation</button><br><br>
+<div id="divDemo" style="border:1px solid #555;border-radius:3px;color:white;background:#555;height:105px;width:260px;position:relative;">jQuery</div>
+<hr>
+
+<h2>jQuery Animations - The animate() Method</h2>
+<p>The jQuery <code class="w3-codespan">animate()</code> method is used to create custom animations.</p>
+<p><b>Syntax:</b></p>
+<div class="w3-code w3-border notranslate"><div>
+$(<i>selector</i>).animate({<i>params</i>}<i>,speed,callback</i>);</div></div>
+<p>The required params parameter defines the CSS properties to be animated.</p>
+<p>The optional speed parameter specifies the duration of the effect. It can take the following values: &quot;slow&quot;, &quot;fast&quot;, or 
+milliseconds.</p>
+<p>The optional callback parameter is a function to be executed after the 
+animation completes.</p>
+<p>The following example demonstrates a simple use of the <code class="w3-codespan">animate()</code> method; it moves 
+a &lt;div&gt; element to the right, until it has reached a left property of 250px:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;button&quot;).click(function(){<br>
+&nbsp;&nbsp;$(&quot;div&quot;).animate({left: '250px'});<br>
+});&nbsp; 
+</div>
+
+</div>
+
+<div class="w3-panel ws-note">
+<p>By default, all HTML elements have a static position, and cannot be moved.<br>
+To manipulate the position, remember to first set the CSS position property of the element to relative, fixed, or absolute!</p>
+</div>
+<hr>
+
+<hr>
+<h2>jQuery animate() - Manipulate Multiple Properties</h2>
+<p>Notice that multiple properties can be animated at the same time:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;button&quot;).click(function(){<br>
+  &nbsp; $(&quot;div&quot;).animate({<br>
+&nbsp;&nbsp;&nbsp; left: '250px',<br>
+  &nbsp;&nbsp;&nbsp; opacity: '0.5',<br>
+  &nbsp;&nbsp;&nbsp; height: '150px',<br>
+  &nbsp;&nbsp;&nbsp; width: '150px'<br>
+&nbsp;&nbsp;});<br>
+});&nbsp; 
+</div>
+
+</div>
+
+<div class="w3-panel ws-note">
+<p><b>Is it possible to manipulate ALL CSS properties with the animate() method?</b><br><br>
+Yes, almost! However, there is one important thing to remember: all property 
+names must be camel-cased when used with the animate() method: You will need to 
+write paddingLeft instead of padding-left, marginRight instead of margin-right, and so on. <br><br>
+Also, color animation is not included in the core jQuery library.<br>
+If you want to animate color, you need to download the
+<a href="http://plugins.jquery.com/" target="_blank">Color 
+Animations plugin</a> from jQuery.com.</p>
+</div>
+
+<hr>
+
+<h2>jQuery animate() - Using Relative Values</h2>
+<p>It is also possible to define relative values (the value is then relative to 
+the element's current value). This is done by putting += or -= in front of the 
+value:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;button&quot;).click(function(){<br>
+&nbsp;&nbsp;$(&quot;div&quot;).animate({<br>
+&nbsp;&nbsp;&nbsp;&nbsp;left: '250px',<br>
+  &nbsp;&nbsp;&nbsp; height: '+=150px',<br>
+  &nbsp;&nbsp;&nbsp; width: '+=150px'<br>
+&nbsp;&nbsp;});<br>
+});&nbsp; 
+</div>
+
+</div>
+<hr>
+
+<h2>jQuery animate() - Using Pre-defined Values</h2>
+<p>You can even specify a property's animation value as &quot;<code class="w3-codespan">show</code>&quot;, &quot;<code class="w3-codespan">hide</code>&quot;, or &quot;<code class="w3-codespan">toggle</code>&quot;:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;button&quot;).click(function(){<br>
+  &nbsp; $(&quot;div&quot;).animate({<br>
+  &nbsp;&nbsp;&nbsp; height: 'toggle'<br>
+  &nbsp; });<br>
+});&nbsp; 
+</div>
+
+</div>
+<hr>
+
+<h2>jQuery animate() - Uses Queue Functionality</h2>
+<p>By default, jQuery comes with queue functionality for animations.</p>
+<p>This means that if you write multiple <code class="w3-codespan">animate()</code> calls after each other, 
+jQuery creates an &quot;internal&quot; queue with these method calls. Then it runs the 
+animate calls ONE by ONE.</p>
+<p>So, if you want to perform different animations after each other, we take 
+advantage of the queue functionality:</p>
+<div class="w3-example">
+<h3>Example 1</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;button&quot;).click(function(){<br>
+&nbsp;&nbsp;var div = $(&quot;div&quot;);<br>
+&nbsp;&nbsp;div.animate({height: '300px', opacity: '0.4'}, &quot;slow&quot;);<br>
+&nbsp;&nbsp;div.animate({width: '300px', opacity: '0.8'}, &quot;slow&quot;);<br>
+&nbsp;&nbsp;div.animate({height: '100px', opacity: '0.4'}, &quot;slow&quot;);<br>
+&nbsp;&nbsp;div.animate({width: '100px', opacity: '0.8'}, &quot;slow&quot;);<br>
+});&nbsp; 
+</div>
+
+</div>
+<p>The example below first moves the <code class="w3-codespan">&lt;div&gt;</code> element to the right, and then increases the font size of the text:</p>
+<div class="w3-example">
+<h3>Example 2</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;button&quot;).click(function(){<br>
+&nbsp;&nbsp;var div = $(&quot;div&quot;);<br>
+&nbsp;&nbsp;div.animate({left: '100px'}, &quot;slow&quot;);<br>
+&nbsp;&nbsp;div.animate({fontSize: '3em'}, &quot;slow&quot;);<br>
+});&nbsp; 
+</div>
+
+</div>
+<hr>
+
+<h2>jQuery Exercises</h2>
+<form autocomplete="off" id="w3-exerciseform" action="https://www.w3schools.com/jquery/exercise_jq.asp?filename=exercise_jq_animate1" method="post" target="_blank">
+<h2>Test Yourself With Exercises</h2>
+<div class="exercisewindow">
+<h2>Exercise:</h2>
+<p>Use the <code class="w3-codespan">animate()</code> method to move a &lt;div&gt; element 250 pixels to the right.</p>
+<div class="exerciseprecontainer">
+<pre style="background-color:transparent;border:none;">
+$("div").animate({<input name="ex1" maxlength="4" style="width:45px;">: '<input name="ex2" maxlength="5" style="width: 55px;">'});
+</pre>
+</div>
+<br>
+<button type="submit" class="w3-btn w3-margin-bottom">Submit Answer &raquo;</button>
+<p><a target="_blank" href="exercise_jqc58d.html?filename=exercise_jq_animate1">Start the Exercise</a></p>
+</div>
+</form>
+<hr>
+
+<h2>jQuery Effects Reference</h2>
+<p>For a complete overview of all jQuery effects, please go to our <a href="jquery_ref_effects.html">jQuery Effect Reference</a>.</p>
+
+<br>

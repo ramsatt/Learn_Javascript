@@ -1,0 +1,18 @@
+<h1>PHP <span class="color_h1">FILTER_SANITIZE_EMAIL</span> Filter</h1>
+<p><a href="php_ref_filter.html" class="w3-btn w3-white w3-border" title="PHP Filter Reference">&#10094; PHP Filter Reference</a></p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Remove all illegal characters from an email address:</p>
+<div class="w3-code notranslate">
+ &lt;?php<br>$email = &quot;john(.doe)@exa//mple.com&quot;;<br><br>$email = filter_var($email, FILTER_SANITIZE_EMAIL);<br>echo $email;<br>?&gt;
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="phptryite551.html?filename=tryphp_func_sanitize_email">Try it Yourself &raquo;</a>
+</div>
+<hr>
+
+<h2>Definition and Usage</h2>
+<p>The FILTER_SANITIZE_EMAIL filter removes all illegal characters from an email 
+address.</p>
+<hr>
+
+<a href="php_ref_filter.html" class="w3-btn w3-white w3-border" title="PHP Filter Reference">&#10094; PHP Filter Reference</a>

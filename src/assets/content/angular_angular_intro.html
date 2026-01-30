@@ -1,0 +1,60 @@
+<h1>Angular Intro</h1>
+
+
+<hr>
+<p class="intro">Angular helps you build scalable single-page applications with TypeScript.</p>
+<hr>
+<h2>What is Angular?</h2>
+<p>Angular is a full-featured front-end framework for building web applications.</p>
+<ul>
+  <li>Built with TypeScript</li>
+  <li>Uses components and templates</li>
+  <li>Includes routing, forms, HTTP, and dependency injection</li>
+  <li>Supports standalone APIs (no NgModules needed)</li>
+  <li>Works great for single-page applications (SPAs)</li>
+</ul>
+<hr>
+
+<hr>
+<h2>How Angular Works</h2>
+<p>Angular compiles your templates into efficient JavaScript and updates the DOM when your component state changes.</p>
+<ul>
+  <li>Declare UI with HTML-based templates</li>
+  <li>Bind data with interpolation and directives</li>
+  <li>Handle events and user input</li>
+  <li>Fetch data with the HttpClient (Observables)</li>
+  <li>Navigate with the Router</li>
+</ul>
+<hr>
+<h2>What You Should Already Know</h2>
+<p>Before you start, you should know the basics of:</p>
+<ul>
+  <li><a href="../html/default.html">HTML</a></li>
+  <li><a href="../css/default.html">CSS</a></li>
+  <li><a href="../js/default.html">JavaScript</a></li>
+  <li>Basic <a href="../typescript/index.html">TypeScript</a> helps</li>
+</ul>
+
+<hr>
+<h2>Angular Example</h2>
+<div class="w3-example">
+  <h3>Example</h3>
+  <pre class="language-ts" data-tab-header="main.ts"><code>import { bootstrapApplication } from '@angular/platform-browser';
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  template: `&lt;h2&gt;Welcome to Angular!&lt;/h2&gt;`
+})
+export class App {}
+
+bootstrapApplication(App);
+</code></pre>
+  <pre class="language-html" data-tab-header="index.html"><code>&lt;app-root&gt;&lt;/app-root&gt;</code></pre>
+  <p><a target="_blank" rel="noopener" class="w3-btn" href="showangular052f.html?filename=demo_intro_hello">Run Example &raquo;</a></p>
+</div>
+
+<hr>
+
+<hr>

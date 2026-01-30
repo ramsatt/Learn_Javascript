@@ -1,0 +1,253 @@
+<h1>HTML <span class="color_h1">Table Borders</span></h1>
+
+<hr>
+<p class="intro">HTML tables can have borders of different styles and shapes.</p>
+<hr>
+
+<h2>How To Add a Border</h2>
+
+<p>To add a border, use the CSS <code class="w3-codespan">border</code> property on 
+<code class="w3-codespan">table</code>, <code class="w3-codespan">th</code>, and 
+<code class="w3-codespan">td</code> elements:</p>
+<table class="table1" style="width:30%;">
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+table, th, td
+{<br>
+&nbsp;&nbsp;border: 1px solid black;<br>
+}</div>
+
+</div>
+
+<hr>
+
+<h2>Collapsed Table Borders</h2>
+<p>To avoid having double borders like in the example above, set the CSS <code class="w3-codespan">border-collapse</code> 
+property to <code class="w3-codespan">collapse</code>.</p>
+<p>This will make the borders collapse into a single border:</p>
+<table class="table2" style="width:30%;">
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+ table, th, td {<br>&nbsp;&nbsp;border: 1px solid black;<br>
+  &nbsp;
+ border-collapse: collapse;<br>}</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>Style Table Borders</h2>
+<p>If you set a background color of each cell,
+and give the border a white color (the same as the document background),
+you get the impression of an invisible border:</p>
+<table class="table4" style="width:30%;">
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+ table, th, td {<br>&nbsp;&nbsp;border: 1px solid white;<br>
+  &nbsp;
+ border-collapse: collapse;<br>}<br>th, td {<br>&nbsp; background-color: #96D4D4;<br>
+  }</div>
+
+</div>
+
+<hr>
+
+<h2>Round Table Borders</h2>
+<p>With the <code class="w3-codespan">border-radius</code> property, the borders get rounded corners:</p>
+<table class="table5" style="width:30%;">
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+ table, th, td {<br>&nbsp;&nbsp;border: 1px solid 
+  black;<br>
+  &nbsp;
+ border-radius: 10px;<br>}</div>
+
+</div>
+
+
+<hr>
+
+<p>Skip the border around the table by leaving out <code class="w3-codespan">table</code> from the css selector:</p>
+<table class="table6" style="width:30%;">
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+ th, td {<br>&nbsp;&nbsp;border: 1px solid 
+  black;<br>
+  &nbsp;
+ border-radius: 10px;<br>}</div>
+
+</div>
+
+<hr>
+
+<h2>Dotted Table Borders</h2>
+<p>With the <code class="w3-codespan">border-style</code> property, you can set the 
+appearance of the border.</p>
+
+<table class="table7" style="width:30%;">
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+
+<p>The following values are allowed:</p>
+
+<ul>
+<li><span style="display:inline-block;width:70px;"><code class="w3-codespan">dotted</code></span> <span style="xborder:2px solid black;border-style:dotted">&nbsp;&nbsp;&nbsp;&nbsp;</span></li>
+<li><span style="display:inline-block;width:70px;"><code class="w3-codespan">dashed</code></span> <span style="xborder:2px solid black;border-style:dashed">&nbsp;&nbsp;&nbsp;&nbsp;</span></li>
+<li><span style="display:inline-block;width:70px;"><code class="w3-codespan">solid</code></span> <span style="xborder:2px solid black;border-style:solid">&nbsp;&nbsp;&nbsp;&nbsp;</span></li>
+<li><span style="display:inline-block;width:70px;"><code class="w3-codespan">double</code></span> <span style="xborder:2px solid black;border-style:double">&nbsp;&nbsp;&nbsp;&nbsp;</span></li>
+<li><span style="display:inline-block;width:70px;"><code class="w3-codespan">groove</code></span> <span style="xborder:2px solid black;border-style:groove">&nbsp;&nbsp;&nbsp;&nbsp;</span> </li>
+<li><span style="display:inline-block;width:70px;"><code class="w3-codespan">ridge</code></span> <span style="xborder:2px solid black;border-style:ridge">&nbsp;&nbsp;&nbsp;&nbsp;</span> </li>
+<li><span style="display:inline-block;width:70px;"><code class="w3-codespan">inset</code></span> <span style="xborder:2px solid black;border-style:inset">&nbsp;&nbsp;&nbsp;&nbsp;</span> </li>
+<li><span style="display:inline-block;width:70px;"><code class="w3-codespan">outset</code></span> <span style="xborder:2px solid black;border-style:outset">&nbsp;&nbsp;&nbsp;&nbsp;</span> </li>
+<li><span style="display:inline-block;width:70px;"><code class="w3-codespan">none</code></span> <span style="xborder:2px solid black;border-style:none">&nbsp;&nbsp;&nbsp;&nbsp;</span></li>
+<li><span style="display:inline-block;width:70px;"><code class="w3-codespan">hidden</code></span> <span style="xborder:2px solid black;border-style:hidden">&nbsp;&nbsp;&nbsp;&nbsp;</span></li>
+</ul>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+ &nbsp;th, td {<br>&nbsp;
+ border-style: dotted;<br>}</div>
+
+</div>
+
+<hr>
+
+<h2>Border Color</h2>
+<p>With the <code class="w3-codespan">border-color</code> property, you can set the color of the border.</p>
+
+<table class="table8" style="width:30%;">
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+ &nbsp;th, td {<br>&nbsp;
+ border-color: #96D4D4;<br>}</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+
+<br>

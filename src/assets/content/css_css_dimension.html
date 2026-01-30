@@ -1,0 +1,206 @@
+<h1>CSS <span class="color_h1">Height, Width and Max-width</span></h1>
+
+<hr>
+
+<h2>CSS Height, Width and Max-width</h2>
+<p>The CSS <code class="w3-codespan"><a href="../cssref/pr_dim_height.html">height</a></code> and <code class="w3-codespan">
+<a href="../cssref/pr_dim_width.html">width</a></code> properties are used to set the height and width of an element.</p>
+<p>The CSS <code class="w3-codespan"><a href="../cssref/pr_dim_max-width.html">max-width</a></code> property is used to set the maximum width of an element.</p>
+<div class="w3-theme-border" style="height:70px;width:100%;border-width:1px;border-style:solid;padding:8px;">
+This element has a height of 70 pixels and a width of 100%.
+</div>
+<br>
+<a target="_blank" href="tryite5ec.html?filename=trycss_height_width_intro" class="ws-btn">Try it Yourself &raquo;</a>
+
+<hr>
+
+
+<h2>CSS Set height and width</h2>
+<p>The <code class="w3-codespan"><a href="../cssref/pr_dim_height.html">height</a></code> and <code class="w3-codespan">
+<a href="../cssref/pr_dim_width.html">width</a></code> properties are used to set the 
+height and width of an element.</p>
+<p>The height and width do not include padding, borders, or margins. 
+It sets the height and width of the area inside the padding, border, and margin of 
+the element.</p>
+
+<hr>
+
+
+<h2>CSS height and width Values</h2>
+
+<p>The <code class="w3-codespan"><a href="../cssref/pr_dim_height.html">height</a></code> and <code class="w3-codespan">
+<a href="../cssref/pr_dim_width.html">width</a></code> properties 
+can have the following values:</p>
+<ul>
+<li><code class="w3-codespan">auto</code> - This is default. The browser 
+calculates the height and width</li>
+<li><code class="w3-codespan">length</code> - Defines the height or width in px, cm, 
+em, etc.</li>
+<li><code class="w3-codespan">%</code> - Defines the height or width in percent of 
+the containing block</li>
+<li><code class="w3-codespan">initial</code> - Sets the height or width to its 
+default value</li>
+  <li><code class="w3-codespan">inherit</code> - The height or width will be 
+  inherited from its parent value</li>
+</ul>
+
+<hr>
+
+
+<h2>CSS height and width Examples</h2>
+
+<div class="w3-theme-border" style="width:50%;height:200px;padding:10px;background-color:powderblue;color:black;">
+This element has a height of 200 pixels and a width of 50%</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Set the height and width of a &lt;div&gt; element:</p>
+<div class="w3-code notranslate cssHigh">
+div {<br>&nbsp;&nbsp;height: 
+200px;<br>&nbsp; width: 50%;<br>&nbsp; background-color: powderblue;<br>}</div>
+<p>
+
+</p>
+</div>
+
+<div class="w3-theme-border" style="height:100px;width:500px;padding:10px;background-color:powderblue;color:black">
+This element has a height of 100 pixels and a width of 500 pixels.</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Set the height and width of another &lt;div&gt; element:</p>
+<div class="w3-code notranslate cssHigh">
+div {<br>&nbsp; 
+height: 
+100px;<br>&nbsp;&nbsp;width: 500px;<br>&nbsp;&nbsp;background-color: powderblue;<br>}</div>
+<p>
+
+</p>
+</div>
+<p><strong>Note:</strong> Remember that the <code class="w3-codespan">
+<a href="../cssref/pr_dim_height.html">height</a></code> and <code class="w3-codespan">
+<a href="../cssref/pr_dim_width.html">width</a></code> properties do not include padding, borders, 
+or margins! They set the height/width of the area inside the padding, border, 
+and margin of the element!</p>
+
+<hr>
+
+<hr>
+
+<h2>CSS Using max-width</h2>
+<p>The <code class="w3-codespan"><a href="../cssref/pr_dim_max-width.html">max-width</a></code> property sets the maximum 
+allowed width of an element. This prevents the width of an element to be larger 
+than the <code class="w3-codespan"><a href="../cssref/pr_dim_max-width.html">max-width</a></code> 
+property value. </p>
+<p>The <code class="w3-codespan"><a href="../cssref/pr_dim_max-width.html">max-width</a></code> 
+property can have the following values:</p>
+<ul>
+  <li><code class="w3-codespan">length</code> - Defines the maximum width in px, cm, etc.</li>
+  <li><em><code class="w3-codespan">%</code></em> - Defines the maximum width in percent of the containing block</li>
+  <li><code class="w3-codespan">none</code> - This is default. Means that there is no maximum width</li>
+</ul>
+
+<p>One problem with the
+<code class="w3-codespan"><a href="../cssref/pr_dim_width.html">width</a></code> 
+property can occur when the browser window is smaller than the width of 
+the element. The browser then adds a horizontal scrollbar to the page. 
+So, using <code class="w3-codespan">
+<a href="../cssref/pr_dim_max-width.html">max-width</a></code> will improve the browser's handling on small windows.</p>
+<h3>CSS max-width Examples</h3>
+<p>Drag the browser window to smaller than 600px wide, to see the difference between 
+the two divs below!</p>
+
+<p>Using width:</p>
+<div class="w3-theme-border" style="width:600px;padding:10px;background-color:powderblue;color:black">
+This element has a width of 600 pixels.</div>
+
+<p>Using max-width:</p>
+<div class="w3-theme-border" style="padding:10px;background-color:powderblue;color:black;max-width:600px;">
+This element has a max-width of 600 pixels.</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>One &lt;div&gt; element with a max-width of 500 pixels, and one &lt;div&gt; element 
+with a width of 500 pixels:</p>
+<div class="w3-code notranslate cssHigh">
+  .div1 {<br>&nbsp; max-width: 500px;<br>&nbsp; background-color: powderblue;<br>
+  }<br><br>
+  .div2 {<br>&nbsp; width: 500px;<br>&nbsp; background-color: powderblue;<br>}</div>
+<p>
+
+</p>
+</div>
+
+<p><strong>Note:</strong> If you use both the
+<code class="w3-codespan"><a href="../cssref/pr_dim_width.html">width</a></code> property and the
+<code class="w3-codespan"><a href="../cssref/pr_dim_max-width.html">max-width</a></code> property on the same element, and the value of the
+<code class="w3-codespan"><a href="../cssref/pr_dim_width.html">width</a></code> property is larger than the
+<code class="w3-codespan"><a href="../cssref/pr_dim_max-width.html">max-width</a></code> property; the
+<code class="w3-codespan"><a href="../cssref/pr_dim_max-width.html">max-width</a></code> property 
+value will be used!</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>A &lt;div&gt; element with both a width and a max-width property:</p>
+<div class="w3-code notranslate cssHigh">
+  .div1 {<br>&nbsp; width: 100%;<br>&nbsp; max-width: 900px;<br>&nbsp; 
+  background-color: powderblue;<br>}</div>
+<p>
+
+</p>
+</div>
+
+
+<hr>
+
+
+<h2>Try it Yourself - Examples</h2>
+
+<p><a target="_blank" href="tryit3394.html?filename=trycss_dim_height">Set the height and width of elements</a><br>
+This example demonstrates how to set the height and width of different elements.</p>
+
+<p><a target="_blank" href="tryit892a.html?filename=trycss_dim_height_percent">Set the height and width of an image using percent</a><br>
+This example demonstrates how to set the height and width of an image using a percent value.</p>
+
+<p><a target="_blank" href="tryit470c.html?filename=trycss_dim_max-width">Set min-width and max-width of an element</a><br>
+This example demonstrates how to set a minimum width and a maximum width of an element using a pixel value.</p>
+
+<p><a target="_blank" href="tryit68b0.html?filename=trycss_dim_max-height">Set min-height and max-height of an element</a><br>
+This example demonstrates how to set a minimum height and a maximum height of an element using a pixel value.</p>
+<hr>
+
+<hr>
+
+<h2>All CSS Dimension Properties</h2>
+<table class="ws-table-all notranslate">
+  <tr>
+    <th style="width:25%">Property</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_dim_height.html">height</a></td>
+    <td>Sets the height of an element</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_dim_max-height.html">max-height</a></td>
+    <td>Sets the maximum height of an element</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_dim_max-width.html">max-width</a></td>
+    <td>Sets the maximum width of an element</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_dim_min-height.html">min-height</a></td>
+    <td>Sets the minimum height of an element</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_dim_min-width.html">min-width</a></td>
+    <td>Sets the minimum width of an element</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_dim_width.html">width</a></td>
+    <td>Sets the width of an element</td>
+  </tr>
+</table>
+
+<br>

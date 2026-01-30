@@ -1,0 +1,77 @@
+<h1>Python <span class="color_h1">Comments</span></h1>
+
+<hr>
+
+<p class="intro">Comments can be used to explain Python code.</p>
+<p class="intro">Comments can be used to make the code more readable.</p>
+<p class="intro">Comments can be used to prevent execution when testing code.</p>
+<hr>
+<h2>Creating a Comment</h2>
+<p>Comments starts with a <code class="w3-codespan">#</code>, and Python will 
+ignore them:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate pythonHigh">
+#This is a comment<br>
+print("Hello, World!")
+</div>
+
+</div>
+
+<p>Comments can be placed at the end of a line, and Python will ignore the rest 
+of the line:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate pythonHigh">
+print("Hello, World!") #This is a comment
+</div>
+
+</div>
+
+<p>A comment does not have to be text that explains the code, it can also be used to 
+prevent Python from executing code:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate pythonHigh">
+  #print(&quot;Hello, World!&quot;)<br>print(&quot;Cheers, Mate!&quot;)</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>Multiline Comments</h2>
+
+<p>Python does not really have a syntax for multiline comments.</p>
+<p>To add a multiline comment you could insert a <code class="w3-codespan">#</code> for each line:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate pythonHigh">
+  #This is a comment<br>#written in<br>#more than just one line<br>print(&quot;Hello, 
+  World!&quot;)
+</div>
+
+</div>
+
+<p>Or, not quite as intended, you can use a multiline string.</p>
+<p>Since Python will ignore string literals that are not assigned to a variable, you can add a multiline string (triple quotes) in your code, and place your comment inside it:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate pythonHigh">
+  &quot;&quot;&quot;<br>This is a comment<br>written in <br>more than just 
+  one line<br>&quot;&quot;&quot;<br>print(&quot;Hello, World!&quot;)</div>
+
+</div>
+
+<p>As long as the string is not assigned to a variable, Python will read the code, but then ignore it, and you have made a multiline comment.</p>
+
+<a id="exercises"></a>
+<hr>
+
+<hr>

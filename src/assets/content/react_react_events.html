@@ -1,0 +1,127 @@
+<h1>React Events</h1>
+
+
+<hr>
+
+<p class="intro">Just like HTML DOM events, React can perform actions based on user events.</p>
+<p class="intro">React has the same events as HTML: click, change, mouseover etc.</p>
+
+<hr>
+
+<h2>Adding Events</h2>
+<p>React events are written in camelCase syntax:</p>
+<p><code class="w3-codespan">onClick</code>
+instead of <code class="w3-codespan">onclick</code>.</p>
+<p>React event handlers are written inside curly 
+braces:</p>
+<p><code class="w3-codespan">onClick={shoot}</code>&nbsp; instead of
+<code class="w3-codespan">onclick=&quot;shoot()&quot;</code>. </p>
+
+<div class="w3-example">
+<h3>React:</h3>
+<pre class="language-jsx w3-white"><code>&lt;button onClick={shoot}&gt;Take the Shot!&lt;/button&gt;
+</code></pre>
+</div>
+
+<div class="w3-example">
+<h3>HTML:</h3>
+<pre class="language-html w3-white"><code>&lt;button onclick=&quot;shoot()&quot;&gt;Take the Shot!&lt;/button&gt;
+</code></pre>
+<br>
+</div>
+
+<div class="w3-example">
+<h3>Example:</h3>
+  <p>Put the <code class="w3-codespan">shoot</code> function inside the
+  <code class="w3-codespan">Football</code> component:</p>
+<pre class="language-jsx w3-white"><code>function Football() {
+  const shoot = () =&gt; {
+    alert(&quot;Great Shot!&quot;);
+  }
+
+  return (
+    &lt;button onClick={shoot}&gt;Take the shot!&lt;/button&gt;
+  );
+}
+
+createRoot(document.getElementById('root')).render(
+  &lt;Football /&gt;
+);
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreact7533.html?filename=demo_react_events">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<hr>
+
+<hr>
+
+<h2>Passing Arguments</h2>
+
+<p>To pass an argument to an event handler, use an arrow function.</p>
+
+<div class="w3-example">
+  <h3>Example:</h3>
+  <p>Send &quot;Goal!&quot; as a parameter to the <code class="w3-codespan">shoot</code> 
+  function, using arrow 
+  function:</p>
+<pre class="language-jsx w3-white"><code>function Football() {
+  const shoot = (a) =&gt; {
+    alert(a);
+  }
+
+  return (
+    &lt;button onClick={() =&gt; shoot(&quot;Goal!&quot;)}&gt;Take the shot!&lt;/button&gt;
+  );
+}
+
+createRoot(document.getElementById('root')).render(
+  &lt;Football /&gt;
+);
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreact8bdb.html?filename=demo_react_events2">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<hr>
+<h2>React Event Object</h2>
+<p>Event handlers have access to the React event that triggered the function.</p>
+<p>In our example the event is the &quot;click&quot; event.</p>
+
+<div class="w3-example">
+<h3>Example:</h3>
+  <p>Arrow Function: Sending the event object manually:</p>
+<pre class="language-jsx w3-white" data-line="11"><code>function Football() {
+  const shoot = (a, b) =&gt; {
+    alert(b.type);
+    /*
+    'b' represents the React event that triggered the function,
+    in this case the 'click' event
+    */
+  }
+
+  return (
+    &lt;button onClick={(event) =&gt; shoot(&quot;Goal!&quot;, event)}&gt;Take the shot!&lt;/button&gt;
+  );
+}
+
+createRoot(document.getElementById('root')).render(
+  &lt;Football /&gt;
+);
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreactdd67.html?filename=demo_react_events3">Run 
+Example &raquo;</a>
+</p>
+
+</div>
+<p>This will come in handy when we look at <a href="react_forms.html">Form</a> in 
+a later chapter.</p>
+<hr>
+
+
+<hr>

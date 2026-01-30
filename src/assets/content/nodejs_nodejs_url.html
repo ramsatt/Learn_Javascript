@@ -1,0 +1,236 @@
+<h1>Node.js <span class="color_h1">URL Module</span></h1>
+
+<hr>
+
+<h2>The Built-in URL Module</h2>
+<p>The URL module provides utilities for URL resolution and parsing.</p>
+<p>It can be used to split up a web address into readable parts, construct URLs, and handle different URL components.</p>
+
+<h3>Getting Started</h3>
+<p>To include the URL module, use the <code class="w3-codespan">require()</code> method.</p>
+<p>In modern Node.js (v10.0.0+), you can use either the legacy API or the newer <code class="w3-codespan">URL</code> class (WHATWG URL API):</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">// Using the legacy API<br>
+const url = require('url');<br>
+<br>
+// Using the modern URL class (WHATWG API)<br>
+const { URL } = require('url');</div>
+</div>
+
+<div class="w3-example">
+<div class="w3-code notranslate jsHigh">let url = require('url');</div>
+</div>
+
+<p>Parse an address with the <code class="w3-codespan">url.parse()</code> method, and it will return a URL object with each part of the address as properties:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Split a web address into readable parts:</p>
+<div class="w3-code notranslate jsHigh">let url = require('url');<br>
+let adr = 'http://localhost:8080/default.htm?year=2017&amp;month=february';<br>
+let q = url.parse(adr, true);<br>
+<br>
+console.log(q.host);<br>
+console.log(q.pathname);<br>
+console.log(q.search);<br>
+<br>
+let qdata = q.query;<br>
+console.log(qdata.month);</div>
+
+</div>
+
+<hr>
+
+<h2>URL Parsing and Formatting</h2>
+
+<h3>URL Object Properties</h3>
+<p>When you parse a URL, you get a URL object with the following properties:</p>
+<ul>
+  <li><code class="w3-codespan">href</code>: The full URL that was parsed</li>
+  <li><code class="w3-codespan">protocol</code>: The protocol scheme (e.g., 'http:')</li>
+  <li><code class="w3-codespan">host</code>: The full host portion (e.g., 'example.com:8080')</li>
+  <li><code class="w3-codespan">hostname</code>: The hostname portion (e.g., 'example.com')</li>
+  <li><code class="w3-codespan">port</code>: The port number if specified</li>
+  <li><code class="w3-codespan">pathname</code>: The path section of the URL</li>
+  <li><code class="w3-codespan">search</code>: The query string including the leading ?</li>
+  <li><code class="w3-codespan">query</code>: Either the query string without the ?, or a parsed query object</li>
+  <li><code class="w3-codespan">hash</code>: The fragment identifier including the #</li>
+</ul>
+
+<h3>Legacy API vs WHATWG URL API</h3>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">const { URL } = require('url');<br>
+<br>
+// Using the WHATWG URL API (recommended for new code)<br>
+const myURL = new URL('https://example.org:8080/p/a/t/h?query=string#hash');<br>
+console.log(myURL.hostname); // 'example.org'<br>
+console.log(myURL.pathname); // '/p/a/t/h'<br>
+console.log(myURL.searchParams.get('query')); // 'string'<br>
+<br>
+// Using the legacy API<br>
+const parsedUrl = require('url').parse('https://example.org:8080/p/a/t/h?query=string#hash');<br>
+console.log(parsedUrl.host); // 'example.org:8080'<br>
+console.log(parsedUrl.query); // 'query=string'</div>
+
+</div>
+
+<h3>URLSearchParams API</h3>
+<p>The <code class="w3-codespan">URLSearchParams</code> API provides utility methods to work with the query string of a URL:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">const { URL, URLSearchParams } = require('url');<br>
+<br>
+const myURL = new URL('https://example.com/?name=Kai&age=30');<br>
+const params = new URLSearchParams(myURL.search);<br>
+<br>
+// Get a parameter<br>
+console.log(params.get('name'));<br>
+<br>
+// Add a parameter<br>
+params.append('city', 'Stavanger');<br>
+// Delete a parameter<br>
+params.delete('age');<br>
+// Convert to string<br>
+console.log(params.toString());</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="shownodejs_cmd812f.html?filename=demo_url_searchparams">Run Example &raquo;</a>
+</div>
+<hr>
+<h2>Node.js File Server</h2>
+
+<p>Now we know how to parse the query string, and in a previous chapter we learned how to make Node.js behave as a file server.</p>
+<p>Let us combine the two, and serve the file requested by the client.</p>
+<p>Create two html files and save them in the same folder as your node.js files.</p>
+<div class="w3-example">
+<p>summer.html</p>
+<div class="w3-code notranslate htmlHigh">
+&lt;!DOCTYPE html&gt;<br>
+&lt;html&gt;<br>
+&lt;body&gt;<br>
+&lt;h1&gt;Summer&lt;/h1&gt;<br>
+&lt;p&gt;I love the sun!&lt;/p&gt;<br>
+&lt;/body&gt;<br>
+&lt;/html&gt;</div>
+</div>
+<div class="w3-example">
+<p>winter.html</p>
+<div class="w3-code notranslate htmlHigh">
+&lt;!DOCTYPE html&gt;<br>
+&lt;html&gt;<br>
+&lt;body&gt;<br>
+&lt;h1&gt;Winter&lt;/h1&gt;<br>
+&lt;p&gt;I love the snow!&lt;/p&gt;<br>
+&lt;/body&gt;<br>
+&lt;/html&gt;</div>
+</div>
+<hr>
+
+<hr>
+
+<p>Create a Node.js file that opens the requested file and returns the content 
+to the client. If anything goes wrong, throw a 404 error:</p>
+<div class="w3-example">
+<p>demo_fileserver.js:</p>
+<div class="w3-code notranslate jsHigh">
+let http = require('http');<br>
+let url = require('url');<br>
+let fs = require('fs');<br>
+<br>
+http.createServer(function (req, res) {<br>
+&nbsp; let q = url.parse(req.url, true);<br>
+&nbsp; let filename = &quot;.&quot; + q.pathname;<br>
+&nbsp; fs.readFile(filename, function(err, data) {<br>
+&nbsp;&nbsp;&nbsp; if (err) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; res.writeHead(404, {'Content-Type': 'text/html'});<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return res.end(&quot;404 Not Found&quot;);<br>
+&nbsp;&nbsp;&nbsp; }<br>
+&nbsp; <br>
+&nbsp;&nbsp;&nbsp; res.writeHead(200, {'Content-Type': 'text/html'});<br>
+&nbsp;&nbsp;&nbsp; res.write(data);<br>
+&nbsp;&nbsp;&nbsp; return res.end();<br>
+&nbsp; });<br>
+}).listen(8080);</div>
+</div>
+
+<p>Remember to initiate the file:</p>
+<div class="w3-example">
+<p>Initiate demo_fileserver.js:</p>
+<div class="w3-code notranslate w3-black">
+C:\Users\<em>Your Name</em>&gt;node demo_fileserver.js
+</div>
+</div>
+<p>If you have followed the same steps on your computer, you should see two 
+different results when opening these two addresses:</p>
+<p><a href="http://localhost:8080/summer.html" target="_blank">http://localhost:8080/summer.html</a></p>
+<div class="w3-example">
+<p>Will produce this result:</p>
+<div class="w3-code notranslate">&lt;h1&gt;Summer&lt;/h1&gt;<br>
+&lt;p&gt;I love the sun!&lt;/p&gt;</div>
+</div>
+<p><a href="http://localhost:8080/winter.html" target="_blank">http://localhost:8080/winter.html</a></p>
+<div class="w3-example">
+<p>Will produce this result:</p>
+<div class="w3-code notranslate">&lt;h1&gt;Winter&lt;/h1&gt;<br>
+&lt;p&gt;I love the snow!&lt;/p&gt;</div>
+</div>
+
+<hr>
+<h2>Best Practices</h2>
+
+<h3>1. Always Validate and Sanitize URLs</h3>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">function isValidHttpUrl(string) {<br>
+&nbsp; try {<br>
+&nbsp; &nbsp; const url = new URL(string);<br>
+&nbsp; &nbsp; return url.protocol === 'http:' || url.protocol === 'https:';<br>
+&nbsp; } catch (err) {<br>
+&nbsp; &nbsp; return false;<br>
+&nbsp; }<br>
+}<br>
+<br>
+console.log(isValidHttpUrl('https://example.com')); // true<br>
+console.log(isValidHttpUrl('ftp://example.com'));   // false</div>
+</div>
+
+<h3>2. Constructing URLs Safely</h3>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">const { URL } = require('url');<br>
+<br>
+// Safe way to construct URLs<br>
+function createProfileUrl(domain, username) {<br>
+&nbsp; return new URL(`/users/${encodeURIComponent(username)}`, domain).href;<br>
+}<br>
+<br>
+console.log(createProfileUrl('https://example.com', 'johndoe'));<br>
+// 'https://example.com/users/johndoe'</div>
+</div>
+
+<h3>3. Handling Query Parameters</h3>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">const { URL } = require('url');<br>
+<br>
+// Parse URL with query parameters<br>
+const url = new URL('https://example.com/search?q=node.js&lang=en');<br>
+<br>
+// Get all parameters<br>
+console.log(url.searchParams.toString()); // 'q=node.js&lang=en'<br>
+<br>
+// Get specific parameter<br>
+console.log(url.searchParams.get('q')); // 'node.js'<br>
+<br>
+// Check if parameter exists<br>
+console.log(url.searchParams.has('lang')); // true<br>
+<br>
+// Add new parameter<br>
+url.searchParams.append('page', '2');<br>
+console.log(url.href);<br>
+// 'https://example.com/search?q=node.js&lang=en&page=2'</div>
+</div>
+
+
+<hr>
+<br>

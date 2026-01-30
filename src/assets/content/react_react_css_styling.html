@@ -1,0 +1,208 @@
+<h1>Styling React Using CSS</h1>
+
+
+<hr>
+
+<p class="intro">There are many ways to style React with CSS, this tutorial will 
+take a closer look at three common ways:</p>
+<ul>
+<li>Inline styling</li>
+<li>CSS stylesheets</li>
+<li>CSS Modules</li>
+</ul>
+<hr>
+<h2>Inline Styling</h2>
+<p>To style an element with the inline style attribute, the value must be a 
+JavaScript object:</p>
+
+<div class="w3-example">
+<h3>Example:</h3>
+  <p>Insert an object with the styling information:</p>
+<pre class="language-jsx w3-white"><code>const Header = () =&gt; {
+  return (
+    &lt;&gt;
+      &lt;h1 style={{color: &quot;red&quot;}}&gt;Hello Style!&lt;/h1&gt;
+      &lt;p&gt;Add a little style!&lt;/p&gt;
+    &lt;/&gt;
+  );
+}
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreactd5e1.html?filename=demo_react_styling_inline">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<div class="w3-panel ws-note">
+<p><strong>Note:</strong> In JSX, JavaScript expressions are written inside curly braces,
+and since JavaScript objects also use curly braces,
+the styling in the example above is written inside two sets of curly braces <code class="w3-codespan">{{}}</code>.</p>
+</div>
+
+<hr>
+
+<h3>camelCased Property Names</h3>
+<p>Since the inline CSS is written in a JavaScript object, properties with 
+hyphen separators, like <code class="w3-codespan">background-color</code>, 
+must be written with camel case syntax:</p>
+
+<div class="w3-example">
+<h3>Example:</h3>
+  <p>Use <code class="w3-codespan">backgroundColor</code> instead of 
+  <code class="w3-codespan">background-color</code>:</p>
+<pre class="language-jsx w3-white"><code>const Header = () =&gt; {
+  return (
+    &lt;&gt;
+      &lt;h1 style={{backgroundColor: &quot;lightblue&quot;}}&gt;Hello Style!&lt;/h1&gt;
+      &lt;p&gt;Add a little style!&lt;/p&gt;
+    &lt;/&gt;
+  );
+}
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreact966f.html?filename=demo_react_styling_camelcase">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<hr>
+
+<h3>JavaScript Object</h3>
+<p>You can also create an object with styling information, and refer to it in the style attribute:</p>
+
+<div class="w3-example">
+<h3>Example:</h3>
+  <p>Create a style object named <code class="w3-codespan">myStyle</code>:</p>
+<pre class="language-jsx w3-white"><code>const Header = () =&gt; {
+  const myStyle = {
+    color: &quot;white&quot;,
+    backgroundColor: &quot;DodgerBlue&quot;,
+    padding: &quot;10px&quot;,
+    fontFamily: &quot;Sans-Serif&quot;
+  };
+  return (
+    &lt;&gt;
+      &lt;h1 style={myStyle}&gt;Hello Style!&lt;/h1&gt;
+      &lt;p&gt;Add a little style!&lt;/p&gt;
+    &lt;/&gt;
+  );
+}
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreactaf11.html?filename=demo_react_styling_object">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<hr>
+
+<hr>
+
+<h2>CSS Stylesheet</h2>
+<p>You can write your CSS styling in a separate file, just save the file with the 
+<code class="w3-codespan">.css</code> file extension, and import it in your 
+application.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Create a new file called &quot;MyStylesheet.css&quot; and insert some CSS code in it:</p>
+<pre class="language-css w3-white" data-tab-header="MyStylesheet.html"><code>body {
+  background-color: #282c34;
+  color: white;
+  padding: 40px;
+  font-family: Sans-Serif;
+  text-align: center;
+}
+</code></pre>
+<br></div>
+
+<div class="w3-panel ws-note">
+<p><strong>Note:</strong> You can call the file whatever you like, just remember the correct file extension.</p>
+</div>
+
+<p>Import the stylesheet in your application:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Use the <code class="w3-codespan">import</code> statement to import the stylesheet:</p>
+<pre class="language-jsx w3-white" data-tab-header="index-3.html"><code>import { createRoot } from 'react-dom/client';
+import './MyStylesheet.css';
+
+const Header = () =&gt; {
+  return (
+    &lt;&gt;
+      &lt;h1&gt;Hello Style!&lt;/h1&gt;
+      &lt;p&gt;Add a little style!.&lt;/p&gt;
+    &lt;/&gt;
+  );
+}
+
+createRoot(document.getElementById('root')).render(
+  &lt;Header /&gt;
+);
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreactf9db.html?filename=demo_react_styling_external">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<p>React knows that files imported with the .css extension, should be treated as a CSS Stylesheet.</p>
+
+<div class="w3-panel ws-note">
+<p>Note: The styles will only be available for the component that imported it.</p>
+</div>
+
+<hr>
+
+<h2>CSS Modules</h2>
+<p>Another way of adding styles to your application is to use CSS Modules.</p>
+<p>CSS Modules are convenient for components that are placed in separate files.</p>
+<div class="w3-panel ws-note">
+<p>The CSS inside a module is available only for the component that imported it, 
+and you do not have to worry about name conflicts.</p>
+
+</div>
+
+<p>Create the CSS module with the <code class="w3-codespan">.module.css</code> 
+extension, example: <code class="w3-codespan">my-style.module.css</code>.</p>
+
+<div class="w3-example">
+<h3>Example</h3>  
+<p>Create a new file called &quot;my-style.module.css&quot; and insert some CSS code in it:</p>
+<pre class="language-css w3-white" data-tab-header="my-style.module.html"><code>.bigred {
+  color: Tomato;
+  padding: 40px;
+  font-family: Sans-Serif;
+  text-align: center;
+}
+</code></pre>
+<br></div>
+
+<p>Import the stylesheet in your component:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Use <code class="w3-codespan">import styles</code> to import the stylesheet:</p>
+<pre class="language-jsx w3-white" data-tab-header="index.jsx"><code>import { createRoot } from 'react-dom/client';
+import styles from './my-style.module.css'; 
+  
+const Car = () => {
+  return &lt;h1 className={styles.bigred}&gt;Hello Car!&lt;/h1&gt;;
+}
+  
+createRoot(document.getElementById('root')).render(
+  &lt;Car /&gt;
+);
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreact5a74.html?filename=demo_react_styling_module">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<p>You will learn more about CSS Modules in the next chapter.</p>
+
+<hr>
+
+
+
+<hr>

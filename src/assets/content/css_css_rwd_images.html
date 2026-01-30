@@ -1,0 +1,160 @@
+<h1>Responsive Web Design - <span class="color_h1">Images</span></h1>
+
+<hr>
+<div style="text-align:center;">
+<img src="assets/content/images/img_chania.jpg" style="max-width:100%;height:auto;">
+<p>Resize the browser window to see how the image scales to fit the page.</p>
+</div>
+<hr>
+<h2>Using The width Property</h2>
+
+<p>If the <code class="w3-codespan"><a href="../cssref/pr_dim_width.html">width</a></code> property is set to a percentage 
+and the <code class="w3-codespan"><a href="../cssref/pr_dim_height.html">height</a></code> property is set to &quot;auto&quot;, the image will be 
+responsive and scale up and down:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+img {<br>
+&nbsp;&nbsp;width: 100%;<br>&nbsp; height: auto;<br>
+}</div>
+
+</div>
+<p>Notice that in the example above, the image can be scaled up to be larger 
+than its original size. A better solution, in many cases, will be to use the
+<code class="w3-codespan"><a href="../cssref/pr_dim_max-width.html">max-width</a></code> property instead.</p>
+<hr>
+<h2>Using The max-width Property</h2>
+<p>If the 
+<code class="w3-codespan"><a href="../cssref/pr_dim_max-width.html">max-width</a></code> property is set to 100%, the image will scale down if it has to, but never scale up to be larger than its 
+original size:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+img {<br>
+  &nbsp; max-width: 100%;<br>&nbsp; height: auto;<br>
+}</div>
+
+</div>
+<hr>
+<h2>Add an Image to The Example Web Page</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+img {<br>
+  &nbsp; width: 100%;<br>&nbsp; height: auto;<br>
+}</div>
+
+</div>
+<hr>
+
+<hr>
+
+<h2>Background Images</h2>
+<p>Background images can also respond to resizing and scaling.</p>
+<p>Here we will show three different methods:</p>
+<p>1. Using <code class="w3-codespan">background-size: contain;</code>: The background 
+image will scale up and down, and tries to fit the content area. However, the image will keep its aspect ratio (the proportional relationship 
+between the image's width and height):</p>
+
+<div class="bg1"></div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Using <code class="w3-codespan">background-size: contain;</code>:</p>
+<div class="w3-code notranslate cssHigh">
+div {<br>&nbsp; width: 100%;<br>&nbsp; height: 400px;<br>&nbsp; 
+background-image: url('img_flowers.jpg');<br>&nbsp;&nbsp;background-repeat: no-repeat;<br>&nbsp;&nbsp;background-size: contain;<br>&nbsp;&nbsp;border: 1px solid 
+  black;<br>}</div>
+
+</div>
+
+<p>2. Using <code class="w3-codespan">background-size: 100% 100%;</code>: The background image will stretch to cover the entire content area:</p>
+
+<div class="bg2"></div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Using <code class="w3-codespan">background-size: 100% 100%;</code>:</p>
+<div class="w3-code notranslate cssHigh">
+div {<br>&nbsp; width: 100%;<br>&nbsp; height: 400px;<br>&nbsp; 
+background-image: url('img_flowers.jpg');<br>&nbsp; 
+background-size: 100% 100%;<br>&nbsp; border: 1px solid black;<br>}</div>
+
+</div>
+
+<p>3. Using <code class="w3-codespan">background-size: cover;</code>: The background image will scale to cover the entire content area. Notice that the &quot;cover&quot; value keeps the aspect 
+ratio, and some part of the background image may be clipped:</p>
+
+<div class="bg3"></div>
+
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Using <code class="w3-codespan">background-size: cover;</code>:</p>
+
+<div class="w3-code notranslate cssHigh">
+div {<br>&nbsp;&nbsp;width: 100%;<br>&nbsp; height: 400px;<br>&nbsp; 
+background-image: url('img_flowers.jpg');<br>&nbsp;&nbsp;background-size: cover;<br>&nbsp;&nbsp;border: 1px solid 
+  black;<br>}</div>
+
+</div>
+<hr>
+
+<h2>Different Images for Different Devices</h2>
+<p>A large image can be perfect on a big computer 
+screen, but useless on a small device. Why load a large image when 
+you have to scale it down anyway? To reduce the load, or for any other reasons, you can use media queries to display different images on different devices.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+/* For width smaller than 400px: */<br>body {<br>&nbsp; background-image: 
+url('img_smallflower.jpg'); <br>}<br><br>/* 
+For width 400px and larger: */<br>@media only screen and (min-width: 400px) 
+{<br>&nbsp; body { <br>&nbsp;&nbsp;&nbsp;&nbsp;background-image: url('img_flowers.jpg'); <br>
+  &nbsp;&nbsp;}<br>}</div>
+
+</div>
+
+<hr>
+<h2>The HTML &lt;picture&gt; Element</h2>
+<p>The HTML <code class="w3-codespan">&lt;picture&gt;</code> element gives web 
+developers more flexibility in specifying image resources.</p>
+<p>The most common use of the <code class="w3-codespan">&lt;picture&gt;</code> 
+element will be for images used in responsive designs. Instead of having one 
+image that is scaled up or down based on the viewport width, multiple images can 
+be designed to more nicely fill the browser viewport.</p>
+<p>The <code class="w3-codespan">&lt;picture&gt;</code> element works similar to the <code class="w3-codespan">&lt;video&gt;</code> and 
+<code class="w3-codespan">&lt;audio&gt;</code> elements. You set up different sources, and the first source that fits the 
+preferences is the one being used:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+&lt;picture&gt;<br>&nbsp; &lt;source srcset=&quot;img_smallflower.jpg&quot; media=&quot;(max-width: 
+400px)&quot;&gt;<br>&nbsp; &lt;source srcset=&quot;img_flowers.jpg&quot;&gt;<br>&nbsp; &lt;img 
+src=&quot;img_flowers.jpg&quot; alt=&quot;Flowers&quot;&gt;<br>&lt;/picture&gt;</div>
+
+</div>
+
+<p>The <code class="w3-codespan">srcset</code> attribute is required, and defines the source of the image.</p>
+<p>The <code class="w3-codespan">media</code> attribute is optional, and accepts the media queries you find in
+<a href="../cssref/atrule_media.html">CSS @media rule</a>.</p>
+<p>You should also define an <code class="w3-codespan">&lt;img&gt;</code> element for browsers that do not support the
+<code class="w3-codespan">&lt;picture&gt;</code> element.</p>
+<hr>
+<h2>Responsive Image Gallery</h2>
+<p>Here, we use media queries together with flexbox to create a responsive image gallery:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div>
+<iframe src="assets/content/images/tryhow_css_image_grid_responsive.html" style="background:white;border:none;width:100%;height:600px;"></iframe>
+</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<br>

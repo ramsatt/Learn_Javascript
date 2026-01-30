@@ -1,0 +1,78 @@
+<h1>PHP <span class="color_h1">current()</span> Function</h1>
+<p><a href="php_ref_array.html" class="w3-btn w3-white w3-border" title="PHP Array Reference">&#10094; PHP Array Reference</a></p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Output the value of the current element in an array:</p>
+<div class="w3-code notranslate htmlHigh">
+&lt;?php<br>
+$people = array(&quot;Peter&quot;, &quot;Joe&quot;, &quot;Glenn&quot;, &quot;Cleveland&quot;);<br>
+<br>
+echo current($people) . &quot;&lt;br&gt;&quot;;<br>
+?&gt;
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="phptryit7050.html?filename=tryphp_func_current">Try it Yourself &raquo;</a>
+</div>
+<hr>
+
+<h2>Definition and Usage</h2>
+<p>The current() function returns the value of the current element in an array.</p>
+<p>Every array has an internal pointer to its &quot;current&quot; element, which is 
+initialized to the first element inserted into the array. </p>
+<p><b>Tip:</b> This function does not move the arrays internal pointer. </p>
+<p>Related methods:</p>
+<ul>
+  <li><a href="func_array_end.html">end()</a> - moves the internal pointer to, and outputs, the last element in the array</li>
+  <li><a href="func_array_next.html">next()</a> - moves the internal pointer to, and outputs, the next element in the array</li>
+  <li><a href="func_array_prev.html">prev()</a> - moves the internal pointer to, and outputs, the previous element in the array</li>
+  <li><a href="func_array_reset.html">reset()</a> - moves the internal pointer to the first element of the array</li>
+  <li><a href="func_array_each.html">each()</a> - returns the current element key and value, and moves the internal pointer forward</li>
+</ul>
+<hr>
+
+<h2>Syntax</h2>
+<div class="w3-code w3-border notranslate"><div>
+current(<em>array</em>)
+</div></div>
+
+<h2>Parameter Values</h2>
+<table class="ws-table-all notranslate">
+  <tr>
+    <th style="width:20%">Parameter</th>
+    <th style="width:80%">Description</th>
+  </tr>  
+  <tr>
+    <td><em>array</em></td>
+    <td>Required. Specifies the array to use</td>
+  </tr>
+</table>
+<hr>
+
+<hr>
+<h2>Technical Details</h2>
+<table class="ws-table-all">
+<tr>
+ <th style="width:20%">Return Value:</th>
+ <td style="width:80%">Returns the value of the current element in an array, or FALSE on empty elements or elements with no value</td>
+</tr>
+<tr>
+  <th>PHP Version:</th>
+  <td>4+</td>
+</tr>
+</table>
+<hr>
+
+<h2>More Examples</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<p>A demonstration of all related methods:</p>
+<div class="w3-code notranslate htmlHigh">
+&lt;?php<br>
+ $people = array(&quot;Peter&quot;, &quot;Joe&quot;, &quot;Glenn&quot;, &quot;Cleveland&quot;);<br><br>echo current($people) . &quot;&lt;br&gt;&quot;; // The current element is Peter<br>echo next($people) . &quot;&lt;br&gt;&quot;; // The next element of Peter is Joe<br>echo current($people) . &quot;&lt;br&gt;&quot;; // Now the current element is Joe<br>echo prev($people) . &quot;&lt;br&gt;&quot;; // The previous element of Joe is Peter<br>echo end($people) . &quot;&lt;br&gt;&quot;; // The last element is Cleveland<br>echo prev($people) . &quot;&lt;br&gt;&quot;; // The previous element of Cleveland is Glenn<br>echo current($people) . &quot;&lt;br&gt;&quot;; // Now the current element is Glenn<br>echo reset($people) . &quot;&lt;br&gt;&quot;; // Moves the internal pointer to the first element of the array, which is Peter<br>
+ echo next($people) . &quot;&lt;br&gt;&quot;; // The next element of Peter is Joe<br><br>
+ print_r (each($people)); // Returns the key and value of the current element (now Joe), and moves the internal pointer forward<br>?&gt;
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="phptryitd59b.html?filename=tryphp_func_internal_pointer">Try it Yourself &raquo;</a>
+</div>
+<hr>
+
+<a href="php_ref_array.html" class="w3-btn w3-white w3-border" title="PHP Array Reference">&#10094; PHP Array Reference</a>

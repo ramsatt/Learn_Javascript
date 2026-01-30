@@ -1,0 +1,179 @@
+<h1>Python <span class="color_h1">Arrays</span></h1>
+
+<hr>
+
+<div class="w3-panel ws-note">
+  <p><strong>Note:</strong> Python does not have built-in support for Arrays, 
+  but <a href="python_lists.html">Python Lists</a> can be used instead.</p>
+</div>
+<hr>
+
+<h2>Arrays</h2>
+
+<div class="w3-panel ws-note">
+  <p><strong>Note:</strong> This page shows you how to use LISTS as ARRAYS, however, to work with arrays in Python you will have to import
+  a library, like the <a href="numpy/default.html">NumPy library</a>.</p>
+</div>
+
+<p>Arrays are used to store multiple values in one single variable:</p>
+<div class="w3-example">
+  <h3>Example</h3>
+<p>Create an array containing car names:</p>
+<div class="w3-code notranslate pythonHigh">
+  cars = [&quot;Ford&quot;, "Volvo", "BMW"]</div>
+
+</div>
+
+<hr>
+
+<h2>What is an Array?</h2>
+<p>An array is a special variable, which can hold more than one value at a time.</p>
+<p>If you have a list of items (a list of car names, for example), storing the 
+cars in single variables could look like this:</p>
+
+<div class="w3-code w3-border notranslate jsHigh">
+<div>
+  car1 = &quot;Ford&quot;<br>
+  car2 = &quot;Volvo&quot;<br>
+  car3 = &quot;BMW&quot;
+</div></div>
+
+<p>However, what if you want to loop through the cars and find a specific one? 
+And what if you had not 3 cars, but 300?</p>
+<p>The solution is an array!</p>
+<p>An array can hold many values under a single name, and you can 
+access the values by referring to an index number.</p>
+
+<hr>
+
+<h2>Access the Elements of an Array</h2>
+<p>You refer to an array element by referring to the <em>index number</em>.</p>
+<div class="w3-example">
+  <h3>Example</h3>
+<p>Get the value of the first array item:</p>
+<div class="w3-code notranslate pythonHigh">
+  x = cars[0]</div>
+
+</div>
+
+<div class="w3-example">
+  <h3>Example</h3>
+<p>Modify the value of the first array item:</p>
+<div class="w3-code notranslate pythonHigh">
+  cars[0] = "Toyota"</div>
+
+</div>
+
+<hr>
+
+<h2>The Length of an Array</h2>
+
+<p>Use the <code class="w3-codespan"><a href="ref_func_len.html">len()</a></code> method to return the length of 
+an array (the number of elements in an array).</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Return the number of elements in the <code class="w3-codespan">cars</code> 
+array:</p>
+<div class="w3-code notranslate pythonHigh">
+  x = len(cars)</div>
+
+</div>
+
+<div class="w3-panel ws-note">
+  <p><strong>Note:</strong> The length of an array is always one more than the highest array index.</p>
+</div>
+
+<hr>
+
+<hr>
+
+<h2>Looping Array Elements</h2>
+
+<p>You can use the <code class="w3-codespan"><a href="python_for_loops.html">for in</a></code> loop to loop through all the elements of an array.</p>
+<div class="w3-example">
+  <h3>Example</h3>
+<p>Print each item in the <code class="w3-codespan">cars</code> array:</p>
+<div class="w3-code notranslate pythonHigh">
+  for x in cars:<br>&nbsp; print(x)</div>
+
+</div>
+
+<hr>
+
+<h2>Adding Array Elements</h2>
+
+<p>You can use the <code class="w3-codespan"><a href="ref_list_append.html">append()</a></code> method to add an element to an array.</p>
+<div class="w3-example">
+  <h3>Example</h3>
+<p>Add one more element to the <code class="w3-codespan">cars</code> array:</p>
+<div class="w3-code notranslate pythonHigh">
+cars.append(&quot;Honda&quot;)</div>
+
+</div>
+
+<hr>
+
+<h2>Removing Array Elements</h2>
+
+<p>You can use the <code class="w3-codespan"><a href="ref_list_pop.html">pop()</a></code> method to remove an element from the array.</p>
+<div class="w3-example">
+  <h3>Example</h3>
+<p>Delete the second element of the <code class="w3-codespan">cars</code> array:</p>
+<div class="w3-code notranslate pythonHigh">
+cars.pop(1)</div>
+
+</div>
+
+<p>You can also use the <code class="w3-codespan"><a href="ref_list_remove.html">remove()</a></code> method to remove an element from the array.</p>
+<div class="w3-example">
+  <h3>Example</h3>
+<p>Delete the element that has the value &quot;Volvo&quot;:</p>
+<div class="w3-code notranslate pythonHigh">
+cars.remove(&quot;Volvo&quot;)</div>
+
+</div>
+<div class="w3-panel ws-note">
+  <p><strong>Note:</strong> The list's <code class="w3-codespan"><a href="ref_list_remove.html">remove()</a></code> method 
+  only removes the first occurrence of the specified value.</p>
+</div>
+
+<hr>
+<h2>Array Methods</h2>
+<p>Python has a set of built-in methods that you can use on lists/arrays.</p>
+
+<table class="ws-table-all notranslate">
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+<tr><td><a href="ref_list_append.html">append()</a></td><td>Adds an element at 
+  the end of the list</td></tr>
+<tr><td><a href="ref_list_clear.html">clear()</a></td><td>Removes all the 
+  elements from the list</td></tr>
+<tr><td><a href="ref_list_copy.html">copy()</a></td><td>Returns a copy of the 
+  list</td></tr>
+<tr><td><a href="ref_list_count.html">count()</a></td><td>Returns the number of 
+  elements with the specified value</td></tr>
+<tr><td><a href="ref_list_extend.html">extend()</a></td><td>Add the elements of a 
+  list (or any iterable), to the end of the current list</td></tr>
+<tr><td><a href="ref_list_index.html">index()</a></td><td>Returns the index of 
+  the first element with the specified value</td></tr>
+<tr><td><a href="ref_list_insert.html">insert()</a></td><td>Adds an element at 
+  the specified position</td></tr>
+<tr><td><a href="ref_list_pop.html">pop()</a></td><td>Removes the element at the 
+  specified position</td></tr>
+<tr><td><a href="ref_list_remove.html">remove()</a></td><td>Removes the first 
+  item with the specified value</td></tr>
+<tr><td><a href="ref_list_reverse.html">reverse()</a></td><td>Reverses the order 
+  of the list</td></tr>
+<tr><td><a href="ref_list_sort.html">sort()</a></td><td>Sorts the list</td></tr>
+</table>
+<div class="w3-panel ws-note">
+  <p><strong>Note:</strong> Python does not have built-in support for Arrays, 
+  but Python Lists can be used instead.</p>
+</div>
+
+<hr>
+
+<hr>

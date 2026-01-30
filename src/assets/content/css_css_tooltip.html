@@ -1,0 +1,301 @@
+<h1>CSS <span class="color_h1">Tooltip</span></h1>
+
+<hr>
+
+<h2>CSS Tooltip</h2>
+
+<p>A CSS tooltip is used to specify extra information about something when the 
+user moves the mouse pointer over an element:</p>
+
+<div class="w3-row w3-center" style="margin-top:35px;margin-bottom:35px;">
+
+<div class="w3-quarter">
+  <div class="tooltip">Top
+    <span class="tooltiptext tooltip-top">Tooltip text</span>
+  </div>
+</div>
+
+<div class="w3-quarter">
+  <div class="tooltip">Right
+    <span class="tooltiptext tooltip-right">Tooltip text</span>
+  </div>
+</div>
+
+<div class="w3-quarter">
+  <div class="tooltip">Bottom
+    <span class="tooltiptext tooltip-bottom">Tooltip text</span>
+  </div>
+</div>
+
+
+<div class="w3-quarter">
+  <div class="tooltip">Left
+    <span class="tooltiptext tooltip-left">Tooltip text</span>
+  </div>
+</div>
+
+</div>
+<p style="clear:both"></p>
+
+<hr>
+
+<h2>CSS Create a Basic Tooltip</h2>
+
+<p>Create a tooltip that appears when the user moves the mouse over an element:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+&lt;style&gt;<br>/* Tooltip container */<br>.tooltip {<br>&nbsp;&nbsp;position: relative;<br>
+  &nbsp; 
+display: inline-block;<br>&nbsp; border-bottom: 1px dotted 
+black; /* Add dots under the hoverable text */<br>&nbsp; cursor: pointer;<br>}<br><br>/* Tooltip text 
+*/<br>.tooltiptext {<br>&nbsp;&nbsp;visibility: hidden; /* 
+  Hidden by default */<br>&nbsp;&nbsp;width: 130px;<br>
+  &nbsp; 
+background-color: black;<br>&nbsp;&nbsp;color: #ffffff;<br>&nbsp;&nbsp;text-align: center;<br>
+  &nbsp; padding: 5px 0;<br>&nbsp; 
+border-radius: 6px;<br>&nbsp; position: absolute;<br>
+  &nbsp; z-index: 1; /* Ensure tooltip is displayed above 
+  content */<br>}<br><br>/* Show 
+the tooltip text on hover */<br>.tooltip:hover 
+.tooltiptext {<br>&nbsp;&nbsp;visibility: visible;<br>}<br>&lt;/style&gt;<br><br><span class="htmlHigh">&lt;div class="tooltip"&gt;<span style="color:black !important">Hover 
+over me</span><br>
+&nbsp; &lt;span class=&quot;tooltiptext&quot;&gt;<span style="color:black;">Some 
+  tooltip 
+text</span>&lt;/span&gt;<br>&lt;/div&gt;</span></div>
+
+</div>
+<h3>Example Explained</h3>
+<p><strong>HTML:</strong></p>
+<ul>
+  <li>Use a container element (like &lt;div&gt;) and add the 
+  <code class="w3-codespan">&quot;tooltip&quot;</code> class to it. When the user mouse over this &lt;div&gt;, it will show the 
+tooltip text.</li>
+  <li>The tooltip text is placed inside an inline element (like &lt;span&gt;) with 
+  <code class="w3-codespan">class=&quot;tooltiptext&quot;</code>.</li>
+</ul>
+<p><strong>CSS:</strong></p>
+<ul>
+  <li>The <code class="w3-codespan">tooltip</code> class use 
+  <code class="w3-codespan">position:relative</code>, 
+which is needed to position the tooltip text (<code class="w3-codespan">position:absolute</code>).
+  <strong>Tip:</strong> See examples below on how to position the tooltip.</li>
+  <li>The <code class="w3-codespan">tooltiptext</code> class holds the actual 
+  tooltip text. It is hidden by default, and will be visible on hover.</li>
+  <li>The <code class="w3-codespan">:hover</code> selector is used to show the tooltip text when the user moves the 
+mouse over the &lt;div&gt; with <code class="w3-codespan">class=&quot;tooltip&quot;</code>.</li>
+</ul>
+
+<hr>
+
+<hr>
+
+<h2>Positioning the Tooltip</h2>
+<p>You can position the tooltip as you like. Here we will show how to position 
+the tooltip to the left, right, top and bottom.</p>
+
+<h3>Right- and Left-aligned Tooltip</h3>
+<p>In this example, the tooltip is placed to the right (<code class="w3-codespan">left:105%</code>) of the &quot;hoverable&quot; 
+text (&lt;div&gt;). Also note that <code class="w3-codespan">top:-5px</code> is used to place it in the middle of its container element. 
+We use the number <strong>5</strong> because the tooltip text has a top and 
+bottom padding of 
+5px. If you increase its padding, also increase the value of the <code class="w3-codespan">top</code> property to 
+ensure that it stays in the middle (if this is something you want). The same 
+applies if you want the tooltip placed to the left.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Right-aligned tooltip:</p>
+<div class="w3-code notranslate cssHigh">
+  .tooltiptext {<br>&nbsp; top: -5px;<br>&nbsp; 
+left: 
+105%; <br>}
+</div>
+<p>Result:</p>
+   <div class="w3-padding w3-white notranslate w3-center">
+     <div class="tooltip">Hover over me
+       <span class="tooltiptext2 tooltip-right2">Tooltip text</span>
+     </div>
+   </div>
+
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Left-aligned tooltip:&nbsp;</p>
+<div class="w3-code notranslate cssHigh">
+  .tooltiptext {<br>&nbsp; top: -5px;<br>&nbsp; 
+right: 
+105%; <br>}
+</div>
+<p>Result:</p>
+   <div class="w3-padding w3-white notranslate w3-center">
+     <div class="tooltip">Hover over me
+       <span class="tooltiptext2 tooltip-left2">Tooltip text</span>
+     </div>
+   </div>
+
+</div>
+
+<h3>Top- and Bottom-aligned Tooltip</h3>
+<p>If you want the tooltip to appear on top or on the bottom, see examples 
+below. Note that we use the <code class="w3-codespan">margin-left</code> property with a value of minus 65 
+pixels. This is to center the tooltip above/below the hoverable text. It is set 
+to the half of the tooltip's width (130/2 = 65).</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Top-aligned tooltip:&nbsp;</p>
+<div class="w3-code notranslate cssHigh">
+  .tooltiptext {<br>&nbsp; width: 130px;<br>&nbsp; 
+bottom: 100%;<br>&nbsp; left: 
+  65%; <br>&nbsp;&nbsp;margin-left: -65px; /* Use half of the width 
+(130/2 = 65), to center the tooltip */<br>}
+</div>
+<p>Result:</p>
+   <div class="w3-padding w3-white notranslate w3-center">
+     <div class="tooltip">Hover over me
+       <span class="tooltiptext2 tooltip-top2">Tooltip text</span>
+     </div>
+   </div>
+
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Bottom-aligned tooltip:&nbsp;</p>
+<div class="w3-code notranslate cssHigh">
+&nbsp;.tooltiptext {<br>&nbsp; width: 130px;<br>&nbsp; top: 100%;<br>&nbsp; left: 
+50%; <br>&nbsp;&nbsp;margin-left: -65px; /* Use half of the width 
+(130/2 = 65), to center the tooltip */<br>}
+</div>
+<p>Result:</p>
+    <div class="w3-padding w3-white notranslate w3-center">
+      <div class="tooltip">Hover over me
+        <span class="tooltiptext2 tooltip-bottom2">Tooltip text</span>
+      </div>
+    </div>
+
+</div>
+
+<hr>
+
+<h2>Tooltip Arrows</h2>
+
+<p>To create an arrow that should appear from a specific side of the tooltip, add "empty" 
+content after 
+tooltip, with the pseudo-element class <code class="w3-codespan">::after</code> together with the <code class="w3-codespan">content</code> 
+property. The arrow itself is created using borders. This will make the tooltip 
+look like a speech bubble.</p>
+<p>This example demonstrates how to add an arrow to the bottom of the tooltip:</p>
+
+<div class="w3-example">
+<h3>Bottom Arrow</h3>
+<div class="w3-code notranslate cssHigh">
+  .tooltiptext::after {<br>&nbsp; content: &quot; &quot;;<br>&nbsp; position: absolute;<br>
+  &nbsp; top: 100%; 
+/* At the bottom of the tooltip */<br>&nbsp; left: 50%;<br>&nbsp; margin-left: -5px;<br>
+  &nbsp; 
+border-width: 5px;<br>&nbsp; border-style: solid;<br>&nbsp; 
+border-color: black transparent transparent transparent;<br>}
+</div>
+   <p>Result:</p>
+   <div class="w3-padding w3-white notranslate w3-center">
+      <div class="tooltip">Hover over me
+        <span class="tooltiptext-bottomarrow">Tooltip text</span>
+      </div>
+    </div>
+
+</div>
+
+<h3>Example Explained</h3>
+<p>Position the arrow inside the tooltip: <code class="w3-codespan">top: 100%</code> will place the arrow at the 
+bottom of the tooltip. <code class="w3-codespan">left: 50%</code> will center the arrow.</p>
+
+<p><strong>Note:</strong> The <code class="w3-codespan">border-width</code> property specifies the size of the 
+arrow. If you change this, also change the <code class="w3-codespan">margin-left</code> value to the same. This 
+will keep the arrow centered.</p>
+<p>The <code class="w3-codespan">border-color</code> is used to transform the content into an arrow. We set the 
+top border to black, and the rest to transparent. If all sides were black, you 
+would end up with a black square box.</p>
+
+<p>This example demonstrates how to add an arrow to the top of the tooltip. 
+Notice that we set the bottom border color this time:</p>
+
+<div class="w3-example">
+<h3>Top Arrow</h3>
+<div class="w3-code notranslate cssHigh">
+  .tooltiptext::after {<br>&nbsp;&nbsp;content: &quot; &quot;;<br>&nbsp;&nbsp;position: absolute;<br>&nbsp;&nbsp;bottom: 100%;&nbsp; /* At the top of the tooltip */<br>
+  &nbsp; left: 50%;<br>&nbsp; margin-left: -5px;<br>&nbsp; 
+border-width: 5px;<br>&nbsp; border-style: solid;<br>&nbsp; 
+border-color: transparent transparent black transparent;<br>}
+</div>
+<p>Result:</p>
+   <div class="w3-padding w3-white notranslate w3-center">
+      <div class="tooltip">Hover over me
+        <span class="tooltiptext-toparrow">Tooltip text</span>
+      </div>
+    </div>
+
+</div>
+
+<p>This example demonstrates how to add an arrow to the left of the tooltip:</p>
+
+<div class="w3-example">
+<h3>Left Arrow</h3>
+<div class="w3-code notranslate cssHigh">
+  .tooltiptext::after {<br>&nbsp; content: &quot; &quot;;<br>&nbsp;&nbsp;position: absolute;<br>&nbsp;&nbsp;top: 50%;<br>
+  &nbsp; right: 100%; /* To the left of the tooltip 
+*/<br>&nbsp; margin-top: -5px;<br>&nbsp; 
+border-width: 5px;<br>&nbsp; border-style: solid;<br>&nbsp; 
+border-color: transparent black transparent transparent;<br>}
+</div>
+   <p>Result:</p>
+    <div class="w3-padding w3-white notranslate w3-center">
+      <div class="tooltip">Hover over me
+        <span class="tooltiptext-leftarrow">Tooltip text</span>
+      </div>
+    </div>
+
+</div>
+
+<p>This example demonstrates how to add an arrow to the right of the tooltip:</p>
+
+<div class="w3-example">
+<h3>Right Arrow</h3>
+<div class="w3-code notranslate cssHigh">
+  .tooltiptext::after {<br>&nbsp; content: &quot; &quot;;<br>&nbsp; position: absolute;<br>
+  &nbsp; top: 50%;<br>&nbsp; left: 100%; /* To the right of the 
+tooltip */<br>&nbsp; margin-top: -5px;<br>&nbsp; 
+border-width: 5px;<br>&nbsp; border-style: solid;<br>&nbsp; 
+border-color: transparent transparent transparent black;<br>}
+</div>
+   <p>Result:</p>
+    <div class="w3-padding w3-white notranslate w3-center">
+      <div class="tooltip">Hover over me
+        <span class="tooltiptext-rightarrow">Tooltip text</span>
+      </div>
+    </div>
+
+</div>
+
+<hr>
+
+<h2>Fade-in Tooltip</h2>
+
+<p>If you want a tooltip that fades in, use the CSS <code class="w3-codespan">transition</code> property 
+and the <code class="w3-codespan">opacity</code> 
+property, and go from being completely invisible to 100% visible, in a number of specified seconds 
+(2 second in our example):</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+  .tooltiptext {<br>&nbsp; opacity: 0;<br>&nbsp; 
+transition: opacity 2s;<br>}<br><br>.tooltip:hover 
+.tooltiptext {<br>&nbsp;&nbsp;opacity: 1;<br>}</div>
+
+</div>
+
+<br>

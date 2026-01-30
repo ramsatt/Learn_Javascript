@@ -1,0 +1,202 @@
+<h1>CSS <span class="color_h1">Website Layout</span></h1>
+
+<hr>
+
+<h2>CSS Website Layout</h2>
+<p>A website is often divided into multiple sections, like a top header, 
+navigation menu, main content, and a footer:</p>
+<div class="w3-card-2 w3-padding w3-padding-16">
+
+<div style="overflow:auto">
+  <div class="w3-col header ws-grey" style="margin-bottom:8px;padding:30px 0;text-align:center">Header</div>
+  <div class="w3-col header ws-grey" style="margin-bottom:8px;padding:12px 0;text-align:center">Navigation Menu</div>
+  <div class="w3-row w3-center">
+  <div class="w3-col s2 ws-grey ws-border-right" style="height:250px;padding:108px 15px 100px 15px;"><span class="w3-hide-small">Content</span></div>
+  <div class="w3-col s8 ws-grey ws-border-right" style="height:250px;padding:108px 15px 100px 15px;">Main Content</div>
+  <div class="w3-col s2 ws-grey" style="height:250px;padding:108px 15px 100px 15px;"><span class="w3-hide-small">Content</span></div>
+  </div>
+  <div class="w3-col footer ws-grey" style="margin-top:8px;padding:18px 0;text-align:center">Footer</div>
+</div>
+</div>
+<p>There are tons of different layout designs to choose from. However, the structure above, is one of the most common, and we will take a closer look at it in this tutorial.</p>
+
+<hr>
+
+<h2>CSS Header</h2>
+<p>A header is usually located at the top of the website, and often contains a logo or the website name:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh"> 
+   header {<br>&nbsp; background-color: #f1f1f1;<br>&nbsp; text-align: 
+   center;<br>&nbsp; padding: 10px;<br>}
+</div>
+<p>Result</p>
+<div class="w3-padding w3-padding-16 w3-white notranslate"> 
+<div class="w3-light-grey w3-center" style="padding:20px;"><h2>My Header</h2></div>
+</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>CSS Navigation Bar</h2>
+<p>A navigation bar contains a list of links to help visitors navigate through your website:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh"> 
+   /* Style the topnav */<br>ul.topnav {<br>&nbsp; display: flex;<br>&nbsp; 
+   list-style-type: none;<br>&nbsp; margin: 0;<br>&nbsp; padding: 0;<br>&nbsp; 
+   background-color: #333333;<br>}<br><br>
+   /* Style links in topnav */<br>ul.topnav li a {<br>&nbsp; display: block;<br>&nbsp; 
+   color: #f1f1f1;<br>&nbsp; padding: 14px 16px;<br>&nbsp; text-decoration: 
+   none;<br>}<br><br>/* 
+   Change color on hover */<br>ul.topnav li a:hover {<br>&nbsp; 
+   background-color: #dddddd;<br>&nbsp; color: black;<br>}</div>
+<p>Result</p>
+<div class="w3-padding w3-padding-16 w3-white notranslate"> 
+<div class="w3-bar w3-black">
+  <a class="w3-bar-item w3-button w3-padding-16" href="javascript:void(0)">Link1</a>
+  <a class="w3-bar-item w3-button w3-padding-16" href="javascript:void(0)">Link2</a>
+  <a class="w3-bar-item w3-button w3-padding-16" href="javascript:void(0)">Link3</a>
+  <a class="w3-bar-item w3-button w3-padding-16" href="javascript:void(0)">Link4</a>  
+</div>
+</div>
+
+</div>
+
+<hr>
+
+<h2>CSS Layout Content</h2>
+<p>How the content of a website should be shown, often depends on the device of 
+the users. The most common layouts are:</p>
+<ul>
+  <li><strong>1-column layout</strong> (often used for mobile browsers)</li>
+  <li><strong>2-columns layout</strong> (often used for tablets and laptops)</li>
+  <li><strong>3-columns layout</strong> (only used for desktops)</li>
+</ul>
+
+<div class="w3-row-padding" style="margin:24px -22px">
+  <div class="w3-col m4">
+    <div class="w3-card-2 w3-padding w3-padding-16"><p style="margin-top:0px">1-column:</p>
+    
+<div style="overflow:hidden">
+  <div class="w3-col header ws-grey" style="margin-bottom:8px;height:20px;"></div>
+  <div class="w3-col header ws-grey" style="height:120px;"></div>
+  <div class="w3-col footer ws-grey" style="margin-top:8px;height:20px;"></div>
+</div>
+    
+    
+    </div>
+  </div>
+  <p class="w3-hide-large w3-hide-medium" style="margin:8px 0">&nbsp;</p>
+  <div class="w3-col m4">
+    <div class="w3-card-2 w3-padding w3-padding-16"><p style="margin-top:0px">2-column:</p>
+<div style="overflow:hidden">
+  <div class="w3-col header ws-grey" style="margin-bottom:8px;height:20px;"></div>
+  <div class="w3-row">
+  <div class="w3-col s6 ws-grey ws-border-right" style="height:120px;"></div>
+  <div class="w3-col s6 ws-grey" style="height:120px;"></div>
+  </div>
+  <div class="w3-col footer ws-grey" style="margin-top:8px;height:20px;"></div>
+</div>
+    
+    </div>
+  </div>
+   <p class="w3-hide-large w3-hide-medium" style="margin:8px 0">&nbsp;</p>
+ 
+  <div class="w3-col m4">
+    <div class="w3-card-2 w3-padding w3-padding-16"><p style="margin-top:0px">3-column:</p>
+<div style="overflow:hidden">
+  <div class="w3-col header ws-grey" style="margin-bottom:8px;height:20px;"></div>
+  <div class="w3-row">
+  <div class="w3-col s4 ws-grey ws-border-right" style="height:120px;"></div>
+  <div class="w3-col s4 ws-grey ws-border-right" style="height:120px;"></div>
+  <div class="w3-col s4 ws-grey" style="height:120px;"></div>
+  </div>
+  <div class="w3-col footer ws-grey" style="margin-top:8px;height:20px;"></div>
+</div>
+    
+    </div>
+  </div>
+</div>
+
+<p>Here we will create a 3-column layout, and change it to a 1-column layout 
+when the width of the screen is less than 600px:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh"> 
+   div.flex-container {<br>&nbsp; display: flex;<br>&nbsp; /* Show the flex 
+   items horizontally */<br>&nbsp; flex-direction: row;<br>}<br><br>
+   div.flex-container &gt; div {<br>&nbsp; margin: 10px;<br>}<br><br>/* Use media 
+   query and show the flex items vertically if screen width is less than 600px 
+   */<br>@media screen and (max-width:600px) {<br>&nbsp; div.flex-container {<br>&nbsp;&nbsp;&nbsp; 
+   flex-direction: column;<br>&nbsp; }<br>} </div>
+<p>Result</p>
+<div class="w3-padding w3-white notranslate w3-padding-16"> 
+<div class="w3-row">
+  <div class="w3-col m4 w3-padding"><h2>Column</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique.</p></div>
+  <div class="w3-col m4 w3-padding"><h2>Column</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique.</p></div>
+  <div class="w3-col m4 w3-padding"><h2>Column</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique.</p></div>
+</div></div>
+
+</div>
+<div class="ws-note w3-panel">
+<p><strong>Tip:</strong> Learn more about the CSS <code class="w3-codespan">
+@media</code> rule in our <a href="css3_mediaqueries.html">CSS Media Queries</a> 
+chapter.</p>
+<p><strong>Tip:</strong> Learn more about CSS Flexbox in our
+<a href="css3_flexbox.html"> CSS Flexbox</a> chapter.</p>
+</div>
+
+<hr>
+
+<h2>CSS Basic and Fixed Footer</h2>
+<p>The footer is placed at the bottom of a webpage. It often contains information like copyright and contact info.</p>
+<p>The following example shows a basic footer styling:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh"> 
+   footer {<br>&nbsp; background-color: #f1f1f1;<br>&nbsp; text-align: 
+   center;<br>&nbsp; padding: 8px;<br>}
+</div>
+<p>Result</p>
+<div class="w3-padding w3-white notranslate w3-padding-16"> 
+<div class="w3-light-grey w3-center" style="padding:20px;">Footer</div>
+</div>
+
+</div>
+<p>The following example shows a fixed footer that is always visible at the bottom of the page, regardless of scrolling:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh"> 
+   footer {<br>&nbsp; position: fixed;<br>&nbsp; bottom: 0;<br>&nbsp; left: 
+   0;<br>&nbsp; width: 100%;<br>&nbsp; background-color: #f1f1f1;<br>&nbsp; 
+   padding: 8px;<br>&nbsp; text-align: center;<br>&nbsp; z-index: 1000;<br>} </div>
+
+</div>
+
+<hr>
+
+
+<h2>CSS Responsive Website</h2>
+<p>In this example, we use <a href="css3_mediaqueries.html">media queries</a> together with 
+<a href="css3_flexbox.html">flexbox</a> to create a responsive website, containing a flexible navigation bar and flexible content.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div>
+<iframe src="assets/content/images/trycss3_flexbox_website_ifr.html" style="border:2px solid #ddd;width:100%;height:625px;"></iframe>
+</div>
+
+</div>
+
+
+<div class="w3-panel ws-note">
+  <p>Ever heard about <strong>W3Schools Spaces</strong>? Here you can create your website from scratch or use a template.</p>
+  <a class="ws-btn" href="https://www.w3spaces.com/" target="_blank" title="Get Started With W3Schools Spaces">Get started for free &#10095;</a>
+  <p class="w3-small"><em>* no credit card required</em></p>
+</div>
+
+<br>

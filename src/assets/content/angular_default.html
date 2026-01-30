@@ -1,0 +1,146 @@
+<h1>Angular Tutorial</h1>
+  
+    <div class="w3-panel ws-info intro">
+      <h2>Learn Angular</h2>
+      <p>Angular is a framework for building client applications in HTML and TypeScript.</p>
+      <a class="w3-btn w3-margin-bottom" href="angular_intro.html" style="font-size: 18px;padding-left:25px;padding-right:25px;font-family: 'Source Sans Pro', sans-serif;margin-top:6px;">Start learning Angular now &raquo;</a>
+     </div>
+     
+     
+
+     <hr>
+     <h2>Overview &amp; Prerequisites</h2>
+     <p>Learn Angular step-by-step with easy-to-follow pages and runnable JS-only examples.</p>
+    <p>We use standalone components, modern control flow, and the built-in Router and HttpClient in examples.</p>
+     <div class="w3-panel ws-note">
+       <p><b>Prerequisites:</b></p>
+       <ul>
+         <li>Basic HTML, CSS, and JavaScript.</li>
+         <li>Some TypeScript helps but is not required.</li>
+       </ul>
+     </div>
+
+     <hr>
+     <h2>Learning by Examples</h2>
+     <p>Our "Show Angular" tool makes it easy to demonstrate Angular.</p>
+     <p>It shows both the code and the result.</p>
+     <div class="w3-example">
+      <h3>Example:</h3>
+      <pre class="language-ts" data-tab-header="main.ts"><code>import { bootstrapApplication } from '@angular/platform-browser';
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  template: `&lt;h1&gt;Hello Angular!&lt;/h1&gt;`
+})
+export class App {}
+
+bootstrapApplication(App);</code></pre>
+      <pre class="language-html" data-tab-header="index.html"><code>&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+  &lt;title&gt;Angular App&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;app-root&gt;&lt;/app-root&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      <p>
+        <a target="_blank" rel="noopener" class="w3-btn" href="showangular99ba.html?filename=demo_default">Run 
+        Example &raquo;</a>
+      </p>
+    </div>
+    <hr>
+<h2>Learning by Exercises</h2>
+<p>Many chapters in this tutorial end with an exercise where you can check you level of knowledge.</p>
+
+<p><a class="w3-btn w3-margin-bottom ws-green" href="angular_exercises.html" style="border-radius:5px;font-size: 18px;padding-left:25px;padding-right:25px;font-family: 'Source Sans Pro', sans-serif;margin-top:6px;">See all Angular Exercises</a></p>
+<hr>
+
+<hr>
+
+<h2>Angular Quiz</h2>
+<p>Test your Angular skills with a quiz.</p>
+<p><a href="angular_quiz.html" class="w3-button w3-blue w3-round">Angular Quiz</a></p>
+<hr>
+
+<div class="ws-hide-on-logged-in">
+<style>
+.containerlog {
+  display: flex;
+  gap: 50px;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  margin-right:-16px;
+}
+
+.left-panel {
+  flex: 50%;
+}
+
+.left-panel h2 {
+  margin-bottom: 18px;
+}
+
+.checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.checklist li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.checklist img {
+  width: 20px;
+  height: 20px;
+  margin-right: 15px;
+}
+
+.right-panel {
+  flex: 50%;
+  display: flex;
+  background-image: url("../images/img_db2.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top:-50px;
+  border-radius:8px;
+  border:1px solid #f1f1f1;
+}
+
+@media (max-width: 1250px) and (min-width: 993px) {
+  .right-panel {
+    display: none;
+  }
+}
+
+@media (max-width: 860px) and (min-width: 0px) {
+  .right-panel {
+    display: none;
+  }
+  .containerlog {
+  margin-right: 0!important;
+}
+
+}
+
+.darkpagetheme .right-panel {
+  background-image: url("../images/banner_dm.png");
+  border:1px solid #333;
+}
+
+</style>
+<h2>Track Your Progress</h2>
+
+<p style="margin-top:16px;"><strong>Note:</strong> This is an optional feature. You can study at W3Schools without creating an account.</p>
+
+
+    <hr>
+</div>

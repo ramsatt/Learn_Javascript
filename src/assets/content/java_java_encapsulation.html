@@ -1,0 +1,115 @@
+<h1>Java <span class="color_h1">Encapsulation</span></h1>
+
+<hr>
+
+<h2>Encapsulation</h2>
+<p>The meaning of <strong>Encapsulation</strong>, is to make sure that "sensitive" data is hidden 
+from users. To achieve this, you must:
+<ul>
+<li>declare class variables/attributes as <code class="w3-codespan">private</code></li>
+<li>provide public <strong>get</strong> 
+and <strong>set</strong> methods to access and update the value of a <code class="w3-codespan">private</code> 
+variable</li>
+</ul>
+
+<hr>
+<h2>Get and Set</h2>
+<p>You learned from the previous chapter that <code class="w3-codespan">private</code> variables can only be 
+accessed within the same class (an outside class has no access to it). However, 
+it is possible to access them if we provide public <strong>get</strong> and <strong>set</strong> methods.</p>
+<p>The <code class="w3-codespan">get</code> method returns the variable value, and the <code class="w3-codespan">set</code> method sets the value.</p>
+<p>Syntax for both is that they start with either <code class="w3-codespan">get</code> or <code class="w3-codespan">set</code>, followed by the 
+name of the variable, with the first letter in upper case:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white" data-line="5,10"><code>public class Person {
+&nbsp; private String name; // private = restricted access
+
+&nbsp; // Getter
+&nbsp; public String getName() {
+&nbsp;&nbsp;&nbsp; return name;
+&nbsp; }
+
+&nbsp; // Setter
+&nbsp; public void setName(String newName) {
+&nbsp;&nbsp;&nbsp; this.name = newName;
+&nbsp; }
+}
+</code></pre>
+</div>
+<h4>Example explained</h4>
+<p>The <code class="w3-codespan">get</code> method returns the value of the variable <code class="w3-codespan">name</code>.</p>
+<p>The <code class="w3-codespan">set</code> method takes a parameter (<code class="w3-codespan">newName</code>) and assigns it to the
+<code class="w3-codespan">name</code> variable. The <code class="w3-codespan">this</code> keyword is used to refer to the current 
+object.</p>
+<p>However, as the <code class="w3-codespan">name</code> variable is declared as <code class="w3-codespan">private</code>, we 
+<strong>cannot</strong> access it from outside this class:</p>
+<div class="w3-example w3-pale-red">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>public class Main {
+&nbsp; public static void main(String[] args) {
+&nbsp;&nbsp;&nbsp; Person myObj = new Person();
+&nbsp;&nbsp;&nbsp; myObj.name = &quot;John&quot;;&nbsp; // error
+&nbsp;&nbsp;&nbsp; System.out.println(myObj.name); // error&nbsp;
+&nbsp; }
+}
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showjava_classes8d06.html?filename=demo_getset_error">Run Example &raquo;</a>
+</p>
+</div>
+<p>If the variable was declared as <code class="w3-codespan">public</code>, we would expect the following output:</p>
+<div class="w3-example">
+<div class="w3-padding notranslate w3-black w3-margin-top w3-margin-bottom">
+<code>
+John
+</code>
+</div>
+</div>
+<p>However, as we try to access a <code class="w3-codespan">private</code> variable, we get an error:</p>
+<div class="w3-example">
+<div class="w3-padding notranslate w3-black w3-margin-top w3-margin-bottom">
+<code>
+MyClass.java:4: error: name has private access in Person<br>
+&nbsp;&nbsp;&nbsp;&nbsp;myObj.name = "John";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^<br>
+MyClass.java:5: error: name has private access in Person<br>
+&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(myObj.name);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^<br>
+2 errors
+</code>
+</div>
+</div>
+
+<p>Instead, we use the <code class="w3-codespan">getName()</code> and <code class="w3-codespan">setName()</code> methods to access and update the variable:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white" data-line="4,5"><code>public class Main {
+&nbsp; public static void main(String[] args) {
+&nbsp;&nbsp;&nbsp; Person myObj = new Person();
+&nbsp;&nbsp;&nbsp; myObj.setName(&quot;John&quot;); // Set the value of the name variable to &quot;John&quot;
+&nbsp;&nbsp;&nbsp; System.out.println(myObj.getName());
+&nbsp; }
+}
+
+// Outputs &quot;John&quot;
+</code></pre>
+<p>
+
+</p>
+</div>
+<hr>
+
+<h2>Why Encapsulation?</h2>
+<ul>
+<li>Better control of class attributes and methods</li>
+<li>Class attributes can be made <strong>read-only</strong> (if you only use the <code class="w3-codespan">get</code> method), or <strong>write-only</strong> (if you only use the <code class="w3-codespan">set</code> method)</li>
+<li>Flexible: the programmer can change one part of the code without affecting other parts</li>
+<li>Increased security of data</li>
+</ul>
+
+<hr>
+
+<hr>
+
+<br>

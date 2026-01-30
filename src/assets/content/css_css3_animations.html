@@ -1,0 +1,396 @@
+<h1>CSS <span class="color_h1">Animations</span></h1>
+
+<hr>
+
+<h2>CSS Animations</h2>
+<p>CSS allows animation of HTML elements without using JavaScript!</p>
+<div id="animated_div">CSS</div>
+<hr> 
+
+<h2>What are CSS Animations?</h2>
+<p>An animation lets an element gradually change from one style to another.</p>
+<p>You can change as many CSS properties you want, as many times as you want.</p>
+<p>To use CSS animation, you must specify some keyframes for the 
+animation.</p>
+<p>Keyframes hold what styles the element will have at certain times.</p>
+
+<hr>
+<h2>CSS animation-name and animation-duration</h2>
+<p>The <code class="w3-codespan"><a href="../cssref/css3_pr_animation-name.html">animation-name</a></code> 
+property specifies a name for the animation.</p>
+<p>The <code class="w3-codespan"><a href="../cssref/css3_pr_animation-duration.html">animation-duration</a></code> 
+property defines how long an animation should take to complete. If this property 
+is not specified, no animation will occur, because the default value is 0s (0 
+seconds).</p>
+<hr>
+<h2>CSS @keyframes Rule</h2>
+<p>When you specify CSS styles inside the <code class="w3-codespan">
+<a href="../cssref/atrule_keyframes.html">@keyframes</a></code>
+rule, the animation will gradually change from the current style to the new style 
+at certain times.</p>
+<p>To get an animation to work, you must bind the animation to an element.</p>
+<p>The following example binds the &quot;myAnimation&quot; animation to the &lt;div&gt; element. 
+The animation will last for 4 seconds, and it will gradually change the 
+background-color of the &lt;div&gt; element from &quot;red&quot; to &quot;yellow&quot;:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+/* The animation code */<br>
+@keyframes myAnimation {<br>
+&nbsp;&nbsp;from {background-color: red;}<br>
+  &nbsp;
+to {background-color: yellow;}<br>
+}<br><br>/* The element to apply the animation to */<br>
+div {<br>&nbsp; width: 100px;<br>&nbsp; height: 100px;<br>&nbsp; 
+background-color: red;<br>&nbsp;
+animation-name: myAnimation;<br>&nbsp;&nbsp;animation-duration: 4s;<br>
+}
+</div>
+
+</div>
+<p>In the example above we have used 
+the keywords &quot;from&quot; and &quot;to&quot; in the <code class="w3-codespan">
+@keyframes</code>
+rule, which represents 0% (start) and 100% (complete).</p>
+<p>It is also possible to use percent. By using percent, you can add as many 
+style changes as you like.</p>
+<p>The following example will change the background-color of the &lt;div&gt; 
+element when the animation is 25% complete, 50% complete, and again when the animation is 100% complete:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+  @keyframes myAnimation
+{<br>
+&nbsp;&nbsp;0%&nbsp;&nbsp; {background-color: red;}<br>
+  &nbsp;
+25%&nbsp; {background-color: yellow;}<br>
+&nbsp;&nbsp;50%&nbsp; {background-color: blue;}<br>
+&nbsp;&nbsp;100% {background-color: green;}<br>
+}<br><br>div {<br>&nbsp; 
+width: 100px;<br>&nbsp; height: 100px;<br>&nbsp;&nbsp;background-color: red;<br>&nbsp;&nbsp;animation-name: 
+  myAnimation;<br>&nbsp;&nbsp;animation-duration: 4s;<br>}</div>
+
+</div>
+<p>The following example will change both the background-color and the position of the &lt;div&gt; 
+element when the animation is 25% complete, 50% complete, and again when the animation is 100% complete:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+  @keyframes myAnimation
+{<br>
+&nbsp;&nbsp;0%&nbsp;&nbsp; {background-color:red; left:0px; top:0px;}<br>
+  &nbsp;
+25%&nbsp; {background-color:yellow; left:200px; top:0px;}<br>
+  &nbsp;
+50%&nbsp; {background-color:blue; left:200px; top:200px;}<br>
+  &nbsp;
+75%&nbsp; {background-color:green; left:0px; top:200px;}<br>
+  &nbsp;
+100% {background-color:red; left:0px; top:0px;}<br>
+}<br><br>div {<br>&nbsp; 
+width: 100px;<br>&nbsp; height: 100px;<br>&nbsp; 
+position: relative;<br>&nbsp;&nbsp;background-color: red;<br>&nbsp;&nbsp;animation-name: 
+  myAnimation;<br>&nbsp;&nbsp;animation-duration: 4s;<br>}</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>CSS animation-delay Property</h2>
+<p>The <code class="w3-codespan"><a href="../cssref/css3_pr_animation-delay.html">animation-delay</a></code> property specifies a delay for the start of an animation.</p>
+<p>The following example has a 2 seconds delay before starting the animation:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+div {<br>&nbsp; 
+width: 100px;<br>&nbsp; height: 100px;<br>&nbsp; 
+position: relative;<br>&nbsp;&nbsp;background-color: red;<br>&nbsp;&nbsp;animation-name: 
+  myAnimation;<br>
+  &nbsp; 
+animation-duration: 4s;<br>&nbsp; animation-delay: 2s;<br>}</div>
+
+</div>
+
+<p>Negative values are also allowed. If using negative values, the animation 
+will start as if it had already been playing for <em>N</em> seconds.</p>
+<p>In the following example, the animation will start as if it had already been 
+playing for 2 seconds:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+div {<br>&nbsp; 
+width: 100px;<br>&nbsp; height: 100px;<br>&nbsp; 
+position: relative;<br>&nbsp; background-color: red;<br>&nbsp; 
+animation-name: myAnimation;<br>&nbsp; 
+animation-duration: 4s;<br>&nbsp; animation-delay: -2s;<br>}</div>
+
+</div>
+
+<hr>
+
+<h2>CSS animation-iteration-count Property</h2>
+<p>The <code class="w3-codespan">
+<a href="../cssref/css3_pr_animation-iteration-count.html">animation-iteration-count</a></code> property specifies the number of times an animation should run.</p>
+<p>The following example will run the animation 3 times before it stops:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+div {<br>&nbsp;&nbsp;width: 100px;<br>&nbsp;&nbsp;height: 100px;<br>&nbsp;&nbsp;position: relative;<br>&nbsp;&nbsp;background-color: red;<br>&nbsp;&nbsp;animation-name: 
+  myAnimation;<br>&nbsp;&nbsp;animation-duration: 4s;<br>&nbsp;&nbsp;animation-iteration-count: 3;<br>}</div>
+
+</div>
+<p>The following example uses the value &quot;infinite&quot; to make the animation 
+continue for ever:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+div {<br>&nbsp; 
+width: 100px;<br>&nbsp; height: 100px;<br>&nbsp; 
+position: relative;<br>&nbsp;&nbsp;background-color: red;<br>&nbsp;&nbsp;animation-name: 
+  myAnimation;<br>&nbsp;&nbsp;animation-duration: 4s;<br>
+  &nbsp; animation-iteration-count: 
+infinite;<br>}</div>
+
+</div>
+
+<hr>
+
+<h2>CSS animation-direction Property</h2>
+<p>The <code class="w3-codespan">
+<a href="../cssref/css3_pr_animation-direction.html">animation-direction</a></code> property specifies 
+whether an animation should be played forwards, backwards or in alternate 
+cycles.</p>
+<p>The animation-direction property can have the following values:</p>
+<ul>
+<li><code class="w3-codespan">normal</code> - The animation is played as normal 
+(forwards). This is default</li>
+<li><code class="w3-codespan">reverse</code> - The animation is played in 
+reverse direction (backwards)</li>
+<li><code class="w3-codespan">alternate </code>- The animation is played 
+forwards first, then backwards</li>
+<li><code class="w3-codespan">alternate-reverse</code> - The animation is played 
+backwards first, then forwards</li>
+</ul>
+<p>The following example will run the animation in reverse direction (backwards):</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+div {<br>&nbsp; 
+width: 100px;<br>&nbsp; height: 100px;<br>&nbsp; 
+position: relative;<br>&nbsp;&nbsp;background-color: red;<br>&nbsp; 
+animation-name: myAnimation;<br>&nbsp; 
+animation-duration: 4s;<br>&nbsp; animation-direction: 
+reverse;<br>}</div>
+
+</div>
+<p>The following example uses the value &quot;alternate&quot; to make the animation 
+run forwards first, then backwards:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+div {<br>&nbsp; 
+width: 100px;<br>&nbsp; height: 100px;<br>&nbsp; 
+position: relative;<br>&nbsp; background-color: red;<br>&nbsp;&nbsp;animation-name: 
+  myAnimation;<br>&nbsp;&nbsp;animation-duration: 4s;<br>&nbsp;&nbsp;animation-iteration-count: 2;<br>&nbsp;&nbsp;animation-direction: 
+alternate;<br>}</div>
+
+</div>
+
+<p>The following example uses the value &quot;alternate-reverse&quot; to make the animation 
+run backwards first, then forwards:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+div {<br>&nbsp;&nbsp;width: 100px;<br>&nbsp; height: 100px;<br>&nbsp; 
+position: relative;<br>&nbsp;&nbsp;background-color: red;<br>&nbsp;&nbsp;animation-name: 
+  myAnimation;<br>&nbsp;&nbsp;animation-duration: 4s;<br>&nbsp;&nbsp;animation-iteration-count: 2;<br>&nbsp;&nbsp;animation-direction: 
+alternate-reverse;<br>}</div>
+
+</div>
+
+<hr>
+
+<h2>CSS animation-timing-function Property</h2>
+<p>The <code class="w3-codespan">
+<a href="../cssref/css3_pr_animation-timing-function.html">animation-timing-function</a></code> property specifies the speed curve of the 
+animation.</p>
+<p>The animation-timing-function property can have the following values:</p>
+<ul>
+<li><code class="w3-codespan">ease</code> - Specifies an animation with a slow start, then fast, then end slowly (this is default)</li>
+<li><code class="w3-codespan">linear</code> - Specifies an animation with the same speed from start to end</li>
+<li><code class="w3-codespan">ease-in</code> - Specifies an animation with a slow start</li>
+<li><code class="w3-codespan">ease-out</code> - Specifies an animation with a slow end</li>
+<li><code class="w3-codespan">ease-in-out</code> - Specifies an animation with a slow start and end</li>
+<li><code class="w3-codespan">cubic-bezier(n,n,n,n)</code> - Lets you define your own values in a cubic-bezier function</li>
+</ul>
+<p>The following example shows some of the different speed curves that can be used:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+#div1 {animation-timing-function: linear;}<br>#div2 
+{animation-timing-function: ease;}<br>#div3 {animation-timing-function: 
+ease-in;}<br>#div4 {animation-timing-function: ease-out;}<br>#div5 
+{animation-timing-function: ease-in-out;}</div>
+
+</div>
+
+<hr>
+
+<h2>CSS animation-fill-mode Property</h2>
+<p>CSS animations do not affect an element before the first keyframe is played 
+or after the last keyframe is played. The animation-fill-mode property can 
+override this behavior.</p>
+<p>The <code class="w3-codespan">
+<a href="../cssref/css3_pr_animation-fill-mode.html">animation-fill-mode</a></code> property specifies a 
+style for the target element when the animation is not playing (before it 
+starts, after it ends, or both).</p>
+<p>The animation-fill-mode property can have the following values:</p>
+<ul>
+<li><code class="w3-codespan">none</code> - Default value. Animation will not 
+apply any styles to the element before or after it is executing</li>
+<li><code class="w3-codespan">forwards</code> - The element will retain the 
+style values that is set by the last keyframe (depends on animation-direction 
+and animation-iteration-count)</li>
+<li><code class="w3-codespan">backwards</code> - The element will get the style 
+values that is set by the first keyframe (depends on animation-direction), and 
+retain this during the animation-delay period</li>
+<li><code class="w3-codespan">both</code> - The animation will follow the rules 
+for both forwards and backwards, extending the animation properties in both 
+directions</li>
+</ul>
+<p>The following example lets the &lt;div&gt; element retain the style values from the 
+last keyframe when the animation ends:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+  div {<br>&nbsp; width: 100px;<br>&nbsp; height: 100px;<br>&nbsp;&nbsp;background: red;<br>&nbsp;&nbsp;position: relative;<br>&nbsp;&nbsp;animation-name: 
+  myAnimation;<br>&nbsp; animation-duration: 3s;<br>
+  &nbsp; animation-fill-mode: forwards;<br>
+  }</div>
+
+</div>
+
+<p>The following example lets the &lt;div&gt; element get the style values set by the 
+first keyframe before the animation starts (during the animation-delay period):</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+  div {<br>&nbsp; width: 100px;<br>&nbsp; height: 100px;<br>&nbsp; 
+  background: red;<br>&nbsp; position: relative;<br>&nbsp; 
+animation-name: myAnimation;<br>&nbsp; 
+animation-duration: 3s;<br>&nbsp; 
+animation-delay: 2s;<br>&nbsp;&nbsp;animation-fill-mode: backwards;<br>
+  }</div>
+
+</div>
+
+<p>The following example lets the &lt;div&gt; element get the style values set 
+by the first keyframe before the animation starts, and retain the style values 
+from the last keyframe when the animation ends:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+  div {<br>&nbsp; width: 100px;<br>&nbsp; height: 100px;<br>&nbsp;&nbsp;background: red;<br>
+  &nbsp; position: relative;<br>&nbsp; 
+animation-name: myAnimation;<br>&nbsp; 
+animation-duration: 3s;<br>&nbsp; 
+animation-delay: 2s;<br>&nbsp; animation-fill-mode: both;<br>
+  }</div>
+
+</div>
+
+<hr>
+
+<h2>CSS Animation Shorthand Property</h2>
+<p>The example below uses six of the animation properties:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+div
+{<br>&nbsp;
+animation-name: myAnimation;<br>
+  &nbsp;
+animation-duration: 5s;<br>
+  &nbsp;
+animation-timing-function: linear;<br>
+  &nbsp;
+animation-delay: 2s;<br>
+  &nbsp;
+animation-iteration-count: infinite;<br>
+  &nbsp;
+animation-direction: alternate;<br>
+} 
+</div>
+
+</div>
+<p>The same animation effect as above can be achieved by using the shorthand 
+<code class="w3-codespan"><a href="../cssref/css3_pr_animation.html">animation</a></code> property:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+div
+{<br>
+  &nbsp; animation: myAnimation 5s linear 2s infinite alternate;<br>
+}
+</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>CSS Animation Properties</h2>
+<p>The following table lists the @keyframes rule and all the CSS animation properties:</p>
+<table class="ws-table-all notranslate">
+  <tr>
+    <th style="width:30%">Property</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><a href="../cssref/atrule_keyframes.html">@keyframes</a></td>
+    <td>Specifies the animation code</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/css3_pr_animation.html">animation</a></td>
+    <td>A shorthand property for setting all the animation properties</td>
+  </tr>
+    <tr>
+    <td><a href="../cssref/css3_pr_animation-delay.html">animation-delay</a></td>
+    <td>Specifies a delay for the start of an animation</td>
+    </tr>
+  <tr>
+    <td><a href="../cssref/css3_pr_animation-direction.html">animation-direction</a></td>
+    <td>Specifies whether an animation should be played forwards, backwards or 
+    in alternate cycles</td>
+    </tr>
+  <tr>
+  <td><a href="../cssref/css3_pr_animation-duration.html">animation-duration</a></td>
+   <td>Specifies how long time an animation should take to complete one cycle</td>
+    </tr>
+  <tr>
+   <td><a href="../cssref/css3_pr_animation-fill-mode.html">animation-fill-mode</a></td>
+   <td>Specifies a style for the element when the animation is not playing 
+   (before it starts, after it ends, or both)</td>
+   </tr>
+ <tr>
+   <td><a href="../cssref/css3_pr_animation-iteration-count.html">animation-iteration-count</a></td>
+   <td>Specifies the number of times an animation should be played</td>
+   </tr>
+  <tr>
+    <td><a href="../cssref/css3_pr_animation-name.html">animation-name</a></td>
+    <td>Specifies the name of the @keyframes animation</td>
+  </tr>
+    <tr>
+    <td><a href="../cssref/css3_pr_animation-play-state.html">animation-play-state</a></td>
+    <td>Specifies whether the animation is running or paused</td>
+    </tr>
+  <tr>
+    <td><a href="../cssref/css3_pr_animation-timing-function.html">animation-timing-function</a></td>
+    <td>Specifies the speed curve of the animation</td>
+  </tr>
+</table>
+
+<br>

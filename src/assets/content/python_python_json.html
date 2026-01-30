@@ -1,0 +1,189 @@
+<h1>Python <span class="color_h1">JSON</span></h1>
+
+<hr>
+
+<p class="intro">JSON is a syntax for storing and exchanging data.</p>
+<p class="intro">JSON is text, written with JavaScript object notation.</p>
+<hr>
+
+<h2>JSON in Python</h2>
+
+<p>Python has a built-in package called <code class="w3-codespan">json</code>, which can be used to work with JSON data.</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <p>Import the json module:</p>
+  <div class="w3-code notranslate pythonHigh">
+    import json
+  </div>
+</div>
+
+<hr>
+
+<h2>Parse JSON - Convert from JSON to Python</h2>
+
+<p>If you have a JSON string, you can parse it by using the
+<code class="w3-codespan">json.loads()</code> method.</p>
+
+<div class="w3-panel ws-note">
+  <p>The result will be a <a href="python_dictionaries.html">Python dictionary</a>.</p>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Convert from JSON to Python:</p>
+<div class="w3-code notranslate pythonHigh">
+  import json<br><br># some JSON:<br>x =&nbsp; '{ &quot;name&quot;:&quot;John&quot;, &quot;age&quot;:30, &quot;city&quot;:&quot;New 
+  York&quot;}'<br><br># parse x:<br>y = json.loads(x)<br><br># the result is a 
+  Python dictionary:<br>print(y[&quot;age&quot;])</div>
+
+</div>
+
+<hr>
+
+<h2>Convert from Python to JSON</h2>
+
+<p>If you have a Python object, you can convert it into a JSON string by 
+using the <code class="w3-codespan">json.dumps()</code> method.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Convert from Python to JSON:</p>
+<div class="w3-code notranslate pythonHigh">
+  import json<br><br># a Python object (dict):<br>x = {<br>&nbsp; &quot;name&quot;: 
+  &quot;John&quot;,<br>&nbsp; &quot;age&quot;: 30,<br>&nbsp; &quot;city&quot;: &quot;New York&quot;<br>}<br><br># 
+  convert into JSON:<br>y = json.dumps(x)<br><br># the result is a JSON string:<br>
+  print(y)</div>
+
+</div>
+<hr>
+
+<hr>
+
+<p>You can convert Python objects of the following types, into JSON strings:</p>
+<ul>
+<li>dict</li>
+<li>list</li>
+<li>tuple</li>
+<li>string</li>
+<li>int</li>
+  <li>float</li>
+  <li>True</li>
+  <li>False</li>
+  <li>None</li>
+</ul>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Convert Python objects into JSON strings, and print the values:</p>
+<div class="w3-code notranslate pythonHigh">
+  import json<br><br>print(json.dumps({"name": "John", "age": 30}))<br>print(json.dumps(["apple", 
+  "bananas"]))<br>print(json.dumps(("apple", "bananas")))<br>
+  print(json.dumps("hello"))<br>print(json.dumps(42))<br>print(json.dumps(31.76))<br>print(json.dumps(True))<br>print(json.dumps(False))<br>print(json.dumps(None))</div>
+
+</div>
+
+<hr>
+
+<p>When you convert from Python to JSON, Python objects are converted into the JSON (JavaScript) equivalent:</p>
+
+<table class="ws-table-all notranslate">
+<tr>
+<th>Python</th>
+<th>JSON</th>
+</tr>
+<tr>
+<td>dict</td>
+<td>Object</td>
+</tr>
+<tr>
+<td>list</td>
+<td>Array</td>
+</tr>
+<tr>
+<td>tuple</td>
+<td>Array</td>
+</tr>
+<tr>
+<td>str</td>
+<td>String</td>
+</tr>
+<tr>
+<td>int</td>
+<td>Number</td>
+</tr>
+<tr>
+<td>float</td>
+<td>Number</td>
+</tr>
+<tr>
+<td>True</td>
+<td>true</td>
+</tr>
+<tr>
+<td>False</td>
+<td>false</td>
+</tr>
+<tr>
+<td>None</td>
+<td>null</td>
+</tr>
+</table>
+<hr>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Convert a Python object containing all the legal data types:</p>
+<div class="w3-code notranslate pythonHigh">
+  import json<br><br>x = {<br>&nbsp; &quot;name&quot;: 
+  &quot;John&quot;,<br>&nbsp; &quot;age&quot;: 30,<br>&nbsp; &quot;married&quot;: True,<br>&nbsp; 
+  &quot;divorced&quot;: False,<br>&nbsp; &quot;children&quot;: (&quot;Ann&quot;,&quot;Billy&quot;),<br>&nbsp; &quot;pets&quot;: 
+  None,<br>&nbsp; &quot;cars&quot;: [<br>&nbsp;&nbsp;&nbsp; {&quot;model&quot;: &quot;BMW 230&quot;, &quot;mpg&quot;: 
+  27.5},<br>&nbsp;&nbsp;&nbsp; {&quot;model&quot;: &quot;Ford Edge&quot;, &quot;mpg&quot;: 24.1}<br>&nbsp; ]<br>
+  }<br><br>print(json.dumps(x))<br></div>
+
+</div>
+
+<hr>
+
+<h2>Format the Result</h2>
+<p>The example above prints a JSON string, but it is not very easy to read, with no indentations and line breaks.</p>
+<p>The <code class="w3-codespan">json.dumps()</code> method has parameters to 
+make it easier to read the result:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Use the <code class="w3-codespan">indent</code> parameter to define the numbers 
+of indents:</p>
+  <div class="w3-code notranslate pythonHigh">
+    json.dumps(x, indent=4)<br></div>
+
+</div>
+<p>You can also define the separators, default value is (&quot;, &quot;, &quot;: &quot;), which 
+means using a comma and a space to separate each object, and a colon and a space 
+to separate keys from values:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Use the <code class="w3-codespan">separators</code> parameter to change the 
+default separator:</p>
+  <div class="w3-code notranslate pythonHigh">
+    json.dumps(x, indent=4, separators=(&quot;. &quot;, &quot; = &quot;))<br></div>
+
+</div>
+
+<hr>
+
+<h2>Order the Result</h2>
+<p>The <code class="w3-codespan">json.dumps()</code> method has parameters to 
+order the keys in the result:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Use the <code class="w3-codespan">sort_keys</code> parameter to specify if 
+the result should be sorted or not:</p>
+  <div class="w3-code notranslate pythonHigh">
+    json.dumps(x, indent=4, sort_keys=True)<br></div>
+
+</div>
+
+<hr>
+
+<hr>

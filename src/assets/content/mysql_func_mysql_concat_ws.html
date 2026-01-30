@@ -1,0 +1,57 @@
+<h1>MySQL <span class="color_h1">CONCAT_WS()</span> Function</h1>
+<p><a class="w3-btn w3-white w3-border" href="mysql_ref_functions.html" title="MySQL Functions">&#10094; MySQL Functions</a></p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Add several expressions together, and add a &quot;-&quot; separator between them:</p>
+<div class="w3-code notranslate sqlHigh">
+SELECT CONCAT_WS(&quot;-&quot;, "SQL&quot;, &quot;Tutorial", &quot;is&quot;, &quot;fun!&quot;) AS ConcatenatedString;</div>
+<a target="_blank" href="trymysql6c0e.html?filename=trysql_func_mysql_concat_ws" class="w3-btn w3-margin-bottom">Try it Yourself &raquo;</a>
+</div>
+<hr>
+
+<h2>Definition and Usage</h2>
+<p>The CONCAT_WS() function adds two or more expressions together with a separator.</p>
+<p><strong>Note:</strong> Also look at the <a href="func_mysql_concat.html">CONCAT()</a> function.</p>
+
+<h2>Syntax</h2>
+<div class="w3-code w3-border notranslate">
+  CONCAT_WS(<em>separator</em>, <em>expression1</em>, <em>expression2</em>, <em>expression3</em>,...)</div>
+
+<h2>Parameter Values</h2>
+<table class="ws-table-all notranslate"> 
+  <tr>
+    <th style="width:23%">Parameter</th>
+    <th>Description</th>  </tr>  
+  <tr>
+    <td><em>separator</em></td>
+    <td>Required. The separator to add between each of the  
+    expressions. If separator is NULL, this function returns NULL</td>
+  </tr>
+  <tr>
+    <td><em>expression1,<br>expression2,<br>expression3,<br>etc.</em></td>
+    <td>Required. The expressions to add together. An expression with a NULL value 
+    will be skipped</td>
+  </tr>
+</table>
+
+<h2>Technical Details</h2>
+<table class="ws-table-all">
+<tr>
+ <th style="width:23%">Works in:</th>
+  <td>From MySQL 4.0</td>
+</tr>
+</table>
+<hr>
+
+<h2>More Examples</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Add three columns (and add a space between them) into one "Address" column: </p>
+<div class="w3-code notranslate sqlHigh">
+  SELECT CONCAT_WS(&quot; &quot;, Address, PostalCode, City) AS Address<br>FROM 
+  Customers;</div>
+<a target="_blank" href="trymysql9a3b.html?filename=trysql_func_mysql_concat_ws2" class="w3-btn w3-margin-bottom">Try it Yourself &raquo;</a>
+</div>
+<hr>
+
+<p><a class="w3-btn w3-white w3-border" href="mysql_ref_functions.html" title="MySQL Functions">&#10094; MySQL Functions</a></p>

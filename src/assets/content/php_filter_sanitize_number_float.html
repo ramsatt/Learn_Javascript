@@ -1,0 +1,43 @@
+<h1>PHP <span class="color_h1">FILTER_SANITIZE_NUMBER_FLOAT</span> Filter</h1>
+<hr>
+<a href="php_ref_filter.html" class="w3-btn w3-white w3-border" title="PHP Filter Reference">&#10094; Complete PHP Filter Reference</a>
+<hr>
+
+<h2>Definition and Usage</h2>
+
+<p>The FILTER_SANITIZE_NUMBER_FLOAT filter removes all illegal characters from a 
+float number.</p>
+<p>This filter allows digits and + - by default</p>
+<ul>
+  <li>Name: &quot;number_float&quot;</li>
+  <li>ID-number: 520</li>
+</ul>
+<p>Possible flags:</p>
+<ul>
+  <li>FILTER_FLAG_ALLOW_FRACTION - Allow fraction separator (like . )</li>
+  <li>FILTER_FLAG_ALLOW_THOUSAND - Allow thousand separator (like , )</li>
+  <li>FILTER_FLAG_ALLOW_SCIENTIFIC - Allow scientific notation (like e and E)</li>
+</ul>
+<hr>
+<h2>Example</h2>
+
+<div class="w3-code w3-border notranslate"><div>
+
+&lt;?php<br>
+$number=&quot;5-2f+3.3pp&quot;;<br>
+<br>
+var_dump(filter_var($number, FILTER_SANITIZE_NUMBER_FLOAT,<br>
+FILTER_FLAG_ALLOW_FRACTION));<br>
+?&gt;
+
+</div></div>
+
+<p>The output of the code will be:</p>
+
+<div class="w3-code w3-border notranslate"><div>
+
+string(7) &quot;5-2+3.3&quot;
+
+</div></div>
+<hr>
+<a href="php_ref_filter.html" class="w3-btn w3-white w3-border" title="PHP Filter Reference">&#10094; Complete PHP Filter Reference</a>

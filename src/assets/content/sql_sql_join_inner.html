@@ -1,0 +1,188 @@
+<h1>SQL <span class="color_h1">INNER JOIN</span></h1>
+
+<hr>
+
+<h2>INNER JOIN</h2>
+<p>The <code class="w3-codespan">INNER JOIN</code> keyword selects records that have matching values in 
+both tables.</p>
+
+<p>Let's look at a selection of the <a href="trysqld52d.html?filename=trysql_products" target="_blank"><strong>Products</strong></a> table:</p>
+
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+<tbody>
+<tr>
+<th>ProductID</th>
+<th>ProductName</th>
+<th>CategoryID</th>
+<th>Price</th>
+</tr>
+<tr>
+<td>1</td>
+<td>Chais</td>
+<td>1</td>
+<td>18</td></tr>
+<tr>
+<td>2</td>
+<td>Chang</td>
+<td>1</td>
+<td>19</td></tr>
+<tr>
+<td>3</td>
+<td>Aniseed Syrup</td>
+<td>2</td>
+<td>10</td></tr>
+</tbody></table>
+</div>
+
+<p>And a selection of the <a href="trysql6ff0.html?filename=trysql_categories" target="_blank"><strong>Categories</strong></a> table:</p>
+
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+<tbody>
+<tr>
+<th>CategoryID</th>
+<th>CategoryName</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>1</td>
+<td>Beverages</td>
+<td>Soft drinks, coffees, teas, beers, and ales</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Condiments</td>
+<td>Sweet and savory sauces, relishes, spreads, and seasonings</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Confections</td>
+<td>Desserts, candies, and sweet breads</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<p>We will join the Products table with the Categories table, by using the <code class="w3-codespan">CategoryID</code> field from both tables:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Join Products and Categories with the INNER JOIN keyword:</p>
+<div class="w3-code notranslate sqlHigh">
+  SELECT ProductID, ProductName, CategoryName<br>FROM Products<br>INNER JOIN 
+  Categories ON Products.CategoryID = Categories.CategoryID;</div>
+
+</div>
+
+<p style="text-align:center;"><img class="invert-on-dark" alt="SQL INNER JOIN" src="assets/content/images/img_inner_join.png"></p>
+
+<div class="w3-panel ws-note">
+<p><b>Note:</b> The <code class="w3-codespan">INNER JOIN</code> keyword returns only rows with a match in both tables.
+Which means that if you have a product with no CategoryID, or with a CategoryID that is not present in the Categories table, that record would not be returned in the result.</p>
+</div>
+
+
+<hr>
+
+<h2>Syntax</h2>
+<div class="w3-example ws-light-grey">
+<p><code class="sqlHigh">
+SELECT <em>column_name(s)</em><br>
+FROM <em>table1</em><br>
+INNER JOIN <em>table2<br> </em>ON <em>table1.column_name </em>=<em> table2.column_name</em>;
+</code></p>
+</div>
+
+<hr>
+
+<hr>
+
+<h2>Naming the Columns</h2>
+
+<p>It is a good practice to include the table name when specifying columns in the SQL statement.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Specify the table names:</p>
+<div class="w3-code notranslate sqlHigh">
+SELECT Products.ProductID, Products.ProductName, Categories.CategoryName<br>
+FROM Products<br>
+INNER JOIN Categories ON Products.CategoryID = Categories.CategoryID;
+</div>
+
+</div>
+
+
+<p>The example above works without specifying table names, because none of the 
+specified column names are present in both tables.
+If you try to include <code class="w3-codespan">CategoryID</code> in the 
+<code class="w3-codespan">SELECT</code> statement, you will get an error if you do not specify the table name 
+(because <code class="w3-codespan">CategoryID</code> is present in both tables).</p>
+
+<hr>
+
+<h2>JOIN or INNER JOIN</h2>
+
+<p><code class="w3-codespan">JOIN</code> and <code class="w3-codespan">INNER JOIN</code> will return the same result.</p>
+
+<p><code class="w3-codespan">INNER</code> is the default join type for <code class="w3-codespan">JOIN</code>,
+so when you write <code class="w3-codespan">JOIN</code> the parser actually writes <code class="w3-codespan">INNER JOIN</code>.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>JOIN is the same as INNER JOIN:</p>
+<div class="w3-code notranslate sqlHigh">
+SELECT Products.ProductID, Products.ProductName, Categories.CategoryName<br>
+FROM Products<br>
+JOIN Categories ON Products.CategoryID = Categories.CategoryID;
+</div>
+
+</div>
+
+<hr>
+
+<h2>JOIN Three Tables</h2>
+<p>The following SQL statement selects all orders with customer and shipper information:</p>
+
+<p>Here is the <a href="trysql589e.html?filename=trysql_shippers" target="_blank"><strong>Shippers</strong></a> table:</p>
+
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+<tr>
+<th>ShipperID</th>
+<th>ShipperName</th>
+<th>Phone</th>
+</tr>
+<tr>
+<td>1</td>
+<td>Speedy Express</td>
+<td>(503) 555-9831</td>
+</tr>
+<tr>
+<td>2</td>
+<td>United Package</td>
+<td>(503) 555-3199</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Federal Shipping</td>
+<td>(503) 555-9931</td>
+</tr>
+</table>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+  SELECT Orders.OrderID, Customers.CustomerName, Shippers.ShipperName<br>FROM 
+  ((Orders<br>INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID)<br>
+  INNER JOIN Shippers ON Orders.ShipperID = Shippers.ShipperID);</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<br>

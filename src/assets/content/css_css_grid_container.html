@@ -1,0 +1,146 @@
+<h1>CSS <span class="color_h1">Grid Container</span></h1>
+
+<hr>
+
+<h2>CSS Grid Container</h2>
+<p>A grid container contains one or more grid items arranged in columns and rows.</p>
+<p>All direct child elements of a grid container automatically become grid items.</p>
+<p>An element becomes a grid container when its <code class="w3-codespan"><a href="../cssref/pr_class_display.html">display</a></code> property 
+is set to <code class="w3-codespan">grid</code> or <code class="w3-codespan">inline-grid</code>.</p>
+
+<div class="grid-container">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>  
+  <div>4</div>
+  <div>5</div>
+</div>
+<p><a class="ws-btn" target="_blank" href="tryitef21.html?filename=trycss_grid_container">Try it Yourself &raquo;</a></p>
+<hr>
+
+<h2>Display Grid Property</h2>
+<p>The <code class="w3-codespan">&lt;div&gt;</code> element becomes a grid container when its <code class="w3-codespan">
+<a href="../cssref/pr_class_display.html">display</a></code> property 
+is set to <code class="w3-codespan">grid</code> or <code class="w3-codespan">inline-grid</code>.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Use <code class="w3-codespan">display: grid</code> <span lang="no-bok">to 
+make a block-level grid container:</span></p>
+<div class="w3-code notranslate cssHigh">
+  .container {<br>&nbsp; 
+  display: grid;<br>}</div>
+<p>Result:</p>
+<div class="w3-white notranslate w3-padding">
+<div class="grid-container">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+  <div>4</div>
+  <div>5</div>
+</div>
+</div>
+<p></p>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Use <code class="w3-codespan">display: inline-grid</code> <span lang="no-bok">
+to make an inline grid container:</span></p>
+<div class="w3-code notranslate cssHigh">
+  .container {<br>&nbsp; 
+  display: inline-grid;<br>}</div>
+<p>Result:</p>
+<div class="w3-white notranslate w3-padding">
+<div class="grid-container" style="display:inline-grid">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+  <div>4</div>
+  <div>5</div>
+</div>
+</div>
+<p></p>
+</div>
+
+<hr>
+
+<h2>CSS Grid Container Properties</h2>
+
+<table class="ws-table-all notranslate">
+  <tr>
+    <th style="width:30%">Property</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><a href="../cssref/css3_pr_align-content.html">align-content</a></td>
+    <td>Vertically aligns the grid items inside the container</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/css3_pr_align-items.html">align-items</a></td>
+    <td>Specifies the default alignment for items inside a flexbox or grid 
+    container</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_class_display.html">display</a></td>
+    <td>Specifies the display behavior (the type of rendering box) of an element</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/css3_pr_column-gap.html">column-gap</a></td>
+    <td>Specifies the gap between the columns</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/css3_pr_gap.html">gap</a></td>
+    <td>A shorthand property for the <em>row-gap</em> and the <em>column-gap</em> properties</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_grid.html">grid</a></td>
+    <td>A shorthand property for the <em>grid-template-rows, 
+    grid-template-columns, grid-template-areas, grid-auto-rows, 
+    grid-auto-columns</em>, and the <em>grid-auto-flow</em> properties</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_grid-auto-columns.html">grid-auto-columns</a></td>
+    <td>Specifies a default column size</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_grid-auto-flow.html">grid-auto-flow</a></td>
+    <td>Specifies how auto-placed items are inserted in the grid</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_grid-auto-rows.html">grid-auto-rows</a></td>
+    <td>Specifies a default row size</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_grid-template.html">grid-template</a></td>
+    <td>A shorthand property for the <em>grid-template-rows</em>, <em>grid-template-columns</em> 
+    and <em>grid-areas</em> properties</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_grid-template-areas.html">grid-template-areas</a></td>
+    <td>Specifies how to display columns and rows, using named grid items</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_grid-template-columns.html">grid-template-columns</a></td>
+    <td>Specifies the size of the columns, and how many columns in a grid layout</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_grid-template-rows.html">grid-template-rows</a></td>
+    <td>Specifies the size of the rows in a grid layout</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/css3_pr_justify-content.html">justify-content</a></td>
+    <td>Horizontally aligns the grid items inside the container</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/css_pr_place-content.html">place-content</a></td>
+    <td>A shorthand property for the <em>align-content</em> and the <em>
+    justify-content</em> properties</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/css3_pr_row-gap.html">row-gap</a></td>
+    <td>Specifies the gap between the grid rows</td>
+  </tr>
+</table>
+
+<br>

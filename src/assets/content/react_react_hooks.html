@@ -1,0 +1,87 @@
+<h1>React Hooks</h1>
+
+
+<hr>
+
+<p class="intro">Hooks allow functions to have access to state and other React features without using classes.</p>
+
+<p class="intro">They provide a more direct API to React concepts like props, state, context, refs, and lifecycle.</p>
+
+<hr>
+
+<h2>What is a Hook?</h2>
+
+<p>Hooks are functions that let you "hook into" React state and lifecycle features from functional components.</p>
+
+<div class="w3-example">
+<h3>Example:</h3>
+  <p>Here is an example of a Hook. Don't worry if it doesn't make sense. We will go into more detail in the <a href="react_usestate.html">next section</a>.</p>
+<pre class="language-jsx w3-white"><code>import { useState } from 'react';
+import { createRoot } from 'react-dom/client';
+
+function FavoriteColor() {
+  const [color, setColor] = useState(&quot;red&quot;);
+
+  return (
+    &lt;&gt;
+      &lt;h1&gt;My favorite color is {color}!&lt;/h1&gt;
+      &lt;button
+        type=&quot;button&quot;
+        onClick={() =&gt; setColor(&quot;blue&quot;)}
+      &gt;Blue&lt;/button&gt;
+      &lt;button
+        type=&quot;button&quot;
+        onClick={() =&gt; setColor(&quot;red&quot;)}
+      &gt;Red&lt;/button&gt;
+      &lt;button
+        type=&quot;button&quot;
+        onClick={() =&gt; setColor(&quot;pink&quot;)}
+      &gt;Pink&lt;/button&gt;
+      &lt;button
+        type=&quot;button&quot;
+        onClick={() =&gt; setColor(&quot;green&quot;)}
+      &gt;Green&lt;/button&gt;
+    &lt;/&gt;
+  );
+}
+
+createRoot(document.getElementById('root')).render(
+  &lt;FavoriteColor /&gt;
+);</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreactbe3c.html?filename=demo_react_hooks">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<p>You must <code class="w3-codespan">import</code> Hooks from <code class="w3-codespan">react</code>.</p>
+
+<p>Here we are using the <code class="w3-codespan">useState</code> Hook to keep track of the application state.</p>
+
+<p>State generally refers to application data or properties that need to be tracked.</p>
+
+<hr>
+<h2>Hook Rules</h2>
+
+<p>There are 3 rules for hooks:</p>
+
+<ul>
+<li>Hooks can only be called inside React function components.</li>
+  <li>Hooks can only be called at the top level of a component.</li>
+  <li>Hooks cannot be conditional</li>
+</ul>
+
+<div class="w3-panel ws-note">
+<p><strong>Note:</strong> Hooks will not work in React class components.</p>
+</div>
+
+<hr>
+
+<h2>Custom Hooks</h2>
+
+<p>If you have stateful logic that needs to be reused in several components, you can build your own custom Hooks.</p>
+
+<p>We'll go into more detail in the <a href="react_customhooks.html">Custom Hooks section</a>.</p>
+
+
+<hr>

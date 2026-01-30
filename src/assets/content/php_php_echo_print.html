@@ -1,0 +1,141 @@
+<h1>PHP <span class="color_h1">echo and print Functions</span></h1>
+
+<hr>
+
+<h2>PHP echo and print</h2>
+<p>With PHP, there are two basic ways to output data to the 
+screen: <code class="w3-codespan"><a href="func_string_echo.html">echo</a></code> and <code class="w3-codespan">
+<a href="func_string_print.html">print</a></code>.</p>
+<p>The differences are small:</p>
+<ul>
+  <li> <code class="w3-codespan">echo</code> has no return value, while <code class="w3-codespan">
+  print</code> has a return value of 1 so it can 
+  be used in expressions</li>
+  <li> <code class="w3-codespan">echo</code> can take multiple parameters, 
+while <code class="w3-codespan">print</code> can 
+  take only one argument</li>
+  <li> <code class="w3-codespan">echo</code> is marginally 
+faster than <code class="w3-codespan">print</code></li>
+</ul>
+<hr>
+
+<h2>The PHP echo Function</h2>
+<p>The <code class="w3-codespan"><a href="func_string_echo.html">echo</a></code> 
+function can be used with or without parentheses: 
+<code class="w3-codespan">echo</code> or <code class="w3-codespan">echo()</code>.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-php notranslate w3-white"><code>echo &quot;Hello&quot;;
+echo(&quot;Hello&quot;);</code></pre>
+
+</div>
+
+
+<h3>Output Text</h3>
+<p>The following example shows how to output text with the <code class="w3-codespan">
+echo</code>  
+command (notice that the text can contain HTML markup):</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-php notranslate w3-white"><code>echo &quot;&lt;h2&gt;PHP is Fun!&lt;/h2&gt;&quot;;
+echo &quot;Hello world!&lt;br&gt;&quot;;
+echo &quot;I'm about to learn PHP!&lt;br&gt;&quot;;
+echo &quot;This &quot;, &quot;string &quot;, &quot;was &quot;, &quot;made &quot;, &quot;with multiple parameters.&quot;;</code></pre>
+
+</div>
+
+<h3>Output Variables</h3>
+
+<p>The following example shows how to output text and variables with the <code class="w3-codespan">
+echo</code>  
+statement:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-php notranslate w3-white"><code>$txt1 = &quot;Learn PHP&quot;;
+$txt2 = &quot;W3Schools.com&quot;;
+
+echo &quot;&lt;h2&gt;$txt1&lt;/h2&gt;&quot;;
+echo &quot;&lt;p&gt;Study PHP at $txt2&lt;/p&gt;&quot;;</code></pre>
+
+</div>
+
+<h3>Single or Double Quotes?</h3>
+
+<p>Strings are surrounded by quotes, but there is a difference between single 
+and double quotes in PHP.</p>
+<p>When using double quotes, variables can be inserted to the string as in the 
+example above.</p>
+<p>When using single quotes, variables have to be inserted using the
+<code class="w3-codespan">.</code> operator, like this:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-php notranslate w3-white"><code>$txt1 = &quot;Learn PHP&quot;;
+$txt2 = &quot;W3Schools.com&quot;;
+
+echo '&lt;h2&gt;' . $txt1 . '&lt;/h2&gt;';
+echo '&lt;p&gt;Study PHP at ' . $txt2 . '&lt;/p&gt;';</code></pre>
+
+</div>
+<hr>
+
+<hr>
+
+<h2>The PHP print Function</h2>
+<p>The <code class="w3-codespan"><a href="func_string_print.html">print</a></code> 
+function can be used with or without 
+parentheses: 
+<code class="w3-codespan">print</code> or <code class="w3-codespan">print()</code>.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-php notranslate w3-white"><code>print &quot;Hello&quot;;
+print(&quot;Hello&quot;);</code></pre>
+
+</div>
+
+<h3>Output Text</h3>
+<p>The following example shows how to output text with the <code class="w3-codespan">print</code>  
+command (notice that the text can contain HTML markup):</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-php notranslate w3-white"><code>print &quot;&lt;h2&gt;PHP is Fun!&lt;/h2&gt;&quot;;
+print &quot;Hello world!&lt;br&gt;&quot;;
+print &quot;I'm about to learn PHP!&quot;;</code></pre>
+
+</div>
+
+<h3>Display Variables</h3>
+<p>The following example shows how to output text and variables with the 
+<code class="w3-codespan">print</code> statement:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-php notranslate w3-white"><code>$txt1 = &quot;Learn PHP&quot;;
+$txt2 = &quot;W3Schools.com&quot;;
+
+print &quot;&lt;h2&gt;$txt1&lt;/h2&gt;&quot;;
+print &quot;&lt;p&gt;Study PHP at $txt2&lt;/p&gt;&quot;;</code></pre>
+
+</div>
+
+<h3>Single or Double Quotes?</h3>
+
+<p>Strings are surrounded by quotes, but there is a difference between single 
+and double quotes in PHP.</p>
+<p>When using double quotes, variables can be inserted to the string as in the 
+example above.</p>
+<p>When using single quotes, variables have to be inserted using the
+<code class="w3-codespan">.</code> operator, like this:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-php notranslate w3-white"><code>$txt1 = &quot;Learn PHP&quot;;
+$txt2 = &quot;W3Schools.com&quot;;
+
+print '&lt;h2&gt;' . $txt1 . '&lt;/h2&gt;';
+print '&lt;p&gt;Study PHP at ' . $txt2 . '&lt;/p&gt;';</code></pre>
+
+</div>
+
+<hr>
+
+<hr>

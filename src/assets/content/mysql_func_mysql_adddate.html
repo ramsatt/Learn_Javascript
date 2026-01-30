@@ -1,0 +1,106 @@
+<h1>MySQL <span class="color_h1">ADDDATE()</span> Function</h1>
+<p>
+<a class="w3-btn w3-white w3-border" href="mysql_ref_functions.html" title="MySQL Functions">&#10094; MySQL Functions</a></p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Add 10 days to a date and return the date:</p>
+<div class="w3-code notranslate sqlHigh">
+  SELECT ADDDATE(&quot;2017-06-15&quot;, INTERVAL 10 DAY);</div>
+<a target="_blank" href="trymysqlb006.html?filename=trysql_func_mysql_adddate" class="w3-btn w3-margin-bottom">Try it Yourself &raquo;</a>
+</div>
+<hr>
+
+<h2>Definition and Usage</h2>
+<p>The ADDDATE() function adds a time/date interval to a date and then returns the date.</p>
+
+<h2>Syntax</h2>
+<div class="w3-code w3-border notranslate">
+  ADDDATE(<em>date</em>, INTERVAL <em>value addunit</em>)</div>
+<p><strong>OR:</strong></p>
+<div class="w3-code w3-border notranslate">
+  ADDDATE(<em>date</em>, <em>days</em>)</div>
+
+<h2>Parameter Values</h2>
+<table class="ws-table-all notranslate"> 
+  <tr>
+    <th style="width:23%">Parameter</th>
+    <th>Description</th>  </tr>  
+  <tr>
+    <td><em>date</em></td>
+    <td>Required.&nbsp; The date to be modified</td>
+  </tr>
+  <tr>
+    <td><em>days</em></td>
+    <td>Required. The number of days to add to <em>date</em></td>
+  </tr>
+  <tr>
+    <td><em>value</em></td>
+    <td>Required. The value of the time/date interval to add. Both 
+    positive and negative values are allowed</td>
+  </tr>
+  <tr>
+    <td><em>addunit</em></td>
+    <td>Required. The type of interval to add. Can be one of the following 
+    values:
+    <ul>
+      <li>MICROSECOND</li>
+      <li>SECOND</li>
+      <li>MINUTE</li>
+      <li>HOUR</li>
+      <li>DAY</li>
+      <li>WEEK</li>
+      <li>MONTH</li>
+      <li>QUARTER</li>
+      <li>YEAR</li>
+      <li>SECOND_MICROSECOND</li>
+      <li>MINUTE_MICROSECOND</li>
+      <li>MINUTE_SECOND</li>
+      <li>HOUR_MICROSECOND</li>
+      <li>HOUR_SECOND</li>
+      <li>HOUR_MINUTE</li>
+      <li>DAY_MICROSECOND</li>
+      <li>DAY_SECOND</li>
+      <li>DAY_MINUTE</li>
+      <li>DAY_HOUR</li>
+      <li>YEAR_MONTH</li>
+    </ul>
+    </td>
+  </tr>
+</table>
+
+<h2>Technical Details</h2>
+<table class="ws-table-all">
+<tr>
+ <th style="width:23%">Works in:</th>
+  <td>From MySQL 4.0</td>
+</tr>
+</table>
+<hr>
+
+<h2>More Examples</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Add 15 minutes to a date and return the date:</p>
+<div class="w3-code notranslate sqlHigh">
+SELECT ADDDATE(&quot;2017-06-15 09:34:21&quot;, INTERVAL 15 MINUTE);</div>
+<a target="_blank" href="trymysql4a7a.html?filename=trysql_func_mysql_adddate2" class="w3-btn w3-margin-bottom">Try it Yourself &raquo;</a>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Subtract 3 hours to a date and return the date:</p>
+<div class="w3-code notranslate sqlHigh">
+SELECT ADDDATE(&quot;2017-06-15 09:34:21&quot;, INTERVAL -3 HOUR);</div>
+<a target="_blank" href="trymysql0002.html?filename=trysql_func_mysql_adddate3" class="w3-btn w3-margin-bottom">Try it Yourself &raquo;</a>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Subtract 2 months to a date and return the date:</p>
+<div class="w3-code notranslate sqlHigh">
+SELECT ADDDATE(&quot;2017-06-15&quot;, INTERVAL -2 MONTH);</div>
+<a target="_blank" href="trymysqldd60.html?filename=trysql_func_mysql_adddate4" class="w3-btn w3-margin-bottom">Try it Yourself &raquo;</a>
+</div>
+
+<hr>
+<p><a class="w3-btn w3-white w3-border" href="mysql_ref_functions.html" title="MySQL Functions">&#10094; MySQL Functions</a></p>

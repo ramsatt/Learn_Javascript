@@ -1,0 +1,56 @@
+<h1>SQL <span class="color_h1">NOT NULL</span> Constraint</h1>
+
+<hr>
+
+<h2>SQL NOT NULL Constraint</h2>
+<p>By default, a column can hold NULL values.</p>
+<p>The <code class="w3-codespan">NOT NULL</code> constraint enforces a column to NOT accept NULL values.</p>
+<p>This enforces a field to always contain a value, which means that you cannot insert a new record, or update a record without adding a value to this field.</p>
+
+<hr>
+
+<h2>SQL NOT NULL on CREATE TABLE</h2>
+<p>The following SQL ensures that the &quot;ID&quot;, &quot;LastName&quot;, and 
+&quot;FirstName&quot; columns 
+will NOT accept NULL values when the &quot;Persons&quot; table is created:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+  CREATE TABLE Persons (<br>&nbsp;&nbsp;&nbsp; ID int NOT NULL,<br>&nbsp;&nbsp;&nbsp; 
+  LastName varchar(255) NOT NULL,<br>&nbsp;&nbsp;&nbsp; FirstName varchar(255) 
+  NOT NULL,<br>&nbsp;&nbsp;&nbsp; Age int<br>); </div>
+</div>
+
+<hr>
+
+
+<h2>SQL NOT NULL on ALTER TABLE</h2>
+<p>To create a <code class="w3-codespan">NOT NULL</code> constraint on the &quot;Age&quot; column when the &quot;Persons&quot; table is already created, use the following SQL:</p>
+
+<p><strong>SQL Server / MS Access:</strong></p>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+ALTER TABLE Persons<br>
+ALTER COLUMN Age int NOT NULL;</div></div>
+
+<p><strong>My SQL / Oracle (prior version 10G):</strong></p>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+ALTER TABLE Persons<br>
+MODIFY COLUMN Age int NOT NULL;</div></div>
+
+<p><strong>Oracle 10G and later:</strong></p>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+ALTER TABLE Persons<br>
+  MODIFY Age int NOT NULL;</div></div>
+
+
+
+<hr>
+
+<hr>
+
+
+<br>

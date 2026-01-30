@@ -1,0 +1,162 @@
+<h1>SQL <span class="color_h1">ORDER BY</span> Keyword</h1>
+
+<hr>
+
+<h2>The SQL ORDER BY</h2>
+<p>The <code class="w3-codespan">ORDER BY</code> keyword is used to sort the result-set in ascending or 
+descending order.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Sort the products by price:</p>
+<div class="w3-code notranslate sqlHigh">
+ SELECT * FROM Products<br>
+ ORDER BY Price;
+</div>
+
+</div>
+<hr>
+
+<h2>Syntax</h2>
+
+<div class="w3-example ws-light-grey">
+<p><code class="sqlHigh">
+SELECT <em>column1</em>,<em> column2, ...</em><br>
+FROM <em>table_name</em><br>
+ORDER BY <em>column1, column2, ... </em>ASC|DESC;
+</code></p>
+</div>
+
+<hr>
+
+<h2>Demo Database</h2>
+<p>Below is a selection from the <a href="trysqld52d.html?filename=trysql_products" target="_blank"><strong>Products</strong></a> table used in the examples:</p>
+
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+<tbody>
+<tr>
+<th>ProductID</th>
+<th>ProductName</th>
+<th>SupplierID</th>
+<th>CategoryID</th>
+<th>Unit</th>
+<th>Price</th>
+</tr>
+<tr>
+<td>1</td>
+<td>Chais</td>
+<td>1</td>
+<td>1</td>
+<td>10 boxes x 20 bags</td>
+<td>18</td></tr>
+<tr>
+<td>2</td>
+<td>Chang</td>
+<td>1</td>
+<td>1</td>
+<td>24 - 12 oz bottles</td>
+<td>19</td></tr>
+<tr>
+<td>3</td>
+<td>Aniseed Syrup</td>
+<td>1</td>
+<td>2</td>
+<td>12 - 550 ml bottles</td>
+<td>10</td></tr>
+<tr>
+<td>4</td>
+<td>Chef Anton's Cajun Seasoning</td>
+<td>2</td>
+<td>2</td>
+<td>48 - 6 oz jars</td>
+<td>22</td></tr>
+<tr>
+<td>5</td>
+<td>Chef Anton's Gumbo Mix</td>
+<td>2</td>
+<td>2</td>
+<td>36 boxes</td>
+<td>21.35</td></tr>
+</tbody></table>
+</div>
+
+
+<hr>
+
+<hr>
+
+<h2>DESC</h2>
+<p>The <code class="w3-codespan">ORDER BY</code> keyword sorts the records in ascending order by default. To sort the records in descending order, use the <code class="w3-codespan">
+DESC</code> keyword.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Sort the products from highest to lowest price:</p>
+<div class="w3-code notranslate sqlHigh">
+ SELECT * FROM Products<br>
+ ORDER BY Price DESC;</div>
+
+</div>
+
+<hr>
+
+<h2>Order Alphabetically</h2>
+
+<p>For string values the <code class="w3-codespan">ORDER BY</code> keyword will order alphabetically:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Sort the products alphabetically by ProductName:</p>
+<div class="w3-code notranslate sqlHigh">
+ SELECT * FROM Products<br>
+ ORDER BY ProductName;</div>
+
+</div>
+
+<hr>
+
+<h2>Alphabetically DESC</h2>
+
+<p>To sort the table reverse alphabetically, use the <code class="w3-codespan">DESC</code> keyword:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Sort the products by ProductName in reverse order:</p>
+<div class="w3-code notranslate sqlHigh">
+ SELECT * FROM Products<br>
+ ORDER BY ProductName DESC;</div>
+
+</div>
+
+<hr>
+
+<h2>ORDER BY Several Columns</h2>
+<p>The following SQL statement selects all customers from the "Customers" table, 
+sorted by the "Country" and the "CustomerName" column. This means that it orders 
+by Country, but if some rows have the same Country, it orders them by 
+CustomerName:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+ SELECT * FROM Customers<br>
+ ORDER BY Country, CustomerName;</div>
+
+</div>
+
+<hr>
+
+<h2>Using Both ASC and DESC</h2>
+<p>The following SQL statement selects all customers from the "Customers" table, 
+sorted ascending by the "Country" and descending by the "CustomerName" column:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+ SELECT * FROM Customers<br>
+ ORDER BY Country ASC, CustomerName DESC;</div>
+
+</div>
+
+<hr>
+
+<hr>

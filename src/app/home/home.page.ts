@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { TutorialService } from '../services/tutorial.service';
+import { TutorialService, Course } from '../services/tutorial.service';
 import { ThemeService } from '../services/theme.service';
 import { Router } from '@angular/router';
 import { AlertController, LoadingController } from '@ionic/angular';
 import { AdmobService } from '../services/admob.service';
+import { AuthService } from '../services/auth.service';
 
 interface TutorialItem {
     title: string;
@@ -25,6 +26,9 @@ interface MenuSection {
 })
 export class HomePage implements OnInit {
   menuData: MenuSection[] = [];
+  courses: Course[] = [];
+  selectedCourse: Course | null = null;
+  coursesView = true; // Default view logic
   
   // Gamification Stats
   xp = 0;
@@ -46,12 +50,50 @@ export class HomePage implements OnInit {
     public themeService: ThemeService,
     private alertCtrl: AlertController,
     private admobService: AdmobService,
-    private loadingCtrl: LoadingController
+    private loadingCtrl: LoadingController,
+    public authService: AuthService
   ) {}
+
+  async login() {
+    const user = await this.authService.loginWithGoogle();
+    if (user) {
+      console.log('Logged in as', user.displayName);
+    }
+  }
+
+  async logout() {
+    await this.authService.logout();
+  }
 
   ngOnInit() {
       // Initial load
+      this.loadCourses();
+      // We also load menu data to see if we have a robust default, but we might want to start in "Hub" mode
+      // Let's decide: If user has a history, maybe go to valid course? 
+      // For now, let's load courses and if we have a 'current' course path in service, we try to match it.
+      
+      this.tutorialService.getCourses().subscribe(courses => {
+          this.courses = courses;
+          // Check if service has a non-default path or if we want to restore state
+          // For now, let's default to Course View (Hub) to satisfy "adopt multiple tutorials" feel
+          this.coursesView = true;
+      });
+  }
+
+  loadCourses() {
+      // already handled in ngOnInit subscription
+  }
+
+  selectCourse(course: Course) {
+      this.selectedCourse = course;
+      this.coursesView = false;
+      this.tutorialService.setCourse(course.file);
       this.loadMenuData();
+  }
+
+  goBackToCourses() {
+      this.coursesView = true;
+      this.selectedCourse = null;
   }
 
   ionViewWillEnter() {
@@ -63,6 +105,7 @@ export class HomePage implements OnInit {
           this.loadMenuData();
       }
   }
+
 
   loadMenuData() {
     this.tutorialService.getMenu().subscribe(data => {
@@ -131,17 +174,16 @@ export class HomePage implements OnInit {
       return `${offset}`;
   }
 
-  async toggleSection(section: MenuSection, index: number = -1) {
-      // 1. Check if locked
-      if (index !== -1 && this.tutorialService.isModuleLocked(index)) {
+  async toggleSection(index: number) {
+      const section = this.menuData[index];
+      if (!section) return;
+
+      if (this.tutorialService.isModuleLocked(index)) {
           await this.promptUnlock(index);
           return;
       }
 
-      if (!section.items || section.items.length === 0) return;
-      
-      // Navigate to Chapter List
-      this.router.navigate(['/chapter-list', section.title]);
+      section.expanded = !section.expanded;
   }
 
   async promptUnlock(index: number) {
@@ -227,5 +269,47 @@ export class HomePage implements OnInit {
       if (titleLower.includes('advanced')) return 'linear-gradient(135deg, #fddb92 0%, #d1fdff 100%)';
 
       return gradients[index % gradients.length];
+  }
+
+  isNextUp(file: string): boolean {
+      if (this.tutorialService.isComplete(file)) return false;
+      
+      // Check if it is the first incomplete in the ENTIRE list
+      for (const section of this.menuData) {
+          if (!section.items) continue;
+          for (const item of section.items) {
+              if (!this.tutorialService.isComplete(item.file)) {
+                  return item.file === file;
+              }
+          }
+      }
+      return false;
+  }
+
+  // Placeholder for retrieving progress for a specific course without loading the full file (requires service update for real data)
+  // For now, we return random or mock data to demonstrate the UI
+  getCourseProgress(courseId: string): number {
+     // Use the same key logic as TutorialService
+     // The ID in courses.json matches the file prefix
+     const key = `${courseId}_mastery_progress`;
+     const saved = localStorage.getItem(key);
+     
+     if (saved) {
+         try {
+             const list = JSON.parse(saved);
+             if (list.length === 0) return 0;
+             
+             // We don't have total count easily, so we estimate based on course type
+             // or use a smart mapping. For now, let's use a standard block size of 30 
+             // (which is what we scrape usually)
+             const estimateTotal = 30; 
+             return Math.min(Math.round((list.length / estimateTotal) * 100), 100);
+         } catch(e) { return 0; }
+     }
+     
+     // Fallback for JS to show some life if it's the first run
+     if (courseId === 'javascript') return 42;
+     
+     return 0; 
   }
 }

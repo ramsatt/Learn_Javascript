@@ -1,0 +1,134 @@
+<h1>React Sass Styling</h1>
+
+
+<hr>
+
+<h2>What is Sass?</h2>
+<p class="intro">Sass is a CSS pre-processor.</p>
+<p class="intro">Sass files are executed on the server and sends CSS to the browser.</p>
+<p class="intro">Sass adds extra features to CSS like variables, nesting, mixins, and more.</p>
+<p class="intro">You can learn more about Sass in our <a href="../sass/default.html">Sass Tutorial</a>.</p>
+<hr>
+
+<h2>Adding Sass to React</h2>
+<p>To add Sass to a React project, you need to install the Sass package:</p>
+<p>Install the package using npm:</p>
+
+<div class="w3-example">
+<div class="w3-code notranslate w3-black">
+npm install sass
+</div>
+</div>
+
+<p>Now you are ready to include Sass files in your project!</p>
+
+<hr>
+
+<h2>Create a Sass file</h2>
+<p>Create a Sass file the same way as you create CSS files,
+  but Sass files have the file extension <code class="w3-codespan">.scss</code>:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>In the newly created <code class="w3-codespan">.scss</code> file, add some simple styling:</p>
+<pre class="language-scss w3-white" data-tab-header="MyStyle.scss"><code>$myColor: red;
+
+h1 {
+  color: $myColor;
+}
+</code></pre>
+</div>
+
+<hr>
+
+<h2>Import the Sass file</h2>
+
+<p>Import the Sass file in your React component:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-jsx w3-white" data-tab-header="main.jsx"><code>import { createRoot } from 'react-dom/client';
+import './MyStyle.scss';
+
+function MyHeader() {
+  return (
+    &lt;h1&gt;My Header&lt;/h1&gt;
+  );
+}
+
+createRoot(document.getElementById('root')).render(
+  &lt;MyHeader /&gt;
+);</code></pre>
+<p>
+  <a target="_blank" class="w3-btn" href="showreact6df2.html?filename=demo_react_sass">Run Example &raquo;</a>
+  </p>
+  
+</div>
+
+<p class="intro">You can learn more about Sass in our <a href="../sass/default.html">Sass Tutorial</a>.</p>
+
+<hr>
+
+<h2>Sass Modules</h2>
+
+<p>Sass has many Built-in Modules that you can use to manipulate colors, math, strings, etc.</p>
+
+<p>One example is the <code class="w3-codespan">sass:color</code> module.</p>
+
+<p>It has a function to make a color darker or lighter, just by giving it a percentage:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-scss w3-white" data-tab-header="MyStyle.scss"><code>@use 'sass:color';
+$myColor: red;
+
+h1 {
+  color: $myColor;
+}
+
+h2 {
+  color: color.adjust($myColor, $lightness: -20%);
+}
+
+h3 {
+  color: color.adjust($myColor, $lightness: 20%);
+}
+</code></pre>
+</div>
+
+<p>Let us add the headers to our component:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-jsx w3-white" data-tab-header="main.jsx"><code>import { createRoot } from 'react-dom/client';
+import './MyStyle.scss';
+
+function MyHeader() {
+  return (
+    &lt;div&gt;
+      &lt;h1&gt;My Header 1&lt;/h1&gt;
+      &lt;h2&gt;My Header 2&lt;/h2&gt;
+      &lt;h3&gt;My Header 3&lt;/h3&gt;
+    &lt;/div&gt;
+  );
+}
+
+createRoot(document.getElementById('root')).render(
+  &lt;MyHeader /&gt;
+);</code></pre>
+<p>
+  <a target="_blank" class="w3-btn" href="showreactc676.html?filename=demo_react_sass2">Run Example &raquo;</a>
+  </p>
+  
+</div>
+  
+<p class="intro">You can learn more about Sass in our <a href="../sass/default.html">Sass Tutorial</a>.</p>
+
+
+<div class="ws-note">
+<p><strong>Note:</strong> Sass files are compiled to CSS at build time.</p>
+</div>
+
+<hr>
+
+<hr>

@@ -1,0 +1,179 @@
+<h1>Binary Search with Python</h1>
+
+<hr>
+
+<h2>Binary Search</h2>
+<p>The Binary Search algorithm searches through a <b>sorted</b> array and returns the index of the value it searches for.</p>
+<div id="vueApp">
+  <br>
+  <input type="hidden" step="1" min="1" max="10" v-model="targetHeight" :disabled="inpIsDisabled">
+  <button @click="action" :disabled="btnIsDisabled">{{ buttonText }}</button>
+  <p>{{ msgDone }}&nbsp;</p>
+  <div id="frameDiv">
+    <div class="diceDiv" id="ghostDiv"></div>
+    <transition-group>
+      <div 
+        class="diceDiv" 
+        id="targetDiv"
+        :key="1000"
+        :style="{
+          left: targetPos*12 + 'px',
+          height: targetHeight*10 + 'px',
+          transition: 'all ' + delay
+        }"
+        >
+      </div>
+      <div v-for="(x, index) in dice" 
+        :key="x.keyNmbr" 
+        class="diceDiv" 
+        :class="{ 
+          'diceDiv-active': x.isActive, 
+          'diceDiv-border': x.isBorder, 
+          'diceDiv-done': x.isDone, 
+          'diceDiv-finished': x.isFinished 
+        }" 
+        :style="{
+          height: x.dieNmbr*10 + 'px',
+          transition: 'all ' + delay
+        }"
+      >
+        <span>{{ index }}</span>
+      </div>
+    </transition-group>
+  </div>
+</div>
+
+<p>Run the simulation to see how the Binary Search algorithm works.</p>
+<p>Binary Search is much faster than Linear Search, but requires a sorted array to work.</p>
+<p>The Binary Search algorithm works by checking the value in the center of the array. If the target value is lower, the next value to check is in the center of the left half of the array. This way of searching means that the search area is always half of the previous search area, and this is why the Binary Search algorithm is so fast.</p>
+<p>This process of halving the search area happens until the target value is found, or until the search area of the array is empty.</p>
+<div class="ws-info">
+  <p><strong>How it works:</strong></p>
+  <ol>
+    <li>Check the value in the center of the array.</li>
+    <li>If the target value is lower, search the left half of the array. If the target value is higher, search the right half.</li>
+    <li>Continue step 1 and 2 for the new reduced part of the array until the target value is found or until the search area is empty.</li>
+    <li>If the value is found, return the target value index. If the target value is not found, return -1.</li>
+  </ol>
+</div>
+<hr>
+
+<h2>Manual Run Through</h2>
+<p>Let's try to do the searching manually, just to get an even better understanding of how Binary Search works before actually implementing it in a Python program. We will search for value 11.</p>
+<p><strong>Step 1:</strong> We start with an array.</p>
+<div class="w3-code notranslate">
+  <code class="language-python w3-white">[ 2, 3, 7, 7, 11, 15, 25]</code>
+</div>
+<hr>
+<p><strong>Step 2:</strong> The value in the middle of the array at index 3, is it equal to 11?</p>
+<div class="w3-code notranslate">
+  <code class="language-python w3-white">[ 2, 3, 7,<mark class="dsa_mark"> 7</mark>, 11, 15, 25]</code>
+</div>
+<hr>
+<p><strong>Step 3:</strong> 7 is less than 11, so we must search for 11 to the right of index 3. The values to the right of index 3 are [ 11, 15, 25]. The next value to check is the middle value 15, at index 5.</p>
+<div class="w3-code notranslate">
+  <code class="language-python w3-white">[ 2, 3, 7, 7, 11,<mark class="dsa_mark"> 15</mark>, 25]</code>
+</div>
+<hr>
+<p><strong>Step 4:</strong> 15 is higher than 11, so we must search to the left of index 5. We have already checked index 0-3, so index 4 is only value left to check.</p>
+<div class="w3-code notranslate">
+  <code class="language-python w3-white">[ 2, 3, 7, 7,<mark class="dsa_mark"> 11</mark>, 15, 25]</code>
+</div>
+<p>We have found it!</p>
+<p>Value 11 is found at index 4.</p>
+<p>Returning index position 4.</p>
+<p>Binary Search is finished.</p>
+<hr>
+<p>Run the simulation below to see the steps above animated:</p>
+<div id="vueApp2">
+  
+  <button @click="action" :disabled="btnIsDisabled">{{ buttonText }}</button> {{ msgDone }}<br>
+  <div id="frameDiv2">
+    [
+    <transition-group name="v2">
+      <div 
+        class="diceDiv2" 
+        id="targetDiv2"
+        :key="1000"
+        :style="{
+          left: targetPos*29-19 + 'px',
+          transition: 'all ' + delay
+        }"
+        >
+      </div>
+      <div v-for="(x, index) in dice" 
+        :key="x.keyNmbr" 
+        class="diceDiv2"
+        :class="{ 
+          'diceDiv2-active': x.isActive
+        }" 
+        :style="{
+          transition: 'all ' + delay
+        }"
+      >
+      <span> {{ x.dieNmbr }}</span><template v-if="index < dice.length - 1">,</template>
+      </div>
+    </transition-group>
+    ]
+  </div>
+</div>
+
+<hr>
+
+<h2>Implementing Binary Search in Python</h2>
+<p>To implement the Binary Search algorithm we need:</p>
+<ol>
+  <li>An array with values to search through.</li>
+  <li>A target value to search for.</li>
+  <li>A loop that runs as long as left index is less than, or equal to, the right index.</li>
+  <li>An if-statement that compares the middle value with the target value, and returns the index if the target value is found.</li>
+  <li>An if-statement that checks if the target value is less than, or larger than, the middle value, and updates the "left" or "right" variables to narrow down the search area.</li>
+  <li>After the loop, return -1, because at this point we know the target value has not been found.</li>
+</ol>
+<p>The resulting code for Binary Search looks like this:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Create a Binary Search algorithm in Python:</p>
+<div class="w3-code notranslate pythonHigh">
+def binarySearch(arr, targetVal):<br>
+&nbsp;&nbsp;left = 0<br>
+&nbsp;&nbsp;right = len(arr) - 1<br>
+<br>
+&nbsp;&nbsp;while left <= right:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;mid = (left + right) // 2<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if arr[mid] == targetVal:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return mid<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if arr[mid] < targetVal:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;left = mid + 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;else:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;right = mid - 1<br>
+<br>
+&nbsp;&nbsp;return -1<br>
+<br>
+mylist = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19]<br>
+x = 11<br>
+<br>
+result = binarySearch(mylist, x)<br>
+<br>
+if result != -1:<br>
+&nbsp;&nbsp;print("Found at index", result)<br>
+else:<br>
+&nbsp;&nbsp;print("Not found")</div>
+  <a class="w3-btn w3-margin-bottom" href="trypython940b.html?filename=demo_dsa_binarysearch" target="_blank">Run Example »</a>
+</div>
+<hr>
+
+<h2>Binary Search Time Complexity</h2>
+
+<p>Each time Binary Search checks a new value to see if it is the target value, the search area is halved.</p>
+<p>This means that even in the worst case scenario where Binary Search cannot find the target value, it still only needs \( \log_{2}n \) comparisons to look through a sorted array of \(n\) values.</p>
+<p>Time complexity for Binary Search is: \( O( \log_{2} n ) \)</p>
+<div class="ws-note">
+  <p><strong>Note:</strong> When writing time complexity using Big O notation we could also just have written \( O( \log n ) \), but \( O( \log_{2} n ) \) reminds us that the array search area is halved for every new comparison, which is the basic concept of Binary Search, so we will just keep the base 2 indication in this case.</p>
+</div>
+<p>If we draw how much time Binary Search needs to find a value in an array of \(n\) values, compared to Linear Search, we get this graph:</p>
+<img src="assets/content/images/img_binarysearch_timecomplexity.png" class="imgTut" alt="Binary Search Time Complexity">
+<hr>

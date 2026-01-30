@@ -1,0 +1,188 @@
+<h1>SQL <span class="color_h1">COUNT(), AVG() and SUM()</span> Functions</h1>
+
+<hr>
+<h2>The SQL COUNT(), AVG() and SUM() Functions</h2>
+<p>The <code class="w3-codespan">COUNT()</code> function returns the number of rows that matches a specified criterion.</p>
+
+<h3>COUNT() Syntax</h3>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+SELECT COUNT(<em>column_name</em>)<br>
+FROM <em>table_name</em><br>
+WHERE <em>condition</em>;</div></div>
+
+<p>The <code class="w3-codespan">AVG()</code> function returns the average value of a numeric column.&nbsp;</p>
+<h3>AVG() Syntax</h3>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+SELECT AVG(<em>column_name</em>)<br>
+FROM <em>table_name</em><br>
+WHERE <em>condition</em>;</div></div>
+
+<p>The <code class="w3-codespan">SUM()</code> function returns the total sum of a numeric column.&nbsp;</p>
+<h3>SUM() Syntax</h3>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+SELECT SUM(<em>column_name</em>)<br>
+FROM <em>table_name</em><br>
+WHERE <em>condition</em>;</div></div>
+<hr>
+
+<h2>Demo Database</h2>
+<p>Below is a selection from the "Products" table in the Northwind sample database:</p>
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+  <tr>
+    <th>ProductID</th>
+    <th>ProductName</th>
+    <th>SupplierID</th>
+    <th>CategoryID</th>
+    <th>Unit</th>
+    <th>Price</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>Chais</td>
+    <td>1</td>
+    <td>1</td>
+    <td>10 boxes x 20 bags</td>
+    <td>18</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Chang</td>
+    <td>1</td>
+    <td>1</td>
+    <td>24 - 12 oz bottles</td>
+    <td>19</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Aniseed Syrup</td>
+    <td>1</td>
+    <td>2</td>
+    <td>12 - 550 ml bottles</td>
+    <td>10</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>Chef Anton's Cajun Seasoning</td>
+    <td>2</td>
+    <td>2</td>
+    <td>48 - 6 oz jars</td>
+    <td>22</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>Chef Anton's Gumbo Mix</td>
+    <td>2</td>
+    <td>2</td>
+    <td>36 boxes</td>
+    <td>21.35</td>
+  </tr>
+</table>
+</div>
+<hr>
+
+<hr>
+
+<h2>COUNT() Example</h2>
+<p>The following SQL statement finds the number of products:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+  SELECT COUNT(ProductID)<br>FROM Products;
+</div>
+
+</div>
+<p><strong>Note:</strong> NULL values are not counted.</p>
+<hr>
+
+<h2>AVG() Example</h2>
+<p>The following SQL statement finds the average price of all products:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+  SELECT AVG(Price)<br>FROM Products;
+</div>
+
+</div>
+<p><strong>Note:</strong> NULL values are ignored.</p>
+<hr>
+
+<h2>Demo Database</h2>
+<p>Below is a selection from the &quot;OrderDetails&quot; table in the Northwind 
+sample database:</p>
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+  <tr>
+    <th>OrderDetailID</th>
+    <th>OrderID</th>
+    <th>ProductID</th>
+    <th>Quantity</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>10248</td>
+    <td>11</td>
+    <td>12</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>10248</td>
+    <td>42</td>
+    <td>10</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>10248</td>
+    <td>72</td>
+    <td>5</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>10249</td>
+    <td>14</td>
+    <td>9</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>10249</td>
+    <td>51</td>
+    <td>40</td>
+  </tr>
+</table>
+</div>
+<hr>
+
+<h2>SUM() Example</h2>
+<p>The following SQL statement finds the sum of the &quot;Quantity&quot; fields 
+in the &quot;OrderDetails&quot; table:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+SELECT SUM(Quantity)<br>FROM OrderDetails;</div>
+
+</div>
+<p><strong>Note:</strong> NULL values are ignored.</p>
+<hr>
+
+<form autocomplete="off" id="w3-exerciseform" action="https://www.w3schools.com/sql/exercise.asp?filename=exercise_functions3" method="post" target="_blank">
+<h2>Test Yourself With Exercises</h2>
+<div class="exercisewindow">
+<h2>Exercise:</h2>
+<p>Use the correct function to return the number of records that have the <code class="w3-codespan">Price</code> value set to 18.</p>
+<div class="exerciseprecontainer">
+<pre>
+SELECT <input name="ex1" maxlength="5" style="width: 54px;">(*)
+FROM Products
+<input name="ex2" maxlength="5" style="width: 54px;"> Price = 18;
+</pre>
+</div>
+<br>
+<button type="submit" class="w3-btn w3-margin-bottom">Submit Answer &raquo;</button>
+<p><a target="_blank" href="sql_exercises.html?filename=exercise_functions3">Start the Exercise</a></p>
+</div>
+</form>
+
+<br>

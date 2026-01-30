@@ -1,0 +1,82 @@
+<h1>PHP <span class="color_h1">array_change_key_case()</span> Function</h1>
+<p><a href="php_ref_array.html" class="w3-btn w3-white w3-border" title="PHP Array Reference">&#10094; PHP Array Reference</a></p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Change all keys in an array to uppercase:</p>
+<div class="w3-code notranslate htmlHigh">
+&lt;?php<br>
+ $age=array(&quot;Peter&quot;=&gt;&quot;35&quot;,&quot;Ben&quot;=&gt;&quot;37&quot;,&quot;Joe&quot;=&gt;&quot;43&quot;);<br>
+ print_r(array_change_key_case($age,CASE_UPPER));<br>?&gt;
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="phptryitb392.html?filename=tryphp_func_array_change_kc">Try it Yourself &raquo;</a>
+</div>
+<hr>
+
+<h2>Definition and Usage</h2>
+<p>The array_change_key_case() function changes all keys in an array to lowercase or uppercase.</p>
+<hr>
+
+<h2>Syntax</h2>
+<div class="w3-code w3-border notranslate"><div>
+array_change_key_case(<em>array</em>,<em> case</em>)</div></div>
+<h2>Parameter Values</h2>
+<table class="ws-table-all notranslate"> 
+  <tr>
+    <th style="width:20%">Parameter</th>
+    <th style="width:80%">Description</th>
+  </tr>  
+  <tr>
+    <td>array</td>
+    <td>Required. Specifies the array to use</td>
+  </tr>
+  <tr>
+    <td>case</td>
+    <td>Optional. Possible values:<ul>
+      <li>CASE_LOWER - Default value. Changes the keys to lowercase</li>
+      <li>CASE_UPPER - Changes the keys to uppercase</li>
+    </ul>
+    </td>
+  </tr>
+  </table>
+<hr>
+<h2>Technical Details</h2>
+<table class="ws-table-all">
+<tr>
+ <th style="width:20%">Return Value:</th>
+ <td style="width:80%">Returns an array with its keys in lowercase or uppercase, or FALSE if <em>array</em> is not an array</td>
+</tr>
+<tr>
+  <th>PHP Version:</th>
+  <td>4.2+</td>
+</tr>
+</table>
+<hr>
+
+<hr>
+<h2>More Examples</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Change all keys in an array to lowercase:</p>
+<div class="w3-code notranslate htmlHigh">
+&lt;?php<br>
+ $age=array(&quot;Peter&quot;=&gt;&quot;35&quot;,&quot;Ben&quot;=&gt;&quot;37&quot;,&quot;Joe&quot;=&gt;&quot;43&quot;);<br>
+ print_r(array_change_key_case($age,CASE_LOWER));<br>?&gt;
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="phptryitd89c.html?filename=tryphp_func_array_change_kc2">Try it Yourself &raquo;</a>
+</div>
+<div class="w3-example">
+<h3>Example</h3>
+<p>If two or more keys will be equal after running array_change_key_case() (e.g. 
+&quot;b&quot; and &quot;B&quot;), the 
+latest array will override the other:</p>
+<div class="w3-code notranslate htmlHigh">
+&lt;?php<br>
+ $pets=array(&quot;a&quot;=&gt;&quot;Cat&quot;,&quot;B&quot;=&gt;&quot;Dog&quot;,&quot;c&quot;=&gt;&quot;Horse&quot;,&quot;b&quot;=&gt;&quot;Bird&quot;);<br>
+ print_r(array_change_key_case($pets,CASE_UPPER));<br>?&gt;
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="phptryit0bee.html?filename=tryphp_func_array_change_kc3">Try it Yourself &raquo;</a>
+</div>
+<hr>
+
+<a href="php_ref_array.html" class="w3-btn w3-white w3-border" title="PHP Array Reference">&#10094; PHP Array Reference</a>

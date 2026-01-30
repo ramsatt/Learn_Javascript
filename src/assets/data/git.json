@@ -1,0 +1,39 @@
+[
+  {
+    "title": "Git Tutorial",
+    "items": [
+      {
+        "title": "Git Tutorial",
+        "file": "git_default.html"
+      },
+      {
+        "title": "Git and {{title}} Introduction",
+        "file": "git_git_intro.html"
+      },
+      {
+        "title": "Git Commit",
+        "file": "git_git_commit.html"
+      },
+      {
+        "title": "Git Branch",
+        "file": "git_git_branch.html"
+      },
+      {
+        "title": "Git Merge",
+        "file": "git_git_merge.html"
+      },
+      {
+        "title": "Git Ignore and .gitignore",
+        "file": "git_git_ignore.html"
+      },
+      {
+        "title": "Git Revert",
+        "file": "git_git_revert.html"
+      },
+      {
+        "title": "Git Reset",
+        "file": "git_git_reset.html"
+      }
+    ]
+  }
+]

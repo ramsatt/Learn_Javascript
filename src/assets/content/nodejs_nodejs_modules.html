@@ -1,0 +1,207 @@
+<h1>Node.js <span class="color_h1">Modules</span></h1>
+
+<hr>
+
+<h2>What is a Module in Node.js?</h2>
+<p>Modules are the building blocks of Node.js applications, allowing you to organize code into logical, reusable components. They help in:</p>
+<ul>
+  <li>Organizing code into manageable files</li>
+  <li>Encapsulating functionality</li>
+  <li>Preventing global namespace pollution</li>
+  <li>Improving code maintainability and reusability</li>
+</ul>
+
+<div class="w3-panel ws-note">
+  <p>Node.js supports two module systems: CommonJS (traditional) and ES Modules (ECMAScript modules).</p>
+  <p>This page covers CommonJS, while <a href="nodejs_modules_esm.html">ES Modules</a> are covered separately.</p>
+</div>
+<hr>
+
+<h2>Core Built-in Modules</h2>
+<p>Node.js provides several built-in modules that are compiled into the binary.</p>
+<p>Here are some of the most commonly used ones:</p>
+
+<div class="w3-row-padding">
+  <div class="w3-half">
+    <ul class="w3-ul w3-border">
+      <li><code class="w3-codespan">fs</code> - File system operations</li>
+      <li><code class="w3-codespan">http</code> - HTTP server and client</li>
+      <li><code class="w3-codespan">path</code> - File path utilities</li>
+      <li><code class="w3-codespan">os</code> - Operating system utilities</li>
+      <li><code class="w3-codespan">events</code> - Event handling</li>
+    </ul>
+  </div>
+  <div class="w3-half">
+    <ul class="w3-ul w3-border">
+      <li><code class="w3-codespan">util</code> - Utility functions</li>
+      <li><code class="w3-codespan">stream</code> - Stream handling</li>
+      <li><code class="w3-codespan">crypto</code> - Cryptographic functions</li>
+      <li><code class="w3-codespan">url</code> - URL parsing</li>
+      <li><code class="w3-codespan">querystring</code> - URL query string handling</li>
+    </ul>
+  </div>
+</div>
+
+<p>To use any built-in module, use the <code class="w3-codespan">require()</code> function:</p>
+<div class="w3-example">
+<h3>Example: Using Multiple Built-in Modules</h3>
+<div class="w3-code notranslate jsHigh">
+const http = require('http');
+</div>
+</div>
+<p>Now you can use the module's features, like creating a server:</p>
+<div class="w3-example">
+<h3>Example: Simple HTTP Server</h3>
+<div class="w3-code notranslate jsHigh">
+http.createServer((req, res) => {<br>
+&nbsp;&nbsp;res.writeHead(200, {'Content-Type': 'text/html'});<br>
+&nbsp;&nbsp;res.end('Hello World!');<br>
+}).listen(8080);</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="shownodejs8401.html?filename=demo_intro_webserver">Run Example &raquo;</a>
+</div>
+<hr>
+
+<h2>Creating and Exporting Modules</h2>
+<p>In Node.js, any file with a <code class="w3-codespan">.js</code> extension is a module. You can export functionality from a module in several ways:</p>
+
+<h3>1. Exporting Multiple Items</h3>
+<p>Add properties to the <code class="w3-codespan">exports</code> object for multiple exports:</p>
+<div class="w3-example">
+<h3>Example: utils.js</h3>
+<div class="w3-code notranslate jsHigh">
+// Exporting multiple functions<br>
+const getCurrentDate = () => new Date().toISOString();<br><br>
+
+const formatCurrency = (amount, currency = 'USD') => {<br>
+&nbsp;&nbsp;return new Intl.NumberFormat('en-US', {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;style: 'currency',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;currency: currency<br>
+&nbsp;&nbsp;}).format(amount);<br>
+};<br><br>
+
+// Method 1: Exporting multiple items<br>
+exports.getCurrentDate = getCurrentDate;<br>
+exports.formatCurrency = formatCurrency;<br><br>
+
+// Method 2: Exporting an object with multiple properties<br>
+// module.exports = { getCurrentDate, formatCurrency };</div>
+</div>
+
+<h3>2. Exporting a Single Item</h3>
+<p>To export a single item (function, object, etc.), assign it to <code class="w3-codespan">module.exports</code>:</p>
+
+<div class="w3-example">
+<h4>Example: logger.js</h4>
+<div class="w3-code notranslate jsHigh">
+class Logger {<br>
+&nbsp;&nbsp;constructor(name) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;this.name = name;<br>
+&nbsp;&nbsp;}<br><br>
+
+&nbsp;&nbsp;log(message) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;console.log(`[${this.name}] ${message}`);<br>
+&nbsp;&nbsp;}<br><br>
+
+&nbsp;&nbsp;error(error) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;console.error(`[${this.name}] ERROR:`, error.message);<br>
+&nbsp;&nbsp;}<br>
+}<br><br>
+
+// Exporting a single class<br>
+module.exports = Logger;</div>
+</div>
+
+<h3>3. Using Your Modules</h3>
+<p>Import and use your custom modules using <code class="w3-codespan">require()</code> with a relative or absolute path:</p>
+<div class="w3-example">
+<h3>Example: app.js</h3>
+<div class="w3-code notranslate jsHigh">
+const http = require('http');<br>
+const path = require('path');<br><br>
+
+// Importing custom modules<br>
+const { getCurrentDate, formatCurrency } = require('./utils');<br>
+const Logger = require('./logger');<br><br>
+
+// Create a logger instance<br>
+const logger = new Logger('App');<br><br>
+
+// Create server<br>
+const server = http.createServer((req, res) => {<br>
+&nbsp;&nbsp;try {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;logger.log(`Request received for ${req.url}`);<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;res.writeHead(200, { 'Content-Type': 'text/html' });<br>
+&nbsp;&nbsp;&nbsp;&nbsp;res.write(`&lt;h1&gt;Welcome to our app!&lt;/h1&gt;`);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;res.write(`&lt;p&gt;Current date: ${getCurrentDate()}&lt;/p&gt;`);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;res.write(`&lt;p&gt;Formatted amount: ${formatCurrency(99.99)}&lt;/p&gt;`);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;res.end();<br>
+&nbsp;&nbsp;} catch (error) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;logger.error(error);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;res.writeHead(500, { 'Content-Type': 'text/plain' });<br>
+&nbsp;&nbsp;&nbsp;&nbsp;res.end('Internal Server Error');<br>
+&nbsp;&nbsp;}<br>
+});<br><br>
+
+// Start server<br>
+const PORT = process.env.PORT || 3000;<br>
+server.listen(PORT, () => {<br>
+&nbsp;&nbsp;logger.log(`Server running at http://localhost:${PORT}`);<br>
+});
+</div>
+</div>
+<hr>
+<h2>Module Loading and Caching</h2>
+<p>Node.js caches modules after the first time they are loaded. This means that subsequent <code class="w3-codespan">require()</code> calls return the cached version.</p>
+
+<div class="w3-panel ws-note">
+  <h3>Module Resolution</h3>
+  <p>When you require a module, Node.js looks for it in this order:</p>
+  <ol>
+    <li>Core Node.js modules (like <code class="w3-codespan">fs</code>, <code class="w3-codespan">http</code>)</li>
+    <li>Node modules in <code class="w3-codespan">node_modules</code> folders</li>
+    <li>Local files (using <code class="w3-codespan">./</code> or <code class="w3-codespan">../</code> prefix)</li>
+  </ol>
+</div>
+<p>Run the example in your terminal:</p>
+<div class="w3-example">
+<div class="w3-code notranslate w3-black">C:\Users\&lt;Your Name&gt;&gt; node demo_module.js</div>
+</div>
+<p>Visit <a href="http://localhost:8080/" target="_blank">http://localhost:8080</a> to see the result in your browser.</p>
+<hr>
+
+<h2>Best Practices</h2>
+
+<div class="w3-panel ws-info">
+<h4>Module Organization</h4>
+<ul>
+  <li>Keep modules focused on a single responsibility</li>
+  <li>Use meaningful file and directory names</li>
+  <li>Group related functionality together</li>
+  <li>Use <code class="w3-codespan">index.js</code> for module entry points</li>
+</ul>
+</div>
+<div class="w3-panel ws-note">
+<h4>Export Patterns</h4>
+<ul>
+  <li>Prefer named exports for utilities</li>
+  <li>Use default exports for single-class modules</li>
+  <li>Document your module's API</li>
+  <li>Handle module initialization if needed</li>
+</ul>
+</div>
+<hr>
+<h2>Summary</h2>
+<p>Modules are a key concept in Node.js. They enable you to organize code into reusable, maintainable units.</p>
+<p>By understanding how to create, export, and use modules effectively, you can build scalable and well-structured applications.</p>
+
+<p>Key takeaways:</p>
+<ul>
+  <li>Node.js uses CommonJS modules by default</li>
+  <li>Use <code class="w3-codespan">require()</code> to import and <code class="w3-codespan">module.exports</code> to export</li>
+  <li>Modules are cached after first load</li>
+  <li>Follow best practices for module organization and structure</li>
+</ul>
+<hr>
+
+<hr>
+<br>

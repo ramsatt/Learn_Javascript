@@ -1,0 +1,147 @@
+<h1>SQL <span class="color_h1">Working With Dates</span></h1>
+
+<hr>
+
+
+<h2>SQL Dates</h2>
+
+<div class="w3-panel ws-note">
+<p>The most difficult part when working with dates is to be sure that the format of the date you are trying to insert,
+matches the format of the date column in the database.</p>
+</div>
+
+<p>As long as your data contains only the date portion, your queries will work as expected. However, if a time portion is involved, it gets 
+more complicated.</p>
+<hr>
+
+<h2>SQL Date Data Types</h2>
+<p><b>MySQL</b> comes with the following data types for storing a date or a date/time value in the database:</p>
+<ul>
+  <li> <code class="w3-codespan">DATE</code> - format YYYY-MM-DD</li>
+  <li> <code class="w3-codespan">DATETIME</code> - format: YYYY-MM-DD HH:MI:SS</li>
+  <li><code class="w3-codespan">TIMESTAMP</code> - format: YYYY-MM-DD HH:MI:SS</li>
+  <li> <code class="w3-codespan">YEAR</code> - format YYYY or YY</li>
+</ul>
+<p><b>SQL Server</b> comes with the following data types for storing a date or a date/time value in the database:</p>
+<ul>
+  <li> <code class="w3-codespan">DATE</code> - format YYYY-MM-DD</li>
+  <li> <code class="w3-codespan">DATETIME</code> - format: YYYY-MM-DD HH:MI:SS</li>
+  <li> <code class="w3-codespan">SMALLDATETIME</code> - format: YYYY-MM-DD HH:MI:SS</li>
+  <li><code class="w3-codespan">TIMESTAMP</code> - format: a unique number</li>
+</ul>
+<p><b>Note:</b> The date types are chosen for a column when you create a new table in your database!</p>
+
+
+<hr>
+
+
+<h2>SQL Working with Dates</h2>
+<p>Look at the following table:</p>
+<h3>Orders Table</h3>
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+<tr>
+<th style="width:20%">OrderId</th>
+<th style="width:45%">ProductName</th>
+<th>OrderDate</th>
+</tr>
+<tr>
+<td>1</td>
+<td>Geitost</td>
+<td>2008-11-11</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Camembert Pierrot</td>
+<td>2008-11-09</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Mozzarella di Giovanni</td>
+<td>2008-11-11</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Mascarpone Fabioli</td>
+<td>2008-10-29</td>
+</tr>
+</table>
+</div>
+
+<p>Now we want to select the records with an OrderDate of &quot;2008-11-11&quot; from the table above.</p>
+<p>We use the following <code class="w3-codespan">SELECT</code> statement:</p>
+<div class="w3-code w3-border notranslate sqlHigh"><div>
+SELECT * FROM Orders WHERE OrderDate='2008-11-11'</div></div>
+
+<p>The result-set will look like this:</p>
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+<tr>
+<th style="width:20%">OrderId</th>
+<th style="width:45%">ProductName</th>
+<th>OrderDate</th>
+</tr>
+<tr>
+<td>1</td>
+<td>Geitost</td>
+<td>2008-11-11</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Mozzarella di Giovanni</td>
+<td>2008-11-11</td>
+</tr>
+</table>
+</div>
+
+<div class="w3-panel ws-note">
+<p><strong>Note:</strong> Two dates can easily be compared if there is no time component involved!</p>
+</div>
+
+<p>Now, assume that the &quot;Orders&quot; table looks like this (notice the 
+added time-component in the &quot;OrderDate&quot; column):</p>
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+<tr>
+<th style="width:20%">OrderId</th>
+<th style="width:45%">ProductName</th>
+<th>OrderDate</th>
+</tr>
+<tr>
+<td>1</td>
+<td>Geitost</td>
+<td>2008-11-11 13:23:44</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Camembert Pierrot</td>
+<td>2008-11-09 15:45:21</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Mozzarella di Giovanni</td>
+<td>2008-11-11 11:12:01</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Mascarpone Fabioli</td>
+<td>2008-10-29 14:56:59</td>
+</tr>
+</table>
+</div>
+
+<p>If we use the same <code class="w3-codespan">SELECT</code> statement as above:</p>
+<div class="w3-code w3-border notranslate sqlHigh"><div>
+SELECT * FROM Orders WHERE OrderDate='2008-11-11'</div></div>
+<p>we will get no result! This is because the query is looking only for dates with no time portion.</p>
+
+<div class="w3-panel ws-note">
+<p><b>Tip:</b> To keep your queries simple and easy to maintain, do not use time-components in your dates, unless you have to!</p>
+</div>
+
+
+<hr>
+
+<hr>
+
+<br>

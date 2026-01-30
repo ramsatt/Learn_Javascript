@@ -1,0 +1,103 @@
+<h1>Go Struct</h1>
+
+<hr>
+
+<h2>Go Structures</h2>
+<p>A struct (short for structure) is used to create a collection of members of 
+different data types, into a single variable.</p>
+<p>While arrays are used to store multiple values of the same data type into a 
+single variable, structs are used to store multiple values of different data 
+types into a single variable.</p>
+<p>A struct can be useful for grouping data together to create records.</p>
+<hr>
+
+<h2>Declare a Struct</h2>
+<p>To declare a structure in Go, use the <code class="w3-codespan">type</code> 
+and <code class="w3-codespan">struct</code> keywords:</p>
+<div class="w3-example">
+  <h3>Syntax</h3>
+      <div class="w3-code notranslate javaHigh">
+        type <em>struct_name</em> struct {<br>&nbsp; <em>member1</em> <em>
+        datatype</em>;<br>
+        &nbsp; <em>member2</em> <em>datatype</em>;<br>&nbsp; <em>member3</em> <em>
+        datatype</em>;<br>&nbsp; ...<br>}</div>
+</div> 
+<div class="w3-example">
+  <h3>Example</h3>
+  <p>Here we declare a struct type <code class="w3-codespan">Person</code> 
+  with the following members: <code class="w3-codespan">name</code>, <code class="w3-codespan">
+  age</code>, <code class="w3-codespan">job</code> and <code class="w3-codespan">salary</code>:</p>
+  <div class="w3-code notranslate javaHigh">
+    type Person struct {<br>&nbsp; name string<br>&nbsp; 
+    age int<br>&nbsp; job string<br>&nbsp; salary int<br>}
+  </div>
+</div>
+<p><strong>Tip:</strong> Notice that the struct members above have different 
+data types. <code class="w3-codespan">name</code> and <code class="w3-codespan">
+job</code> is of type string, while <code class="w3-codespan">age</code> and <code class="w3-codespan">
+salary</code> is of type int.</p>
+<hr>
+
+<h2>Access Struct Members</h2>
+<p>To access any member of a structure, use the dot operator (.) between the 
+structure variable name and the structure member:</p>
+<div class="w3-example">
+  <h3>Example</h3>
+  <div class="w3-code notranslate javaHigh">
+    package main<br>
+    import ("fmt")<br><br>type Person struct {<br>&nbsp; name string<br>&nbsp; 
+    age int<br>&nbsp; job string<br>&nbsp; salary int<br>}<br><br>
+    func main() {<br>
+    &nbsp; var pers1 Person<br>&nbsp; var pers2 Person<br><br>&nbsp; // Pers1 
+    specification<br>&nbsp; pers1.name = &quot;Hege&quot;<br>&nbsp; 
+    pers1.age = 45<br>&nbsp; pers1.job = &quot;Teacher&quot;<br>&nbsp; pers1.salary = 
+    6000<br><br>&nbsp; // Pers2 specification<br>&nbsp; pers2.name = &quot;Cecilie&quot;<br>&nbsp; 
+    pers2.age = 24<br>&nbsp; pers2.job = &quot;Marketing&quot;<br>&nbsp; pers2.salary = 
+    4500<br><br>&nbsp; // Access and print Pers1 info <br>&nbsp; 
+    fmt.Println(&quot;Name: &quot;, pers1.name)<br>&nbsp; fmt.Println(&quot;Age: &quot;, pers1.age)<br>
+    &nbsp; fmt.Println(&quot;Job: &quot;, pers1.job)<br>
+    &nbsp; fmt.Println(&quot;Salary: &quot;, pers1.salary)<br><br>&nbsp; // 
+    Access and print Pers2 info <br>&nbsp; 
+    fmt.Println(&quot;Name: &quot;, pers2.name)<br>&nbsp; fmt.Println(&quot;Age: &quot;, pers2.age)<br>
+    &nbsp; fmt.Println(&quot;Job: &quot;, pers2.job)<br>
+    &nbsp; fmt.Println(&quot;Salary: &quot;, pers2.salary)<br>}
+  </div>
+  <p>Result:</p>
+  <div class="notranslate w3-black w3-padding">
+  <code>
+    Name: Hege<br>Age: 45<br>Job: Teacher<br>Salary: 6000<br>Name: Cecilie<br>Age: 
+    24<br>Job: Marketing<br>Salary: 4500</code></div>
+  
+</div>
+<hr>
+<hr>
+<h2>Pass Struct as Function Arguments</h2>
+<p>You can also pass a structure as a function argument, like this:</p>
+<div class="w3-example">
+  <h3>Example</h3>
+  <div class="w3-code notranslate javaHigh">
+    package main<br>
+    import ("fmt")<br><br>type Person struct {<br>&nbsp; name string<br>&nbsp; 
+    age int<br>&nbsp; job string<br>&nbsp; salary int<br>}<br><br>
+    func main() {<br>
+    &nbsp; var pers1 Person<br>&nbsp; var pers2 Person<br><br>&nbsp; // Pers1 
+    specification<br>&nbsp; pers1.name = &quot;Hege&quot;<br>&nbsp; 
+    pers1.age = 45<br>&nbsp; pers1.job = &quot;Teacher&quot;<br>&nbsp; pers1.salary = 
+    6000<br><br>&nbsp; // Pers2 specification<br>&nbsp; pers2.name = &quot;Cecilie&quot;<br>&nbsp; 
+    pers2.age = 24<br>&nbsp; pers2.job = &quot;Marketing&quot;<br>&nbsp; pers2.salary = 
+    4500<br><br>&nbsp; // Print Pers1 info by calling a function<br>&nbsp; printPerson(pers1)<br>
+    <br>&nbsp; // Print Pers2 info by calling a function<br>&nbsp; printPerson(pers2)<br>}<br><br>func printPerson(pers Person) {<br>
+    &nbsp; 
+    fmt.Println(&quot;Name: &quot;, pers.name)<br>&nbsp; fmt.Println(&quot;Age: &quot;, pers.age)<br>
+    &nbsp; fmt.Println(&quot;Job: &quot;, pers.job)<br>
+    &nbsp; fmt.Println(&quot;Salary: &quot;, pers.salary)<br>}
+  </div>
+  <p>Result:</p>
+  <div class="notranslate w3-black w3-padding">
+  <code>
+    Name: Hege<br>Age: 45<br>Job: Teacher<br>Salary: 6000<br>Name: Cecilie<br>Age: 
+    24<br>Job: Marketing<br>Salary: 4500</code></div>
+  
+</div>
+
+<br>

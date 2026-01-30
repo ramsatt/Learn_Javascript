@@ -1,0 +1,102 @@
+<h1>TypeScript Casting</h1>
+
+
+
+<hr>
+
+<p>There are times when working with types where it's necessary to override the type of a variable, such as when incorrect types are provided by a library.</p>
+<p>Casting is the process of overriding a type.</p>
+
+<hr>
+
+<h2>Casting with <code class="w3-codespan">as</code></h2>
+
+<p>
+A straightforward way to cast a variable is using the <code class="w3-codespan">as</code> keyword,
+which will directly change the type of the given variable.
+</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+
+<div class="w3-code notranslate jsHigh">
+let x: unknown = 'hello';<br>
+console.log((x as string).length);<br>
+</div>
+
+
+</div>
+
+<div class="w3-panel ws-info">
+<p>
+Casting doesn't actually change the type of the data within the variable,
+for example the following code will not work as expected since the variable <code class="w3-codespan">x</code> still holds a number.<br>
+
+<div class="w3-code notranslate jsHigh">
+let x: unknown = 4;<br>
+console.log((x as string).length); // prints undefined since numbers don't have a length
+</div>
+</p>
+</div>
+
+<div class="w3-panel ws-info">
+<p>
+TypeScript will still attempt to typecheck casts to prevent casts that don't seem correct,
+for example the following will throw a type error since TypeScript knows casting a string to a number doesn't make sense
+without converting the data:<br>
+
+<div class="w3-code notranslate jsHigh">
+console.log((4 as string).length); // Error: Conversion of type 'number' to type 'string' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+</div>
+The Force casting section below covers how to override this.
+</p>
+</div>
+
+<hr>
+<hr>
+
+<h2>Casting with <code class="w3-codespan">&lt;&gt;</code></h2>
+
+<p>
+Using &lt;&gt; works the same as casting with <code class="w3-codespan">as</code>.
+</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+
+<div class="w3-code notranslate jsHigh">
+let x: unknown = 'hello';<br>
+console.log((&lt;string&gt;x).length);<br>
+</div>
+
+
+</div>
+
+<div class="w3-panel ws-info">
+<p>
+This type of casting will not work with TSX, such as when working on React files.
+</p>
+</div>
+
+<hr>
+<h2>Force casting</h2>
+
+<p>
+To override type errors that TypeScript may throw when casting, first cast to <code class="w3-codespan">unknown</code>, then to the target type.
+</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+
+<div class="w3-code notranslate jsHigh">
+let x = 'hello';<br>
+console.log(((x as unknown) as number).length); // x is not actually a number so this will return undefined
+</div>
+
+
+</div>
+
+<hr>
+
+<hr>
+<br>

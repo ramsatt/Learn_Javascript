@@ -1,0 +1,47 @@
+<h1>Java <span class="color_h1">How To Add Two Numbers</span></h1>
+
+<hr>
+
+<h2>Add Two Numbers</h2>
+<p>Learn how to add two numbers in Java:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>int x = 5;
+int y = 6;
+int sum = x + y;
+System.out.println(sum); // Print the sum of x + y</code></pre>
+
+</div>
+
+<p><b>Explanation:</b> We create two integer variables (<code class="w3-codespan">x</code> and <code class="w3-codespan">y</code>) and assign them values. The expression <code class="w3-codespan">x + y</code> is stored in the variable <code class="w3-codespan">sum</code>. Finally, we print the result with <code class="w3-codespan">System.out.println()</code>.</p>
+
+<hr>
+
+<h2>Add Two Numbers with User Input</h2>
+<p>Learn how to add two numbers with user input:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>import java.util.Scanner; // Import the Scanner class
+
+class MyClass {
+  public static void main(String[] args) {
+    int x, y, sum;
+    Scanner myObj = new Scanner(System.in); // Create a Scanner object
+    System.out.println("Type a number:");
+    x = myObj.nextInt(); // Read user input
+
+    System.out.println("Type another number:");
+    y = myObj.nextInt(); // Read user input
+
+    sum = x + y;  // Calculate the sum of x + y
+    System.out.println("Sum is: " + sum); // Print the sum
+  }
+}</code></pre>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showjavacc1b.html?filename=demo_howto_add_two_numbers_scanner">Run Example &raquo;</a>
+</div>
+
+<p><b>Explanation:</b> Here we use the <code class="w3-codespan">Scanner</code> class to read two numbers from the keyboard. The method <code class="w3-codespan">nextInt()</code> reads an integer from the user. We then add the two numbers together and print the result.</p>
+
+<hr>
+
+<br>

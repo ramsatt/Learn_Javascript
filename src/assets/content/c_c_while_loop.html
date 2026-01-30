@@ -1,0 +1,90 @@
+<h1>C <span class="color_h1">While Loop</span></h1>
+
+<hr>
+
+
+<h2>Loops</h2>
+<p>Loops can execute a block of code as long as a specified condition is true.</p>
+<p>Loops are handy because they save time, reduce errors, and they make code more readable.</p>
+<hr>
+
+<h2>While Loop</h2>
+
+<p>The <code class="w3-codespan">while</code> loop repeats a block of code as long as a specified condition is <code class="w3-codespan">true</code>:</p>
+
+<div class="w3-example">
+<h3>Syntax</h3>
+<div class="w3-code notranslate javaHigh">
+  while (<em>condition</em>) {<br>
+    <i>&nbsp; // code block to be executed</i><br>
+ }<br>
+ </div>
+</div>
+
+<p>In the example below, the code in the loop will run, over and over again, as long as 
+a variable (<code class="w3-codespan">i</code>) is less than 5:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  int i = 0;<br><br>while (i &lt; 5) {<br>
+  &nbsp; printf(&quot;%d\n&quot;, i);<br>
+&nbsp;&nbsp;i++;<br>}<br>
+ </div>
+
+</div>
+
+<div class="w3-panel ws-note">
+<p><strong>Note:</strong> Do not forget to increase the variable used in the condition 
+(<code class="w3-codespan">i++</code>), otherwise 
+the loop will never end!</p>
+<p>Do you wonder why we use the letter <code class="w3-codespan">i</code> as a variable name? It's a counter variable and a common choice in simple loops because it's short, traditional, and stands for 'index' or 'iterator'.</p>
+
+</div>
+
+<hr>
+
+
+<h2>Countdown Example</h2>
+<p>You can also use a <code class="w3-codespan">while</code> loop to count down.  
+This example counts from 3 to 1, and then prints "Happy New Year!!" at the end:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  int countdown = 3;<br><br>
+  while (countdown &gt; 0) {<br>
+  &nbsp;&nbsp;printf(&quot;%d\n&quot;, countdown);<br>
+  &nbsp;&nbsp;countdown--;<br>
+  }<br>
+  printf(&quot;Happy New Year!!\n&quot;);
+</div>
+
+</div>
+
+<hr>
+
+<h2>While Loop With False Condition</h2>
+
+<p>In the previous examples, the condition was <b>true</b> at the start, 
+so the loop ran one or more times.  
+But if the condition is <b>false</b> at the beginning, the code inside the loop will never run:</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <pre class="language-c notranslate w3-border-red"><code>int i = 10;
+  
+while (i &lt; 5) {
+  printf(&quot;This will never be printed\n&quot;);
+  i++;
+}</code></pre>
+</div>
+
+<div class="ws-note ws-panel">
+  <p><strong>Note:</strong> A <code class="w3-codespan">while</code> loop may never run if the condition is false from the start.  
+  In the next chapter, you will learn about the <a href="c_do_while_loop.html"><code class="w3-codespan">do while</code></a> loop, which always runs the code at least once before checking the condition.</p>
+</div>
+
+<hr>
+
+<hr>
+<br>

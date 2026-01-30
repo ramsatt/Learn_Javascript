@@ -1,0 +1,114 @@
+<h1>CSS <span class="color_h1">Image Gallery</span></h1>
+
+<hr>
+
+
+<h2>CSS Image Gallery</h2>
+<p>A CSS image gallery is a collection of images that is displayed in an organized, and often responsive way, on a web page.</p>
+<p>Here we use CSS to create an image gallery:</p>
+
+<div class="gallery">
+
+<div class="gallery-item">
+  <a target="_blank" href="img_5terre.jpg">
+    <img src="assets/content/images/img_5terre.jpg" alt="Cinque Terre" width="600" height="400">
+  </a>
+  <div class="desc">Cinque Terre</div>
+</div>
+
+<div class="gallery-item">
+  <a target="_blank" href="img_forest.jpg">
+    <img src="assets/content/images/img_forest.jpg" alt="Forest" width="600" height="400">
+  </a>
+  <div class="desc">Green Forest</div>
+</div>
+
+<div class="gallery-item">
+  <a target="_blank" href="img_lights.jpg">
+    <img src="assets/content/images/img_lights.jpg" alt="Northern Lights" width="600" height="400">
+  </a>
+  <div class="desc">Northern Lights</div>
+</div>
+
+<div class="gallery-item">
+  <a target="_blank" href="img_mountains.jpg">
+    <img src="assets/content/images/img_mountains.jpg" alt="Mountains" width="600" height="400">
+  </a>
+  <div class="desc">Mountains</div>
+</div>
+
+</div>
+
+<p>The HTML structure for an image gallery is:</p>
+<ul>
+  <li>A container element to wrap the entire gallery (like a &lt;div&gt; with 
+  class=&quot;gallery&quot;).</li>
+  <li>Another container element for each image (like a &lt;div&gt; with 
+  class=&quot;gallery-item&quot;), that contains the &lt;img&gt; tag and possibly a description.</li>
+</ul>
+<p>Here is the HTML and CSS code:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+&lt;html&gt;<br>
+&lt;head&gt;<br>
+&lt;style&gt;<br>div.gallery {<br>&nbsp; display: flex;<br>&nbsp; flex-wrap: 
+  wrap;<br>&nbsp; justify-content: flex-start;<br>}<br><br>
+  div.gallery-item {<br>&nbsp; margin: 5px;<br>&nbsp; border: 1px solid #ccc;<br>&nbsp; 
+  width: 180px;<br>}<br><br>div.gallery-item:hover {<br>&nbsp; border: 1px solid #777;<br>}<br><br>
+  div.gallery-item img {<br>&nbsp; width: 100%;<br>&nbsp; height: auto;<br>}<br><br>
+  div.gallery-item div.desc {<br>&nbsp; padding: 15px;<br>&nbsp; text-align: 
+  center;<br>}<br>
+&lt;/style&gt;<br>
+&lt;/head&gt;<br>
+&lt;body&gt;<br>
+<br>
+  &lt;div class=&quot;gallery&quot;&gt;<br><br>&lt;div class=&quot;gallery-item&quot;&gt;<br>&nbsp; &lt;a 
+  target=&quot;_blank&quot; href=&quot;img_5terre.jpg&quot;&gt;<br>&nbsp;&nbsp;&nbsp; &lt;img 
+  src=&quot;img_5terre.jpg&quot; alt=&quot;Cinque Terre&quot; width=&quot;600&quot; height=&quot;400&quot;&gt;<br>&nbsp; 
+  &lt;/a&gt;<br>&nbsp; &lt;div class=&quot;desc&quot;&gt;Cinque Terre&lt;/div&gt;<br>&lt;/div&gt;<br><br>&lt;div 
+  class=&quot;gallery-item&quot;&gt;<br>&nbsp; &lt;a target=&quot;_blank&quot; href=&quot;img_forest.jpg&quot;&gt;<br>&nbsp;&nbsp;&nbsp; 
+  &lt;img src=&quot;img_forest.jpg&quot; alt=&quot;Forest&quot; width=&quot;600&quot; height=&quot;400&quot;&gt;<br>&nbsp; 
+  &lt;/a&gt;<br>&nbsp; &lt;div class=&quot;desc&quot;&gt;Green Forest&lt;/div&gt;<br>&lt;/div&gt;<br><br>&lt;div class=&quot;gallery-item&quot;&gt;<br>&nbsp; 
+  &lt;a target=&quot;_blank&quot; href=&quot;img_lights.jpg&quot;&gt;<br>&nbsp;&nbsp;&nbsp; &lt;img 
+  src=&quot;img_lights.jpg&quot; alt=&quot;Northern Lights&quot; width=&quot;600&quot; height=&quot;400&quot;&gt;<br>&nbsp; 
+  &lt;/a&gt;<br>&nbsp; &lt;div class=&quot;desc&quot;&gt;Northern Lights&lt;/div&gt;<br>&lt;/div&gt;<br><br>&lt;div class=&quot;gallery-item&quot;&gt;<br>&nbsp; 
+  &lt;a target=&quot;_blank&quot; href=&quot;img_mountains.jpg&quot;&gt;<br>&nbsp;&nbsp;&nbsp; &lt;img 
+  src=&quot;img_mountains.jpg&quot; alt=&quot;Mountains&quot; width=&quot;600&quot; height=&quot;400&quot;&gt;<br>&nbsp; 
+  &lt;/a&gt;<br>&nbsp; &lt;div class=&quot;desc&quot;&gt;Mountains&lt;/div&gt;<br>&lt;/div&gt;<br>
+  <br>&lt;/div&gt;<br>
+<br>
+&lt;/body&gt;<br>
+&lt;/html&gt;
+</div>
+
+</div>
+<p><strong>Tip:</strong> We have used <code class="w3-codespan">display: flex;</code> 
+for the image gallery above. This layout module is effective for arranging 
+images in rows or columns. You will learn more about 
+<a href="css3_flexbox.html">CSS Flexbox</a> later in our CSS Tutorial.</p>
+
+
+<hr>
+
+<h2>CSS Responsive Image Gallery</h2>
+
+<p>Here we use <a href="css3_mediaqueries.html">CSS media queries</a> to re-arrange the images on different screen sizes:</p>
+<ul>
+  <li>If screen is larger than 768px wide - show four images side by side</li>
+  <li>If screen is smaller than 768px - show two images side by side</li>
+  <li>If screens is smaller than 480px - stack the images vertically (width: 100%)</li>
+</ul>
+<p><strong>Tip:</strong> You will learn more about 
+<a href="css3_mediaqueries.html">media queries</a> later in our CSS Tutorial.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-white">
+<img src="assets/content/images/responsiveImgGallery.jpg" style="width:100%">
+</div>
+
+</div>
+
+<br>

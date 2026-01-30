@@ -1,0 +1,204 @@
+<h1>CSS <span class="color_h1">Units</span></h1>
+
+<hr>
+<h2>CSS Units</h2>
+<p>CSS has several different units for expressing a length.</p>
+<p>Many CSS properties take &quot;length&quot; values, such as <code class="w3-codespan">width</code>, <code class="w3-codespan">margin</code>, <code class="w3-codespan">padding</code>, 
+<code class="w3-codespan">font-size</code>, etc.</p>
+<p><strong>Length</strong> is a number followed by a length unit, such as <code class="w3-codespan">10px</code>, 
+<code class="w3-codespan">2em</code>, etc.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Set different length values, using px (pixels):</p>
+<div class="w3-code notranslate cssHigh">
+  h1 {<br>&nbsp; font-size: 60px;<br>}<br><br>p {<br>&nbsp; font-size: 25px;<br>&nbsp; 
+  line-height: 50px;<br>}</div>
+<p></p>
+</div>
+<p><strong>Note:</strong> A whitespace cannot appear between the number and the unit. However, if the value is 
+<code class="w3-codespan">0</code>, the unit can be omitted.</p>
+<p>For some CSS properties, negative lengths are allowed.</p>
+<p>There are two types of length units: <strong>absolute</strong> and <strong>relative</strong>.</p>
+<hr>
+<h2>Absolute Lengths</h2>
+<p>The absolute length units are fixed and a length expressed in any of these will appear as exactly that size.</p>
+<p>Absolute length units are not recommended for use on screen, because screen sizes vary so much. 
+However, they can be used if the output medium is known, such 
+as for print layout.</p>
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+  <tr>
+    <th style="width:12%">Unit</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>cm</td>
+    <td>centimeters
+    <a target="_blank" class="w3-btn btnsmall" href="tryit4e65.html?filename=trycss_unit_cm">Try it</a>
+    </td>
+  </tr>
+    <tr>
+    <td>mm</td>
+    <td>millimeters
+    <a target="_blank" class="w3-btn btnsmall" href="tryit834b.html?filename=trycss_unit_mm">Try it</a>  
+    </td>
+    </tr>
+  <tr>
+    <td>in</td>
+    <td>inches (1in = 96px = 2.54cm)
+    <a target="_blank" class="w3-btn btnsmall" href="tryit840b.html?filename=trycss_unit_in">Try it</a>
+    </td>
+  </tr>
+    <tr>
+    <td>px *</td>
+    <td>pixels (1px = 1/96th of 1in)
+    <a target="_blank" class="w3-btn btnsmall" href="tryit1dbd.html?filename=trycss_unit_px">Try it</a> 
+    </td>
+    </tr>
+  <tr>
+    <td>pt</td>
+    <td>points (1pt = 1/72 of 1in)
+    <a target="_blank" class="w3-btn btnsmall" href="tryit9793.html?filename=trycss_unit_pt">Try it</a> 
+    </td>
+  </tr>
+  <tr>
+    <td>pc</td>
+    <td>picas (1pc = 12 pt)
+    <a target="_blank" class="w3-btn btnsmall" href="tryit1589.html?filename=trycss_unit_pc">Try it</a>  
+    </td>
+  </tr>
+</table>
+</div>
+<p>* Pixels (px) are relative to the viewing device. For low-dpi devices, 1px is one device pixel (dot) of the display. For printers and high resolution 
+screens 1px implies multiple device pixels.</p>
+<hr>
+<h2>Relative Lengths</h2>
+<p>Relative length units specify a length relative to another length property. 
+Relative length units scale better between different rendering medium.</p>
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+  <tr>
+    <th style="width:12%">Unit</th>
+    <th>Description</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>em</td>
+    <td>Relative to the font-size of the element (2em means 2 times the size of the current font)</td>
+    <td><a target="_blank" class="w3-btn btnsmall" href="tryitadcf.html?filename=trycss_unit_em">Try it</a></td>
+  </tr>
+  <tr>
+    <td>ex</td>
+    <td>Relative to the x-height of the current font (rarely used)</td>
+    <td><a target="_blank" class="w3-btn btnsmall" href="tryit415f.html?filename=trycss_unit_ex">Try it</a></td>
+  </tr>
+  <tr>
+    <td>ch</td>
+    <td>Relative to the width of the &quot;0&quot; (zero)</td>
+    <td><a target="_blank" class="w3-btn btnsmall" href="tryitc941.html?filename=trycss_unit_ch">Try it</a></td>
+  </tr>
+  <tr>
+    <td>rem</td>
+    <td>Relative to font-size of the root element</td>
+    <td><a target="_blank" class="w3-btn btnsmall" href="tryit78ff.html?filename=trycss_unit_rem">Try it</a></td>
+  </tr>
+  <tr>
+    <td>vw</td>
+    <td>Relative to 1% of the width of the viewport*</td>
+    <td><a target="_blank" class="w3-btn btnsmall" href="tryit01d1.html?filename=trycss_unit_vw">Try it</a></td>
+  </tr>
+  <tr>
+    <td>vh</td>
+    <td>Relative to 1% of the height of the viewport*</td>
+    <td><a target="_blank" class="w3-btn btnsmall" href="tryitf9f0.html?filename=trycss_unit_vh">Try it</a></td>
+  </tr>
+  <tr>
+    <td>vmin</td>
+    <td>Relative to 1% of viewport's* smaller dimension</td>
+    <td><a target="_blank" class="w3-btn btnsmall" href="tryit7044.html?filename=trycss_unit_vmin">Try it</a></td>
+  </tr>
+  <tr>
+    <td>vmax</td>
+    <td>Relative to 1% of viewport's* larger dimension</td>
+    <td><a target="_blank" class="w3-btn btnsmall" href="tryit4a37.html?filename=trycss_unit_vmax">Try it</a></td>
+  </tr>
+  <tr>
+    <td>%</td>
+    <td>Relative to the parent element</td>
+    <td><a target="_blank" class="w3-btn btnsmall" href="tryit696f.html?filename=trycss_unit_percentage">Try it</a></td>
+  </tr>
+    </table>
+</div>
+<div class="w3-panel ws-note">
+  <p><strong>Tip:</strong> The em and rem units are practical in creating perfectly 
+scalable layout!<br>* Viewport = the browser window size. If the viewport is 50cm 
+wide, 1vw = 0.5cm.</p>
+</div>
+<hr>
+<hr>
+
+<h2>Browser Support</h2>
+<p>The numbers in the table specify the first browser version that fully supports the 
+length unit.</p>
+<div class="w3-responsive">
+<table class="browserref notranslate">
+  <tr>
+    <th style="width:20%;font-size:16px;text-align:left;">Length Unit</th>
+    <th style="width:16%;" class="bsChrome" title="Chrome"></th>
+    <th style="width:16%;" class="bsEdge" title="Internet Explorer"></th>
+    <th style="width:16%;" class="bsFirefox" title="Firefox"></th>
+    <th style="width:16%;" class="bsSafari" title="Safari"></th>
+    <th style="width:16%;" class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td style="text-align:left;">em, ex, %, px, cm, mm, in, pt, pc</td>
+    <td>1.0</td>
+    <td>3.0</td>
+    <td>1.0</td>
+    <td>1.0</td>
+    <td>3.5</td>
+  </tr>
+  <tr>
+    <td style="text-align:left;">ch</td>
+    <td>27.0</td>
+    <td>9.0</td>
+    <td>1.0</td>
+    <td>7.0</td>
+    <td>20.0</td>
+  </tr>
+  <tr>
+    <td style="text-align:left;">rem</td>
+    <td>4.0</td>
+    <td>9.0</td>
+    <td>3.6</td>
+    <td>4.1</td>
+    <td>11.6</td>
+  </tr>
+  <tr>
+    <td style="text-align:left;">vh, vw</td>
+    <td>20.0</td>
+    <td>9.0</td>
+    <td>19.0</td>
+    <td>6.0</td>
+    <td>20.0</td>
+  </tr>
+  <tr>
+    <td style="text-align:left;">vmin</td>
+    <td>20.0</td>
+    <td>12.0</td>
+    <td>19.0</td>
+    <td>6.0</td>
+    <td>20.0</td>
+  </tr>
+  <tr>
+    <td style="text-align:left;">vmax</td>
+    <td>26.0</td>
+    <td>16.0</td>
+    <td>19.0</td>
+    <td>7.0</td>
+    <td>20.0</td>
+  </tr>
+  </table>
+</div>  
+<hr>

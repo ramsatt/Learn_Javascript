@@ -1,0 +1,92 @@
+<h1>Node.js <span class="color_h1">Upload Files</span></h1>
+
+<hr>
+
+<h2>The Formidable Module</h2>
+<p>There is a very good module for working with file uploads, called &quot;Formidable&quot;.</p>
+<p>The Formidable module can be downloaded and installed using NPM:</p>
+<div class="w3-example">
+<div class="w3-code notranslate w3-black">
+C:\Users\<em>Your Name</em>&gt;npm install formidable</div>
+</div>
+<p>After you have downloaded the Formidable module, you can include the module 
+in any application:</p>
+<div class="w3-example">
+<div class="w3-code notranslate jsHigh">
+  let formidable = require('formidable');</div>
+</div>
+
+<hr>
+
+<h2>Upload Files</h2>
+<p>Now you are ready to make a web page in Node.js that lets the user upload 
+files to your computer:</p>
+<h2>Step 1: Create an Upload Form</h2>
+<p>Create a Node.js file that writes an HTML form, with an upload field:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>This code will produce an HTML form:</p>
+<div class="w3-code notranslate jsHigh">
+  let http = require('http');<br><br>http.createServer(function 
+  (req, res) {<br>&nbsp; res.writeHead(200, {'Content-Type': 'text/html'});<br>&nbsp; res.write('&lt;form 
+  action=&quot;fileupload&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;');<br>&nbsp; res.write('&lt;input 
+  type=&quot;file&quot; name=&quot;filetoupload&quot;&gt;&lt;br&gt;');<br>&nbsp; res.write('&lt;input 
+  type=&quot;submit&quot;&gt;');<br>&nbsp; res.write('&lt;/form&gt;');<br>&nbsp; 
+  return res.end();<br>}).listen(8080);</div>
+</div>
+
+<h2>Step 2: Parse the Uploaded File</h2>
+<p>Include the Formidable module to be able to parse the uploaded file once it 
+reaches the server.</p>
+<p>When the file is uploaded and parsed, it gets placed on a temporary folder on your computer.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>The file will be uploaded, and placed on a temporary folder:</p>
+  <div class="w3-code notranslate jsHigh">
+  let http = require('http');<br><strong>let formidable = require('formidable');<br>
+    </strong><br>http.createServer(function 
+  (req, res) {<br><strong>&nbsp; if (req.url == '/fileupload') {<br>&nbsp;&nbsp;&nbsp; 
+  let form = new formidable.IncomingForm();<br>&nbsp;&nbsp;&nbsp; form.parse(req, 
+  function (err, fields, files) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; res.write('File 
+  uploaded');<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; res.end();<br>&nbsp;&nbsp;&nbsp; });<br>
+    </strong>&nbsp; 
+  } else {<br>&nbsp; &nbsp; res.writeHead(200, {'Content-Type': 'text/html'});<br>&nbsp; &nbsp; res.write('&lt;form 
+  action=&quot;fileupload&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;');<br>&nbsp; &nbsp; res.write('&lt;input 
+  type=&quot;file&quot; name=&quot;filetoupload&quot;&gt;&lt;br&gt;');<br>&nbsp; &nbsp; res.write('&lt;input 
+  type=&quot;submit&quot;&gt;');<br>&nbsp; &nbsp; res.write('&lt;/form&gt;');<br>&nbsp; &nbsp; 
+  return res.end();<br>&nbsp; }<br>}).listen(8080);</div>
+</div>
+<hr>
+
+<hr>
+
+<h2>Step 3: Save the File</h2>
+<p>When a file is successfully uploaded to the server, it is placed on a 
+temporary folder.</p>
+<p>The path to this directory can be found in the &quot;files&quot; object, passed as the 
+third argument in the <code class="w3-codespan">parse()</code> method's callback function.</p>
+<p>To move the file to the folder of your choice, use the File System module, 
+and rename the file:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Include the fs module, and move the file to the current folder:</p>
+<div class="w3-code notranslate jsHigh">
+  let http = require('http');<br>let formidable = require('formidable');<br>
+  <strong>let fs = require('fs');<br></strong><br>http.createServer(function 
+  (req, res) {<br>&nbsp; if (req.url == '/fileupload') {<br>&nbsp;&nbsp;&nbsp; 
+  let form = new formidable.IncomingForm();<br>&nbsp;&nbsp;&nbsp; form.parse(req, 
+  function (err, fields, files) {<br><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; let 
+  oldpath = files.filetoupload.filepath;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; let 
+  newpath = 'C:/Users/<em>Your Name</em>/' + files.filetoupload.originalFilename;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  fs.rename(oldpath, newpath, function (err) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (err) throw 
+  err;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; res.write('File uploaded 
+  and moved!');<br>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; res.end();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  });<br></strong>&nbsp;});<br>&nbsp; 
+  } else {<br>&nbsp; &nbsp; res.writeHead(200, {'Content-Type': 'text/html'});<br>&nbsp; &nbsp; res.write('&lt;form 
+  action=&quot;fileupload&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;');<br>&nbsp; &nbsp; res.write('&lt;input 
+  type=&quot;file&quot; name=&quot;filetoupload&quot;&gt;&lt;br&gt;');<br>&nbsp; &nbsp; res.write('&lt;input 
+  type=&quot;submit&quot;&gt;');<br>&nbsp; &nbsp; res.write('&lt;/form&gt;');<br>&nbsp; &nbsp; 
+  return res.end();<br>&nbsp; }<br>}).listen(8080);</div>
+</div>
+
+<hr>

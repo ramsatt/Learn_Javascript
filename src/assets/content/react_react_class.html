@@ -1,0 +1,856 @@
+<h1>React Class Components</h1>
+
+
+<hr>
+
+<p>Before React 16.8, Class components were the only way to track state and lifecycle on a React component.
+Function components were considered "state-less".</p>
+
+<p>With the addition of Hooks, Function components are now almost equivalent to Class components.
+The differences are so minor that you will probably never need to use a Class component in React.</p>
+
+<p>Even though Function components are preferred, there are no current plans on removing Class components from React.</p>
+
+<p>This section will give you an overview of how to use Class components in React.</p>
+
+<div class="ws-note w3-pale-red">
+<p>Feel free to skip this section, and use Function Components instead.</p>
+</div>
+
+<hr>
+<h2>React Components</h2>
+<p>Components are independent and reusable bits of code.
+They serve the same purpose as JavaScript functions,
+but work in isolation and return HTML via a <code class="w3-codespan">render</code> function.</p>
+<p>Components come in two types, Class components and Function components, in 
+this chapter you will learn about Class components.</p>
+<hr>
+<h2>Create a Class Component</h2>
+
+<p>When creating a React component, the component's name must start with an 
+upper case letter.</p>
+<p>The component has to include the <code class="w3-codespan">extends React.Component</code> statement, this statement creates an inheritance to 
+React.Component, and gives your component access to React.Component's functions.</p>
+
+<p>The component also requires a <code class="w3-codespan">render()</code> method, 
+this method returns HTML.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Create a Class component called <code class="w3-codespan">Car</code></p>
+<pre class="language-jsx w3-white"><code>class Car extends React.Component {
+  render() {
+    return &lt;h2&gt;Hi, I am a Car!&lt;/h2&gt;;
+  }
+}
+</code></pre>
+<br>
+</div>
+
+<p>Now your React application has a component called <code class="w3-codespan">Car</code>, which returns a 
+<code class="w3-codespan">&lt;h2&gt;</code> element.</p>
+<p>To use this component in your application, use similar syntax as normal HTML:
+<code class="w3-codespan" style="white-space: nowrap;">&lt;Car /&gt;</code></p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Display the <code class="w3-codespan">Car</code> component in the "root" element:</p>
+<pre class="language-jsx w3-white"><code>createRoot(document.getElementById('root')).render(
+  &lt;Car /&gt;
+);</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreactadd0.html?filename=demo2_react_component_class">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<hr>
+
+<hr>
+
+<h2>Component Constructor</h2>
+
+<p>If there is a <code class="w3-codepspan"><code class="w3-codespan">constructor()</code></code> function in your component, this function will be called when the 
+component gets initiated.</p>
+<p>The constructor function is where you initiate the component's properties.</p>
+<p>In React, component properties should be kept in an object called
+<code class="w3-codespan">state</code>.</p>
+<p>You will learn more about <code class="w3-codespan">state</code> later in 
+this tutorial.</p>
+<p>The constructor function is also where you honor the inheritance of the 
+parent component by including the <code class="w3-codespan">super()</code> 
+statement, which executes the parent component's constructor function, and your component has access to all the functions of 
+the parent component (<code class="w3-codespan">React.Component</code>).</p>
+<div class="w3-example">
+  <h3>Example</h3>
+<p>Create a constructor function in the <code class="w3-codespan">Car</code> component, and add a color property:</p>
+<pre class="language-jsx w3-white"><code>class Car extends React.Component {
+  constructor() {
+    super();
+    this.state = {color: &quot;red&quot;};
+  }
+  render() {
+    return &lt;h2&gt;I am a Car!&lt;/h2&gt;;
+  }
+}
+</code></pre>
+<br>
+</div>
+
+<p>Use the color property in the <code class="w3-codespan">render</code> function:</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+<pre class="language-jsx w3-white"><code>class Car extends React.Component {
+  constructor() {
+    super();
+    this.state = {color: &quot;red&quot;};
+  }
+  render() {
+    return &lt;h2&gt;I am a {this.state.color} Car!&lt;/h2&gt;;
+  }
+}
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreactcfef.html?filename=demo2_react_component_constructor">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<hr>
+
+<h2>Props</h2>
+
+<p>Another way of handling component properties is by using <code class="w3-codespan">props</code>.</p>
+
+<p>Props are like function arguments, and you send them into the component as attributes.</p>
+<p>You will learn more about <code class="w3-codespan">props</code> in the next chapter.</p>
+<div class="w3-example">
+  <h3>Example</h3>
+<p>Use an attribute to pass a color to the <code class="w3-codespan">Car</code> component, and use it in the 
+<code class="w3-codespan">render</code> function:</p>
+<pre class="language-jsx w3-white"><code>class Car extends React.Component {
+  render() {
+    return &lt;h2&gt;I am a {this.props.color} Car!&lt;/h2&gt;;
+  }
+}
+
+createRoot(document.getElementById('root')).render(
+  &lt;Car color=&quot;red&quot;/&gt;
+);
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreactfd4b.html?filename=demo2_react_class_props">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<hr>
+
+<h2>Props in the Constructor</h2>
+
+<p>If your component has a constructor function,
+the props should always be passed to the <code class="w3-codespan">constructor</code> and also to the <code class="w3-codespan">React.Component</code> via the <code class="w3-codespan">super()</code> method.</p>
+<div class="w3-example">
+  <h3>Example</h3>
+<pre class="language-jsx w3-white"><code>class Car extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return &lt;h2&gt;I am a {this.props.model}!&lt;/h2&gt;;
+  }
+}
+
+createRoot(document.getElementById('root')).render(
+  &lt;Car model=&quot;Mustang&quot;/&gt;
+);
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreactc498.html?filename=demo2_react_component_props2">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<hr>
+
+<h2>Components in Components</h2>
+
+<p>We can refer to components inside other components:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Use the <code class="w3-codespan">Car</code> component inside the <code class="w3-codespan">Garage</code> component:</p>
+<pre class="language-jsx w3-white"><code>class Car extends React.Component {
+  render() {
+    return &lt;h2&gt;I am a Car!&lt;/h2&gt;;
+  }
+}
+
+class Garage extends React.Component {
+  render() {
+    return (
+      &lt;div&gt;
+      &lt;h1&gt;Who lives in my Garage?&lt;/h1&gt;
+      &lt;Car /&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+
+createRoot(document.getElementById('root')).render(
+  &lt;Garage /&gt;
+);
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreact9d34.html?filename=demo2_react_class_components">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<hr>
+
+<h2>Components in Files</h2>
+
+<p>React is all about re-using code, and it can be smart to insert some of your 
+components in separate files.</p>
+
+<p>To do that, create a new file with a <code class="w3-codespan">.jsx</code> 
+file extension and put the code inside it:</p>
+<p>Note that the file must start by importing React (as before), and it has to 
+end with the statement <code class="w3-codespan" style="white-space:nowrap">export default Car;</code>.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>This is the new file, we named it <code class="w3-codespan">Vehicle.jsx</code>:</p>
+<pre class="language-jsx w3-white"><code>import React from 'react';
+
+class Car extends React.Component {
+  render() {
+    return &lt;h2&gt;Hi, I am a Car!&lt;/h2&gt;;
+  }
+}
+
+export default Car;
+</code></pre>
+<br>
+</div>
+
+<p>To be able to use the <code class="w3-codespan">Car</code> component, you have to import the <code class="w3-codespan">Vehicle.jsx</code> file in your 
+application.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Now we import the <code class="w3-codespan">Vehicle.jsx</code> file in the application, and we can use the 
+<code class="w3-codespan">Car</code> 
+component as if it was created here.</p>
+<pre class="language-jsx w3-white"><code>import { createRoot } from 'react-dom/client'
+import Car from './Vehicle.jsx';
+
+createRoot(document.getElementById('root')).render(
+  &lt;Car /&gt;
+);
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreact781c.html?filename=demo2_react_components_import">Run 
+Example &raquo;</a>
+</p>
+
+</div>
+<hr>
+
+<h2>React Class Component State</h2>
+<p>React Class components have a built-in <code class="w3-codespan">state</code> object.</p>
+
+<p>You might have noticed that we used <code class="w3-codespan">state</code> earlier in the component constructor section.</p>
+
+<p>The <code class="w3-codespan">state</code> object is where you store property values that belongs to the component.</p>
+
+<p>When the <code class="w3-codespan">state</code> object changes, the component re-renders.</p>
+<hr>
+
+<h2>Creating the state Object</h2>
+
+<p>The <code class="w3-codespan">state</code> object is initialized in the <code class="w3-codespan">constructor</code>:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Specify the <code class="w3-codespan">state</code> object in the <code class="w3-codespan">constructor</code> method:</p>
+<pre class="language-jsx w3-white"><code>class Car extends React.Component {
+  constructor(props) {
+    super(props);
+  this.state = {brand: &quot;Ford&quot;};
+  }
+  render() {
+    return (
+      &lt;div&gt;
+        &lt;h1&gt;My Car&lt;/h1&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+</code></pre>
+
+</div>
+
+<p>The <code class="w3-codespan">state</code> object can contain as many properties as you like:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Specify all the properties your component need:</p>
+<pre class="language-jsx w3-white"><code>class Car extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      brand: &quot;Ford&quot;,
+      model: &quot;Mustang&quot;,
+      color: &quot;red&quot;,
+      year: 1964
+    };
+  }
+  render() {
+    return (
+      &lt;div&gt;
+        &lt;h1&gt;My Car&lt;/h1&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+</code></pre>
+</div>
+<hr>
+
+<h2>Using the <code class="w3-codespan">state</code> Object</h2>
+<p>Refer to the <code class="w3-codespan">state</code> object anywhere in the component by using the
+<code class="w3-codespan">this.state.<em>propertyname</em></code> syntax:</p>
+
+<div class="w3-example">
+<h3>Example:</h3>
+  <p>Refer to the <code class="w3-codespan">state</code> object in the 
+  <code class="w3-codespan">render()</code> method:</p>
+<pre class="language-jsx w3-white"><code>class Car extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      brand: &quot;Ford&quot;,
+      model: &quot;Mustang&quot;,
+      color: &quot;red&quot;,
+      year: 1964
+    };
+  }
+  render() {
+    return (
+      &lt;div&gt;
+        &lt;h1&gt;My {this.state.brand}&lt;/h1&gt;
+        &lt;p&gt;
+          It is a {this.state.color}
+          {this.state.model}
+          from {this.state.year}.
+        &lt;/p&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreact202f.html?filename=demo2_react_state">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<hr>
+
+<h2>Changing the <code class="w3-codespan">state</code> Object</h2>
+<p>To change a value in the <code class="w3-codespan">state</code> object, use the <code class="w3-codespan">this.setState()</code> method.</p>
+<p>When a value in the <code class="w3-codespan">state</code> object changes, 
+the component will re-render, meaning that the output will change according to 
+the new value(s).</p>
+
+<div class="w3-example">
+<h3>Example:</h3>
+  <p>Add a button with an <code class="w3-codespan">onClick</code> event that 
+  will change the color property:</p>
+<pre class="language-jsx w3-white"><code>class Car extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      brand: &quot;Ford&quot;,
+      model: &quot;Mustang&quot;,
+      color: &quot;red&quot;,
+      year: 1964
+    };
+  }
+  changeColor = () =&gt; {
+    this.setState({color: &quot;blue&quot;});
+  }
+  render() {
+    return (
+      &lt;div&gt;
+        &lt;h1&gt;My {this.state.brand}&lt;/h1&gt;
+        &lt;p&gt;
+          It is a {this.state.color}
+          {this.state.model}
+          from {this.state.year}.
+        &lt;/p&gt;
+        &lt;button
+          type=&quot;button&quot;
+          onClick={this.changeColor}
+        &gt;Change color&lt;/button&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreact85cf.html?filename=demo2_react_state2">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<div class="w3-panel ws-note">
+<p>Always use the <code class="w3-codespan">setState()</code> method to change the state object,
+it will ensure that the component knows its been updated and calls the <code class="w3-codespan">render()</code> method
+(and all the other lifecycle methods).</p>
+</div>
+
+<hr>
+
+<h2>Lifecycle of Components</h2>
+
+<p>Each component in React has a lifecycle which you can monitor and manipulate during its 
+three main phases.</p>
+<p>The three phases are: <strong>Mounting</strong>, <strong>Updating</strong>, and
+<strong>Unmounting</strong>.</p>
+
+<hr>
+
+<h2>Mounting</h2>
+<p>Mounting means putting elements into the DOM.</p>
+
+<p>React has four built-in methods that gets called, in this order, when 
+mounting a component:</p>
+<ol>
+<li><code class="w3-codespan">constructor()</code></li>
+<li><code class="w3-codespan">getDerivedStateFromProps()</code></li>
+<li><code class="w3-codespan">render()</code></li>
+<li><code class="w3-codespan">componentDidMount()</code></li>
+</ol>
+
+<p>The <code class="w3-codespan">render()</code> method is required and will 
+always be called, the others are optional and will be called if you define them.</p>
+
+<hr>
+
+<h3>constructor</h3>
+
+<p>The <code class="w3-codespan">constructor()</code> method is called before anything else, 
+when the component is initiated, and it is the natural 
+place to set up the initial <code class="w3-codespan">state</code> and other 
+initial values.</p>
+<p>The <code class="w3-codespan">constructor()</code> method is called with the 
+<code class="w3-codespan">props</code>, as arguments, and you should always 
+start by calling the <code class="w3-codespan">super(props)</code> before 
+anything else, this will initiate the parent's constructor method and allows the 
+component to inherit methods from its parent (<code class="w3-codespan">React.Component</code>).</p>
+
+<div class="w3-example">
+<h3>Example:</h3>
+  <p>The <code class="w3-codespan">constructor</code> method is called, by 
+  React, every time you make a component:</p>
+<pre class="language-jsx w3-white"><code>class Header extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {favoritecolor: &quot;red&quot;};
+  }
+  render() {
+    return (
+      &lt;h1&gt;My Favorite Color is {this.state.favoritecolor}&lt;/h1&gt;
+    );
+  }
+}
+
+createRoot(document.getElementById('root')).render(
+  &lt;Header /&gt;
+);
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreactfff0.html?filename=demo2_react_lifecycle_constructor">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<hr>
+
+<h3>getDerivedStateFromProps</h3>
+
+<p>The <code class="w3-codespan">getDerivedStateFromProps()</code> method is 
+called right before rendering the element(s) in the DOM.</p>
+
+<p>This is the natural place to set the <code class="w3-codespan">state</code> object based on the initial 
+<code class="w3-codespan">props</code>.
+<p>It takes <code class="w3-codespan">
+state</code> as an argument, and returns an object with changes to the
+<code class="w3-codespan">state</code>.<p>The example below starts with the favorite color being 
+&quot;red&quot;, but the
+<code class="w3-codespan">
+getDerivedStateFromProps()</code> method updates the favorite color based on the
+<code class="w3-codespan">favcol</code> attribute:</p>
+
+<div class="w3-example">
+<h3>Example:</h3>
+  <p>The <code class="w3-codespan">getDerivedStateFromProps</code> method is called 
+  right before the render method:</p>
+<pre class="language-jsx w3-white"><code>class Header extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {favoritecolor: &quot;red&quot;};
+  }
+  static getDerivedStateFromProps(props, state) {
+    return {favoritecolor: props.favcol };
+  }
+  render() {
+    return (
+      &lt;h1&gt;My Favorite Color is {this.state.favoritecolor}&lt;/h1&gt;
+    );
+  }
+}
+
+createRoot(document.getElementById('root')).render(
+  &lt;Header favcol=&quot;yellow&quot;/&gt;
+);</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreact32af.html?filename=demo2_react_lifecycle_getderivedstatefromprops">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<hr>
+
+<h3>render</h3>
+
+<p>The <code class="w3-codespan">render()</code> method is required, and is the 
+method that actually outputs the HTML to the DOM.</p>
+
+<div class="w3-example">
+  <h3>Example:</h3>
+  <p>A simple component with a simple <code class="w3-codespan">render()</code> 
+  method:</p>
+<pre class="language-jsx w3-white"><code>class Header extends React.Component {
+  render() {
+    return (
+      &lt;h1&gt;This is the content of the Header component&lt;/h1&gt;
+    );
+  }
+}
+
+createRoot(document.getElementById('root')).render(
+  &lt;Header /&gt;
+);
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreact7a97.html?filename=demo2_react_lifecycle_render">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<hr>
+
+<h3>componentDidMount</h3>
+
+<p>The <code class="w3-codespan">componentDidMount()</code> method is called after the 
+component is rendered.</p>
+
+<p>This is where you run statements that requires that the component is already placed in the DOM.</p>
+
+<div class="w3-example">
+  <h3>Example:</h3>
+  <p>At first my favorite color is red, but give me a second, and it is yellow 
+  instead:</p>
+<pre class="language-jsx w3-white"><code>class Header extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {favoritecolor: &quot;red&quot;};
+  }
+  componentDidMount() {
+    setTimeout(() =&gt; {
+      this.setState({favoritecolor: &quot;yellow&quot;})
+    }, 1000)
+  }
+  render() {
+    return (
+      &lt;h1&gt;My Favorite Color is {this.state.favoritecolor}&lt;/h1&gt;
+    );
+  }
+}
+
+createRoot(document.getElementById('root')).render(
+  &lt;Header /&gt;
+);
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreactb2d3.html?filename=demo2_react_lifecycle_componentdidmount">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<hr>
+
+<h2>Updating</h2> 
+
+<p>The next phase in the lifecycle is when a component is <em>updated</em>.</p>
+
+<p>A component is updated whenever there is a change in the component's
+<code class="w3-codespan">state</code> or <code class="w3-codespan">props</code>.</p>
+
+<p>React has five built-in methods that gets called, in this order, when a component 
+is updated:</p>
+<ol>
+<li><code class="w3-codespan">getDerivedStateFromProps()</code></li>
+  <li><code class="w3-codespan">shouldComponentUpdate()</code></li>
+<li><code class="w3-codespan">render()</code></li>
+  <li><code class="w3-codespan">getSnapshotBeforeUpdate()</code></li>
+<li><code class="w3-codespan">componentDidUpdate()</code></li>
+</ol>
+<p>The <code class="w3-codespan">render()</code> method is required and will 
+always be called, the others are optional and will be called if you define them.</p>
+
+<hr>
+<h3>getDerivedStateFromProps</h3>
+
+<p>Also at <em>updates</em> the <code class="w3-codespan">getDerivedStateFromProps</code> method is 
+called. This is the first method that is called when a component gets updated.</p>
+
+<p>This is still the natural place to set the <code class="w3-codespan">state</code> object based on the initial props.
+
+
+<p>The example below has a button that changes the favorite color to blue, but 
+since the <code class="w3-codespan">getDerivedStateFromProps()</code> method is called, 
+which updates the state with the color from the favcol attribute, the favorite color is 
+still 
+rendered as yellow:</p>
+
+<div class="w3-example">
+<h3>Example:</h3>
+  <p>If the component gets updated, the <code class="w3-codespan">getDerivedStateFromProps()</code> method is called:</p>
+<pre class="language-jsx w3-white"><code>class Header extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {favoritecolor: &quot;red&quot;};
+  }
+  static getDerivedStateFromProps(props, state) {
+    return {favoritecolor: props.favcol };
+  }
+  changeColor = () =&gt; {
+    this.setState({favoritecolor: &quot;blue&quot;});
+  }
+  render() {
+    return (
+      &lt;div&gt;
+      &lt;h1&gt;My Favorite Color is {this.state.favoritecolor}&lt;/h1&gt;
+      &lt;button type=&quot;button&quot; onClick={this.changeColor}&gt;Change color&lt;/button&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+
+createRoot(document.getElementById('root')).render(
+  &lt;Header favcol=&quot;yellow&quot; /&gt;
+);
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreactdb7a.html?filename=demo2_react_lifecycle_getderivedstatefromprops2">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<hr>
+<h3>shouldComponentUpdate</h3>
+
+<p>In the <code class="w3-codespan">shouldComponentUpdate()</code> method
+you can return a Boolean value that specifies whether React should continue with the rendering or not.</p>
+
+<p>The default value is <code class="w3-codespan">true</code>.</p>
+<p>The example below shows what happens when the <code class="w3-codespan">
+shouldComponentUpdate()</code> method returns <code class="w3-codespan">false</code>:</p>
+
+<div class="w3-example">
+<h3>Example:</h3>
+  <p>Stop the component from rendering at any update:</p>
+<pre class="language-jsx w3-white"><code>class Header extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {favoritecolor: &quot;red&quot;};
+  }
+  shouldComponentUpdate() {
+    return false;
+  }
+  changeColor = () =&gt; {
+    this.setState({favoritecolor: &quot;blue&quot;});
+  }
+  render() {
+    return (
+      &lt;div&gt;
+      &lt;h1&gt;My Favorite Color is {this.state.favoritecolor}&lt;/h1&gt;
+      &lt;button type=&quot;button&quot; onClick={this.changeColor}&gt;Change color&lt;/button&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+
+createRoot(document.getElementById('root')).render(
+  &lt;Header /&gt;
+);
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreactdeef.html?filename=demo2_react_lifecycle_shouldcomponentupdate">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<div class="w3-example">
+<h3>Example:</h3>
+  <p>Same example as above, but this time the <code class="w3-codespan">shouldComponentUpdate()</code> method returns 
+  <code class="w3-codespan">true</code> instead:</p>
+<pre class="language-jsx w3-white"><code>class Header extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {favoritecolor: &quot;red&quot;};
+  }
+  shouldComponentUpdate() {
+    return true;
+  }
+  changeColor = () =&gt; {
+    this.setState({favoritecolor: &quot;blue&quot;});
+  }
+  render() {
+    return (
+      &lt;div&gt;
+      &lt;h1&gt;My Favorite Color is {this.state.favoritecolor}&lt;/h1&gt;
+      &lt;button type=&quot;button&quot; onClick={this.changeColor}&gt;Change color&lt;/button&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+
+createRoot(document.getElementById('root')).render(
+  &lt;Header /&gt;
+);
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreactfc73.html?filename=demo2_react_lifecycle_shouldcomponentupdate2">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<hr>
+
+<h3>render</h3>
+
+<p>The <code class="w3-codespan">render()</code> method is of course called when a component gets <em>updated</em>, 
+it has to re-render the HTML to the DOM, with the new changes.</p>
+
+<p>The example below has a button that changes the favorite color to blue:</p>
+
+<div class="w3-example">
+<h3>Example:</h3>
+  <p>Click the button to make a change in the component's state:</p>
+<pre class="language-jsx w3-white"><code>class Header extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {favoritecolor: &quot;red&quot;};
+  }
+  changeColor = () =&gt; {
+    this.setState({favoritecolor: &quot;blue&quot;});
+  }
+  render() {
+    return (
+      &lt;div&gt;
+      &lt;h1&gt;My Favorite Color is {this.state.favoritecolor}&lt;/h1&gt;
+      &lt;button type=&quot;button&quot; onClick={this.changeColor}&gt;Change color&lt;/button&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+
+createRoot(document.getElementById('root')).render(
+  &lt;Header /&gt;
+);
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreacta269.html?filename=demo2_react_lifecycle_render2">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<hr>
+
+<h3>getSnapshotBeforeUpdate</h3>
+
+<p>In the <code class="w3-codespan">getSnapshotBeforeUpdate()</code> method
+you have access to the <code class="w3-codespan">props</code> and 
+<code class="w3-codespan">state</code> <em>before</em> the update, meaning that 
+even after the update, you can check what the values were <em>before</em> the 
+update.</p>
+<p>If the <code class="w3-codespan">getSnapshotBeforeUpdate()</code> method
+is present, you should also include the <code class="w3-codespan">
+componentDidUpdate()</code> method, otherwise you will get an error.</p>
+
+<p>The example below might seem complicated, but all it does is this:</p>
+<p>When the component is <em>mounting</em> it is rendered with the favorite 
+color &quot;red&quot;.</p>
+<p>When the component <em>has been mounted,</em> a timer changes the state, and 
+after one second, the favorite color becomes &quot;yellow&quot;.</p>
+<p>This action triggers the <em>update</em> phase, and since this component has a <code class="w3-codespan">
+getSnapshotBeforeUpdate()</code> method, this method is executed, and writes a 
+message to the empty DIV1 element.</p>
+
+<p>Then the <code class="w3-codespan">componentDidUpdate()</code> method is 
+executed and writes a message in the empty DIV2 element:</p>
+
+<p>&nbsp;</p>
+
+<div class="w3-example">
+<h3>Example:</h3>
+  <p>Use the 
+  <code class="w3-codespan">getSnapshotBeforeUpdate()</code> method to find out 
+  what the <code class="w3-codespan">state</code> object looked like before 
+  the update:</p>
+<pre class="language-jsx w3-white"><code>class Header extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {favoritecolor: &quot;red&quot;};
+  }
+  componentDidMount() {
+    setTimeout(() =&gt; {
+      this.setState({favoritecolor: &quot;yellow&quot;})
+    }, 1000)
+  }
+  getSnapshotBeforeUpdate(prevProps, prevState) {
+    document.getElementById(&quot;div1&quot;).innerHTML =
+    &quot;Before the update, the favorite was &quot; + prevState.favoritecolor;
+  }
+  componentDidUpdate() {
+    document.getElementById(&quot;div2&quot;).innerHTML =
+    &quot;The updated favorite is &quot; + this.state.favoritecolor;
+  }
+  render() {
+    return (
+      &lt;div&gt;
+        &lt;h1&gt;My Favorite Color is {this.state.favoritecolor}&lt;/h1&gt;
+        &lt;div id=&quot;div1&quot;&gt;&lt;/div&gt;
+        &lt;div id=&quot;div2&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+
+createRoot(document.getElementById('root')).render(
+  &lt;Header /&gt;
+);
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreact0e7e.html?filename=demo2_react_lifecycle_getsnapshotbeforeupdate">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<hr>

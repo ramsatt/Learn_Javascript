@@ -1,0 +1,156 @@
+<h1>Go Slices</h1>
+
+<hr>
+
+<h2>Go Slices</h2>
+<p>Slices are similar to arrays, but are more powerful and flexible.</p>
+<p>Like arrays, slices are also used to store multiple values of the same type in a single variable.</p>
+<p>However, unlike arrays, the length of a slice can grow and shrink as you see fit.</p>
+<p>In Go, there are several ways to create a slice:</p>
+<ul>
+  <li>Using the []<em>datatype</em>{<em>values</em>} format</li>
+  <li>Create a slice from an array</li>
+  <li>Using the make() function</li>
+</ul>
+<hr>
+
+<h2>Create a Slice With []<em>datatype</em>{<em>values</em>}</h2>
+<div class="w3-example">
+  <h3>Syntax</h3>
+      <div class="w3-code notranslate javaHigh">
+        <em>slice_name</em> := []<em>datatype</em>{<em>values</em>}</div>
+</div>
+
+<p>A common way of declaring a slice is like this:</p>
+<div class="w3-example">
+<div class="w3-code notranslate javaHigh">
+myslice := []int{}
+</div>
+</div>
+<p>The code above declares an empty slice of 0 length and 0 capacity.</p>
+
+<p>To initialize the slice during declaration, use this:</p>
+<div class="w3-example">
+<div class="w3-code notranslate javaHigh">
+myslice := []int{1,2,3}</div>
+</div>
+
+<p>The code above declares a slice of integers of length 3 and also the capacity of 
+3.</p>
+<p>In Go, there are two functions that can be used to return the length and 
+capacity of a slice:</p>
+<ul>
+  <li><code class="w3-codespan">len()</code> function - returns the length 
+  of the slice (the number of elements in the slice)</li>
+  <li><code class="w3-codespan">cap()</code> function - returns the capacity of 
+  the slice (the number of elements the slice can grow 
+  or shrink to)</li>
+</ul>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <p>This example shows how to create slices using the []<em>datatype</em>{<em>values</em>} format:</p>
+  <div class="w3-code notranslate javaHigh">
+    package main<br>
+    import ("fmt")<br><br>
+    func main() {<br>
+    &nbsp; myslice1 := []int{}<br>&nbsp; fmt.Println(len(myslice1))<br>&nbsp; 
+    fmt.Println(cap(myslice1))<br>&nbsp; fmt.Println(myslice1)<br><br>&nbsp; 
+    myslice2 := []string{&quot;Go&quot;, &quot;Slices&quot;, &quot;Are&quot;, &quot;Powerful&quot;}<br>&nbsp; 
+    fmt.Println(len(myslice2))<br>&nbsp; fmt.Println(cap(myslice2))<br>&nbsp; 
+    fmt.Println(myslice2)<br>
+
+    }
+  </div>
+  <p>Result:</p>
+  <div class="notranslate w3-black w3-padding">
+  <code>
+    0<br>0<br>[]<br>4<br>4<br>[Go Slices Are Powerful]</code></div>
+  
+</div>
+
+<p>In the example above, we see that in the first slice (myslice1), the actual elements are not specified, 
+so both the length and capacity of the 
+slice will be zero. In the second slice (myslice2), the elements are specified, 
+and both length and capacity is 
+equal to the number of actual elements specified.</p>
+<hr>
+<hr>
+<h2>Create a Slice From an Array</h2>
+<p>You can create a slice by slicing an array:</p>
+<div class="w3-example">
+  <h3>Syntax</h3>
+      <div class="w3-code notranslate javaHigh">
+        var myarray = [length]datatype{values} // An array<br>
+        myslice := myarray[start:end]<em> </em>// A slice made from the array<br>
+      </div>
+</div>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <p>This example shows how to create a slice from an array:</p>
+  <div class="w3-code notranslate javaHigh">
+    package main<br>
+    import ("fmt")<br><br>
+    func main() {<br>
+    &nbsp;&nbsp;arr1 := [6]int{10, 11, 12, 13, 14,15}<br>
+    &nbsp;&nbsp;myslice := arr1[2:4]<br>
+    <br>
+    &nbsp; fmt.Printf(&quot;myslice = %v\n&quot;, myslice)<br>&nbsp; fmt.Printf(&quot;length = 
+    %d\n&quot;, len(myslice))<br>&nbsp; fmt.Printf(&quot;capacity = %d\n&quot;, cap(myslice))<br>
+    }
+  </div>
+  <p>Result:</p>
+  <div class="notranslate w3-black w3-padding">
+  <code>
+    myslice = [12 13]<br>length = 2<br>capacity = 4</code></div>
+  
+</div>
+
+<p>In the example above <code class="w3-codespan">myslice</code> is a slice with length 
+2. It is made from <code class="w3-codespan">arr1</code> which is an array with length 6.</p> 
+<p>The slice starts from the third element of the array which has value 12 
+(remember that array indexes start at 0. That means that [0] is the first 
+element, [1] is the second element, etc.). The slice can grow to the end of the array. This means that the capacity of the slice is 
+4.
+<p>If <code class="w3-codespan">myslice</code> started from element 0, the slice capacity would be 6.</p>
+<hr>
+
+<h2>Create a Slice With The make() Function</h2>
+<p>The <code class="w3-codespan">make()</code> function can also be used to 
+create a slice.</p>
+
+<div class="w3-example">
+  <h3>Syntax</h3>
+      <div class="w3-code notranslate javaHigh">
+        <em>slice_name</em> := make([]<em>type</em>, <em>length</em>, <em>capacity</em>)<br>
+      </div>
+</div> 
+
+<div class="w3-panel ws-note">
+  <p><strong>Note:</strong> If the <em>capacity</em> parameter is not defined, it will be equal to 
+  <em>length</em>.</p>
+</div>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <p>This example shows how to create slices using the <code class="w3-codespan">make()</code> 
+  function:</p>
+  <div class="w3-code notranslate javaHigh">
+    package main<br>
+    import ("fmt")<br><br>
+    func main() {<br>
+    &nbsp; myslice1 := make([]int, 5, 10)<br>&nbsp; fmt.Printf(&quot;myslice1 = %v\n&quot;, myslice1)<br>&nbsp; fmt.Printf(&quot;length = 
+    %d\n&quot;, len(myslice1))<br>&nbsp; fmt.Printf(&quot;capacity = %d\n&quot;, cap(myslice1))<br>
+    <br>&nbsp; // with omitted capacity <br>&nbsp; myslice2 := make([]int, 5)<br>&nbsp; fmt.Printf(&quot;myslice2 = %v\n&quot;, myslice2)<br>&nbsp; fmt.Printf(&quot;length = 
+    %d\n&quot;, len(myslice2))<br>&nbsp; fmt.Printf(&quot;capacity = %d\n&quot;, cap(myslice2))<br>}
+  </div>
+  <p>Result:</p>
+  <div class="notranslate w3-black w3-padding">
+  <code>
+    myslice1 = [0 0 0 0 0]<br>length = 5<br>capacity = 10<br>myslice2 = [0 0 0 0 
+    0]<br>length = 5<br>capacity = 5</code></div>
+  
+</div>
+
+<br>

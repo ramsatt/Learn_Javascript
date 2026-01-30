@@ -1,0 +1,41 @@
+<h1>jQuery - <span class="color_h1">Chaining</span></h1>
+
+<hr>
+<p class="intro">With jQuery, you can chain together actions/methods.</p>
+<p class="intro">Chaining allows us to run multiple jQuery methods (on the same 
+element) within a single statement.</p>
+<hr>
+
+<h2>jQuery Method Chaining</h2>
+<p>Until now we have been writing jQuery statements one at a time (one after the 
+other).</p>
+<p>However, there is a technique called chaining, that 
+allows us to run multiple jQuery commands, one after the other, on the same 
+element(s).</p>
+<p><b>Tip:</b> This way, browsers do not have to find the same element(s) more than once.</p>
+<p>To chain 
+an action, you simply append the action to the previous action. </p>
+<p>The following example chains together the <code class="w3-codespan">css()</code>, <code class="w3-codespan">slideUp()</code>, and <code class="w3-codespan">slideDown()</code> 
+methods. The &quot;p1&quot; element first changes to red, then it slides up, and then it 
+slides down: </p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;#p1&quot;).css(&quot;color&quot;, &quot;red&quot;).slideUp(2000).slideDown(2000);</div>
+
+</div>
+<p>We could also have added more method calls if needed.</p>
+<p><b>Tip</b>: When chaining, the line of code 
+could become quite long. However, jQuery is not very strict on the syntax; you can format it like you want, including line breaks and indentations. </p>
+<p>This also works just fine:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;#p1&quot;).css(&quot;color&quot;, &quot;red&quot;)<br>
+&nbsp; .slideUp(2000)<br>
+&nbsp; .slideDown(2000);</div>
+
+</div>
+<p>jQuery throws away extra whitespace and executes the lines above as one long line of code.</p>
+
+<br>

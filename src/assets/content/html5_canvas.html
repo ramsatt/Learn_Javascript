@@ -1,0 +1,187 @@
+<h1>HTML <span class="color_h1">Canvas Graphics</span></h1>
+
+<hr>
+
+<div>
+<canvas id="myCanvas" width="270" height="160"
+style="border:1px solid #c3c3c3;float:left;margin-right:20px;margin-bottom:15px">
+Your browser does not support the &lt;canvas&gt; element.
+</canvas>
+<p class="intro">The HTML <code class="w3-codespan">&lt;canvas&gt;</code> element is used to draw graphics on a web page.</p>
+<p class="intro">The graphic to the left is created with <code class="w3-codespan">&lt;canvas&gt;</code>. It shows four 
+elements: a red rectangle, a gradient rectangle,
+a multicolor rectangle, and a multicolor text.</p>
+</div>
+<div style="clear:both;"></div>
+
+<hr>
+
+<h2>What is HTML Canvas?</h2>
+<p>The HTML <code class="w3-codespan">&lt;canvas&gt;</code> element is used to draw graphics, on the fly, via JavaScript.</p>
+<p>The <code class="w3-codespan">&lt;canvas&gt;</code> element is only a container for graphics. You must use  
+JavaScript to actually draw the graphics.</p>
+<p>Canvas has several methods for drawing paths, boxes, circles, text, and adding images.</p>
+<p>Canvas is supported by all major browsers.</p>
+
+<hr>
+
+<h2>Canvas Examples</h2>
+<p>A canvas is a rectangular area on an HTML page. By default, a canvas has no border and no content.</p>
+<p>The markup looks like this:</p>
+<div class="w3-code w3-border notranslate htmlHigh"><div>
+&lt;canvas id="myCanvas&quot; width="200" height="100"&gt;&lt;/canvas&gt;
+</div></div>
+<p><b>Note:</b> Always specify an <code class="w3-codespan">id</code> attribute (to be referred to in a script), 
+and a <code class="w3-codespan">width</code> and <code class="w3-codespan">height</code> attribute to define the size of the canvas. To add a border, use the <code class="w3-codespan">style</code> attribute.</p>
+<p>Here is an example of a basic, empty canvas:</p>
+<canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;">
+Your browser does not support the canvas element.
+</canvas>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+&lt;canvas id="myCanvas&quot; width="200" height="100"
+style=&quot;border:1px solid 
+#000000;&quot;&gt;<br>
+&lt;/canvas&gt;
+</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>Add a JavaScript</h2>
+<p>After creating the rectangular canvas area, you must add a JavaScript to do 
+the drawing.</p>
+<p>Here are some examples:</p>
+<h3>Draw a Line</h3>
+<canvas id="myCanvas2" width="200" height="100" style="border:1px solid #d3d3d3;">
+Your browser does not support the canvas element
+</canvas>
+ 
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+  &lt;script&gt;<br>var c = document.getElementById(&quot;myCanvas&quot;);<br>var ctx = c.getContext(&quot;2d&quot;);<br>
+ ctx.moveTo(0, 0);<br>ctx.lineTo(200, 100);<br>
+ ctx.stroke();<br>&lt;/script&gt;</div>
+
+</div>
+
+<hr>
+
+<h2>Draw a Circle</h2>
+<canvas id="myCanvas3" width="200" height="100" style="border:1px solid #d3d3d3;">
+Your browser does not support the canvas element
+</canvas>
+ 
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+  &lt;script&gt;<br>var c = document.getElementById(&quot;myCanvas&quot;);<br>var ctx = c.getContext(&quot;2d&quot;);<br>
+ ctx.beginPath();<br>ctx.arc(95, 50, 40, 0, 2 * Math.PI);<br>ctx.stroke();<br>
+  &lt;/script&gt;</div>
+
+</div>
+
+<hr>
+
+<h2>Draw a Text</h2>
+<canvas id="myCanvas4" width="200" height="100" style="border:1px solid #d3d3d3;">
+Your browser does not support the canvas element
+</canvas>
+ 
+<div class="w3-example">
+<h3>Example</h3>
+ <div class="w3-code notranslate jsHigh">
+   &lt;script&gt;<br>var c = document.getElementById(&quot;myCanvas&quot;);<br>var ctx = c.getContext(&quot;2d&quot;);<br>
+ ctx.font = &quot;30px Arial&quot;;<br>ctx.fillText(&quot;Hello World&quot;, 10, 50);<br>
+   &lt;/script&gt;</div>
+
+</div>
+
+<hr>
+
+<h2>Stroke Text</h2>
+<canvas id="myCanvas5" width="200" height="100" style="border:1px solid #d3d3d3;">
+Your browser does not support the canvas element
+</canvas>
+ 
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+  &lt;script&gt;<br>var c = document.getElementById(&quot;myCanvas&quot;);<br>var ctx = c.getContext(&quot;2d&quot;);<br>
+ ctx.font = &quot;30px Arial&quot;;<br>ctx.strokeText(&quot;Hello World&quot;, 10, 50);<br>
+  &lt;/script&gt;</div>
+
+</div>
+
+<hr>
+
+<h2>Draw Linear Gradient</h2>
+<canvas id="myCanvas6" width="200" height="100" style="border:1px solid #d3d3d3;">
+Your browser does not support the canvas element
+</canvas>
+ 
+<div class="w3-example">
+<h3>Example</h3>
+ <div class="w3-code notranslate jsHigh">
+   &lt;script&gt;<br>var c = document.getElementById(&quot;myCanvas&quot;);<br>
+ var ctx = c.getContext(&quot;2d&quot;);<br>
+ <br>
+ // Create gradient<br>
+ var grd = ctx.createLinearGradient(0, 0, 200, 0);<br>
+ grd.addColorStop(0, &quot;red&quot;);<br>
+ grd.addColorStop(1, &quot;white&quot;);<br>
+ <br>
+ // Fill with gradient<br>
+ ctx.fillStyle = grd;<br>
+ ctx.fillRect(10, 10, 150, 80);<br>&lt;/script&gt;</div>
+
+</div>
+
+<hr>
+
+<h2>Draw Circular Gradient</h2>
+<canvas id="myCanvas7" width="200" height="100" style="border:1px solid #d3d3d3;">
+Your browser does not support the canvas element
+</canvas>
+ 
+<div class="w3-example">
+<h3>Example</h3>
+ <div class="w3-code notranslate jsHigh">
+   &lt;script&gt;<br>var c = document.getElementById(&quot;myCanvas&quot;);<br>
+ var ctx = c.getContext(&quot;2d&quot;);<br>
+ <br>
+ // Create gradient<br>
+ var grd = ctx.createRadialGradient(75, 50, 5, 90, 60, 100);<br>
+ grd.addColorStop(0, &quot;red&quot;);<br>
+ grd.addColorStop(1, &quot;white&quot;);<br>
+ <br>
+ // Fill with gradient<br>
+  ctx.fillStyle = grd;<br>ctx.fillRect(10, 10, 150, 80);<br>&lt;/script&gt;</div>
+
+</div>
+
+<hr>
+
+<h2>Draw Image</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+  &lt;script&gt;<br>var c = document.getElementById(&quot;myCanvas&quot;);<br>
+ var ctx = c.getContext(&quot;2d&quot;);<br>
+ var img = document.getElementById(&quot;scream&quot;);<br>
+ ctx.drawImage(img, 10, 10);<br>&lt;/script&gt;</div>
+
+</div>
+
+<hr>
+
+<h2>HTML Canvas Tutorial</h2>
+<p>To learn more about <code class="w3-codespan">&lt;canvas&gt;</code>, please 
+read our <a href="../graphics/canvas_intro.html">HTML Canvas Tutorial</a>.</p>
+
+<br>

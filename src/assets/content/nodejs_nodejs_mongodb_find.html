@@ -1,0 +1,233 @@
+<h1>Node.js <span class="color_h1">MongoDB</span> Find</h1>
+
+<hr>
+<div class="w3-panel ws-note">
+  <p>In MongoDB we use the <strong>find</strong> and <strong>findOne</strong> methods to find data in a collection.</p>
+  <p>Just like the <strong>SELECT</strong> statement is used to find data in a 
+  table in a MySQL database.</p>
+</div>
+
+<h2>Find One</h2>
+<p>To select data from a collection in MongoDB, we can use the
+<code class="w3-codespan">findOne()</code> method.</p>
+<p>The <code class="w3-codespan">findOne()</code> method returns the first 
+occurrence in the selection.</p>
+<p>The first parameter of the <code class="w3-codespan">findOne()</code> method 
+is a query object. In this example we use an empty query object, which selects 
+all documents in a collection (but returns only the first document).</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Find the first document in the customers collection:</p>
+<div class="w3-code notranslate jsHigh">
+  let MongoClient = require('mongodb').MongoClient;<br>
+  let url = &quot;mongodb://localhost:27017/&quot;;<br><br>MongoClient.connect(url, function(err, db) {<br>&nbsp; if (err) throw err;<br>&nbsp; 
+  let dbo = db.db(&quot;mydb&quot;);<br>&nbsp; dbo.collection(&quot;customers&quot;).findOne({}, function(err, result) {<br>&nbsp;&nbsp;&nbsp; if (err) throw err;<br>&nbsp;&nbsp;&nbsp; console.log(result.name);<br>&nbsp;&nbsp;&nbsp; db.close();<br>&nbsp; 
+  });<br>});</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="shownodejs_cmde84e.html?filename=demo_mongodb_findone">Run example &raquo;</a>
+</div>
+
+<p>Save the code above in a file called &quot;demo_mongodb_findone.js&quot; and run the file:</p>
+<div class="w3-example">
+<p>Run "demo_mongodb_findone.js"</p>
+<div class="w3-code notranslate w3-black">
+C:\Users\<em>Your Name</em>&gt;node demo_mongodb_findone.js
+</div>
+</div>
+<p>Which will give you this result:</p>
+<div class="w3-example">
+<div class="w3-code notranslate w3-black">Company Inc.</div>
+</div>
+<hr>
+
+<hr>
+<h2>Find All</h2>
+<p>To select data from a table in MongoDB, we can also use the
+<code class="w3-codespan">find()</code> method.</p>
+<p>The <code class="w3-codespan">find()</code> method returns all 
+occurrences in the selection.</p>
+<p>The first parameter of the <code class="w3-codespan">find()</code> method 
+is a query object. In this example we use an empty query object, which selects 
+all documents in the collection.</p>
+<div class="w3-panel ws-note">
+  <p>No parameters in the find() method gives you the same result as <strong>SELECT *</strong> in MySQL.</p>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Find all documents in the customers collection:</p>
+<div class="w3-code notranslate jsHigh">
+  let MongoClient = require('mongodb').MongoClient;<br>let url = &quot;mongodb://localhost:27017/&quot;;<br>
+  <br>MongoClient.connect(url, function(err, db) {<br>&nbsp; if (err) throw err;<br>&nbsp; 
+  let dbo = db.db(&quot;mydb&quot;);<br>&nbsp; 
+  dbo.collection(&quot;customers&quot;).find({}).toArray(function(err, result) {<br>&nbsp;&nbsp;&nbsp; 
+  if (err) throw err;<br>&nbsp;&nbsp;&nbsp; console.log(result);<br>&nbsp;&nbsp;&nbsp; 
+  db.close();<br>&nbsp; });<br>});</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="shownodejs_cmd7f99.html?filename=demo_mongodb_find">Run example &raquo;</a>
+</div>
+
+<p>Save the code above in a file called &quot;demo_mongodb_find.js&quot; and run the file:</p>
+<div class="w3-example">
+<p>Run "demo_mongodb_find.js"</p>
+<div class="w3-code notranslate w3-black">
+C:\Users\<em>Your Name</em>&gt;node demo_mongodb_find.js
+</div>
+</div>
+<p>Which will give you this result:</p>
+<div class="w3-example">
+<div class="w3-code notranslate w3-black">[<br>&nbsp; { _id: 
+  58fdbf5c0ef8a50b4cdd9a84 , name: 'John', address: 'Highway 71'},<br>&nbsp; { _id: 
+  58fdbf5c0ef8a50b4cdd9a85 , name: 'Peter', address: 'Lowstreet 4'},<br>&nbsp; { 
+  _id: 58fdbf5c0ef8a50b4cdd9a86 , name: 'Amy', 
+  address: 'Apple st 652'},<br>&nbsp; { _id: 58fdbf5c0ef8a50b4cdd9a87 , name: 'Hannah', address: 
+  'Mountain 21'},<br>&nbsp; { _id: 58fdbf5c0ef8a50b4cdd9a88 , name: 'Michael', address: 'Valley 345'},<br>&nbsp; 
+  { _id: 58fdbf5c0ef8a50b4cdd9a89 , name: 'Sandy', address: 'Ocean blvd 2'},<br>&nbsp; { 
+  _id: 58fdbf5c0ef8a50b4cdd9a8a , 
+  name: 'Betty', address: 'Green Grass 1'},<br>&nbsp; { _id: 
+  58fdbf5c0ef8a50b4cdd9a8b , name: 'Richard', 
+  address: 'Sky st 331'},<br>&nbsp; { _id: 58fdbf5c0ef8a50b4cdd9a8c , name: 'Susan', address: 'One way 
+  98'},<br>&nbsp; { _id: 58fdbf5c0ef8a50b4cdd9a8d , name: 'Vicky', address: 'Yellow Garden 2'},<br>&nbsp; 
+  { _id: 58fdbf5c0ef8a50b4cdd9a8e , name: 'Ben', address: 'Park Lane 38'},<br>&nbsp; { 
+  _id: 58fdbf5c0ef8a50b4cdd9a8f , name: 'William', 
+  address: 'Central st 954'},<br>&nbsp; { _id: 58fdbf5c0ef8a50b4cdd9a90 , name: 'Chuck', address: 
+  'Main Road 989'},<br>&nbsp; { _id: 58fdbf5c0ef8a50b4cdd9a91 , name: 'Viola', address: 'Sideway 
+  1633'}<br>]</div>
+</div>
+
+<hr>
+
+<h2>Find Some</h2>
+<p>The second parameter of the <code class="w3-codespan">find()</code> method 
+is the <code class="w3-codespan">projection</code> object that describes which fields to include in the result.</p>
+<p>This parameter is optional, and if omitted, all fields will be included in 
+the result.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Return the fields &quot;name&quot; and &quot;address&quot; of all documents in the customers collection:</p>
+<div class="w3-code notranslate jsHigh">
+  let MongoClient = require('mongodb').MongoClient;<br>let url = &quot;mongodb://localhost:27017/&quot;;<br>
+  <br>MongoClient.connect(url, function(err, db) {<br>&nbsp; if (err) throw err;<br>&nbsp; 
+  let dbo = db.db(&quot;mydb&quot;);<br>&nbsp; 
+  dbo.collection(&quot;customers&quot;).find({},<strong> { projection: { _id: 0, name: 1, address: 
+  1 } }</strong>).toArray(function(err, result) {<br>&nbsp;&nbsp;&nbsp; 
+  if (err) throw err;<br>&nbsp;&nbsp;&nbsp; console.log(result);<br>&nbsp;&nbsp;&nbsp; 
+  db.close();<br>&nbsp; });<br>});</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="shownodejs_cmd36a6.html?filename=demo_mongodb_find_fields">Run example &raquo;</a>
+</div>
+
+<p>Save the code above in a file called &quot;demo_mongodb_find_fields.js&quot; and run the file:</p>
+<div class="w3-example">
+<p>Run "demo_mongodb_find_fields.js"</p>
+<div class="w3-code notranslate w3-black">
+C:\Users\<em>Your Name</em>&gt;node demo_mongodb_find_fields.js
+</div>
+</div>
+<p>Which will give you this result:</p>
+<div class="w3-example">
+<div class="w3-code notranslate w3-black">[<br>&nbsp; { name: 'John', address: 'Highway 71'},<br>&nbsp; { name: 'Peter', address: 'Lowstreet 4'},<br>&nbsp; { 
+  name: 'Amy', 
+  address: 'Apple st 652'},<br>&nbsp; { name: 'Hannah', address: 
+  'Mountain 21'},<br>&nbsp; { name: 'Michael', address: 'Valley 345'},<br>&nbsp; 
+  { name: 'Sandy', address: 'Ocean blvd 2'},<br>&nbsp; { 
+  name: 'Betty', address: 'Green Grass 1'},<br>&nbsp; { name: 'Richard', 
+  address: 'Sky st 331'},<br>&nbsp; { name: 'Susan', address: 'One way 
+  98'},<br>&nbsp; { name: 'Vicky', address: 'Yellow Garden 2'},<br>&nbsp; 
+  { name: 'Ben', address: 'Park Lane 38'},<br>&nbsp; { 
+  name: 'William', 
+  address: 'Central st 954'},<br>&nbsp; { name: 'Chuck', address: 
+  'Main Road 989'},<br>&nbsp; {&nbsp;name: 'Viola', address: 'Sideway 
+  1633'}<br>]</div>
+</div>
+
+<div class="w3-panel ws-note">
+<p>You are not allowed to specify both 0 and 1 values in the same object (except 
+if one of the fields is the _id field). If you specify a field with the value 0, all other fields get the value 1, 
+and vice versa:</p>
+</div>
+
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>This example will exclude &quot;address&quot; from the result:</p>
+<div class="w3-code notranslate jsHigh">
+  let MongoClient = require('mongodb').MongoClient;<br>let url = &quot;mongodb://localhost:27017/&quot;;<br>
+  <br>MongoClient.connect(url, function(err, db) {<br>&nbsp; if (err) throw err;<br>&nbsp; 
+  let dbo = db.db(&quot;mydb&quot;);<br>&nbsp; 
+  dbo.collection(&quot;customers&quot;).find({},<strong> { projection: { address: 0 
+  } }</strong>).toArray(function(err, result) {<br>&nbsp;&nbsp;&nbsp; 
+  if (err) throw err;<br>&nbsp;&nbsp;&nbsp; console.log(result);<br>&nbsp;&nbsp;&nbsp; 
+  db.close();<br>&nbsp; });<br>});</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="shownodejs_cmdc315.html?filename=demo_mongodb_find_fields4">Run example &raquo;</a>
+</div>
+
+<div class="w3-panel ws-note">
+<p>To exclude the _id field, you must set its value to 0:</p>
+</div>
+
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>This example will return only the &quot;name&quot; field:</p>
+<div class="w3-code notranslate jsHigh">
+  let MongoClient = require('mongodb').MongoClient;<br>let url = &quot;mongodb://localhost:27017/&quot;;<br>
+  <br>MongoClient.connect(url, function(err, db) {<br>&nbsp; if (err) throw err;<br>&nbsp; 
+  let dbo = db.db(&quot;mydb&quot;);<br>&nbsp; 
+  dbo.collection(&quot;customers&quot;).find({},<strong> { projection: { _id: 0, name: 1 
+  } }</strong>).toArray(function(err, result) {<br>&nbsp;&nbsp;&nbsp; 
+  if (err) throw err;<br>&nbsp;&nbsp;&nbsp; console.log(result);<br>&nbsp;&nbsp;&nbsp; 
+  db.close();<br>&nbsp; });<br>});</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="shownodejs_cmd00fd.html?filename=demo_mongodb_find_fields3">Run example &raquo;</a>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>This example will give you the same result as the first example; return all 
+fields except the _id field:</p>
+<div class="w3-code notranslate jsHigh">
+  let MongoClient = require('mongodb').MongoClient;<br>let url = &quot;mongodb://localhost:27017/&quot;;<br>
+  <br>MongoClient.connect(url, function(err, db) {<br>&nbsp; if (err) throw err;<br>&nbsp; 
+  let dbo = db.db(&quot;mydb&quot;);<br>&nbsp; 
+  dbo.collection(&quot;customers&quot;).find({},<strong> { projection: { _id: 0 
+  } }</strong>).toArray(function(err, result) {<br>&nbsp;&nbsp;&nbsp; 
+  if (err) throw err;<br>&nbsp;&nbsp;&nbsp; console.log(result);<br>&nbsp;&nbsp;&nbsp; 
+  db.close();<br>&nbsp; });<br>});</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="shownodejs_cmdebdc.html?filename=demo_mongodb_find_fields2">Run example &raquo;</a>
+</div>
+
+<div class="w3-example w3-pale-red">
+<h3>Example</h3>
+<p>You get an error if you specify both 0 and 1 values in the same object 
+(except if one of the fields is the _id field):</p>
+<div class="w3-code notranslate jsHigh" style="border-left:4px solid transparent">
+  let MongoClient = require('mongodb').MongoClient;<br>let url = &quot;mongodb://localhost:27017/&quot;;<br>
+  <br>MongoClient.connect(url, function(err, db) {<br>&nbsp; if (err) throw err;<br>&nbsp; 
+  let dbo = db.db(&quot;mydb&quot;);<br>&nbsp; 
+  dbo.collection(&quot;customers&quot;).find({},<strong> { projection: { name: 1, address: 0 
+  } }</strong>).toArray(function(err, result) {<br>&nbsp;&nbsp;&nbsp; 
+  if (err) throw err;<br>&nbsp;&nbsp;&nbsp; console.log(result);<br>&nbsp;&nbsp;&nbsp; 
+  db.close();<br>&nbsp; });<br>});</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="shownodejs_cmda895.html?filename=demo_mongodb_find_fields_error">Run example &raquo;</a>
+</div>
+
+<hr>
+
+<h2>The Result Object</h2>
+<p>As you can see from the result of the example above, the result can be converted into an array containing each 
+document as an object.</p>
+<p>To return e.g. the address of the third document, just refer to the third array 
+object's address property:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Return the address of the third document:</p>
+<div class="w3-code notranslate w3-black">
+  console.log(result[2].address);</div>
+</div>
+<p>Which will produce this result:</p>
+<div class="w3-example">
+<div class="w3-code notranslate w3-black">
+  Apple st 652</div>
+</div>
+
+<hr>
+
+<hr>

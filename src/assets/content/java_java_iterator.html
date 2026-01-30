@@ -1,0 +1,136 @@
+<h1>Java <span class="color_h1">Iterator</span></h1>
+
+<hr>
+
+<h2>Java Iterator</h2>
+<p>An <code class="w3-codespan">Iterator</code> is an object that can be used to loop through <a href="java_collections.html">collections</a>, like <a href="java_arraylist.html"><code class="w3-codespan">ArrayList</code></a>
+and <a href="java_hashset.html"><code class="w3-codespan">HashSet</code></a>.</p>
+<p>It is called an "iterator" because "iterating" is the technical term for looping.</p>
+<p>To use an Iterator, you must import it from the <code class="w3-codespan">java.util</code> package.</p>
+<hr>
+
+<h2>Getting an Iterator</h2>
+<p>The <code class="w3-codespan">iterator()</code> method can be used to get an <code class="w3-codespan">Iterator</code> for any collection:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>// Import the ArrayList class and the Iterator class
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class Main {
+  public static void main(String[] args) {
+
+    // Make a collection
+    ArrayList&lt;String&gt; cars = new ArrayList&lt;String&gt;();
+    cars.add(&quot;Volvo&quot;);
+    cars.add(&quot;BMW&quot;);
+    cars.add(&quot;Ford&quot;);
+    cars.add(&quot;Mazda&quot;);
+
+    // Get the iterator
+    Iterator&lt;String&gt; it = cars.iterator();
+
+    // Print the first item
+    System.out.println(it.next());
+  }
+}
+</code></pre>
+<p>
+
+</p>
+</div>
+<hr>
+
+<h2>Looping Through a Collection</h2>
+<p>To loop through a collection, use the <code class="w3-codespan">hasNext()</code> and <code class="w3-codespan">next()</code> methods of the <code class="w3-codespan">Iterator</code>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>while(it.hasNext()) {
+  System.out.println(it.next());
+}</code></pre>
+<p>
+
+</p>
+</div>
+<hr>
+
+<hr>
+
+<h2>Removing Items from a Collection</h2>
+<p>Iterators are designed to easily change the collections that they loop through. The <code class="w3-codespan">remove()</code> method can remove items from a collection while looping.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Use an iterator to remove numbers less than 10 from a collection:</p>
+<pre class="language-java w3-white"><code>import java.util.ArrayList;
+import java.util.Iterator;
+
+public class Main {
+  public static void main(String[] args) {
+    ArrayList&lt;Integer&gt; numbers = new ArrayList&lt;Integer&gt;();
+    numbers.add(12);
+    numbers.add(8);
+    numbers.add(2);
+    numbers.add(23);
+    Iterator&lt;Integer&gt; it = numbers.iterator();
+    while(it.hasNext()) {
+      Integer i = it.next();
+      if(i &lt; 10) {
+        it.remove();
+      }
+    }
+    System.out.println(numbers);
+  }
+}</code></pre>
+<p>
+
+</p>
+</div>
+
+<div class="ws-note w3-panel">
+<p><strong>Note:</strong> Trying to remove items using a <strong>for loop</strong> or a 
+<strong>for-each loop</strong> would not work correctly
+because the collection is changing size at the same time that the code is trying to loop.</p>
+</div>
+<hr>
+
+<h2>The var Keyword with Iterators</h2>
+
+<p>
+You can also use the <code class="w3-codespan">var</code> keyword with iterators.  
+This avoids repeating the long type name <code class="w3-codespan">Iterator&lt;String&gt;</code>, since the compiler already knows the type from the collection.
+</p>
+
+<p>
+This makes code shorter, <strong>but many developers still use the full type for clarity</strong>.  
+Since <code class="w3-codespan">var</code> is valid from Java version 10, you may see it in other code, so it's good to know that it exists:
+</p>
+
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <pre class="language-java w3-white"><code>// Without var
+Iterator&lt;String&gt; it = cars.iterator();
+
+// With var
+var it = cars.iterator();</code></pre>
+  <p>
+    
+  </p>
+</div>
+
+<p>
+Here, <code class="w3-codespan">var</code> makes the iterator declaration shorter,  
+but the actual type is still <code class="w3-codespan">Iterator&lt;String&gt;</code>.  
+</p>
+<hr>
+
+<div>
+<h2>Complete Iterator Reference</h2>
+<p>For a complete reference of Iterator methods, go to our <a href="java_ref_iterators.html">Java Iterator Reference</a>.</p>
+</div>
+
+<hr>
+
+<hr>
+
+<br>

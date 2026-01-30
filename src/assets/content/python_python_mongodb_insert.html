@@ -1,0 +1,108 @@
+<h1>Python MongoDB <span class="color_h1">Insert Document</span></h1>
+
+<hr>
+<div class="w3-panel ws-note">
+  <p>A <strong>document</strong> in MongoDB is the same as a <strong>record</strong> in SQL databases.</p>
+</div>
+
+<h2>Insert Into Collection</h2>
+<p>To insert a record, or <em>document</em> as it is called in MongoDB, into a collection, we use the 
+<code class="w3-codespan">insert_one()</code> method.</p>
+
+<p>The first parameter of the <code class="w3-codespan">insert_one()</code> method is a 
+dictionary containing the 
+name(s) and value(s) of each field in the document you want to insert.</p>
+<div class="w3-example">
+  <h3>Example</h3>
+<p>Insert a record in the "customers" collection:</p>
+<div class="w3-code notranslate pythonHigh">
+  import pymongo<br><br>myclient = pymongo.MongoClient(&quot;mongodb://localhost:27017/&quot;)<br>
+  mydb = myclient[&quot;mydatabase&quot;]<br>mycol = mydb[&quot;customers&quot;]<br>
+  <br>mydict = { &quot;name&quot;: &quot;John&quot;, &quot;address&quot;: &quot;Highway 37&quot; }<br><br>
+  x =
+  mycol.insert_one(mydict)<br></div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showpython9b60.html?filename=demo_mongodb_insert">Run example &raquo;</a>
+</div>
+
+<hr>
+
+<h2>Return the _id Field</h2>
+<p>The <code class="w3-codespan">insert_one()</code> method returns a InsertOneResult object, which has a 
+property, <code class="w3-codespan">inserted_id</code>, that holds the id of the inserted document.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Insert another record in the &quot;customers&quot; collection, and return the value of the
+<code class="w3-codespan">_id</code> field:</p>
+<div class="w3-code notranslate pythonHigh">
+  mydict = { &quot;name&quot;: &quot;Peter&quot;, &quot;address&quot;: &quot;Lowstreet 27&quot; }<br><br>
+  x = mycol.insert_one(mydict)<br><br>print(x.inserted_id)</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showpython8685.html?filename=demo_mongodb_insert_id">Run example &raquo;</a>
+</div>
+
+<p>If you do not specify an <code class="w3-codespan">_id</code> field, then MongoDB 
+will add one for you and assign a unique id for each document.</p>
+<p>In the example above no <code class="w3-codespan">_id</code> field was 
+specified, so MongoDB assigned a unique 
+_id for the record (document).</p>
+
+<hr>
+
+<hr>
+
+<h2>Insert Multiple Documents</h2>
+<p>To insert multiple documents into a collection in MongoDB, we use the 
+<code class="w3-codespan">insert_many()</code> method.</p>
+<p>The first parameter of the <code class="w3-codespan">insert_many()</code> method 
+is a list containing dictionaries with the data you want to insert:</p>
+<div class="w3-example">
+  <h3>Example</h3>
+  <div class="w3-code notranslate pythonHigh">
+    import pymongo<br><br>myclient = pymongo.MongoClient(&quot;mongodb://localhost:27017/&quot;)<br>
+mydb = myclient[&quot;mydatabase&quot;]<br>mycol = mydb[&quot;customers&quot;]<br>
+    <br>mylist = [<br>&nbsp; { &quot;name&quot;: &quot;Amy&quot;, &quot;address&quot;: &quot;Apple st 652&quot;},<br>&nbsp; 
+    { &quot;name&quot;: &quot;Hannah&quot;, &quot;address&quot;: &quot;Mountain 21&quot;},<br>&nbsp; { &quot;name&quot;: 
+    &quot;Michael&quot;, &quot;address&quot;: &quot;Valley 345&quot;},<br>&nbsp; { &quot;name&quot;: &quot;Sandy&quot;, &quot;address&quot;: 
+    &quot;Ocean blvd 2&quot;},<br>&nbsp; { &quot;name&quot;: &quot;Betty&quot;, &quot;address&quot;: &quot;Green Grass 1&quot;},<br>&nbsp; 
+    { &quot;name&quot;: &quot;Richard&quot;, &quot;address&quot;: &quot;Sky st 331&quot;},<br>&nbsp; { &quot;name&quot;: &quot;Susan&quot;, 
+    &quot;address&quot;: &quot;One way 98&quot;},<br>&nbsp; { &quot;name&quot;: &quot;Vicky&quot;, &quot;address&quot;: &quot;Yellow 
+    Garden 2&quot;},<br>&nbsp; { &quot;name&quot;: &quot;Ben&quot;, &quot;address&quot;: &quot;Park Lane 38&quot;},<br>&nbsp; 
+    { &quot;name&quot;: &quot;William&quot;, &quot;address&quot;: &quot;Central st 954&quot;},<br>&nbsp; { &quot;name&quot;: 
+    &quot;Chuck&quot;, &quot;address&quot;: &quot;Main Road 989&quot;},<br>&nbsp; { &quot;name&quot;: &quot;Viola&quot;, 
+    &quot;address&quot;: &quot;Sideway 1633&quot;}<br>]<br><br>x = mycol.insert_many(mylist)<br><br>#print list of the _id values of the inserted 
+    documents:<br>print(x.inserted_ids)</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showpython7e72.html?filename=demo_mongodb_insert_many">Run example &raquo;</a>
+</div>
+
+<p>The <code class="w3-codespan">insert_many()</code> method returns a InsertManyResult object, which has a property, <code class="w3-codespan">inserted_ids</code>, that holds the ids of the inserted documents.</p>
+
+<hr>
+
+<h2>Insert Multiple Documents, with Specified IDs</h2>
+<p>If you do not want MongoDB to assign unique ids for your document, you can 
+specify the _id field when you insert the document(s).</p>
+<p>Remember that the values has to be unique. Two documents cannot have the same 
+_id.</p>
+<div class="w3-example">
+  <h3>Example</h3>
+  <div class="w3-code notranslate pythonHigh">
+    import pymongo<br><br>myclient = pymongo.MongoClient(&quot;mongodb://localhost:27017/&quot;)<br>
+mydb = myclient[&quot;mydatabase&quot;]<br>mycol = mydb[&quot;customers&quot;]<br>
+<br>mylist = [<br>&nbsp; { &quot;_id&quot;: 1, &quot;name&quot;: &quot;John&quot;, &quot;address&quot;: &quot;Highway 37&quot;},<br>&nbsp; 
+    { &quot;_id&quot;: 2, &quot;name&quot;: &quot;Peter&quot;, &quot;address&quot;: &quot;Lowstreet 27&quot;},<br>&nbsp; { &quot;_id&quot;: 
+    3, &quot;name&quot;: &quot;Amy&quot;, &quot;address&quot;: &quot;Apple st 652&quot;},<br>&nbsp; { &quot;_id&quot;: 4, &quot;name&quot;: 
+    &quot;Hannah&quot;, &quot;address&quot;: &quot;Mountain 21&quot;},<br>&nbsp; { &quot;_id&quot;: 5, &quot;name&quot;: 
+    &quot;Michael&quot;, &quot;address&quot;: &quot;Valley 345&quot;},<br>&nbsp; { &quot;_id&quot;: 6, &quot;name&quot;: &quot;Sandy&quot;, 
+    &quot;address&quot;: &quot;Ocean blvd 2&quot;},<br>&nbsp; { &quot;_id&quot;: 7, &quot;name&quot;: &quot;Betty&quot;, 
+    &quot;address&quot;: &quot;Green Grass 1&quot;},<br>&nbsp; { &quot;_id&quot;: 8, &quot;name&quot;: &quot;Richard&quot;, 
+    &quot;address&quot;: &quot;Sky st 331&quot;},<br>&nbsp; { &quot;_id&quot;: 9, &quot;name&quot;: &quot;Susan&quot;, &quot;address&quot;: 
+    &quot;One way 98&quot;},<br>&nbsp; { &quot;_id&quot;: 10, &quot;name&quot;: &quot;Vicky&quot;, &quot;address&quot;: &quot;Yellow 
+    Garden 2&quot;},<br>&nbsp; { &quot;_id&quot;: 11, &quot;name&quot;: &quot;Ben&quot;, &quot;address&quot;: &quot;Park Lane 
+    38&quot;},<br>&nbsp; { &quot;_id&quot;: 12, &quot;name&quot;: &quot;William&quot;, &quot;address&quot;: &quot;Central st 
+    954&quot;},<br>&nbsp; { &quot;_id&quot;: 13, &quot;name&quot;: &quot;Chuck&quot;, &quot;address&quot;: &quot;Main Road 989&quot;},<br>&nbsp; 
+    { &quot;_id&quot;: 14, &quot;name&quot;: &quot;Viola&quot;, &quot;address&quot;: &quot;Sideway 1633&quot;}<br>]<br><br>x = mycol.insert_many(mylist)<br><br>#print list of the _id values of the inserted 
+    documents:<br>print(x.inserted_ids)</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showpython7fb2.html?filename=demo_mongodb_insert_many2">Run example &raquo;</a>
+</div>
+
+<hr>

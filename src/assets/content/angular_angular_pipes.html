@@ -1,0 +1,221 @@
+<h1>Angular Pipes</h1>
+
+
+<hr>
+<p class="intro">Pipes format values in templates with <code class="w3-codespan">|</code> (e.g., date, currency, percent).</p>
+<hr>
+<h2>Pipes Essentials</h2>
+<ul>
+  <li><b>What</b>: Pipes format values in templates using <code class="w3-codespan">|</code> (e.g., date, currency, percent).</li>
+  <li><b>Async</b>: The <code class="w3-codespan">async</code> pipe subscribes to Observables and renders the latest value, unsubscribing automatically.</li>
+  <li><b>Presentation-only</b>: Pipes change how a value is displayed, not the underlying data.</li>
+  <li><b>Pure by default</b>: Pure pipes run when input references change; avoid in-place mutation of arrays/objects.</li>
+</ul>
+<div class="w3-example">
+  <pre class="language-ts"><code>{{ title | uppercase }}
+{{ price | currency:'USD' }}
+{{ today | date:'short' }}</code></pre>
+</div>
+<div class="w3-panel ws-note">
+  <p><b>Notes:</b></p>
+  <ul>
+    <li>Related: See <a href="angular_templates.html">Templates</a> for displaying values, <a href="angular_data_binding.html">Data Binding</a> for interpolation and inputs, and <a href="angular_http.html">HTTP</a> for streams of data with <code class="w3-codespan">async</code>.</li>
+    <li>Import <code class="w3-codespan">CommonModule</code> for built-in pipes in standalone components.</li>
+    <li>For custom pipes, use <code class="w3-codespan">@Pipe({ standalone: true })</code> and add the pipe to the component <code class="w3-codespan">imports</code>.</li>
+  </ul>
+</div>
+<hr>
+<h2>Basic Pipes</h2>
+<ul>
+  <li>Format strings, numbers, dates, and more with built-in pipes.</li>
+  <li>Many accept options (e.g., <code class="w3-codespan">currency:'USD'</code>, <code class="w3-codespan">date:'short'</code>).</li>
+  <li>Keep business logic in components/services; pipes are for presentation.</li>
+</ul>
+<div class="w3-example">
+  <pre class="language-ts"><code>{{ title | uppercase }}
+{{ price | currency:'USD' }}
+{{ today | date:'mediumDate' }}
+{{ percent | percent:'1.0-2' }}</code></pre>
+</div>
+<div class="w3-example">
+  <h3 id="ex_pipes_basic">Example</h3>
+  <pre class="language-ts" data-tab-header="main.ts"><code>import { bootstrapApplication } from '@angular/platform-browser';
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [CommonModule],
+  template: `
+    &lt;h3&gt;Pipes&lt;/h3&gt;
+    &lt;p&gt;{{ title | uppercase }}&lt;/p&gt;
+    &lt;p&gt;{{ price | currency:'USD' }}&lt;/p&gt;
+    &lt;p&gt;{{ today | date:'mediumDate' }}&lt;/p&gt;
+    &lt;p&gt;{{ percent | percent:'1.0-2' }}&lt;/p&gt;
+  `
+})
+export class App {
+  title = 'Angular';
+  price = 1234.5;
+  today = new Date();
+  percent = 0.3495;
+}
+
+bootstrapApplication(App);
+</code></pre>
+  <pre class="language-html" data-tab-header="index.html"><code>&lt;app-root&gt;&lt;/app-root&gt;</code></pre>
+  <p><a target="_blank" rel="noopener" class="w3-btn" href="showangularc861.html?filename=demo_pipes_basic">Run Example &raquo;</a></p>
+</div>
+<h3>Example explained</h3>
+<ul>
+  <li><code class="w3-codespan">uppercase</code>/<code class="w3-codespan">currency</code>/<code class="w3-codespan">date</code>/<code class="w3-codespan">percent</code>: Built-in pipes format strings, numbers, and dates.</li>
+  <li><b>Options</b>: Many pipes accept parameters (e.g., <code class="w3-codespan">currency:'USD'</code>, <code class="w3-codespan">date:'mediumDate'</code>, <code class="w3-codespan">percent:'1.0-2'</code>).</li>
+  <li><b>Pure by default</b>: Pure pipes recompute when the input reference changes; avoid in-place mutation.</li>
+</ul>
+<div class="w3-panel ws-note">
+  <p><b>Notes:</b></p>
+  <ul>
+    <li><b>Performance:</b> Avoid heavy computation in pipes; Use precomputing in components/services.</li>
+    <li><b>Pure pipes and mutations:</b> Pure pipes run when the input reference changes. If you mutate arrays/objects in place, the pipe will not re-run—create a new reference instead.</li>
+  </ul>
+</div>
+
+<hr>
+
+<hr>
+<h2>Async Pipe</h2>
+<ul>
+  <li>Render the latest value from an Observable.</li>
+  <li>Unsubscribes automatically when the view is destroyed.</li>
+  <li>Use <code class="w3-codespan">value$ | async as value</code> to subscribe once and reuse.</li>
+</ul>
+<div class="w3-example">
+  <pre class="language-ts"><code>&lt;ng-container *ngIf="users$ | async as users; else loading"&gt;
+  &lt;li *ngFor="let u of users"&gt;{{ u.name }}&lt;/li&gt;
+&lt;/ng-container&gt;
+&lt;ng-template #loading&gt;Loading...&lt;/ng-template&gt;</code></pre>
+</div>
+<div class="w3-example">
+  <h3 id="ex_pipes_async">Example</h3>
+  <pre class="language-ts" data-tab-header="main.ts"><code>import { bootstrapApplication } from '@angular/platform-browser';
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { interval, of } from 'rxjs';
+import { map, delay } from 'rxjs/operators';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [CommonModule],
+  template: `
+    &lt;h3&gt;Async Pipe&lt;/h3&gt;
+    &lt;p&gt;Time: {{ time$ | async | date:'mediumTime' }}&lt;/p&gt;
+
+    &lt;h4&gt;Users (delayed)&lt;/h4&gt;
+    &lt;ng-container *ngIf="users$ | async as users; else loading"&gt;
+      &lt;ul&gt;
+        &lt;li *ngFor="let u of users"&gt;{{ u.name }}&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/ng-container&gt;
+    &lt;ng-template #loading&gt;Loading...&lt;/ng-template&gt;
+  `
+})
+export class App {
+  time$ = interval(1000).pipe(map(() => new Date()));
+  users$ = of([{ name: 'Alice' }, { name: 'Bob' }, { name: 'Carol' }]).pipe(delay(1200));
+}
+
+bootstrapApplication(App);
+</code></pre>
+  <pre class="language-html" data-tab-header="index.html"><code>&lt;app-root&gt;&lt;/app-root&gt;</code></pre>
+  <p><a target="_blank" rel="noopener" class="w3-btn" href="showangularb89f.html?filename=demo_pipes_async">Run Example &raquo;</a></p>
+</div>
+<h3>Example explained</h3>
+<ul>
+  <li><code class="w3-codespan">time$ | async</code>: Subscribes in the template and renders the latest time value.</li>
+  <li><code class="w3-codespan">*ngIf="users$ | async as users; else loading"</code>: Creates a single subscription, assigns to <code class="w3-codespan">users</code>, and shows a fallback template while loading.</li>
+  <li><b>Auto-unsubscribe</b>: The <code class="w3-codespan">async</code> pipe cleans up when the view is destroyed.</li>
+</ul>
+<div class="w3-panel ws-note">
+  <p><b>Notes:</b></p>
+  <ul>
+    <li><b>Single subscription:</b> Avoid using <code class="w3-codespan"> | async</code> multiple times on the same Observable in the same template area; use <code class="w3-codespan"> | async as value</code> once and reuse <code class="w3-codespan">value</code>.</li>
+    <li><b>Loading placeholders:</b> Combine with <code class="w3-codespan">*ngIf</code> and an <code class="w3-codespan">else</code> template for a friendly loading state.</li>
+    <li><b>Lists:</b> When iterating streamed arrays, add <code class="w3-codespan">trackBy</code> to <code class="w3-codespan">*ngFor</code> for stable identity and better performance.</li>
+  </ul>
+</div>
+
+<hr>
+<h2>Custom Pipe</h2>
+<ul>
+  <li>Build small, reusable formatters with <code class="w3-codespan">@Pipe</code>.</li>
+  <li>Mark as <code class="w3-codespan">standalone</code> and import into components.</li>
+  <li>Pure by default; avoid impure pipes unless necessary.</li>
+</ul>
+<div class="w3-example">
+  <pre class="language-ts"><code>import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({ name: 'titlecase2', standalone: true })
+export class TitleCase2Pipe implements PipeTransform {
+  transform(v: string): string { /* ...format... */ return v; }
+}</code></pre>
+</div>
+<div class="w3-example">
+  <h3 id="ex_pipes_custom">Example</h3>
+  <pre class="language-ts" data-tab-header="main.ts"><code>import { bootstrapApplication } from '@angular/platform-browser';
+import { Component, Pipe, PipeTransform } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
+@Pipe({ name: 'titlecase2', standalone: true })
+export class TitleCase2Pipe implements PipeTransform {
+  transform(value: string): string {
+    if (!value) return '';
+    return value
+      .split(/\s+/)
+      .map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
+      .join(' ');
+  }
+}
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [CommonModule, FormsModule, TitleCase2Pipe],
+  template: `
+    &lt;h3&gt;Custom Pipe&lt;/h3&gt;
+    &lt;label&gt;
+      Text: &lt;input [(ngModel)]="text" placeholder="type here" /&gt;
+    &lt;/label&gt;
+    &lt;p&gt;Original: {{ text }}&lt;/p&gt;
+    &lt;p&gt;TitleCase2: {{ text | titlecase2 }}&lt;/p&gt;
+  `
+})
+export class App {
+  text = 'hello angular pipes';
+}
+
+bootstrapApplication(App);
+</code></pre>
+  <pre class="language-html" data-tab-header="index.html"><code>&lt;app-root&gt;&lt;/app-root&gt;</code></pre>
+  <p><a target="_blank" rel="noopener" class="w3-btn" href="showangularf15a.html?filename=demo_pipes_custom">Run Example &raquo;</a></p>
+</div>
+<h3>Example explained</h3>
+<ul>
+  <li><code class="w3-codespan">@Pipe({ standalone: true })</code>: Declares a reusable, importable pipe.</li>
+  <li><code class="w3-codespan">transform(value: string)</code>: Implements the formatting logic and returns a string.</li>
+  <li><b>Usage</b>: In the template, apply with <code class="w3-codespan">{{ text | titlecase2 }}</code>.</li>
+</ul>
+<div class="w3-panel ws-note">
+  <p><b>Notes:</b></p>
+  <ul>
+    <li><b>Impure pipes:</b> They run on every change detection and can hurt performance. Use pure pipes; only mark impure when strictly necessary.</li>
+    <li><b>No side effects:</b> Keep pipes deterministic and free of side effects (no logging, no service calls).</li>
+    <li><b>Null safety:</b> Handle <code class="w3-codespan">null</code>/<code class="w3-codespan">undefined</code> inputs gracefully to avoid template errors.</li>
+  </ul>
+</div>
+
+<hr>
+
+<hr>

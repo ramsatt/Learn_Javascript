@@ -1,0 +1,230 @@
+<h1>Queues with Python</h1>
+
+<hr>
+
+<p class="intro">A queue is a linear data structure that follows the First-In-First-Out (FIFO) principle.</p>
+
+<hr>
+<h2>Queues</h2>
+<p>Think of a queue as people standing in line in a supermarket.</p>
+<p>The first person to stand in line is also the first who can pay and leave the supermarket.</p>
+<p>Basic operations we can do on a queue are:</p>
+<ul>
+  <li><strong>Enqueue: </strong>Adds a new element to the queue.</li>
+  <li><strong>Dequeue: </strong>Removes and returns the first (front) element from the queue.</li>
+  <li><strong>Peek: </strong>Returns the first element in the queue.</li>
+  <li><strong>isEmpty: </strong>Checks if the queue is empty.</li>
+  <li><strong>Size: </strong>Finds the number of elements in the queue.</li>
+</ul>
+
+<p>Queues can be implemented by using arrays or linked lists.</p>
+<p>Queues can be used to implement job scheduling for an office printer, order processing for e-tickets, or to create algorithms for breadth-first search in graphs.</p>
+<p>Queues are often mentioned together with Stacks, which is a similar data structure described on the <a href="dsa_data_stacks.html">previous page</a>.</p>
+<hr>
+
+<h2>Queue Implementation using Python Lists</h2>
+
+<p>For Python lists (and arrays), a Queue can look and behave like this:</p>
+<div id="stacktest1" class="w3-codeline notranslate" style="margin: 10px 0;"></div>
+Add: <button class="ws-btn" onclick="push_stack()">Enqueue</button>
+Remove: <button class="ws-btn" onclick="pop_stack()">Dequeue</button>
+
+
+<p>Since Python lists has good support for functionality needed to implement queues, we start with creating a queue and do queue operations with just a few lines:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Using a Python list as a queue:</p>
+<div class="w3-code notranslate pythonHigh">
+queue = []<br>
+<br>
+# Enqueue<br>
+queue.append('A')<br>
+queue.append('B')<br>
+queue.append('C')<br>
+print("Queue: ", queue)<br>
+<br>
+# Peek<br>
+frontElement = queue[0]<br>
+print("Peek: ", frontElement)<br>
+<br>
+# Dequeue<br>
+poppedElement = queue.pop(0)<br>
+print("Dequeue: ", poppedElement)<br>
+<br>
+print("Queue after Dequeue: ", queue)<br>
+<br>
+# isEmpty<br>
+isEmpty = not bool(queue)<br>
+print("isEmpty: ", isEmpty)<br>
+<br>
+# Size<br>
+print("Size: ", len(queue))
+</div>
+
+</div>
+
+<div class="w3-note">
+<p><strong>Note:</strong> While using a list is simple, removing elements from the beginning (dequeue operation) requires shifting all remaining elements, making it less efficient for large queues.</p>
+</div>
+
+<hr>
+<h2>Implementing a Queue Class</h2>
+
+<p>Here's a complete implementation of a Queue class:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Using a Python class as a queue:</p>
+<div class="w3-code notranslate pythonHigh">
+class Queue:<br>
+&nbsp;&nbsp;def __init__(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;self.queue = []<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;def enqueue(self, element):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;self.queue.append(element)<br>
+<br>
+&nbsp;&nbsp;def dequeue(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if self.isEmpty():<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "Queue is empty"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return self.queue.pop(0)<br>
+<br>
+&nbsp;&nbsp;def peek(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if self.isEmpty():<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "Queue is empty"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return self.queue[0]<br>
+<br>
+&nbsp;&nbsp;def isEmpty(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return len(self.queue) == 0<br>
+<br>
+&nbsp;&nbsp;def size(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return len(self.queue)<br>
+<br>
+# Create a queue<br>
+myQueue = Queue()<br>
+<br>
+myQueue.enqueue('A')<br>
+myQueue.enqueue('B')<br>
+myQueue.enqueue('C')<br>
+<br>
+print("Queue: ", myQueue.queue)<br>
+print("Peek: ", myQueue.peek())<br>
+print("Dequeue: ", myQueue.dequeue())<br>
+print("Queue after Dequeue: ", myQueue.queue)<br>
+print("isEmpty: ", myQueue.isEmpty())<br>
+print("Size: ", myQueue.size())
+</div>
+
+</div>
+
+<hr>
+
+
+<h2>Queue Implementation using Linked Lists</h2>
+
+<p>A linked list consists of nodes with some sort of data, and a pointer to the next node.</p>
+
+<img src="assets/content/images/img_linkedlists_singly.svg" alt="A singly linked list." style="max-width: 100%;">
+
+<p>A big benefit with using linked lists is that nodes are stored wherever there is free space in memory, the nodes do not have to be stored contiguously right after each other like elements are stored in arrays. Another nice thing with linked lists is that when adding or removing nodes, the rest of the nodes in the list do not have to be shifted.</p>
+
+<p>To better understand the benefits with using arrays or linked lists to implement queues,
+you should check out <a href="../dsa/dsa_theory_linkedlists_memory.html">this page</a> that explains how arrays and linked lists are stored in memory.</p>
+
+<p>This is how a queue can be implemented using a linked list.</p>
+
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <p>Creating a Queue using a Linked List:</p>
+  <div class="w3-code notranslate pythonHigh">
+class Node:<br>
+&nbsp;&nbsp;def __init__(self, data):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;self.data = data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;self.next = None<br>
+<br>
+class Queue:<br>
+&nbsp;&nbsp;def __init__(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;self.front = None<br>
+&nbsp;&nbsp;&nbsp;&nbsp;self.rear = None<br>
+&nbsp;&nbsp;&nbsp;&nbsp;self.length = 0<br>
+<br>
+&nbsp;&nbsp;def enqueue(self, element):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;new_node = Node(element)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if self.rear is None:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.front = self.rear = new_node<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.length += 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return<br>
+&nbsp;&nbsp;&nbsp;&nbsp;self.rear.next = new_node<br>
+&nbsp;&nbsp;&nbsp;&nbsp;self.rear = new_node<br>
+&nbsp;&nbsp;&nbsp;&nbsp;self.length += 1<br>
+<br>
+&nbsp;&nbsp;def dequeue(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if self.isEmpty():<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "Queue is empty"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;temp = self.front<br>
+&nbsp;&nbsp;&nbsp;&nbsp;self.front = temp.next<br>
+&nbsp;&nbsp;&nbsp;&nbsp;self.length -= 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if self.front is None:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.rear = None<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return temp.data<br>
+<br>
+&nbsp;&nbsp;def peek(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if self.isEmpty():<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "Queue is empty"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return self.front.data<br>
+<br>    
+&nbsp;&nbsp;def isEmpty(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return self.length == 0<br>
+<br>
+&nbsp;&nbsp;def size(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return self.length<br>
+<br>
+&nbsp;&nbsp;def printQueue(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;temp = self.front<br>
+&nbsp;&nbsp;&nbsp;&nbsp;while temp:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(temp.data, end=" -> ")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temp = temp.next<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print()<br>
+<br>
+# Create a queue<br>
+myQueue = Queue()<br>
+<br>
+myQueue.enqueue('A')<br>
+myQueue.enqueue('B')<br>
+myQueue.enqueue('C')<br>
+<br>
+print("Queue: ", end="")<br>
+myQueue.printQueue()<br>
+print("Peek: ", myQueue.peek())<br>
+print("Dequeue: ", myQueue.dequeue())<br>
+print("Queue after Dequeue: ", end="")<br>
+myQueue.printQueue()<br>
+print("isEmpty: ", myQueue.isEmpty())<br>
+print("Size: ", myQueue.size())
+</div>
+
+</div>
+
+<p>Reasons for using linked lists to implement queues:</p>
+<ul>
+  <li><strong>Dynamic size: </strong>The queue can grow and shrink dynamically, unlike with arrays.</li>
+  <li><strong>No shifting: </strong>The front element of the queue can be removed (enqueue) without having to shift other elements in the memory.</li>
+</ul>
+<p>Reasons for <strong>not</strong> using linked lists to implement queues:</p>
+<ul>
+  <li><strong>Extra memory: </strong>Each queue element must contain the address to the next element (the next linked list node).</li>
+  <li><strong>Readability: </strong>The code might be harder to read and write for some because it is longer and more complex.</li>
+</ul>
+
+<hr>
+<h2>Common Queue Applications</h2>
+
+<p>Queues are used in many real-world scenarios:</p>
+<ul>
+  <li>Task scheduling in operating systems</li>
+  <li>Breadth-first search in graphs</li>
+  <li>Message queues in distributed systems</li>
+</ul>
+
+<hr>

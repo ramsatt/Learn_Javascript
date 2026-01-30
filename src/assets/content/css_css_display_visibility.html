@@ -1,0 +1,242 @@
+<h1>CSS <span class="color_h1">The display</span> Property</h1>
+
+<hr>
+
+<h2>The CSS display Property</h2>
+<p>The <code class="w3-codespan"><a href="../cssref/pr_class_display.html">display</a></code> property is 
+an important CSS property for controlling layout. It specifies whether an HTML 
+element is treated as a block or an inline element.</p>
+<p>Every HTML element has a default display value, depending on what type of element it is. The default display value for most elements is <code class="w3-codespan">block</code> or 
+<code class="w3-codespan">inline</code>.</p>
+<p>The <code class="w3-codespan"><a href="../cssref/pr_class_display.html">display</a></code> property is used to change the default display behavior of HTML elements. </p>
+
+<hr>
+
+<h2>Block-level Elements</h2>
+<p>A block-level element ALWAYS starts on a new line and takes up the full width available 
+(stretches out to the left and right as far as it can).</p>
+
+<div class="w3-theme-border" style="border-width:3px;border-style:solid;">
+The &lt;div&gt; element is a block-level element.</div>
+
+<p>Examples of block-level elements:</p>
+<ul>
+<li>&lt;div&gt;</li>
+<li>&lt;h1&gt; - &lt;h6&gt;</li>
+<li>&lt;p&gt;</li>
+<li>&lt;form&gt;</li>
+<li>&lt;header&gt;</li>
+<li>&lt;footer&gt;</li>
+<li>&lt;section&gt;</li>
+</ul>
+
+<hr>
+
+<h2>Inline Elements</h2>
+<p>An inline element DOES NOT start on a new line and only takes up as much width as necessary.</p>
+
+<p>This is <span class="w3-theme-border" style="border-width:3px;border-style:solid;">an inline &lt;span&gt; element 
+inside</span> a paragraph.</p>
+
+<p>Examples of inline elements:</p>
+<ul>
+<li>&lt;span&gt;</li>
+<li>&lt;a&gt;</li>
+<li>&lt;img&gt;</li>
+</ul>
+
+<hr>
+
+<hr>
+<h2>Common display Values</h2>
+<p>The CSS <code class="w3-codespan"><a href="../cssref/pr_class_display.html">display</a></code> property has many values. 
+The following table lists the most commonly used:</p>
+<table class="ws-table-all notranslate">
+  <tr>
+    <th style="width:25%">Value</th>
+    <th>Description</th>
+  </tr>
+    <tr>
+    <td>inline</td>
+    <td>Displays an element as an inline element</td>
+    </tr>
+  <tr>
+    <td>block</td>
+    <td>Displays an element as a block element</td>
+    </tr>
+  <tr>
+    <td>contents</td>
+    <td>Makes the container disappear, making its child elements children of the 
+    element the next level up in the DOM</td>
+    </tr>
+  <tr>
+    <td>flex</td>
+    <td>Displays an element as a block-level flex container</td>
+    </tr>
+  <tr>
+    <td>grid</td>
+    <td>Displays an element as a block-level grid container</td>
+    </tr>
+  <tr>
+    <td>inline-block</td>
+    <td>Displays an element as an inline-level block container. The element itself is formatted as an inline 
+    element, but you can apply height, width, padding, and margin values</td>
+    </tr>
+  <tr>
+    <td>none</td>
+    <td>The element is completely hidden from the document flow (does not take 
+    up any space). </td>
+  </tr>
+  </table>
+<hr>
+
+<h2>CSS display: none;</h2>
+<p>When using <code class="w3-codespan">display: none;</code> the element is completely hidden from the document flow 
+and does not take 
+    up any space.</p>
+<p>It is commonly used with JavaScript to hide 
+or show elements without deleting and recreating them.</p>
+<p class="flip" onclick="myShowFunction()">Click to show hidden panel</p>
+<div id="panel">
+  <p>This panel contains a &lt;div&gt; element, which is hidden by default, with display: none.</p>
+  <p>We use JavaScript to show it (change it to display: block).</p>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+  <p>How to use CSS and JavaScript to show a hidden element on a click event:</p>
+<div class="w3-code notranslate cssHigh">
+  &lt;style&gt;<br>#panel {<br>&nbsp; display: 
+  none;<br>}<br>&lt;/style&gt;<br><br>&lt;script&gt;<br>function myFunction() {<br>
+  &nbsp;
+  document.getElementById(&quot;panel&quot;).style.display = &quot;block&quot;;<br>}<br>&lt;/script&gt;</div>
+
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+  <p>How to use CSS and JavaScript to toggle between show and hide on a click event:</p>
+<div class="w3-code notranslate cssHigh">
+  &lt;style&gt;<br>#panel {<br>&nbsp; display: 
+  none;<br>}<br>&lt;/style&gt;<br><br>&lt;script&gt;<br>function myFunction() {<br>&nbsp; 
+  var x = document.getElementById(&quot;panel&quot;);<br>&nbsp; if (x.style.display === 
+  &quot;none&quot;) {<br>&nbsp;&nbsp;&nbsp; x.style.display = &quot;block&quot;;<br>&nbsp; } else {<br>&nbsp;&nbsp;&nbsp; 
+  x.style.display = &quot;none&quot;;<br>&nbsp; }<br>}<br>
+  &lt;/script&gt;</div>
+
+</div>
+
+<hr>
+
+<h2>Override the Default Display Value</h2>
+<p>The <code class="w3-codespan"><a href="../cssref/pr_class_display.html">display</a></code> property is used to change the default display behavior of HTML elements.</p>
+<p>Changing an inline element to a block element, or vice versa, can be useful for 
+making the page look a specific way, and still follow the web standards.</p>
+<p>A common example is to change <code class="w3-codespan">&lt;li&gt;</code> elements 
+to inline, to create a horizontal menu:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+li {<br>&nbsp;&nbsp;display: inline;<br>}</div>
+
+</div>
+
+<div class="w3-panel ws-note">
+  <p><strong>Note:</strong> Setting the display property of an element only changes <strong>how the element is displayed</strong>, 
+NOT what kind of element it is. So, an inline element with <code class="w3-codespan">display: block;</code> is not allowed
+to have other block elements inside it.</p>
+</div>
+
+<p>The following example displays &lt;span&gt; elements as block elements:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+span {<br>&nbsp; display: block;<br>}</div>
+
+</div>
+<p>The following example displays &lt;a&gt; elements as block elements:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+a {<br>&nbsp; display: block;<br>}</div>
+
+</div>
+<hr>
+
+<h2>Example of More Display Values</h2>
+<p>The following example demonstrates some more display values:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+  p.ex1 {display: none;}<br>p.ex2 {display: inline;}<br>p.ex3 {display: block;}<br>
+  p.ex4 {display: inline-block;}<br>p.ex5 {display: flex;}<br>p.ex6 {display: 
+  grid;}</div>
+
+</div>
+
+<hr>
+
+<h2>Hide an Element - Use display:none or visibility:hidden?</h2>
+
+<div class="w3-content test" style="max-width:800px">
+<div class="w3-row-padding w3-center" style="margin:0 -16px">
+<div class="w3-col w3-border" id="imgbox1" style="width:30%;"><p style="word-wrap: break-word;"><code class="w3-codespan">display:none</code></p>
+  <img src="assets/content/images/img_5terre.jpg" style="width:100%;" alt="Italy">
+  <p><button class="ws-btn w3-block" onclick="removeElement()">Remove</button></p>
+</div>
+<div class="w3-col w3-border" style="width:30%;" id="imgbox2"><p style="word-wrap: break-word;"><code class="w3-codespan">visibility:hidden</code></p>
+  <img src="assets/content/images/img_forest.jpg" style="width:100%;" alt="Forest">
+  <p><button class="ws-btn w3-block" onclick="changeVisibility()">Hide</button></p>
+</div>
+<div class="w3-col w3-border" style="width:30%;"><p>Reset</p>
+  <img src="assets/content/images/img_lights.jpg" style="width:100%;" alt="Lights">
+  <p><button class="ws-btn w3-block" onclick="resetElement()">Reset All</button></p>
+</div>
+</div>
+</div>
+
+<a target="_blank" href="tryit6bea.html?filename=trycss_display" class="ws-btn w3-margin-top">Try it Yourself &raquo;</a>
+
+<p>Hiding an element can be done by setting the <code class="w3-codespan">
+<a href="../cssref/pr_class_display.html">display</a></code> property to 
+<code class="w3-codespan">none</code>. 
+The element will be hidden, and the page will be displayed as if the element is not 
+there:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+h1.hidden {<br>&nbsp;&nbsp;display: none;<br>}</div>
+
+</div>
+
+<p>You can also use <code class="w3-codespan"><a href="../cssref/pr_class_visibility.html">visibility:hidden;</a></code> to hide an element.</p>
+<p>However, with this property, the element will be hidden, but it will still take up the same space 
+as if it was visible:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+h1.hidden {<br>&nbsp;&nbsp;visibility: hidden;<br>}</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>CSS Display/Visibility Properties</h2>
+<table class="ws-table-all notranslate">
+  <tr>
+    <th style="width:25%">Property</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_class_display.html">display</a></td>
+    <td>Specifies how an element should be displayed</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_class_visibility.html">visibility</a></td>
+    <td>Specifies whether or not an element should be visible</td>
+  </tr>
+</table>
+
+<br>

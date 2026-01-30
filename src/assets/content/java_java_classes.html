@@ -1,0 +1,131 @@
+<h1>Java <span class="color_h1">Classes and Objects</span></h1>
+
+<hr>
+
+<h2>Java Classes/Objects</h2>
+<p>Java is an object-oriented programming language.</p>
+<p>Everything in Java is associated with classes and objects, along with its attributes and 
+methods. For example: in real life, a car is an object. The car has <strong>attributes</strong>, such as weight and color, and <strong>
+methods</strong>, such as drive and brake. </p>
+<p>A Class is like an object constructor, or a "blueprint" for creating objects.</p>
+<hr>
+
+<h2>Create a Class</h2>
+<p>To create a class, use the keyword <code class="w3-codespan">class</code>.</p>
+<p>In this example, we create a class named "<code class="w3-codespan">Main</code>&quot; with a 
+variable <code class="w3-codespan">x</code>:</p>
+<div class="w3-example" style="padding-top:18px">
+<pre class="language-java w3-white" data-tab-header="Main.java"><code>public class Main {
+&nbsp; int x = 5;
+}
+</code></pre>
+</div>
+<div class="ws-note w3-panel">
+<p>Remember from the <a href="java_syntax.html">Java Syntax chapter</a> that a class should always start with an uppercase first letter, and that the name of the java file should match the class name.</p>
+</div>
+<hr>
+
+<h2>Create an Object</h2>
+<p>In Java, an object is created from a class. We have already created the class named <code class="w3-codespan">
+Main</code>, 
+so now we can use this to create objects.</p>
+<p>To create an object of <code class="w3-codespan">Main</code>, 
+specify the class name, followed by the object name, and use the keyword <code class="w3-codespan">new</code>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Create an object called "<code class="w3-codespan">myObj</code>&quot; and print the value of x:</p>
+<pre class="language-java w3-white" data-line="5"><code>public class Main {
+&nbsp; int x = 5;
+
+&nbsp; public static void main(String[] args) {
+&nbsp;&nbsp;&nbsp; Main <strong>myObj</strong> = new Main();
+&nbsp;&nbsp;&nbsp; System.out.println(myObj.x);
+&nbsp; }
+}
+</code></pre>
+<p>
+
+</p>
+</div>
+<hr>
+
+<hr>
+
+<h2>Multiple Objects</h2>
+<p>You can create multiple objects of one class:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Create two objects of <code class="w3-codespan">Main</code>:</p>
+<pre class="language-java w3-white" data-line="5,6"><code>public class Main {
+&nbsp; int x = 5;
+
+&nbsp; public static void main(String[] args) {
+&nbsp;&nbsp;&nbsp; Main <strong>myObj1</strong> = new Main();&nbsp; // Object 1
+&nbsp;&nbsp;&nbsp; Main <strong>myObj2</strong> = new Main();&nbsp; // Object 2
+&nbsp;&nbsp;&nbsp; System.out.println(myObj1.x);
+&nbsp;&nbsp;&nbsp; System.out.println(myObj2.x);
+&nbsp; }
+}
+</code></pre>
+<p>
+
+</p>
+</div>
+
+<hr>
+
+<h2>Using Multiple Classes</h2>
+<p>You can also create an object of a class and access it in another class. This 
+is often used for better organization of classes (one class has all the 
+attributes and methods, while the other class holds the <code class="w3-codespan">main()</code> method (code to 
+be executed)). </p>
+<p>Remember that the name of the java file should match the class name. In this 
+example, we have created two files in the same directory/folder:</p>
+<ul>
+<li>Main.java</li>
+<li>Second.java</li>
+</ul>
+<div class="w3-example" style="padding-top:18px;">
+<pre class="language-java w3-white" data-tab-header="Main.java"><code>public class Main {
+&nbsp; int x = 5;
+}
+</code></pre>
+</div>
+<div class="w3-example" style="padding-top:18px;">
+<pre class="language-java w3-white" data-tab-header="Second.java"><code>class Second {
+&nbsp; public static void main(String[] args) {
+&nbsp;&nbsp;&nbsp; Main <strong>myObj</strong> = new Main();
+&nbsp;&nbsp;&nbsp; System.out.println(myObj.x);
+&nbsp; }
+}
+</code></pre>
+</div>
+<p>When both files have been compiled:</p>
+<div class="w3-example">
+<div class="w3-code notranslate w3-black">
+C:\Users\<em>Your Name</em>&gt;javac Main.java<br>
+C:\Users\<em>Your Name</em>&gt;javac Second.java
+</div>
+</div>
+
+<p>Run the Second.java file:</p>
+<div class="w3-example">
+<div class="w3-code notranslate w3-black">
+C:\Users\<em>Your Name</em>&gt;java Second
+</div>
+</div>
+
+<p>And the output will be:</p>
+<div class="w3-example">
+<div class="w3-padding notranslate w3-black w3-margin-top">
+  <code>5</code></div>
+
+</div>
+
+<div class="ws-note w3-panel">
+<p>You will learn much more about classes and objects in the next chapters.</p>
+</div>
+
+<hr>
+
+<hr>

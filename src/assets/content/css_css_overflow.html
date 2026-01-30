@@ -1,0 +1,134 @@
+<h1>CSS <span class="color_h1">The overflow Property</span></h1>
+
+<hr>
+
+<h2>The CSS overflow Property</h2>
+<p>The CSS <code class="w3-codespan"><a href="../cssref/pr_pos_overflow.html">overflow</a></code> property controls what 
+happens to content that is too big to fit into an area.</p>
+<p>It specifies whether to clip the content or to add scrollbars when the content of an element is too big.</p>
+
+<p>The <code class="w3-codespan"><a href="../cssref/pr_pos_overflow.html">overflow</a></code> property has the following values:</p>
+<ul>
+<li><code class="w3-codespan">visible</code> - Default. The overflow is not clipped. The content renders outside the element's box</li>
+<li><code class="w3-codespan">hidden</code> - The overflow is clipped, and the rest of the content is hidden</li>
+<li><code class="w3-codespan">scroll</code> - Scrollbars are added. User must scroll to see all content</li>
+<li><code class="w3-codespan">auto</code> - Similar to <code class="w3-codespan">scroll</code>, but adds scrollbars only when necessary</li>
+</ul>
+
+<p>Here, scrollbars are added on overflow:</p>
+<div id="overflow1">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.</div>
+<br>
+<a target="_blank" href="tryit3ade.html?filename=trycss_overflow_intro" class="ws-btn">Try it Yourself &raquo;</a>
+
+
+<hr>
+
+<h2>CSS overflow: visible</h2>
+<p>By default, the overflow is <code class="w3-codespan">visible</code>, meaning that it is not clipped and it 
+renders outside the element's box:</p>
+<div class="visible">You can use the overflow property when you want to have better control of the layout. The overflow property specifies what happens if content overflows an element's box.</div>
+<div class="w3-example" style="margin-top:98px;">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+div {<br>&nbsp; width: 200px;<br>&nbsp;&nbsp;height: 
+  65px;<br>&nbsp;&nbsp;background-color: coral;<br>&nbsp; 
+overflow: visible;<br>}</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>CSS overflow: hidden</h2>
+<p>With the <code class="w3-codespan">hidden</code> value, the overflow is clipped, and the rest of the content is hidden:</p>
+<div class="hidden">You can use the overflow property when you want to have better control of the layout. The overflow property specifies what happens if content overflows an element's box.</div>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+div {<br>&nbsp;&nbsp;overflow: hidden;<br>}</div>
+
+</div>
+
+<hr>
+
+<h2>CSS overflow: scroll</h2>
+<p>With the <code class="w3-codespan">scroll</code> value, horizontal and 
+vertical scrollbars are always added. User must scroll to see all content:</p>
+<div class="scroll">You can use the overflow property when you want to have better control of the layout. The overflow property specifies what happens if content overflows an element's box.</div>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+div {<br>&nbsp;&nbsp;overflow: scroll;<br>}</div>
+
+</div>
+
+<hr>
+
+<h2>CSS overflow: auto</h2>
+<p>The <code class="w3-codespan">auto</code> value is similar to <code class="w3-codespan">scroll</code>, 
+but it adds scrollbars only when necessary:</p>
+<div class="auto">You can use the overflow property when you want to have better control of the layout. The overflow property specifies what happens if content overflows an element's box.</div>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+div {<br>&nbsp;&nbsp;overflow: auto;<br>}</div>
+
+</div>
+
+<hr>
+
+<h2>CSS overflow-x and overflow-y</h2>
+<p>The <code class="w3-codespan"><a href="../cssref/css3_pr_overflow-x.html">overflow-x</a></code> and <code class="w3-codespan">
+<a href="../cssref/css3_pr_overflow-y.html">overflow-y</a></code> properties specifies 
+whether to change the overflow of content just horizontally or vertically (or 
+both):</p>
+<ul>
+  <li><code class="w3-codespan"><a href="../cssref/css3_pr_overflow-x.html">overflow-x</a></code> specifies what to do with the left/right edges of the 
+content.</li>
+  <li><code class="w3-codespan"><a href="../cssref/css3_pr_overflow-y.html">overflow-y</a></code> specifies what to do with the top/bottom edges of the 
+content.</li>
+</ul>
+<div class="scrollx">You can use the overflow property when you want to have better control of the layout. The overflow property specifies what happens if content overflows an element's box.</div>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+div {<br>&nbsp; overflow-x: hidden; /* Hide horizontal scrollbar 
+*/<br>&nbsp;&nbsp;overflow-y: scroll; /* Add vertical scrollbar */<br>}</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>All CSS Overflow Properties</h2>
+<table class="ws-table-all notranslate">
+  <tr>
+    <th style="width:25%">Property</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_pos_overflow.html">overflow</a></td>
+    <td>Specifies what happens if content overflows an element's box</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/css_pr_overflow-anchor.html">overflow-anchor</a></td>
+    <td>Makes it possible to turn off scroll anchoring</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/css3_pr_overflow-x.html">overflow-x</a></td>
+    <td>Specifies what to do with the left/right edges of the content if it overflows the element's content area</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/css3_pr_overflow-y.html">overflow-y</a></td>
+    <td>Specifies what to do with the top/bottom edges of the content if it overflows the element's content area</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/css3_pr_overflow-wrap.html">overflow-wrap</a></td>
+    <td>Specifies whether or not the browser can break lines with long words, if 
+    they overflow its container</td>
+  </tr>
+  </table>
+
+<br>

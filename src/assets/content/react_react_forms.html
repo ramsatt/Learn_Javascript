@@ -1,0 +1,163 @@
+<h1>React Forms</h1>
+
+
+<hr>
+
+<p class="intro">Just like in HTML, React uses forms to allow users to interact with the web page.</p>
+<hr>
+<h2>Adding Forms in React</h2>
+<p>You add a form with React like any other element:</p>
+
+<div class="w3-example">
+<h3>Example:</h3>
+  <p>Add a form that allows users to enter their name:</p>
+<pre class="language-jsx w3-white"><code>function MyForm() {
+  return (
+    &lt;form&gt;
+      &lt;label&gt;Enter your name:
+        &lt;input type=&quot;text&quot; /&gt;
+      &lt;/label&gt;
+    &lt;/form&gt;
+  )
+}
+
+createRoot(document.getElementById('root')).render(
+  &lt;MyForm /&gt;
+);
+</code></pre>
+<p>
+  <a target="_blank" class="w3-btn" href="showreact39bd.html?filename=demo_react_forms1">Run Example &raquo;</a>
+</p>
+</div>
+
+<p>This will work as normal, the form will submit and the page will refresh.</p>
+
+<p>But this is generally not what we want to happen in React.</p>
+
+<p>We want to prevent this default behavior and let React control the form.</p>
+
+<hr>
+
+<h2>HTML Forms vs. React Forms</h2>
+<p>In React, form elements like <code class="w3-codespan">&lt;input&gt;</code>,
+  <code class="w3-codespan">&lt;textarea&gt;</code>,
+  and <code class="w3-codespan">&lt;select&gt;</code>
+  work a bit differently from traditional HTML.</p>
+
+<p>In standard HTML,
+  form elements maintain their own value based on user input.</p>
+
+<p>For example, an <code class="w3-codespan">&lt;input type="text"&gt;</code> field keeps track of its own value
+   in the HTML DOM.</p>
+
+<p>In React, the value of the form element is kept in the component's <code class="w3-codespan">state</code>
+  property and updated <i>only</i> with the <code class="w3-codespan">setState</code>() function.</p>
+
+<p>In other words; React provides a way to manage form data through component state,
+  leading to what are known as "controlled components."
+</p>
+
+<hr>
+
+<hr>
+
+<h2>Controlled Components</h2>
+<p>In a controlled component, form data is handled by the React component.</p>
+<p>The value of the input element is driven by the React <i>state</i>,
+  and any changes to that value are managed through event handlers that update the state.</p>
+
+<p>When the data is handled by the components, all the data is stored in the component 
+state.</p>
+<p>We can use the <code class="w3-codespan">useState</code> Hook to keep track of each
+  input value and provide a "single source of truth" for the entire application.</p>
+
+<div class="w3-panel ws-note">
+<p>See the <a href="react_hooks.html">React Hooks</a> section for more information on Hooks.</p>
+</div>
+
+
+<div class="w3-example">
+<h3>Example:</h3>
+  <p>Use the <code class="w3-codespan">useState</code> Hook to manage the input:</p>
+<pre class="language-jsx w3-white"><code>import { useState } from 'react';
+import { createRoot } from 'react-dom/client';
+
+function MyForm() {
+  const [name, setName] = useState(&quot;&quot;);
+
+  function handleChange(e) {
+    setName(e.target.value);
+  }
+
+  return (
+    &lt;form&gt;
+      &lt;label&gt;Enter your name:
+        &lt;input
+          type=&quot;text&quot; 
+          value={name}
+          onChange={handleChange}
+        /&gt;
+      &lt;/label&gt;
+      &lt;p&gt;Current value: {name}&lt;/p&gt;
+    &lt;/form&gt;
+  )
+}
+
+createRoot(document.getElementById('root')).render(
+  &lt;MyForm /&gt;
+);
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreactf069.html?filename=demo_react_forms_usestate">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<h3>Example Explained:</h3>
+<p>1. Import the <code class="w3-codespan">useState</code> Hook from React:</p>
+<pre class="language-jsx w3-white"><code>import { useState } from 'react';
+</code></pre>
+
+<p>2. Declare a state variable to hold the input's value and a function to update it:</p>
+<pre class="language-jsx w3-white"><code>const [name, setName] = useState(&quot;&quot;);
+</code></pre>
+
+<p>3. Create a function to handle the change event:</p>
+<pre class="language-jsx w3-white"><code>function handleChange(e) {
+  setName(e.target.value);
+}
+</code></pre>
+
+<p>4. Set the value of the input field to the state variable and the onChange attribute to handle the change event:</p>
+<pre class="language-jsx w3-white"><code>&lt;input
+  type=&quot;text&quot; 
+  value={name}
+  onChange={handleChange}
+/>
+</code></pre>
+
+<p>5. Display the current value to show that the value is being updated:</p>
+<pre class="language-jsx w3-white"><code>&lt;p&gt;Current value: {name}&lt;/p&gt;
+</code></pre>
+
+<hr>
+<h2>Initial Values</h2>
+
+<p>To add an initial value to the input field in the example above,
+  add a value to the <code class="w3-codespan">useState</code> object:</p>
+<div class="w3-example">
+  <h3>Example:</h3>
+  <p>Use initial value for name:</p>
+  <pre class="language-jsx w3-white"><code>function MyForm() {
+  const [name, setName] = useState(&quot;John&quot;);
+
+  ...
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreact98da.html?filename=demo_react_forms_usestate2">Run 
+Example &raquo;</a>
+</p>
+</div>
+<hr>
+
+<hr>

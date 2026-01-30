@@ -1,0 +1,200 @@
+<h1>CSS <span class="color_h1">Margins</span></h1>
+
+<hr>
+
+<div class="w3-theme-border" style="border-width:1px;border-style:solid;margin:70px;padding:5px;">
+This element has a margin of 70px.
+</div>
+<a target="_blank" href="tryit62b7.html?filename=trycss_margin_intro" class="ws-btn">Try it Yourself &raquo;</a>
+
+<hr>
+
+<h2>CSS Margins</h2>
+<p>The CSS margin properties are used to create space around elements, 
+outside of any defined borders.</p>
+<p>Margins define the distance between an element's border and the surrounding 
+elements.</p>
+<p>With CSS, you have full control over the margins. CSS has properties 
+for setting the margin for each individual side of an element (top, right, bottom, and left), 
+and a shorthand property for setting all the margin properties in one 
+declaration.</p>
+
+<hr>
+
+<h2>Margin - Individual Sides</h2>
+<p>CSS has properties for specifying the margin for each 
+side of an element:</p>
+<ul>
+<li><code class="w3-codespan"><a href="../cssref/pr_margin-top.html">margin-top</a></code> - sets the top margin of an element</li>
+<li><code class="w3-codespan"><a href="../cssref/pr_margin-right.html">margin-right</a></code> - sets the 
+right margin of an element</li>
+<li><code class="w3-codespan"><a href="../cssref/pr_margin-bottom.html">margin-bottom</a></code> - sets the 
+bottom margin of an element</li>
+<li><code class="w3-codespan"><a href="../cssref/pr_margin-left.html">margin-left</a></code> - sets the 
+left margin of an element</li>
+</ul>
+<p>All the margin properties can have the following values:</p>
+<ul>
+<li>auto - the browser calculates the margin</li>
+<li><em>length</em> - specifies a margin in px, pt, cm, etc.</li>
+<li><em>%</em> - specifies a margin in % of the width of the containing element</li>
+<li>inherit - specifies that the margin should be inherited from the parent element</li>
+</ul>
+
+<p><b>Tip:</b> Negative values are also allowed.</p>
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Set different margins for all four sides of a &lt;p&gt; element:</p>
+<div class="w3-code notranslate cssHigh">
+p {<br>&nbsp;&nbsp;margin-top: 100px;<br>
+&nbsp;&nbsp;margin-bottom: 100px;<br>
+&nbsp;&nbsp;margin-right: 150px;<br>
+&nbsp;&nbsp;margin-left: 80px;<br>}</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>Margin - Shorthand Property</h2>
+<p>To shorten the code, it is possible to specify all the margin properties in 
+one declaration.</p>
+<p>The <code class="w3-codespan"><a href="../cssref/pr_margin.html">margin</a></code> property is a shorthand property for the following individual margin properties:</p>
+<ul>
+<li><code class="w3-codespan"><a href="../cssref/pr_margin-top.html">margin-top</a></code></li>
+<li><code class="w3-codespan"><a href="../cssref/pr_margin-right.html">margin-right</a></code></li>
+<li><code class="w3-codespan"><a href="../cssref/pr_margin-bottom.html">margin-bottom</a></code></li>
+<li><code class="w3-codespan"><a href="../cssref/pr_margin-left.html">margin-left</a></code></li>
+</ul>
+<p>Here is how it works:</p>
+<p>If the <code class="w3-codespan"><a href="../cssref/pr_margin.html">margin</a></code> property has four values:</p>
+<ul>
+<li><b>margin: 25px 50px 75px 100px; </b>
+<ul><li>top margin is 25px</li>
+<li>right margin is 50px</li>
+<li>bottom margin is 75px</li>
+<li>left margin is 100px</li></ul>
+</li>
+</ul>
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Use the margin shorthand property with four values:</p>
+<div class="w3-code notranslate cssHigh">
+p {<br>&nbsp;&nbsp;margin: 25px 50px 75px 100px;<br>}</div>
+
+</div>
+
+<p>If the <code class="w3-codespan"><a href="../cssref/pr_margin.html">margin</a></code> property has three values:</p>
+<ul>
+<li><b>margin: 25px 50px 75px;</b><ul>
+<li>top margin is 25px</li>
+<li>right and left margins are 50px</li>
+<li>bottom margin is 75px</li></ul>
+</li>
+</ul>
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Use the margin shorthand property with three values:&nbsp;</p>
+<div class="w3-code notranslate cssHigh">
+p {<br>&nbsp;
+margin: 25px 50px 75px;<br>}</div>
+
+</div>
+
+<p>If the <code class="w3-codespan"><a href="../cssref/pr_margin.html">margin</a></code> property has two values:</p>
+<ul>
+<li><b>margin: 25px 50px;</b><ul><li>top and bottom margins are 25px</li>
+<li>right and left margins are 50px</li></ul>
+</li>
+</ul>
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Use the margin shorthand property with two values:&nbsp;</p>
+<div class="w3-code notranslate cssHigh">
+p {<br>&nbsp;
+margin: 25px 50px;<br>}</div>
+
+</div>
+
+<p>If the <code class="w3-codespan"><a href="../cssref/pr_margin.html">margin</a></code> property has one value:</p>
+<ul>
+<li><b>margin: 25px;</b><ul><li>all four margins are 25px</li></ul>
+</li>
+</ul>
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Use the margin shorthand property with one value:&nbsp;</p>
+<div class="w3-code notranslate cssHigh">
+p {<br>&nbsp;&nbsp;margin: 25px;<br>}</div>
+
+</div>
+
+<hr>
+
+<h2>The auto Value</h2>
+<p>You can set the <code class="w3-codespan"><a href="../cssref/pr_margin.html">margin</a></code> 
+property to <code class="w3-codespan">auto</code> to horizontally center the element within its container.</p>
+<p>The element will then take up the specified width, and the remaining space 
+will be split equally between the left and right margins.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Use margin: auto:</p>
+<div class="w3-code notranslate cssHigh">
+div {<br>&nbsp; width: 300px;<br>&nbsp; margin: 
+auto;<br>&nbsp;&nbsp;border: 1px solid red;<br>}</div>
+
+</div>
+
+<hr>
+
+<h2>The inherit Value</h2>
+<p>You can set the <code class="w3-codespan"><a href="../cssref/pr_margin.html">margin</a></code> 
+property to <code class="w3-codespan">inherit</code> to let the margin be 
+inherited from the parent element.</p>
+<p>This example lets the left margin of the &lt;p class=&quot;ex1&quot;&gt; element be inherited from the parent element 
+(&lt;div&gt;):</p>
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Use of the inherit value:</p>
+<div class="w3-code notranslate cssHigh">
+div {<br>&nbsp;&nbsp;border: 1px solid red;<br>&nbsp;&nbsp;margin-left: 100px;<br>}<br><br>p.ex1 {<br>
+  &nbsp; margin-left: 
+inherit;<br>}</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>All CSS Margin Properties</h2>
+<table class="ws-table-all notranslate">
+  <tr>
+    <th style="width:30%">Property</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_margin.html">margin</a></td>
+    <td>A shorthand property for setting all the margin properties in one declaration</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_margin-bottom.html">margin-bottom</a></td>
+    <td>Sets the bottom margin of an element</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_margin-left.html">margin-left</a></td>
+    <td>Sets the left margin of an element</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_margin-right.html">margin-right</a></td>
+    <td>Sets the right margin of an element</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_margin-top.html">margin-top</a></td>
+    <td>Sets the top margin of an element</td>
+  </tr>
+</table>
+
+<br>

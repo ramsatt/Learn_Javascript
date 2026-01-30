@@ -1,0 +1,156 @@
+<h1>jQuery - <span class="color_h1">Dimensions</span></h1>
+
+<hr>
+<p class="intro">With jQuery, it is easy to work with the dimensions of elements and browser window.</p>
+<hr>
+<h2>jQuery Dimension Methods</h2>
+<p>jQuery has several important methods for working with dimensions:</p>
+<ul>
+  <li><code class="w3-codespan">width()</code></li>
+  <li><code class="w3-codespan">height()</code></li>
+  <li><code class="w3-codespan">innerWidth()</code></li>
+  <li><code class="w3-codespan">innerHeight()</code></li>
+  <li><code class="w3-codespan">outerWidth()</code></li>
+  <li><code class="w3-codespan">outerHeight()</code></li>
+</ul>
+<hr>
+
+<h2>jQuery Dimensions</h2>
+<p style="text-align:center;">
+<img alt="jQuery Dimensions" class="w3-image" src="assets/content/images/img_jquerydim.gif"></p>
+
+<hr>
+<h2>jQuery width() and height() Methods</h2>
+
+<p>The <code class="w3-codespan">width()</code> method sets or returns the width of an element (excludes 
+padding, border and margin).</p>
+
+<p>The <code class="w3-codespan">height()</code> method sets or returns the height of an element (excludes padding, border 
+and margin).</p>
+<p>The following example returns the width and height of a specified <code class="w3-codespan">&lt;div&gt;</code> 
+element:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;button&quot;).click(function(){<br>
+&nbsp;&nbsp;var txt = &quot;&quot;;<br>
+&nbsp;&nbsp;txt += &quot;Width: &quot; + $(&quot;#div1&quot;).width() + &quot;&lt;/br&gt;&quot;;<br>
+&nbsp;&nbsp;txt += &quot;Height: &quot; + $(&quot;#div1&quot;).height();<br>
+&nbsp;&nbsp;$(&quot;#div1&quot;).html(txt);<br>
+});</div>
+
+</div>
+<hr>
+
+<hr>
+<h2>jQuery innerWidth() and innerHeight() Methods</h2>
+
+<p>The <code class="w3-codespan">innerWidth()</code> method returns the width of an element (includes padding).</p>
+
+<p>The <code class="w3-codespan">innerHeight()</code> method returns the height of an element (includes padding).</p>
+<p>The following example returns the inner-width/height of a specified <code class="w3-codespan">&lt;div&gt;</code> 
+element:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;button&quot;).click(function(){<br>
+  &nbsp; var txt = &quot;&quot;;<br>
+  &nbsp; txt += &quot;Inner width: &quot; + $(&quot;#div1&quot;).innerWidth() + &quot;&lt;/br&gt;&quot;;<br>
+  &nbsp; txt += &quot;Inner height: &quot; + $(&quot;#div1&quot;).innerHeight();<br>
+  &nbsp; $(&quot;#div1&quot;).html(txt);<br>
+});</div>
+
+</div>
+<hr>
+
+<h2>jQuery outerWidth() and outerHeight() Methods</h2>
+
+<p>The <code class="w3-codespan">outerWidth()</code> method returns the width of an element (includes padding and 
+border).</p>
+
+<p>The <code class="w3-codespan">outerHeight()</code> method returns the height of an element (includes padding 
+and border).</p>
+<p>The following example returns the outer-width/height of a specified <code class="w3-codespan">&lt;div&gt;</code> 
+element:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;button&quot;).click(function(){<br>
+  &nbsp; var txt = &quot;&quot;;<br>
+&nbsp;&nbsp;txt += &quot;Outer width: &quot; + $(&quot;#div1&quot;).outerWidth() + &quot;&lt;/br&gt;&quot;;<br>
+&nbsp;&nbsp;txt += &quot;Outer height: &quot; + $(&quot;#div1&quot;).outerHeight();<br>
+  &nbsp; $(&quot;#div1&quot;).html(txt);<br>
+});</div>
+
+</div>
+
+<p>The <code class="w3-codespan">outerWidth(true)</code> method returns the width of an element (includes 
+padding, border, and margin).</p>
+
+<p>The <code class="w3-codespan">outerHeight(true)</code> method returns the height of an element (includes 
+padding, border, and margin).</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;button&quot;).click(function(){<br>
+  &nbsp; var txt = &quot;&quot;;<br>
+  &nbsp; txt += &quot;Outer width (+margin): &quot; + $(&quot;#div1&quot;).outerWidth(true) + &quot;&lt;/br&gt;&quot;;<br>
+  &nbsp; txt += &quot;Outer height (+margin): &quot; + $(&quot;#div1&quot;).outerHeight(true);<br>
+  &nbsp; $(&quot;#div1&quot;).html(txt);<br>
+});</div>
+
+</div>
+<hr>
+
+<h2>jQuery More width() and height()</h2>
+
+<p>The following example returns the width and height of the document (the HTML 
+document) and window (the browser viewport):</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;button&quot;).click(function(){<br>
+  &nbsp; var txt = &quot;&quot;;<br>
+  &nbsp; txt += &quot;Document width/height: &quot; + $(document).width();<br>
+  &nbsp; txt += &quot;x&quot; + $(document).height() + &quot;\n&quot;;<br>
+&nbsp;&nbsp;txt += &quot;Window width/height: &quot; + $(window).width();<br>
+  &nbsp; txt += &quot;x&quot; + $(window).height();<br>
+  &nbsp; alert(txt);<br>
+});</div>
+
+</div>
+<p>The following example sets the width and height of a specified <code class="w3-codespan">&lt;div&gt;</code> 
+element:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;button&quot;).click(function(){<br>
+&nbsp;&nbsp;$(&quot;#div1&quot;).width(500).height(500);<br>
+});</div>
+
+</div>
+<hr>
+
+<h2>jQuery Exercises</h2>
+<form autocomplete="off" id="w3-exerciseform" action="https://www.w3schools.com/jquery/exercise_jq.asp?filename=exercise_jq_dimensions1" method="post" target="_blank">
+<h2>Test Yourself With Exercises</h2>
+<div class="exercisewindow">
+<h2>Exercise:</h2>
+<p>Use jQuery methods to set the height and width of &lt;div&gt; to 500 pixels.</p>
+<div class="exerciseprecontainer">
+<pre style="background-color:transparent;border:none;">
+$("div").<input name="ex1" maxlength="6" style="width:65px;">(<input name="ex2" maxlength="3" style="width:35px;">).<input name="ex3" maxlength="5" style="width:55px;">(<input name="ex4" maxlength="3" style="width:35px;">);
+</pre>
+</div>
+<br>
+<button type="submit" class="w3-btn w3-margin-bottom">Submit Answer &raquo;</button>
+<p><a target="_blank" href="exercise_jq9434.html?filename=exercise_jq_dimensions1">Start the Exercise</a></p>
+</div>
+</form>
+<hr>
+
+
+<h2>jQuery CSS Reference</h2>
+<p>For a complete overview of all jQuery CSS methods, please go to our <a href="jquery_ref_html.html">jQuery HTML/CSS Reference</a>.</p>
+
+<br>

@@ -1,0 +1,119 @@
+<h1>Bootstrap 5 <span class="color_h1">Select</span></h1>
+
+<hr>
+
+<h2>Select Menu</h2>
+<div style="margin:20px 0 25px 0;">
+      <label for="sel1" class="form-label">Select menu (select one):</label>
+      <select class="form-select" id="sel1" style="margin-top:5px;">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+      </select>
+      <br>
+      <label for="sel2" class="form-label">Multiple select menu (hold ctrl or shift (or drag with    the mouse) to select more than one):</label>
+      <select multiple class="form-select"  style="margin-top:5px;" id="sel2">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+</div>    
+    
+<p>Select menus are used if you want to allow the user to pick from multiple options.</p>
+<p>To style a select menu in Bootstrap 5, add the <code class="w3-codespan">.form-select</code> class to the 
+&lt;select&gt; element:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;select class=&quot;form-select&quot;&gt;<br>&nbsp;&nbsp;&lt;option&gt;1&lt;/option&gt;<br>
+  &nbsp; &lt;option&gt;2&lt;/option&gt;<br>&nbsp; &lt;option&gt;3&lt;/option&gt;<br>&nbsp; &lt;option&gt;4&lt;/option&gt;<br>&lt;/select&gt;</div>
+
+</div>
+<hr>
+
+<h2>Select Menu Size</h2>
+<div style="margin:20px 0 25px 0;">
+ <select class="form-select form-select-lg">
+   <option>1</option>
+   <option>2</option>
+   <option>3</option>
+   <option>4</option>
+ </select><br>
+ <select class="form-select">
+   <option>1</option>
+   <option>2</option>
+   <option>3</option>
+   <option>4</option>
+ </select><br>
+ <select class="form-select form-select-sm">
+   <option>1</option>
+   <option>2</option>
+   <option>3</option>
+   <option>4</option>
+ </select>
+</div>    
+    
+<p>Use the <code class="w3-codespan">.form-select-lg</code> or <code class="w3-codespan">.form-select-sm</code> class to change the size of the select menu:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;select class=&quot;form-select 
+  form-select-lg&quot;&gt;<br>&lt;select class=&quot;form-select&quot;&gt;<br>&lt;select class=&quot;form-select 
+  form-select-sm&quot;&gt;</div>
+
+</div>
+<hr>
+<hr>
+
+<h2>Disabled Select Menu</h2>
+<div style="margin:20px 0 25px 0;">
+ <select class="form-select" disabled>
+   <option>1</option>
+   <option>2</option>
+   <option>3</option>
+   <option>4</option>
+ </select>
+</div>    
+    
+<p>Use the <code class="w3-codespan">disabled</code> attribute to disable the select menu:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;select class=&quot;form-select&quot; disabled&gt;<br>&nbsp; &lt;option&gt;1&lt;/option&gt;<br>&nbsp; 
+  &lt;option&gt;2&lt;/option&gt;<br>&nbsp; &lt;option&gt;3&lt;/option&gt;<br>&nbsp; &lt;option&gt;4&lt;/option&gt;<br>
+  &lt;/select&gt;</div>
+
+</div>
+<hr>
+
+<h2>Data Lists</h2>
+
+<p>Bootstrap will also style data lists, which is a list of pre-defined options for an 
+&lt;input&gt; element:</p>
+<div style="margin:20px 0 25px 0;">
+  <label for="browser" class="form-label">Choose your browser from the list:</label>
+  <input class="form-control" list="browsers" name="browser" id="browser">
+  <datalist id="browsers">
+    <option value="Edge">
+    <option value="Firefox">
+    <option value="Chrome">
+    <option value="Opera">
+    <option value="Safari">
+  </datalist>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;label for=&quot;browser&quot; class=&quot;form-label&quot;&gt;Choose your browser from the 
+  list:&lt;/label&gt;<br>&lt;input class=&quot;form-control&quot; list=&quot;browsers&quot; name=&quot;browser&quot; 
+  id=&quot;browser&quot;&gt;<br>&lt;datalist id=&quot;browsers&quot;&gt;<br>&nbsp; &lt;option value=&quot;Edge&quot;&gt;<br>&nbsp; 
+  &lt;option value=&quot;Firefox&quot;&gt;<br>&nbsp; &lt;option value=&quot;Chrome&quot;&gt;<br>&nbsp; &lt;option 
+  value=&quot;Opera&quot;&gt;<br>&nbsp; &lt;option value=&quot;Safari&quot;&gt;<br>&lt;/datalist&gt;</div>
+
+</div>
+
+<br>

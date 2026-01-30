@@ -1,0 +1,154 @@
+<h1>SQL <span class="color_h1">AND</span> Operator</h1>
+
+<hr>
+
+
+<h2>The SQL AND Operator</h2>
+<p>The <code class="w3-codespan">WHERE</code> clause can contain one or many <code class="w3-codespan">
+AND</code> operators.</p>
+<p>The <code class="w3-codespan">AND</code> operator is used to filter records based on more than one 
+condition, like if you want to return all customers from Spain that starts with the letter 'G':</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+Select all customers from Spain that starts with the letter 'G':
+<div class="w3-code notranslate sqlHigh">
+ SELECT *<br>
+ FROM Customers<br>
+ WHERE Country = 'Spain' AND CustomerName LIKE 'G%';
+</div>
+
+</div>
+<hr>
+
+<h2>Syntax</h2>
+<div class="w3-example ws-light-grey">
+<p><code class="sqlHigh">
+SELECT <em>column1</em>,<em> column2, ...</em><br>
+FROM <em>table_name</em><br>
+WHERE <em>condition1</em> AND <em>condition2</em> AND <em>condition3 ...</em>;</code></p>
+</div>
+<hr>
+
+<h2>AND vs OR</h2>
+<div class="w3-panel ws-note">
+<p>The <code class="w3-codespan">AND</code> operator displays a record if <em>all</em> the conditions are TRUE.</p>
+<p>The <code class="w3-codespan">OR</code> operator displays a record if <em>any</em> of the conditions are TRUE.</p>
+</div>
+
+<hr>
+
+<h2>Demo Database</h2>
+<p>Below is a selection from the <a href="trysql734a.html?filename=trysql_customers" target="_blank"><strong>Customers</strong></a> table used in the examples:</p>
+
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+  <tr>
+    <th>CustomerID</th>
+    <th>CustomerName</th>
+    <th>ContactName</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>PostalCode</th>
+    <th>Country</th>
+  </tr>
+  <tr>
+    <td>1<br><br></td>
+    <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Obere Str. 57</td>
+    <td>Berlin</td>
+    <td>12209</td>
+    <td>Germany</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Ana Trujillo Emparedados y helados</td>
+    <td>Ana Trujillo</td>
+    <td>Avda. de la Constitución 2222</td>
+    <td>México D.F.</td>
+    <td>05021</td>
+    <td>Mexico</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Antonio Moreno Taquería</td>
+    <td>Antonio Moreno</td>
+    <td>Mataderos 2312</td>
+    <td>México D.F.</td>
+    <td>05023</td>
+    <td>Mexico</td>
+  </tr>
+  <tr>
+    <td>4<br><br></td>
+    <td>Around the Horn</td>
+    <td>Thomas Hardy</td>
+    <td>120 Hanover Sq.</td>
+    <td>London</td>
+    <td>WA1 1DP</td>
+    <td>UK</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>Berglunds snabbköp</td>
+    <td>Christina Berglund</td>
+    <td>Berguvsvägen 8</td>
+    <td>Luleå</td>
+    <td>S-958 22</td>
+    <td>Sweden</td>
+  </tr>
+</table>
+</div>
+
+<hr>
+
+<hr>
+
+<h2>All Conditions Must Be True</h2>
+<p>The following SQL statement selects all fields from <code class="w3-codespan">Customers</code> where 
+<code class="w3-codespan">Country</code> is "Brazil" AND 
+<code class="w3-codespan">City</code> is "Rio de Janeiro" AND <code class="w3-codespan">
+CustomerID</code> is higher than 50:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+  SELECT * FROM Customers<br>WHERE Country = 'Brazil'<br>AND City = 'Rio de 
+  Janeiro'<br>AND CustomerID &gt; 50;
+</div>
+
+</div>
+
+<hr>
+
+<h2>Combining AND and OR</h2>
+<p>You can combine the <code class="w3-codespan">AND</code> and <code class="w3-codespan">OR</code> operators.</p>
+
+<p>The following SQL statement selects all customers from Spain that starts with a "G" or an "R".</p>
+<p>Make sure you use parenthesis to get the correct result.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Select all Spanish customers that starts with either "G" or "R":</p>
+<div class="w3-code notranslate sqlHigh">
+ SELECT * FROM Customers<br>
+ WHERE Country = 'Spain'
+ AND (CustomerName LIKE 'G%' OR CustomerName LIKE 'R%');</div>
+
+</div>
+
+<p>Without parenthesis, the select statement will return all customers from Spain that starts with a "G", <em>plus</em>
+all customers that starts with an "R", regardless of the country value:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Select all customers that either:<br>
+are from Spain and starts with either "G", <em>or</em><br>
+starts with the letter "R":</p>
+<div class="w3-code notranslate sqlHigh">
+ SELECT * FROM Customers<br>
+ WHERE Country = 'Spain'
+ AND CustomerName LIKE 'G%' OR CustomerName LIKE 'R%';</div>
+
+</div>
+
+<hr>
+
+<hr>

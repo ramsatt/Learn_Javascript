@@ -1,0 +1,65 @@
+<h1>jQuery <span class="color_h1">load()</span> Method</h1>
+<p><a href="jquery_ref_ajax.html" class="w3-btn w3-white w3-border" title="jQuery AJAX Methods">&#10094; jQuery AJAX Methods</a></p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Load the content of the file &quot;demo_test.txt&quot; into a specific &lt;div&gt; element:</p>
+<div class="w3-code notranslate jsHigh">
+$(&quot;button&quot;).click(function(){<br>
+&nbsp;&nbsp;$(&quot;#div1&quot;).load(&quot;demo_test.txt&quot;);<br>
+});
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="tryitd6c8.html?filename=tryjquery_ajax_load">Try it Yourself &raquo;</a>
+</div>
+<hr>
+
+<h2>Definition and Usage</h2>
+<p>The load() method loads data from a server and puts the returned data into the selected element.</p>
+<p><strong>Note:</strong> There is also a jQuery <a href="jquery_ref_events.html">Event</a> method called load. Which one is called, depends on the parameters.</p>
+<hr>
+
+<h2>Syntax</h2>
+<div class="w3-code w3-border notranslate"><div>
+$(<i>selector</i>).load(<i>url,data,function(response,status,xhr</i>))</div></div>
+<br>
+<table class="ws-table-all notranslate"> 
+  <tr>
+    <th style="width:20%">Parameter</th>
+    <th>Description</th>
+  </tr>  
+  <tr>
+    <td><em>url</em></td>
+    <td>Required. Specifies the URL you wish to load</td>
+    </tr>
+  <tr>
+    <td><em>data</em></td>
+    <td>Optional. Specifies data to send to the server along with the request</td>
+    </tr>
+  <tr>
+    <td><em>function(response,status,xhr)</em></td>
+    <td>Optional. Specifies a callback function to run when the load() method is completed.<br><br>
+    Additional parameters:<br>
+ <ul><li><em>response</em> - contains the result data from the request</li>
+    <li><em>status</em> - contains the status of the request (&quot;success&quot;, &quot;notmodified&quot;, &quot;error&quot;, &quot;timeout&quot;, or &quot;parsererror&quot;)</li>
+    <li><em>xhr</em> - contains the XMLHttpRequest object</li></ul>
+  </td>
+  </tr>
+</table>
+<hr>
+
+<div class="w3-container w3-theme">
+<h2>Try it Yourself - Examples</h2>
+</div>
+<p>
+<a href="tryitb824.html?filename=tryjquery_ajax_load_data" target="_blank">Make an AJAX request, and send data with the request</a><br>
+How to use the data parameter to send data with the AJAX request (this example uses the an example explained in our
+<a href="../xml/ajax_intro.html">AJAX Tutorial</a>)</p>
+<p>
+<a href="tryit3c2d.html?filename=tryjquery_ajax_load_func" target="_blank">Make an AJAX request and use a callback function</a><br>
+How to use the function parameter to work with the data result from the AJAX request.</p>
+<p>
+<a href="tryit91f6.html?filename=tryjquery_ajax_load_err" target="_blank">Make an AJAX request with an error</a><br>
+How to use the function parameter to deal with errors in an AJAX request (using the XMLHttpRequest parameter).</p>
+<hr>
+
+<p><a href="jquery_ref_ajax.html" class="w3-btn w3-white w3-border" title="jQuery AJAX Methods">&#10094; jQuery AJAX Methods</a></p>

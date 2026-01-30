@@ -1,0 +1,120 @@
+<h1>TypeScript Enums</h1>
+
+
+
+<hr>
+
+<p>An <strong>enum</strong> is a special "class" that represents a group of constants (unchangeable variables).</p>
+<p>Enums come in two flavors <code class="w3-codespan">string</code> and <code class="w3-codespan">numeric</code>.</p>
+<p>Let's start with numeric.</p>
+
+<hr>
+
+<h2>Numeric Enums - Default</h2>
+
+<p>By default, enums will initialize the first value to <code class="w3-codespan">0</code> and add 1 to each additional value:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+
+<div class="w3-code notranslate jsHigh">
+enum CardinalDirections {<br>
+&nbsp;&nbsp;North,<br>
+&nbsp;&nbsp;East,<br>
+&nbsp;&nbsp;South,<br>
+&nbsp;&nbsp;West<br>
+}<br>
+let currentDirection = CardinalDirections.North;<br>
+// logs 0<br>
+console.log(currentDirection);<br>
+// throws error as 'North' is not a valid enum<br>
+currentDirection = 'North'; // Error: "North" is not assignable to type 'CardinalDirections'.
+</div>
+
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>Numeric Enums - Initialized</h2>
+
+<p>You can set the value of the first numeric enum and have it auto increment from that:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+
+<div class="w3-code notranslate jsHigh">
+enum CardinalDirections {<br>
+&nbsp;&nbsp;North = 1,<br>
+&nbsp;&nbsp;East,<br>
+&nbsp;&nbsp;South,<br>
+&nbsp;&nbsp;West<br>
+}<br>
+// logs 1<br>
+console.log(CardinalDirections.North);<br>
+// logs 4<br>
+console.log(CardinalDirections.West);
+</div>
+
+</div>
+
+<hr>
+
+<h2>Numeric Enums - Fully Initialized</h2>
+
+<p>You can assign unique number values for each enum value.</p>
+<p>Then the values will not be incremented automatically:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+
+<div class="w3-code notranslate jsHigh">
+enum StatusCodes {<br>
+&nbsp;&nbsp;NotFound = 404,<br>
+&nbsp;&nbsp;Success = 200,<br>
+&nbsp;&nbsp;Accepted = 202,<br>
+&nbsp;&nbsp;BadRequest = 400<br>
+}<br>
+// logs 404<br>
+console.log(StatusCodes.NotFound);<br>
+// logs 200<br>
+console.log(StatusCodes.Success);
+</div>
+
+
+</div>
+
+<hr>
+<h2>String Enums</h2>
+
+<p>Enums can also contain <code class="w3-codespan">strings</code>.</p>
+<p>This is more common than numeric enums, because of their readability and intent.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+
+<div class="w3-code notranslate jsHigh">
+enum CardinalDirections {<br>
+&nbsp;&nbsp;North = 'North',<br>
+&nbsp;&nbsp;East = "East",<br>
+&nbsp;&nbsp;South = "South",<br>
+&nbsp;&nbsp;West = "West"<br>
+};<br>
+// logs "North"<br>
+console.log(CardinalDirections.North);<br>
+// logs "West"<br>
+console.log(CardinalDirections.West);
+</div>
+
+
+</div>
+
+<div class="w3-panel ws-info">
+<p>Technically, you can mix and match string and numeric enum values, but it is recommended not to do so.</p>
+</div>
+<hr>
+
+<hr>
+<br>

@@ -1,0 +1,198 @@
+<h1>Node.js <span class="color_h1">MongoDB</span> Insert</h1>
+
+<hr>
+
+<h2>Insert Into Collection</h2>
+<p>To insert a record, or <em>document</em> as it is called in MongoDB, into a collection, we use the 
+<code class="w3-codespan">insertOne()</code> method.</p>
+
+<div class="w3-panel ws-note">
+  <p>A <strong>document</strong> in MongoDB is the same as a <strong>record</strong> in MySQL</p>
+</div>
+
+<p>The first parameter of the <code class="w3-codespan">insertOne()</code> method is an object containing the 
+name(s) and value(s) of each field in the document you want to insert.</p>
+<p>It also takes a callback function where you can work with any errors, or the 
+result of the insertion:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Insert a document in the "customers" collection:</p>
+<div class="w3-code notranslate jsHigh">
+  let MongoClient = require('mongodb').MongoClient;<br>let url = &quot;mongodb://localhost:27017/&quot;;<br>
+  <br>MongoClient.connect(url, function(err, db) {<br>&nbsp; if (err) throw err;<br>&nbsp; 
+  let dbo = db.db(&quot;mydb&quot;);<br>&nbsp; 
+  let myobj = { name: &quot;Company 
+  Inc&quot;, address: &quot;Highway 37&quot; };<br>&nbsp; dbo.collection(&quot;customers&quot;).insertOne(myobj, function(err, res) {<br>
+  &nbsp;&nbsp;&nbsp; if (err) throw err;<br>&nbsp;&nbsp;&nbsp; console.log(&quot;1 
+  document 
+  inserted&quot;);<br>&nbsp;&nbsp;&nbsp; db.close();<br>&nbsp; });<br>});</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="shownodejs_cmd9b60.html?filename=demo_mongodb_insert">Run example &raquo;</a>
+
+</div>
+
+<p>Save the code above in a file called &quot;demo_mongodb_insert.js&quot; and run the file:</p>
+<div class="w3-example">
+<p>Run "demo_mongodb_insert.js"</p>
+<div class="w3-code notranslate w3-black">
+C:\Users\<em>Your Name</em>&gt;node demo_mongodb_insert.js
+</div>
+</div>
+<p>Which will give you this result:</p>
+<div class="w3-example">
+<div class="w3-code notranslate w3-black">
+  1 document inserted</div>
+</div>
+
+<div class="w3-panel ws-note">
+<p><strong>Note:</strong> If you try to insert documents in a collection that do not 
+exist, MongoDB will create the collection automatically.</p>
+</div>
+<hr>
+
+<hr>
+<h2>Insert Multiple Documents</h2>
+<p>To insert multiple documents into a collection in MongoDB, we use the 
+<code class="w3-codespan">insertMany()</code> method.</p>
+<p>The first parameter of the <code class="w3-codespan">insertMany()</code> method 
+is an array of objects, containing the data you want to 
+insert.</p>
+<p>It also takes a callback function where you can work with any errors, or the 
+result of the insertion:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Insert multiple documents in the &quot;customers&quot; collection:</p>
+<div class="w3-code notranslate jsHigh">
+  let MongoClient = require('mongodb').MongoClient;<br>let url = &quot;mongodb://localhost:27017/&quot;;<br>
+  <br>MongoClient.connect(url, function(err, db) {<br>&nbsp; if (err) throw err;<br>&nbsp; 
+  let dbo = db.db(&quot;mydb&quot;);<br>&nbsp; 
+  let myobj = [<br>&nbsp;&nbsp;&nbsp; { name: 'John', address: 'Highway 71'},<br>&nbsp;&nbsp;&nbsp; 
+  { name: 'Peter', address: 'Lowstreet 4'},<br>&nbsp;&nbsp;&nbsp; { name: 'Amy', 
+  address: 'Apple st 652'},<br>&nbsp;&nbsp;&nbsp; { name: 'Hannah', address: 
+  'Mountain 21'},<br>&nbsp;&nbsp;&nbsp; { name: 'Michael', address: 'Valley 
+  345'},<br>&nbsp;&nbsp;&nbsp; { name: 'Sandy', address: 'Ocean blvd 2'},<br>&nbsp;&nbsp;&nbsp; 
+  { name: 'Betty', address: 'Green Grass 1'},<br>&nbsp;&nbsp;&nbsp; { name: 
+  'Richard', address: 'Sky st 331'},<br>&nbsp;&nbsp;&nbsp; { name: 'Susan', 
+  address: 'One way 98'},<br>&nbsp;&nbsp;&nbsp; { name: 'Vicky', address: 
+  'Yellow Garden 2'},<br>&nbsp;&nbsp;&nbsp; { name: 'Ben', address: 'Park Lane 
+  38'},<br>&nbsp;&nbsp;&nbsp; { name: 'William', address: 'Central st 954'},<br>&nbsp;&nbsp;&nbsp; 
+  { name: 'Chuck', address: 'Main Road 989'},<br>&nbsp;&nbsp;&nbsp; { name: 
+  'Viola', address: 'Sideway 1633'}<br>&nbsp; ];<br>&nbsp; dbo.collection(&quot;customers&quot;).insertMany(myobj, 
+  function(err, res) {<br>&nbsp;&nbsp;&nbsp; if (err) throw err;<br>&nbsp;&nbsp;&nbsp; 
+  console.log(&quot;Number of documents inserted: &quot; + res.insertedCount);<br>&nbsp;&nbsp;&nbsp; 
+  db.close();<br>&nbsp; });<br>});</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="shownodejs_cmdaa69.html?filename=demo_mongodb_insert_multiple">Run example &raquo;</a>
+
+</div>
+
+<p>Save the code above in a file called &quot;demo_mongodb_insert_multiple.js&quot; and run the file:</p>
+<div class="w3-example">
+<p>Run "demo_mongodb_insert_multiple.js"</p>
+<div class="w3-code notranslate w3-black">
+C:\Users\<em>Your Name</em>&gt;node demo_mongodb_insert_multiple.js
+</div>
+</div>
+<p>Which will give you this result:</p>
+<div class="w3-example">
+<div class="w3-code notranslate w3-black">
+  Number of documents inserted: 14</div>
+</div>
+<hr>
+
+<h2>The Result Object</h2>
+<p>When executing the <code class="w3-codespan">insertMany()</code> method, a result object is returned.</p>
+<p>The result object contains information about how the insertion affected the 
+database.</p>
+<p>The object returned from the example above looked like this:</p>
+<div class="w3-example">
+<div class="w3-code notranslate jsHigh">
+  {<br>&nbsp; result: { ok: 1, n: 14 },<br>&nbsp; ops: [<br>&nbsp;&nbsp;&nbsp; { 
+  name: 'John', address: 'Highway 71', _id: 58fdbf5c0ef8a50b4cdd9a84 },<br>&nbsp;&nbsp;&nbsp; 
+  { name: 'Peter', address: 'Lowstreet 4', _id: 58fdbf5c0ef8a50b4cdd9a85 },<br>&nbsp;&nbsp;&nbsp; 
+  { name: 'Amy', address: 'Apple st 652', _id: 58fdbf5c0ef8a50b4cdd9a86 },<br>&nbsp;&nbsp;&nbsp; 
+  { name: 'Hannah', address: 'Mountain 21', _id: 58fdbf5c0ef8a50b4cdd9a87 },<br>&nbsp;&nbsp;&nbsp; 
+  { name: 'Michael', address: 'Valley 345', _id: 58fdbf5c0ef8a50b4cdd9a88 },<br>&nbsp;&nbsp;&nbsp; 
+  { name: 'Sandy', address: 'Ocean blvd 2', _id: 58fdbf5c0ef8a50b4cdd9a89 },<br>&nbsp;&nbsp;&nbsp; 
+  { name: 'Betty', address: 'Green Grass 1', _id: 58fdbf5c0ef8a50b4cdd9a8a },<br>&nbsp;&nbsp;&nbsp; 
+  { name: 'Richard', address: 'Sky st 331', _id: 58fdbf5c0ef8a50b4cdd9a8b },<br>&nbsp;&nbsp;&nbsp; 
+  { name: 'Susan', address: 'One way 98', _id: 58fdbf5c0ef8a50b4cdd9a8c },<br>&nbsp;&nbsp;&nbsp; 
+  { name: 'Vicky', address: 'Yellow Garden 2', _id: 58fdbf5c0ef8a50b4cdd9a8d },<br>&nbsp;&nbsp;&nbsp; 
+  { name: 'Ben', address: 'Park Lane 38', _id: 58fdbf5c0ef8a50b4cdd9a8e },<br>&nbsp;&nbsp;&nbsp; 
+  { name: 'William', address: 'Central st 954', _id: 58fdbf5c0ef8a50b4cdd9a8f },<br>&nbsp;&nbsp;&nbsp; 
+  { name: 'Chuck', address: 'Main Road 989', _id: 58fdbf5c0ef8a50b4cdd9a90 },<br>&nbsp;&nbsp;&nbsp; 
+  { name: 'Viola', address: 'Sideway 1633', _id: 58fdbf5c0ef8a50b4cdd9a91 } ],<br>&nbsp; 
+  insertedCount: 14,<br>&nbsp; insertedIds: [<br>&nbsp;&nbsp;&nbsp; 
+  58fdbf5c0ef8a50b4cdd9a84,<br>&nbsp;&nbsp;&nbsp; 58fdbf5c0ef8a50b4cdd9a85,<br>&nbsp;&nbsp;&nbsp; 
+  58fdbf5c0ef8a50b4cdd9a86,<br>&nbsp;&nbsp;&nbsp; 58fdbf5c0ef8a50b4cdd9a87,<br>&nbsp;&nbsp;&nbsp; 
+  58fdbf5c0ef8a50b4cdd9a88,<br>&nbsp;&nbsp;&nbsp; 58fdbf5c0ef8a50b4cdd9a89,<br>&nbsp;&nbsp;&nbsp; 
+  58fdbf5c0ef8a50b4cdd9a8a,<br>&nbsp;&nbsp;&nbsp; 58fdbf5c0ef8a50b4cdd9a8b,<br>&nbsp;&nbsp;&nbsp; 
+  58fdbf5c0ef8a50b4cdd9a8c,<br>&nbsp;&nbsp;&nbsp; 58fdbf5c0ef8a50b4cdd9a8d,<br>&nbsp;&nbsp;&nbsp; 
+  58fdbf5c0ef8a50b4cdd9a8e,<br>&nbsp;&nbsp;&nbsp; 58fdbf5c0ef8a50b4cdd9a8f <br>&nbsp;&nbsp;&nbsp; 
+  58fdbf5c0ef8a50b4cdd9a90,<br>&nbsp;&nbsp;&nbsp; 58fdbf5c0ef8a50b4cdd9a91 ]<br>
+  }</div>
+</div>
+
+<p>The values of the properties can be displayed like this:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Return the number of inserted documents:</p>
+<div class="w3-code notranslate w3-black">
+console.log(res.insertedCount)
+</div>
+</div>
+<p>Which will produce this result:</p>
+<div class="w3-example">
+<div class="w3-code notranslate w3-black">
+14</div>
+</div>
+
+<hr>
+
+<h2>The _id Field</h2>
+<p>If you do not specify an <code class="w3-codespan">_id</code> field, then MongoDB 
+will add one for you and assign a unique id for each document.</p>
+<p>In the example above no <code class="w3-codespan">_id</code> field was 
+specified, and as you can see from the result object, MongoDB assigned a unique 
+_id for each document.</p>
+<p>If you <em>do</em> specify the <code class="w3-codespan">_id</code> field, the value must 
+be unique for each document:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Insert three records in a &quot;products&quot; table, with specified 
+<code class="w3-codespan">_id</code> fields:</p>
+<div class="w3-code notranslate jsHigh">
+  let MongoClient = require('mongodb').MongoClient;<br>let url = &quot;mongodb://localhost:27017/&quot;;<br>
+  <br>MongoClient.connect(url, function(err, db) {<br>&nbsp; if (err) throw err;<br>&nbsp; 
+  let dbo = db.db(&quot;mydb&quot;);<br>&nbsp; 
+  let myobj = [<br>&nbsp;&nbsp;&nbsp; { <strong>_id: 154</strong>, name: 
+  'Chocolate Heaven'},<br>&nbsp;&nbsp;&nbsp; { <strong>_id: 155</strong>, name: 
+  'Tasty Lemon'},<br>&nbsp;&nbsp;&nbsp; { <strong>_id: 156</strong>, name: 
+  'Vanilla Dream'}<br>&nbsp; ];<br>&nbsp; dbo.collection(&quot;products&quot;).insertMany(myobj, 
+  function(err, res) {<br>&nbsp;&nbsp;&nbsp; if (err) throw err;<br>&nbsp;&nbsp;&nbsp; 
+  console.log(res);<br>&nbsp;&nbsp;&nbsp; db.close();<br>&nbsp; });<br>});</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="shownodejs_cmd8685.html?filename=demo_mongodb_insert_id">Run example &raquo;</a>
+
+</div>
+<p>Save the code above in a file called &quot;demo_mongodb_insert_id.js&quot; and run the file:</p>
+<div class="w3-example">
+<p>Run "demo_mongodb_insert_id.js"</p>
+<div class="w3-code notranslate w3-black">
+C:\Users\<em>Your Name</em>&gt;node demo_mongodb_insert_id.js
+</div>
+</div>
+<p>Which will give you this result:</p>
+<div class="w3-example">
+<div class="w3-code notranslate w3-black">
+  {<br>&nbsp; result: { ok: 1, n: 3 },<br>&nbsp; ops: [<br>&nbsp;&nbsp;&nbsp; { 
+  _id: 154, name: 'Chocolate Heaven },<br>&nbsp;&nbsp;&nbsp; { 
+  _id: 155, name: 'Tasty Lemon },<br>&nbsp;&nbsp;&nbsp; { 
+  _id: 156, name: 'Vanilla Dream } ],<br>&nbsp; 
+  insertedCount: 3,<br>&nbsp; insertedIds: [<br>&nbsp;&nbsp;&nbsp; 
+  154,<br>&nbsp;&nbsp;&nbsp; 155,<br>&nbsp;&nbsp;&nbsp; 
+  156 ]<br>
+  }</div>
+</div>
+
+<hr>
+
+<hr>

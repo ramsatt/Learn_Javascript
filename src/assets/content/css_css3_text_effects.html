@@ -1,0 +1,168 @@
+<h1>CSS <span class="color_h1">Text Effects</span></h1>
+
+<hr>
+
+<h2>CSS Text Effects</h2>
+<p>CSS has some properties to handle text overflow, word wrapping, line breaking rules and writing modes.</p>
+<p>In this chapter you will learn about the following properties:</p>
+<ul>
+<li><code class="w3-codespan"><a href="../cssref/css3_pr_text-overflow.html">text-overflow</a></code> - 
+Specifies how to handle overflowed content</li>
+<li><code class="w3-codespan"><a href="../cssref/css3_pr_word-wrap.html">word-wrap</a></code> - 
+Allows long words to be able to be broken and wrap onto the next line</li>
+<li><code class="w3-codespan"><a href="../cssref/css3_pr_word-break.html">word-break</a></code> - 
+Specifies line breaking rules</li>
+  <li><code class="w3-codespan"><a href="../cssref/css3_pr_writing-mode.html">writing-mode</a></code> - 
+  Specifies whether lines of text are laid out horizontally or vertically</li>
+</ul>
+<hr>
+
+<h2>CSS text-overflow Property</h2>
+<p>The CSS <code class="w3-codespan">
+<a href="../cssref/css3_pr_text-overflow.html">text-overflow</a></code> property 
+specifies how overflowed content that is not displayed should be signaled to the 
+user. It can be clipped or rendered with ellipsis (...).</p>
+<p>Both of the following properties are required for <code class="w3-codespan">
+text-overflow</code> to take effect:</p>
+<ul>
+  <li><code class="w3-codespan">
+  <a href="../cssref/pr_text_white-space.html">white-space: nowrap;</a></code></li>
+  <li><code class="w3-codespan">
+  <a href="../cssref/pr_pos_overflow.html">overflow: hidden;</a></code></li>
+</ul>
+<p>Here, the overflowed content is clipped:</p>
+<p id="overflow1">This is some long text that will not fit in the box</p>
+<p>Here, the overflowed content is rendered with ellipsis (...):</p>
+<p id="overflow2">This is some long text that will not fit in the box</p>
+
+<p>The CSS code is as follows:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+  p.test1 {<br>&nbsp;&nbsp;width: 200px; <br>&nbsp;&nbsp;border: 1px solid #000000;<br>&nbsp; 
+white-space: nowrap; <br>&nbsp; 
+overflow: hidden;<br>&nbsp; 
+text-overflow: clip; <br>}<br><br>p.test2 {<br>&nbsp;&nbsp;width: 200px; <br>&nbsp;&nbsp;border: 1px solid #000000;<br>
+  &nbsp;&nbsp;white-space: nowrap; <br>&nbsp; 
+overflow: hidden;<br>&nbsp; 
+text-overflow: ellipsis; <br>}</div>
+
+</div>
+<p>The following example shows how you can display the overflowed content when hovering over the element:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+   p:hover {<br>&nbsp;&nbsp;overflow: visible;<br>}</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>CSS word-wrap Property</h2>
+<p>The CSS <code class="w3-codespan"><a href="../cssref/css3_pr_word-wrap.html">word-wrap</a></code> property allows long words to be able to be broken and wrap onto the next line.&nbsp;</p>
+<p>If a word is too long to fit within an area, it expands outside:</p>
+<p id="normal"> This paragraph contains a very long word: thisisaveryveryveryveryveryverylongword. The long word will break and wrap to the next line.</p>
+<p>The <code class="w3-codespan"><a href="../cssref/css3_pr_word-wrap.html">word-wrap</a></code> property allows you to force the 
+text to wrap - even if it means splitting it in the middle of a word:</p>
+<p id="wordwrap"> This paragraph contains a very long word: thisisaveryveryveryveryveryverylongword. The long word will break and wrap to the next line.</p>
+<p>The CSS code is as follows:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Allow long words to be able to be broken and wrap onto the next line:</p>
+<div class="w3-code notranslate cssHigh">
+   p {<br>&nbsp; word-wrap: break-word;<br>}
+</div>
+
+</div>
+
+<hr>
+
+<h2>CSS word-break Property</h2>
+<p>The CSS <code class="w3-codespan"><a href="../cssref/css3_pr_word-break.html">word-break</a></code> property 
+specifies how words should break when reaching the end of a line.</p>
+<p>This property can take one of the following values:</p>
+<ul>
+  <li><code class="w3-codespan">normal</code> - This is default. Uses the default line breaking rules of the language</li>
+  <li><code class="w3-codespan">break-all</code> - Allows words to be broken at any character to prevent overflow</li>
+  <li><code class="w3-codespan">keep-all</code> - Prevents words from breaking</li>
+</ul>
+
+<p>Here, we use <code class="w3-codespan">normal</code>:</p>
+<p id="wordbreak1">This paragraph contains some text. This line will-break-at-hyphens.</p>
+
+<p>Here, we use <code class="w3-codespan">break-all</code>:</p>
+<p id="wordbreak2">This paragraph contains some text. The lines will break at any character.</p>
+
+<p>The CSS code is as follows:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+   p.test1 {<br>&nbsp;&nbsp;word-break: 
+   normal;<br>}<br><br>p.test2 {<br>&nbsp; word-break: 
+break-all;<br>}
+</div>
+
+</div>
+
+<hr>
+
+<h2>CSS writing-mode Property</h2>
+<p>The CSS <code class="w3-codespan"><a href="../cssref/css3_pr_writing-mode.html">writing-mode</a></code> property specifies 
+whether lines of text are laid out horizontally or vertically.</p>
+<p>This property can take one of the following values:</p>
+<ul>
+  <li><code class="w3-codespan">horizontal-tb</code> - Default. The text flows horizontally from left to right, vertically from 
+    top to bottom</li>
+  <li><code class="w3-codespan">vertical-rl</code> - The text flows vertically from top to bottom, horizontally from 
+    right to left</li>
+  <li><code class="w3-codespan">vertical-lr</code> - The text flows vertically from top to bottom, horizontally from 
+    left to right</li>
+</ul>
+
+<p>Here is a text with a span element with a <span class="wmtest2">vertical-rl</span> writing-mode.</p>
+
+<p>The following example shows some different writing modes:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+   p.test1 {<br>&nbsp; writing-mode: horizontal-tb; <br>}<br><br>span {<br>&nbsp; writing-mode: vertical-rl; <br>}<br><br>p.test2 {<br>&nbsp;&nbsp;writing-mode: 
+   vertical-rl; <br>} </div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>CSS Text Effect Properties</h2>
+<p>The following table lists the CSS text effect properties:</p>
+<table class="ws-table-all notranslate">
+  <tr>
+    <th style="width:25%">Property</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><a href="../cssref/css3_pr_text-justify.html">text-justify</a></td>
+    <td>Specifies how justified text should be aligned and spaced</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/css3_pr_text-overflow.html">text-overflow</a></td>
+    <td>Specifies how overflowed content that is not displayed should be signaled to the user</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/css3_pr_word-break.html">word-break</a></td>
+    <td>Specifies line breaking rules for non-CJK scripts</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/css3_pr_word-wrap.html">word-wrap</a></td>
+    <td>Allows long words to be able to be broken and wrap onto the next line</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/css3_pr_writing-mode.html">writing-mode</a></td>
+    <td>Specifies whether lines of text are laid out horizontally or vertically</td>
+  </tr>
+</table>
+
+<br>

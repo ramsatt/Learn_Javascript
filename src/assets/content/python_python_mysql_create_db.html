@@ -1,0 +1,55 @@
+<h1>Python MySQL <span class="color_h1">Create Database</span></h1>
+
+<hr>
+
+<h2>Creating a Database</h2>
+<p>To create a database in MySQL, use the &quot;CREATE DATABASE&quot; statement:</p>
+<div class="w3-example">
+<h3>Example</h3>
+  <p>create a database named "mydatabase":</p>
+<div class="w3-code notranslate jsHigh">
+  import mysql.connector<br><br>mydb = mysql.connector.connect(<br>&nbsp; host=&quot;localhost&quot;,<br>
+  &nbsp;
+  user=&quot;<em>yourusername</em>&quot;,<br>&nbsp; password=&quot;<em>yourpassword</em>&quot;<br>)<br><br>mycursor = mydb.cursor()<br><br>mycursor.execute(&quot;CREATE DATABASE 
+  mydatabase&quot;)<br></div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showpython96a5.html?filename=demo_mysql_create_db">Run example &raquo;</a>
+</div>
+
+<p>If the above code was executed with no errors, you have successfully 
+created a database.</p>
+
+<hr>
+
+<h2>Check if Database Exists</h2>
+
+<p>You can check if a database exist by listing all databases in your system by 
+using the &quot;SHOW DATABASES&quot; statement:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Return a list of your system's databases:</p>
+<div class="w3-code notranslate pythonHigh">
+  import mysql.connector<br><br>mydb = mysql.connector.connect(<br>&nbsp; host=&quot;localhost&quot;,<br>&nbsp; 
+  user=&quot;<em>yourusername</em>&quot;,<br>&nbsp; password=&quot;<em>yourpassword</em>&quot;<br>)<br><br>mycursor = mydb.cursor()<br><br>
+  mycursor.execute(&quot;SHOW DATABASES&quot;)<br><br>for x in mycursor:<br>&nbsp; 
+  print(x)</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showpython01e6.html?filename=demo_mysql_show_databases">Run example &raquo;</a>
+</div>
+
+
+<p>Or you can try to access the database when making the connection:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Try connecting to the database &quot;mydatabase&quot;:</p>
+<div class="w3-code notranslate pythonHigh">
+  import mysql.connector<br><br>mydb = mysql.connector.connect(<br>&nbsp; host=&quot;localhost&quot;,<br>&nbsp; 
+  user=&quot;<em>yourusername</em>&quot;,<br>&nbsp; password=&quot;<em>yourpassword</em>&quot;,<br>
+  <strong>&nbsp; 
+  database=&quot;mydatabase&quot;</strong><br>)</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showpython5647.html?filename=demo_mysql_db_exist">Run example &raquo;</a>
+</div>
+
+<p>If the database does not exist, you will get an error.</p>
+
+<hr>

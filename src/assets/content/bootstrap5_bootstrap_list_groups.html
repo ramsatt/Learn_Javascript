@@ -1,0 +1,237 @@
+<h1>Bootstrap 5 <span class="color_h1">List Groups</span></h1>
+
+<hr>
+
+<h2>Basic List Groups</h2>
+<p>The most basic list group is an unordered list with list items:</p>
+<ul class="list-group" style="margin:20px 0">
+  <li class="list-group-item">First item</li>
+  <li class="list-group-item">Second item</li>
+  <li class="list-group-item">Third item</li>
+</ul>
+<p>To create a basic list group, use an <code class="w3-codespan">&lt;ul&gt;</code> element with class <code class="w3-codespan">.list-group</code>, and
+<code class="w3-codespan">&lt;li&gt;</code> elements with class <code class="w3-codespan">.list-group-item</code>:</p>
+<div class="w3-example">
+ <h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+ &lt;ul class=&quot;list-group&quot;&gt;<br>&nbsp; &lt;li class=&quot;list-group-item&quot;&gt;First item&lt;/li&gt;<br>&nbsp; &lt;li class=&quot;list-group-item&quot;&gt;Second item&lt;/li&gt;<br>&nbsp; &lt;li class=&quot;list-group-item&quot;&gt;Third item&lt;/li&gt;<br>&lt;/ul&gt;</div>
+
+</div>
+<hr>
+
+<h2>Active State</h2>
+<ul class="list-group" style="margin:20px 0">
+  <li class="list-group-item active" style="z-index:1!important">Active item</li>
+  <li class="list-group-item">Second item</li>
+  <li class="list-group-item">Third item</li>
+</ul>
+<p>Use the <code class="w3-codespan">.active</code> class to highlight the current item:</p>
+<div class="w3-example">
+ <h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;ul class=&quot;list-group&quot;&gt;<br>&nbsp; &lt;li class=&quot;list-group-item 
+  active&quot;&gt;Active item&lt;/li&gt;<br>&nbsp; &lt;li class=&quot;list-group-item&quot;&gt;Second item&lt;/li&gt;<br>&nbsp; &lt;li class=&quot;list-group-item&quot;&gt;Third item&lt;/li&gt;<br>&lt;/ul&gt;</div>
+
+</div>
+<hr>
+
+<hr>
+
+<h2>List Group With Linked Items</h2>
+<div class="list-group" style="margin:20px 0">
+  <a href="javascript:void(0)" class="list-group-item list-group-item-action">First item</a>
+  <a href="javascript:void(0)" class="list-group-item list-group-item-action">Second item</a>
+  <a href="javascript:void(0)" class="list-group-item list-group-item-action">Third item</a>
+</div>
+<p>To create a list group with linked items, use <code class="w3-codespan">&lt;div&gt;</code> instead of <code class="w3-codespan">&lt;ul&gt;</code> 
+and <code class="w3-codespan">&lt;a&gt;</code> instead of <code class="w3-codespan">&lt;li&gt;</code>.
+Optionally, add the <code class="w3-codespan">.list-group-item-action</code> class if you want a grey background color on 
+hover:</p>
+<div class="w3-example">
+ <h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+ &lt;div class=&quot;list-group&quot;&gt;<br>&nbsp; &lt;a href=&quot;#&quot; 
+  class=&quot;list-group-item list-group-item-action&quot;&gt;First item&lt;/a&gt;<br>&nbsp; &lt;a 
+  href=&quot;#&quot; class=&quot;list-group-item list-group-item-action&quot;&gt;Second item&lt;/a&gt;<br>&nbsp; 
+  &lt;a href=&quot;#&quot; class=&quot;list-group-item list-group-item-action&quot;&gt;Third item&lt;/a&gt;<br>
+ &lt;/div&gt;</div>
+
+</div>
+<hr>
+
+<h2>Disabled Item</h2>
+  <p>The <code class="w3-codespan">.disabled</code> class adds a lighter text color to the disabled item. And when used on links, it will remove the hover effect:</p>
+  <div class="list-group" style="margin:20px 0">
+    <a href="javascript:void(0)" class="list-group-item disabled">Disabled item</a>
+    <a href="javascript:void(0)" class="list-group-item disabled">Disabled item</a>
+    <a href="javascript:void(0)" class="list-group-item xxhey">Third item</a>
+  </div><div class="w3-example">
+ <h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;div class=&quot;list-group&quot;&gt;<br>&nbsp; &lt;a href=&quot;#&quot; class=&quot;list-group-item disabled&quot;&gt;Disabled item&lt;/a&gt;<br>&nbsp; &lt;a href=&quot;#&quot; 
+  class=&quot;list-group-item disabled&quot;&gt;Disabled item&lt;/a&gt;<br>&nbsp; 
+  &lt;a href=&quot;#&quot; class=&quot;list-group-item&quot;&gt;Third item&lt;/a&gt;<br>
+  &lt;/div&gt;</div>
+
+</div>
+<hr>
+
+<h2>Flush / Remove Borders</h2>
+<p>Use the <code class="w3-codespan">.list-group-flush</code> class to remove some borders and rounded corners:</p>
+<div class="container" style="margin: 0 -16px">
+<ul class="list-group list-group-flush">
+  <li class="list-group-item">First item</li>
+  <li class="list-group-item">Second item</li>
+  <li class="list-group-item">Third item</li>
+  <li class="list-group-item">Fourth item</li>
+</ul>
+</div>
+<div class="w3-example">
+ <h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+ &lt;ul class=&quot;list-group 
+  list-group-flush&quot;&gt;<br>&nbsp; &lt;li class=&quot;list-group-item&quot;&gt;First item&lt;/li&gt;<br>&nbsp; &lt;li class=&quot;list-group-item&quot;&gt;Second item&lt;/li&gt;<br>&nbsp; &lt;li class=&quot;list-group-item&quot;&gt;Third item&lt;/li&gt;<br>&nbsp; 
+  &lt;li class=&quot;list-group-item&quot;&gt;Fourth item&lt;/li&gt;<br>&lt;/ul&gt;</div>
+
+</div>
+<hr>
+
+<h2>Numbered List Groups</h2>
+<p>Use the <code class="w3-codespan">.list-group-numbered</code> class to create 
+list items with numbers in front of them:</p>
+<div class="container" style="margin: 0 -16px">
+<ul class="list-group list-group-numbered">
+  <li class="list-group-item">First item</li>
+  <li class="list-group-item">Second item</li>
+  <li class="list-group-item">Third item</li>
+</ul>
+</div>
+<div class="w3-example">
+ <h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;ol class=&quot;list-group list-group-numbered&quot;&gt;<br>&nbsp; &lt;li 
+  class=&quot;list-group-item&quot;&gt;First item&lt;/li&gt;<br>&nbsp; &lt;li 
+  class=&quot;list-group-item&quot;&gt;Second item&lt;/li&gt;<br>&nbsp; &lt;li 
+  class=&quot;list-group-item&quot;&gt;Third item&lt;/li&gt;<br>&lt;/ol&gt;</div>
+
+</div>
+<hr>
+
+
+<h2>Horizontal List Groups</h2>
+<p>If you want the list items to display horizontally instead of vertically (side by side instead of on top of each other), add the <code class="w3-codespan">.list-group-horizontal</code> class to <code class="w3-codespan">.list-group</code>:</p>
+<div class="container" style="margin: 0 -16px">
+<ul class="list-group list-group-horizontal">
+  <li class="list-group-item">First item</li>
+  <li class="list-group-item">Second item</li>
+  <li class="list-group-item">Third item</li>
+  <li class="list-group-item">Fourth item</li>
+</ul>
+</div>
+<div class="w3-example">
+ <h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+ &lt;ul class=&quot;list-group 
+  list-group-horizontal&quot;&gt;<br>&nbsp; &lt;li class=&quot;list-group-item&quot;&gt;First item&lt;/li&gt;<br>&nbsp; &lt;li class=&quot;list-group-item&quot;&gt;Second item&lt;/li&gt;<br>&nbsp; &lt;li class=&quot;list-group-item&quot;&gt;Third item&lt;/li&gt;<br>&nbsp; 
+  &lt;li class=&quot;list-group-item&quot;&gt;Fourth item&lt;/li&gt;<br>&lt;/ul&gt;</div>
+
+</div>
+<hr>
+
+<h2>Contextual Classes</h2>
+<p>Contextual classes can be used to add color to the list items:</p>
+<ul class="list-group" style="margin:20px 0">
+  <li class="list-group-item list-group-item-success">Success item</li>
+  <li class="list-group-item list-group-item-secondary">Secondary item</li>
+  <li class="list-group-item list-group-item-info">Info item</li>
+  <li class="list-group-item list-group-item-warning">Warning item</li>
+  <li class="list-group-item list-group-item-danger">Danger item</li>
+  <li class="list-group-item list-group-item-primary">Primary item</li>
+  <li class="list-group-item list-group-item-dark">Dark item</li>
+  <li class="list-group-item list-group-item-light">Light item</li>
+</ul>
+
+<p>The classes for coloring list-items are: <code class="w3-codespan">
+.list-group-item-success</code>, <code class="w3-codespan">list-group-item-secondary</code>, <code class="w3-codespan">list-group-item-info</code>, <code class="w3-codespan">
+list-group-item-warning</code>, <code class="w3-codespan">.list-group-item-danger</code>, <code class="w3-codespan">.list-group-item-primary</code>, <code class="w3-codespan">list-group-item-dark</code> and <code class="w3-codespan">list-group-item-light</code>,:</p>
+<div class="w3-example">
+ <h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+ &lt;ul class=&quot;list-group&quot;&gt;<br>&nbsp; &lt;li class=&quot;list-group-item 
+  list-group-item-success&quot;&gt;Success item&lt;/li&gt;<br>&nbsp; &lt;li 
+  class=&quot;list-group-item list-group-item-secondary&quot;&gt;Secondary item&lt;/li&gt;<br>&nbsp; 
+  &lt;li class=&quot;list-group-item list-group-item-info&quot;&gt;Info item&lt;/li&gt;<br>&nbsp; &lt;li 
+  class=&quot;list-group-item list-group-item-warning&quot;&gt;Warning item&lt;/li&gt;<br>&nbsp; 
+  &lt;li class=&quot;list-group-item list-group-item-danger&quot;&gt;Danger item&lt;/li&gt;<br>&nbsp; 
+  &lt;li class=&quot;list-group-item list-group-item-primary&quot;&gt;Primary item&lt;/li&gt;<br>&nbsp; 
+  &lt;li class=&quot;list-group-item list-group-item-dark&quot;&gt;Dark item&lt;/li&gt;<br>&nbsp; &lt;li 
+  class=&quot;list-group-item list-group-item-light&quot;&gt;Light item&lt;/li&gt;<br>&lt;/ul&gt;</div>
+
+</div>
+<hr>
+
+<h2>Link items with Contextual Classes</h2>
+<div class="list-group" style="margin:20px 0">
+    <a href="javascript:void(0)" class="list-group-item list-group-item-action">Action item</a>
+    <a href="javascript:void(0)" class="list-group-item list-group-item-action list-group-item-success">Success item</a>
+    <a href="javascript:void(0)" class="list-group-item list-group-item-action list-group-item-secondary">Secondary item</a>
+    <a href="javascript:void(0)" class="list-group-item list-group-item-action list-group-item-info">Info item</a>
+    <a href="javascript:void(0)" class="list-group-item list-group-item-action list-group-item-warning">Warning item</a>
+    <a href="javascript:void(0)" class="list-group-item list-group-item-action list-group-item-danger">Danger item</a>
+    <a href="javascript:void(0)" class="list-group-item list-group-item-action list-group-item-primary">Primary item</a>
+    <a href="javascript:void(0)" class="list-group-item list-group-item-action list-group-item-dark">Dark item</a>
+    <a href="javascript:void(0)" class="list-group-item list-group-item-action list-group-item-light">Light item</a>
+</div>
+
+<div class="w3-example">
+ <h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;div class=&quot;list-group&quot;&gt;<br>&nbsp; &lt;a href=&quot;#&quot; class=&quot;list-group-item 
+  list-group-item-action&quot;&gt;Action item&lt;/a&gt;<br>&nbsp; &lt;a href=&quot;#&quot; 
+  class=&quot;list-group-item list-group-item-action list-group-item-success&quot;&gt;Success item&lt;/a&gt;<br>&nbsp; &lt;a 
+  href=&quot;#&quot; class=&quot;list-group-item list-group-item-action list-group-item-secondary&quot;&gt;Secondary item&lt;/a&gt;<br>&nbsp; 
+  &lt;a href=&quot;#&quot; class=&quot;list-group-item list-group-item-action list-group-item-info&quot;&gt;Info item&lt;/a&gt;<br>&nbsp; 
+  &lt;a href=&quot;#&quot; class=&quot;list-group-item list-group-item-action list-group-item-warning&quot;&gt;Warning item&lt;/a&gt;<br>&nbsp; 
+  &lt;a href=&quot;#&quot; class=&quot;list-group-item list-group-item-action list-group-item-danger&quot;&gt;Danger item&lt;/a&gt;<br>&nbsp; 
+  &lt;a href=&quot;#&quot; class=&quot;list-group-item list-group-item-action list-group-item-primary&quot;&gt;Primary item&lt;/a&gt;<br>&nbsp; 
+  &lt;a href=&quot;#&quot; class=&quot;list-group-item list-group-item-action list-group-item-dark&quot;&gt;Dark item&lt;/a&gt;<br>&nbsp; 
+  &lt;a href=&quot;#&quot; class=&quot;list-group-item list-group-item-action list-group-item-light&quot;&gt;Light item&lt;/a&gt;<br>
+  &lt;/div&gt;</div>
+
+</div>
+<hr>
+
+<h2>List Group with Badges</h2>
+<p>Combine <code class="w3-codespan">.badge</code> classes with utility/helper classes to add badges inside the list group:</p>
+<div class="container" style="margin: 0 -16px">
+  <ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      Inbox
+      <span class="badge bg-primary rounded-pill">12</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      Ads
+      <span class="badge bg-primary rounded-pill">50</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      Junk
+      <span class="badge bg-primary rounded-pill">99</span>
+    </li>
+  </ul>
+</div>
+<div class="w3-example">
+ <h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;ul class=&quot;list-group&quot;&gt;<br>&nbsp; &lt;li class=&quot;list-group-item d-flex 
+  justify-content-between align-items-center&quot;&gt;<br>&nbsp;&nbsp;&nbsp; Inbox<br>&nbsp;&nbsp;&nbsp; 
+  &lt;span class=&quot;badge bg-primary rounded-pill&quot;&gt;12&lt;/span&gt;<br>&nbsp; &lt;/li&gt;<br>&nbsp; 
+  &lt;li class=&quot;list-group-item d-flex justify-content-between align-items-center&quot;&gt;<br>&nbsp;&nbsp;&nbsp; 
+  Ads<br>&nbsp;&nbsp;&nbsp; &lt;span class=&quot;badge bg-primary 
+  rounded-pill&quot;&gt;50&lt;/span&gt;<br>&nbsp; &lt;/li&gt;<br>&nbsp; &lt;li class=&quot;list-group-item 
+  d-flex justify-content-between align-items-center&quot;&gt;<br>&nbsp;&nbsp;&nbsp; Junk<br>&nbsp;&nbsp;&nbsp; 
+  &lt;span class=&quot;badge bg-primary rounded-pill&quot;&gt;99&lt;/span&gt;<br>&nbsp; &lt;/li&gt;<br>&lt;/ul&gt;</div>
+
+</div>
+
+
+<br>

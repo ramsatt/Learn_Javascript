@@ -1,0 +1,239 @@
+<h1>Java <span class="color_h1">If ... Else</span></h1>
+
+<hr>
+
+<h2>Java Conditions and If Statements</h2>
+
+<p>Conditions and if statements let you control the flow of your program - deciding which code runs, and which code is skipped.</p>
+
+<p>Think of it like real life: <em>If it rains, take an umbrella. Otherwise, do nothing.</em></p>
+
+<p>Every <code class="w3-codespan">if</code> statement needs a condition that results in 
+<code class="w3-codespan">true</code> or <code class="w3-codespan">false</code>.</p>
+<p>This means <code class="w3-codespan">if</code> statements work hand-in-hand with 
+<code class="w3-codespan"><a href="java_booleans.html">boolean</a></code> values:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>boolean isRaining = true;
+
+if (isRaining) {
+  System.out.println("Bring an umbrella!");
+}
+</code></pre>
+<p>
+
+</p>
+</div>
+
+<p>Most often, conditions are created using comparison operators, like the ones below:</p>
+
+<ul>
+<li>Less than: <span class="w3-codespan">a &lt; b</span></li>
+<li>Less than or equal to: <span class="w3-codespan">a &lt;= b</span></li>
+<li>Greater than: <span class="w3-codespan">a &gt; b</span></li>
+<li>Greater than or equal to: <span class="w3-codespan">a &gt;= b</span></li>
+<li>Equal to: <span class="w3-codespan">a == b</span></li>
+<li>Not equal to: <span class="w3-codespan">a != b</span></li>
+</ul>
+
+<p>You can use these conditions to perform different actions for different decisions.</p>
+
+<p>Java has the following conditional statements:</p>
+<ul>
+  <li>Use <code class="w3-codespan">if</code> to specify a block of code to be executed, if a specified condition is true</li>
+  <li>Use <a href="java_conditions_else.html"><code class="w3-codespan">else</code></a> to specify a block of code to be executed, if the same condition is false</li>
+  <li>Use <a href="java_conditions_elseif.html"><code class="w3-codespan">else if</code></a> to specify a new condition to test, if the first condition is false</li>
+  <li>Use <a href="java_switch.html"><code class="w3-codespan">switch</code></a> to specify many alternative blocks of code to be executed</li>
+</ul>
+
+<hr>
+
+<h2>The if Statement</h2>
+
+<p>The <code class="w3-codespan">if</code> statement specifies a block of code to be executed if a condition is <code class="w3-codespan">true</code>:</p>
+
+<div class="w3-example">
+<h3>Syntax</h3>
+<pre class="language-java w3-white"><code>if (condition) {
+  // block of code to be executed if the condition is true
+}
+</code></pre>
+</div>
+
+<div class="ws-note ws-panel">
+<p>The <em>condition</em> inside the <code class="w3-codespan">if</code> statement must result in a 
+<code class="w3-codespan">boolean</code> value - it can be either a boolean expression 
+(like <code class="w3-codespan">x &gt; y</code>) or a boolean variable (like <code class="w3-codespan">isLightOn</code>).</p>
+<p>Also note that <code class="w3-codespan">if</code> is in lowercase letters. Uppercase letters (If or IF) will generate an error.</p>
+</div>
+
+<p>In the example below, we test two values to find out if 20 is greater than 18. If the condition is <code class="w3-codespan">true</code>, print some text:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>if (20 &gt; 18) {
+  System.out.println("20 is greater than 18");
+}
+</code></pre>
+<p>
+
+</p>
+</div>
+
+<p>You can also compare variables:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>int x = 20;
+int y = 18;
+if (x &gt; y) {
+  System.out.println("x is greater than y");
+}
+</code></pre>
+<p>
+
+</p>
+</div>
+
+<h3>Example explained</h3>
+<p>In the example above we use two variables, <strong>x</strong> and <strong>y</strong>, 
+to test whether x is greater than y 
+(using the <code class="w3-codespan">&gt;</code> operator). As x is 20, and y is 18, and we know that 20 is greater than 18, we print to the screen that "x is greater than y".</p>
+
+<p>Comparison is also often used to check if two values are <em>equal</em>, using the <code class="w3-codespan">==</code> operator:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>int x = 20;
+int y = 20;
+if (x == y) {
+  System.out.println("x is equal to y");
+}
+</code></pre>
+<p>
+
+</p>
+</div>
+
+<p>Here the condition <code class="w3-codespan">x == y</code> is true, because both <code class="w3-codespan">x</code> and <code class="w3-codespan">y</code> are 20, so the message "x is equal to y" is printed.</p>
+
+<hr>
+
+<h2>Using Boolean Variables</h2>
+
+<p>You can also test boolean variables directly in an <code class="w3-codespan">if</code> 
+statement:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>boolean isLightOn = true;
+
+if (isLightOn) {
+  System.out.println("The light is on.");
+}
+</code></pre>
+<p>
+
+</p>
+</div>
+
+<p><strong>Note:</strong> Writing <code class="w3-codespan">if (isLightOn)</code> is the same as writing <code class="w3-codespan">if (isLightOn == true)</code>, but shorter and easier to read.</p>
+
+<p>Here is the same example with the value <code class="w3-codespan">false</code> to see that the program continues even when the code block does not run:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>boolean isLightOn = false;
+
+if (isLightOn) {
+  System.out.println("The light is on.");  // This will not be printed
+}
+
+System.out.println("This line runs no matter what, because it is outside the if statement.");
+</code></pre>
+<p>
+
+</p>
+</div>
+
+<hr>
+
+<h2>If Without Braces</h2>
+
+<p>If an <code class="w3-codespan">if</code> statement has only one line of code, 
+you can write it without curly braces <code class="w3-codespan">{ }</code>:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>if (20 > 18)
+  System.out.println("20 is greater than 18");
+</code></pre>
+<p>
+
+</p>
+</div>
+
+
+<h3>Potential Problem</h3>
+
+<p>Without braces, only the <strong>first line</strong> after the 
+<code class="w3-codespan">if</code> belongs to it. 
+Any other lines will run no matter what, which can lead to unexpected results:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>int x = 20;
+int y = 18;
+
+if (x > y)
+  System.out.println("x is greater than y");  // Belongs to if
+  System.out.println(&quot;This line runs no matter what (not part of the if statement)&quot;);
+
+// Output:
+// x is greater than y
+// This line runs no matter what (not part of the if statement)
+</code></pre>
+<p>
+
+</p>
+</div>
+
+
+<h3>The Safe Way</h3>
+
+<p>To avoid mistakes, always use curly braces <code class="w3-codespan">{ }</code>. 
+This makes it clear which lines belong to the <code class="w3-codespan">if</code> statement:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>int x = 20;
+int y = 18;
+
+if (x > y) {
+  System.out.println("x is greater than y");
+  System.out.println("Both lines are part of the if");
+}
+
+// Some code outside if
+System.out.println("I am outside if, not part of if!");
+</code></pre>
+<p>
+
+</p>
+</div>
+
+<div class="ws-note ws-panel">
+<p><strong>Tip:</strong> Always using braces <code class="w3-codespan">{ }</code> makes your code 
+clearer, easier to read, and prevents subtle bugs.</p>
+</div>
+
+<hr>
+
+<p>In the next chapters, you will also learn how to handle <code class="w3-codespan">else</code> (when the condition is false), 
+<code class="w3-codespan">else if</code> (to test multiple conditions), and <code class="w3-codespan">switch</code> (to handle many possible values).</p>
+<hr>
+
+<hr>
+
+<br>

@@ -1,0 +1,465 @@
+<h1>HTML <span class="color_h1">Canvas</span> Reference</h1>
+
+<hr>
+<div class="ws-info">
+<p>The <b>&lt;canvas&gt;</b> element defines a <b>bitmapped</b> area in an HTML page.</p>
+<p>The <b>Canvas API</b> allows JavaScript to <b>draw graphics</b> on the canvas.</p>
+<p>The Canvas API can draw shapes, lines, curves, boxes, text, and images, with colors,
+rotations, transparencies, and other pixel manipulations.</p>
+</div>
+
+<p>You can add a canvas element anywhere in an HTML page with the <code class="w3-codespan">
+&lt;canvas&gt;</code> tag:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;canvas id="myCanvas" width="300" height="150"&gt;&lt;/canvas&gt;
+</div>
+<a class="w3-btn w3-margin-bottom" href="tryit6768.html?filename=tryhtml5_canvas" target="_blank">
+  Try it Yourself &raquo;</a>
+</div>
+
+<p>You can access a <code class="w3-codespan">&lt;canvas&gt;</code> element with the <b>HTML 
+DOM</b> method <code class="w3-codespan">getElementById()</code>.</p>
+<p>To draw in the canvas you need to create a <b>2D context</b> object:</p>
+<div class="w3-example">
+<div class="w3-code notranslate jsHigh">
+const myCanvas = document.getElementById("myCanvas");<br>
+const ctx = myCanvas.getContext("2d");
+</div>
+</div>
+<div class="ws-note">
+<h2>Note</h2>
+<p>The HTML <code class="w3-codespan">&lt;canvas&gt;</code> element itself has no drawing abilities.</p>
+<p>You must use JavaScript to draw any graphics.</p>
+<p>The <code class="w3-codespan">getContext()</code> method returns an object 
+with tools (methods) for drawing.</p>
+</div>
+<hr>
+<h2>Drawing on the Canvas</h2>
+<p>After you have created a 2D context, you can draw on the canvas.</p>
+<p>The <b>fillRect()</b> method draws a black rectangle with a top-left corner at position 20,20.
+The rectangle is 150 pixel wide and 100 pixels high.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+const myCanvas = document.getElementById("myCanvas");<br>
+const ctx = myCanvas.getContext("2d");<br>
+<br>
+ctx.fillRect(20, 20, 150, 100);<br>
+</div>
+<a class="w3-btn w3-margin-bottom" href="tryit76f1.html?filename=tryhtml5_canvas_draw" target="_blank">
+Try it Yourself &raquo;</a>
+</div>
+<hr>
+<h2>Using Colors</h2>
+<p>The <b>fillStyle</b> property sets the fill color of the drawing object:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+  const myCanvas = document.getElementById("myCanvas");<br>
+  const ctx = myCanvas.getContext("2d");<br>
+<br>
+  ctx.fillStyle = "red";<br>
+  ctx.fillRect(20, 20, 150, 100);<br>
+</div>
+<a class="w3-btn w3-margin-bottom" href="tryitcfb1.html?filename=tryhtml5_canvas_get" target="_blank">
+  Try it Yourself &raquo;</a>
+</div>
+<p>You can also create a new <code class="w3-codespan">&lt;canvas&gt;</code> element 
+with the <code class="w3-codespan">document.createElement()</code> method,
+and add the element to an existing HTML page:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+  const myCanvas = document.createElement("canvas");<br>
+  document.body.appendChild(myCanvas);<br>
+  const ctx = myCanvas.getContext("2d");<br>
+<br>
+  ctx.fillStyle = "red";<br>
+  ctx.fillRect(20, 20, 150, 100);<br>
+</div>
+<a class="w3-btn w3-margin-bottom" href="tryitf8a3.html?filename=tryhtml5_canvas_create" target="_blank">
+  Try it Yourself &raquo;</a>
+</div>
+<hr>
+<h2>Paths</h2>
+<p>The common way to draw on the canvas is to:
+<ol>
+<li>Begin a Path - beginPath()</li>
+<li>Move to a Point - moveTo()</li>
+<li>Draw in the Path - lineTo()</li>
+<li>Draw the Path - stroke()</li>
+</ol>
+</p>
+<div class="w3-example">
+<p>Example</p>
+<div class="w3-code notranslate jsHigh">
+const canvas = document.getElementById(&quot;myCanvas&quot;);<br>
+const ctx = canvas.getContext(&quot;2d&quot;);<br>
+<br>
+ctx.beginPath();<br>
+ctx.moveTo(20, 20);<br>
+ctx.lineTo(20, 100);<br>
+ctx.lineTo(70, 100);<br>
+ctx.stroke();
+</div>
+
+</div>
+
+<div class="ws-info">
+<h2>Complete Canvas API Reference</h2>
+<p>This reference covers all Properties and Methods of the getContext("2d") Object,
+used to draw text, lines, boxes, circles, pictures, and more on the canvas.</p>
+</div>
+
+<h2>Drawing Methods</h2>
+<p>There are only 3 methods to draw directly on the canvas:</p>
+<table class="ws-table-all notranslate">
+  <tr>
+    <th>Method</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+   <td><a href="canvas_fillrect.html">fillRect()</a></td>
+    <td>Draws a "filled" rectangle</td>
+  </tr>
+  <tr>
+    <td><a href="canvas_strokerect.html">strokeRect()</a></td>
+    <td>Draws a rectangle (with no fill)</td>
+  </tr>
+  <tr>
+    <td><a href="canvas_clearrect.html">clearRect()</a></td>
+    <td>Clears specified pixels within a rectangle</td>
+  </tr>
+  </table>
+<hr><h2>Path Methods</h2>
+<table class="ws-table-all notranslate">
+<tr></tr>
+  <tr>
+    <th>Method</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><a href="canvas_beginpath.html">beginPath()</a></td>
+    <td>Begins a new path or resets the current path</td>
+  </tr>
+  <tr>
+    <td><a href="canvas_closepath.html">closePath()</a></td>
+    <td>Adds a line to the path from the current point to the start</td>
+  </tr>
+  <tr>
+    <td><a href="canvas_ispointinpath.html">isPointInPath()</td>
+    <td>Returns true if the specified point is in the current path</td>
+  </tr>
+  <tr>
+    <td><a href="canvas_moveto.html">moveTo()</a></td>
+    <td>Moves the path to a point in the canvas (without drawing)</td>
+  </tr>
+  <tr>
+    <td><a href="canvas_lineto.html">lineTo()</a></td>
+    <td>Adds a line to the the path</td>
+  </tr>
+  <tr>
+    <td><a href="canvas_fill.html">fill()</a></td>
+    <td>Fills the current path</td>
+  </tr>
+  <tr>
+    <td><a href="canvas_rect.html">rect()</a></td>
+    <td>Adds a rectangle to the path</td>
+  </tr>
+  <tr>
+    <td><a href="canvas_stroke.html">stroke()</a></td>
+    <td>Draws the current path</td>
+  </tr>
+<tr><td>&nbsp;</td><th>Circles and Curves</th></tr>
+  <tr>
+    <td><a href="canvas_beziercurveto.html">bezierCurveTo()</a></td>
+    <td>Adds a cubic B&#233;zier curve to the path</td>
+  </tr>
+  <tr>
+    <td><a href="canvas_arc.html">arc()</a></td>
+    <td>Adds an arc/curve (circle, or parts of a circle) to the path</td>
+  </tr>
+  <tr>
+    <td><a href="canvas_arcto.html">arcTo()</a></td>
+    <td>Adds an arc/curve between two tangents to the path</td>
+  </tr>
+  <tr>
+    <td><a href="canvas_quadraticcurveto.html">quadraticCurveTo()</a></td>
+    <td>Adds a quadratic B&#233;zier curve to the path</td>
+  </tr>
+</table>
+<hr>
+
+<hr>
+<h2>Text</h2>
+<table class="ws-table-all notranslate">
+  <tr>
+    <th>Method/Prop</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><a href="canvas_direction.html">direction</a></td>
+    <td>Sets or returns the direction used to draw text</td>
+  </tr>
+  <tr>
+    <td><a href="canvas_filltext.html">fillText()</a></td>
+    <td>Draws "filled" text on the canvas</td>
+  </tr>
+  <tr>
+    <td><a href="canvas_font.html">font</a></td>
+    <td>Sets or returns the font properties for text content</td>
+  </tr>
+  <tr>
+    <td><a href="canvas_measuretext.html">measureText()</a></td>
+    <td>Returns an object that contains the width of the specified text</td>
+  </tr>
+  <tr>
+    <td><a href="canvas_stroketext.html">strokeText()</a></td>
+    <td>Draws text on the canvas</td>
+  </tr>
+  <tr>
+    <td><a href="canvas_textalign.html">textAlign</a></td>
+    <td>Sets or returns the alignment for text content</td>
+  </tr>
+  <tr>
+    <td><a href="canvas_textbaseline.html">textBaseline</a></td>
+    <td>Sets or returns the text baseline used when drawing text</td>
+  </tr>
+</table>
+<hr>
+<h2>Colors, Styles, and Shadows</h2>
+<table class="ws-table-all notranslate">
+  <tr>
+    <th>Method/Property</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><a href="canvas_addcolorstop.html">addColorStop()</a></td>
+    <td>Specifies the colors and stop positions in a gradient object</td>
+  </tr>
+  <tr>
+    <td><a href="canvas_createlineargradient.html">
+    createLinearGradient()</a></td>
+    <td>Creates a linear gradient (to use on canvas content)</td>
+  </tr>
+  <tr>
+    <td><a href="canvas_createpattern.html">createPattern()</a></td>
+    <td>Repeats a specified element in the specified direction</td>
+  </tr>
+  <tr>
+    <td><a href="canvas_createradialgradient.html">createRadialGradient()</td>
+    <td>Creates a radial/circular gradient (to use on canvas content)</td>
+  </tr>
+  <tr>
+    <td><a href="canvas_fillstyle.html">fillStyle</a></td>
+    <td>Sets or returns the color, gradient, or pattern used to fill the drawing</td>
+  </tr>
+  <tr>
+    <td><a href="canvas_linecap.html">lineCap</a></td>
+    <td>Sets or returns the style of the end caps for a line</td>
+  </tr>
+  <tr>
+    <td><a href="canvas_linejoin.html">lineJoin</a></td>
+    <td>Sets or returns the type of corner created, when two lines meet</td>
+  </tr>
+  <tr>
+    <td><a href="canvas_linewidth.html">lineWidth</a></td>
+    <td>Sets or returns the current line width</td>
+  </tr>
+  <tr>
+    <td><a href="canvas_miterlimit.html">miterLimit</a></td>
+    <td>Sets or returns the maximum miter length</td>
+  </tr>
+  <tr>
+    <td><a href="canvas_shadowblur.html">shadowBlur</a></td>
+    <td>Sets or returns the blur level for shadows</td>
+  </tr>
+  <tr>
+    <td><a href="canvas_shadowcolor.html">shadowColor</a></td>
+    <td>Sets or returns the color to use for shadows</td>
+  </tr>
+  <tr>
+    <td><a href="canvas_shadowoffsetx.html">shadowOffsetX</a></td>
+    <td>Sets or returns the horizontal distance of the shadow from the shape</td>
+  </tr>
+  <tr>
+    <td><a href="canvas_shadowoffsety.html">shadowOffsetY</a></td>
+    <td>Sets or returns the vertical distance of the shadow from the shape</td>
+  </tr>
+  <tr>
+    <td><a href="canvas_strokestyle.html">strokeStyle</a></td>
+    <td>Sets or returns the color, gradient, or pattern used for strokes</td>
+  </tr>
+  </table>
+
+
+<hr>
+<h2>Transformations</h2>
+<table class="ws-table-all notranslate">
+  <tr>
+    <th>Method</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><a href="canvas_scale.html">scale()</a></td>
+    <td>Scales the current drawing bigger or smaller</td>
+  </tr>
+  <tr>
+    <td><a href="canvas_rotate.html">rotate()</a></td>
+    <td>Rotates the current drawing</td>
+  </tr>
+  <tr>
+    <td><a href="canvas_translate.html">translate()</a></td>
+    <td>Remaps the (0,0) position on the canvas</td>
+  </tr>
+  <tr>
+    <td><a href="canvas_transform.html">transform()</a></td>
+    <td>Replaces the current transformation matrix for the drawing</td>
+  </tr>
+  <tr>
+    <td><a href="canvas_settransform.html">setTransform()</a></td>
+    <td>Resets the current transform to the identity matrix. Then runs <a href="canvas_transform.html">
+    transform()</a></td>
+  </tr>
+  </table>
+<hr>
+<h2>Image Drawing</h2>
+<table class="ws-table-all notranslate">
+   <tr>
+    <th>Method</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><a href="canvas_drawimage.html">drawImage()</a></td>
+    <td>Draws an image, canvas, or video onto the canvas</td>
+  </tr>
+  </table>
+ <hr>
+<h2>The ImageData Object / Pixel Manipulation</h2>
+<table class="ws-table-all notranslate">
+   <tr>
+    <th>Method/Property</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><a href="canvas_createimagedata.html">createImageData()</a></td>
+    <td>Creates a new, blank ImageData object</td>
+  </tr>
+  <tr>
+    <td><a href="canvas_getimagedata.html">getImageData()</a></td>
+    <td>Returns an ImageData object that copies the pixel data for the specified 
+    rectangle on a canvas</td>
+  </tr>
+  <tr>
+    <td><a href="canvas_imagedata_data.html">ImageData.data</a></td>
+    <td>Returns an object that contains image data of a specified ImageData 
+    object</td>
+  </tr>
+  <tr>
+    <td><a href="canvas_imagedata_height.html">ImageData.height</a></td>
+    <td>Returns the height of an ImageData object</td>
+  </tr>
+  <tr>
+    <td><a href="canvas_imagedata_width.html">ImageData.width</a></td>
+    <td>Returns the width of an ImageData object</td>
+  </tr>
+  <tr>
+    <td><a href="canvas_putimagedata.html">putImageData()</a></td>
+    <td>Puts the image data (from a specified ImageData object) back onto the 
+    canvas</td>
+  </tr>
+</table>
+<hr>
+<h2>Compositing</h2>
+<table class="ws-table-all notranslate">
+  <tr>
+    <th>Property</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><a href="canvas_globalalpha.html">globalAlpha</a></td>
+    <td>Sets or returns the current alpha or transparency value of the drawing</td>
+  </tr>
+  <tr>
+    <td><a href="canvas_globalcompositeoperation.html">globalCompositeOperation</a></td>
+    <td>Sets or returns how a new image are drawn onto an existing image</td>
+  </tr>
+</table>
+<hr>
+<h2>Other Methods</h2>
+<table class="ws-table-all notranslate">
+  <tr>
+    <th>Method</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><a href="canvas_clip.html">clip()</a></td>
+    <td>Clips a region of any shape and size from the original canvas</td>
+  </tr>
+  <tr>
+    <td><a href="canvas_save.html">save()</td>
+    <td>Saves the state of the current drawing context and all its attributes</td>
+  </tr>
+  <tr>
+    <td><a href="canvas_restore.html">restore()</td>
+    <td>Restores the previously saved state and attributes</td>
+  </tr>
+  <tr>
+    <td>createEvent()</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>getContext()</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>toDataURL()</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+<hr>
+<h2>Standard Properties and Events</h2>
+<p>The canvas object also supports the standard <a href="dom_obj_all.html">
+properties</a> and <a href="dom_obj_event.html">events</a>.</p>
+<hr>
+
+<h2>Related Pages</h2>
+<p>Canvas tutorial: <a href="../graphics/canvas_intro.html">Canvas Tutorial</a></p>
+<p>HTML tutorial: <a href="../html/html5_canvas.html">HTML5 Canvas</a></p>
+<p>HTML reference: <a href="tag_canvas.html">HTML &lt;canvas&gt; tag</a></p>
+
+<hr>
+<h2>Browser Support</h2>
+<p>The <code class="w3-codespan">&lt;canvas&gt;</code> element is an HTML5 standard (2014).</p>
+<p><code class="w3-codespan">Canvas API</code> is supported in all modern browsers:</p>
+<table class="browserref notranslate" style="font-size:14px">
+  <tr style="height:60px">
+    <th style="width:16.6%;" class="bsChrome" title="Chrome"></th>
+    <th style="width:16.6%;" class="bsEdge" title="Edge"></th>
+    <th style="width:16.6%;" class="bsFirefox" title="Firefox"></th>
+    <th style="width:16.6%;" class="bsSafari" title="Safari"></th>
+    <th style="width:16.6%;" class="bsOpera" title="Opera"></th>                
+    <th style="width:16.6%;" class="bsIE" title="Internet Explorer"></th>
+  </tr>
+  <tr>
+    <td style="padding-left:2px;padding-right:2px">Chrome</td>
+    <td style="padding-left:2px;padding-right:2px">Edge</td>
+    <td style="padding-left:2px;padding-right:2px">Firefox</td>
+    <td style="padding-left:2px;padding-right:2px">Safari</td>
+    <td style="padding-left:2px;padding-right:2px">Opera</td>
+    <td style="padding-left:2px;padding-right:2px">IE</td>
+  </tr>
+  <tr>
+    <td style="padding-left:2px;padding-right:2px">Yes</td>
+    <td style="padding-left:2px;padding-right:2px">Yes</td>
+    <td style="padding-left:2px;padding-right:2px">Yes</td>
+    <td style="padding-left:2px;padding-right:2px">Yes</td>
+    <td style="padding-left:2px;padding-right:2px">Yes</td>
+    <td style="padding-left:2px;padding-right:2px">9-11</td>
+  </tr>
+</table>
+
+<hr>

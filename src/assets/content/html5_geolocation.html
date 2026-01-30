@@ -1,0 +1,195 @@
+<h1>HTML <span class="color_h1">Geolocation API</span></h1>
+
+<hr>
+<p class="intro">The Geolocation API is used to get the user's current location.</p>
+<hr>
+
+
+<h2>Locate the User's Position</h2>
+<p>The Geolocation API is used to access the user's current location.</p>
+<p id="demo">Since this can compromise privacy, the location is not available unless the user approves it.</p>
+
+<p><button class="w3-btn w3-blue w3-round" onclick="getLocation()">Try It</button></p>
+<div id="mapholder"></div>
+
+
+<div class="w3-panel ws-note">
+<p><strong>Note:</strong> The Geolocation API is only available on secure contexts such as HTTPS.</p>
+<p><strong>Tip:</strong> The Geolocation API is most accurate for devices with GPS, like smartphones or smartwatches.</p>
+</div>
+
+<hr>
+<h2>Browser Support</h2>
+<p>The numbers in the table specify the first browser version that fully supports 
+Geolocation.</p>
+<table class="browserref notranslate">
+  <tr>
+    <th style="width:20%;font-size:16px;text-align:left;">API</th>
+    <th style="width:16%;" class="bsChrome" title="Chrome"></th>
+    <th style="width:16%;" class="bsEdge" title="Internet Explorer / Edge"></th>
+    <th style="width:16%;" class="bsFirefox" title="Firefox"></th>
+    <th style="width:16%;" class="bsSafari" title="Safari"></th>
+    <th style="width:16%;" class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td style="text-align:left;">Geolocation</td>
+    <td>5.0</td>
+    <td>12.0</td>
+    <td>3.5</td>
+    <td>5.0</td>
+    <td>10.6</td>
+  </tr>
+</table>
+
+<hr>
+
+
+<h2>Using HTML Geolocation API</h2>
+<p>The Geolocation API is accessed via a call to <code class="w3-codespan">
+navigator.geolocation</code>. This will cause the browser to ask the user for 
+permission to access their location data. If the user accept, the browser will 
+search for the best available functionality on the device to access this 
+information (for example GPS).</p>
+<p>The <code class="w3-codespan">getCurrentPosition()</code> method is used to return the user's 
+current location.</p>
+<p>The example below returns the latitude and longitude of the user's current 
+location:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+&lt;script&gt;<br>const x = document.getElementById(&quot;demo&quot;);<br><br>
+function getLocation() {<br>&nbsp;&nbsp;if (navigator.geolocation) {<br>
+  &nbsp;&nbsp;&nbsp; navigator.geolocation.getCurrentPosition(success, error);<br>&nbsp;&nbsp;} else {<br>
+  &nbsp;&nbsp;&nbsp; x.innerHTML = &quot;Geolocation is not supported by this browser.&quot;;<br>
+  &nbsp;&nbsp;}<br>}<br><br>
+ function success(position) {<br>&nbsp; x.innerHTML = &quot;Latitude: &quot; + position.coords.latitude + <br>&nbsp;&nbsp;&quot;&lt;br&gt;Longitude: &quot; + position.coords.longitude; <br>
+ }<br><br>function error() {<br>&nbsp; alert(&quot;Sorry, no position available.&quot;);<br>
+  }<br>&lt;/script&gt;</div>
+
+</div>
+<p>Example explained:</p>
+<ul>
+  <li>Check if Geolocation is supported</li>
+  <li>If Geolocation is supported, run the <code class="w3-codespan">getCurrentPosition()</code> method. If not, display a message to the user</li>
+  <li>The success() function outputs the user's location in latitude and longitude</li>
+  <li>The error() function alerts a text if the browser retrieves an error in <code class="w3-codespan">getCurrentPosition()</code></li>
+</ul>
+
+<hr>
+
+<hr>
+
+<h2>Error Handling and Rejections</h2>
+<p>The second parameter of the <code class="w3-codespan">getCurrentPosition()</code> method is used to handle 
+errors. It specifies a function to run if it fails to get the user's location.</p>
+<p>Here is an example of a more specific error handling:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+ function error(error) {<br>&nbsp;&nbsp;switch(error.code) {<br>&nbsp;&nbsp;&nbsp; case error.PERMISSION_DENIED:<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x.innerHTML = &quot;User denied the request for Geolocation.&quot;<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; break;<br>&nbsp;&nbsp;&nbsp;&nbsp;case error.POSITION_UNAVAILABLE:<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x.innerHTML = &quot;Location information is unavailable.&quot;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; break;<br>&nbsp;&nbsp;&nbsp;&nbsp;case error.TIMEOUT:<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x.innerHTML = &quot;The request to get user location timed out.&quot;<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; break;<br>&nbsp;&nbsp;&nbsp; case error.UNKNOWN_ERROR:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x.innerHTML = &quot;An unknown error occurred.&quot;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>
+  &nbsp;&nbsp;}<br>
+ }</div>
+
+</div>
+
+<hr>
+
+
+<h2>Location-specific Information</h2>
+<p>Geolocation is also very useful for location-specific information, like:</p>
+<ul>
+  <li>Up-to-date local information</li>
+  <li>Showing Points-of-interest near the user</li>
+  <li>Turn-by-turn navigation (GPS)</li>
+</ul>
+
+<hr>
+
+
+<h2>The getCurrentPosition() Method - Return Data</h2>
+<p>The <code class="w3-codespan">getCurrentPosition()</code> method returns an object on success. The latitude, 
+longitude and accuracy properties are always returned. The other properties are returned 
+if available:</p>
+
+<table class="ws-table-all notranslate">
+<tr>
+<th style="width:150px">Property</th>
+<th >Returns</th>
+</tr>
+  <tr>
+<td>coords.latitude</td>
+<td>The latitude as a decimal number (always returned)</td>
+  </tr>
+  <tr>
+<td>coords.longitude</td>
+<td>The longitude as a decimal number (always returned)</td>
+  </tr>
+  <tr>
+<td>coords.accuracy</td>
+<td>The accuracy of position (always returned)</td>
+  </tr>
+  <tr>
+<td>coords.altitude</td>
+<td>The altitude in meters above the mean sea level (returned if available)</td>
+  </tr>
+  <tr>
+<td>coords.altitudeAccuracy</td>
+<td>The altitude accuracy of position (returned if available)</td>
+  </tr>
+  <tr>
+<td>coords.heading</td>
+<td>The heading as degrees clockwise from North (returned if available)</td>
+  </tr>
+  <tr>
+<td>coords.speed</td>
+<td>The speed in meters per second (returned if available)</td>
+  </tr>
+  <tr>
+<td>timestamp</td>
+<td>The date/time of the response (returned if available)</td>
+  </tr>
+</table>
+
+<hr>
+
+
+<h2>Geolocation Object - Other interesting Methods</h2>
+<p>The Geolocation object also has other interesting methods:</p>
+<ul>
+  <li><code class="w3-codespan">watchPosition()</code> - Returns the current 
+  location of the user and continues to 
+return updated location as the user moves (like the GPS in a car).</li>
+  <li><code class="w3-codespan">clearWatch()</code> - Stops the <code class="w3-codespan">watchPosition()</code> method.</li>
+</ul>
+<p>The example below shows the <code class="w3-codespan">watchPosition()</code> method. You need an accurate GPS device to test this (like 
+a 
+smartphone): </p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+ &lt;script&gt;<br>const x = document.getElementById(&quot;demo&quot;);<br><br>
+function getLocation() {<br>
+  &nbsp; if (navigator.geolocation) {<br>&nbsp;&nbsp;&nbsp; navigator.geolocation.watchPosition(success, 
+  error);<br>&nbsp;&nbsp;} else {<br>
+  &nbsp;&nbsp;&nbsp; x.innerHTML = &quot;Geolocation is not supported by this browser.&quot;;<br>
+  &nbsp;&nbsp;}<br>}<br><br>
+ function success(position) {<br>&nbsp; x.innerHTML = &quot;Latitude: &quot; + position.coords.latitude + <br>&nbsp;&nbsp;&quot;&lt;br&gt;Longitude: &quot; + position.coords.longitude; <br>
+ }<br><br>function error(error) {<br>&nbsp; switch(error.code) {<br>&nbsp;&nbsp;&nbsp; 
+  case error.PERMISSION_DENIED:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x.innerHTML = 
+  &quot;User denied the request for Geolocation.&quot;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  break;<br>&nbsp;&nbsp;&nbsp; case error.POSITION_UNAVAILABLE:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  x.innerHTML = &quot;Location information is unavailable.&quot;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  break;<br>&nbsp;&nbsp;&nbsp; case error.TIMEOUT:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  x.innerHTML = &quot;The request to get user location timed out.&quot;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  break;<br>&nbsp;&nbsp;&nbsp; case error.UNKNOWN_ERROR:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  x.innerHTML = &quot;An unknown error occurred.&quot;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  break;<br>&nbsp; }<br>}<br>&lt;/script&gt;</div>
+
+</div>
+
+<hr>

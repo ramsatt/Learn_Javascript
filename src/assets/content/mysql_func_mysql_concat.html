@@ -1,0 +1,54 @@
+<h1>MySQL <span class="color_h1">CONCAT()</span> Function</h1>
+<p><a class="w3-btn w3-white w3-border" href="mysql_ref_functions.html" title="MySQL Functions">&#10094; MySQL Functions</a></p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Add several strings together:</p>
+<div class="w3-code notranslate sqlHigh">
+SELECT CONCAT("SQL &quot;, &quot;Tutorial ", &quot;is &quot;, &quot;fun!&quot;) AS ConcatenatedString;</div>
+<a target="_blank" href="trymysql4c6d.html?filename=trysql_func_mysql_concat" class="w3-btn w3-margin-bottom">Try it Yourself &raquo;</a>
+</div>
+<hr>
+
+<h2>Definition and Usage</h2>
+<p>The CONCAT() function adds two or more expressions together.</p>
+<p><strong>Note:</strong> Also look at the <a href="func_mysql_concat_ws.html">CONCAT_WS()</a> function.</p>
+
+<h2>Syntax</h2>
+<div class="w3-code w3-border notranslate">
+  CONCAT(<em>expression1</em>, <em>expression2</em>, <em>expression3</em>,...)</div>
+
+<h2>Parameter Values</h2>
+<table class="ws-table-all notranslate"> 
+  <tr>
+    <th style="width:23%">Parameter</th>
+    <th>Description</th>  </tr>  
+  <tr>
+    <td><em>expression1,<br>expression2,<br>expression3,<br>etc.</em></td>
+    <td>Required. The expressions to add together.
+    <p><strong>Note:</strong>  
+If any of the expressions is a NULL value, it returns NULL</p>
+    </td>
+  </tr>
+</table>
+
+<h2>Technical Details</h2>
+<table class="ws-table-all">
+<tr>
+ <th style="width:23%">Works in:</th>
+  <td>From MySQL 4.0</td>
+</tr>
+</table>
+<hr>
+
+<h2>More Examples</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Add three columns into one "Address" column:</p>
+<div class="w3-code notranslate sqlHigh">
+  SELECT CONCAT(Address, &quot; &quot;, PostalCode, &quot; &quot;, City) AS Address<br>FROM 
+  Customers;</div>
+<a target="_blank" href="trymysql1b24.html?filename=trysql_func_mysql_concat2" class="w3-btn w3-margin-bottom">Try it Yourself &raquo;</a>
+</div>
+<hr>
+
+<p><a class="w3-btn w3-white w3-border" href="mysql_ref_functions.html" title="MySQL Functions">&#10094; MySQL Functions</a></p>

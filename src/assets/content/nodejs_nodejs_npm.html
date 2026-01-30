@@ -1,0 +1,159 @@
+<h1>Node.js <span class="color_h1">NPM</span></h1>
+
+<hr>
+<h2>What is NPM?</h2>
+<p>NPM is a package manager for Node.js packages, or modules if you like.</p>
+<p><a href="https://www.npmjs.com/" target="_blank">www.npmjs.com</a> hosts thousands of free packages to download and use.</p>
+<p>The NPM program is installed on your computer when you install Node.js</p>
+<div class="w3-panel ws-note">
+  <p>If you installed Node.js, NPM is already ready to run on your computer!</p>
+</div>
+
+<hr>
+
+<h2>What is a Package?</h2>
+<p>A package in Node.js contains all the files you need for a module.</p>
+<p>Modules are JavaScript libraries you can include in your project.</p>
+
+<hr>
+<h2>Download a Package</h2>
+<p>Downloading a package is very easy.</p>
+<p>Open the command line interface and tell NPM to download the package you want.</p>
+<p>I want to download a package called "upper-case":</p>
+
+<div class="w3-example">
+<p>Download "upper-case":</p>
+<div class="w3-code notranslate w3-black">
+C:\Users\<em>Your Name</em>&gt;npm install upper-case
+</div>
+</div>
+<p>Now you have downloaded and installed your first package!</p>
+<p>NPM creates a folder named &quot;node_modules&quot;, where the package will be placed.</p>
+<p>All packages you install in the future will be placed in this folder.</p>
+<p>My project now has a folder structure like this:</p>
+<p><code class="w3-codespan">C:\Users\<em>My Name</em>\node_modules\upper-case</code></p>
+<hr>
+
+<hr>
+
+<h2>Using a Package</h2>
+<p>Once the package is installed, it is ready to use.</p>
+<p>Include the &quot;upper-case&quot; package the same way you include any other module:</p>
+<div class="w3-example">
+<div class="w3-code notranslate jsHigh">
+let uc = require('upper-case');</div>
+</div>
+
+<p>Create a Node.js file that will convert the output "Hello World!" into upper-case letters:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+let http = require('http');<br>
+let uc = require('upper-case');<br>
+http.createServer(function (req, res) {<br>
+&nbsp;&nbsp;res.writeHead(200, {'Content-Type': 'text/html'});<br>
+&nbsp;&nbsp;res.write(uc.upperCase("Hello World!"));<br>
+&nbsp;&nbsp;res.end();<br>
+}).listen(8080);</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="shownodejs2eac.html?filename=demo_uppercase">Run example &raquo;</a>
+</div>
+
+<p>Save the code above in a file called "demo_uppercase.js", and initiate the file:</p>
+<div class="w3-example">
+<p>Initiate demo_uppercase:</p>
+<div class="w3-code notranslate w3-black">
+C:\Users\<em>Your Name</em>&gt;node demo_uppercase.js
+</div>
+</div>
+<p>If you have followed the same steps on your computer, you will see the same result as the example: <a href="http://localhost:8080/" target="_blank">http://localhost:8080</a></p>
+<hr>
+
+<h2>Global Packages</h2>
+<p>Packages can be installed globally, making them available as command-line tools anywhere on your system.</p>
+<p>Global packages are typically used for CLI tools and utilities.</p>
+
+<div class="w3-example">
+<h3>Install a package globally:</h3>
+<div class="w3-code notranslate w3-black">
+npm install -g package-name
+</div>
+</div>
+
+<div class="w3-example">
+<h3>Example: Install the http-server package globally</h3>
+<div class="w3-code notranslate w3-black">
+npm install -g http-server
+</div>
+<p>After installation, you can run the package from any directory:</p>
+<div class="w3-code notranslate w3-black">
+http-server
+</div>
+</div>
+
+<div class="w3-panel ws-note">
+<p><strong>Note:</strong> On some systems, you might need administrator/root privileges to install packages globally.</p>
+<p>On Unix-like systems, use <code class="w3-codespan">sudo</code> before the command.</p>
+</div>
+<hr>
+
+<h2>Updating Packages</h2>
+<p>To keep your packages up to date, you can update them using the following commands:</p>
+
+<div class="w3-example">
+<h3>Update a specific package:</h3>
+<div class="w3-code notranslate w3-black">
+npm update package-name
+</div>
+</div>
+
+<div class="w3-example">
+<h3>Update all packages in your project:</h3>
+<div class="w3-code notranslate w3-black">
+npm update
+</div>
+</div>
+
+<div class="w3-example">
+<h3>Check for outdated packages:</h3>
+<div class="w3-code notranslate w3-black">
+npm outdated
+</div>
+</div>
+
+<div class="w3-panel ws-note">
+<p><strong>Tip:</strong> To update npm itself, run: <code class="w3-codespan">npm install -g npm@latest</code></p>
+</div>
+<hr>
+
+<h2>Uninstalling a Package</h2>
+<p>To remove a package that you no longer need, you can use the uninstall command:</p>
+
+<div class="w3-example">
+<h3>Remove a package:</h3>
+<div class="w3-code notranslate w3-black">
+npm uninstall package-name
+</div>
+</div>
+
+<div class="w3-example">
+<h3>Remove a global package:</h3>
+<div class="w3-code notranslate w3-black">
+npm uninstall -g package-name
+</div>
+</div>
+
+<div class="w3-example">
+<h3>Remove a package and its dependencies:</h3>
+<div class="w3-code notranslate w3-black">
+npm uninstall --save package-name
+</div>
+</div>
+
+<div class="w3-panel ws-note">
+<p><strong>Note:</strong> The <code class="w3-codespan">--save</code> flag updates your package.json file to remove the dependency.</p>
+<p>For older versions of npm, you might need to use <code class="w3-codespan">--save-dev</code> for development dependencies.</p>
+</div>
+<hr>
+
+<hr>
+<br>

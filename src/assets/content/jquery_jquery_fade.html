@@ -1,0 +1,164 @@
+<h1>jQuery Effects - <span class="color_h1">Fading</span></h1>
+
+<hr>
+<p class="intro">With jQuery you can fade elements in and out of visibility.</p>
+<p class="flip">Click to fade in/out panel</p>
+<div class="panel">
+<p>Because time is valuable, we deliver quick and easy learning.</p>
+<p>At W3Schools, you can study everything you need to learn, in an accessible and handy format.</p>
+</div>
+<hr>
+
+<h2>Examples</h2>
+<p><a target="_blank" href="tryit56bc.html?filename=tryjquery_fadein">jQuery fadeIn()</a><br>
+Demonstrates the jQuery fadeIn() method.</p>
+
+<p><a target="_blank" href="tryit3992.html?filename=tryjquery_fadeout">jQuery fadeOut()</a><br>
+Demonstrates the jQuery fadeOut() method.</p>
+
+<p><a target="_blank" href="tryitd26d.html?filename=tryjquery_fadetoggle">jQuery 
+fadeToggle()</a><br>
+Demonstrates the jQuery fadeToggle() method.</p>
+
+<p><a target="_blank" href="tryit4429.html?filename=tryjquery_fadeto">jQuery fadeTo()</a><br>
+Demonstrates the jQuery fadeTo() method.</p>
+
+<hr>
+
+<h2>jQuery Fading Methods</h2>
+<p>With jQuery you can fade an element in and out of visibility.</p>
+<p>jQuery has the following fade methods:</p>
+<ul>
+  <li><code class="w3-codespan">fadeIn()</code></li>
+  <li><code class="w3-codespan">fadeOut()</code></li>
+  <li><code class="w3-codespan">fadeToggle()</code></li>
+  <li><code class="w3-codespan">fadeTo()</code></li>
+</ul>
+
+<hr>
+
+<h2>jQuery fadeIn() Method</h2>
+<p>The jQuery <code class="w3-codespan">fadeIn()</code> method is used to fade in a hidden element.</p>
+<p><b>Syntax:</b></p>
+<div class="w3-code w3-border notranslate jsHigh"><div>
+$(<i>selector</i>).fadeIn(<i>speed,callback</i>);</div></div>
+<p>The optional speed parameter specifies the duration of the effect. It can take the following values: &quot;slow&quot;, &quot;fast&quot;, or 
+milliseconds.</p>
+<p>The optional callback parameter is a function to be executed after the 
+fading completes.</p>
+<p>The following example demonstrates the <code class="w3-codespan">fadeIn()</code> method with different 
+parameters:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;button&quot;).click(function(){<br>
+&nbsp;&nbsp;$(&quot;#div1&quot;).fadeIn();<br>
+&nbsp;&nbsp;$(&quot;#div2&quot;).fadeIn(&quot;slow&quot;);<br>
+&nbsp;&nbsp;$(&quot;#div3&quot;).fadeIn(3000);<br>
+});</div>
+
+</div>
+<hr>
+
+<hr>
+
+<h2>jQuery fadeOut() Method</h2>
+<p>The jQuery <code class="w3-codespan">fadeOut()</code> method is used to fade out a visible element.</p>
+<p><b>Syntax:</b></p>
+<div class="w3-code w3-border notranslate"><div>
+$(<i>selector</i>).fadeOut(<i>speed,callback</i>);</div></div>
+<p>The optional speed parameter specifies the duration of the effect. It can take the following values: &quot;slow&quot;, &quot;fast&quot;, or 
+milliseconds.</p>
+<p>The optional callback parameter is a function to be executed after the 
+fading completes.</p>
+<p>The following example demonstrates the <code class="w3-codespan">fadeOut()</code> method with different 
+parameters:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;button&quot;).click(function(){<br>
+  &nbsp; $(&quot;#div1&quot;).fadeOut();<br>
+&nbsp;&nbsp;$(&quot;#div2&quot;).fadeOut(&quot;slow&quot;);<br>
+&nbsp;&nbsp;$(&quot;#div3&quot;).fadeOut(3000);<br>
+});</div>
+
+</div>
+<hr>
+
+<h2>jQuery fadeToggle() Method</h2>
+<p>The jQuery <code class="w3-codespan">fadeToggle()</code> method toggles between the <code class="w3-codespan">fadeIn()</code> and <code class="w3-codespan">fadeOut()</code> 
+methods.</p>
+<p>If the elements are faded out, <code class="w3-codespan">fadeToggle()</code> will fade them in.</p>
+<p>If the elements are faded in, <code class="w3-codespan">fadeToggle()</code> will fade them out. </p>
+<p><b>Syntax:</b></p>
+<div class="w3-code w3-border notranslate"><div>
+$(<i>selector</i>).fadeToggle(<i>speed,callback</i>);</div></div>
+<p>The optional speed parameter specifies the duration of the effect. It can take the following values: &quot;slow&quot;, &quot;fast&quot;, or 
+milliseconds.</p>
+<p>The optional callback parameter is a function to be executed after the 
+fading completes.</p>
+<p>The following example demonstrates the <code class="w3-codespan">fadeToggle()</code> method with different 
+parameters:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;button&quot;).click(function(){<br>
+  &nbsp; $(&quot;#div1&quot;).fadeToggle();<br>
+  &nbsp; $(&quot;#div2&quot;).fadeToggle(&quot;slow&quot;);<br>
+  &nbsp; $(&quot;#div3&quot;).fadeToggle(3000);<br>
+});</div>
+
+</div>
+<hr>
+
+<h2>jQuery fadeTo() Method</h2>
+<p>The jQuery <code class="w3-codespan">fadeTo()</code> method allows fading to a given opacity (value between 0 and 1).</p>
+<p><b>Syntax:</b></p>
+<div class="w3-code w3-border notranslate jsHigh"><div>
+$(<i>selector</i>).fadeTo(<i>speed,opacity,callback</i>);</div></div>
+<p>The required speed parameter specifies the duration of the effect. It can take the following values: &quot;slow&quot;, &quot;fast&quot;, or 
+milliseconds.</p>
+<p>The required opacity parameter in the <code class="w3-codespan">fadeTo()</code> method specifies fading to a given opacity (value between 0 and 1).</p>
+
+<p>The optional callback parameter is a function to be executed after the function completes.</p>
+<p>The following example demonstrates the <code class="w3-codespan">fadeTo()</code> method with different 
+parameters:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;button&quot;).click(function(){<br>
+&nbsp;&nbsp;$(&quot;#div1&quot;).fadeTo(&quot;slow&quot;, 0.15);<br>
+&nbsp;&nbsp;$(&quot;#div2&quot;).fadeTo(&quot;slow&quot;, 0.4);<br>
+  &nbsp; $(&quot;#div3&quot;).fadeTo(&quot;slow&quot;, 0.7);<br>
+});</div>
+
+</div>
+<hr>
+
+<h2>jQuery Exercises</h2>
+<form autocomplete="off" id="w3-exerciseform" action="https://www.w3schools.com/jquery/exercise_jq.asp?filename=exercise_jq_fade1" method="post" target="_blank">
+<h2>Test Yourself With Exercises</h2>
+<div class="exercisewindow">
+<h2>Exercise:</h2>
+<p>Use a jQuery method to <strong>fade out</strong> a &lt;div&gt; element.</p>
+<div class="exerciseprecontainer">
+<pre style="background-color:transparent;border:none;">
+$("div").<input name="ex1" maxlength="7" style="width: 74px;">();
+</pre>
+</div>
+<br>
+<button type="submit" class="w3-btn w3-margin-bottom">Submit Answer &raquo;</button>
+<p><a target="_blank" href="exercise_jq9eda.html?filename=exercise_jq_fade1">Start the Exercise</a></p>
+</div>
+</form>
+<hr>
+
+<h2>jQuery Effects Reference</h2>
+<p>For a complete overview of all jQuery effects, please go to our <a href="jquery_ref_effects.html">
+jQuery Effect Reference</a>.</p>
+
+<br>

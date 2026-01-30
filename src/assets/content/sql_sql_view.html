@@ -1,0 +1,114 @@
+<h1>SQL <span class="color_h1">Views</span></h1>
+
+<hr>
+
+
+<h2>SQL CREATE VIEW Statement</h2>
+<p>In SQL, a view is a virtual table based on the result-set of an SQL statement.</p>
+<p>A view contains rows and columns, just like a real table. The fields in a view are fields from one or more real tables in the database.</p>
+<p>You can add SQL statements and functions to a view and present the data as if the data were coming from one single table.</p>
+<p>A view is created with the <code class="w3-codespan">CREATE VIEW</code> 
+statement.&nbsp;</p>
+
+<h3>CREATE VIEW Syntax</h3>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+CREATE VIEW <em>view_name</em> AS<br>
+SELECT <em>column1</em>, <em>column2</em>, ...<br>
+FROM <em>table_name</em><br>
+WHERE <em>condition</em>;</div></div>
+
+<p><b>Note:</b> A view always shows up-to-date data! The database engine recreates the 
+view, every time a user queries it.</p>
+
+
+<hr>
+
+
+<h2>SQL CREATE VIEW Examples</h2>
+<p>The following SQL creates a view that shows all customers from Brazil:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+CREATE VIEW [Brazil Customers] AS<br>
+SELECT CustomerName, ContactName<br>
+FROM Customers<br>
+WHERE Country = 'Brazil';</div>
+</div>
+
+<p>We can query the view above as follows:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+SELECT * FROM [Brazil Customers];</div>
+</div>
+
+<p>The following SQL creates a view that selects every product in the &quot;Products&quot; table with a price higher than the average price:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+CREATE VIEW [Products Above Average Price] AS<br>
+SELECT ProductName, Price<br>
+FROM Products<br>
+WHERE Price &gt; (SELECT AVG(Price) FROM Products);</div>
+</div>
+
+<p>We can query the view above as follows:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+SELECT * FROM [Products Above Average Price];</div>
+</div>
+
+
+<hr>
+
+<hr>
+
+
+<h2>SQL Updating a View</h2>
+<p>A view can be updated with the <code class="w3-codespan">CREATE OR REPLACE 
+VIEW</code> statement.</p>
+<h3>SQL CREATE OR REPLACE VIEW Syntax</h3>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+CREATE OR REPLACE VIEW <em>view_name</em> AS<br>
+SELECT <em>column1</em>, <em>column2</em>, ...<br>
+FROM <em>table_name</em><br>
+WHERE <em>condition</em>;</div></div>
+
+<p>The following SQL adds the &quot;City&quot; column to the &quot;Brazil Customers&quot; view:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+CREATE OR REPLACE VIEW [Brazil Customers] AS<br>
+SELECT CustomerName, ContactName, City<br>
+FROM Customers<br>
+WHERE Country = 'Brazil';</div>
+</div>
+
+
+<hr>
+
+
+<h2>SQL Dropping a View</h2>
+<p>A view is deleted with the <code class="w3-codespan">DROP VIEW</code> 
+statement.</p>
+<h3>SQL DROP VIEW Syntax</h3>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+DROP VIEW <em>view_name</em>;</div></div>
+
+<p>The following SQL drops the &quot;Brazil Customers&quot; view:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+DROP VIEW [Brazil Customers];</div>
+</div>
+
+
+<hr>
+
+<hr>
+
+<br>

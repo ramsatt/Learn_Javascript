@@ -1,0 +1,49 @@
+<h1>PHP <span class="color_h1">FILTER_SANITIZE_STRING</span> Filter</h1>
+<p><a href="php_ref_filter.html" class="w3-btn w3-white w3-border" title="PHP Filter Reference">&#10094; 
+PHP Filter Reference</a></p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Remove all HTML tags from a string:</p>
+<div class="w3-code notranslate">
+ &lt;?php<br>$str = "&lt;h1&gt;Hello World!&lt;/h1&gt;";<br><br>$newstr = filter_var($str, FILTER_SANITIZE_STRING);<br>echo $newstr;<br>?&gt;
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="phptryitfa45.html?filename=tryphp_func_sanitize_string">
+ Try it Yourself &raquo;</a>
+</div>
+<hr>
+
+<h2>Definition and Usage</h2>
+<p>The FILTER_SANITIZE_STRING filter removes tags and remove or encode special 
+characters from a string.</p>
+<p><span class="deprecated">The FILTER_SANITIZE_STRING filter was deprecated in PHP 8.1.0. Use
+<a href="func_string_htmlspecialchars.html">htmlspecialchars()</a> to encode 
+special characters, or <a href="func_string_strip_tags.html">strip_tags()</a> to 
+remove HTML tags.</span></p>
+
+<p>Possible options and flags:</p>
+<ul>
+  <li>FILTER_FLAG_NO_ENCODE_QUOTES - Do not encode quotes</li>
+  <li>FILTER_FLAG_STRIP_LOW - Remove characters with ASCII value &lt; 32</li>
+  <li>FILTER_FLAG_STRIP_HIGH - Remove characters with ASCII value &gt; 127</li>
+  <li>FILTER_FLAG_ENCODE_LOW - Encode characters with ASCII value &lt; 32</li>
+  <li>FILTER_FLAG_ENCODE_HIGH - Encode characters with ASCII value &gt; 127</li>
+  <li>FILTER_FLAG_ENCODE_AMP - Encode the "&amp;" character to &amp;amp;</li>
+</ul>
+<hr>
+
+<h2>More Examples</h2>
+<div class="w3-example">
+<h3>Example 1</h3>
+<p>Remove all HTML tags and all characters with ASCII value &gt; 127, from a 
+string:</p>
+<div class="w3-code notranslate">
+ &lt;?php<br>$str = "&lt;h1&gt;Hello WorldÆØÅ!&lt;/h1&gt;";<br>
+ <br>$newstr = filter_var($str, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);<br>echo $newstr;<br>?&gt;
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="phptryit2743.html?filename=tryphp_func_sanitize_string2">
+ Try it Yourself &raquo;</a>
+</div>
+
+<hr>
+<a href="php_ref_filter.html" class="w3-btn w3-white w3-border" title="PHP Filter Reference">&#10094; 
+PHP Filter Reference</a>

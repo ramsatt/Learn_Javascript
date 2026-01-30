@@ -1,0 +1,131 @@
+<h1>jQuery - <span class="color_h1">Add Elements</span></h1>
+
+<hr>
+<p class="intro">With jQuery, it is easy to add new elements/content.</p>
+
+<hr>
+<h2>Add New HTML Content</h2>
+<p>We will look at four jQuery methods that are used to add new content:</p>
+<ul>
+  <li><code class="w3-codespan">append()</code> - Inserts content at the end of the selected elements</li>
+  <li><code class="w3-codespan">prepend()</code> - Inserts content at the beginning of the selected elements</li>
+  <li><code class="w3-codespan">after()</code> - Inserts content after the selected elements</li>
+  <li><code class="w3-codespan">before()</code> - Inserts content before the selected elements</li>
+</ul>
+
+<hr>
+<h2>jQuery append() Method</h2>
+<p>The jQuery <code class="w3-codespan">append()</code> method inserts content AT THE END of the selected HTML elements.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;p&quot;).append(&quot;Some appended text.&quot;);
+</div>
+
+</div>
+<hr>
+<h2>jQuery prepend() Method</h2>
+
+<p>The jQuery <code class="w3-codespan">prepend()</code> method inserts content AT THE BEGINNING of the selected HTML elements.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;p&quot;).prepend(&quot;Some prepended text.&quot;);
+</div>
+
+</div>
+<hr>
+
+<hr>
+<h2>Add Several New Elements With append() and prepend()</h2>
+<p>In both examples above, we have only inserted some text/HTML at the 
+beginning/end of the selected HTML elements.</p>
+<p>However, both the <code class="w3-codespan">append()</code> and <code class="w3-codespan">prepend()</code> methods can take an infinite number of new 
+elements as parameters. The new elements can be generated with text/HTML (like 
+we have done in the examples above), with jQuery, or with 
+JavaScript code and DOM elements.</p>
+<p>In the following example, we create several new elements. The elements are 
+created with text/HTML, jQuery, and JavaScript/DOM. Then we append the new 
+elements to the text with the <code class="w3-codespan">append()</code> method (this would have worked for 
+<code class="w3-codespan">prepend()</code> too) :</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+function appendText()
+{<br>
+&nbsp;&nbsp;var txt1 = &quot;&lt;p&gt;Text.&lt;/p&gt;&quot;;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+// Create element with HTML&nbsp; <br>
+&nbsp;&nbsp;var txt2 = $(&quot;&lt;p&gt;&lt;/p&gt;&quot;).text(&quot;Text.&quot;);&nbsp;&nbsp; // Create with jQuery<br>
+&nbsp;&nbsp;var txt3 = document.createElement(&quot;p&quot;);&nbsp; // Create with DOM<br>
+&nbsp;&nbsp;txt3.innerHTML = &quot;Text.&quot;;<br>
+  &nbsp;
+$(&quot;body&quot;).append(txt1, txt2, txt3);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Append the new elements <br>
+}</div>
+
+</div>
+<hr>
+<h2>jQuery after() and before() Methods</h2>
+
+<p>The jQuery <code class="w3-codespan">after()</code> method inserts content AFTER the selected HTML elements.</p>
+
+<p>The jQuery <code class="w3-codespan">before()</code> method inserts content BEFORE the selected HTML elements.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;img&quot;).after(&quot;Some text after&quot;);<br>
+<br>
+$(&quot;img&quot;).before(&quot;Some text before&quot;);
+</div>
+
+</div>
+
+<hr>
+<h2>Add Several New Elements With after() and before()</h2>
+<p>Also, both the <code class="w3-codespan">after()</code> and <code class="w3-codespan">before()</code> methods can take an infinite number of new 
+elements as parameters. The new elements can be generated with text/HTML (like 
+we have done in the example above), with jQuery, or with 
+JavaScript code and DOM elements.</p>
+<p>In the following example, we create several new elements. The elements are 
+created with text/HTML, jQuery, and JavaScript/DOM. Then we insert the new 
+elements to the text with the <code class="w3-codespan">after()</code> method (this would have worked for 
+<code class="w3-codespan">before()</code> too) :</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+function afterText()
+{<br>
+&nbsp;&nbsp;var txt1 = &quot;&lt;b&gt;I &lt;/b&gt;&quot;;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+// Create element with HTML&nbsp; <br>
+&nbsp;&nbsp;var txt2 = $(&quot;&lt;i&gt;&lt;/i&gt;&quot;).text(&quot;love &quot;);&nbsp;&nbsp;&nbsp;&nbsp; // Create with jQuery<br>
+&nbsp;&nbsp;var txt3 = document.createElement(&quot;b&quot;);&nbsp;&nbsp;&nbsp; // Create with DOM<br>
+&nbsp;&nbsp;txt3.innerHTML = &quot;jQuery!&quot;;<br>
+&nbsp;&nbsp;$(&quot;img&quot;).after(txt1, txt2, txt3);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+// Insert new elements after &lt;img&gt;<br>
+}</div>
+
+</div>
+<hr>
+
+<h2>jQuery Exercises</h2>
+<form autocomplete="off" id="w3-exerciseform" action="https://www.w3schools.com/jquery/exercise_jq.asp?filename=exercise_jq_dom_add1" method="post" target="_blank">
+<h2>Test Yourself With Exercises</h2>
+<div class="exercisewindow">
+<h2>Exercise:</h2>
+<p>Use a jQuery method to <strong>insert</strong> the text "YES!" at the end of a &lt;p&gt; element.</p>
+<div class="exerciseprecontainer">
+<pre style="background-color:transparent;border:none;">
+$("p").<input name="ex1" maxlength="6" style="width:65px;">("YES!");
+</pre>
+</div>
+<br>
+<button type="submit" class="w3-btn w3-margin-bottom">Submit Answer &raquo;</button>
+<p><a target="_blank" href="exercise_jq9f60.html?filename=exercise_jq_dom_add1">Start the Exercise</a></p>
+</div>
+</form>
+<hr>
+
+<h2>jQuery HTML Reference</h2>
+<p>For a complete overview of all jQuery HTML methods, please go to our
+<a href="jquery_ref_html.html">jQuery HTML/CSS Reference</a>.</p>
+
+<br>

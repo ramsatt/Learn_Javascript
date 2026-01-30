@@ -1,0 +1,75 @@
+<h1>Java <span class="color_h1">Abstraction</span></h1>
+
+<hr>
+
+<h2>Abstract Classes and Methods</h2>
+<p>Data <strong>abstraction</strong> is the process of hiding certain details and showing only essential information to the user.<br>
+Abstraction can be achieved with either <strong>abstract classes</strong> or 
+<a href="java_interface.html"><strong>interfaces</strong></a> (which you will learn more about in the next chapter).</p>
+<p>The <code class="w3-codespan">abstract</code> keyword is a non-access modifier, used for classes and methods:
+<ul><li><strong>Abstract class:</strong> is a restricted class that cannot be used to create objects (to access it, it must be inherited from another class).</li><br>
+<li><strong>Abstract method:</strong> can only be used in an abstract class, and it does not have a body. The body is provided by the subclass (inherited from).</li>
+</ul>
+<p>An abstract class can have both abstract and regular methods:</p>
+
+<div class="w3-example">
+<pre class="language-java w3-white" data-line="1,2"><code>abstract class Animal {
+&nbsp; public abstract void animalSound();
+&nbsp; public void sleep() {
+&nbsp;&nbsp;&nbsp; System.out.println(&quot;Zzz&quot;);
+&nbsp; }
+}
+</code></pre>
+</div>
+<p>From the example above, it is not possible to create an object of the Animal class:</p>
+<div class="w3-example w3-pale-red">
+<pre class="language-java w3-white w3-border-red"><code>Animal myObj = new Animal(); // will generate an error
+</code></pre>
+</div>
+<p>To access the abstract class, it must be inherited from another class. Let's convert the Animal class we used in the <a href="java_polymorphism.html">Polymorphism</a> chapter to an abstract class:</p>
+<div class="ws-note w3-panel">
+<p>Remember from the <a href="java_inheritance.html">Inheritance chapter</a> that we use the <code class="w3-codespan">extends</code> keyword to inherit from a class.</p>
+</div>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white" data-line="2,4,13"><code>// Abstract class
+abstract class Animal {
+&nbsp; // Abstract method (does not have a body)
+&nbsp; public abstract void animalSound();
+&nbsp; // Regular method
+&nbsp; public void sleep() {
+&nbsp;&nbsp;&nbsp; System.out.println(&quot;Zzz&quot;);
+&nbsp; }
+}
+
+// Subclass (inherit from Animal)
+class Pig extends Animal {
+&nbsp; public void animalSound() {
+&nbsp;&nbsp;&nbsp; // The body of animalSound() is provided here
+&nbsp;&nbsp;&nbsp; System.out.println(&quot;The pig says: wee wee&quot;);
+&nbsp; }
+}
+
+class Main {
+&nbsp; public static void main(String[] args) {
+&nbsp;&nbsp;&nbsp; Pig myPig = new Pig(); // Create a Pig object
+&nbsp;&nbsp;&nbsp; myPig.animalSound();
+&nbsp;&nbsp;&nbsp; myPig.sleep();
+&nbsp; }
+}
+</code></pre>
+<p>
+
+</p>
+</div>
+<div class="ws-note w3-panel">
+<h4>Why And When To Use Abstract Classes and Methods?</h4>
+<p>To achieve security - hide certain details and only show the important 
+details of an object.</p>
+<p><strong>Note:</strong> Abstraction can also be achieved with <a href="java_interface.html">Interfaces</a>, which you will learn more about in the next chapter.</p>
+</div>
+<hr>
+
+<hr>
+
+<br>

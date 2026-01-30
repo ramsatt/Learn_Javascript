@@ -1,0 +1,48 @@
+<h1>Python <span class="color_h1">Delete File</span></h1>
+
+<hr>
+
+<h2>Delete a File</h2>
+
+<p>To delete a file, you must import the OS module, and run its
+<code class="w3-codespan">os.remove()</code> function:</p>
+<div class="w3-example">
+  <h3>Example</h3>
+<p>Remove the file "demofile.txt":</p>
+<div class="w3-code notranslate pythonHigh">
+  import os<br>os.remove(&quot;demofile.txt&quot;)</div>
+</div>
+
+<hr>
+
+<h2>Check if File exist:</h2>
+
+<p>To avoid getting an error, you might want to check if the file exists before you try to delete it:</p>
+<div class="w3-example">
+  <h3>Example</h3>
+<p>Check if file exists, <em>then</em> delete it:</p>
+<div class="w3-code notranslate pythonHigh">
+  import os<br>if os.path.exists(&quot;demofile.txt&quot;):<br>&nbsp; os.remove(&quot;demofile.txt&quot;)<br>
+  else:<br>&nbsp; print(&quot;The file does not exist&quot;)</div>
+</div>
+
+<hr>
+
+<h2>Delete Folder</h2>
+
+<p>To delete an entire folder, use the <code class="w3-codespan">os.rmdir()</code> method:</p>
+<div class="w3-example">
+  <h3>Example</h3>
+<p>Remove the folder &quot;myfolder&quot;:</p>
+<div class="w3-code notranslate pythonHigh">
+  import os<br>os.rmdir(&quot;myfolder&quot;)</div>
+</div>
+
+<div class="w3-panel ws-note">
+  <p><strong>Note:</strong> You can only remove <em>empty</em> folders.</p>
+</div>
+
+
+<hr>
+
+<hr>

@@ -1,0 +1,176 @@
+<h1>HTML <span class="color_h1">Encoding (Character Sets)</span></h1>
+
+<div class="ws-info">
+<h2>The HTML charset Attribute</h2>
+<p>To display an HTML page correctly, a web browser must know which character set to use.</p>
+<p>The character set is specified in the <code class="w3-codespan">&lt;meta&gt;</code> tag:</p>
+<div class="w3-example">
+<div class="w3-code notranslate htmlHigh">
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+</div>
+</div>
+</div>
+
+
+<p>The HTML specification encourages web developers to use the UTF-8 character set.</p>
+<p>UTF-8 covers almost all of the characters and symbols in the world!</p>
+
+<a title="Chris55, CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons"
+target="_blank" href="https://commons.wikimedia.org/wiki/File:Unicode_Web_growth.svg">
+<img style="width:100%;max-width:646px" alt="Unicode Web growth" src="assets/content/images/unicode_web.jpg"></a>
+
+<div class="ws-note">
+<h2>Learn More:</h2>
+<p class="w3-large"><a href="../charsets/default.html">Full UTF-8 Reference</a></p>
+</div>
+
+
+<hr>
+
+<h2>The ASCII Character Set</h2>
+<p><b>ASCII was the first</b> character encoding standard for the web.</p>
+<p>It defined <b>128 different latin characters</b> that could be used on the internet:</p>
+<ul>
+<li>English letters (a-z and A-Z)</li>
+<li>Numbers (0-9)</li>
+<li>Some special characters: ! $ + - ( ) @ &lt; &gt; . # ?</li>
+</ul>
+<hr>
+
+<h2>The ANSI Character Set</h2>
+<p>ANSI (Windows-1252) was the <b>first Windows character set</b>:</p>
+<ul>
+<li>Identical to ASCII for the first 127 characters</li>
+<li>Special characters from 128 to 159</li>
+<li>Identical to UTF-8 from 160 to 255</li>
+</ul>
+<div class="w3-example">
+<div class="w3-code notranslate htmlHigh">
+&lt;meta charset=&quot;Windows-1252&quot;&gt;
+</div>
+</div>
+
+
+<hr>
+
+<h2>The ISO-8859-1 Character Set</h2>
+
+<p>The default character set for <b>HTML 4 was ISO-8859-1</b>.</p>
+<p>It <b>supported 256 characters</b>:</p>
+<ul>
+<li>Identical to ASCII for the first 127 characters</li>
+<li>Does not use the characters from 128 to 159</li>
+<li>Identical to ANSI and UTF-8 from 160 to 255</li>
+</ul>
+<div class="w3-example">
+<h3>HTML 4 Example</h3>
+<div class="w3-code htmlHigh notranslate">
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html;charset=ISO-8859-1&quot;&gt;
+</div>
+<h3>HTML 5 Example</h3>
+<div class="w3-code notranslate htmlHigh">
+&lt;meta charset=&quot;ISO-8859-1&quot;&gt;
+</div>
+</div>
+
+
+<hr>
+
+<h2>The UTF-8 Character Set</h2>
+<ul>
+<li>Identical to ASCII for the values from 0 to 127</li>
+<li>Does not use the characters from 128 to 159</li>
+<li>Identical to ANSI and 8859-1 from 160 to 255</li>
+<li>Continues from the value 256 to 10 000 characters</li>
+</ul>
+<div class="w3-example">
+<div class="w3-code notranslate htmlHigh">
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+</div>
+</div>
+
+<div class="ws-note">
+<h2>Learn More:</h2>
+<p class="w3-large"><a href="../charsets/default.html">Full UTF-8 Reference</a></p>
+</div>
+
+
+<hr>
+
+<hr>
+<h2>HTML UTF-8 Characters</h2>
+<div class="w3-row w3-stretch">
+
+<div class="w3-container w3-light-grey w3-half">
+
+<p class="w3-large"><a href="../charsets/ref_utf_basic_latin.html">Basic Latin</a></p>
+<div class="w3-padding w3-white  notranslate" style="font-size:24px">
+ABCD abcd 0123 ?#$%
+</div>
+
+<p class="w3-large"><a href="../charsets/ref_utf_latin_extended_a.html">Latin Extended A</a></p>
+<div class="w3-padding w3-white  notranslate" style="font-size:24px">
+&#256;&#258;&#260; &#262;&#264;&#266; &#274;&#276;&#278;&#280; 
+</div>
+
+<p class="w3-large"><a href="../charsets/ref_utf_latin_extended_b.html">Latin Extended B</a></p>
+<div class="w3-padding w3-white  notranslate" style="font-size:24px">
+&#384;&#385;&#386;&#387;&#388;&#389; &#390;&#391;&#392; &#393;&#394;&#395;&#396;
+</div>
+
+<p class="w3-large"><a href="../charsets/ref_utf_latin_extended_c.html">Latin Extended C</a></p>
+<div class="w3-padding w3-white  notranslate" style="font-size:24px">
+&#11360;&#11361;&#11362; &#11363;&#11364; &#11365;&#11366; &#11367;&#11368;&#11369;
+</div>
+
+<p class="w3-large"><a href="../charsets/ref_utf_latin_extended_d.html">Latin Extended D</a></p>
+<div class="w3-padding w3-white  notranslate" style="font-size:24px">
+&#42790;&#42791; &#42792;&#42793;&#42794;&#42795; &#42796;&#42797;&#42798;&#42799;
+</div>
+
+<p class="w3-large"><a href="../charsets/ref_utf_latin_extended_e.html">Latin Extended E</a></p>
+<div class="w3-padding w3-white  notranslate" style="font-size:24px">
+&#43824;&#43825; &#43826;&#43827;&#43828; &#43829;&#43830; &#43831;&#43832;&#43833;
+</div>
+
+<br>
+</div>
+<div class="w3-container w3-light-grey w3-half">
+
+<p class="w3-large"><a href="../charsets/ref_utf_latin_ipa.html">IPA Extentions</a></p>
+<div class="w3-padding w3-white  notranslate" style="font-size:24px">
+&#598;&#604;&#611; &#600;&#619;&#603; &#625;&#631;&#606;
+</div>
+
+<p class="w3-large"><a href="../charsets/ref_utf_modifiers.html">Spacing Modifiers</a></p>
+<div class="w3-padding w3-white  notranslate" style="font-size:24px">
+p&#688; p&#689; p&#690; p&#691;
+</div>
+
+<p class="w3-large"><a href="../charsets/ref_utf_diacritical.html">Diacritical Marks</a></p>
+<div class="w3-padding w3-white  notranslate" style="font-size:24px">
+a&#768;a&#769;a&#770;a&#771; e&#768;e&#769;e&#770;e&#771; o&#768;o&#769;o&#770;o&#771;
+</div>
+
+<p class="w3-large"><a href="../charsets/ref_utf_punctuation.html">General Punctuation</a></p>
+<div class="w3-padding w3-white  notranslate" style="font-size:24px">
+&#8240; &#8241; &#8274; &#8252; &#8263; &#8264; &#8265; &#8270; &#8273; &#8258;
+</div>
+
+<p class="w3-large"><a href="../charsets/ref_utf_supsub.html">Super and Subscript</a></p>
+<div class="w3-padding w3-white  notranslate" style="font-size:24px">
+C&#8304; C&#8305; C&#8308; C&#8309; C&#8326; C&#8327; C&#8328;
+</div>
+
+<p class="w3-large"><a href="../charsets/ref_utf_braille.html">Braille</a></p>
+<div class="w3-padding w3-white notranslate" style="font-size:24px">
+&#10259;&#10257;&#10247;&#10247;&#10261; &#10298;&#10261;&#10263;&#10247;&#10265;
+</div>
+
+<br>
+</div>
+</div>
+
+
+
+<hr>

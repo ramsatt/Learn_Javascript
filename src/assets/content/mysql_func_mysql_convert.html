@@ -1,0 +1,127 @@
+<h1>MySQL <span class="color_h1">CONVERT()</span> Function</h1>
+<p>
+<a class="w3-btn w3-white w3-border" href="mysql_ref_functions.html" title="MySQL Functions">&#10094; MySQL Functions</a></p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Convert a value to a DATE datatype:</p>
+<div class="w3-code notranslate sqlHigh">
+  SELECT 
+  CONVERT(&quot;2017-08-29&quot;, DATE);</div>
+<a target="_blank" href="trymysqlc06c.html?filename=trysql_func_mysql_convert" class="w3-btn w3-margin-bottom">Try it Yourself &raquo;</a>
+</div>
+<hr>
+
+<h2>Definition and Usage</h2>
+<p>The CONVERT() function converts a value into the specified datatype or character set.</p>
+<p><strong>Tip:</strong> Also look at the <a href="func_mysql_cast.html">CAST()</a> function.</p>
+
+<h2>Syntax</h2>
+<div class="w3-code w3-border notranslate">
+CONVERT(<em>value</em>, <em>type</em>)</div>
+<p>OR:</p>
+<div class="w3-code w3-border notranslate">
+CONVERT(<em>value</em> USING <em>charset</em>)</div>
+
+<h2>Parameter Values</h2>
+<table class="ws-table-all notranslate"> 
+  <tr>
+    <th style="width:23%">Parameter</th>
+    <th>Description</th>  </tr>  
+  <tr>
+    <td><em>value</em></td>
+    <td>Required. The value to convert</td>
+  </tr>
+  <tr>
+    <td><em>type</em></td>
+    <td>Required. The datatype to convert to. Can be one of the following:<br>
+    <table class="ws-table-all notranslate"> 
+  <tr>
+    <th>Value</th>
+    <th>Description</th>
+  </tr>  
+  <tr>
+    <td>DATE</td>
+    <td>Converts <em>value</em> to DATE. Format: &quot;YYYY-MM-DD&quot;</td>
+  </tr>
+  <tr>
+    <td>DATETIME</td>
+    <td>Converts <em>value</em> to DATETIME.
+    Format: &quot;YYYY-MM-DD HH:MM:SS&quot;</td>
+  </tr>
+  <tr>
+    <td>DECIMAL</td>
+    <td>Converts <em>value</em> to DECIMAL. Use the optional M and D parameters 
+    to specify the maximum number of digits (M) and the number of digits 
+    following the decimal point (D).</td>
+  </tr>
+  <tr>
+    <td>TIME</td>
+    <td>Converts <em>value</em> to TIME. Format: &quot;HH:MM:SS&quot;</td>
+  </tr>
+  <tr>
+    <td>CHAR</td>
+    <td>Converts <em>value</em> to CHAR (a fixed length string)</td>
+  </tr>
+  <tr>
+    <td>NCHAR</td>
+    <td>Converts <em>value</em> to NCHAR (like CHAR, but produces a string with 
+    the national character set)</td>
+  </tr>
+  <tr>
+    <td>SIGNED</td>
+    <td>Converts <em>value</em> to SIGNED (a signed 64-bit integer)</td>
+  </tr>
+  <tr>
+    <td>UNSIGNED</td>
+    <td>Converts <em>value</em> to UNSIGNED (an unsigned 64-bit integer)</td>
+  </tr>
+  <tr>
+    <td>BINARY</td>
+    <td>Converts <em>value</em> to BINARY (a binary string)</td>
+  </tr>
+  </table>
+  </td>
+  </tr>
+  <tr>
+    <td><em>charset</em></td>
+    <td>Required. The character set to convert to</td>
+  </tr>
+  </table>
+
+<h2>Technical Details</h2>
+<table class="ws-table-all">
+<tr>
+ <th style="width:23%">Works in:</th>
+  <td>From MySQL 4.0</td>
+</tr>
+</table>
+<hr>
+
+<h2>More Examples</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Convert a value to a CHAR datatype:</p>
+<div class="w3-code notranslate sqlHigh">
+SELECT CONVERT(150, CHAR);</div>
+<a target="_blank" href="trymysql22b4.html?filename=trysql_func_mysql_convert2" class="w3-btn w3-margin-bottom">Try it Yourself &raquo;</a>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Convert a value to a TIME datatype:</p>
+<div class="w3-code notranslate sqlHigh">
+SELECT CONVERT(&quot;14:06:10&quot;, TIME);</div>
+<a target="_blank" href="trymysql773c.html?filename=trysql_func_mysql_convert3" class="w3-btn w3-margin-bottom">Try it Yourself &raquo;</a>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Convert a value to LATIN1 character set:</p>
+<div class="w3-code notranslate sqlHigh">
+SELECT 
+  CONVERT(&quot;W3Schools.com&quot; USING latin1);</div>
+<a target="_blank" href="trymysql113c.html?filename=trysql_func_mysql_convert4" class="w3-btn w3-margin-bottom">Try it Yourself &raquo;</a>
+</div>
+
+<hr>
+<p><a class="w3-btn w3-white w3-border" href="mysql_ref_functions.html" title="MySQL Functions">&#10094; MySQL Functions</a></p>

@@ -1,0 +1,155 @@
+<h1>Git <span class="color_h1">Merge</span></h1>
+
+<hr>
+
+<h2>Pulling to Keep up-to-date with Changes</h2>
+<p>When working as a team on a project, it is important that everyone can stay up to date.</p>
+<p>Any time you start working on a project, you should get the most recent 
+changes to your local copy.</p>
+<p>With Git, you can do that with <code class="language-shell">pull</code>.</p>
+<p><code class="language-shell">pull</code> is actually a combination of 2 different commands:</p>
+<ul>
+  <li><code class="language-shell">fetch</code></li>
+  <li><code class="language-shell">merge</code></li>
+</ul>
+<p>Lets take a closer look into how <code class="language-shell">fetch</code>, <code class="language-shell">merge</code>, and <code class="language-shell">pull</code> works.</p>
+<hr>
+
+<h2>Git Fetch</h2>
+<p> <code class="language-shell">fetch</code> gets all the change history of a tracked branch/repo.</p>
+<p>Now we are going to create a <code class="language-shell">README.md</code> file for our repository on GitHub. It is recommended that all repositories have a readme file, and that it describes the repository.</p>
+<p><img src="assets/content/images/img_github_create_readme.png" alt="GitHub Create Readme" style="width:100%;max-width:1144px"></p>
+<p>And <code class="language-shell">commit</code>:</p>
+<p><img src="assets/content/images/img_github_create_readme_commit.png" alt="GitHub Commit Readme" style="width:100%;max-width:1144px"></p>
+<p>Head back to your local Git, and <code class="language-shell">fetch</code> updates:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="command-line" data-output="2-8" data-user="user" data-host="localhost"><code class="language-shell">git fetch origin
+remote: Enumerating objects: 4, done.
+remote: Counting objects: 100% (4/4), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), 806 bytes | 4.00 KiB/s, done.
+From https://github.com/w3schools-test/hello-world
+   9ab23f8..a7cdd4b  main       -&gt; origin/main</code></pre>
+</div>
+
+<p>Now that we have the recent <code class="language-shell">changes</code>, we can check our 
+<code class="language-shell">status</code>:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="command-line" data-output="2-8" data-user="user" data-host="localhost"><code class="language-shell">git status
+On branch main
+Your branch is behind 'origin/main' by 1 commit, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+
+nothing to commit, working tree clean
+</code></pre>
+</div>
+
+<p>We are behind the <code class="language-shell">origin/main</code> by 1 
+<code class="language-shell">commit</code>. That should be the included 
+<code class="language-shell">README.md</code>, but lets double check by viewing the 
+<code class="language-shell">log</code>:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="command-line" data-output="2-17" ata-user="user" data-host="localhost"><code class="language-shell">git log origin/main
+commit a7cdd4bf8f851b8de08d8b26be4ec82b371f4b48 (origin/main)
+Author: w3schools-test &lt;77673807+w3schools-test@users.noreply.github.com&gt;
+Date:   Thu Mar 25 11:41:24 2021 +0100
+
+    Created Readme.md
+
+commit 9ab23f8e199880def2dfa775ae4868839d999747 (HEAD -&gt; main)
+Merge: 4068962 aad81e1
+Author: w3schools-test &lt;77673807+w3schools-test@users.noreply.github.com&gt;
+Date:   Tue Mar 23 15:15:21 2021 +0100
+
+    Merge pull request #2 from w3schools-test/new-style
+
+    New style looks good
+...
+...</code></pre>
+</div>
+
+<p>That looks as expected, but we can also verify by showing the differences 
+between our local <code class="language-shell">main</code> and 
+<code class="language-shell">origin/main</code>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="command-line" data-output="2-10" data-user="user" data-host="localhost"><code class="language-shell">git diff main...origin/main
+diff --git a/README.md b/README.md
+new file mode 100644
+index 0000000..f43f0fc
+--- /dev/null
++++ b/README.md
+@@ -0,0 +1,3 @@
++# hello-world
++Hello World repository for Git tutorial
++This is an example repository for the Git tutoial on https://www.w3schools.com</code></pre>
+</div>
+<p>That looks precisely as expected! Now we can safely <code class="language-shell">merge</code>.</p>
+<hr>
+
+<hr>
+<h2>Git Merge</h2>
+
+<p> <code class="language-shell">merge</code> combines the current branch, with a specified branch.</p>
+
+<p>We have confirmed that the updates are as expected, and we can merge our current branch (<code class="language-shell">main</code>), with 
+<code class="language-shell">origin/main</code>:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="command-line" data-output="2-6" data-user="user" data-host="localhost"><code class="language-shell">git merge origin/main
+Updating 9ab23f8..a7cdd4b
+Fast-forward
+ README.md | 3 +++
+ 1 file changed, 3 insertions(+)
+ create mode 100644 README.md</code></pre>
+</div>
+
+<p>Lets check our <code class="language-shell">status</code> again to confirm we are up to date:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="command-line" data-output="2-5" data-user="user" data-host="localhost"><code class="language-shell">git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean</code></pre>
+</div>
+
+<p>There! Your local git is up to date, and you can start working on your project!</p>
+<hr>
+<h2>Git Pull</h2>
+<p>But what if you just want to update your local repo, without going through 
+all those steps?</p>
+<p><code class="language-shell">pull</code> is a combination of <code class="language-shell">fetch</code> and <code class="language-shell">merge</code>. It is used to pull all changes from 
+a remote repository, into the branch you are working on.</p>
+<p>Lets make another change to the Readme.md file on GitHub.</p>
+<p><img src="assets/content/images/img_github_create_readme2.png" alt="GitHub Update Readme" style="width:100%;max-width:1144px"></p>
+<p>Use <code class="language-shell">pull</code> to update our local Git:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="command-line" data-output="2-12" data-user="user" data-host="localhost"><code class="language-shell">git pull origin
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), 794 bytes | 1024 bytes/s, done.
+From https://github.com/w3schools-test/hello-world
+   a7cdd4b..ab6b4ed  main       -&gt; origin/main
+Updating a7cdd4b..ab6b4ed
+Fast-forward
+ README.md | 2 ++
+ 1 file changed, 2 insertions(+)</code></pre>
+</div>
+<p>That is how you keep your local Git up to date from a remote repository. In the next chapter we will look closer at how
+<code class="language-shell">pull</code> and <code class="language-shell">pull requests</code> work on GitHub.</p>
+
+<br>

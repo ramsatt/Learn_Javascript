@@ -1,0 +1,114 @@
+<h1>jQuery Effects - <span class="color_h1">Sliding</span></h1>
+
+<hr>
+<p class="intro">The jQuery slide methods slide elements up and down.</p>
+<p class="flip">Click to slide down/up the panel</p>
+<div class="panel">
+<p>Because time is valuable, we deliver quick and easy learning.</p>
+<p>At W3Schools, you can study everything you need to learn, in an accessible and handy format.</p>
+</div>
+<hr>
+
+<h2>Examples</h2>
+<p><a target="_blank" href="tryita8e6.html?filename=tryjquery_slide_down">jQuery slideDown()</a><br>
+Demonstrates the jQuery slideDown() method.</p>
+<p><a target="_blank" href="tryit9f3e.html?filename=tryjquery_slide_up">jQuery slideUp()</a><br>
+Demonstrates the jQuery slideUp() method.</p>
+<p><a target="_blank" href="tryitd576.html?filename=tryjquery_slide_toggle">jQuery slideToggle()</a><br>
+Demonstrates the jQuery slideToggle() method.</p>
+<hr>
+
+<h2>jQuery Sliding Methods</h2>
+<p>With jQuery you can create a sliding effect on elements.</p>
+<p>jQuery has the following slide methods:</p>
+<ul>
+  <li><code class="w3-codespan">slideDown()</code></li>
+  <li><code class="w3-codespan">slideUp()</code></li>
+  <li><code class="w3-codespan">slideToggle()</code></li>
+</ul>
+<hr>
+
+<h2>jQuery slideDown() Method</h2>
+<p>The jQuery <code class="w3-codespan">slideDown()</code> method is used to slide down an element.</p>
+<p><b>Syntax:</b></p>
+<div class="w3-code w3-border notranslate"><div>
+$(<i>selector</i>).slideDown(<i>speed,callback</i>);</div></div>
+<p>The optional speed parameter specifies the duration of the effect. It can take the following values: &quot;slow&quot;, &quot;fast&quot;, or 
+milliseconds.</p>
+<p>The optional callback parameter is a function to be executed after the sliding completes.</p>
+<p>The following example demonstrates the <code class="w3-codespan">slideDown()</code> method:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;#flip&quot;).click(function(){<br>
+&nbsp;&nbsp;$(&quot;#panel&quot;).slideDown();<br>
+});</div>
+
+</div>
+<hr>
+
+<hr>
+<h2>jQuery slideUp() Method</h2>
+<p>The jQuery <code class="w3-codespan">slideUp()</code> method is used to slide up an element.</p>
+<p><b>Syntax:</b></p>
+<div class="w3-code w3-border notranslate"><div>
+$(<i>selector</i>).slideUp(<i>speed,callback</i>);</div></div>
+<p>The optional speed parameter specifies the duration of the effect. It can take the following values: &quot;slow&quot;, &quot;fast&quot;, or 
+milliseconds.</p>
+<p>The optional callback parameter is a function to be executed after the sliding completes.</p>
+<p>The following example demonstrates the <code class="w3-codespan">slideUp()</code> method:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;#flip&quot;).click(function(){<br>
+  &nbsp; $(&quot;#panel&quot;).slideUp();<br>
+});</div>
+
+</div>
+<hr>
+
+<h2>jQuery slideToggle() Method</h2>
+<p>The jQuery <code class="w3-codespan">slideToggle()</code> method toggles between the <code class="w3-codespan">slideDown()</code> and <code class="w3-codespan">slideUp()</code> 
+methods.</p>
+<p>If the elements have been slid down, <code class="w3-codespan">slideToggle()</code> will slide them up.</p>
+<p>If the elements have been slid up, <code class="w3-codespan">slideToggle()</code> will slide them down. </p>
+<div class="w3-code w3-border notranslate"><div>
+$(<i>selector</i>).slideToggle(<i>speed,callback</i>);</div></div>
+<p>The optional speed parameter can take the following values: &quot;slow&quot;, &quot;fast&quot;, milliseconds.</p>
+<p>The optional callback parameter is a function to be executed after the 
+sliding completes.</p>
+<p>The following example demonstrates the <code class="w3-codespan">slideToggle()</code> method:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;#flip&quot;).click(function(){<br>
+  &nbsp; $(&quot;#panel&quot;).slideToggle();<br>
+});</div>
+
+</div>
+<hr>
+
+<h2>jQuery Exercises</h2>
+<form autocomplete="off" id="w3-exerciseform" action="https://www.w3schools.com/jquery/exercise_jq.asp?filename=exercise_jq_slide1" method="post" target="_blank">
+<h2>Test Yourself With Exercises</h2>
+<div class="exercisewindow">
+<h2>Exercise:</h2>
+<p>Use a jQuery method to <strong>slide up</strong> a &lt;div&gt; element.</p>
+<div class="exerciseprecontainer">
+<pre style="background-color:transparent;border:none;">
+$("div").<input name="ex1" maxlength="7" style="width: 74px;">();
+</pre>
+</div>
+<br>
+<button type="submit" class="w3-btn w3-margin-bottom">Submit Answer &raquo;</button>
+<p><a target="_blank" href="exercise_jqbc95.html?filename=exercise_jq_slide1">Start the Exercise</a></p>
+</div>
+</form>
+<hr>
+
+<h2>jQuery Effects Reference</h2>
+<p>For a complete overview of all jQuery effects, please go to our <a href="jquery_ref_effects.html">
+jQuery Effect Reference</a>.</p>
+
+<br>

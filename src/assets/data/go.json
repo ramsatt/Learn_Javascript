@@ -1,0 +1,63 @@
+[
+  {
+    "title": "Go Tutorial",
+    "items": [
+      {
+        "title": "Go Syntax",
+        "file": "go_go_syntax.html"
+      },
+      {
+        "title": "Go Comments",
+        "file": "go_go_comments.html"
+      },
+      {
+        "title": "Go Variables",
+        "file": "go_go_variables.html"
+      },
+      {
+        "title": "Go Data Types",
+        "file": "go_go_data_types.html"
+      },
+      {
+        "title": "Go Output Functions",
+        "file": "go_go_output.html"
+      },
+      {
+        "title": "Go Arrays",
+        "file": "go_go_arrays.html"
+      },
+      {
+        "title": "Go Slices",
+        "file": "go_go_slices.html"
+      },
+      {
+        "title": "Go Operators",
+        "file": "go_go_operators.html"
+      },
+      {
+        "title": "Go Conditions",
+        "file": "go_go_conditions.html"
+      },
+      {
+        "title": "Go switch Statement",
+        "file": "go_go_switch.html"
+      },
+      {
+        "title": "Go For Loops",
+        "file": "go_go_loops.html"
+      },
+      {
+        "title": "Go Functions",
+        "file": "go_go_functions.html"
+      },
+      {
+        "title": "Go Struct",
+        "file": "go_go_struct.html"
+      },
+      {
+        "title": "Go Maps",
+        "file": "go_go_maps.html"
+      }
+    ]
+  }
+]

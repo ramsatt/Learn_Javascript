@@ -1,0 +1,52 @@
+<h1>MySQL <span class="color_h1">AVG()</span> Function</h1>
+<p>
+<a class="w3-btn w3-white w3-border" href="mysql_ref_functions.html" title="MySQL Functions">&#10094; MySQL Functions</a></p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Return the average value for the &quot;Price&quot; column in the &quot;Products&quot; table:</p>
+<div class="w3-code notranslate sqlHigh">
+SELECT AVG(Price) AS 
+  AveragePrice FROM Products;</div>
+<a target="_blank" href="trymysqlfd87.html?filename=trysql_func_mysql_avg" class="w3-btn w3-margin-bottom">Try it Yourself &raquo;</a>
+</div>
+<hr>
+
+<h2>Definition and Usage</h2>
+<p>The AVG() function returns the average value of an expression.</p>
+<p><strong>Note:</strong> NULL values are ignored.&nbsp;</p>
+
+<h2>Syntax</h2>
+<div class="w3-code w3-border notranslate">
+AVG(<em>expression</em>)</div>
+
+<h2>Parameter Values</h2>
+<table class="ws-table-all notranslate"> 
+  <tr>
+    <th style="width:23%">Parameter</th>
+    <th>Description</th>  </tr>  
+  <tr>
+    <td><em>expression</em></td>
+    <td>Required. A numeric value (can be a field or a formula)</td>
+  </tr>
+  </table>
+
+<h2>Technical Details</h2>
+<table class="ws-table-all">
+<tr>
+ <th style="width:23%">Works in:</th>
+  <td>From MySQL 4.0</td>
+</tr>
+</table>
+<hr>
+
+<h2>More Examples</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Select the records that have a price above the average price:</p>
+<div class="w3-code notranslate sqlHigh">
+SELECT * FROM Products<br>WHERE Price &gt; (SELECT AVG(Price) FROM Products); </div>
+<a target="_blank" href="trymysqlcaf2.html?filename=trysql_func_mysql_avg2" class="w3-btn w3-margin-bottom">Try it Yourself &raquo;</a>
+</div>
+
+<hr>
+<p><a class="w3-btn w3-white w3-border" href="mysql_ref_functions.html" title="MySQL Functions">&#10094; MySQL Functions</a></p>

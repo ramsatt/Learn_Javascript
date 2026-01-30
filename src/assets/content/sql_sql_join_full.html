@@ -1,0 +1,156 @@
+<h1>SQL <span class="color_h1">FULL OUTER JOIN</span> Keyword</h1>
+
+<hr>
+
+<h2>SQL FULL OUTER JOIN Keyword</h2>
+<p>The <code class="w3-codespan">FULL OUTER JOIN</code> keyword returns all records when there is a match in 
+left (table1) or right (table2) table records.</p>
+<p><strong>Tip:</strong> <code class="w3-codespan">FULL OUTER JOIN</code> and 
+<code class="w3-codespan">FULL JOIN</code> are the same.</p>
+
+<h3>FULL OUTER JOIN Syntax</h3>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+ SELECT <em>column_name(s)</em><br>
+ FROM <em>table1</em><br>
+ FULL OUTER JOIN <em>table2<br> </em>ON <em>table1.column_name </em>=<em> table2.column_name<br></em>
+ WHERE <em>condition</em>;</div></div>
+<p style="text-align:center;"><img class="invert-on-dark" alt="SQL FULL OUTER JOIN" height="158" src="assets/content/images/img_full_outer_join.png"></p>
+<p><strong>Note:</strong> <code class="w3-codespan">FULL OUTER JOIN</code> can potentially return very large 
+result-sets!</p>
+
+<hr>
+
+<h2>Demo Database</h2>
+<p>In this tutorial we will use the well-known Northwind sample database.</p>
+<p>Below is a selection from the "Customers" table:</p>
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+  <tr>
+    <th style="width:15%">CustomerID</th>
+    <th>CustomerName</th>
+    <th>ContactName</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>PostalCode</th>
+    <th>Country</th>
+  </tr>
+  <tr>
+    <td>1<br><br></td>
+    <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Obere Str. 57</td>
+    <td>Berlin</td>
+    <td>12209</td>
+    <td>Germany</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Ana Trujillo Emparedados y helados</td>
+    <td>Ana Trujillo</td>
+    <td>Avda. de la Constitución 2222</td>
+    <td>México D.F.</td>
+    <td>05021</td>
+    <td>Mexico</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Antonio Moreno Taquería</td>
+    <td>Antonio Moreno</td>
+    <td>Mataderos 2312</td>
+    <td>México D.F.</td>
+    <td>05023</td>
+    <td>Mexico</td>
+  </tr>
+</table>
+</div>
+
+<p>And a selection from the "Orders" table:</p>
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+  <tr>
+    <th style="width:15%">OrderID</th>
+    <th>CustomerID</th>
+    <th>EmployeeID</th>
+    <th>OrderDate</th>
+    <th>ShipperID</th>
+  </tr>
+  <tr>
+    <td>10308</td>
+    <td>2</td>
+    <td>7</td>
+    <td>1996-09-18</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <td>10309</td>
+    <td>37</td>
+    <td>3</td>
+    <td>1996-09-19</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td>10310</td>
+    <td>77</td>
+    <td>8</td>
+    <td>1996-09-20</td>
+    <td>2</td>
+  </tr>
+</table>
+</div>
+<hr>
+
+<hr>
+
+<h2>SQL FULL OUTER JOIN Example</h2>
+<p>The following SQL statement selects all customers, and all orders:</p>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+  SELECT Customers.CustomerName, Orders.OrderID<br>
+  FROM Customers<br>
+  FULL OUTER JOIN Orders
+  ON Customers.CustomerID=Orders.CustomerID<br>
+  ORDER BY Customers.CustomerName;
+</div></div>
+
+<p>A selection from the result set may look like this:</p>
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+  <tr>
+    <th>CustomerName</th>
+    <th>OrderID</th>
+  </tr>
+  <tr>
+    <td><em>Null</em></td>
+    <td>10309</td>
+  </tr>
+  <tr>
+    <td><em>Null</em></td>
+    <td>10310</td>
+  </tr>
+  <tr>
+    <td>Alfreds Futterkiste</td>
+    <td><em>Null</em></td>
+  </tr>
+  <tr>
+    <td>Ana Trujillo Emparedados y helados </td>
+    <td>10308</td>
+  </tr>
+  <tr>
+    <td>Antonio Moreno Taquería </td>
+    <td><em>Null</em></td>
+  </tr>
+  </table>
+</div>
+
+<p><strong>Note:</strong> The <code class="w3-codespan">FULL OUTER JOIN</code> keyword returns all matching 
+records from both tables whether the other table matches or not. So, if 
+there are rows in "Customers" that do not have matches in "Orders", or if there 
+are rows in "Orders" that do not have matches in "Customers", those rows will be 
+listed as well.</p>
+
+<hr>
+
+<hr>
+
+<br>

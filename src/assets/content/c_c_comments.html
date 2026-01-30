@@ -1,0 +1,77 @@
+<h1>C <span class="color_h1">Comments</span></h1>
+
+
+<hr>
+
+
+<h2>Comments in C</h2>
+
+<p>Comments are notes for humans. They help explain code and make it easier to read.</p>
+<p>They can also be used to temporarily "disable" code while testing.</p>
+<p>Comments can be <strong>single-line</strong> or <strong>multi-line</strong>.</p>
+
+<div class="ws-note w3-panel">
+<p><strong>Remember:</strong> Comments are ignored by the compiler, so they do not affect your program's output.</p>
+</div>
+
+<hr>
+
+
+<h2>Single-line Comments</h2>
+<p>Single-line comments start with two forward slashes (<code class="w3-codespan">//</code>).</p>
+<p>Any text between <code class="w3-codespan">//</code> and the end of the line is ignored by the compiler.</p>
+<p>This example uses a single-line comment before a line of code:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  // This is a comment<br>printf(&quot;Hello World!&quot;);</div>
+
+</div>
+
+<p>This example uses a single-line comment at the end of a line of code:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  printf(&quot;Hello World!&quot;); // This is a comment</div>
+
+</div>
+
+<p>You can also use <code class="w3-codespan">//</code> to disable a single line of code:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  printf(&quot;This will run&quot;);<br>// printf(&quot;This will NOT run&quot;);</div>
+
+</div>
+
+<hr>
+
+
+<h2>Multi-line Comments</h2>
+
+<p>Multi-line comments start with <code class="w3-codespan">/*</code> and end with <code class="w3-codespan">*/</code>.</p>
+<p>Any text between <code class="w3-codespan">/*</code> and <code class="w3-codespan">*/</code> will be ignored by the compiler:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  /* The code below will print the words Hello World!<br>to the screen, and it is
+  amazing */<br>printf(&quot;Hello World!&quot;);</div>
+
+</div>
+
+<div class="ws-note w3-panel">
+<h4>Single or multi-line comments?</h4>
+<p>It is up to you which you want to use. Normally, we use <code class="w3-codespan">//</code> for short comments and <code class="w3-codespan">/* */</code> for longer comments.</p>
+<p><strong>Good to know:</strong> Before <strong>C99</strong> (released in 1999), you could only use multi-line comments in C.</p>
+</div>
+
+
+<hr>
+
+<hr>
+
+<br>

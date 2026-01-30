@@ -1,0 +1,71 @@
+[
+  {
+    "title": "TS Tutorial",
+    "items": [
+      {
+        "title": "TypeScript Introduction",
+        "file": "typescript_typescript_intro.html"
+      },
+      {
+        "title": "TypeScript Getting Started",
+        "file": "typescript_typescript_getstarted.html"
+      },
+      {
+        "title": "TypeScript Simple Types",
+        "file": "typescript_typescript_simple_types.html"
+      },
+      {
+        "title": "TypeScript Special Types",
+        "file": "typescript_typescript_special_types.html"
+      },
+      {
+        "title": "TypeScript Arrays",
+        "file": "typescript_typescript_arrays.html"
+      },
+      {
+        "title": "TypeScript Tuples",
+        "file": "typescript_typescript_tuples.html"
+      },
+      {
+        "title": "TypeScript Object Types",
+        "file": "typescript_typescript_object_types.html"
+      },
+      {
+        "title": "TypeScript Enums",
+        "file": "typescript_typescript_enums.html"
+      },
+      {
+        "title": "TypeScript Type Aliases and Interfaces",
+        "file": "typescript_typescript_aliases_and_interfaces.html"
+      },
+      {
+        "title": "TypeScript Union Types",
+        "file": "typescript_typescript_union_types.html"
+      },
+      {
+        "title": "TypeScript Functions",
+        "file": "typescript_typescript_functions.html"
+      },
+      {
+        "title": "TypeScript Casting",
+        "file": "typescript_typescript_casting.html"
+      },
+      {
+        "title": "TypeScript Classes",
+        "file": "typescript_typescript_classes.html"
+      },
+      {
+        "title": "TypeScript Basic Generics",
+        "file": "typescript_typescript_basic_generics.html"
+      },
+      {
+        "title": "TypeScript Utility Types",
+        "file": "typescript_typescript_utility_types.html"
+      },
+      {
+        "title": "TypeScript Keyof",
+        "file": "typescript_typescript_keyof.html"
+      }
+    ]
+  }
+]

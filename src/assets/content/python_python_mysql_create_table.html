@@ -1,0 +1,77 @@
+<h1>Python MySQL <span class="color_h1">Create Table</span></h1>
+
+<hr>
+
+<h2>Creating a Table</h2>
+<p>To create a table in MySQL, use the &quot;CREATE TABLE&quot; statement.</p>
+<p>Make sure you define the name of the database when you create the connection</p>
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Create a table named "customers":</p>
+<div class="w3-code notranslate jsHigh">
+  import mysql.connector<br><br>mydb = mysql.connector.connect(<br>&nbsp; host=&quot;localhost&quot;,<br>
+  &nbsp;
+  user=&quot;<em>yourusername</em>&quot;,<br>&nbsp; password=&quot;<em>yourpassword</em>&quot;,<br>
+  &nbsp; database=&quot;mydatabase&quot;<br>)<br><br>mycursor = mydb.cursor()<br>
+  <br>mycursor.execute(&quot;CREATE TABLE customers (name VARCHAR(255), 
+  address VARCHAR(255))&quot;)<br></div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showpythonaf20.html?filename=demo_mysql_create_table">Run example &raquo;</a>
+</div>
+
+<p>If the above code was executed with no errors, you have now successfully 
+created a table.</p>
+
+<hr>
+
+<h2>Check if Table Exists</h2>
+
+<p>You can check if a table exist by listing all tables in your database with the &quot;SHOW TABLES&quot; statement:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Return a list of your system's databases:</p>
+<div class="w3-code notranslate pythonHigh">
+  import mysql.connector<br><br>mydb = mysql.connector.connect(<br>&nbsp; host=&quot;localhost&quot;,<br>&nbsp; 
+  user=&quot;<em>yourusername</em>&quot;,<br>&nbsp; password=&quot;<em>yourpassword</em>&quot;,<br>&nbsp; database=&quot;mydatabase&quot;<br>)<br><br>mycursor = mydb.cursor()<br><br>
+  mycursor.execute(&quot;SHOW TABLES&quot;)<br><br>for x in mycursor:<br>&nbsp; 
+  print(x)</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showpython2513.html?filename=demo_mysql_show_tables">Run example &raquo;</a>
+</div>
+
+<hr>
+
+<hr>
+<h2>Primary Key</h2>
+<p>When creating a table, you should also create a column with a unique key for each 
+record.</p>
+<p>This can be done by defining a PRIMARY KEY.</p>
+<p>We use the statement &quot;INT AUTO_INCREMENT PRIMARY KEY&quot; which will insert a 
+unique number for each record. Starting at 1, and increased by one for each 
+record.</p>
+<div class="w3-example">
+  <h3>Example</h3>
+<p>Create primary key when creating the table:</p>
+<div class="w3-code notranslate pythonHigh">
+  import mysql.connector<br><br>mydb = mysql.connector.connect(<br>&nbsp; host=&quot;localhost&quot;,<br>
+  &nbsp;
+  user=&quot;<em>yourusername</em>&quot;,<br>&nbsp; password=&quot;<em>yourpassword</em>&quot;,<br>
+  &nbsp; database=&quot;mydatabase&quot;<br>)<br><br>mycursor = mydb.cursor()<br>
+  <br>mycursor.execute(&quot;CREATE TABLE customers (id INT AUTO_INCREMENT 
+  PRIMARY KEY, name VARCHAR(255), 
+  address VARCHAR(255))&quot;)</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showpythond5ff.html?filename=demo_mysql_primary_key">Run example &raquo;</a>
+</div>
+
+<p>If the table already exists, use the ALTER TABLE keyword:</p>
+<div class="w3-example">
+  <h3>Example</h3>
+<p>Create primary key on an existing table:</p>
+<div class="w3-code notranslate pythonHigh">
+  import mysql.connector<br><br>mydb = mysql.connector.connect(<br>&nbsp; host=&quot;localhost&quot;,<br>
+  &nbsp;
+  user=&quot;<em>yourusername</em>&quot;,<br>&nbsp; password=&quot;<em>yourpassword</em>&quot;,<br>
+  &nbsp; database=&quot;mydatabase&quot;<br>)<br><br>mycursor = mydb.cursor()<br>
+  <br>mycursor.execute(&quot;ALTER TABLE customers ADD COLUMN id INT AUTO_INCREMENT 
+  PRIMARY KEY&quot;)</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showpython67c4.html?filename=demo_mysql_alter_primary_key">Run example &raquo;</a>
+</div>

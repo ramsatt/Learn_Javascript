@@ -1,0 +1,216 @@
+<h1>TypeScript Utility Types</h1>
+
+
+
+<hr>
+
+<p>TypeScript comes with a large number of types that can help with some common type manipulation, usually referred to as utility types.</p>
+<p>This chapter covers the most popular utility types.</p>
+
+<hr>
+
+<h2>Partial</h2>
+
+<p><code class="w3-codespan">Partial</code> changes all the properties in an object to be optional.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+
+<div class="w3-code notranslate jsHigh">
+interface Point {<br>
+&nbsp;&nbsp;x: number;<br>
+&nbsp;&nbsp;y: number;<br>
+}<br>
+<br>
+let pointPart: Partial&lt;Point&gt; = {}; // `Partial` allows x and y to be optional<br>pointPart.x = 10;<br>
+</div>
+
+
+</div>
+
+<hr>
+<hr>
+
+<h2>Required</h2>
+
+<p><code class="w3-codespan">Required</code> changes all the properties in an object to be required.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+
+<div class="w3-code notranslate jsHigh">
+interface Car {<br>
+&nbsp;&nbsp;make: string;<br>
+&nbsp;&nbsp;model: string;<br>
+&nbsp;&nbsp;mileage?: number;<br>
+}<br>
+<br>
+let myCar: Required&lt;Car&gt; = {<br>
+&nbsp;&nbsp;make: 'Ford',<br>
+&nbsp;&nbsp;model: 'Focus',<br>
+&nbsp;&nbsp;mileage: 12000 // `Required` forces mileage to be defined<br>
+};<br>
+</div>
+
+</div>
+
+<hr>
+
+<h2>Record</h2>
+
+<p><code class="w3-codespan">Record</code> is a shortcut to defining an object type with a specific key type and value type.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+
+<div class="w3-code notranslate jsHigh">
+const nameAgeMap: Record&lt;string, number&gt; = {<br>
+&nbsp;&nbsp;'Alice': 21,<br>
+&nbsp;&nbsp;'Bob': 25<br>
+};<br>
+</div>
+
+</div>
+
+<div class="w3-panel ws-info">
+<p><code class="w3-codespan">Record&lt;string, number&gt;</code> is equivalent to <code class="w3-codespan">{ [key: string]: number }</code></p>
+</div>
+
+<hr>
+
+<h2>Omit</h2>
+
+<p><code class="w3-codespan">Omit</code> removes keys from an object type.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+
+<div class="w3-code notranslate jsHigh">
+interface Person {<br>
+&nbsp;&nbsp;name: string;<br>
+&nbsp;&nbsp;age: number;<br>
+&nbsp;&nbsp;location?: string;<br>
+}<br>
+<br>
+const bob: Omit&lt;Person, 'age' | 'location'&gt; = {<br>
+&nbsp;&nbsp;name: 'Bob'<br>
+&nbsp;&nbsp;// `Omit` has removed age and location from the type and they can't be defined here<br>
+};<br>
+</div>
+
+</div>
+
+<hr>
+
+<h2>Pick</h2>
+
+<p><code class="w3-codespan">Pick</code> removes all but the specified keys from an object type.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+
+<div class="w3-code notranslate jsHigh">
+interface Person {<br>
+&nbsp;&nbsp;name: string;<br>
+&nbsp;&nbsp;age: number;<br>
+&nbsp;&nbsp;location?: string;<br>
+}<br>
+<br>
+const bob: Pick&lt;Person, 'name'&gt; = {<br>
+&nbsp;&nbsp;name: 'Bob'<br>
+&nbsp;&nbsp;// `Pick` has only kept name, so age and location were removed from the type and they can't be defined here<br>
+};<br>
+</div>
+
+</div>
+
+<hr>
+
+<h2>Exclude</h2>
+
+<p><code class="w3-codespan">Exclude</code> removes types from a union.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+
+<div class="w3-code notranslate jsHigh">
+type Primitive = string | number | boolean<br>
+const value: Exclude&lt;Primitive, string&gt; = true; // a string cannot be used here since Exclude removed it from the type.<br>
+</div>
+
+</div>
+
+<hr>
+
+<h2>ReturnType</h2>
+
+<p><code class="w3-codespan">ReturnType</code> extracts the return type of a function type.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+
+<div class="w3-code notranslate jsHigh">
+type PointGenerator = () =&gt; { x: number; y: number; };<br>
+const point: ReturnType&lt;PointGenerator&gt; = {<br>
+&nbsp;&nbsp;x: 10,<br>
+&nbsp;&nbsp;y: 20<br>
+};<br>
+</div>
+
+
+</div>
+
+<hr>
+
+<h2>Parameters</h2>
+
+<p><code class="w3-codespan">Parameters</code> extracts the parameter types of a function type as an array.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+
+<div class="w3-code notranslate jsHigh">
+type PointPrinter = (p: { x: number; y: number; }) =&gt; void;<br>
+const point: Parameters&lt;PointPrinter&gt;[0] = {<br>
+&nbsp;&nbsp;x: 10,<br>
+&nbsp;&nbsp;y: 20<br>
+};<br>
+</div>
+
+
+</div>
+
+<hr>
+
+<h2>Readonly</h2>
+
+<p><code class="w3-codespan">Readonly</code> is used to create a new type where all properties are readonly, meaning they cannot be modified once assigned a value.</p>
+
+<div class="w3-panel ws-info">
+<p>Keep in mind TypeScript will prevent this at compile time, but in theory since it is compiled down to JavaScript you can still override a readonly property.</p>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+
+<div class="w3-code notranslate jsHigh">
+interface Person {<br>
+&nbsp;&nbsp;name: string;<br>
+&nbsp;&nbsp;age: number;<br>
+}<br>
+
+const person: Readonly&#60;Person&#62; = {<br>
+&nbsp;&nbsp;name: "Dylan",<br>
+&nbsp;&nbsp;age: 35,<br>
+};<br>
+
+person.name = 'Israel'; // prog.ts(11,8): error TS2540: Cannot assign to 'name' because it is a read-only property.<br>
+</div>
+
+
+</div>
+
+<hr>
+
+<hr>
+<br>

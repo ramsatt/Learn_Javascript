@@ -1,0 +1,100 @@
+<h1>Python MongoDB <span class="color_h1">Find</span></h1>
+
+<hr>
+<div class="w3-panel ws-note">
+  <p>In MongoDB we use the <code class="w3-codespan">find()</code> and <code class="w3-codespan">find_one()</code> methods to find data in a collection.</p>
+  <p>Just like the <strong>SELECT</strong> statement is used to find data in a 
+  table in a MySQL database.</p>
+</div>
+
+
+<h2>Find One</h2>
+<p>To select data from a collection in MongoDB, we can use the
+<code class="w3-codespan">find_one()</code> method.</p>
+<p>The <code class="w3-codespan">find_one()</code> method returns the first 
+occurrence in the selection.</p>
+<div class="w3-example">
+  <h3>Example</h3>
+<p>Find the first document in the customers collection:</p>
+<div class="w3-code notranslate pythonHigh">
+  import pymongo<br><br>myclient = pymongo.MongoClient(&quot;mongodb://localhost:27017/&quot;)<br>
+  mydb = myclient[&quot;mydatabase&quot;]<br>mycol = mydb[&quot;customers&quot;]<br>
+  <br>x = mycol.find_one()<br><br>print(x)</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showpython1496.html?filename=demo_mongodb_find_one">Run example &raquo;</a>
+</div>
+
+<hr>
+
+<h2>Find All</h2>
+<p>To select data from a table in MongoDB, we can also use the
+<code class="w3-codespan">find()</code> method.</p>
+<p>The <code class="w3-codespan">find()</code> method returns all 
+occurrences in the selection.</p>
+<p>The first parameter of the <code class="w3-codespan">find()</code> method 
+is a query object. In this example we use an empty query object, which selects 
+all documents in the collection.</p>
+<div class="w3-panel ws-note">
+  <p>No parameters in the find() method gives you the same result as <strong>SELECT *</strong> in MySQL.</p>
+</div>
+
+<div class="w3-example">
+  <h3>Example</h3>
+<p>Return all documents in the &quot;customers&quot; collection, and print each document:</p>
+<div class="w3-code notranslate pythonHigh">
+  import pymongo<br><br>myclient = pymongo.MongoClient(&quot;mongodb://localhost:27017/&quot;)<br>
+  mydb = myclient[&quot;mydatabase&quot;]<br>mycol = mydb[&quot;customers&quot;]<br>
+  <br>for x in mycol.find():<br>&nbsp; print(x)</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showpython7f99.html?filename=demo_mongodb_find">Run example &raquo;</a>
+</div>
+
+<hr>
+
+<hr>
+
+<h2>Return Only Some Fields</h2>
+<p>The second parameter of the <code class="w3-codespan">find()</code> method 
+is an object describing which fields to include in the result.</p>
+<p>This parameter is optional, and if omitted, all fields will be included in 
+the result.</p>
+
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <p>Return only the names and addresses, not the _ids:</p>
+  <div class="w3-code notranslate pythonHigh">
+  import pymongo<br><br>myclient = pymongo.MongoClient(&quot;mongodb://localhost:27017/&quot;)<br>
+  mydb = myclient[&quot;mydatabase&quot;]<br>mycol = mydb[&quot;customers&quot;]<br>
+  <br>for x in mycol.find({},{ &quot;_id&quot;: 0, &quot;name&quot;: 1, &quot;address&quot;: 1 }):<br>&nbsp; 
+    print(x)</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showpythona9a1.html?filename=demo_mongodb_find_some">Run example &raquo;</a>
+</div>
+
+<div class="w3-panel ws-note">
+<p>You are not allowed to specify both 0 and 1 values in the same object (except 
+if one of the fields is the _id field). If you specify a field with the value 0, all other fields get the value 1, 
+and vice versa:</p>
+</div>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <p>This example will exclude &quot;address&quot; from the result:</p>
+  <div class="w3-code notranslate pythonHigh">
+  import pymongo<br><br>myclient = pymongo.MongoClient(&quot;mongodb://localhost:27017/&quot;)<br>
+  mydb = myclient[&quot;mydatabase&quot;]<br>mycol = mydb[&quot;customers&quot;]<br>
+  <br>for x in mycol.find({},{ &quot;address&quot;: 0 }):<br>&nbsp; 
+    print(x)</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showpython46bb.html?filename=demo_mongodb_find_some2">Run example &raquo;</a>
+</div>
+
+<div class="w3-example w3-pale-red">
+  <h3>Example</h3>
+<p>You get an error if you specify both 0 and 1 values in the same object 
+(except if one of the fields is the _id field):</p>
+  <div class="w3-code notranslate pythonHigh" style="border-left:4px solid transparent">
+  import pymongo<br><br>myclient = pymongo.MongoClient(&quot;mongodb://localhost:27017/&quot;)<br>
+  mydb = myclient[&quot;mydatabase&quot;]<br>mycol = mydb[&quot;customers&quot;]<br>
+  <br>for x in mycol.find({},{ &quot;name&quot;: 1, &quot;address&quot;: 0 }):<br>&nbsp; 
+    print(x)</div>
+</div>
+
+<hr>

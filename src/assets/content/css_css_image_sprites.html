@@ -1,0 +1,125 @@
+<h1>CSS <span class="color_h1">Image Sprites</span></h1>
+
+<hr>
+
+<h2>CSS Image Sprites</h2>
+<p>An image sprite is a collection of various small images put into one larger image 
+file, called a &quot;sprite image&quot;.</p>
+<p>A sprite image is typically arranged in a grid-like way, like this:</p>
+<p><img src="assets/content/images/img_navsprites.gif" alt="Navigation Images" /></p>
+<p>A web page with multiple images takes a longer time to load, and generates 
+multiple server requests.</p>
+<p>So, instead of downloading each image separately, the browser downloads the 
+single sprite image file, which will reduce the number of server requests and 
+reduce 
+bandwidth usage.</p>
+<hr>
+
+<h2>CSS Image Sprites Example</h2>
+<p>The CSS key properties used for image sprites are:</p>
+<ul>
+  <li><code class="w3-codespan"><a href="../cssref/pr_background-image.html">background-image</a></code></li>
+  <li><code class="w3-codespan"><a href="../cssref/pr_background-position.html">background-position</a></code></li>
+</ul>
+<p>Here, the CSS code specifies which part of the sprite image (&quot;img_navsprites.gif&quot;) to show for the different navigation items (home, next, and previous):</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;html&gt;<br>&lt;head&gt;<br>&lt;style&gt;<br>#home {<br>&nbsp; width: 46px;<br>&nbsp; 
+  height: 44px;<br>&nbsp; background-image: url(img_navsprites.gif);<br>&nbsp; 
+  background-position: 0 0; /* Top-left corner of the sprite */<br>}<br>
+  <br>#prev {<br>&nbsp; width: 43px;<br>&nbsp; height: 44px;<br>&nbsp; 
+  background-image: url('img_navsprites.gif');<br>&nbsp; background-position: 
+  -47px 0; /* 47px to the left of the sprite's top-left */<br>}<br><br>#next 
+  {<br>&nbsp; width: 43px;<br>&nbsp; height: 44px;<br>&nbsp; background-image: 
+  url('img_navsprites.gif');<br>&nbsp; background-position: -91px 0; /* 91px to 
+  the left of the sprite's top-left */<br>}<br>&lt;/style&gt;<br>
+  &lt;/head&gt;<br>&lt;body&gt;<br><br>&lt;img id=&quot;home&quot; src=&quot;img_trans.gif&quot; width=&quot;1&quot; 
+  height=&quot;1&quot;&gt;<br>&lt;img id=&quot;prev&quot; src=&quot;img_trans.gif&quot; width=&quot;1&quot; height=&quot;1&quot;&gt;<br>&lt;img id=&quot;next&quot; 
+  src=&quot;img_trans.gif&quot; width=&quot;1&quot; height=&quot;1&quot;&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</div>
+
+</div>
+
+<h4>Example explained:</h4>
+<ul>
+  <li><code class="w3-codespan">width</code>, <code class="w3-codespan">height</code> - Defines the width and height of each image-parts</li>
+  <li><code class="w3-codespan">background-image: url(img_navsprites.gif);</code> - Defines the url of the image sprite</li>
+  <li><code class="w3-codespan">background-position</code> - Shifts the background image within 
+  each element, to display only   the desired portion of the sprite image</li>
+  <li><code class="w3-codespan">&lt;img id=&quot;home&quot; src=&quot;img_trans.gif&quot;&gt;</code> - Each image just start with a small transparent image because the src attribute cannot be empty (the displayed image will be the background image we specify in CSS)</li>
+</ul>
+
+<hr>
+
+<h2>Image Sprites in a Navigation List</h2>
+<p>Here, we use the sprite image (&quot;img_navsprites.gif&quot;) inside a navigation list. 
+We will use an HTML list (&lt;ul&gt; and &lt;li&gt;) for the navigation list:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+#navlist {<br>&nbsp;&nbsp;position: relative;<br>}<br>
+<br>#navlist li {<br>&nbsp; margin: 0;<br>&nbsp; padding: 0;<br>&nbsp; list-style: none;<br>&nbsp; position: absolute;<br>
+  &nbsp; top: 0;<br>}<br><br>
+#navlist li, #navlist a {<br>&nbsp; height: 44px;<br>&nbsp; display: block;<br>}<br>
+<br>
+#home {<br>&nbsp; left: 0px;<br>&nbsp; width: 46px;<br>&nbsp;&nbsp;background: url('img_navsprites.gif') 
+0 0;<br>}<br>
+<br>#prev {<br>&nbsp; left: 60px;<br>&nbsp; width: 43px;<br>&nbsp;&nbsp;background: url('img_navsprites.gif') -47px 0;<br>}<br>
+<br>#next {<br>&nbsp; left: 120px;<br>&nbsp;&nbsp;width: 43px;<br>&nbsp;&nbsp;background: url('img_navsprites.gif') 
+-91px 0;<br>}
+</div>
+
+</div>
+
+<h4>Example explained:</h4>
+<ul>
+<li><code class="w3-codespan">#navlist {position:relative;}</code> - position is set to relative to allow absolute positioning inside it</li>
+<li><code class="w3-codespan">#navlist li</code> - set margin and padding to 0, remove bullets, and all &lt;li&gt; are absolute positioned</li>
+<li><code class="w3-codespan">#navlist li, #navlist a</code> - set the height of all images to 44px and display as block</li>
+</ul>
+<p>Now position and style each navigation item:</p>
+<ul>
+<li><code class="w3-codespan">#home {left:0px;width:46px;}</code> - Positioned all the way to the left, and 
+the width of the image is 46px</li>
+<li><code class="w3-codespan">#home {background:url(img_navsprites.gif) 0 0;}</code> - 
+Defines the background image and its position (left 0px, top 0px)</li>
+<li><code class="w3-codespan">#prev {left:60px;}</code> - Positioned 60px to the right (#home width 
+46px + some extra space between items)</li>
+<li><code class="w3-codespan">#prev {background:url('img_navsprites.gif') -47px 0;}</code> - Defines the background 
+image 47px to the right (#home width 46px + 1px line 
+divider)</li>
+<li><code class="w3-codespan">#next {left:120px;}</code> - Positioned 120px to 
+the right (start of #prev is 60px + #prev width 43px + extra space)</li>
+<li><code class="w3-codespan">#next {background:url('img_navsprites.gif') -91px 0;}</code> - 
+Defines the background image 91px to the right (#home width 46px + 1px 
+line divider + #prev width 43px + 1px line divider)</li>
+</ul>
+
+<hr>
+
+<hr>
+
+<h2>Image Sprites - Hover Effect</h2>
+<p>Now we want to add a hover effect to our navigation list.</p>
+<p>Our new image (&quot;img_navsprites_hover.gif&quot;) contains three navigation images and three images to use for hover effects:</p>
+<p><img src="assets/content/images/img_navsprites_hover.gif" alt="Navigation Image with hover" /></p>
+<p>Because this is one single image, and not six separate files, there will be no loading delay when a user hovers over the image.</p>
+<p>We only add three lines of code to add the hover effect:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+#home a:hover {<br>&nbsp; background: url('img_navsprites_hover.gif') 0 -45px;<br>}<br>
+<br>#prev a:hover {<br>&nbsp;&nbsp;background: url('img_navsprites_hover.gif') -47px 
+-45px;<br>}<br>
+<br>#next a:hover {<br>&nbsp;&nbsp;background: url('img_navsprites_hover.gif') -91px 
+-45px;<br>}</div>
+
+</div>
+<h4>Example explained:</h4>
+<ul>
+<li><code class="w3-codespan">#home a:hover {background: url('img_navsprites_hover.gif') 0 -45px;}</code> - For all three hover images we specify the same background position, only 45px further down</li>
+</ul>
+<br>

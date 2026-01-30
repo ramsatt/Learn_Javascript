@@ -1,0 +1,118 @@
+<h1>Python <span class="color_h1">If Statement</span></h1>
+
+<hr>
+
+<h2>Python Conditions and If statements</h2>
+<p>Python supports the usual logical conditions from mathematics:</p>
+<ul>
+<li>Equals: <span class="w3-codespan">a == b</span></li>
+<li>Not Equals: <span class="w3-codespan">a != b</span></li>
+<li>Less than: <span class="w3-codespan">a &lt; b</span></li>
+<li>Less than or equal to: <span class="w3-codespan">a &lt;= b</span></li>
+<li>Greater than: <span class="w3-codespan">a &gt; b</span></li>
+<li>Greater than or equal to: <span class="w3-codespan">a &gt;= b</span></li>
+</ul>
+<p>These conditions can be used in several ways, most commonly in "if statements" and loops.</p>
+
+<p>An "if statement" is written by using the <span class="w3-codespan"><a href="ref_keyword_if.html">if</a></span> keyword.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>If statement:</p>
+<div class="w3-code notranslate pythonHigh">
+a = 33<br>
+b = 200<br>
+if b &gt; a:<br>&nbsp; print("b is greater than a")
+</div>
+
+</div>
+<p>In this example we use two variables, <span class="w3-codespan">a</span> and <span class="w3-codespan">b</span>,
+which are used as part of the if statement to test whether <span class="w3-codespan">b</span> is greater than <span class="w3-codespan">a</span>.
+As <span class="w3-codespan">a</span> is <span class="w3-codespan">33</span>, and <span class="w3-codespan">b</span> is <span class="w3-codespan">200</span>,
+we know that 200 is greater than 33, and so we print to screen that "b is greater than a".</p>
+
+<hr>
+
+<h2>How If Statements Work</h2>
+
+<p>The if statement evaluates a condition (an expression that results in <span class="w3-codespan">True</span> or <span class="w3-codespan">False</span>). If the condition is true, the code block inside the if statement is executed. If the condition is false, the code block is skipped.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Checking if a number is positive:</p>
+<div class="w3-code notranslate pythonHigh">
+number = 15<br>
+if number &gt; 0:<br>&nbsp; print("The number is positive")
+</div>
+
+</div>
+
+<hr>
+
+
+<hr>
+
+<h2>Indentation</h2>
+
+<p>Python relies on indentation (whitespace at the beginning of a line) to define scope in the code. Other programming languages often use curly-brackets for this purpose.</p>
+
+<div class="w3-example w3-pale-red">
+<h3>Example</h3>
+<p>If statement, without indentation (will raise an error):</p>
+<div class="w3-code notranslate pythonHigh w3-border-red">
+a = 33<br>
+b = 200<br>
+if b > a:<br>
+print("b is greater than a")
+# you will get an error
+</div>
+
+</div>
+
+<div class="w3-panel ws-note">
+<p><strong>Note:</strong> You can use spaces or tabs for indentation, but you must use the same amount of indentation for all statements within the same code block.</p>
+</div>
+
+<hr>
+
+<h2>Multiple Statements in If Block</h2>
+
+<p>You can have multiple statements inside an if block. All statements must be indented at the same level.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Multiple statements in an if block:</p>
+<div class="w3-code notranslate pythonHigh">
+age = 20<br>
+if age &gt;= 18:<br>
+&nbsp; print("You are an adult")<br>
+&nbsp; print("You can vote")<br>
+&nbsp; print("You have full legal rights")
+</div>
+
+</div>
+
+<hr>
+
+<h2>Using Variables in Conditions</h2>
+
+<p>Boolean variables can be used directly in if statements without comparison operators.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Using a boolean variable:</p>
+<div class="w3-code notranslate pythonHigh">
+is_logged_in = True<br>
+if is_logged_in:<br>
+&nbsp; print("Welcome back!")
+</div>
+
+</div>
+
+<p>Python can evaluate many types of values as <span class="w3-codespan">True</span> or <span class="w3-codespan">False</span> in an if statement.</p>
+<p>Zero (<span class="w3-codespan">0</span>), empty strings (<span class="w3-codespan">""</span>), <span class="w3-codespan">None</span>, and empty collections are treated as <span class="w3-codespan">False</span>. Everything else is treated as <span class="w3-codespan">True</span>.</p>
+<p>This includes positive numbers (<span class="w3-codespan">5</span>), negative numbers (<span class="w3-codespan">-3</span>), and any non-empty string (even <span class="w3-codespan">"False"</span> is treated as <span class="w3-codespan">True</span> because it's a non-empty string).</p>
+
+<hr>
+
+<hr>

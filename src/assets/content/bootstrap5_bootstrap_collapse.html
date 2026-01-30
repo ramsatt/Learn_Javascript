@@ -1,0 +1,127 @@
+<h1>Bootstrap 5 <span class="color_h1">Collapse</span></h1>
+
+<hr>
+
+<h2>Basic Collapsible</h2>
+<p>Collapsibles are useful when you want to hide and show large amount of content:</p>
+
+<div style="margin:16px 0">
+  <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#demo">Click Me</button>
+  <div id="demo" class="collapse">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+  </div>
+</div>
+  <div class="w3-example">
+ <h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+ &lt;button data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#demo&quot;&gt;Collapsible&lt;/button&gt;<br><br>&lt;div id=&quot;demo&quot; class=&quot;collapse&quot;&gt;<br>Lorem ipsum dolor text....<br>&lt;/div&gt;</div>
+
+</div>
+
+<h3>Example Explained</h3>
+<p>The <code class="w3-codespan">.collapse</code> class indicates a collapsible element (a &lt;div&gt; in our example); 
+this is the content that will be shown or hidden with a click of a button.</p>
+
+<p>To control (show/hide) the collapsible content, add the <code class="w3-codespan">data-bs-toggle=&quot;collapse&quot;</code> attribute to an &lt;a&gt; or a &lt;button&gt; element. 
+Then add the <code class="w3-codespan">data-bs-target=&quot;#id&quot;</code> attribute to 
+connect the button with the collapsible content (&lt;div id="demo"&gt;).</p>
+<p><strong>Note:</strong> For &lt;a&gt; 
+elements, you can use the <code class="w3-codespan">href</code> attribute instead of the <code class="w3-codespan">data-bs-target</code> 
+attribute:</p>
+  <div class="w3-example">
+ <h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+ &lt;a href=&quot;#demo&quot; data-bs-toggle=&quot;collapse&quot;&gt;Collapsible&lt;/a&gt;<br><br>&lt;div id=&quot;demo&quot; class=&quot;collapse&quot;&gt;<br>Lorem ipsum dolor text....<br>&lt;/div&gt;</div>
+
+</div>
+
+<p>By default, the collapsible content is hidden. However, you can add the <code class="w3-codespan">.show</code> class to show the content by default:</p>
+  <div class="w3-example">
+ <h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+ &lt;div id=&quot;demo&quot; class=&quot;collapse show&quot;&gt;<br>Lorem ipsum dolor text....<br>&lt;/div&gt;</div>
+
+</div>
+<hr>
+<hr>
+
+<h2>Accordion</h2>
+<div id="accordion" style="margin: 20px 0">
+    <div class="card">
+      <div class="card-header">
+        <a data-bs-toggle="collapse" href="#collapseOne" class="btn">
+          Collapsible Group Item #1
+        </a>
+      </div>
+
+      <div id="collapseOne" class="collapse show" data-bs-parent="#accordion">
+        <div class="card-body" style="color:#212529">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseTwo">
+        Collapsible Group Item #2
+      </a>
+      </div>
+      <div id="collapseTwo" class="collapse" data-bs-parent="#accordion" >
+        <div class="card-body" style="color:#212529">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <a class="collapsed btn" data-bs-toggle="collapse"  href="#collapseThree">
+          Collapsible Group Item #3
+        </a>
+      </div>
+      <div id="collapseThree" class="collapse" data-bs-parent="#accordion">
+        <div class="card-body" style="color:#212529">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </div>
+      </div>
+    </div>
+  </div>
+<p>The following example shows a simple accordion by extending the card component.</p>
+<p><strong>Note:</strong> Use the <code class="w3-codespan">data-bs-parent</code> attribute to make 
+sure that all collapsible elements under the specified parent will be closed when one of the collapsible item is shown.</p>
+<div class="w3-example">
+ <h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+  &lt;div id=&quot;accordion&quot;&gt;<br><br>&nbsp; &lt;div class=&quot;card&quot;&gt;<br>&nbsp;&nbsp;&nbsp; &lt;div 
+  class=&quot;card-header&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;a class=&quot;btn&quot; 
+  data-bs-toggle=&quot;collapse&quot; href=&quot;#collapseOne&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Collapsible 
+  Group Item #1<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/a&gt;<br>&nbsp;&nbsp;&nbsp; 
+  &lt;/div&gt;<br>&nbsp;&nbsp;&nbsp; &lt;div id=&quot;collapseOne&quot; class=&quot;collapse show&quot; 
+  data-bs-parent=&quot;#accordion&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  &lt;div class=&quot;card-body&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Lorem 
+  ipsum..<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br>&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br>&nbsp; 
+  &lt;/div&gt;<br><br>&nbsp; &lt;div class=&quot;card&quot;&gt;<br>&nbsp;&nbsp;&nbsp; &lt;div 
+  class=&quot;card-header&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;a class=&quot;collapsed 
+  btn&quot; 
+  data-bs-toggle=&quot;collapse&quot; href=&quot;#collapseTwo&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Collapsible 
+  Group Item #2<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/a&gt;<br>&nbsp;&nbsp;&nbsp; 
+  &lt;/div&gt;<br>&nbsp;&nbsp;&nbsp; &lt;div id=&quot;collapseTwo&quot; class=&quot;collapse&quot; 
+  data-bs-parent=&quot;#accordion&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  &lt;div class=&quot;card-body&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Lorem 
+  ipsum..<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br>&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br>&nbsp; 
+  &lt;/div&gt;<br><br>&nbsp; &lt;div class=&quot;card&quot;&gt;<br>&nbsp;&nbsp;&nbsp; &lt;div 
+  class=&quot;card-header&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;a class=&quot;collapsed 
+  btn&quot; 
+  data-bs-toggle=&quot;collapse&quot; href=&quot;#collapseThree&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Collapsible 
+  Group Item #3<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/a&gt;<br>&nbsp;&nbsp;&nbsp; 
+  &lt;/div&gt;<br>&nbsp;&nbsp;&nbsp; &lt;div id=&quot;collapseThree&quot; class=&quot;collapse&quot; 
+  data-bs-parent=&quot;#accordion&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  &lt;div class=&quot;card-body&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Lorem 
+  ipsum..<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br>&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br>&nbsp; 
+  &lt;/div&gt;<br><br>&lt;/div&gt;</div>
+
+</div>
+<hr>
+
+<br>

@@ -1,0 +1,36 @@
+<h1>jQuery <span class="color_h1">serializeArray()</span> Method</h1>
+<p><a href="jquery_ref_ajax.html" class="w3-btn w3-white w3-border" title="jQuery AJAX Methods">&#10094; jQuery AJAX Methods</a></p>
+
+<div class="w3-example">
+
+
+<h3>Example</h3>
+<p>Output the result of form values serialized as arrays:</p>
+<div class="w3-code notranslate jsHigh">
+  
+    $(&quot;button&quot;).click(function(){<br>
+&nbsp;&nbsp;var x = $(&quot;form&quot;).serializeArray();<br>
+    &nbsp; $.each(x, function(i, field){<br>
+    &nbsp;&nbsp;&nbsp; $(&quot;#results&quot;).append(field.name + &quot;:&quot; + field.value + &quot; &quot;);<br>
+&nbsp;&nbsp;});<br>
+ });
+  
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="tryit9b8a.html?filename=tryjquery_ajax_serializearray">Try it Yourself &raquo;</a>
+
+
+</div>
+<hr>
+
+<h2>Definition and Usage</h2>
+<p>The serializeArray() method creates an array of objects (name and value) by serializing form 
+values.</p>
+<p>You can select one or more form elements (like input and/or text 
+area), or the form element itself.</p> 
+<hr>
+
+<h2>Syntax</h2>
+<div class="w3-code w3-border notranslate"><div>
+$(<i>selector</i>).serializeArray()</div></div>
+<hr>
+<p><a href="jquery_ref_ajax.html" class="w3-btn w3-white w3-border" title="jQuery AJAX Methods">&#10094; jQuery AJAX Methods</a></p>

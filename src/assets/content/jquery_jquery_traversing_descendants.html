@@ -1,0 +1,81 @@
+<h1>jQuery Traversing - <span class="color_h1">Descendants</span></h1>
+
+<hr>
+<p class="intro">With jQuery you can traverse down the DOM tree to 
+find descendants of an element.</p>
+<p class="intro">A descendant is a child, grandchild, great-grandchild, and so 
+on.</p>
+<hr>
+<h2>Traversing Down the DOM Tree</h2>
+<p>Two useful jQuery methods for traversing down the DOM tree are:</p>
+<ul>
+  <li><code class="w3-codespan">children()</code></li>
+  <li><code class="w3-codespan">find()</code></li>
+</ul>
+<hr>
+<h2>jQuery children() Method</h2>
+<p>The <code class="w3-codespan">children()</code> method returns all direct children of the selected element.</p>
+<p>This method only traverses a single level down the DOM tree.</p>
+<p>The following example returns all elements that are direct children of each <code class="w3-codespan">&lt;div&gt;</code> elements:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+ $(document).ready(function(){<br>&nbsp; $(&quot;div&quot;).children();<br>}); </div>
+
+</div>
+<p>You can also use an optional parameter to filter the search for children.</p>
+<p>The following example returns all <code class="w3-codespan">&lt;p&gt;</code> elements with the class name &quot;first&quot;, that 
+are direct children of <code class="w3-codespan">&lt;div&gt;</code>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+ $(document).ready(function(){<br>&nbsp;&nbsp;$(&quot;div&quot;).children(&quot;p.first&quot;);<br>}); </div>
+
+</div>
+<hr>
+
+<hr>
+<h2>jQuery find() Method</h2>
+<p>The <code class="w3-codespan">find()</code> method returns descendant elements of the selected element, all 
+the way down to the last descendant.</p>
+<p>The following example returns all <code class="w3-codespan">&lt;span&gt;</code> elements that are 
+descendants of <code class="w3-codespan">&lt;div&gt;</code>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+ $(document).ready(function(){<br>&nbsp;&nbsp;$(&quot;div&quot;).find(&quot;span&quot;);<br>}); </div>
+
+</div>
+<p>The following example returns all 
+descendants of <code class="w3-codespan">&lt;div&gt;</code>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+ $(document).ready(function(){<br>&nbsp;&nbsp;$(&quot;div&quot;).find(&quot;*&quot;);<br>}); </div>
+
+</div>
+<hr>
+
+<h2>jQuery Exercises</h2>
+<form autocomplete="off" id="w3-exerciseform" action="https://www.w3schools.com/jquery/exercise_jq.asp?filename=exercise_jq_traversing3" method="post" target="_blank">
+<h2>Test Yourself With Exercises</h2>
+<div class="exercisewindow">
+<h2>Exercise:</h2>
+<p>Use a jQuery method to get all direct children of a &lt;div&gt; element element.</p>
+<div class="exerciseprecontainer">
+<pre style="background-color:transparent;border:none;">
+$("div").<input name="ex1" maxlength="8" style="width:85px;">();
+</pre>
+</div>
+<br>
+<button type="submit" class="w3-btn w3-margin-bottom">Submit Answer &raquo;</button>
+<p><a target="_blank" href="exercise_jq171b.html?filename=exercise_jq_traversing3">Start the Exercise</a></p>
+</div>
+</form>
+<hr>
+
+<h2>jQuery Traversing Reference</h2>
+<p>For a complete overview of all jQuery Traversing methods, please go to our
+<a href="jquery_ref_traversing.html">jQuery Traversing Reference</a>.</p>
+<br>

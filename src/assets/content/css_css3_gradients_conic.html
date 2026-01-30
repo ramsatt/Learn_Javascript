@@ -1,0 +1,194 @@
+<h1>CSS <span class="color_h1">Conic Gradients</span></h1>
+
+<hr>
+
+<h2>CSS conic-gradient() Function</h2>
+<p>The CSS <code class="w3-codespan"><a href="../cssref/func_conic-gradient.html">
+conic-gradient()</a></code> function creates a conic gradient.</p>
+<p>A conic gradient is a gradient with color transitions rotated around a center point.</p>
+<p>To create a conic gradient you must define at least two colors.</p>
+<h3>Syntax</h3>
+<div class="w3-code w3-border notranslate"><div>
+background-image: conic-gradient([from<em> angle</em>] [at <em>position</em>,] <em>color </em>
+  [<em>degree</em>]<em>, color </em>[<em>degree</em>]<em>, ...</em>);</div></div>
+<p>By default, <code class="w3-codespan">angle</code> is 0deg and <code class="w3-codespan">
+position</code> is center.</p>
+<p>If no <code class="w3-codespan">degree</code> is specified, the colors will be spread equally around 
+the center point.</p>
+
+<hr>
+
+<h2>Conic Gradient: Three Colors</h2>
+<p>The following example shows a conic gradient with three colors:</p>
+<div id="grad10"></div>
+<div class="w3-example">
+<h3>Example</h3>
+  <p>A conic gradient with three colors:</p>
+<div class="w3-code notranslate cssHigh">
+    #grad {<br>&nbsp; background-image: conic-gradient(red, yellow, green);<br>} </div>
+
+</div>
+
+<hr>
+
+<h2>Conic Gradient: Five Colors</h2>
+<p>The following example shows a conic gradient with five colors:</p>
+<div id="grad11"></div>
+<div class="w3-example">
+<h3>Example</h3>
+  <p>A conic gradient with five colors:</p>
+<div class="w3-code notranslate cssHigh">
+    #grad {<br>&nbsp; background-image: conic-gradient(red, yellow, green, blue, black);<br>} </div>
+
+</div>
+
+<hr>
+
+<h2>Conic Gradient: Three Colors and Degrees</h2>
+<p>The following example shows a conic gradient with three colors and a degree for each color:</p>
+<div id="grad12"></div>
+<div class="w3-example">
+<h3>Example</h3>
+  <p>A conic gradient with three colors and a degree for each color:</p>
+<div class="w3-code notranslate cssHigh">
+    #grad {<br>&nbsp; background-image: conic-gradient(red 45deg, yellow 
+    90deg, green 210deg);<br>} </div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>Create Pie Charts</h2>
+<p>Just add <code class="w3-codespan">
+<a href="../cssref/css3_pr_border-radius.html">border-radius: 50%</a></code> to make the conic gradient look like a pie:</p>
+<div id="grad13"></div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+    #grad {<br>&nbsp; background-image: conic-gradient(red, yellow, green, blue, 
+    black);<br>&nbsp; 
+    border-radius: 50%;<br>
+} </div>
+
+</div>
+
+<p>Here is another pie chart with defined degrees for all the colors:</p>
+<div id="grad131"></div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+    #grad {<br>&nbsp; background-image: conic-gradient(red 0deg, red 90deg, yellow 90deg, yellow 
+    180deg, green 180deg, green 270deg, blue 270deg);<br>&nbsp; 
+    border-radius: 50%;<br>
+} </div>
+
+</div>
+
+<hr>
+
+<h2>Conic Gradient With Specified From Angle</h2>
+<p>The [from <em>angle</em>] specifies an angle that the entire conic gradient is 
+rotated by.</p>
+<p>The following example shows a conic gradient with a from angle of 90deg:</p>
+<div id="grad15"></div>
+<div class="w3-example">
+<h3>Example</h3>
+  <p>A conic gradient with a from angle:</p>
+<div class="w3-code notranslate cssHigh">
+    #grad {<br>&nbsp; background-image: conic-gradient(from 90deg, red, yellow, 
+    green);<br>} </div>
+
+</div>
+
+<hr>
+
+<h2>Conic Gradient With Specified Center Position</h2>
+<p>The [at <em>position</em>] specifies the center of the conic gradient.</p>
+<p>The following example shows a conic gradient with a center position of 60% 
+45%:</p>
+<div id="grad16"></div>
+<div class="w3-example">
+<h3>Example</h3>
+  <p>A conic gradient with a specified center position:</p>
+<div class="w3-code notranslate cssHigh">
+    #grad {<br>&nbsp; background-image: conic-gradient(at 60% 45%, red, yellow, 
+    green);<br>} </div>
+
+</div>
+
+<hr>
+
+<h2>CSS repeating-conic-gradient() Function</h2>
+<p>The CSS <code class="w3-codespan">
+<a href="../cssref/func_repeating-conic-gradient.html">repeating-conic-gradient()</a></code> function is used to repeat conic gradients:</p>
+<div id="grad14"></div>
+<div class="w3-example">
+<h3>Example</h3>
+<p>A repeating conic gradient:</p>
+<div class="w3-code notranslate cssHigh">
+    #grad {<br>&nbsp; background-image: 
+repeating-conic-gradient(red 10%, yellow 20%);<br>&nbsp; 
+    border-radius: 50%;<br>} </div>
+
+</div>
+
+<p>Here is a repeating conic gradient with defined color-starts and color-stops:</p>
+<div id="grad17"></div>
+<div class="w3-example">
+<h3>Example</h3>
+<p>A repeating conic gradient with defined color-starts and color-stops:</p>
+<div class="w3-code notranslate cssHigh">
+    #grad {<br>&nbsp; background-image: 
+repeating-conic-gradient(red 0deg 10deg, yellow 10deg 20deg, blue 20deg 30deg);<br>&nbsp; 
+    border-radius: 50%;<br>} </div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>CSS Gradient Functions</h2>
+<p>The following table lists the CSS gradient functions:</p>
+
+<div class="w3-responsive" style="margin-top:-16px;margin-bottom:-16px">
+<table class="ws-table-all notranslate">
+  <tr>
+    <th style="width:35%">Function</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><a href="../cssref/func_conic-gradient.html">conic-gradient()</a></td>
+    <td>Creates a conic gradient. Define at least two 
+    colors (around a center point)</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/func_linear-gradient.html">linear-gradient()</a></td>
+    <td>Creates a linear gradient. Define at least two 
+    colors (top to bottom)</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/func_radial-gradient.html">radial-gradient()</a></td>
+    <td>Creates a radial gradient. Define at least two 
+    colors (center to edges)</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/func_repeating-conic-gradient.html">repeating-conic-gradient()</a></td>
+    <td>Repeats a conic gradient</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/func_repeating-linear-gradient.html">repeating-linear-gradient()</a></td>
+    <td>Repeats a linear gradient</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/func_repeating-radial-gradient.html">repeating-radial-gradient()</a></td>
+    <td>Repeats a radial gradient</td>
+  </tr>
+  </table>
+</div>
+
+<br>

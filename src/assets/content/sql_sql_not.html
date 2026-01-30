@@ -1,0 +1,171 @@
+<h1>SQL <span class="color_h1">NOT</span> Operator</h1>
+
+<hr>
+
+<h2>The NOT Operator</h2>
+<p>The <code class="w3-codespan">NOT</code> operator is used in combination with 
+other operators to give the opposite result, also called the negative result. </p>
+<p>In the select statement below we want to return all customers that are NOT 
+from Spain:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Select only the customers that are NOT from Spain:</p>
+<div class="w3-code notranslate sqlHigh">
+ SELECT * FROM Customers<br>
+ WHERE NOT Country = 'Spain';
+</div>
+
+</div>
+
+<p>In the example above, the <code class="w3-codespan">NOT</code> operator is used in combination with the
+<code class="w3-codespan">=</code> operator, but it can be used in combination with other comparison and/or logical operators.
+See examples below.</p>
+<hr>
+
+<h2>Syntax</h2>
+<div class="w3-example ws-light-grey">
+<p><code class="sqlHigh">
+SELECT <em>column1</em>,<em> column2, ...</em><br>
+FROM <em>table_name</em><br>
+WHERE NOT <em>condition</em>;
+</code></p>
+</div>
+
+<hr>
+
+<h2>Demo Database</h2>
+<p>Below is a selection from the <a href="trysql734a.html?filename=trysql_customers" target="_blank"><strong>Customers</strong></a> table used in the examples:</p>
+
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+  <tr>
+    <th>CustomerID</th>
+    <th>CustomerName</th>
+    <th>ContactName</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>PostalCode</th>
+    <th>Country</th>
+  </tr>
+  <tr>
+    <td>1<br><br></td>
+    <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Obere Str. 57</td>
+    <td>Berlin</td>
+    <td>12209</td>
+    <td>Germany</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Ana Trujillo Emparedados y helados</td>
+    <td>Ana Trujillo</td>
+    <td>Avda. de la Constitución 2222</td>
+    <td>México D.F.</td>
+    <td>05021</td>
+    <td>Mexico</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Antonio Moreno Taquería</td>
+    <td>Antonio Moreno</td>
+    <td>Mataderos 2312</td>
+    <td>México D.F.</td>
+    <td>05023</td>
+    <td>Mexico</td>
+  </tr>
+  <tr>
+    <td>4<br><br></td>
+    <td>Around the Horn</td>
+    <td>Thomas Hardy</td>
+    <td>120 Hanover Sq.</td>
+    <td>London</td>
+    <td>WA1 1DP</td>
+    <td>UK</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>Berglunds snabbköp</td>
+    <td>Christina Berglund</td>
+    <td>Berguvsvägen 8</td>
+    <td>Luleå</td>
+    <td>S-958 22</td>
+    <td>Sweden</td>
+  </tr>
+</table>
+</div>
+
+
+
+<hr>
+
+<hr>
+
+<h2>NOT LIKE</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Select customers that does not start with the letter 'A':</p>
+<div class="w3-code notranslate sqlHigh">
+ SELECT * FROM Customers<br>
+ WHERE CustomerName NOT LIKE 'A%';
+</div>
+
+</div>
+
+<hr>
+
+<h2>NOT BETWEEN</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Select customers with a customerID not between 10 and 60:</p>
+<div class="w3-code notranslate sqlHigh">
+ SELECT * FROM Customers<br>
+ WHERE CustomerID NOT BETWEEN 10 AND 60;
+</div>
+
+</div>
+
+<hr>
+
+<h2>NOT IN</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Select customers that are not from Paris or London:</p>
+<div class="w3-code notranslate sqlHigh">
+ SELECT * FROM Customers<br>
+ WHERE City NOT IN ('Paris', 'London');
+</div>
+
+</div>
+
+<hr>
+
+<h2>NOT Greater Than</h2>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Select customers with a CustomerId not greater than 50:</p>
+<div class="w3-code notranslate sqlHigh">
+ SELECT * FROM Customers<br>
+ WHERE NOT CustomerID > 50;
+</div>
+
+</div>
+
+<hr>
+
+<h2>NOT Less Than</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Select customers with a CustomerID not less than 50:</p>
+<div class="w3-code notranslate sqlHigh">
+ SELECT * FROM Customers<br>
+ WHERE NOT CustomerId &lt; 50;
+</div>
+
+</div>
+
+<hr>
+
+<hr>

@@ -1,0 +1,73 @@
+<h1>PHP <span class="color_h1">array_chunk()</span> Function</h1>
+<p><a href="php_ref_array.html" class="w3-btn w3-white w3-border" title="PHP Array Reference">&#10094; PHP Array Reference</a></p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Split an array into chunks of two:</p>
+<div class="w3-code notranslate htmlHigh">
+&lt;?php<br>
+$cars=array(&quot;Volvo&quot;,&quot;BMW&quot;,&quot;Toyota&quot;,&quot;Honda&quot;,&quot;Mercedes&quot;,&quot;Opel&quot;);<br>
+ print_r(array_chunk($cars,2));<br>?&gt;
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="phptryit5f1d.html?filename=tryphp_func_array_chunk">Try it Yourself &raquo;</a>
+</div>
+<hr>
+
+<h2>Definition and Usage</h2>
+<p>The array_chunk() function splits an array into chunks of new arrays.</p>
+<hr>
+
+<h2>Syntax</h2>
+<div class="w3-code w3-border notranslate"><div>
+array_chunk(<em>array</em>,<em> size</em>,<em> preserve_key</em>)
+</div></div>
+<h2>Parameter Values</h2>
+<table class="ws-table-all notranslate"> 
+  <tr>
+    <th style="width:20%">Parameter</th>
+    <th style="width:80%">Description</th>
+  </tr>  
+  <tr>
+    <td>array</td>
+    <td>Required. Specifies the array to use</td>
+  </tr>
+  <tr>
+    <td>size</td>
+    <td>Required. An integer that specifies the size of each chunk</td>
+  </tr>
+  <tr>
+    <td>preserve_key</td>
+    <td>Optional. Possible values:<ul>
+      <li>true - Preserves the keys</li>
+      <li>false - Default. Reindexes the chunk numerically</li>
+    </ul>
+    </td>
+  </tr>
+  </table>
+<h2>Technical Details</h2>
+<table class="ws-table-all">
+<tr>
+ <th style="width:20%">Return Value:</th>
+ <td style="width:80%">Returns a multidimensional indexed array, starting with zero, with each dimension containing <em>size</em> elements</td>
+</tr>
+<tr>
+  <th>PHP Version:</th>
+  <td>4.2+</td>
+</tr>
+</table>
+<hr>
+
+<hr>
+
+<h2>More Examples</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Split an array into chunks of two and preserve the original keys:</p>
+<div class="w3-code notranslate htmlHigh">
+&lt;?php<br>
+ $age=array(&quot;Peter&quot;=&gt;&quot;35&quot;,&quot;Ben&quot;=&gt;&quot;37&quot;,&quot;Joe&quot;=&gt;&quot;43&quot;,&quot;Harry&quot;=&gt;&quot;50&quot;);<br>print_r(array_chunk($age,2,true));<br>?&gt;
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="phptryit79c4.html?filename=tryphp_func_array_chunk2">Try it Yourself &raquo;</a>
+</div>
+<hr>
+<a href="php_ref_array.html" class="w3-btn w3-white w3-border" title="PHP Array Reference">&#10094;  PHP Array Reference</a>

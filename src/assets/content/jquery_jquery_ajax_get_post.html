@@ -1,0 +1,118 @@
+<h1>jQuery - <span class="color_h1">AJAX get() and post() Methods</span></h1>
+
+<hr>
+<p class="intro">The jQuery get() and post() methods are used to request data from the server 
+with an HTTP GET 
+or POST request.</p>
+<hr>
+
+<h2>HTTP Request: GET vs. POST</h2>
+<p>Two commonly used methods for a request-response between a client and server 
+are: GET and 
+POST.</p>
+<ul>
+  <li><b>GET</b> - Requests data from a specified resource</li>
+  <li><b>POST</b> - Submits data to be processed to a specified resource</li>
+</ul>
+<p>GET is basically used for just getting (retrieving) some data from the server.
+<b>Note:</b> The GET method may return cached data.</p>
+<p>POST can also be used to get some data from the server. However, the POST 
+method NEVER caches data, and is often used to send data along with the request.</p>
+<p>To learn more about GET and POST, and the differences between the two 
+methods, please read our <a href="../tags/ref_httpmethods.html">HTTP Methods GET vs 
+POST</a> chapter.</p>
+<hr>
+
+<h2>jQuery $.get() Method</h2>
+<p>The <code class="w3-codespan">$.get()</code> method requests data from the server with an HTTP GET request.</p>
+<p><b>Syntax:</b></p>
+<div class="w3-code w3-border notranslate">
+ <div>
+$.get(<i>URL,callback</i>);
+</div></div>
+<p>The required URL parameter specifies the URL you wish to request.</p>
+<p>The optional callback parameter is the name of a function to be executed 
+if the request succeeds.</p>
+<p>The following example uses the <code class="w3-codespan">$.get()</code> method to retrieve data from a file on 
+the server:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;button&quot;).click(function(){<br>
+  &nbsp; $.get(&quot;demo_test.asp&quot;, function(data, status){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;alert(&quot;Data: &quot; + data + &quot;\nStatus: &quot; + status);<br>
+&nbsp;&nbsp;});<br>
+});</div>
+
+</div>
+<p>The first parameter of <code class="w3-codespan">$.get()</code> is the URL we wish to request (&quot;demo_test.asp&quot;).</p>
+<p>The second 
+parameter is a callback function. The first callback parameter holds the content of 
+the page requested, and the second callback parameter holds the status of 
+the request.</p>
+<p><b>Tip:</b> Here is how the ASP file looks like (&quot;demo_test.asp&quot;):</p>
+<div class="w3-code w3-border notranslate">
+ <div>
+&lt;%<br>
+response.write(&quot;This is some text from an external ASP file.&quot;)<br>
+%&gt;</div></div>
+<hr>
+
+<hr>
+<h2>jQuery $.post() Method</h2>
+<p>The <code class="w3-codespan">$.post()</code> method requests data from the server using an HTTP POST request.</p>
+<p><b>Syntax:</b></p>
+<div class="w3-code w3-border notranslate">
+ <div>
+$.post(<i>URL,data,callback</i>);
+</div></div>
+<p>The required URL parameter specifies the URL you wish to request.</p>
+<p>The optional data parameter specifies some data to send along with the 
+request.</p>
+<p>The optional callback parameter is the name of a function to be executed 
+if the request succeeds.</p>
+<p>The following example uses the <code class="w3-codespan">$.post()</code> method to send some data along with the 
+request:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;button&quot;).click(function(){<br>
+&nbsp;&nbsp;$.post(&quot;demo_test_post.asp&quot;,<br>
+  &nbsp;&nbsp;{<br>
+  &nbsp;&nbsp;&nbsp; name: &quot;Donald Duck&quot;,<br>
+  &nbsp;&nbsp;&nbsp; city: &quot;Duckburg&quot;<br>
+&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;function(data, status){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;alert(&quot;Data: &quot; + data + &quot;\nStatus: &quot; + status);<br>
+  &nbsp; });<br>
+});</div>
+
+</div>
+<p>The first parameter of <code class="w3-codespan">$.post()</code> is the URL we wish to request (&quot;demo_test_post.asp&quot;).</p>
+<p>Then we pass in some data to send along with the request (name and city).</p>
+<p>The ASP script in &quot;demo_test_post.asp&quot; reads the parameters, 
+processes them, and returns a result.</p>
+<p>The third 
+parameter is a callback function. The first callback parameter holds the content of 
+the page requested, and the second callback parameter holds the status of 
+the request.</p>
+<p><b>Tip:</b> Here is how the ASP file looks like (&quot;demo_test_post.asp&quot;):</p>
+<div class="w3-code w3-border notranslate">
+ <div>
+&lt;%<br>
+dim fname,city<br>
+fname=Request.Form(&quot;name&quot;)<br>
+city=Request.Form(&quot;city&quot;)<br>
+Response.Write(&quot;Dear &quot; &amp; fname &amp; &quot;. &quot;)<br>
+Response.Write(&quot;Hope you live well in &quot; &amp; city &amp; &quot;.&quot;)<br>
+%&gt;</div></div>
+<hr>
+
+<h2>jQuery AJAX Reference</h2>
+
+<p>For a complete overview of all jQuery AJAX methods, please go to our <a href="jquery_ref_ajax.html">jQuery 
+AJAX Reference</a>.</p>
+
+<br>

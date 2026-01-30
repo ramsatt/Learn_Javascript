@@ -1,0 +1,103 @@
+<h1>Java <span class="color_h1">Getting Started</span></h1>
+
+<hr>
+
+<h2>Get Started With Java</h2>
+<p>At W3Schools, you can try Java without installing anything.</p>
+<p>Our Online Java Editor runs directly in your browser, and shows both the code and the result:</p>
+
+<div class="w3-example">
+<p>Code:</p>
+<pre class="language-java w3-white"><code>public class Main {
+&nbsp; public static void main(String[] args) {
+&nbsp;&nbsp;&nbsp; System.out.println(&quot;Hello World&quot;);
+&nbsp; }
+}
+</code></pre>
+<p>Result:</p>
+<div class="w3-padding w3-black">
+<code>Hello World</code>
+</div>
+<p></p>
+</div>
+<p>This editor will be used in the entire tutorial to demonstrate the different aspects of Java.</p>
+<hr>
+
+<h2>Java Install</h2>
+<p>However, if you want to run Java on your own computer, follow the instructions below.</p>
+<p>Some PCs might have Java already installed.</p>
+
+<p>To check if you have Java installed on a Windows PC, search in the start bar for Java or type the following in Command Prompt (cmd.exe):</p>
+
+<div class="w3-example">
+<div class="w3-code notranslate w3-black">
+C:\Users\<em>Your Name</em>&gt;java -version
+</div>
+</div>
+
+<p>If Java is installed, you will see something like this (depending on version):</p>
+<div class="w3-example w3-padding-16">
+<div class="notranslate w3-black w3-padding">
+<code>
+java version "22.0.0" 2024-08-21 LTS<br>
+Java(TM) SE Runtime Environment 22.9 (build 22.0.0+13-LTS)<br>
+Java HotSpot(TM) 64-Bit Server VM 22.9 (build 22.0.0+13-LTS, mixed mode)</code>
+</div>
+</div>
+
+<p>If you do not have Java installed on your computer, you can download it at <a href="https://www.oracle.com/java/technologies/downloads/" target="_blank">oracle.com</a>.</p>
+
+<p><strong>Note:</strong> In this tutorial, we will write Java code in a text editor. However, it is possible to write Java in an Integrated Development Environment, such as IntelliJ IDEA, Netbeans or Eclipse, which are particularly useful when managing larger collections of Java files.</p>
+<hr>
+
+
+<h2>Java Quickstart</h2>
+<p>In Java, every application begins with a class name, and that class must match the filename.</p>
+<p>Let's create our first Java file, called <code class="w3-codespan">Main.java</code>, which can be done in any text editor 
+(like Notepad).</p>
+<p>The file should contain a &quot;Hello World&quot; message, which is written with the 
+following code:</p>
+
+<div class="w3-example" style="padding-top:26px">
+<pre class="language-java w3-white" data-tab-header="Main.java"><code>public class Main {
+&nbsp; public static void main(String[] args) {
+&nbsp;&nbsp;&nbsp; System.out.println(&quot;Hello World&quot;);
+&nbsp; }
+}
+</code></pre>
+<p>
+
+</p>
+</div>
+
+<p>Don't worry if you don't understand the code above - we will discuss it in detail in later chapters. 
+For now, focus on <strong>how</strong> to run the code above.</p>
+<p>Save the code in Notepad as "Main.java". Open Command Prompt (cmd.exe), navigate to the directory where you saved your file, and type "javac 
+Main.java":</p>
+
+<div class="w3-example">
+<div class="w3-code notranslate w3-black">
+C:\Users\<em>Your Name</em>&gt;javac Main.java
+</div>
+</div>
+<p>This will compile your code. If there are no errors in the code, the command prompt will take you to the next line. 
+Now, type "java Main" to run the file:</p>
+<div class="w3-example">
+<div class="w3-code notranslate w3-black">
+C:\Users\<em>Your Name</em>&gt;java Main
+</div>
+</div>
+
+<p>The output should read:</p>
+<div class="w3-example w3-padding-16">
+<div class="notranslate w3-black w3-padding">
+<code class="notranslate">
+Hello World
+</code>
+</div>
+
+</div>
+
+<p><strong>Congratulations!</strong> You have written and executed your first Java program.</p>
+
+<hr>

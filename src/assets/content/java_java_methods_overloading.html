@@ -1,0 +1,72 @@
+<h1>Java <span class="color_h1">Method Overloading</span></h1>
+
+<hr>
+
+<h2>Method Overloading</h2>
+<p>With<strong> method overloading</strong>, multiple methods can have the same name with different
+parameters:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-csharp w3-white"><code>int myMethod(int x)
+float myMethod(float x)
+double myMethod(double x, double y)</code></pre>
+</div>
+
+<p>Consider the following example, which has two methods that add numbers of different type:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-csharp w3-white"><code>static int plusMethodInt(int x, int y) {
+  return x + y;
+}
+
+static double plusMethodDouble(double x, double y) {
+  return x + y;
+}
+
+public static void main(String[] args) {
+  int myNum1 = plusMethodInt(8, 5);
+  double myNum2 = plusMethodDouble(4.3, 6.26);
+  System.out.println(&quot;int: &quot; + myNum1);
+  System.out.println(&quot;double: &quot; + myNum2);
+}</code></pre>
+<p>
+
+</p>
+</div>
+
+
+<p>Instead of defining two methods that should do the same thing, it is better to overload one. </p>
+<p>In the example below, we overload the <code class="w3-codespan">plusMethod</code> 
+method to work for both <code class="w3-codespan">int</code> 
+and <code class="w3-codespan">double</code>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-csharp w3-white"  data-line="1,5,10,11"><code>static int plusMethod(int x, int y) {
+  return x + y;
+}
+
+static double plusMethod(double x, double y) {
+  return x + y;
+}
+
+public static void main(String[] args) {
+  int myNum1 = plusMethod(8, 5);
+  double myNum2 = plusMethod(4.3, 6.26);
+  System.out.println(&quot;int: &quot; + myNum1);
+  System.out.println(&quot;double: &quot; + myNum2);
+}</code></pre>
+<p>
+
+</p>
+</div>
+<div class="ws-note w3-panel">
+  <p><strong>Note:</strong> Multiple methods can have the same name 
+  as long as the number and/or type of parameters are different.</p>
+</div>
+<hr>
+
+<hr>
+
+<br>

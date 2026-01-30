@@ -1,0 +1,65 @@
+<h1>Responsive Web Design - <span class="color_h1">The Viewport</span></h1>
+
+<hr>
+<h2>Setting The Viewport</h2>
+<p>The viewport is the user's visible area of a web page.</p>
+<p>The viewport varies with the device (will be a lot smaller on a mobile phone than on a computer screen).</p>
+<p>You should include the following <code class="w3-codespan">&lt;meta&gt;</code> element in 
+the <code class="w3-codespan">&lt;head&gt;</code> section of all your web pages:</p>
+<div class="w3-code w3-border notranslate htmlHigh">
+<div>
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+</div>
+</div>
+<p>This gives the browser instructions on how 
+to control the page's dimensions and scaling.</p>
+<p>The <code class="w3-codespan">width=device-width</code> part sets the width of the page to follow the screen-width of the device (which will vary depending on the device).</p>
+<p>The <code class="w3-codespan">initial-scale=1.0</code> part sets the initial zoom level when the page is first loaded by the browser.</p>
+<p>Here is an example of a web page <em>without</em> the viewport meta tag, and the same web page <em>with</em> the viewport meta tag:</p>
+<br>
+<div class="w3-row" style="text-align:center;">
+  <div class="w3-half">
+    <a target="_blank" href="example_withoutviewport.html"><img src="assets/content/images/img_viewport1.png" class="w3-hover-shadow viewport"><br><br><b>Without the 
+viewport meta tag</b></a>
+   <br>
+    <br>
+  </div>
+  <div class="w3-half">
+    <a target="_blank" href="example_withviewport.html"><img src="assets/content/images/img_viewport2.png" class="w3-hover-shadow viewport"><br><br><b>With the 
+viewport meta tag</b></a>
+    <br>
+    <br>
+  </div>  
+</div>
+
+<div class="ws-note w3-panel">
+<p><strong>Tip:</strong> If you are browsing this page with a phone or a tablet, you can click on the two links above to see the difference.</p>
+</div>
+<hr>
+
+<hr>
+<h2>Size Content to The Viewport</h2>
+<p>Users are used to scroll websites vertically on both desktop and mobile 
+devices - but not horizontally!</p>
+<p>So, if the user is forced to scroll horizontally, or zoom out, to see the 
+whole web page it results in a poor user experience.</p>
+<p>Some additional rules to follow:</p>
+<p><strong>1. Do NOT use large fixed-width elements - </strong>For example, if 
+an image has a width wider than the viewport, it causes the 
+viewport to scroll horizontally. Remember to adjust this content to fit within 
+the width of the viewport.</p>
+<p><strong>2. Do NOT let the content rely on a particular width to 
+render well</strong> - Since screen dimensions vary 
+widely between devices, content should not rely on a particular viewport width 
+to render well.</p>
+<p><strong>3. Use CSS media queries to apply different styling for small and 
+large screens</strong> - Setting large absolute CSS widths for page elements 
+will cause the elements to be too wide for smaller devices. 
+Instead, consider using relative width values, such as width: 100%. Also, be 
+careful of using large absolute positioning values. It may cause the element to 
+fall outside the viewport on small devices.</p>
+<hr>
+
+<hr>
+
+<br>

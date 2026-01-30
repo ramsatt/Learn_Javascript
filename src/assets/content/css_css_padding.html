@@ -1,0 +1,221 @@
+<h1>CSS <span class="color_h1">Padding</span></h1>
+
+<hr>
+
+<div class="w3-theme-border" style="width:100%;padding:70px;border-width:1px;border-style:solid;">
+This element has a padding of 70px.
+</div>
+<br>
+<a target="_blank" href="tryitd3b0.html?filename=trycss_padding_intro" class="ws-btn">Try it Yourself &raquo;</a>
+<hr>
+
+<h2>CSS Padding</h2>
+<p>The CSS padding properties are used to generate space around 
+an element's content, inside of any defined borders.</p>
+<p>With CSS, you have full control over the padding. There are properties 
+for setting the padding for each side of an element (top, right, bottom, and left), 
+and a shorthand property for setting all the padding properties in one 
+declaration.</p>
+
+<hr>
+
+<h2>Padding - Individual Sides</h2>
+<p>CSS has properties for specifying the padding for each side of an element:</p>
+<ul>
+<li><code class="w3-codespan"><a href="../cssref/pr_padding-top.html">padding-top</a></code> - sets the top padding of an element</li>
+<li><code class="w3-codespan"><a href="../cssref/pr_padding-right.html">padding-right</a></code> - sets the 
+right padding of an element</li>
+<li><code class="w3-codespan"><a href="../cssref/pr_padding-bottom.html">padding-bottom</a></code> - sets the 
+bottom padding of an element</li>
+<li><code class="w3-codespan"><a href="../cssref/pr_padding-left.html">padding-left</a></code> - sets the 
+left padding of an element</li>
+</ul>
+<p>All the padding properties can have the following values:</p>
+<ul>
+<li><em>length</em> - specifies a padding in px, pt, cm, etc.</li>
+<li><em>%</em> - specifies a padding in % of the width of the containing element</li>
+<li>inherit - specifies that the padding should be inherited from the parent element</li>
+</ul>
+
+<p><b>Note:</b> Negative values are not allowed.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Set different padding for all four sides of a &lt;div&gt; element:&nbsp;&nbsp;</p>
+<div class="w3-code notranslate cssHigh">
+  div {<br>&nbsp;
+padding-top: 50px;<br>
+&nbsp;&nbsp;padding-right: 30px;<br>
+&nbsp;&nbsp;padding-bottom: 50px;<br>
+&nbsp;&nbsp;padding-left: 80px;<br>}</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>Padding - Shorthand Property</h2>
+<p>To shorten the code, it is possible to specify all the padding properties in 
+one declaration.</p>
+<p>The <code class="w3-codespan"><a href="../cssref/pr_padding.html">padding</a></code> property is a shorthand property for the following individual 
+padding properties:</p>
+<ul>
+<li><code class="w3-codespan"><a href="../cssref/pr_padding-top.html">padding-top</a></code></li>
+<li><code class="w3-codespan"><a href="../cssref/pr_padding-right.html">padding-right</a></code></li>
+<li><code class="w3-codespan"><a href="../cssref/pr_padding-bottom.html">padding-bottom</a></code></li>
+<li><code class="w3-codespan"><a href="../cssref/pr_padding-left.html">padding-left</a></code></li>
+</ul>
+<p>Here is how it works:</p>
+<p>If the <code class="w3-codespan"><a href="../cssref/pr_padding.html">padding</a></code> property has four values:</p>
+<ul>
+<li><b>padding: 25px 50px 75px 100px; </b>
+<ul><li>top padding is 25px</li>
+<li>right padding is 50px</li>
+<li>bottom padding is 75px</li>
+<li>left padding is 100px</li></ul>
+</li>
+</ul>
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Use the padding shorthand property with four values:</p>
+<div class="w3-code notranslate cssHigh">
+  div {<br>&nbsp;
+  padding: 25px 50px 75px 100px;<br>}</div>
+
+</div>
+
+<p>If the <code class="w3-codespan"><a href="../cssref/pr_padding.html">padding</a></code> property has three values:</p>
+<ul>
+<li><b>padding: 25px 50px 75px;</b><ul>
+<li>top padding is 25px</li>
+<li>right and left paddings are 50px</li>
+<li>bottom padding is 75px</li></ul>
+</li>
+</ul>
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Use the padding shorthand property with three values:&nbsp;</p>
+<div class="w3-code notranslate cssHigh">
+  div {<br>&nbsp;
+  padding: 25px 50px 75px;<br>}</div>
+
+</div>
+
+<p>If the <code class="w3-codespan"><a href="../cssref/pr_padding.html">padding</a></code> property has two values:</p>
+<ul>
+<li><b>padding: 25px 50px;</b><ul><li>top and bottom paddings are 25px</li>
+<li>right and left paddings are 50px</li></ul>
+</li>
+</ul>
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Use the padding shorthand property with two values:&nbsp;</p>
+<div class="w3-code notranslate cssHigh">
+  div {<br>&nbsp;
+  padding: 25px 50px;<br>}</div>
+
+</div>
+
+<p>If the <code class="w3-codespan"><a href="../cssref/pr_padding.html">padding</a></code> property has one value:</p>
+<ul>
+<li><b>padding: 25px;</b><ul><li>all four paddings are 25px</li></ul>
+</li>
+</ul>
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Use the padding shorthand property with one value:&nbsp;</p>
+<div class="w3-code notranslate cssHigh">
+  div {<br>&nbsp;
+  padding: 25px;<br>}</div>
+
+</div>
+
+<hr>
+
+<h2>Padding and Element Width</h2>
+<p>The CSS <code class="w3-codespan"><a href="../cssref/pr_dim_width.html">width</a></code> property specifies the width of the element's content area. The 
+content area is the portion inside the padding, border, and margin of an element 
+(<a href="css_boxmodel.html">the box model</a>).</p>
+<p>So, if an element has a specified width, the padding added to that element will 
+be added to the total width of the element. This is often an undesirable result.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Here, the &lt;div&gt; element is given a width of 300px. 
+However, the actual width of the &lt;div&gt; element will be 350px (300px + 
+25px of left padding + 25px of right padding):</p>
+<div class="w3-code notranslate cssHigh">
+  div {<br>&nbsp;&nbsp;width: 300px;<br>&nbsp;&nbsp;padding: 25px;<br>}</div>
+
+</div>
+
+<hr>
+
+<h2>Padding and box-sizing</h2>
+<p>The <code class="w3-codespan"><a href="../cssref/css3_pr_box-sizing.html">box-sizing</a></code> property defines how the width and height of an element are calculated: should they include padding and borders, or not.</p>
+<p>The <code class="w3-codespan"><a href="../cssref/css3_pr_box-sizing.html">box-sizing</a></code> property can have the following values:</p>
+<ul>
+  <li><code class="w3-codespan">content-box</code> - This is default. The width and height properties includes only the content 
+  (border and padding are not included)</li>
+  <li><code class="w3-codespan">border-box</code> - The width and height properties includes content, padding and 
+  border</li>
+</ul>
+<p>So, to keep the width at 300px, no matter the amount of padding, you can use the <code class="w3-codespan">
+<a href="../cssref/css3_pr_box-sizing.html">box-sizing: border-box;</a></code>. This causes the element to maintain its actual width; if 
+you increase the padding, the available content space will decrease.</p>
+<div class="w3-example">
+  <h3>Example</h3>
+  <p>Use the box-sizing property to keep the width at 300px, no matter the 
+  amount of padding:</p>
+<div class="w3-code notranslate cssHigh">
+  div {<br>&nbsp; width: 300px;<br>&nbsp;&nbsp;padding: 25px;<br>&nbsp;&nbsp;box-sizing: border-box;<br>}</div>
+
+</div>
+
+<hr>
+
+<h2>More Examples</h2>
+
+<p><a href="tryite883.html?filename=trycss_padding-left" target="_blank">Set the left-padding property</a><br>
+This example demonstrates how to set the left padding of a &lt;p&gt; element.</p>
+
+<p><a target="_blank" href="tryita159.html?filename=trycss_padding-right">Set the right-padding property</a><br>
+This example demonstrates how to set the right padding of a &lt;p&gt; element.</p>
+
+<p><a target="_blank" href="tryit6b9f.html?filename=trycss_padding-top">Set the top-padding property</a><br>
+This example demonstrates how to set the top padding of a &lt;p&gt; element.</p>
+
+<p><a target="_blank" href="tryit3989.html?filename=trycss_padding-bottom">Set the bottom-padding property</a><br>
+This example demonstrates how to set the bottom padding of a &lt;p&gt; element.</p>
+<hr>
+
+<hr>
+
+<h2>All CSS Padding Properties</h2>
+
+<table class="ws-table-all notranslate">
+  <tr>
+    <th style="width:30%">Property</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_padding.html">padding</a></td>
+    <td>A shorthand property for setting all the padding properties in one declaration</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_padding-bottom.html">padding-bottom</a></td>
+    <td>Sets the bottom padding of an element</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_padding-left.html">padding-left</a></td>
+    <td>Sets the left padding of an element</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_padding-right.html">padding-right</a></td>
+    <td>Sets the right padding of an element</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_padding-top.html">padding-top</a></td>
+    <td>Sets the top padding of an element</td>
+  </tr>
+</table>
+<br>

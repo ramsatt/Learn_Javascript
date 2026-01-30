@@ -1,0 +1,145 @@
+<h1>Python <span class="color_h1">Try Except</span></h1>
+
+<hr>
+
+<p class="intro">The <code class="w3-codespan">try</code> block lets you test a 
+block of code for errors.</p>
+<p class="intro">The <code class="w3-codespan">except</code> block lets you 
+handle the error.</p>
+<p class="intro">The <code class="w3-codespan">else</code> block lets you 
+execute code when there is no error.</p>
+<p class="intro">The <code class="w3-codespan">finally</code> block lets you 
+execute code, regardless of the result of the try- and except blocks.</p>
+
+<hr>
+
+<h2>Exception Handling</h2>
+<p>When an error occurs, or exception as we call it, Python will normally stop and 
+generate an error message.</p>
+<p>These exceptions can be handled using the <code class="w3-codespan">try</code> statement:</p>
+<div class="w3-example">
+  <h3>Example</h3>
+  <p>The <code class="w3-codespan">try</code> block will generate an exception, 
+  because <code class="w3-codespan">x</code> is not defined:</p>
+<div class="w3-code notranslate pythonHigh">
+  try:<br>&nbsp; print(x)<br>except:<br>&nbsp; print(&quot;An exception occurred&quot;)</div>
+
+</div>
+
+<p>Since the try block raises an error, the except block will be executed.</p>
+
+<p>Without the try block, the program will crash and raise an error:</p>
+
+<div class="w3-example w3-pale-red">
+  <h3>Example</h3>
+  <p>This statement will raise an error, 
+  because <code class="w3-codespan">x</code> is not defined:</p>
+<div class="w3-code notranslate pythonHigh w3-border-red">
+  print(x)</div>
+
+</div>
+
+<hr>
+
+<h2>Many Exceptions</h2>
+
+<p>You can define as many exception blocks as you want, e.g. if you want to execute a 
+special block of code for a special kind of error:</p>
+<div class="w3-example">
+  <h3>Example</h3>
+  <p>Print one message if the try block raises a <code class="w3-codespan">NameError</code> and another 
+  for other errors:</p>
+<div class="w3-code notranslate pythonHigh">
+  try:<br>&nbsp; print(x)<br>except NameError:<br>&nbsp; print(&quot;Variable x 
+  is not defined&quot;)<br>except:<br>&nbsp; print(&quot;Something else went 
+  wrong&quot;)</div>
+
+</div>
+
+<p>See more Error types in our <a href="python_ref_exceptions.html">Python Built-in Exceptions Reference</a>.</p>
+
+<hr>
+
+<hr>
+
+<h2>Else</h2>
+
+<p>You can use the <code class="w3-codespan">else</code> keyword to define a 
+block of code to be executed if no errors were raised:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+  <p>In this example, the <code class="w3-codespan">try</code> block does not 
+  generate any error:</p>
+<div class="w3-code notranslate pythonHigh">
+  try:<br>&nbsp; print(&quot;Hello&quot;)<br>except:<br>&nbsp; print(&quot;Something went 
+  wrong&quot;)<br>else:<br>&nbsp; print(&quot;Nothing went wrong&quot;)</div>
+
+</div>
+
+<hr>
+
+<h2>Finally</h2>
+
+<p>The <code class="w3-codespan">finally</code> block, if specified, will be executed 
+regardless if the try block 
+raises an error or not.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate pythonHigh">
+  try:<br>&nbsp; print(x)<br>except:<br>&nbsp; print(&quot;Something went 
+  wrong&quot;)<br>finally:<br>&nbsp; print(&quot;The 'try except' is finished&quot;)</div>
+
+</div>
+
+<p>This can be useful to close objects and clean up resources:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Try to open and write to a file that is not writable:</p>
+<div class="w3-code notranslate pythonHigh">
+  try:<br>&nbsp; f = open(&quot;demofile.txt&quot;)<br>&nbsp; try:<br>&nbsp;&nbsp;&nbsp; 
+  f.write(&quot;Lorum Ipsum&quot;)<br>&nbsp; except:<br>&nbsp;&nbsp;&nbsp; 
+  print(&quot;Something went wrong when writing to the file&quot;)<br>&nbsp; finally:<br>&nbsp;&nbsp;&nbsp; 
+  f.close()<br>except:<br>&nbsp; print(&quot;Something went wrong when opening the 
+  file&quot;) </div>
+
+</div>
+
+<p>The program can continue, without leaving the file object open.</p>
+
+<hr>
+
+<h2>Raise an exception</h2>
+
+<p>As a Python developer you can choose to throw an exception if a condition occurs.</p>
+<p>To throw (or raise) an exception, use the <code class="w3-codespan"><a href="ref_keyword_raise.html">raise</a></code> keyword.</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <p>Raise an error and stop the program if x is lower than 0:</p>
+  <div class="w3-code notranslate pythonHigh">
+    x = -1<br><br>if x &lt; 0:<br>&nbsp; raise Exception(&quot;Sorry, no numbers below 
+    zero&quot;)</div>
+  
+</div>
+
+
+<p>The <code class="w3-codespan"><a href="ref_keyword_raise.html">raise</a></code> keyword is used to raise an 
+exception.</p>
+<p>You can define what kind of error to raise, and the text to print to the user.</p>
+
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <p>Raise a TypeError if x is not an integer:</p>
+  <div class="w3-code notranslate pythonHigh">
+    x = &quot;hello&quot;<br><br>if not type(x) is int:<br>&nbsp; raise TypeError(&quot;Only 
+    integers are allowed&quot;)</div>
+  
+</div>
+
+<hr>
+
+<hr>

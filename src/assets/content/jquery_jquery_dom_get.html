@@ -1,0 +1,93 @@
+<h1>jQuery - <span class="color_h1">Get Content and Attributes</span></h1>
+
+<hr>
+<p class="intro">jQuery contains powerful methods for changing and manipulating HTML elements and attributes.</p>
+<hr>
+<h2>jQuery DOM Manipulation</h2>
+<p>One very important part of jQuery is the possibility to manipulate the DOM.</p>
+<p>jQuery comes with a bunch of DOM related methods that make it easy to 
+access and manipulate elements and attributes.</p>
+
+
+<div class="w3-panel ws-note">
+<p><b>DOM = Document Object Model</b><br><br>
+The DOM defines a standard for accessing HTML and XML documents:<br><br>
+<i>&quot;The W3C Document Object Model (DOM) is a platform and language-neutral 
+interface that allows programs and scripts to dynamically access and update the 
+content, structure, and style of a document.&quot;</i></p>
+</div>
+
+<hr>
+
+<h2>Get Content - text(), html(), and val()</h2>
+<p>Three simple, but useful, jQuery methods for DOM manipulation are:</p>
+<ul>
+  <li><code class="w3-codespan">text()</code> - Sets or returns the text content of selected elements</li>
+  <li><code class="w3-codespan">html()</code> - Sets or returns the content of selected elements (including HTML markup)</li>
+  <li><code class="w3-codespan">val()</code> - Sets or returns the value of form fields</li>
+</ul>
+<p>The following example demonstrates how to get content with the jQuery <code class="w3-codespan">text()</code> and <code class="w3-codespan">html()</code> methods:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;#btn1&quot;).click(function(){<br>
+&nbsp;&nbsp;alert(&quot;Text: &quot; + $(&quot;#test&quot;).text());<br>
+});<br>
+$(&quot;#btn2&quot;).click(function(){<br>
+&nbsp;&nbsp;alert(&quot;HTML: &quot; + $(&quot;#test&quot;).html());<br>
+});
+</div>
+
+</div>
+<p>The following example demonstrates how to get the value of an input field with the jQuery <code class="w3-codespan">val()</code> method:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;#btn1&quot;).click(function(){<br>
+&nbsp;&nbsp;alert(&quot;Value: &quot; + $(&quot;#test&quot;).val());<br>
+});
+</div>
+
+</div>
+<hr>
+
+<hr>
+<h2>Get Attributes - attr()</h2>
+<p>The jQuery <code class="w3-codespan">attr()</code> method is used to get attribute values.</p>
+<p>The following example demonstrates how to get the value of the href attribute 
+in a link:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;button&quot;).click(function(){<br>
+&nbsp;&nbsp;alert($(&quot;#w3s&quot;).attr(&quot;href&quot;));<br>
+});
+</div>
+
+</div>
+<p>The next chapter explains how to set (change) content and attribute values.</p>
+<hr>
+
+<h2>jQuery Exercises</h2>
+<form autocomplete="off" id="w3-exerciseform" action="https://www.w3schools.com/jquery/exercise_jq.asp?filename=exercise_jq_dom_get1" method="post" target="_blank">
+<h2>Test Yourself With Exercises</h2>
+<div class="exercisewindow">
+<h2>Exercise:</h2>
+<p>Use a jQuery method to <strong>return</strong> the text content of a &lt;div&gt; element.</p>
+<div class="exerciseprecontainer">
+<pre style="background-color:transparent;border:none;">
+$("div").<input name="ex1" maxlength="4" style="width:45px;">();
+</pre>
+</div>
+<br>
+<button type="submit" class="w3-btn w3-margin-bottom">Submit Answer &raquo;</button>
+<p><a target="_blank" href="exercise_jqa1d8.html?filename=exercise_jq_dom_get1">Start the Exercise</a></p>
+</div>
+</form>
+<hr>
+
+<h2>jQuery HTML Reference</h2>
+<p>For a complete overview of all jQuery HTML methods, please go to our
+<a href="jquery_ref_html.html">jQuery HTML/CSS Reference</a>.</p>
+
+<br>

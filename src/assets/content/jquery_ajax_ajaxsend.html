@@ -1,0 +1,44 @@
+<h1>jQuery <span class="color_h1">ajaxSend()</span> Method</h1>
+<p><a href="jquery_ref_ajax.html" class="w3-btn w3-white w3-border" title="jQuery AJAX Methods">&#10094; jQuery AJAX Methods</a></p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Change the content of a &lt;div&gt; element when an AJAX requests is about to be 
+sent:</p>
+<div class="w3-code notranslate jsHigh">
+$(document).ajaxSend(function(e, xhr, opt){<br>
+&nbsp;&nbsp;$(&quot;div&quot;).append(&quot;&lt;p&gt;Requesting: &quot; + opt.url + &quot;&lt;/p&gt;&quot;);<br>
+});
+</div>
+<a class="w3-btn w3-margin-bottom" href="tryit084a.html?filename=tryjquery_ajax_ajaxsend" target="_blank">Try it Yourself &raquo;</a>
+</div>
+<hr>
+
+<h2>Definition and Usage</h2>
+<p>The ajaxSend() method specifies a function to run when an AJAX requests is about to be sent.</p>
+<p><strong>Note:</strong> As of jQuery version 1.8, this method should only be attached to document.</p>
+<hr>
+
+<h2>Syntax</h2>
+<div class="w3-code w3-border notranslate"><div>
+$(document).ajaxSend(<i>function(event,xhr,options))</i></div></div>
+<br><table class="ws-table-all notranslate"> 
+  <tr>
+    <th style="width:20%">Parameter</th>
+    <th>Description</th>
+  </tr>  
+  <tr>
+    <td><em>function(event,xhr,options)</em></td>
+    <td>
+ Required. Specifies the function to run if the request succeeds<br>
+ Additional parameters:<br>
+ <ul><li><em>event</em> - contains the event object</li>
+    <li><em>xhr</em> - contains the XMLHttpRequest object</li>
+    <li><em>options</em> - contains the options used in the AJAX request</li>
+ </ul>
+  </td>
+  </tr>
+</table>
+<hr>
+
+<p><a href="jquery_ref_ajax.html" class="w3-btn w3-white w3-border" title="jQuery AJAX Methods">&#10094; jQuery AJAX Methods</a></p>

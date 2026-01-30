@@ -1,0 +1,104 @@
+<h1>C <span class="color_h1">Function Declaration and Definition</span></h1>
+
+<hr>
+
+
+<h2>Function Declaration and Definition</h2>
+<p>You have already learned from the previous chapters that you can create and call a function in the following way:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  // Create a function<br>void myFunction() {<br>&nbsp; printf(&quot;I just got 
+  executed!&quot;);<br>}<br><br>int main() {<br>&nbsp; 
+  myFunction(); // call the function<br>&nbsp; return 0;<br>}</div>
+  
+</div>
+
+<p>A function consist of two parts:</p>
+<ul>
+<li><strong>Declaration:</strong> the function's name, return type, and parameters (if any)</li>
+<li><strong>Definition:</strong> the body of the function (code to be executed)</li>
+</ul>
+
+<div class="w3-example">
+  <div class="w3-code notranslate javaHigh">
+    void <strong>myFunction()</strong> { // <strong>declaration</strong><br>&nbsp; // 
+    the body of the function (<strong>definition</strong>)<br>}<br>
+ </div>
+</div>
+
+<p>For code optimization, it is recommended to separate the declaration and the definition of the function.</p>
+<p>You will often see C programs that have function declaration above <code class="w3-codespan">main()</code>, 
+and function definition below <code class="w3-codespan">main()</code>.</p>
+<p>This will make the code 
+better organized and easier to read:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  // <strong>Function declaration</strong><br>void myFunction();<br><br>// The main method<br>int main() {<br>&nbsp; 
+  myFunction();&nbsp; // <strong>call</strong> the function<br>&nbsp; return 0;<br>}<br><br>// <strong>Function definition</strong><br>void myFunction() {<br>&nbsp; 
+  printf(&quot;I just got executed!&quot;);<br>}<br>
+ </div>
+
+</div>
+
+
+<hr>
+
+
+<h2>What About Parameters</h2>
+<p>If we use the example from the <a href="c_functions_parameters.html">function parameters chapter</a> regarding parameters and return values:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  int myFunction(int x, int y) {<br>&nbsp; return x + y;<br>}<br><br>int main() 
+  { <br>&nbsp; int result = myFunction(5, 3); <br>&nbsp; printf(&quot;Result is = 
+  %d&quot;, result);<br>&nbsp; return 0;<br>}<br>
+  // Outputs 8 (5 + 3)<br>
+ </div>
+
+</div>
+
+<p>It is considered good practice to write it like this instead:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  <strong>// Function declaration</strong><br>int myFunction(int x, int y);<br><br>
+  // The main method<br>int main() { <br>&nbsp; int result = 
+  myFunction(5, 3); <strong>// call</strong> the function<br>&nbsp; 
+  printf(&quot;Result is = %d&quot;, result);<br>&nbsp; return 0;<br>}<br><br><strong>// 
+  Function definition</strong><br>int myFunction(int x, int y) {<br>&nbsp; 
+  return x + y;<br>}<br>
+ </div>
+
+</div>
+
+<hr>
+
+
+<h2>Functions Calling Other Functions</h2>
+<p>As long as you declare functions first, it is also possible to use functions to call other functions:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Use one function to call another function:</p>
+<div class="w3-code notranslate javaHigh">
+  // Declare two functions, myFunction and myOtherFunction<br>void 
+  myFunction();<br>void myOtherFunction();<br><br>int main() {<br>&nbsp; 
+  myFunction(); // call myFunction (from main)<br>&nbsp; return 0;<br>}<br><br>// Define 
+  myFunction<br>void 
+  myFunction() {<br>&nbsp; printf(&quot;Some text in myFunction\n&quot;);<br>&nbsp; 
+  myOtherFunction(); // call myOtherFunction (from myFunction)<br>}<br><br>// Define myOtherFunction<br>void 
+  myOtherFunction() {<br>&nbsp; printf(&quot;Hey! Some text in myOtherFunction\n&quot;);<br>
+  }<br>
+ </div>
+
+</div>
+
+
+<hr>
+
+<hr>
+
+<br>

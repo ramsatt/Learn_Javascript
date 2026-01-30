@@ -1,0 +1,59 @@
+<h1>PHP <span class="color_h1">array_combine()</span> Function</h1>
+<p><a href="php_ref_array.html" class="w3-btn w3-white w3-border" title="PHP Array Reference">&#10094; PHP Array Reference</a></p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Create an array by using the elements from one &quot;keys&quot; array and 
+one &quot;values&quot; array:</p>
+<div class="w3-code notranslate htmlHigh">
+&lt;?php<br>
+ $fname=array(&quot;Peter&quot;,&quot;Ben&quot;,&quot;Joe&quot;);<br>$age=array(&quot;35&quot;,&quot;37&quot;,&quot;43&quot;);<br><br>
+ $c=array_combine($fname,$age);<br>print_r($c);<br>?&gt;
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="phptryit60e9.html?filename=tryphp_func_array_combine">Try it Yourself &raquo;</a>
+</div>
+<hr>
+
+<h2>Definition and Usage</h2>
+<p>The array_combine() function creates an array by using the elements from one 
+&quot;keys&quot; array and 
+one &quot;values&quot; array.</p>
+<p><b>Note:</b> Both arrays must have equal number of elements!</p>
+<hr>
+
+<h2>Syntax</h2>
+<div class="w3-code w3-border notranslate"><div>
+array_combine(<em>keys</em>,<em> values</em>)</div></div>
+
+<h2>Parameter Values</h2>
+<table class="ws-table-all notranslate">
+  <tr>
+    <th style="width:20%">Parameter</th>
+    <th style="width:80%">Description</th>
+  </tr>  
+  <tr>
+    <td><em>keys</em></td>
+    <td>Required. Array of keys</td>
+  </tr>
+  <tr>
+    <td><em>values</em></td>
+    <td>Required. Array of values</td>
+  </tr>
+  </table>
+<h2>Technical Details</h2>
+<table class="ws-table-all">
+<tr>
+ <th style="width:20%">Return Value:</th>
+ <td style="width:80%">Returns the combined array. FALSE if number of elements does not match</td>
+</tr>
+<tr>
+  <th>PHP Version:</th>
+  <td>5+</td>
+</tr>
+<tr>
+  <th>Changelog:</th>
+  <td>Versions before PHP 5.4 issues E_WARNING and returns FALSE for empty arrays</td>
+</tr>
+</table>
+<hr>
+<a href="php_ref_array.html" class="w3-btn w3-white w3-border" title="PHP Array Reference">&#10094; PHP Array Reference</a>

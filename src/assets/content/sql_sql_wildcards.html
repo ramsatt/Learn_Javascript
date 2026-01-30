@@ -1,0 +1,306 @@
+<h1>SQL <span class="color_h1">Wildcards</span></h1>
+
+<hr>
+
+<h2>SQL Wildcard Characters</h2>
+<p>A wildcard character is used to substitute one or more characters in a string.</p>
+<p>Wildcard characters are used with the <code class="w3-codespan">
+<a href="sql_like.html">LIKE</a></code> 
+operator. The <code class="w3-codespan">LIKE</code> operator is used in a <code class="w3-codespan">
+WHERE</code> clause to search for a specified pattern in a column.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Return all customers that starts with the letter 'a':</p>
+
+<div class="w3-code notranslate sqlHigh">
+ SELECT * FROM Customers<br>
+ WHERE CustomerName LIKE 'a%'; </div>
+  
+</div>
+
+<hr>
+
+<h2>Wildcard Characters</h2>
+
+<table class="ws-table-all notranslate wildcards">
+  <tr>
+    <th>Symbol</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>%</td>
+    <td>Represents zero or more characters</td>
+  </tr>
+  <tr>
+    <td>_</td>
+    <td>Represents a single character</td>
+  </tr>
+  <tr>
+    <td>[]</td>
+    <td>Represents any single character within the brackets *</td>
+  </tr>
+  <tr>
+    <td>^</td>
+    <td>Represents any character not in the brackets *</td>
+  </tr>
+  <tr>
+    <td>-</td>
+    <td>Represents any single character within the specified range *</td>
+  </tr>
+  <tr>
+    <td>{}</td>
+    <td>Represents any escaped character **</td>
+  </tr>
+  </table>
+
+<p>* Not supported in PostgreSQL and MySQL databases.</p>
+<p>** Supported only in Oracle databases.</p>
+
+<hr>
+<h2>Demo Database</h2>
+<p>Below is a selection from the <a href="trysql734a.html?filename=trysql_customers" target="_blank"><strong>Customers</strong></a> table used in the examples:</p>
+
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+  <tr>
+    <th>CustomerID</th>
+    <th>CustomerName</th>
+    <th>ContactName</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>PostalCode</th>
+    <th>Country</th>
+  </tr>
+  <tr>
+    <td>1<br><br></td>
+    <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Obere Str. 57</td>
+    <td>Berlin</td>
+    <td>12209</td>
+    <td>Germany</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Ana Trujillo Emparedados y helados</td>
+    <td>Ana Trujillo</td>
+    <td>Avda. de la Constitución 2222</td>
+    <td>México D.F.</td>
+    <td>05021</td>
+    <td>Mexico</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Antonio Moreno Taquería</td>
+    <td>Antonio Moreno</td>
+    <td>Mataderos 2312</td>
+    <td>México D.F.</td>
+    <td>05023</td>
+    <td>Mexico</td>
+  </tr>
+  <tr>
+    <td>4<br><br></td>
+    <td>Around the Horn</td>
+    <td>Thomas Hardy</td>
+    <td>120 Hanover Sq.</td>
+    <td>London</td>
+    <td>WA1 1DP</td>
+    <td>UK</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>Berglunds snabbköp</td>
+    <td>Christina Berglund</td>
+    <td>Berguvsvägen 8</td>
+    <td>Luleå</td>
+    <td>S-958 22</td>
+    <td>Sweden</td>
+  </tr>
+</table>
+</div>
+
+<hr>
+
+<hr>
+
+<h2>Using the % Wildcard</h2>
+
+<p>The <code class="w3-codespan">%</code> wildcard represents any number of characters, even zero characters.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Return all customers that ends with the pattern 'es':</p>
+<div class="w3-code notranslate sqlHigh">
+ SELECT * FROM Customers<br>
+ WHERE CustomerName LIKE '%es';
+</div>
+  
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Return all customers that <em>contains</em> the pattern 'mer':</p>
+<div class="w3-code notranslate sqlHigh">
+ SELECT * FROM Customers<br>
+ WHERE CustomerName LIKE '%mer%';
+</div>
+  
+</div>
+
+<hr>
+
+<h2>Using the _ Wildcard</h2>
+
+<p>The <code class="w3-codespan">_</code> wildcard represents a single character.</p>
+
+<p>It can be any character or number, but each <code class="w3-codespan">_</code> represents one, and only one, character.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Return all customers with a <code class="w3-codespan">City</code> starting with any character, followed by "ondon":</p>
+<div class="w3-code notranslate sqlHigh">
+ SELECT * FROM Customers<br>
+ WHERE City LIKE '_ondon';
+</div>
+
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Return all customers with a <code class="w3-codespan">City</code> starting with "L", followed by any 
+3 characters, ending with "on":</p>
+<div class="w3-code notranslate sqlHigh">
+ SELECT * FROM Customers<br>
+ WHERE City LIKE 'L___on';
+</div>
+  
+</div>
+
+<hr>
+
+<h2>Using the [] Wildcard</h2>
+<p>The <code class="w3-codespan">[]</code> wildcard returns a result if <em>any</em>
+of the characters inside gets a match.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Return all customers starting with either "b", "s", or "p":</p>
+<div class="w3-code notranslate sqlHigh">
+ SELECT * FROM Customers<br>
+ WHERE CustomerName LIKE '[bsp]%';
+</div>
+
+</div>
+
+<hr>
+
+<h2>Using the - Wildcard</h2>
+<p>The <code class="w3-codespan">-</code> wildcard allows you to specify a range 
+of characters inside the <code class="w3-codespan">[]</code> wildcard.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Return all customers starting with 
+"a", "b", "c", "d", "e" or "f":</p>
+
+<div class="w3-code notranslate sqlHigh">
+ SELECT * FROM Customers<br>
+ WHERE CustomerName LIKE '[a-f]%';
+</div>
+
+</div>
+
+<hr>
+
+<h2>Combine Wildcards</h2>
+
+<p>Any wildcard, like <code class="w3-codespan">%</code> and <code class="w3-codespan">_</code> 
+, can be used in combination with other 
+wildcards.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Return all customers that starts with "a" and are at least 3 characters in length:</p>
+
+<div class="w3-code notranslate sqlHigh">
+ SELECT * FROM Customers<br>
+  WHERE CustomerName LIKE 'a__%';</div>
+  
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Return all customers that have "r" in the second position:</p>
+<div class="w3-code notranslate sqlHigh">
+ SELECT * FROM Customers<br>
+  WHERE CustomerName LIKE '_r%';
+</div>
+
+</div>
+
+<hr>
+
+<h2>Without Wildcard</h2>
+
+<p>If no wildcard is specified, the phrase has to have an exact match to return a result.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Return all customers from Spain: </p>
+<div class="w3-code notranslate sqlHigh">
+ SELECT * FROM Customers<br>
+  WHERE Country 
+  LIKE 'Spain';
+</div>
+
+</div>
+
+<hr>
+
+<h2>Microsoft Access Wildcards</h2>
+
+<p>The Microsoft Access Database has some other wildcards:</p>
+<table class="ws-table-all notranslate">
+  <tr>
+    <th>Symbol</th>
+    <th>Description</th>
+    <th>Example</th>
+  </tr>
+  <tr>
+    <td>*</td>
+    <td>Represents zero or more characters</td>
+    <td>bl* finds bl, black, blue, and blob</td>
+  </tr>
+  <tr>
+    <td>?</td>
+    <td>Represents a single character</td>
+    <td>h?t finds hot, hat, and hit</td>
+  </tr>
+  <tr>
+    <td>[]</td>
+    <td>Represents any single character within the brackets</td>
+    <td>h[oa]t finds hot and hat, but not hit</td>
+  </tr>
+  <tr>
+    <td>!</td>
+    <td>Represents any character not in the brackets</td>
+    <td>h[!oa]t finds hit, but not hot and hat</td>
+  </tr>
+  <tr>
+    <td>-</td>
+    <td>Represents any single character within the specified range</td>
+    <td>c[a-b]t finds cat and cbt</td>
+  </tr>
+  <tr>
+    <td>#</td>
+    <td>Represents any single numeric character</td>
+    <td>2#5 finds 205, 215, 225, 235, 245, 255, 265, 275, 285, and 295</td>
+  </tr>
+</table>
+
+<hr>
+
+<hr>
+
+<br>

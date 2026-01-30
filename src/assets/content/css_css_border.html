@@ -1,0 +1,83 @@
+<h1>CSS <span class="color_h1">Borders</span></h1>
+
+<hr>
+
+<h2>CSS Borders</h2>
+<p>The CSS border properties allow you to specify the style, width, and color of an element's border.</p>
+
+<div class="w3-container w3-border w3-border-black w3-margin-top">
+<p>I have borders on all sides.</p>
+</div>
+<br>
+<div class="w3-container w3-border-bottom w3-border-red">
+<p>I have a red, bottom border.</p>
+</div>
+<br>
+<div class="w3-container w3-border w3-round-xlarge">
+<p>I have rounded borders.</p>
+</div>
+<br>
+<div class="w3-container w3-leftbar w3-border-blue">
+<p>I have a blue, left border.</p>
+</div>
+
+<hr>
+
+<h2>CSS Border Style</h2>
+<p>The <code class="w3-codespan" class="w3-codespan">
+<a href="../cssref/pr_border-style.html">border-style</a></code> property specifies what kind of border to display.</p>
+<p>The following values are allowed:</p>
+<ul>
+<li><code class="w3-codespan" class="w3-codespan">dotted</code> - Defines a dotted border</li>
+<li><code class="w3-codespan" class="w3-codespan">dashed</code> - Defines a dashed border</li>
+<li><code class="w3-codespan" class="w3-codespan">solid</code> - Defines a solid border</li>
+<li><code class="w3-codespan" class="w3-codespan">double</code> - Defines a double border</li>
+<li><code class="w3-codespan" class="w3-codespan">groove</code> - Defines a 3D grooved border. The effect depends on the border-color value</li>
+<li><code class="w3-codespan" class="w3-codespan">ridge</code> - Defines a 3D ridged border. The effect depends on the border-color value</li>
+<li><code class="w3-codespan" class="w3-codespan">inset</code> - Defines a 3D inset border. The effect depends on the border-color value</li>
+<li><code class="w3-codespan" class="w3-codespan">outset</code> - Defines a 3D outset border. The effect depends on the border-color value</li>
+<li><code class="w3-codespan" class="w3-codespan">none</code> - Defines no border</li>
+<li><code class="w3-codespan" class="w3-codespan">hidden</code> - Defines a hidden border</li>
+</ul>
+
+<p>The <code class="w3-codespan" class="w3-codespan">
+<a href="../cssref/pr_border-style.html">border-style</a></code> property can have from one to four values (for 
+the top border, right border, bottom border, and the left border).</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Demonstration of the different border styles:</p>
+<div class="w3-code notranslate cssHigh">
+p.dotted {border-style: dotted;}<br>p.dashed 
+{border-style: dashed;}<br>p.solid {border-style: solid;}<br>p.double 
+{border-style: double;}<br>p.groove {border-style: groove;}<br>p.ridge 
+{border-style: ridge;}<br>p.inset {border-style: inset;}<br>p.outset 
+{border-style: outset;}<br>p.none {border-style: none;}<br>p.hidden {border-style: hidden;}<br>
+p.mix {border-style: dotted dashed solid double;}</div>
+<p>Result:</p>
+<div class="w3-white w3-padding notranslate">
+<p style="border-style: dotted;padding:2px 4px;">A dotted border.</p>
+<p style="border-style: dashed;padding:2px 4px;">A dashed border.</p>
+<p style="border-style: solid;padding:2px 4px;">A solid border.</p>
+<p style="border-style: double;padding:2px 4px;">A double border.</p>
+<p style="border-style: groove;padding:2px 4px;">A groove border. The effect depends on the border-color value.</p>
+<p style="border-style: ridge;padding:2px 4px;">A ridge border. The effect depends on the border-color value.</p>
+<p style="border-style: inset;padding:2px 4px;">An inset border. The effect depends on the border-color value.</p>
+<p style="border-style: outset;padding:2px 4px;">An outset border. The effect depends on the border-color value.</p>
+<p style="border-style: none;padding:2px 4px;">No border.</p>
+<p style="border-style: hidden;padding:2px 4px;">A hidden border.</p>
+<p style="border-style: dotted dashed solid double;padding:2px 4px;">A mixed border.</p>
+</div>
+
+</div>
+<div class="w3-panel ws-note">
+  <p><b>Note:</b> None of the OTHER CSS border properties (which you will learn more about in the next chapters) will have ANY effect unless the 
+  <code class="w3-codespan" class="w3-codespan">
+  <a href="../cssref/pr_border-style.html">border-style</a></code> property is set!</p>
+</div>
+
+<hr>
+
+<hr>
+
+<br>

@@ -1,0 +1,46 @@
+<h1>Bootstrap 5 <span class="color_h1">Scrollspy</span></h1>
+
+<hr>
+
+<h2>Scrollspy</h2>
+<p>Scrollspy is used to automatically update links in a navigation 
+list based on <strong>scroll</strong> position.</p>
+
+<iframe class="spytest" src="assets/content/images/trybs_scrollspy.html" scrolling="yes" frameborder="0"></iframe>
+<hr>
+
+<h2>How To Create a Scrollspy</h2>
+<p>The following example shows how to create a scrollspy:</p>
+<div class="w3-example">
+ <h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+ &lt;!-- The scrollable area --&gt;<br>&lt;body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50"&gt;<br><br>&lt;!-- The navbar - The &lt;a&gt; elements are used to jump to a section in the scrollable area --&gt;<br>&lt;nav 
+  class=&quot;navbar navbar-expand-sm bg-dark navbar-dark fixed-top&quot;&gt;<br>...<br>&nbsp; &lt;ul class="navbar-nav"&gt;<br>&nbsp;&nbsp;&nbsp; &lt;li&gt;&lt;a href="#section1"&gt;Section 1&lt;/a&gt;&lt;/li&gt;<br>&nbsp;&nbsp;&nbsp; ...<br>&lt;/nav&gt;<br><br>&lt;!-- Section 1 --&gt;<br>&lt;div id="section1"&gt;<br>&nbsp;&nbsp;&lt;h1&gt;Section 1&lt;/h1&gt;<br>&nbsp;&nbsp;&lt;p&gt;Try to scroll this page and look at the navigation bar while scrolling!&lt;/p&gt;<br>&lt;/div&gt;<br>...<br><br>
+ &lt;/body&gt;</div>
+
+</div>
+
+<h3>Example Explained</h3>
+
+<p>Add <code class="w3-codespan">data-bs-spy="scroll"</code> to the element that should be used as the scrollable 
+area (often this is the <code class="w3-codespan">&lt;body&gt;</code> element).</p>
+<p>Then add the <code class="w3-codespan">data-bs-target</code> attribute with a value of the id or the class name 
+of the navigation bar (<code class="w3-codespan">.navbar</code>). This is to make sure that the navbar 
+is connected with the scrollable area.</p>
+<p>Note that scrollable elements must match the ID of the links inside the navbar's 
+list items 
+(<code class="w3-codespan">&lt;div id="section1"&gt;</code> matches <code class="w3-codespan">&lt;a href="#section1"&gt;</code>).</p>
+<p>The optional <code class="w3-codespan">data-bs-offset</code> attribute specifies the number of pixels to offset 
+from top when calculating the position of scroll. This is useful when you feel 
+that the links inside the navbar changes the active state too soon or too early 
+when jumping to the scrollable elements. Default is 10 pixels.</p>
+<div class="w3-panel ws-note">
+  <p style="margin-bottom:8px"><strong>Requires relative positioning: </strong>The element with 
+data-bs-spy=&quot;scroll&quot; 
+requires the CSS <strong>position</strong> property, with a value of &quot;relative&quot; 
+to work properly.</p>
+</div>
+
+<hr>
+
+<br>

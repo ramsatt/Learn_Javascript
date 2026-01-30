@@ -1,0 +1,87 @@
+<h1>CSS <span class="color_h1">Navigation Bars</span></h1>
+
+<hr>
+
+<div class="w3-row">
+<div class="w3-col m4">
+<p>A vertical navbar:</p>
+<ul class="vertical ex">
+  <li><a class="active" href="javascript:void(0)">Home</a></li>
+  <li><a href="javascript:void(0)">News</a></li>
+  <li><a href="javascript:void(0)">Contact</a></li>
+  <li><a href="javascript:void(0)">About</a></li>
+</ul>
+</div>
+
+<div class="w3-col m8">
+<p>A horizontal navbar:</p>
+<ul class="horizontal">
+  <li><a class="active" href="javascript:void(0)">Home</a></li>
+  <li><a href="javascript:void(0)">News</a></li>
+  <li><a href="javascript:void(0)">Contact</a></li>
+  <li class="rightli" style="float:right"><a href="javascript:void(0)">About</a></li>
+</ul>
+</div>
+</div>
+<hr>
+
+<h2>CSS Navigation Bars</h2>
+<p>Having an easy-to-use navigation is important for any website!</p>
+<p>CSS navigation bars are an important component of web design. Navigation bars 
+helps users to easily navigate between different sections of a website.</p>
+<p>Navigation bars are typically built with HTML list elements ( &lt;ul&gt; and &lt;li&gt;), 
+and then styled with CSS to get a great look.</p>
+<p>Navigation bars are typically located at the top or at the side of a webpage.</p>
+
+<hr>
+
+<h2>Navigation Bar = List of Links</h2>
+<p>A navigation bar needs standard HTML as a base.</p>
+<p>A navigation bar is basically a list of links, so using the &lt;ul&gt; and &lt;li&gt; elements makes perfect 
+sense:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate htmlHigh">
+&lt;ul&gt;<br>
+&nbsp;
+&lt;li&gt;&lt;a href=&quot;default.asp&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;<br>
+&nbsp;
+&lt;li&gt;&lt;a href=&quot;news.asp&quot;&gt;News&lt;/a&gt;&lt;/li&gt;<br>
+&nbsp;
+&lt;li&gt;&lt;a href=&quot;contact.asp&quot;&gt;Contact&lt;/a&gt;&lt;/li&gt;<br>
+&nbsp;
+&lt;li&gt;&lt;a href=&quot;about.asp&quot;&gt;About&lt;/a&gt;&lt;/li&gt;<br>
+&lt;/ul&gt;
+</div>
+</div>
+
+<p>Now let's remove the bullets and the margins and padding from the &lt;ul&gt; 
+element:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+   ul
+{<br>
+&nbsp;&nbsp;list-style-type: none;<br>
+   &nbsp;
+margin: 0;<br>
+   &nbsp;
+padding: 0;<br>
+}
+</div>
+</div>
+
+<p>Example explained:</p>
+<ul>
+<li>Set <code class="w3-codespan"><a href="../cssref/pr_list-style-type.html">list-style-type: none;</a></code> - Removes the bullet 
+points from list</li>
+<li>Set <code class="w3-codespan"><a href="../cssref/pr_margin.html">margin: 0;</a></code> 
+- Resets default browser margins</li>
+  <li>Set <code class="w3-codespan">
+<a href="../cssref/pr_padding.html">padding: 0;</a></code> - Resets default browser 
+  paddings</li>
+</ul>
+<p><strong>Note:</strong> The HTML and CSS code in the example above is the base code used 
+for both vertical and horizontal navigation bars, which you will learn more about in the next chapters.</p>
+
+<br>

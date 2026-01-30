@@ -1,0 +1,145 @@
+<h1>CSS <span class="color_h1">Shadow Effects</span></h1>
+
+<hr>
+
+<div class="w3-row">
+<div class="w3-half">
+<div class="card" style="width:80%;max-width:400px;box-shadow:0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;">
+  <img src="assets/content/images/rock600x400.jpg" alt="Norway" style="width:100%">
+  <div class="cardcontainer">
+    <p>Shadows</p>
+  </div>
+</div>
+</div>
+
+<div class="w3-half">
+<p id="textintro">With CSS you can create shadow effects!</p>
+
+<div class="bordershadow">Hover over me!</div>
+</div>
+</div>
+<hr>
+<h2>CSS Text Shadow</h2>
+<p>The CSS <code class="w3-codespan"><a href="../cssref/css3_pr_text-shadow.html">text-shadow</a></code> property applies 
+a shadow to text.</p>
+<p>In its simplest use, you only specify the horizontal and the vertical shadow.</p>
+<p>In addition, you can add a shadow color and blur effect.</p>
+<h2 id="simpleshadow">Text shadow effect!</h2>
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Horizontal and vertical shadow:</p>
+<div class="w3-code notranslate cssHigh">
+   h1
+{<br>
+&nbsp;&nbsp;text-shadow: 2px 2px;<br>
+}
+</div>
+
+</div>
+
+<p>Next, add a color to the shadow:</p>
+<h2 id="simpleshadow2">Text shadow effect!</h2>
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Horizontal and vertical shadow, with color:&nbsp;</p>
+<div class="w3-code notranslate cssHigh">
+   h1
+{<br>
+&nbsp;&nbsp;text-shadow: 2px 2px red;<br>
+}
+</div>
+
+</div>
+
+<p>Then, add a blur effect to the shadow:</p>
+<h2 id="simpleshadow3">Text shadow effect!</h2>
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Horizontal and vertical shadow, with color and blur effect:</p>
+<div class="w3-code notranslate cssHigh">
+    h1
+{<br>
+&nbsp;&nbsp;text-shadow: 2px 2px 5px red;<br>
+}
+</div>
+
+</div>
+
+<p>The following example shows a white text with black shadow:</p>
+<h2 id="simpleshadow4">Text shadow effect!</h2>
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Text-shadow on a white text:</p>
+<div class="w3-code notranslate cssHigh">
+    h1
+{<br>
+&nbsp;&nbsp;color: white;<br>
+&nbsp;&nbsp;text-shadow: 2px 2px 4px #000000;<br>
+}
+</div>
+
+</div>
+
+<p>The following example shows a red neon glow shadow:</p>
+<h2 id="simpleshadow5">Text shadow effect!</h2>
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Text-shadow with red neon glow:</p>
+<div class="w3-code notranslate cssHigh">
+   h1
+{<br>
+&nbsp;&nbsp;text-shadow: 0 0 3px #ff0000;<br>
+}
+</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>Multiple Shadows</h2>
+<p>To add more than one shadow to the text, you can add a comma-separated list of shadows. </p>
+<p>The following example shows a red and blue neon glow shadow:</p>
+<h2 id="simpleshadow6">Text shadow effect!</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+    h1
+{<br>
+&nbsp;&nbsp;text-shadow: 0 0 3px #ff0000, 0 0 5px #0000ff;<br>
+}
+</div>
+
+</div>
+
+<p>The following example shows a white text with black, blue, and darkblue shadow:</p>
+<h2 id="simpleshadow7">Text shadow effect!</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+    h1
+{<br>&nbsp;&nbsp;color: white;<br>
+&nbsp;&nbsp;text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;<br>}
+</div>
+
+</div>
+
+<p>You can also use the text-shadow property to create a plain border around 
+some text (without shadows):</p>
+<h2 id="simpleshadowborder">Border around text!</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+    h1
+{<br>&nbsp;&nbsp;color: coral;<br>&nbsp;&nbsp;text-shadow: -1px 0 black, 0 1px 
+    black, 1px 0 black, 0 -1px black;<br>}
+</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<br>

@@ -1,0 +1,81 @@
+<h1>Node.js <span class="color_h1">MySQL</span></h1>
+
+<hr>
+<p class="intro">Node.js can be used in database applications.</p>
+<p class="intro">One of the most popular databases is MySQL.</p>
+<hr>
+
+<h2>MySQL Database</h2>
+<p>To be able to experiment with the code examples, you should have MySQL installed 
+on your computer.</p>
+<p>You can download a free MySQL database at <a href="https://www.mysql.com/downloads/" target="_blank">https://www.mysql.com/downloads/</a>.</p>
+<hr>
+<h2>Install MySQL Driver</h2>
+<p>Once you have MySQL up and running on your computer, you can access it by 
+using Node.js.</p>
+<p>To access a MySQL database with Node.js, you need a MySQL driver. This 
+tutorial will use the &quot;mysql&quot; module, downloaded from NPM.</p>
+<p>To download and install the &quot;mysql&quot; module, open the Command Terminal and execute the following:</p>
+
+<div class="w3-example">
+<div class="w3-code notranslate w3-black">
+C:\Users\<em>Your Name</em>&gt;npm install mysql
+</div>
+</div>
+<p>Now you have downloaded and installed a mysql database driver.</p>
+<p>Node.js can use this module to manipulate the MySQL database:</p>
+<div class="w3-example">
+<div class="w3-code notranslate jsHigh">
+  let mysql = require('mysql');</div>
+</div>
+<hr>
+
+<hr>
+<h2>Create Connection</h2>
+<p>Start by creating a connection to the database.</p>
+<p>Use the username and password from your MySQL database.</p>
+<div class="w3-example">
+<p>demo_db_connection.js</p>
+<div class="w3-code notranslate jsHigh">
+  let mysql = require('mysql');<br><br>let con = mysql.createConnection({<br>&nbsp; 
+  host: &quot;localhost&quot;,<br>&nbsp; user: &quot;<em>yourusername</em>&quot;,<br>&nbsp; password: &quot;<em>yourpassword</em>&quot;<br>
+  });<br><br>con.connect(function(err) {<br>&nbsp; if (err) throw err;<br>&nbsp; console.log(&quot;Connected!&quot;);<br>});<br></div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="shownodejs_cmd36c9.html?filename=demo_db_connection">Run example &raquo;</a>
+</div>
+
+<p>Save the code above in a file called &quot;demo_db_connection.js&quot; and run the file:</p>
+<div class="w3-example">
+<p>Run "demo_db_connection.js"</p>
+<div class="w3-code notranslate w3-black">
+C:\Users\<em>Your Name</em>&gt;node demo_db_connection.js
+</div>
+</div>
+<p>Which will give you this result:</p>
+<div class="w3-example">
+<div class="w3-code notranslate w3-black">
+Connected!</div>
+</div>
+
+<p>Now you can start querying the database using SQL statements.</p>
+<hr>
+<h2>Query a Database</h2>
+<p>Use SQL statements to read from (or write to) a MySQL database. This 
+is also called &quot;to query&quot; the database.</p>
+<p>The connection object created in the example above, has a method for querying the database:</p>
+<div class="w3-example">
+<div class="w3-code notranslate jsHigh">
+  con.connect(function(err) {<br>&nbsp; if (err) throw err;<br>&nbsp; console.log(&quot;Connected!&quot;);<br>
+  <strong>&nbsp;
+  con.query(</strong><em><strong>sql</strong></em><strong>, function (err, result) {<br>&nbsp;&nbsp;&nbsp; if (err) throw err;<br>&nbsp; &nbsp; console.log(&quot;Result: 
+  &quot; + result);<br>&nbsp; });<br></strong>});</div>
+</div>
+
+<p>The query method takes an sql statements as a parameter and returns the 
+result.</p>
+<p>Learn how to read, write, delete, and update a database in the next chapters.</p>
+<p>Read more about SQL statements in our <a href="../sql/default.html">SQL Tutorial</a>.</p>
+
+<hr>
+
+
+<hr>

@@ -1,0 +1,82 @@
+<h1>jQuery <span class="color_h1">post()</span> Method</h1>
+<p><a href="jquery_ref_ajax.html" class="w3-btn w3-white w3-border" title="jQuery AJAX Methods">&#10094; jQuery AJAX Methods</a></p>
+
+<div class="w3-example">
+<h3>Example 1</h3>
+<p>Load data from the server using a HTTP POST request:</p>
+<div class="w3-code notranslate jsHigh">
+$(&quot;button&quot;).click(function(){<br>
+&nbsp;&nbsp;$.post(&quot;demo_test.asp&quot;, function(data, status){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;alert(&quot;Data: &quot; + data + &quot;\nStatus: &quot; + status);<br>
+&nbsp;&nbsp;});<br>
+});
+</div>
+<a class="w3-btn w3-margin-bottom" target="_blank" href="tryit0b76.html?filename=tryjquery_ajax_post">Try it Yourself &raquo;</a>
+</div>
+<br>
+
+<div class="w3-example">
+<h3>Example 2</h3>
+<p>Change the text of a &lt;div&gt; element using an AJAX POST request:</p>
+<div class="w3-code notranslate jsHigh">
+$(&quot;input&quot;).keyup(function(){<br>
+&nbsp;
+var txt = $(&quot;input&quot;).val();<br>
+&nbsp;&nbsp;$.post(&quot;demo_ajax_gethint.asp&quot;, {suggest: txt}, function(result){<br>
+  &nbsp;&nbsp;&nbsp; $(&quot;span&quot;).html(result);<br>
+  &nbsp; });<br>
+});
+</div>
+<a class="w3-btn w3-margin-bottom" target="_blank" href="tryit83ee.html?filename=tryjquery_ajax_post2">Try it Yourself &raquo;</a>
+</div>
+<hr>
+
+<h2>Definition and Usage</h2>
+<p>The $.post() method loads data from the server using a HTTP POST request.</p>
+<hr>
+
+<hr>
+<h2>Syntax</h2>
+<div class="w3-code w3-border notranslate"><div>
+$(<i>selector</i>).post(<i>URL,data,function(data,status,xhr),dataType)</i></div></div>
+<br>
+<table class="ws-table-all notranslate"> 
+  <tr>
+    <th style="width:30%">Parameter</th>
+    <th>Description</th>
+  </tr>  
+    <tr>
+    <td><em>URL</em></td>
+    <td>Required. Specifies the url to send the request to</td>
+    </tr>
+  <tr>
+    <td><em>data</em></td>
+    <td>Optional. Specifies data to send to the server along with the request</td>
+    </tr>
+  <tr>
+    <td><em>function(data,status,xhr)</em></td>
+    <td>Optional. Specifies a function to run if the request succeeds<br>
+ Additional parameters:<br>
+ <ul><li><em>data</em> - contains the resulting data from the request</li>
+    <li><em>status</em> - contains the status of the request (&quot;success&quot;, &quot;notmodified&quot;, &quot;error&quot;, &quot;timeout&quot;, or &quot;parsererror&quot;)</li>
+    <li><em>xhr</em> - contains the XMLHttpRequest object</li></ul>
+    </td>
+    </tr>
+  <tr>
+    <td><em>dataType</em></td>
+    <td>Optional. Specifies the data type expected of the server response.<br>
+ By default jQuery performs an automatic guess.<br>
+ Possible types:<ul>
+    <li>&quot;xml&quot; - An XML document</li>
+    <li>&quot;html&quot; - HTML as plain text</li>
+    <li>&quot;text&quot; - A plain text string</li>
+    <li>&quot;script&quot; - Runs the response as JavaScript, and  returns it as plain text</li>
+    <li>&quot;json&quot; - Runs the response as JSON, and returns a  JavaScript object</li>
+    <li>&quot;jsonp&quot; - Loads in a JSON block using JSONP. Will add an &quot;?callback=?&quot; to the URL to specify the callback</li>
+ </ul>
+  </td>
+  </tr>
+</table>
+<hr>
+
+<p><a href="jquery_ref_ajax.html" class="w3-btn w3-white w3-border" title="jQuery AJAX Methods">&#10094; jQuery AJAX Methods</a></p>

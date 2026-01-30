@@ -1,0 +1,148 @@
+<h1>React <code class="w3-codespan">useCallback</code> Hook</h1>
+
+
+<hr>
+
+<p>The <code class="w3-codespan">useCallback</code> Hook is used to memoize a callback function.</p>
+
+<p>Memoizing a function means caching the result of a function so that it does not need to be recalculated.</p>
+
+<p>The <code class="w3-codespan">useCallback</code> function only re-executes when one of its dependencies changes value.</p>
+
+<p>This allows us to isolate resource intensive functions so that they will not automatically run on every render.</p>
+
+<div class="w3-panel ws-note">
+<p>The <code class="w3-codespan">useCallback</code> and <code class="w3-codespan">useMemo</code> Hooks are similar:</p>
+<p><code class="w3-codespan">useMemo</code> returns a memoized <em>value</em>.</p>
+<p><code class="w3-codespan">useCallback</code> returns a memoized <em>function</em>.</p>
+<p>Learn more about <code class="w3-codespan">useMemo</code> in the <a href="react_usememo.html"><code class="w3-codespan">useMemo</code> chapter</a>.</p>
+</div>
+
+<hr>
+
+<h2>Syntax</h2>
+
+<p>The <code class="w3-codespan">useCallback</code> Hook accepts two arguments.</p>
+
+<pre class="language-jsx"><code>useCallback(<i>callback</i>, <i>dependencies</i>)
+</code></pre>
+
+<p><code class="w3-codespan">callback</code>: The function that you want to memoize.</p>
+<p><code class="w3-codespan">dependencies</code>: An array of dependencies for the callback function. The memoized callback will only change if one of these dependencies has changed.</p>
+
+<div class="w3-example">
+<h3>Example:</h3>
+<p>Without <code class="w3-codespan">useCallback</code>:</p>
+<pre class="language-jsx w3-white"><code>//Without useCallback:
+import React, { useState } from 'react';
+import { createRoot } from 'react-dom/client';
+
+// Child component that receives a function prop
+const Button = React.memo(({ onClick, text }) => {
+  alert(`Child ${text} button rendered`);
+  return &lt;button onClick={onClick}&gt;{text}&lt;/button&gt;;
+});
+
+// Parent component without useCallback
+function WithoutCallbackExample() {
+  const [count1, setCount1] = useState(0);
+  const [count2, setCount2] = useState(0);
+
+  // This function is recreated on every render
+  const handleClick1 = () => {
+    setCount1(count1 + 1);
+  };
+
+  const handleClick2 = () => {
+    setCount2(count2 + 1);
+  };
+
+  alert("Parent rendered");
+  return (
+    &lt;div&gt;
+      &lt;h2&gt;Without useCallback:&lt;/h2&gt;
+      &lt;p&gt;Count 1: {count1}&lt;/p&gt;
+      &lt;p&gt;Count 2: {count2}&lt;/p&gt;
+      &lt;Button onClick={handleClick1} text="Button 1" /&gt;
+      &lt;Button onClick={handleClick2} text="Button 2" /&gt;
+    &lt;/div&gt;
+  );
+}
+
+createRoot(document.getElementById('root')).render(
+  &lt;WithoutCallbackExample /&gt;
+);  
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreact3e0a.html?filename=demo_react_usecallback_without">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<hr>
+
+<hr>
+
+<p>Try running the example above and click the buttons.</p>
+
+<p>You will notice that all three components (Parent, Button 1 and Button 2) re-render each time you click the buttons.</p>
+
+<p>This can be avoided by using the <code class="w3-codespan">useCallback</code> hook.</p>
+
+<p>By using the <code class="w3-codespan">useCallback</code> hook,
+we can memoize the functions and only recreate them when their dependencies change.</p>
+
+<p>When clicking Button 1, only Parent and Button 1 should re-render, and when clicking Button 2,
+  only Parent and Button 2 should re-render:</p>
+
+<div class="w3-example">
+<h3>Example:</h3>
+<p>With <code class="w3-codespan">useCallback</code>:</p>
+<pre class="language-jsx w3-white"><code>//With useCallback:
+import React, { useState, useCallback } from 'react';
+import { createRoot } from 'react-dom/client';
+
+// Child component that receives a function prop
+const Button = React.memo(({ onClick, text }) => {
+  console.log(`${text} button rendered`);
+  return &lt;button onClick={onClick}&gt;{text}&lt;/button&gt;;
+});
+
+// Parent component with useCallback
+function WithCallbackExample() {
+  const [count1, setCount1] = useState(0);
+  const [count2, setCount2] = useState(0);
+
+  // These functions are memoized and only recreated when dependencies change
+  const handleClick1 = useCallback(() => {
+    setCount1(count1 + 1);
+  }, [count1]);
+
+  const handleClick2 = useCallback(() => {
+    setCount2(count2 + 1);
+  }, [count2]);
+
+  console.log("Parent rendered");
+  return (
+    &lt;div&gt;
+      &lt;h2&gt;With useCallback:&lt;/h2&gt;
+      &lt;p&gt;Count 1: {count1}&lt;/p&gt;
+      &lt;p&gt;Count 2: {count2}&lt;/p&gt;
+      &lt;Button onClick={handleClick1} text="Button 1" /&gt;
+      &lt;Button onClick={handleClick2} text="Button 2" /&gt;
+    &lt;/div&gt;
+  );
+}
+
+createRoot(document.getElementById('root')).render(
+  &lt;WithCallbackExample /&gt;
+);  
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreactea5d.html?filename=demo_react_usecallback_with">Run 
+Example &raquo;</a>
+</p>
+</div>
+<hr>
+
+<hr>

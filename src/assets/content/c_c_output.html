@@ -1,0 +1,68 @@
+<h1>C <span class="color_h1">Output (Print Text)</span></h1>
+
+
+<hr>
+
+
+<h2>Output (Print Text)</h2>
+<p>To output values or print text in C, you can use the <code class="w3-codespan">printf()</code> function:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  #include &lt;stdio.h&gt;<br><br>int main() {<br>&nbsp; printf(&quot;Hello World!&quot;);<br>&nbsp;
+  return 0;<br>}</div>
+
+</div>
+
+<hr>
+
+
+<h2>Double Quotes</h2>
+<p>When you want to print text, the text must be wrapped in double quotes <code class="w3-codespan">""</code>.</p>
+<p>If you forget the double quotes, an error occurs:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  printf(&quot;This sentence will work!&quot;);<br>
+</div>
+
+<div class="w3-code notranslate javaHigh w3-border-red">
+  printf(This sentence will produce an error.);<br>
+</div>
+
+
+</div>
+
+<div class="ws-note w3-panel">
+<p><strong>Tip:</strong> If you see strange error messages, check that your text starts and ends with double quotes.</p>
+</div>
+
+<hr>
+
+
+<h2>Many <code class="w3-codespan">printf()</code> Functions</h2>
+<p>You can use as many <code class="w3-codespan">printf()</code> functions as you want.</p>
+<p><strong>However,</strong> note that it does not insert a new line at the end of the output:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  #include &lt;stdio.h&gt;<br><br>int main() {<br>&nbsp; printf(&quot;Hello World!&quot;);<br>&nbsp;
+  printf(&quot;I am learning C.&quot;);<br>&nbsp;
+  printf(&quot;And it is awesome!&quot;);<br>&nbsp;
+  return 0;<br>}</div>
+
+</div>
+
+<div class="ws-note w3-panel">
+<p><strong>Notice:</strong> All the text appears on the same line. In the next chapter, you will learn how to add new lines to make the output easier to read.</p>
+</div>
+
+
+<hr>
+
+<hr>
+
+<br>

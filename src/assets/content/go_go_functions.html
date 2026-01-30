@@ -1,0 +1,128 @@
+<h1>Go Functions</h1>
+
+<hr>
+
+<p>A function is a block of statements that can be used repeatedly in a program.</p>
+<p>A function will not execute automatically when a page loads.</p>
+<p>A function will be executed by a call to the function.</p>
+<hr>
+
+<h2>Create a Function</h2>
+<p>To create (often referred to as declare) a function, do the following:</p>
+<ul>
+<li>Use the <code class="w3-codespan">func</code> keyword.</li>
+<li>Specify a name for the function, followed by parentheses ().</li>
+<li>Finally, add code that defines what the function should do, inside curly 
+braces {}.</li>
+</ul>
+
+<div class="w3-example">
+  <h3>Syntax</h3>
+      <div class="w3-code notranslate javaHigh">
+        func <em>FunctionName</em>() {<br>
+        &nbsp;&nbsp;<em>// code to be executed</em> <br>
+        } <br>
+      </div>
+</div>
+<hr>
+
+<h2>Call a Function</h2>
+<p>Functions are not executed immediately. They are "saved for later use", and will be executed when they are called.</p>
+<p>In the example below, we create a function named &quot;myMessage()&quot;. The opening 
+curly brace ( { ) indicates the beginning of the function code, and the closing 
+curly brace ( } ) indicates the end of the function. The function outputs &quot;I 
+just got executed!&quot;. To call the function, just write its name followed by two 
+parentheses ():</p>
+<div class="w3-example">
+  <h3>Example</h3>
+  <div class="w3-code notranslate javaHigh">
+      package main<br>
+      import ("fmt")<br>
+      <br>func myMessage() { <br>
+      &nbsp;&nbsp;fmt.Println("I just got executed!")<br>
+      } <br><br>
+      
+      func main() {<br>
+      &nbsp;&nbsp;myMessage() // call the function<br>
+      }
+  </div>
+  <p>Result:</p>
+  <div class="notranslate w3-black w3-padding">
+  <code>
+      I just got executed!
+  </code>
+  </div>
+  
+</div>
+
+
+<p>A function can be called multiple times.</p>
+<div class="w3-example">
+  <h3>Example</h3>
+  <div class="w3-code notranslate javaHigh">
+      package main<br>
+      import ("fmt")<br>
+      <br>func myMessage() { <br>
+      &nbsp;&nbsp;fmt.Println("I just got executed!")<br>
+      } <br><br>
+      
+      func main() {<br>
+      &nbsp;&nbsp;myMessage()<br>
+      &nbsp;&nbsp;myMessage()<br>
+      &nbsp;&nbsp;myMessage()<br>
+      }
+  </div>
+  <p>Result:</p>
+  <div class="notranslate w3-black w3-padding">
+  <code>
+      I just got executed! <br>
+      I just got executed! <br>
+      I just got executed! <br>
+  </code>
+  </div>
+  
+</div>
+<hr>
+<hr>
+<h2>Naming Rules for Go Functions</h2>
+<ul>
+  <li>A function name must start with a letter</li>
+  <li>A function name can only contain alpha-numeric characters and underscores (<code class="w3-codespan">A-z</code>, <code class="w3-codespan">0-9</code>, and <code class="w3-codespan">_</code> 
+  )</li>
+  <li>Function names are case-sensitive</li>
+  <li>A function name cannot contain spaces</li>
+  <li>If the function name consists of multiple words, techniques introduced for 
+  <a href="go_variable_naming_rules.html">multi-word variable naming</a> 
+  can be used</li>
+</ul>
+<p><strong>Tip:</strong> Give the function a name that reflects what the 
+function does!</p>
+<hr>
+
+<div>
+<h2>Go Exercises</h2>
+<form autocomplete="off" spellcheck="false" id="w3-exerciseform" action="https://www.w3schools.com/go/exercise.php?filename=exercise_functions1" method="post" target="_blank">
+<h2>Test Yourself With Exercises</h2>
+<div class="exercisewindow">
+<h2>Exercise:</h2>
+<p>Create a function named myFunction and call it inside main().</p>
+<div class="exerciseprecontainer">
+<pre style="overflow: auto;">
+package main   
+import ("fmt")<br>
+func <input name="ex1" maxlength="12" style="width:130px;"> {
+  fmt.Println("I just got executed!")
+}<br>
+func main() {
+  <input name="ex2" maxlength="12" style="width:130px;">  
+}
+</pre>
+</div>
+<br>
+<button type="submit" class="w3-btn w3-margin-bottom">Submit Answer &raquo;</button>
+<p><a target="_blank" href="exercise75c3.html?filename=exercise_functions1">Start the Exercise</a></p>
+</div>
+</form>
+</div>
+
+<br>

@@ -1,0 +1,41 @@
+<h1>Node.js <span class="color_h1">MongoDB</span> Create Database</h1>
+
+<hr>
+
+<h2>Creating a Database</h2>
+<p>To create a database in MongoDB, start by creating a MongoClient object, then specify a connection URL with the 
+correct ip address and the name of the database you want to create.</p>
+<p>MongoDB will create the database if it does not exist, and make a connection 
+to it.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Create a database called "mydb":</p>
+<div class="w3-code notranslate jsHigh">
+  let MongoClient = require('mongodb').MongoClient;<br>let url = &quot;mongodb://localhost:27017/mydb&quot;;<br>
+  <br>MongoClient.connect(url, function(err, db) {<br>&nbsp; if (err) throw err;<br>&nbsp; console.log(&quot;Database 
+  created!&quot;);<br>&nbsp; db.close();<br>});<br></div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="shownodejs_cmd7dac.html?filename=demo_create_mongo_db">Run example &raquo;</a>
+</div>
+
+<p>Save the code above in a file called &quot;demo_create_mongo_db.js&quot; and run the file:</p>
+<div class="w3-example">
+<p>Run "demo_create_mongo_db.js"</p>
+<div class="w3-code notranslate w3-black">
+C:\Users\<em>Your Name</em>&gt;node demo_create_mongo_db.js
+</div>
+</div>
+<p>Which will give you this result:</p>
+<div class="w3-example">
+<div class="w3-code notranslate w3-black">
+  Database created!</div>
+</div>
+<div class="w3-panel ws-note">
+  <p><strong>Important:</strong> In MongoDB, a database is not created until it 
+  gets content!</p>
+</div>
+
+<p>MongoDB waits until you have created a collection (table), with at least one document (record) before it actually creates the database (and collection).</p>
+
+<hr>
+
+<hr>

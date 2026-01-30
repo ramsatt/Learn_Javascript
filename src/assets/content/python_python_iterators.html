@@ -1,0 +1,134 @@
+<h1>Python <span class="color_h1">Iterators</span></h1>
+
+<hr>
+
+<h2>Python Iterators</h2>
+<p>An iterator is an object that contains a countable number of values.</p>
+<p>An iterator is an object that can be iterated upon, meaning that you can 
+traverse through all the values.</p>
+<p>Technically, in Python, an iterator is an object which implements the 
+iterator protocol, which consist of the methods <code class="w3-codespan">__iter__()</code> 
+and <code class="w3-codespan">__next__()</code>.</p>
+
+<hr>
+
+<h2>Iterator vs Iterable</h2>
+<p>Lists, tuples, dictionaries, and sets are all iterable objects. They are iterable
+<em>containers</em> which you can get an iterator from.</p>
+<p>All these objects have a <code class="w3-codespan">iter()</code> method which is used to get an iterator:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Return an iterator from a tuple, and print each value:</p>
+  <div class="w3-code notranslate pythonHigh">
+    mytuple = (&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;)<br>myit = iter(mytuple)<br><br>
+    print(next(myit))<br>print(next(myit))<br>print(next(myit))<br>
+</div>
+
+</div>
+
+<p>Even strings are iterable objects, and can return an iterator:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Strings are also iterable objects, containing a sequence of characters:</p>
+  <div class="w3-code notranslate pythonHigh">
+    mystr = &quot;banana&quot;<br>myit = iter(mystr)<br><br>
+    print(next(myit))<br>print(next(myit))<br>print(next(myit))<br>
+    print(next(myit))<br>print(next(myit))<br>print(next(myit))<br>
+</div>
+
+</div>
+
+<hr>
+
+<h2>Looping Through an Iterator</h2>
+
+<p>We can also use a <code class="w3-codespan"><a href="ref_keyword_for.html">for</a></code> loop to iterate through an iterable object:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Iterate the values of a tuple:</p>
+<div class="w3-code notranslate pythonHigh">
+    mytuple = (&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;)<br>
+  <br>for x in mytuple:<br>
+    &nbsp; print(x)</div>
+
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Iterate the characters of a string:</p>
+<div class="w3-code notranslate pythonHigh">
+    mystr = &quot;banana&quot;<br>
+  <br>for x in mystr:<br>
+    &nbsp; print(x)</div>
+
+</div>
+
+<p>The <code class="w3-codespan"><a href="ref_keyword_for.html">for</a></code> loop actually creates an iterator object and executes the <code class="w3-codespan"><a href="ref_func_next.html">next()</a></code> 
+method for each loop.</p>
+
+<hr>
+
+<hr>
+
+<h2>Create an Iterator</h2>
+
+<p>To create an object/class as an iterator you have to implement the methods
+<code class="w3-codespan">__iter__()</code> and <code class="w3-codespan">
+__next__()</code> to your object.</p>
+<p>As you will learn in the <a href="python_classes.html">Python 
+Classes/Objects</a> chapter, all classes have a function called
+<code class="w3-codespan">__init__()</code>, which allows you to do some 
+initializing when the object is being created.</p>
+<p>The <code class="w3-codespan">__iter__()</code> method acts similar, you can 
+do operations (initializing etc.), but must always return the iterator object 
+itself.</p>
+<p>The <code class="w3-codespan">__next__()</code> method also allows you to do 
+operations, and must return the next item in the sequence.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Create an iterator that returns numbers, starting with 1, and each sequence 
+will increase by one (returning 1,2,3,4,5 etc.):</p>
+<div class="w3-code notranslate pythonHigh">
+  class MyNumbers:<br>&nbsp; def __iter__(self):<br>&nbsp;&nbsp;&nbsp; self.a = 
+  1<br>&nbsp;&nbsp;&nbsp; return self<br><br>&nbsp; def __next__(self):<br>&nbsp;&nbsp;&nbsp; 
+  x = self.a<br>&nbsp;&nbsp;&nbsp; self.a += 1<br>&nbsp;&nbsp;&nbsp; return x<br>
+  <br>myclass = MyNumbers()<br>myiter =
+   iter(myclass)<br><br>print(next(myiter))<br>
+  print(next(myiter))<br>print(next(myiter))<br>print(next(myiter))<br>
+  print(next(myiter))</div>
+
+</div>
+
+<hr>
+
+<h2>StopIteration</h2>
+
+<p>The example above would continue forever if you had enough next() statements, or if it was used in a 
+<code class="w3-codespan"><a href="ref_keyword_for.html">for</a></code> loop.</p>
+<p>To prevent the iteration from going on forever, we can use the 
+<code class="w3-codespan">StopIteration</code> statement.</p>
+<p>In the <code class="w3-codespan">__next__()</code> method, we can add a terminating condition to raise an error if the iteration is done a specified number of times:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Stop after 20 iterations:</p>
+<div class="w3-code notranslate pythonHigh">
+  class MyNumbers:<br>&nbsp; def __iter__(self):<br>&nbsp;&nbsp;&nbsp; self.a = 
+  1<br>&nbsp;&nbsp;&nbsp; return self<br><br>&nbsp; def __next__(self):<br>&nbsp;&nbsp;&nbsp; 
+  if self.a &lt;= 20:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x = self.a<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  self.a += 1<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return x<br>&nbsp;&nbsp;&nbsp; 
+  else:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; raise StopIteration<br><br>myclass = 
+  MyNumbers()<br>myiter =
+   iter(myclass)<br><br>for x in myiter:<br>&nbsp; 
+  print(x)<br>
+  </div>
+
+</div>
+
+<hr>
+
+<hr>

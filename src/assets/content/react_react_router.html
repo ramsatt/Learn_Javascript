@@ -1,0 +1,377 @@
+<h1>React Router</h1>
+
+
+<hr>
+
+<h2>What is React Router?</h2>
+
+<p>React Router is a library that provides routing capabilities for React applications.</p>
+<p>Routing means handling navigation between different views.</p>
+<p>React Router is the standard routing library for React applications. It enables you to:</p>
+<ul>
+  <li>Create multiple pages in your single-page application</li>
+  <li>Handle URL parameters and query strings</li>
+  <li>Manage browser history and navigation</li>
+  <li>Create nested routes and layouts</li>
+  <li>Implement protected routes for authentication</li>
+</ul>
+
+<p>Without a router, your React application would be limited to a single page with no way to navigate between different views.</p>
+
+<hr>
+
+<h2>Install React Router</h2>
+
+<p>In the command line, navigate to your project directory and run the following command to install the package:</p>
+
+<div class="w3-example">
+  <div class="w3-code notranslate w3-black">
+    npm install react-router-dom
+  </div>
+</div>
+
+<hr>
+
+<h2>Wrap Your App with BrowserRouter</h2>
+<p>Your application must be wrapped with the <code class="w3-codespan">BrowserRouter</code> component to enable routing:</p>
+
+<div class="w3-example">
+<pre class="language-jsx w3-white"><code>function App() {
+  return (
+    &lt;BrowserRouter&gt;
+      {/* Your app content */}
+    &lt;/BrowserRouter&gt;
+  );
+}</code></pre>
+</div>
+
+<hr>
+<h2>Create Views</h2>
+<p>To demonstrate routing, we'll create three pages (or views) in our application: Home, About, and Contact:</p>
+
+<p>We will create all three views in the same file for simplicity, but you can of course split them into separate files.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-jsx w3-white"><code>function Home() {
+  return &lt;h1&gt;Home Page&lt;/h1&gt;;
+}
+
+function About() {
+  return &lt;h1&gt;About Page&lt;/h1&gt;;
+}
+
+function Contact() {
+  return &lt;h1&gt;Contact Page&lt;/h1&gt;;
+}
+</code></pre>
+</div>
+  
+<hr>
+
+<h2>Basic Routing</h2>
+
+<p>React Router uses three main components for basic routing:</p>
+
+<ul>
+  <li><code class="w3-codespan">Link</code>: Creates navigation links that update the URL</li>
+  <li><code class="w3-codespan">Routes</code>: A container for all your route definitions</li>
+  <li><code class="w3-codespan">Route</code>: Defines a mapping between a URL path and a component</li>
+</ul>
+
+<p>Let's add navigation links and routes for each link:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Note that we need to import <code class="w3-codespan">BrowserRouter, Routes, Route, Link</code> from 'react-router-dom'.</p>
+<pre class="language-jsx w3-white"><code>import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+
+function Home() {
+  return &lt;h1&gt;Home Page&lt;/h1&gt;;
+}
+
+function About() {
+  return &lt;h1&gt;About Page&lt;/h1&gt;;
+}
+
+function Contact() {
+  return &lt;h1&gt;Contact Page&lt;/h1&gt;;
+}
+
+function App() {
+  return (
+    &lt;BrowserRouter&gt;
+      {/* Navigation */}
+      &lt;nav&gt;
+        &lt;Link to="/"&gt;Home&lt;/Link&gt; |{" "}
+        &lt;Link to="/about"&gt;About&lt;/Link&gt; |{" "}
+        &lt;Link to="/contact"&gt;Contact&lt;/Link&gt;
+      &lt;/nav&gt;
+
+      {/* Routes */}
+      &lt;Routes&gt;
+        &lt;Route path="/" element={&lt;Home /&gt;} /&gt;
+        &lt;Route path="/about" element={&lt;About /&gt;} /&gt;
+        &lt;Route path="/contact" element={&lt;Contact /&gt;} /&gt;
+      &lt;/Routes&gt;
+    &lt;/BrowserRouter&gt;
+  );
+}</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreactb09d.html?filename=demo_react_router_basic">Run Example &raquo;</a>
+</p>
+</div>
+
+<p>In this example:</p>
+<ul>
+  <li><code class="w3-codespan">BrowserRouter</code> wraps your app and enables routing functionality</li>
+  <li><code class="w3-codespan">Link</code> components create navigation links</li>
+  <li><code class="w3-codespan">Routes</code> and <code class="w3-codespan">Route</code> define your routing configuration</li>
+</ul>
+
+<hr>
+
+<h2>Nested Routes</h2>
+
+<p>You can have a <code class="w3-codespan">Route</code> inside another <code class="w3-codespan">Route</code>, this is called nested routes.</p>
+
+<p>Nested routes allow you change parts of the page when you navigate to a new URL, while other parts is not changed or reloaded, almost like having a page within a page.</p>
+
+<p>Let's use the example above, and add two new components that will be rendered inside the <code class="w3-codespan">Products</code> component.</p>
+
+<p>One called <code class="w3-codespan">CarProducts</code> and one called <code class="w3-codespan">BikeProducts</code>:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Note that we also need to import the <code class="w3-codespan">Outlet</code> component from 'react-router-dom'.</p>
+<pre class="language-jsx w3-white"><code>import { BrowserRouter, Routes, Route, Link, Outlet } from 'react-router-dom';
+
+function Home() {
+  return &lt;h1&gt;Home Page&lt;/h1&gt;;
+}
+
+function Products() {
+  return (
+    &lt;div&gt;
+      &lt;h1&gt;Products Page&lt;/h1&gt;
+      &lt;nav style={{ marginBottom: '20px' }}&gt;
+        &lt;Link to="/products/car"&gt;Cars&lt;/Link&gt; |{" "}
+        &lt;Link to="/products/bike"&gt;Bikes&lt;/Link&gt;
+      &lt;/nav&gt; 
+      &lt;Outlet /&gt; 
+    &lt;/div&gt;
+  );
+}
+
+function CarProducts() {
+  return (
+    &lt;div&gt;
+      &lt;h2&gt;Cars&lt;/h2&gt;
+      &lt;ul&gt;
+        &lt;li&gt;Audi&lt;/li&gt;
+        &lt;li&gt;BMW&lt;/li&gt;
+        &lt;li&gt;Volvo&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  );
+}
+
+function BikeProducts() {
+  return (
+    &lt;div&gt;
+      &lt;h2&gt;Bikes&lt;/h2&gt;
+      &lt;ul&gt;
+        &lt;li&gt;Yamaha&lt;/li&gt;
+        &lt;li&gt;Suzuki&lt;/li&gt;
+        &lt;li&gt;Honda&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  );
+}
+
+function Contact() {
+  return &lt;h1&gt;Contact Page&lt;/h1&gt;;
+}
+
+function App() {
+  return (
+    &lt;BrowserRouter&gt;
+      {/* Navigation */}
+      &lt;nav&gt;
+        &lt;Link to="/"&gt;Home&lt;/Link&gt; |{" "}
+        &lt;Link to="/products"&gt;Products&lt;/Link&gt; |{" "}
+        &lt;Link to="/contact"&gt;Contact&lt;/Link&gt;
+      &lt;/nav&gt;
+
+      {/* Routes */}
+      &lt;Routes&gt;
+        &lt;Route path="/" element={&lt;Home /&gt;} /&gt;
+        &lt;Route path="/products" element={&lt;Products /&gt;}&gt;
+          &lt;Route path="car" element={&lt;CarProducts /&gt;} /&gt;
+          &lt;Route path="bike" element={&lt;BikeProducts /&gt;} /&gt;
+        &lt;/Route&gt;
+        &lt;Route path="/contact" element={&lt;Contact /&gt;} /&gt;
+      &lt;/Routes&gt;
+    &lt;/BrowserRouter&gt;
+  );
+}
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreact01e7.html?filename=demo_react_router_nested">Run Example &raquo;</a>
+</p>  
+</div>
+
+<p>Important notes about the example above:</p>
+
+<ol>
+  <li><b>Outlet:</b><br>
+    The <code class="w3-codespan">&lt;Outlet /&gt;</code> element in the <code class="w3-codespan">Products</code>
+    component specifies where to render the child route's content.</p>
+  </li>
+
+  <li><b>Routes:</b><br>
+    The <code class="w3-codespan">Routes</code> element contains the routes
+    to <code class="w3-codespan">CarProducts</code>
+    and <code class="w3-codespan">BikeProducts</code>
+    as child routes of the <code class="w3-codespan">Products</code> parent route. </p>
+  </li>
+
+  <li><b>URL Structure:</b><br>
+    The URL structure is relative to the parent route's path. For example:<br>
+    <ul>
+      <li>When you navigate to <code class="w3-codespan">'/products/car'</code>,
+      the <code class="w3-codespan">CarProducts</code> component is rendered.</li>
+      <li>When you navigate to <code class="w3-codespan">'/products/bike'</code>,
+      the <code class="w3-codespan">BikeProducts</code> component is rendered.</li>
+    </ul>  
+  </li>
+</ol>
+
+<hr>
+
+<h2>Style Active Links</h2>
+<p>There is a special version of the <code class="w3-codespan">Link</code> component
+  called <code class="w3-codespan">NavLink</code> that knows whether the link's URL is "active" or not.</p>
+
+<p>The <code class="w3-codespan">NavLink</code> is especially useful for:</p>
+
+<ul>
+  <li>Navigation menus</li>
+  <li>Breadcrumbs</li>
+  <li>Tabs</li>
+</ul>
+
+<p>A <code class="w3-codespan">NavLink</code> is considered active if the current URL matches its <code class="w3-codespan">to</code> prop.</p>
+
+<p>The <code class="w3-codespan">NavLink</code> component makes it easier to style active links.</p>
+
+<p>Take the basic example from above, and add styles for active links using <code class="w3-codespan">NavLink</code>:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Create a new element called <code class="w3-codespan">navLinkStyles</code>
+  and replace <code class="w3-codespan">&lt;Link&gt;</code> with <code class="w3-codespan">&lt;NavLink&gt;</code> in <code class="w3-codespan">App</code>.</p>
+<p>Note that we also need to import the <code class="w3-codespan">NavLink</code> component from 'react-router-dom'.</p>
+<pre class="language-jsx w3-white"><code>import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
+
+// Style function for active links
+const navLinkStyles = ({ isActive }) => ({
+  color: isActive ? '#007bff' : '#333',
+  textDecoration: isActive ? 'none' : 'underline',
+  fontWeight: isActive ? 'bold' : 'normal',
+  padding: '5px 10px'
+});
+
+function Home() {
+  return &lt;h1&gt;Home Page&lt;/h1&gt;;
+}
+
+function About() {
+  return &lt;h1&gt;About Page&lt;/h1&gt;;
+}
+
+function Contact() {
+  return &lt;h1&gt;Contact Page&lt;/h1&gt;;
+}
+
+function App() {
+  return (
+    &lt;BrowserRouter&gt;
+      {/* Navigation with NavLink for active styling */}
+      &lt;nav style={{ marginBottom: '20px' }}&gt;
+        &lt;NavLink to="/" style={navLinkStyles}&gt;Home&lt;/NavLink&gt; |{" "}
+        &lt;NavLink to="/about" style={navLinkStyles}&gt;About&lt;/NavLink&gt; |{" "}
+        &lt;NavLink to="/contact" style={navLinkStyles}&gt;Contact&lt;/NavLink&gt;
+      &lt;/nav&gt;
+
+      {/* Routes */}
+      &lt;Routes&gt;
+        &lt;Route path="/" element={&lt;Home /&gt;} /&gt;
+        &lt;Route path="/about" element={&lt;About /&gt;} /&gt;
+        &lt;Route path="/contact" element={&lt;Contact /&gt;} /&gt;
+      &lt;/Routes&gt;
+    &lt;/BrowserRouter&gt;
+  );
+}</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreactdec6.html?filename=demo_react_router_navlink">Run Example &raquo;</a>
+</p>
+</div>
+
+<hr>
+
+<h2>URL Parameters</h2>
+
+<p>URL parameters are variables that you can add to your route paths. They are often used to pass data between components.</p>
+
+<p>In the path <code class="w3-codespan">http://localhost:5173/customer/Tobias</code>, the URL parameter is <code class="w3-codespan">Tobias</code>.</p>
+
+<p>URL parameters let you create dynamic routes where part of the URL can change. Think of them as variables in your URL.</p>
+
+<p>React Router provides the <code class="w3-codespan">useParams</code> hook to access these parameters in your components.</p>
+
+<p>Here's a simple example with a greeting page that can say hello to different customers:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-jsx w3-white"><code>import { BrowserRouter, Routes, Route, Link, useParams } from 'react-router-dom';
+
+function Info() {
+  const { firstname } = useParams();
+  return &lt;h1&gt;Hello, {firstname}!&lt;/h1&gt;;
+}
+
+function App() {
+  return (
+    &lt;BrowserRouter&gt;
+      &lt;nav&gt;
+        &lt;Link to="/customer/Emil"&gt;Emil&lt;/Link&gt; | 
+        &lt;Link to="/customer/Tobias"&gt;Tobias&lt;/Link&gt; |
+        &lt;Link to="/customer/Linus"&gt;Linus&lt;/Link&gt;
+      &lt;/nav&gt;
+
+      &lt;Routes&gt;
+        &lt;Route path="/customer/:firstname" element={&lt;Info /&gt;} /&gt;
+      &lt;/Routes&gt;
+    &lt;/BrowserRouter&gt;
+  );
+}
+</code></pre>
+<p>
+  <a target="_blank" class="w3-btn" href="showreactfe53.html?filename=demo_react_router_params">Run Example &raquo;</a>
+</p>  
+</div>
+
+<p>In this example:</p>
+<ul>
+  <li><code class="w3-codespan">:firstname</code> in the route path is the URL parameter</li>
+  <li>If you visit <code class="w3-codespan">/customer/Emil</code>, you'll see "Hello, Emil"</li>
+  <li>If you visit <code class="w3-codespan">/customer/Tobias</code>, you'll see "Hello, Tobias"</li>
+  <li>If you visit <code class="w3-codespan">/customer/Linus</code>, you'll see "Hello, Linus"</li>
+  <li>You can use any name in the URL, and the greeting will work!, try this <code class="w3-codespan"><a href="http://localhost:5173/customer/John">http://localhost:5173/customer/John</a></code></li>
+</ul>
+
+
+<hr>
+
+<hr>

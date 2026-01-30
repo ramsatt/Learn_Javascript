@@ -1,0 +1,53 @@
+<h1>TypeScript Arrays</h1>
+
+
+<hr><p>TypeScript has a specific syntax for typing arrays.</p>
+<p>Read more about arrays in our <a href="../js/js_arrays.html" target="_blank">JavaScript Array chapter</a>.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+
+<div class="w3-code notranslate jsHigh">
+const names: string[] = [];<br>
+names.push("Dylan"); // no error<br>
+// names.push(3); // Error: Argument of type 'number' is not assignable to parameter of type 'string'.
+</div>
+
+
+</div>
+<hr><h2>Readonly</h2>
+
+<p>The <code class="w3-codespan">readonly</code> keyword can prevent arrays from being changed.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+
+<div class="w3-code notranslate jsHigh">
+const names: readonly string[] = ["Dylan"];<br>
+names.push("Jack"); // Error: Property 'push' does not exist on type 'readonly string[]'. <br>
+// try removing the readonly modifier and see if it works?
+</div>
+
+
+</div>
+<hr><h2>Type Inference</h2>
+
+<p>TypeScript can infer the type of an array if it has values.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+
+<div class="w3-code notranslate jsHigh">
+const numbers = [1, 2, 3]; // inferred to type number[]<br>
+numbers.push(4); // no error<br>
+// comment line below out to see the successful assignment <br>
+numbers.push("2"); // Error: Argument of type 'string' is not assignable to parameter of type 'number'.<br>
+let head: number = numbers[0]; // no error
+</div>
+
+
+</div>
+<hr>
+
+<hr>
+<br>

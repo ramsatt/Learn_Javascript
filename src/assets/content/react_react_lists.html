@@ -1,0 +1,119 @@
+<h1>React Lists</h1>
+
+
+<hr>
+
+<p class="intro">In React, you will render lists with some type of loop.</p>
+<p class="intro">The JavaScript <code class="w3-codespan">map()</code> array method is generally the preferred method.</p>
+<div class="w3-panel ws-note">
+<p>If you need a refresher on the <code class="w3-codespan">map()</code> method, check out the 
+<a href="react_es6_array_map.html">ES6 Array map() section</a>.</p>
+</div>
+
+<hr>
+
+<div class="w3-example">
+<h3>Example:</h3>
+<p>Let's create a simple list using the <code class="w3-codespan">map()</code> method:</p>
+<pre class="language-jsx w3-white"><code>function MyCars() {
+  const cars = ['Ford', 'BMW', 'Audi'];
+  return (
+    &lt;&gt;
+      &lt;h1&gt;My Cars:&lt;/h1&gt;
+      &lt;ul&gt;
+        {cars.map((car) =&gt; &lt;li&gt;I am a { car }&lt;/li&gt;)}
+      &lt;/ul&gt;
+    &lt;/&gt;
+  );
+}
+
+createRoot(document.getElementById('root')).render(
+  &lt;MyCars /&gt;
+);</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreactb7ab.html?filename=demo_react_lists">Run 
+Example &raquo;</a>
+</p>
+</div>
+
+<p>When you run this code in your React environment,
+  it will work but you will receive a warning that there is no "key" provided for the list items.</p>
+
+<hr>
+
+<hr>
+<h2>Keys in React Lists</h2>
+
+<p>Keys allow React to keep track of elements. This way, if an item is updated or removed, only that item will be re-rendered instead of the entire list.</p>
+
+<p>Keys must be unique among siblings, but they don't have to be unique across the entire application.</p>
+
+<div class="w3-panel ws-note">
+<p>Generally, the key should be a unique ID assigned to each item. As a last resort, you can use the array index as a key.</p>
+</div>
+
+<div class="w3-example">
+<h3>Example:</h3>
+<p>Here the example from above, with keys:</p>
+<pre class="language-jsx w3-white"><code>function MyCars() {
+  const cars = [
+    {id: 1001, brand: 'Ford'},
+    {id: 1002, brand: 'BMW'},
+    {id: 1003, brand: 'Audi'}
+  ];
+  return (
+    &lt;&gt;
+      &lt;h1&gt;My Cars:&lt;/h1&gt;
+      &lt;ul&gt;
+        {cars.map((car) =&gt; &lt;li key={car.id}&gt;I am a { car.brand }&lt;/li&gt;)}
+      &lt;/ul&gt;
+    &lt;/&gt;
+  );
+}
+
+createRoot(document.getElementById('root')).render(
+  &lt;MyCars /&gt;
+);</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreact4077.html?filename=demo_react_lists_keys">Run 
+Example &raquo;</a>
+</p>
+</div>
+<hr>
+
+<h2>Using Array Index as Keys</h2>
+
+<p>While it's possible to use the array index as a key, it's not recommended unless:</p>
+<ul>
+  <li>The list is static (won't change)</li>
+  <li>The list will never be reordered or filtered</li>
+  <li>The items in the list have no IDs</li>
+</ul>
+
+<div class="w3-example">
+<h3>Example:</h3>
+<p>Using array indexes as keys (not recommended for dynamic lists):</p>
+<pre class="language-jsx w3-white"><code>function MyCars() {
+  const cars = ['Ford', 'BMW', 'Audi'];
+  return (
+    &lt;&gt;
+      &lt;h1&gt;My Cars:&lt;/h1&gt;
+      &lt;ul&gt;
+        {cars.map((car, index) =&gt; &lt;li key={index}&gt;I am a { car }&lt;/li&gt;)}
+      &lt;/ul&gt;
+    &lt;/&gt;
+  );
+}
+
+createRoot(document.getElementById('root')).render(
+  &lt;MyCars /&gt;
+);</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showreacte0e7.html?filename=demo_react_lists_keys_index">Run Example &raquo;</a>
+</p>
+</div>
+
+
+
+
+<hr>

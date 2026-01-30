@@ -1,0 +1,126 @@
+<h1>Java <span class="color_h1">Scope</span></h1>
+
+<hr>
+
+<h2>Java Scope</h2>
+<p>In Java, variables are only accessible inside the region where they are created. This is called
+<strong>scope</strong>.</p>
+
+<hr>
+
+<h2>Method Scope</h2>
+<p>Variables declared directly inside a method are available anywhere in the method following the line of code in which they were declared:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>public class Main {
+&nbsp;&nbsp;public static void main(String[] args) {
+
+&nbsp;&nbsp;&nbsp;&nbsp;// Code here CANNOT use x
+
+&nbsp;&nbsp;&nbsp;&nbsp;int x = 100;
+
+&nbsp;&nbsp;&nbsp;&nbsp;// Code here CAN use x
+&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(x);
+&nbsp;&nbsp;}
+}</code></pre>
+<p>
+
+</p>
+</div>
+
+<hr>
+
+<h2>Block Scope</h2>
+<p>A block of code refers to all of the code between curly braces <code class="w3-codespan">{ }</code>.</p>
+<p>Variables declared inside a block of code are only accessible by the code between the curly braces, and only after the line in which the variable was declared:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>public class Main {
+&nbsp;&nbsp;public static void main(String[] args) {
+
+&nbsp;&nbsp;&nbsp;&nbsp;// Code here CANNOT use x
+
+&nbsp;&nbsp;&nbsp;&nbsp;{ // This is a block
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Code here CANNOT use x
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int x = 100;
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Code here CAN use x
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(x);
+
+&nbsp;&nbsp;&nbsp;&nbsp;} // The block ends here
+
+&nbsp;&nbsp;&nbsp;&nbsp;// Code here CANNOT use x
+
+&nbsp;&nbsp;}
+}</code></pre>
+<p>
+
+</p>
+</div>
+
+<div class="ws-note ws-panel">
+<p>A block of code can stand alone, or be part of an <code class="w3-codespan">if</code>, <code class="w3-codespan">while</code>, or <code class="w3-codespan">for</code> statement.
+In a <code class="w3-codespan">for</code> loop, the variable declared in the loop header (like <code class="w3-codespan">int i = 0</code>) only exists inside the loop.</p>
+</div>
+
+<hr>
+
+
+<h2>Loop Scope</h2>
+<p>Variables declared inside a <code class="w3-codespan">for</code> loop only exist inside the loop:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>public class Main {
+&nbsp;&nbsp;public static void main(String[] args) {
+
+&nbsp;&nbsp;&nbsp;&nbsp;for (int i = 0; i &lt; 5; i++) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(i); // i is accessible here
+&nbsp;&nbsp;&nbsp;&nbsp;}
+
+&nbsp;&nbsp;&nbsp;&nbsp;// i is NOT accessible here
+&nbsp;&nbsp;}
+}</code></pre>
+<p>
+
+</p>
+</div>
+
+<ul>
+  <li>The <code class="w3-codespan">for</code> loop has its own block (<code class="w3-codespan">{ ... }</code>).</li>
+  <li>The variable <code class="w3-codespan">i</code> declared in the loop header (<code class="w3-codespan">int i = 0</code>) is only accessible inside that loop block.</li>
+  <li>Once the loop ends, <code class="w3-codespan">i</code> is destroyed, so you can't use it outside.</li>
+</ul>
+
+<h3>Why this matters</h3>
+<p>Loop variables are not available outside the loop.</p>
+  <p>You can safely reuse the same variable name (<code class="w3-codespan">i</code>, <code class="w3-codespan">j</code>, etc.) in different loops in the same method:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>public class Main {
+&nbsp;&nbsp;public static void main(String[] args) {
+
+&nbsp;&nbsp;&nbsp;&nbsp;for (int i = 0; i &lt; 3; i++) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Loop 1: " + i);
+&nbsp;&nbsp;&nbsp;&nbsp;}
+
+&nbsp;&nbsp;&nbsp;&nbsp;for (int i = 0; i &lt; 2; i++) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Loop 2: " + i);
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;}
+}</code></pre>
+<p>
+
+</p>
+</div>
+
+
+<hr>
+
+<hr>
+
+<br>

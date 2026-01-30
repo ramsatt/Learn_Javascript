@@ -1,0 +1,80 @@
+<h1>Node.js <span class="color_h1">Get Started</span></h1>
+
+<hr>
+
+<h2>Download and Install Node.js</h2>
+<ol>
+  <li>Go to <a target="_blank" href="https://nodejs.org/">https://nodejs.org</a></li>
+  <li>Download the <b>LTS (Long Term Support)</b> version</li>
+  <li>Run the installer and follow the instructions</li>
+</ol>
+
+<h3>Verify Installation</h3>
+<p>Open your terminal/command prompt and type:</p>
+<div class="w3-example">
+<div class="w3-code notranslate">
+node --version<br>
+npm --version
+</div>
+</div>
+<p>You should see version numbers for both Node.js and npm (Node Package Manager).</p>
+<hr>
+
+<h2>Troubleshooting</h2>
+<p>If the commands don't work:</p>
+<ul>
+  <li>Restart your terminal/command prompt</li>
+  <li>Make sure Node.js was added to your system's PATH during installation</li>
+  <li>On Windows, you might need to restart your computer</li>
+</ul>
+<hr>
+<h2>Getting Started</h2>
+<p>Once you have installed Node.js, let's create your first server that says "Hello World!" in a web browser.</p>
+<p>Create a file called <code class="w3-codespan">myfirst.js</code> and add this code:</p>
+<div class="w3-example">
+<p>myfirst.js</p>
+<div class="w3-code notranslate jsHigh">
+let http = require('http');<br>
+http.createServer(function (req, res) {<br>
+&nbsp;&nbsp;res.writeHead(200, {'Content-Type': 'text/html'});<br>
+&nbsp;&nbsp;res.end('Hello World!');<br>
+}).listen(8080);
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="shownodejsf6a0.html?filename=demo_getstarted_webserver">Run example &raquo;</a>
+</div>
+<p>Save the file on your computer, for example: <code class="w3-codespan">C:\Users\<em>Your Name</em>\myfirst.js</code></p>
+<p>This code creates a simple web server.</p>
+<p>When someone visits your computer on port 8080, it will show "Hello World!".</p>
+<hr>
+<h2>Command Line Interface</h2>
+<p>Node.js files must be initiated in the &quot;Command Line Interface&quot; program 
+of your computer.</p>
+<p>How to open the command line interface on your computer depends on the operating system.</p>
+<p>For Windows users, press the start button and look for &quot;Command Prompt&quot;, or simply write &quot;cmd&quot; in the search field.</p>
+<p>Navigate to the folder that contains the file &quot;myfirst.js&quot;, the command line interface window should look something like this:</p>
+<div class="w3-example">
+<div class="w3-code notranslate w3-black">
+C:\Users\<em>Your Name</em>&gt;_
+</div>
+</div>
+<hr>
+
+<hr>
+<h2>Initiate the Node.js File</h2>
+<p>The file you have just created must be initiated by Node.js before any action 
+can take place.</p>
+<p>Start your command line interface, write <code class="w3-codespan">node myfirst.js</code> and hit enter:</p>
+<div class="w3-example">
+<p>Initiate "myfirst.js":</p>
+<div class="w3-code notranslate w3-black">
+C:\Users\<em>Your Name</em>&gt;node myfirst.js
+</div>
+</div>
+
+<p>Now, your computer works as a server!</p>
+<p>If anyone tries to access your computer on port 8080, they will get a &quot;Hello World!&quot; message in return!</p>
+<p>Start your internet browser, and type in the address: <a href="http://localhost:8080/" target="_blank">http://localhost:8080</a></p>
+<hr>
+
+<hr>
+<br>

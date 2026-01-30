@@ -1,0 +1,123 @@
+<h1>Java <span class="color_h1">Modifiers</span></h1>
+
+<hr>
+
+<h2>Modifiers</h2>
+<p>By now, you are quite familiar with the <code class="w3-codespan">public</code> keyword that appears in almost 
+all of our examples:</p>
+<div class="w3-example">
+<pre class="language-java w3-white"><code><strong>public</strong> class Main
+</code></pre>
+</div>
+<p>The <code class="w3-codespan">public</code> keyword is an <strong>access modifier</strong>, 
+meaning that it is used to set the access level for classes, attributes, methods and 
+constructors.</p>
+<p>We divide modifiers into two groups:</p>
+<ul>
+<li><strong>Access Modifiers</strong> - controls the access level</li>
+<li><strong><a href="java_non_modifiers.html">Non-Access Modifiers</a></strong> - do not control access level, but provides other functionality</li>
+</ul>
+<hr>
+
+<h2>Access Modifiers</h2>
+
+<p>For <strong>classes</strong>, you can use either <code class="w3-codespan">public</code> or <em>default</em>:</p>
+
+<div class="w3-responsive" style="margin:-16px 0;">
+<table class="ws-table-all notranslate">
+<tbody>
+<tr>
+<th style="width:20%">Modifier</th>
+<th style="width:70%">Description</th>
+<th style="width:10%">Try it</th>
+</tr>
+<tr>
+<td><code class="w3-codespan">public</code></td>
+<td>The class is accessible by any other class</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="tryjavac7a2.html?filename=demo_mod_public">Try it &raquo;</a></td>
+</tr>
+<tr>
+<td><em>default</em></td>
+<td>The class is only accessible by 
+classes in the same package. This is used when you don't specify a modifier. You will learn more about packages in the <a href="java_packages.html">Packages chapter</a></td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="tryjava4faf.html?filename=demo_mod_default">Try it &raquo;</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<p>For <strong>attributes, methods and constructors</strong>, you can use the one of the 
+following:</p>
+
+<div class="w3-responsive" style="margin:-16px 0;">
+<table class="ws-table-all notranslate">
+<tbody>
+<tr>
+<th style="width:20%">Modifier</th>
+<th style="width:70%">Description</th>
+<th style="width:10%">Try it</th>
+</tr>
+<tr>
+<td><code class="w3-codespan">public</code></td>
+<td>The code is accessible for all classes</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="tryjava_multi55e6.html?filename=demo_mod_public2&amp;multi=demo_mod_public2_multi">Try it &raquo;</a></td>
+</tr>
+<tr>
+<td><code class="w3-codespan">private</code></td>
+<td>The code is only accessible within the declared class</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="tryjavac43a.html?filename=demo_access_mod">Try it &raquo;</a></td>
+</tr>
+<tr>
+<td><em>default</em></td>
+<td>The code is only accessible in the same package. This is used when you don't specify a modifier. You will learn more about packages in the <a href="java_packages.html">Packages chapter</a></td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="tryjava6d00.html?filename=demo_mod_default2">Try it &raquo;</a></td>
+</tr>
+<tr>
+<td><code class="w3-codespan">protected</code></td>
+<td>The code is accessible in the same package and <strong>subclasses</strong>. You will learn more about subclasses and 
+superclasses in the <a href="java_inheritance.html">Inheritance chapter</td>
+<td><a target="_blank" class="w3-btn btnsmall btnsmall" href="tryjavafb46.html?filename=demo_mod_protected">Try it &raquo;</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+
+
+<h2>Public vs. Private Example</h2>
+<p>In the example below, the class has one <code class="w3-codespan">public</code> attribute and one <code class="w3-codespan">private</code> 
+attribute.</p>
+<p>Think of it like real life:</p>
+<ul>
+  <li><code class="w3-codespan">public</code> - a public park, everyone can enter</li>
+  <li><code class="w3-codespan">private</code> - your house key, only you can use it</li>
+</ul>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>class Person {
+  public String name = "John";   // Public - accessible everywhere
+  private int age = 30;          // Private - only accessible inside this class
+}
+
+public class Main {
+  public static void main(String[] args) {
+    Person p = new Person();
+    System.out.println(p.name);   // Works fine
+    System.out.println(p.age);    // Error: age has private access in Person
+  }
+}
+</code></pre>
+<p>
+
+</p>
+</div>
+
+<h3>Example explained</h3>
+<p>Here, <code class="w3-codespan">name</code> is declared as <code class="w3-codespan">public</code>, so it can be accessed from outside the <code class="w3-codespan">Person</code> class.  
+But <code class="w3-codespan">age</code> is declared as <code class="w3-codespan">private</code>, so it can only be used inside the <code class="w3-codespan">Person</code> class.</p>
+<hr>
+
+<hr>
+
+<br>

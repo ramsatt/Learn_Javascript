@@ -1,0 +1,210 @@
+<h1>CSS <span class="color_h1">Units</span></h1>
+
+<hr>
+
+<h2>CSS Units</h2>
+<p>CSS has several different units for expressing a length.</p>
+<p>Many CSS properties take &quot;length&quot; values, such as <code class="w3-codespan">width</code>, <code class="w3-codespan">margin</code>, <code class="w3-codespan">padding</code>, 
+<code class="w3-codespan">font-size</code>, etc.</p>
+<p>The length value is a number followed by a length unit, such as 
+<code class="w3-codespan">px</code>, <code class="w3-codespan">em</code>, <code class="w3-codespan">rem</code>, etc.</p>
+<p>CSS has two types of length units:</p>
+<ul>
+  <li>Absolute units</li>
+  <li>Relative units</li>
+</ul>
+
+<hr>
+
+<h2>CSS Absolute Units</h2>
+<p>Absolute units are fixed, and the length expressed in any of these will appear exactly that size.</p>
+<p>Absolute units do not change when the screen size change, and are not recommended for websites. 
+However, they can be used if the output medium is known, such 
+as for print layout.</p>
+<p>The most used absolute unit is <code class="w3-codespan">px</code> (pixels).</p>
+
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+  <tr>
+    <th style="width:12%">Unit</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>px</td>
+    <td>pixels (1px = 1/96th of 1in)
+    <a target="_blank" class="w3-btn btnsmall" href="tryit1dbd.html?filename=trycss_unit_px">Try it</a> 
+    </td>
+    </tr>
+  <tr>
+    <td>cm</td>
+    <td>centimeters
+    <a target="_blank" class="w3-btn btnsmall" href="tryit4e65.html?filename=trycss_unit_cm">Try it</a>
+    </td>
+  </tr>
+    <tr>
+    <td>mm</td>
+    <td>millimeters
+    <a target="_blank" class="w3-btn btnsmall" href="tryit834b.html?filename=trycss_unit_mm">Try it</a>  
+    </td>
+    </tr>
+  <tr>
+    <td>in</td>
+    <td>inches (1in = 96px = 2.54cm)
+    <a target="_blank" class="w3-btn btnsmall" href="tryit840b.html?filename=trycss_unit_in">Try it</a>
+    </td>
+  </tr>
+  <tr>
+    <td>pt</td>
+    <td>points (1pt = 1/72 of 1in)
+    <a target="_blank" class="w3-btn btnsmall" href="tryit9793.html?filename=trycss_unit_pt">Try it</a> 
+    </td>
+  </tr>
+  <tr>
+    <td>pc</td>
+    <td>picas (1pc = 12 pt)
+    <a target="_blank" class="w3-btn btnsmall" href="tryit1589.html?filename=trycss_unit_pc">Try it</a>  
+    </td>
+  </tr>
+</table>
+</div>
+<h2>Set Font Size With Px</h2>
+<p>Setting the text size with <code class="w3-codespan">px</code> (pixels) gives you full control over the text size.</p>
+<p>If you use pixels, the web page may not scale very well on different screen sizes and the users cannot adjust the text size in their browser settings. However, users can still use the zoom tool to resize the entire page.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Set font sizes with px:</p>
+<div class="w3-code notranslate cssHigh">
+  h1 {<br>&nbsp; font-size: 40px;<br>}<br><br>h2 {<br>&nbsp; font-size: 30px;<br>}<br><br>p {<br>&nbsp; 
+  font-size: 16px;<br>}</div>
+<p></p>
+</div>
+<p><strong>Note:</strong> A whitespace cannot appear between the number and the unit. However, if the value is 
+<code class="w3-codespan">0</code>, the unit can be omitted.</p>
+
+
+<hr>
+
+<hr>
+
+<h2>CSS Relative Units</h2>
+<p>Relative units specify a length relative to another length (like parent 
+element, root element, or viewport).</p>
+<p>Relative length units scale better between different screen sizes.</p>
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+  <tr>
+    <th style="width:12%">Unit</th>
+    <th>Description</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>em</td>
+    <td>Relative to the font-size of the parent element</td>
+    <td><a target="_blank" class="w3-btn btnsmall" href="tryitadcf.html?filename=trycss_unit_em">Try it</a></td>
+  </tr>
+  <tr>
+    <td>ex</td>
+    <td>Relative to the x-height of the current font (rarely used)</td>
+    <td><a target="_blank" class="w3-btn btnsmall" href="tryit415f.html?filename=trycss_unit_ex">Try it</a></td>
+  </tr>
+  <tr>
+    <td>ch</td>
+    <td>Relative to width of the &quot;0&quot; (zero)</td>
+    <td><a target="_blank" class="w3-btn btnsmall" href="tryitc941.html?filename=trycss_unit_ch">Try it</a></td>
+  </tr>
+  <tr>
+    <td>fr</td>
+    <td>A fractional unit. 1fr equals 1 part of the available space</td>
+    <td><a target="_blank" class="w3-btn btnsmall" href="tryit1a5a.html?filename=trycss_unit_fr">Try it</a></td>
+  </tr>
+  <tr>
+    <td>rem</td>
+    <td>Relative to the font-size of the root HTML element</td>
+    <td><a target="_blank" class="w3-btn btnsmall" href="tryit78ff.html?filename=trycss_unit_rem">Try it</a></td>
+  </tr>
+  <tr>
+    <td>vw</td>
+    <td>Relative to 1% of the width of the viewport*. 100vw = full width of the viewport</td>
+    <td><a target="_blank" class="w3-btn btnsmall" href="tryit01d1.html?filename=trycss_unit_vw">Try it</a></td>
+  </tr>
+  <tr>
+    <td>vh</td>
+    <td>Relative to 1% of the height of the viewport*. 100vh = full height of the viewport</td>
+    <td><a target="_blank" class="w3-btn btnsmall" href="tryitf9f0.html?filename=trycss_unit_vh">Try it</a></td>
+  </tr>
+  <tr>
+    <td>vmin</td>
+    <td>Relative to 1% of viewport's* smaller dimension</td>
+    <td><a target="_blank" class="w3-btn btnsmall" href="tryit7044.html?filename=trycss_unit_vmin">Try it</a></td>
+  </tr>
+  <tr>
+    <td>vmax</td>
+    <td>Relative to 1% of viewport's* larger dimension</td>
+    <td><a target="_blank" class="w3-btn btnsmall" href="tryit4a37.html?filename=trycss_unit_vmax">Try it</a></td>
+  </tr>
+  <tr>
+    <td>%</td>
+    <td>Relative to the size of the parent element</td>
+    <td><a target="_blank" class="w3-btn btnsmall" href="tryit696f.html?filename=trycss_unit_percentage">Try it</a></td>
+  </tr>
+    </table>
+</div>
+<p>* Viewport = the browser window size. 1vw = 1% of the current width of the browser's viewport. So, if the viewport is 500px wide, 1vw is 5px.</p>
+<div class="w3-panel ws-note">
+  <p><strong>Tip:</strong> The <code class="w3-codespan">em</code> and 
+  <code class="w3-codespan">rem</code> units are perfect for creating  
+scalable and responsive websites!</p>
+</div>
+
+<h2>Set Font Size With Em</h2>
+<p>The <code class="w3-codespan">em</code> unit is relative to the font size of 
+the parent element. So, if the parent element has a font size of 16px, then 2.5em 
+would result in 40px.</p>
+
+<p>In the following example, the text size in 
+<code class="w3-codespan">em</code> is the same as the previous example 
+in pixels. However, the
+<code class="w3-codespan">em</code> unit allows the user to adjust the text size 
+in the browser settings.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Set font sizes with em:</p>
+<div class="w3-code notranslate cssHigh">
+  body {<br>&nbsp; font-size: 16px; /* Base font size */<br>}<br>
+  <br>h1 {<br>&nbsp; font-size: 2.5em; /* 2.5 * 16 = 40px */<br>}<br>
+<br>h2 {<br>&nbsp;&nbsp;font-size: 1.875em; /* 1.875 * 16 = 30px */<br>
+}<br>
+<br>p {<br>&nbsp; font-size: 1em; /* 1 * 16 = 16px */<br>}</div>
+
+</div>
+
+<h2>Set Font Size With Rem</h2>
+<p>The <code class="w3-codespan">rem</code> unit is relative to the font size of 
+the root HTML element (&lt;html&gt;).</p>
+<p>Unlike <code class="w3-codespan">em</code>, which is relative to the font-size of its parent element, <code class="w3-codespan">rem</code>  
+always refers to the font-size of the &lt;html&gt; element, regardless of its position 
+in the document tree. This makes <code class="w3-codespan">rem</code> very useful for creating scalable and responsive 
+designs. By changing the font-size of the &lt;html&gt; element, all elements sized 
+with <code class="w3-codespan">rem</code> units will scale proportionally throughout the entire page.</p>
+<p>The default font-size of the &lt;html&gt; element in most browsers, is 16px. 
+So, by default, 1rem equals 16px unless explicitly overridden in the CSS.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Set font sizes with rem:</p>
+<div class="w3-code notranslate cssHigh">
+  html {<br>&nbsp; font-size: 16px; /* Set the root font size */<br>}<br>
+  <br>h1 {<br>&nbsp; font-size: 2.5rem; /* 2.5 * 16 = 40px */<br>}<br>
+<br>h2 {<br>&nbsp;&nbsp;font-size: 1.875rem; /* 1.875 * 16 = 30px */<br>
+}<br>
+<br>p {<br>&nbsp; font-size: 1rem; /* 1 * 16 = 16px */<br>}</div>
+
+</div>
+
+
+
+<hr>
+
+<hr>
+<br>

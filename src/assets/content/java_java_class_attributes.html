@@ -1,0 +1,167 @@
+<h1>Java <span class="color_h1">Class Attributes</span></h1>
+
+<hr>
+
+<h2>Java Class Attributes</h2>
+
+<p>In the previous chapter, we used the term "<strong>variable</strong>" for <code class="w3-codespan">x</code> in the example (as shown below).</p>
+<p>In Java, variables declared inside a class are called "<strong>attributes</strong>".</p>
+
+<p>You can also say that attributes are variables that belong to a class:</p>
+
+
+<div class="w3-example">
+<p>Create a class called "<code class="w3-codespan">Main</code>&quot; with two attributes: <code class="w3-codespan">x</code> and <code class="w3-codespan">y</code>:</p>
+<pre class="language-java w3-white"><code>public class Main {
+&nbsp; int x = 5;
+&nbsp; int y = 3;
+}
+</code></pre>
+</div>
+<div class="ws-note w3-panel">
+<p>Another name for attributes is <strong>fields</strong>.</p>
+</div>
+<hr>
+
+<h2>Accessing Attributes</h2>
+<p>You can access attributes by creating an object of the class, and by using the dot syntax (<code class="w3-codespan">.</code>):</p>
+<p>The following example will create an object of the <code class="w3-codespan">Main</code> class, with the 
+name <code class="w3-codespan">myObj</code>. We use the <code class="w3-codespan">x</code> 
+attribute on the object to print its value:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Create an object called "<code class="w3-codespan">myObj</code>&quot; and print the value of <code class="w3-codespan">x</code>:</p>
+<pre class="language-java w3-white" data-line="5,6"><code>public class Main {
+&nbsp; int x = 5;
+
+&nbsp; public static void main(String[] args) {
+&nbsp;&nbsp;&nbsp; Main myObj = new Main();
+&nbsp;&nbsp;&nbsp; System.out.println(myObj.x);
+&nbsp; }
+}
+</code></pre>
+<p>
+
+</p>
+</div>
+<hr>
+
+<h2>Modify Attributes</h2>
+<p>You can also modify attribute values:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Set the value of <code class="w3-codespan">x</code> to 40:</p>
+<pre class="language-java w3-white" data-line="6"><code>public class Main {
+&nbsp; int x;
+
+&nbsp; public static void main(String[] args) {
+&nbsp;&nbsp;&nbsp; Main myObj = new Main();
+&nbsp;&nbsp;&nbsp; myObj.x = 40;
+&nbsp;&nbsp;&nbsp; System.out.println(myObj.x);
+&nbsp; }
+}
+</code></pre>
+<p>
+
+</p>
+</div>
+
+<p>Or override existing values:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Change the value of <code class="w3-codespan">x</code> to 25:</p>
+<pre class="language-java w3-white" data-line="6"><code>public class Main {
+&nbsp; int x = 10;
+
+&nbsp; public static void main(String[] args) {
+&nbsp;&nbsp;&nbsp; Main myObj = new Main();
+&nbsp;&nbsp;&nbsp; myObj.x = 25; // x is now 25
+&nbsp;&nbsp;&nbsp; System.out.println(myObj.x);
+&nbsp; }
+}
+</code></pre>
+<p>
+
+</p>
+</div>
+
+<p>If you don't want the ability to override existing values, declare the attribute as <code class="w3-codespan">final</code>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white" data-line="2"><code>public class Main {
+&nbsp; <strong>final</strong> int x = 10;
+
+&nbsp; public static void main(String[] args) {
+&nbsp;&nbsp;&nbsp; Main myObj = new Main();
+&nbsp;&nbsp;&nbsp; myObj.x = 25; // will generate an error: cannot assign a value to a <strong>final</strong> variable
+&nbsp;&nbsp;&nbsp; System.out.println(myObj.x);
+&nbsp; }
+}
+</code></pre>
+<p>
+
+</p>
+</div>
+
+<div class="ws-note w3-panel">
+<p>The <code class="w3-codespan">final</code> keyword is useful when you want a variable to always store the same value, like PI (3.14159...).</p>
+<p>The <code class="w3-codespan">final</code> keyword is called a "modifier". You will learn more about these in the <a href="java_modifiers.html">Java Modifiers Chapter</a>.</p>
+</div>
+<hr>
+
+<hr>
+
+<h2>Multiple Objects</h2>
+<p>If you create multiple objects of one class, you can change the attribute values in one object, without affecting the attribute values in the other:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Change the value of <code class="w3-codespan">x</code> to 25 in <code class="w3-codespan">myObj2</code>, and leave <code class="w3-codespan">x</code> in <code class="w3-codespan">myObj1</code> unchanged:</p>
+<pre class="language-java w3-white"><code>public class Main {
+&nbsp; int x = 5;
+
+&nbsp; public static void main(String[] args) {
+&nbsp;&nbsp;&nbsp; Main myObj1 = new Main();&nbsp; // Object 1
+&nbsp;&nbsp;&nbsp; Main myObj2 = new Main();&nbsp; // Object 2
+&nbsp;&nbsp;&nbsp; myObj2.x = 25;
+&nbsp;&nbsp;&nbsp; System.out.println(myObj1.x);&nbsp; // Outputs 5
+&nbsp;&nbsp;&nbsp; System.out.println(myObj2.x);&nbsp; // Outputs 25
+&nbsp; }
+}
+</code></pre>
+<p>
+
+</p>
+</div>
+
+<hr>
+
+<h2>Multiple Attributes</h2>
+<p>You can specify as many attributes as you want:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>public class Main {
+&nbsp; String fname = &quot;John&quot;;
+&nbsp; String lname = &quot;Doe&quot;;
+&nbsp; int age = 24;
+
+&nbsp; public static void main(String[] args) {
+&nbsp;&nbsp;&nbsp; Main myObj = new Main();
+&nbsp;&nbsp;&nbsp; System.out.println(&quot;Name: &quot; + myObj.fname + &quot; &quot; + myObj.lname);
+&nbsp;&nbsp;&nbsp; System.out.println(&quot;Age: &quot; + myObj.age);
+&nbsp; }
+}
+</code></pre>
+<p>
+
+</p>
+</div>
+
+<div class="ws-note w3-panel">
+<p>The next chapter will teach you how to create class methods and how to access them with objects.</p>
+</div>
+
+<hr>
+
+<hr>
+
+<br>

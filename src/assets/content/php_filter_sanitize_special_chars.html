@@ -1,0 +1,46 @@
+<h1>PHP <span class="color_h1">FILTER_SANITIZE_SPECIAL_CHARS</span> Filter</h1>
+<hr>
+<a href="php_ref_filter.html" class="w3-btn w3-white w3-border" title="PHP Filter Reference">&#10094; Complete PHP Filter Reference</a>
+<hr>
+
+<h2>Definition and Usage</h2>
+
+<p>The FILTER_SANITIZE_SPECIAL_CHARS filter HTML-escapes special characters.</p>
+<p>This filter is used to escape &quot;&lt;&gt;&amp; and characters with ASCII value below 32</p>
+<ul>
+  <li>Name: &quot;special_chars&quot;</li>
+  <li>ID-number: 515</li>
+</ul>
+<p>Possible flags:</p>
+<ul>
+  <li>FILTER_FLAG_STRIP_LOW - Strip characters with ASCII value below 32</li>
+  <li>FILTER_FLAG_STRIP_HIGH - Strip characters with ASCII value above 32</li>
+  <li>FILTER_FLAG_ENCODE_HIGH - Encode characters with ASCII value above 32</li>
+</ul>
+<hr>
+<h2>Example</h2>
+
+<div class="w3-code w3-border notranslate"><div>
+
+&lt;?php<br>
+$url=&quot;Is Peter &lt;smart&gt; &amp; funny?&quot;;<br>
+<br>
+var_dump(filter_var($url,FILTER_SANITIZE_SPECIAL_CHARS));<br>
+?&gt;
+
+</div></div>
+<p>The browser output of the code above will be:</p>
+<div class="w3-code w3-border notranslate"><div>
+
+string(37) &quot;Is Peter &lt;smart&gt; &amp; funny?&quot;
+
+</div></div>
+<p>If you select &quot;View source&quot; in the browser window, you will see the following 
+HTML:</p>
+<div class="w3-code w3-border notranslate"><div>
+
+string(37) &quot;Is Peter &amp;<span class="entity">lt;</span>smart&amp;<span class="entity">gt;</span> &amp;<span class="entity">amp;</span> funny?&quot;
+
+</div></div>
+<hr>
+<a href="php_ref_filter.html" class="w3-btn w3-white w3-border" title="PHP Filter Reference">&#10094; Complete PHP Filter Reference</a>

@@ -1,0 +1,47 @@
+<h1>PHP <span class="color_h1">FILTER_VALIDATE_URL</span> Filter</h1>
+<p><a href="php_ref_filter.html" class="w3-btn w3-white w3-border" title="PHP Filter Reference">&#10094; PHP Filter Reference</a></p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Check if the variable $url is a valid URL:</p>
+<div class="w3-code notranslate">
+ &lt;?php<br>$url = &quot;https://www.w3schools.com&quot;;<br><br>if (filter_var($url, FILTER_VALIDATE_URL)) {<br>&nbsp;&nbsp;&nbsp; echo(&quot;$url is a valid URL&quot;);<br>} else {<br>&nbsp;&nbsp;&nbsp; echo(&quot;$url is not a valid URL&quot;);<br>}<br>?&gt;
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="phptryitf10d.html?filename=tryphp_func_validate_url">Try it Yourself &raquo;</a>
+</div>
+<hr>
+
+<h2>Definition and Usage</h2>
+<p>The FILTER_VALIDATE_URL filter validates a URL.</p>
+<p>Possible&nbsp; flags:</p>
+<ul>
+  <li>FILTER_FLAG_SCHEME_REQUIRED - URL must be RFC compliant (like http://example)</li>
+  <li>FILTER_FLAG_HOST_REQUIRED - URL must include host name (like http://www.example.com)</li>
+  <li>FILTER_FLAG_PATH_REQUIRED - URL must have a path after the domain name (like www.example.com/example1/)</li>
+  <li>FILTER_FLAG_QUERY_REQUIRED - URL must have a query string (like &quot;example.php?name=Peter&amp;age=37&quot;)</li>
+</ul>
+<hr>
+
+<h2>More Examples</h2>
+<p>The example below both sanitizes and validates an URL:</p>
+
+<div class="w3-example">
+<h3>Example 1</h3>
+<p>First remove all illegal characters from the $url variable, then check if it is a valid URL:</p>
+<div class="w3-code notranslate">
+ &lt;?php<br>$url = &quot;https://www.w3schools.com&quot;;<br><br>// Remove all illegal characters from a url<br>$url = filter_var($url, FILTER_SANITIZE_URL);<br>
+ <br>// Validate url<br>if (filter_var($url, FILTER_VALIDATE_URL)) {<br>&nbsp;&nbsp;&nbsp; echo(&quot;$url is a valid URL&quot;);<br>} else {<br>&nbsp;&nbsp;&nbsp; echo(&quot;$url is not a valid URL&quot;);<br>}<br>?&gt;
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="phptryit4de9.html?filename=tryphp_func_validate_url2">Try it Yourself &raquo;</a>
+</div>
+
+<div class="w3-example">
+<h3>Example 2</h3>
+<p>Here, the URL is required to have a query string to be valid:</p>
+<div class="w3-code notranslate">
+ &lt;?php<br>$url = &quot;https://www.w3schools.com&quot;;<br><br>if (filter_var($url, FILTER_VALIDATE_URL, FILTER_FLAG_QUERY_REQUIRED)) {<br>&nbsp;&nbsp;&nbsp; echo(&quot;$url is a valid URL&quot;);<br>} else {<br>&nbsp;&nbsp;&nbsp; echo(&quot;$url is not a valid URL&quot;);<br>}<br>?&gt;
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="phptryite45a.html?filename=tryphp_func_validate_url3">Try it Yourself &raquo;</a>
+</div>
+
+<hr>
+<a href="php_ref_filter.html" class="w3-btn w3-white w3-border" title="PHP Filter Reference">&#10094; PHP Filter Reference</a>

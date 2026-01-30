@@ -1,0 +1,195 @@
+<h1>Python <span class="color_h1">Strings</span></h1>
+
+<hr>
+
+<h2>Strings</h2>
+
+<p>Strings in python are surrounded by either single quotation marks, or double quotation marks.</p>
+
+<p><span class="w3-codespan">'hello'</span> is the same as <span class="w3-codespan">"hello"</span>.</p>
+
+<p>You can display a string literal with the <code class="w3-codespan"><a href="ref_func_print.html">print()</a></code> function:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate pythonHigh">
+print(&quot;Hello&quot;)<br>
+print('Hello')
+</div>
+
+</div>
+
+<hr>
+
+<h2>Quotes Inside Quotes</h2>
+
+<p>You can use quotes inside a string, as long as they don't match the quotes surrounding the string:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate pythonHigh">
+print("It's alright")<br>
+print("He is called 'Johnny'")<br>
+print('He is called "Johnny"')
+</div>
+
+</div>
+
+<hr>
+
+<h2>Assign String to a Variable</h2>
+
+<p>Assigning a string to a variable is done with the variable name followed by 
+an equal sign and the string:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate pythonHigh">
+a = "Hello&quot;<br>print(a)</div>
+
+</div>
+
+<hr>
+
+<h2>Multiline Strings</h2>
+
+<p>You can assign a multiline string to a variable by using three quotes:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>You can use three double quotes:</p>
+<div class="w3-code notranslate pythonHigh">
+  a = &quot;&quot;&quot;Lorem ipsum dolor sit amet,<br>consectetur adipiscing elit,<br>sed do 
+  eiusmod tempor incididunt<br>ut labore et dolore magna aliqua.&quot;&quot;&quot;<br>print(a)</div>
+
+</div>
+
+<p>Or three single quotes:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate pythonHigh">
+  a = '''Lorem ipsum dolor sit amet,<br>consectetur adipiscing elit,<br>sed do 
+  eiusmod tempor incididunt<br>ut labore et dolore magna aliqua.'''<br>print(a)</div>
+
+</div>
+
+<div class="w3-panel ws-note">
+  <p><strong>Note:</strong> in the result, the line breaks are inserted at the same position as in the code.</p>
+</div>
+
+<hr>
+
+<hr>
+
+<h2>Strings are Arrays</h2>
+
+<p>Like many other popular programming languages, strings in Python are arrays of unicode characters.</p>
+<p>However, Python does not have a character data type, a single character is simply a string with a length of 1.</p>
+<p>Square brackets can be used to access elements of the string.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Get the character at position 1 (remember that the first character has the 
+position 0):</p>
+<div class="w3-code notranslate pythonHigh">
+a = "Hello, World!"<br>
+print(a[1])
+</div>
+
+</div>
+
+<hr>
+
+<h2>Looping Through a String</h2>
+
+<p>Since strings are arrays, we can loop through the characters in a string, with a <code class="w3-codespan"><a href="ref_keyword_for.html">for</a></code> loop.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Loop through the letters in the word &quot;banana&quot;:</p>
+<div class="w3-code notranslate pythonHigh">
+  for x in &quot;banana&quot;:<br>&nbsp; print(x)
+</div>
+
+</div>
+
+<p>Learn more about For Loops in our <a href="python_for_loops.html">Python For Loops</a> chapter.</p>
+
+<hr>
+
+<h2>String Length</h2>
+
+<p>To get the length of a string, use the <code class="w3-codespan"><a href="ref_func_len.html">len()</a></code> function.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>The <code class="w3-codespan"><a href="ref_func_len.html">len()</a></code> function returns the length of a string:</p>
+<div class="w3-code notranslate pythonHigh">
+a = "Hello, World!"<br>
+print(len(a))
+</div>
+
+</div>
+
+<hr>
+
+<h2>Check String</h2>
+
+<p>To check if a certain phrase or character is present in a string, we can use 
+the keyword 
+<code class="w3-codespan"><a href="ref_keyword_in.html">in</a></code>.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Check if &quot;free&quot; is present in the following text:</p>
+<div class="w3-code notranslate pythonHigh">
+  txt = "The best things in life are free!&quot;<br>print(&quot;free&quot; in txt)<br>
+</div>
+
+</div>
+
+<p>Use it in an <code class="w3-codespan"><a href="ref_keyword_if.html">if</a></code> statement:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Print only if &quot;free&quot; is present:</p>
+<div class="w3-code notranslate pythonHigh">
+  txt = "The best things in life are free!&quot;<br>if &quot;free&quot; in txt:<br>&nbsp;
+print(&quot;Yes, 'free' is present.&quot;)
+</div>
+
+</div>
+
+<p>Learn more about If statements in our <a href="python_conditions.html">Python 
+If...Else</a> chapter.</p>
+<hr>
+
+<h2>Check if NOT</h2>
+
+<p>To check if a certain phrase or character is NOT present in a string, we can use 
+the keyword <code class="w3-codespan"><a href="ref_keyword_not.html">not in</a></code>.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Check if &quot;expensive&quot; is NOT present in the following text:</p>
+<div class="w3-code notranslate pythonHigh">
+  txt = "The best things in life are free!&quot;<br>print(&quot;expensive&quot; not in txt)
+  </div>
+
+</div>
+
+<p>Use it in an <code class="w3-codespan"><a href="ref_keyword_if.html">if</a></code> statement:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>print only if &quot;expensive&quot; is NOT present:</p>
+<div class="w3-code notranslate pythonHigh">
+  txt = "The best things in life are free!&quot;<br>if &quot;expensive&quot; not in txt:<br>&nbsp;
+print(&quot;No, 'expensive' is NOT present.&quot;)
+  </div>
+
+</div>
+
+<hr>
+
+<hr>

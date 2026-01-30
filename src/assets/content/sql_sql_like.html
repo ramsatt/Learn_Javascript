@@ -1,0 +1,257 @@
+<h1>SQL <span class="color_h1">LIKE</span> Operator</h1>
+
+<hr>
+
+<h2>The SQL LIKE Operator</h2>
+<p>The <code class="w3-codespan">LIKE</code> operator is used in a <code class="w3-codespan">
+WHERE</code> clause to search for a specified pattern in a column.</p>
+<p>There are two wildcards often used in conjunction with the <code class="w3-codespan">
+LIKE</code> operator:</p>
+<ul>
+  <li>The percent sign <code class="w3-codespan">%</code> represents zero, one, or multiple characters</li>
+  <li>The underscore sign <code class="w3-codespan">_</code> represents one, single character</li>
+</ul>
+
+<p>You will learn more about <a href="sql_wildcards.html">wildcards in the next chapter</a>.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Select all customers that starts with the letter "a":</p>
+<div class="w3-code notranslate sqlHigh">
+ SELECT * FROM Customers<br>
+ WHERE CustomerName LIKE 'a%';</div>
+
+</div>
+
+<hr>
+
+<h2>Syntax</h2>
+<div class="w3-example ws-light-grey">
+<p><code class="sqlHigh">
+SELECT <em>column1, column2, ...</em><br>
+FROM <em>table_name</em><br>
+WHERE <em>columnN</em> LIKE <em>pattern</em>;</code></p>
+</div>
+
+<hr>
+
+<h2>Demo Database</h2>
+<p>Below is a selection from the <a href="trysql734a.html?filename=trysql_customers" target="_blank"><strong>Customers</strong></a> table used in the examples:</p>
+
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+  <tr>
+    <th>CustomerID</th>
+    <th>CustomerName</th>
+    <th>ContactName</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>PostalCode</th>
+    <th>Country</th>
+  </tr>
+  <tr>
+    <td>1<br><br></td>
+    <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Obere Str. 57</td>
+    <td>Berlin</td>
+    <td>12209</td>
+    <td>Germany</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Ana Trujillo Emparedados y helados</td>
+    <td>Ana Trujillo</td>
+    <td>Avda. de la Constitución 2222</td>
+    <td>México D.F.</td>
+    <td>05021</td>
+    <td>Mexico</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Antonio Moreno Taquería</td>
+    <td>Antonio Moreno</td>
+    <td>Mataderos 2312</td>
+    <td>México D.F.</td>
+    <td>05023</td>
+    <td>Mexico</td>
+  </tr>
+  <tr>
+    <td>4<br><br></td>
+    <td>Around the Horn</td>
+    <td>Thomas Hardy</td>
+    <td>120 Hanover Sq.</td>
+    <td>London</td>
+    <td>WA1 1DP</td>
+    <td>UK</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>Berglunds snabbköp</td>
+    <td>Christina Berglund</td>
+    <td>Berguvsvägen 8</td>
+    <td>Luleå</td>
+    <td>S-958 22</td>
+    <td>Sweden</td>
+  </tr>
+</table>
+</div>
+
+<hr>
+
+<h2>The _ Wildcard</h2>
+
+<p>The <code class="w3-codespan">_</code> wildcard represents a single character.</p>
+
+<p>It can be any character or number, but each <code class="w3-codespan">_</code> represents one, and only one, character.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Return all customers from a city that starts with 'L' followed by one wildcard character, then 'nd' and then two wildcard characters:</p>
+<div class="w3-code notranslate sqlHigh">
+ SELECT * FROM Customers<br>
+ WHERE city LIKE 'L_nd__';</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>The % Wildcard</h2>
+
+<p>The <code class="w3-codespan">%</code> wildcard represents any number of characters, even zero characters.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Return all customers from a city that <em>contains</em> the letter 'L':</p>
+<div class="w3-code notranslate sqlHigh">
+ SELECT * FROM Customers<br>
+ WHERE city LIKE '%L%';</div>
+
+</div>
+
+<hr>
+
+<h2>Starts With</h2>
+
+<p>To return records that starts with a specific letter or phrase, add the <code class="w3-codespan">%</code> at the end of the letter or phrase.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Return all customers that starts with 'La':</p>
+<div class="w3-code notranslate sqlHigh">
+ SELECT * FROM Customers<br>
+ WHERE CustomerName LIKE 'La%';</div>
+
+</div>
+<div class="w3-panel ws-note">
+<p><strong>Tip:</strong> You can also combine any number of conditions using <code class="w3-codespan">
+AND</code> or <code class="w3-codespan">OR</code> operators.</p>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Return all customers that starts with 'a' or starts with 'b':</p>
+<div class="w3-code notranslate sqlHigh">
+ SELECT * FROM Customers<br>
+ WHERE CustomerName LIKE 'a%' OR CustomerName LIKE 'b%'; </div>
+
+</div>
+
+<hr>
+
+<h2>Ends With</h2>
+
+<p>To return records that ends with a specific letter or phrase, add the <code class="w3-codespan">%</code> at the beginning of the letter or phrase.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Return all customers that ends with 'a':</p>
+<div class="w3-code notranslate sqlHigh">
+ SELECT * FROM Customers<br>
+ WHERE CustomerName LIKE '%a'; </div>
+
+</div>
+
+<div class="w3-panel ws-note">
+<p><strong>Tip:</strong> You can also combine "starts with" and "ends with":</p>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Return all customers that starts with "b" and ends with "s":</p>
+
+<div class="w3-code notranslate sqlHigh">
+ SELECT * FROM Customers<br>
+  WHERE CustomerName LIKE 'b%s';</div>
+
+</div>
+
+<hr>
+
+<h2>Contains</h2>
+
+<p>To return records that contains a specific letter or phrase, add the 
+<code class="w3-codespan">%</code> both before and after the letter or phrase.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Return all customers that contains the phrase 'or'</p>
+<div class="w3-code notranslate sqlHigh">
+ SELECT * FROM Customers<br>
+  WHERE CustomerName LIKE '%or%';
+</div>
+
+</div>
+
+<hr>
+
+<h2>Combine Wildcards</h2>
+
+<p>Any wildcard, like <code class="w3-codespan">%</code> and <code class="w3-codespan">_</code> 
+, can be used in combination with other 
+wildcards.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Return all customers that starts with "a" and are at least 3 characters in length:</p>
+
+<div class="w3-code notranslate sqlHigh">
+ SELECT * FROM Customers<br>
+  WHERE CustomerName LIKE 'a__%';</div>
+  
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Return all customers that have "r" in the second position:</p>
+<div class="w3-code notranslate sqlHigh">
+ SELECT * FROM Customers<br>
+  WHERE CustomerName LIKE '_r%';
+</div>
+
+</div>
+
+<hr>
+
+<h2>Without Wildcard</h2>
+
+<p>If no wildcard is specified, the phrase has to have an exact match to return a result.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Return all customers from Spain: </p>
+<div class="w3-code notranslate sqlHigh">
+ SELECT * FROM Customers<br>
+  WHERE Country 
+  LIKE 'Spain';
+</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<br>

@@ -1,0 +1,213 @@
+<h1>C <span class="color_h1">Function Parameters</span></h1>
+
+<hr>
+
+
+<h2>Parameters and Arguments</h2>
+<p>Information can be passed to functions as a parameter. Parameters act as 
+variables inside the function.</p>
+<p>Parameters are specified after the function name, inside the parentheses.
+You can add as many parameters as you want, just separate them with a comma:</p>
+<div class="w3-example">
+<h3>Syntax</h3>
+  <div class="w3-code notranslate javaHigh">
+    <em>returnType</em> <em>functionName</em>(<em>parameter1</em>, <em>parameter2</em>, <em>parameter3</em>) {<br>&nbsp; 
+  // code to be executed<br>}<br>
+ </div>
+</div>
+
+<p>In the example below, 
+the function takes a <a href="c_strings.html">string of characters</a> with <b>name</b> as 
+parameter. When the function is called, we pass along a name, which is used 
+inside the function to print &quot;Hello&quot; and the name of each person:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  void myFunction(char name[]) {<br>&nbsp; printf(&quot;Hello %s\n&quot;, name);<br>}<br><br>int main() {<br>&nbsp; 
+  myFunction(&quot;Liam&quot;);<br>&nbsp; myFunction(&quot;Jenny&quot;);<br>&nbsp; 
+  myFunction(&quot;Anja&quot;);<br>&nbsp; return 0;<br>}<br><br>// Hello Liam<br>
+  // Hello Jenny<br>// Hello Anja<br>
+ </div>
+
+</div>
+
+<div class="ws-note w3-panel">
+<p>When a <strong>parameter</strong> is passed to the function, it is called an <strong>argument</strong>. So, from the example above: 
+<code class="w3-codespan">name</code> is a <strong>parameter</strong>, while <code class="w3-codespan">Liam</code>, <code class="w3-codespan">Jenny</code> and <code class="w3-codespan">Anja</code> are <strong>arguments</strong>.</p>
+</div>
+
+<hr>
+
+
+<h2>Multiple Parameters</h2>
+<p>Inside the function, you can add as many parameters as you want:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  void myFunction(char name[], int age) {<br>&nbsp; printf(&quot;Hello %s. 
+  You are %d years old.\n&quot;, name, age);<br>}<br><br>int main() {<br>&nbsp; 
+  myFunction(&quot;Liam&quot;, 3);<br>&nbsp; myFunction(&quot;Jenny&quot;, 14);<br>&nbsp; 
+  myFunction(&quot;Anja&quot;, 30);<br>&nbsp; return 0;<br>}<br><br>// Hello Liam. 
+  You are 3 years old.<br>// 
+  Hello Jenny. You are 14 years old.<br>
+  // Hello Anja. You are 30 years old.<br>
+ </div>
+
+</div>
+
+<p>If we consider the "<strong>Calculate the Sum of Numbers</strong>" <a href="c_functions.html#calcfuncbelow">example 
+from the previous page</a>, we can make a more sustainable program by using function parameters:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  void calculateSum(int x, int y) {<br>&nbsp; int sum = x + y;<br>&nbsp; 
+  printf(&quot;The sum of %d + %d is: %d\n&quot;, x, y, sum);<br>}<br><br>int main() {<br>&nbsp; 
+  calculateSum(5, 3);<br>&nbsp; calculateSum(8, 2);<br>&nbsp; calculateSum(15, 
+  15);<br>&nbsp; return 0;<br>}<br>
+ </div>
+
+</div>
+
+<div class="ws-note w3-panel">
+<h4>Notes on Parameters</h4>
+<p>Note that when you are working with multiple parameters, the function call must 
+have the same number of arguments as there are parameters, and the arguments must be passed in the same order.</p>
+</div>
+
+
+<hr>
+<hr>
+
+
+<h2>Pass Arrays as Function Parameters</h2>
+<p>You can also pass <a href="c_arrays.html">arrays</a> to a function:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  void myFunction(int myNumbers[5]) {<br>&nbsp; for (int i = 0; i &lt; 5; i++) {<br>&nbsp;&nbsp;&nbsp; 
+  printf(&quot;%d\n&quot;, myNumbers[i]);<br>&nbsp; }<br>}<br><br>int main() {<br>&nbsp; int 
+  myNumbers[5] = {10, 20, 30, 40, 50}; <br>&nbsp; myFunction(myNumbers);<br>&nbsp; 
+  return 0;<br>}<br>
+ </div>
+
+</div>
+<div class="ws-note w3-panel">
+<h4>Example Explained</h4>
+<p>The function (<code class="w3-codespan">myFunction</code>) takes an array as its parameter (<code class="w3-codespan">int myNumbers[5]</code>), and loops through the array elements with the <code class="w3-codespan">for</code> loop.</p>
+  <p>When the function is called inside <code class="w3-codespan">main()</code>, we pass along the <code class="w3-codespan">myNumbers</code> 
+  array, which outputs the array elements.</p>
+<p><strong>Note</strong> that when you call the function, you only need to use the name of the array when passing it as an argument <code class="w3-codespan">myFunction(myNumbers)</code>. However, the full declaration of the array is needed in the function parameter (<code class="w3-codespan">int myNumbers[5]</code>).</p>
+</div>
+
+<hr>
+
+
+<h2>Return Values</h2>
+<p>The <code class="w3-codespan">void</code> keyword, used in the previous examples, indicates that the 
+function should not return a value. If you 
+want the function to return a value, you can use a data type (such as <code class="w3-codespan">int</code> 
+or 
+<code class="w3-codespan">float</code>, etc.) instead of <code class="w3-codespan">void</code>, and use the <code class="w3-codespan">return</code> 
+keyword inside the function:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+  <div class="w3-code notranslate javaHigh">
+    <strong>int</strong> myFunction(int x) {<br>&nbsp; <strong>return</strong> 5 + x;<br>}<br><br>int main() {<br>&nbsp; 
+    printf(&quot;Result is: %d&quot;, myFunction(3));<br>&nbsp; return 0;<br>}<br><br>// Outputs 
+  8 (5 + 3)<br>
+ </div>
+
+</div>
+
+<p>This example returns the sum of a function with <strong>two parameters</strong>:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  int myFunction(int x, int y) {<br>&nbsp; return x + y;<br>}<br><br>int main() 
+  {<br>&nbsp; printf(&quot;Result is: %d&quot;, myFunction(5, 3));<br>&nbsp; return 0;<br>
+  }<br><br>
+  // Outputs 8 (5 + 3)<br>
+ </div>
+
+</div>
+
+<p>You can also store the result in a variable:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  int myFunction(int x, int y) {<br>&nbsp; return x + y;<br>}<br><br>int main() 
+  { <br>&nbsp; int result = myFunction(5, 3); <br>&nbsp; printf(&quot;Result is = 
+  %d&quot;, result);<br>&nbsp; return 0;<br>}<br>
+  // Outputs 8 (5 + 3)<br>
+ </div>
+
+</div>
+
+<p>If we consider the <strong>&quot;Calculate the Sum of Numbers</strong>" example one more time, we can use <code class="w3-codespan">return</code> 
+instead and store the results in different variables. This will make the program 
+even more flexible and easier to control:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  int calculateSum(int x, int y) {<br>&nbsp; return x + y;<br>}<br><br>int main() {<br>&nbsp; 
+  int result1 = calculateSum(5, 3);<br>&nbsp; int result2 = calculateSum(8, 2);<br>&nbsp; 
+  int result3 = calculateSum(15, 15);<br><br>&nbsp; printf(&quot;Result1 is: 
+  %d\n&quot;, result1);<br>&nbsp; printf(&quot;Result2 is: %d\n&quot;, result2);<br>&nbsp; 
+  printf(&quot;Result3 is: %d\n&quot;, result3);<br><br>&nbsp; return 0;<br>}<br>
+ </div>
+
+</div>
+
+<p><strong>Tip:</strong> If you have many "result variables", it is better to store the results in an array:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  int calculateSum(int x, int y) {<br>&nbsp; return x + y;<br>}<br><br>int main() {
+  <br>&nbsp; // Create an array<br>&nbsp; int resultArr[6];<br><br>&nbsp; // 
+  Call the function with different arguments and store the results in 
+  the array<br>&nbsp; resultArr[0] = calculateSum(5, 3);<br>&nbsp; resultArr[1] 
+  = calculateSum(8, 2);<br>&nbsp; resultArr[2] = calculateSum(15, 15);<br>&nbsp; 
+  resultArr[3] = calculateSum(9, 1);<br>&nbsp; resultArr[4] = calculateSum(7, 
+  7);<br>&nbsp; resultArr[5] = calculateSum(1, 1);<br><br>&nbsp; for (int i = 0; 
+  i &lt; 6; i++) {<br>&nbsp;&nbsp;&nbsp; printf(&quot;Result%d is = %d\n&quot;, i + 1, 
+  resultArr[i]);<br>&nbsp; }<br><br>&nbsp; return 0;<br>}<br>
+ </div>
+
+</div>
+
+
+<hr>
+
+
+<h2>Real-Life Example</h2>
+<p>To demonstrate a practical example of using functions, let's create a program that converts a value from fahrenheit to celsius:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  // Function to convert Fahrenheit to Celsius<br>float toCelsius(float 
+  fahrenheit) {<br>&nbsp; return (5.0 / 9.0) * (fahrenheit - 32.0);<br>}<br><br>
+  int main() {<br>&nbsp; // Set a fahrenheit value<br>&nbsp; float f_value = 
+  98.8;<br><br>&nbsp; // Call the function with the fahrenheit value<br>&nbsp; 
+  float result = toCelsius(f_value);<br><br>&nbsp; // Print the fahrenheit value<br>&nbsp; 
+  printf(&quot;Fahrenheit: %.2f\n&quot;, f_value);<br><br>&nbsp; // Print the result<br>&nbsp; 
+  printf(&quot;Convert Fahrenheit to Celsius: %.2f\n&quot;, result);<br><br>&nbsp; return 
+  0;<br>}<br>
+ </div>
+
+</div>
+
+
+<hr>
+
+<hr>
+
+<br>

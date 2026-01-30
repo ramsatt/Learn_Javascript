@@ -1,0 +1,143 @@
+<h1>jQuery <span class="color_h1">ajaxSetup()</span> Method</h1>
+<p><a href="jquery_ref_ajax.html" class="w3-btn w3-white w3-border" title="jQuery AJAX Methods">&#10094; jQuery 
+AJAX Methods</a></p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Set the default URL and success function for all AJAX requests:</p>
+<div class="w3-code notranslate jsHigh">
+  
+    $(&quot;button&quot;).click(function(){<br>
+    &nbsp; $.ajaxSetup({url: &quot;demo_ajax_load.txt&quot;, success: function(result){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;$(&quot;div&quot;).html(result);}});<br>
+&nbsp;&nbsp;$.ajax();<br>
+ });
+  
+</div>
+<a class="w3-btn w3-margin-bottom" href="tryitb6d0.html?filename=tryjquery_ajax_ajaxsetup" target="_blank">Try it Yourself &raquo;</a>
+
+</div>
+<hr>
+
+<h2>Definition and Usage</h2>
+<p>The ajaxSetup() method sets default values for future AJAX requests.</p>
+<hr>
+
+<h2>Syntax</h2>
+<div class="w3-code w3-border notranslate"><div>
+$.ajaxSetup(<i>{name:value, name:value, ... }</i>)</div></div>
+<p>The parameters specifies the settings for AJAX requests with one or more name/value pairs.</p>
+<p>Possible names/values in the table below:</p>
+<table class="ws-table-all notranslate"> 
+  <tr>
+    <th style="width:27%">Name</th>
+    <th>Value/Description</th>
+  </tr>  
+    <tr>
+    <td>async</td>
+    <td>A Boolean value indicating whether the request should be handled asynchronous or not. Default is true</td>
+    </tr>
+  <tr>
+    <td>beforeSend(<em>xhr</em>)</td>
+    <td>A function to run before the request is sent</td>
+    </tr>
+  <tr>
+    <td>cache</td>
+    <td>A Boolean value indicating whether the browser should cache the requested pages. Default is true</td>
+    </tr>
+  <tr>
+    <td>complete(<em>xhr,status</em>)</td>
+    <td>A function to run when the request is finished (after success and error functions)</td>
+    </tr>
+  <tr>
+    <td>contentType</td>
+    <td>The content type used when sending data to the server. Default is: &quot;application/x-www-form-urlencoded&quot;</td>
+    </tr>
+  <tr>
+    <td>context</td>
+    <td>Specifies the &quot;this&quot; value for all AJAX related callback functions</td>
+    </tr>
+  <tr>
+    <td>data</td>
+    <td>Specifies data to be sent to the server</td>
+    </tr>
+  <tr>
+    <td>dataFilter(<em>data</em>,<em>type</em>)</td>
+    <td>A function used to handle the raw response data of the XMLHttpRequest</td>
+    </tr>
+  <tr>
+    <td>dataType</td>
+    <td>The data type expected of the server response.</td>
+    </tr>
+  <tr>
+    <td>error(<em>xhr,status,error</em>)</td>
+    <td>A function to run if the request fails.</td>
+    </tr>
+  <tr>
+    <td>global</td>
+    <td>A Boolean value specifying whether or not to trigger global AJAX event handles for the request. Default is true</td>
+    </tr>
+  <tr>
+    <td>ifModified</td>
+    <td>A Boolean value specifying whether a request is only successful if the response has changed since the last request. Default is: false.</td>
+    </tr>
+  <tr>
+    <td>jsonp</td>
+    <td>A string overriding the callback function in a jsonp request</td>
+    </tr>
+  <tr>
+    <td>jsonpCallback</td>
+    <td>Specifies a name for the callback function in a jsonp request</td>
+    </tr>
+  <tr>
+    <td>password</td>
+    <td>Specifies a password to be used in an HTTP access authentication request.</td>
+    </tr>
+  <tr>
+    <td>processData</td>
+    <td>A Boolean value specifying whether or not data sent with the request should be transformed into a query string. Default is true</td>
+    </tr>
+  <tr>
+    <td>scriptCharset</td>
+    <td>Specifies the charset for the request</td>
+    </tr>
+  <tr>
+    <td>success(<em>result,status,xhr</em>)</td>
+    <td>A function to be run when the request succeeds</td>
+    </tr>
+  <tr>
+    <td>timeout</td>
+    <td>The local timeout (in milliseconds) for the request</td>
+    </tr>
+  <tr>
+    <td>traditional</td>
+    <td>A Boolean value specifying whether or not to use the traditional style of param serialization</td>
+    </tr>
+  <tr>
+    <td>type</td>
+    <td>Specifies the type of request. (GET or POST)</td>
+    </tr>
+  <tr>
+    <td>url</td>
+    <td>Specifies the URL to send the request to. Default is the current page</td>
+    </tr>
+  <tr>
+    <td>username</td>
+    <td>Specifies a username to be used in an HTTP access authentication request</td>
+    </tr>
+    <tr>
+    <td>xhr</td>
+    <td>A function used for creating the XMLHttpRequest object</td>
+    </tr>
+</table>
+<hr>
+<div class="w3-container w3-theme">
+<h2>Try it Yourself - Examples</h2>
+</div>
+<p>
+<a href="tryit95d8.html?filename=tryjquery_ajax_ajaxsetup_error" target="_blank">
+Specify an error handler for AJAX requests</a><br>
+How to use the error setting to specify an error handler for AJAX requests.</p>
+<hr>
+<p><a href="jquery_ref_ajax.html" class="w3-btn w3-white w3-border" title="jQuery AJAX Methods">&#10094; jQuery 
+AJAX Methods</a></p>

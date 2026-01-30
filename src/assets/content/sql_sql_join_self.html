@@ -1,0 +1,80 @@
+<h1>SQL <span class="color_h1">Self Join</span></h1>
+
+<hr>
+
+<h2>SQL Self Join</h2>
+<p>A self join is a regular join, but the table is joined with itself.</p>
+
+<h3>Self Join Syntax</h3>
+<div class="w3-example">
+<div class="w3-code notranslate sqlHigh">
+SELECT <em>column_name(s)</em><br>
+FROM <em>table1 T1, table1 T2</em><br>
+  WHERE <em>condition</em>;
+</div></div>
+<p><em>T1</em> and <em>T2</em> are different table aliases for the same table.</p>
+<hr>
+
+<h2>Demo Database</h2>
+<p>In this tutorial we will use the well-known Northwind sample database.</p>
+<p>Below is a selection from the "Customers" table:</p>
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+  <tr>
+    <th style="width:15%">CustomerID</th>
+    <th>CustomerName</th>
+    <th>ContactName</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>PostalCode</th>
+    <th>Country</th>
+  </tr>
+  <tr>
+    <td>1<br><br></td>
+    <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Obere Str. 57</td>
+    <td>Berlin</td>
+    <td>12209</td>
+    <td>Germany</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Ana Trujillo Emparedados y helados</td>
+    <td>Ana Trujillo</td>
+    <td>Avda. de la Constitución 2222</td>
+    <td>México D.F.</td>
+    <td>05021</td>
+    <td>Mexico</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Antonio Moreno Taquería</td>
+    <td>Antonio Moreno</td>
+    <td>Mataderos 2312</td>
+    <td>México D.F.</td>
+    <td>05023</td>
+    <td>Mexico</td>
+  </tr>
+</table>
+</div>
+
+<hr>
+
+<h2>SQL Self Join Example</h2>
+<p>The following SQL statement matches customers that are from the same city:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+  SELECT A.CustomerName AS CustomerName1, B.CustomerName AS CustomerName2, 
+  A.City<br>FROM Customers A, Customers B<br>WHERE A.CustomerID &lt;&gt; B.CustomerID<br>
+  AND A.City = B.City <br>ORDER BY A.City;
+</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<br>

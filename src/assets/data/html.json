@@ -1,0 +1,376 @@
+[
+  {
+    "title": "HTML Tutorial",
+    "items": [
+      {
+        "title": "HTML Tutorial",
+        "file": "default.html"
+      },
+      {
+        "title": "HTML Introduction",
+        "file": "html_intro.html"
+      },
+      {
+        "title": "HTML Editors",
+        "file": "html_editors.html"
+      },
+      {
+        "title": "HTML Basic Examples",
+        "file": "html_basic.html"
+      },
+      {
+        "title": "HTML Elements",
+        "file": "html_elements.html"
+      },
+      {
+        "title": "HTML Attributes",
+        "file": "html_attributes.html"
+      },
+      {
+        "title": "HTML Headings",
+        "file": "html_headings.html"
+      },
+      {
+        "title": "HTML Paragraphs",
+        "file": "html_paragraphs.html"
+      },
+      {
+        "title": "HTML Styles",
+        "file": "html_styles.html"
+      },
+      {
+        "title": "HTML Text Formatting",
+        "file": "html_formatting.html"
+      },
+      {
+        "title": "HTML Quotation and Citation Elements",
+        "file": "html_quotation_elements.html"
+      },
+      {
+        "title": "HTML Comments",
+        "file": "html_comments.html"
+      },
+      {
+        "title": "HTML Colors",
+        "file": "html_colors.html"
+      },
+      {
+        "title": "HTML RGB and RGBA Colors",
+        "file": "html_colors_rgb.html"
+      },
+      {
+        "title": "HTML HEX Colors",
+        "file": "html_colors_hex.html"
+      },
+      {
+        "title": "HTML HSL and HSLA Colors",
+        "file": "html_colors_hsl.html"
+      },
+      {
+        "title": "HTML Styles - CSS",
+        "file": "html_css.html"
+      },
+      {
+        "title": "HTML Links",
+        "file": "html_links.html"
+      },
+      {
+        "title": "HTML Links - Different Colors",
+        "file": "html_links_colors.html"
+      },
+      {
+        "title": "HTML Links - Create Bookmarks",
+        "file": "html_links_bookmarks.html"
+      },
+      {
+        "title": "HTML Images",
+        "file": "html_images.html"
+      },
+      {
+        "title": "HTML Image Maps",
+        "file": "html_images_imagemap.html"
+      },
+      {
+        "title": "HTML Background Images",
+        "file": "html_images_background.html"
+      },
+      {
+        "title": "HTML &lt;picture&gt; Element",
+        "file": "html_images_picture.html"
+      },
+      {
+        "title": "HTML Favicon",
+        "file": "html_favicon.html"
+      },
+      {
+        "title": "HTML Page Title",
+        "file": "html_page_title.html"
+      },
+      {
+        "title": "HTML Tables",
+        "file": "html_tables.html"
+      },
+      {
+        "title": "HTML Table Borders",
+        "file": "html_table_borders.html"
+      },
+      {
+        "title": "HTML Table Sizes",
+        "file": "html_table_sizes.html"
+      },
+      {
+        "title": "HTML Table Headers",
+        "file": "html_table_headers.html"
+      },
+      {
+        "title": "HTML Table Padding &amp; Spacing",
+        "file": "html_table_padding_spacing.html"
+      },
+      {
+        "title": "HTML Table Colspan &amp; Rowspan",
+        "file": "html_table_colspan_rowspan.html"
+      },
+      {
+        "title": "HTML Table Styling",
+        "file": "html_table_styling.html"
+      },
+      {
+        "title": "HTML Table Colgroup",
+        "file": "html_table_colgroup.html"
+      },
+      {
+        "title": "HTML Lists",
+        "file": "html_lists.html"
+      },
+      {
+        "title": "HTML Unordered Lists",
+        "file": "html_lists_unordered.html"
+      },
+      {
+        "title": "HTML Ordered Lists",
+        "file": "html_lists_ordered.html"
+      },
+      {
+        "title": "HTML Other Lists",
+        "file": "html_lists_other.html"
+      },
+      {
+        "title": "HTML Block and Inline Elements",
+        "file": "html_blocks.html"
+      },
+      {
+        "title": "HTML Div Element",
+        "file": "html_div.html"
+      },
+      {
+        "title": "HTML class Attribute",
+        "file": "html_classes.html"
+      },
+      {
+        "title": "HTML id Attribute",
+        "file": "html_id.html"
+      },
+      {
+        "title": "HTML Iframes",
+        "file": "html_iframe.html"
+      },
+      {
+        "title": "HTML JavaScript",
+        "file": "html_scripts.html"
+      },
+      {
+        "title": "HTML File Paths",
+        "file": "html_filepaths.html"
+      },
+      {
+        "title": "HTML - The Head Element",
+        "file": "html_head.html"
+      },
+      {
+        "title": "HTML Layout Elements and Techniques",
+        "file": "html_layout.html"
+      },
+      {
+        "title": "HTML Computer Code Elements",
+        "file": "html_computercode_elements.html"
+      },
+      {
+        "title": "HTML Entities",
+        "file": "html_entities.html"
+      },
+      {
+        "title": "HTML Symbols",
+        "file": "html_symbols.html"
+      },
+      {
+        "title": "Using Emojis in HTML",
+        "file": "html_emojis.html"
+      },
+      {
+        "title": "HTML Encoding (Character Sets)",
+        "file": "html_charset.html"
+      },
+      {
+        "title": "HTML Uniform Resource Locators",
+        "file": "html_urlencode.html"
+      },
+      {
+        "title": "HTML Versus XHTML",
+        "file": "html_xhtml.html"
+      }
+    ]
+  },
+  {
+    "title": "HTML Forms",
+    "items": [
+      {
+        "title": "HTML Forms",
+        "file": "html_forms.html"
+      },
+      {
+        "title": "HTML Form Elements",
+        "file": "html_form_elements.html"
+      },
+      {
+        "title": "HTML Input Types",
+        "file": "html_form_input_types.html"
+      },
+      {
+        "title": "HTML Input Attributes",
+        "file": "html_form_attributes.html"
+      },
+      {
+        "title": "HTML Input form* Attributes",
+        "file": "html_form_attributes_form.html"
+      }
+    ]
+  },
+  {
+    "title": "HTML Graphics",
+    "items": [
+      {
+        "title": "HTML Canvas Graphics",
+        "file": "html5_canvas.html"
+      },
+      {
+        "title": "HTML  SVG Graphics",
+        "file": "html5_svg.html"
+      }
+    ]
+  },
+  {
+    "title": "HTML Media",
+    "items": [
+      {
+        "title": "HTML  Multimedia",
+        "file": "html_media.html"
+      },
+      {
+        "title": "HTML Video",
+        "file": "html5_video.html"
+      },
+      {
+        "title": "HTML Audio",
+        "file": "html5_audio.html"
+      },
+      {
+        "title": "HTML YouTube Videos",
+        "file": "html_youtube.html"
+      }
+    ]
+  },
+  {
+    "title": "HTML APIs",
+    "items": [
+      {
+        "title": "HTML - What is a Web API?",
+        "file": "html5_api_whatis.html"
+      },
+      {
+        "title": "HTML Geolocation API",
+        "file": "html5_geolocation.html"
+      },
+      {
+        "title": "HTML Drag and Drop API",
+        "file": "html5_draganddrop.html"
+      },
+      {
+        "title": "HTML Web Storage API",
+        "file": "html5_webstorage.html"
+      },
+      {
+        "title": "HTML Web Workers API",
+        "file": "html5_webworkers.html"
+      },
+      {
+        "title": "HTML Server-Sent Events API",
+        "file": "html5_serversentevents.html"
+      }
+    ]
+  },
+  {
+    "title": "HTML References",
+    "items": [
+      {
+        "title": "HTML Elements",
+        "file": "ref_default.html"
+      },
+      {
+        "title": "Browser Support",
+        "file": "ref_html_browsersupport.html"
+      },
+      {
+        "title": "Attributes",
+        "file": "ref_attributes.html"
+      },
+      {
+        "title": "Global Attributes",
+        "file": "ref_standardattributes.html"
+      },
+      {
+        "title": "Event Attributes",
+        "file": "ref_eventattributes.html"
+      },
+      {
+        "title": "Color Names",
+        "file": "ref_colornames.html"
+      },
+      {
+        "title": "Canvas",
+        "file": "ref_canvas.html"
+      },
+      {
+        "title": "Audio/Video DOM",
+        "file": "ref_av_dom.html"
+      },
+      {
+        "title": "Character Sets",
+        "file": "ref_charactersets.html"
+      },
+      {
+        "title": "URL Encoding",
+        "file": "ref_urlencode.html"
+      },
+      {
+        "title": "Language Codes",
+        "file": "ref_language_codes.html"
+      },
+      {
+        "title": "Country Codes",
+        "file": "ref_country_codes.html"
+      },
+      {
+        "title": "HTTP Messages",
+        "file": "ref_httpmessages.html"
+      },
+      {
+        "title": "Px to Em Converter",
+        "file": "ref_pxtoemconversion.html"
+      },
+      {
+        "title": "Keyboard Shortcuts",
+        "file": "ref_keyboardshortcuts.html"
+      }
+    ]
+  }
+]

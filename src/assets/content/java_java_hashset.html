@@ -1,0 +1,205 @@
+<h1>Java <span class="color_h1">HashSet</span></h1>
+
+<hr>
+
+<h2>Java HashSet</h2>
+<p>A <code class="w3-codespan">HashSet</code> is a collection of elements where every element is 
+<strong>unique</strong>.</p>
+<p>It is part of the <code class="w3-codespan">java.util</code> package and implements the <a href="java_set.html"><code class="w3-codespan">Set</code></a> interface.</p>
+<hr>
+
+<h2>Create a HashSet</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Create a <code class="w3-codespan">HashSet</code> object called <strong>cars</strong> that will store strings:</p>
+<pre class="language-java w3-white"><code>import java.util.HashSet; // Import the HashSet class
+
+HashSet&lt;String&gt; cars = new HashSet&lt;String&gt;();
+</code></pre>
+</div>
+<p>Now you can use methods like <code class="w3-codespan">add()</code>, <code class="w3-codespan">contains()</code>, and <code class="w3-codespan">remove()</code> to manage your collection of unique elements.</p>
+<hr>
+
+<h2>Add Elements</h2>
+<p>To add elements to a <code class="w3-codespan">HashSet</code>, use the <code class="w3-codespan">add()</code> method:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>// Import the HashSet class
+import java.util.HashSet;
+
+public class Main {
+  public static void main(String[] args) {
+    HashSet&lt;String&gt; cars = new HashSet&lt;String&gt;();
+    cars.add(&quot;Volvo&quot;);
+    cars.add(&quot;BMW&quot;);
+    cars.add(&quot;Ford&quot;);
+    cars.add(&quot;BMW&quot;);  // Duplicate
+    cars.add(&quot;Mazda&quot;);
+    System.out.println(cars);
+  }
+}
+</code></pre>
+<p>
+
+</p>
+</div>
+<p><strong>Note:</strong> In the example above, even though <code class="w3-codespan">"BMW"</code> is added twice, it only appears once in the set because sets do not allow duplicate elements.</p>
+<hr>
+
+<h2>Check If an Element Exists</h2>
+<p>To check whether an element exists in a <code class="w3-codespan">HashSet</code>, use the <code class="w3-codespan">contains()</code> method:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>cars.contains(&quot;Mazda&quot;);
+</code></pre>
+<p>
+
+</p>
+</div>
+<hr>
+
+<h2>Remove an Element</h2>
+
+<p>To remove an element, use the <code class="w3-codespan">remove()</code> method:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>cars.remove(&quot;Volvo&quot;);
+</code></pre>
+<p>
+
+</p>
+</div>
+
+<p>To remove all elements, use the <code class="w3-codespan">clear()</code> method:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>cars.clear();
+</code></pre>
+<p>
+
+</p>
+</div>
+<hr>
+
+<hr>
+
+<h2>HashSet Size</h2>
+<p>Use <code class="w3-codespan">size()</code> to count how many unique elements are in the set:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>cars.size();
+</code></pre>
+<p>
+
+</p>
+</div>
+  <p><strong>Note:</strong> Duplicate values are not counted - only unique elements are included in the size.</p>
+<hr>
+
+<h2>Loop Through a HashSet</h2>
+<p>Loop through the elements of an <code class="w3-codespan">HashSet</code> with a <b>for-each</b> loop:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>for (String i : cars) {
+  System.out.println(i);
+}</code></pre>
+<p>
+
+</p>
+</div>
+<hr>
+
+<h2>Other Types</h2>
+<p>Elements in an <code class="w3-codespan">HashSet</code> are actually objects. In the examples above, we created 
+elements 
+(objects) of type "String". Remember that a <code class="w3-codespan">String</code> in Java is an object (not a primitive type). To use other types, such as <code class="w3-codespan">int</code>, you must specify an equivalent <a href="java_wrapper_classes.html">wrapper class</a>: <code class="w3-codespan">Integer</code>. For other primitive types, 
+use: <code class="w3-codespan">Boolean</code> for boolean, <code class="w3-codespan">Character</code> for char, <code class="w3-codespan">Double</code> for double, 
+etc:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Use a <code class="w3-codespan">HashSet</code> that stores <code class="w3-codespan">Integer</code> objects:</p>
+<pre class="language-java w3-white"><code>import java.util.HashSet;
+
+public class Main {
+  public static void main(String[] args) {
+
+    // Create a HashSet object called numbers
+    HashSet&lt;Integer&gt; numbers = new HashSet&lt;Integer&gt;();
+
+    // Add values to the set
+    numbers.add(4);
+    numbers.add(7);
+    numbers.add(8);
+
+    // Show which numbers between 1 and 10 are in the set
+    for (int i = 1; i &lt;= 10; i++) {
+      if (numbers.contains(i)) {
+        System.out.println(i + &quot; was found in the set.&quot;);
+      } else {
+        System.out.println(i + &quot; was not found in the set.&quot;);
+      }
+    }
+  }
+}
+</code></pre>
+<p>
+
+</p>
+</div>
+<hr>
+
+<h2>The var Keyword</h2>
+
+<p>
+From Java 10, you can use the <code class="w3-codespan">var</code> keyword to declare a <code class="w3-codespan">HashSet</code> variable without writing the type twice.  
+The compiler figures out the type from the value you assign.  
+</p>
+
+<p>
+This makes code shorter, <strong>but many developers still use the full type for clarity</strong>.  
+Since <code class="w3-codespan">var</code> is valid Java, you may see it in other code, so it's good to know that it exists:
+</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <pre class="language-java w3-white"><code>// Without var
+HashSet&lt;String&gt; cars = new HashSet&lt;String&gt;();
+
+// With var
+var cars = new HashSet&lt;String&gt;();
+</code></pre>
+  <p>
+    
+  </p>
+</div>
+
+<hr>
+
+<h2>The Set Interface</h2>
+<p><strong>Note:</strong> Sometimes you will see both <code class="w3-codespan">Set</code> and <code class="w3-codespan">HashSet</code> in Java code, like this:</p>
+
+<div class="w3-example">
+  <pre class="language-java w3-white"><code>import java.util.Set;
+import java.util.HashSet;
+
+Set&lt;String&gt; cars = new HashSet&lt;&gt;();</code></pre>
+<p>
+
+</p>
+</div>
+<p>This means the variable (cars) is declared as a <a href="java_set.html"><code class="w3-codespan">Set</code></a> (the interface), but it stores a <code class="w3-codespan">HashSet</code> object (the actual set). Since <code class="w3-codespan">HashSet</code> implements the <code class="w3-codespan">Set</code> interface, this is possible.</p>
+<p>It works the same way, but some developers prefer this style because it gives them more flexibility to change the type later.</p>
+<hr>
+
+
+<h2>When Order Matters</h2>
+<p>In the next chapter, you will learn about <a href="java_treeset.html"><code class="w3-codespan">TreeSet</code></a>, which stores unique elements <strong>in sorted order</strong>.</p>
+<hr>
+
+<hr>
+
+<br>

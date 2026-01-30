@@ -1,0 +1,131 @@
+<h1>SQL <span class="color_h1">MIN() and MAX()</span> Functions</h1>
+
+<hr>
+
+<h2>The SQL MIN() and MAX() Functions</h2>
+<p>The <code class="w3-codespan">MIN()</code> function returns the smallest value of the selected column.</p>
+<p>The <code class="w3-codespan">MAX()</code> function returns the largest value of the selected column.</p>
+<div class="w3-example">
+<h3>MIN Example</h3>
+<p>Find the lowest price in the Price column:</p>
+<div class="w3-code notranslate sqlHigh">
+  SELECT MIN(Price)<br>FROM Products;
+</div>
+
+</div>
+<div class="w3-example">
+<h3>MAX Example</h3>
+<p>Find the highest price in the Price column:</p>
+<div class="w3-code notranslate sqlHigh">
+  SELECT MAX(Price)<br>FROM Products;</div>
+
+</div>
+
+<hr>
+
+<h2>Syntax</h2>
+<div class="w3-example ws-light-grey">
+<p><code class="sqlHigh">
+SELECT MIN(<em>column_name</em>)<br>
+FROM <em>table_name</em><br>
+WHERE <em>condition</em>;</code></p>
+</div>
+<div class="w3-example ws-light-grey">
+<p><code class="sqlHigh">
+SELECT MAX(<em>column_name</em>)<br>
+FROM <em>table_name</em><br>
+WHERE <em>condition</em>;</code></p>
+</div>
+
+<hr>
+
+<h2>Demo Database</h2>
+<p>Below is a selection from the <a href="trysqld52d.html?filename=trysql_products" target="_blank"><strong>Products</strong></a> table used in the examples:</p>
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+<tbody>
+<tr>
+<th>ProductID</th>
+<th>ProductName</th>
+<th>SupplierID</th>
+<th>CategoryID</th>
+<th>Unit</th>
+<th>Price</th>
+</tr>
+<tr>
+<td>1</td>
+<td>Chais</td>
+<td>1</td>
+<td>1</td>
+<td>10 boxes x 20 bags</td>
+<td>18</td></tr>
+<tr>
+<td>2</td>
+<td>Chang</td>
+<td>1</td>
+<td>1</td>
+<td>24 - 12 oz bottles</td>
+<td>19</td></tr>
+<tr>
+<td>3</td>
+<td>Aniseed Syrup</td>
+<td>1</td>
+<td>2</td>
+<td>12 - 550 ml bottles</td>
+<td>10</td></tr>
+<tr>
+<td>4</td>
+<td>Chef Anton's Cajun Seasoning</td>
+<td>2</td>
+<td>2</td>
+<td>48 - 6 oz jars</td>
+<td>22</td></tr>
+<tr>
+<td>5</td>
+<td>Chef Anton's Gumbo Mix</td>
+<td>2</td>
+<td>2</td>
+<td>36 boxes</td>
+<td>21.35</td></tr>
+</tbody></table>
+</div>
+
+<hr>
+
+<hr>
+
+<h2>Set Column Name (Alias)</h2>
+<p>When you use <code class="w3-codespan">MIN()</code> or 
+<code class="w3-codespan">MAX()</code>, the returned column will not have a 
+descriptive name. To give the column a descriptive name, use the 
+<code class="w3-codespan">AS</code> keyword:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+  SELECT MIN(Price) AS SmallestPrice<br>FROM Products;
+</div>
+
+</div>
+
+<hr>
+
+<h2>Use MIN() with GROUP BY</h2>
+<p>Here we use the <code class="w3-codespan">MIN()</code> function and the
+<code class="w3-codespan">GROUP BY</code> clause, to return the smallest price 
+for each category in the Products table:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate sqlHigh">
+  SELECT MIN(Price) AS SmallestPrice, CategoryID<br>FROM Products<br>GROUP BY CategoryID;
+</div>
+
+</div>
+
+<p>You will learn more about the
+<code class="w3-codespan"><a href="sql_groupby.html">GROUP BY</a></code> clause later in this tutorial.</p>
+
+<hr>
+
+<hr>
+
+<br>

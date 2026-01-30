@@ -1,0 +1,65 @@
+<h1>Python <span class="color_h1">MySQL</span></h1>
+
+<hr>
+<p class="intro">Python can be used in database applications.</p>
+<p class="intro">One of the most popular databases is MySQL.</p>
+<hr>
+
+<h2>MySQL Database</h2>
+<p>To be able to experiment with the code examples in this tutorial, you should 
+have MySQL installed on your computer.</p>
+<p>You can download a MySQL database at
+<a href="https://www.mysql.com/downloads/" target="_blank">https://www.mysql.com/downloads/</a>.</p>
+<hr>
+
+<h2>Install MySQL Driver</h2>
+<p>Python needs a MySQL driver to access the MySQL database.</p>
+<p>In this tutorial we will use the driver "MySQL Connector".</p>
+<p>We recommend that you use PIP to install "MySQL Connector&quot;.</p>
+<p>PIP is most likely already installed in your Python environment.</p>
+<p>Navigate your command line to the location of PIP, and type the following:</p>
+
+<div class="w3-example">
+<p>Download and install "MySQL Connector":</p>
+<div class="w3-code notranslate w3-black">
+C:\Users\<em>Your Name</em>\AppData\Local\Programs\Python\Python36-32\Scripts&gt;python -m pip install 
+  mysql-connector-python
+</div>
+</div>
+<p>Now you have downloaded and installed a MySQL driver.</p>
+
+<hr>
+
+<h2>Test MySQL Connector</h2>
+<p>To test if the installation was successful, or if you already have "MySQL 
+Connector" 
+installed, create a Python page with 
+the following content:</p>
+<div class="w3-example">
+<p>demo_mysql_test.py:</p>
+<div class="w3-code notranslate jsHigh">
+  import mysql.connector</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showpython9b9b.html?filename=demo_mysql_test">Run example &raquo;</a>
+</div>
+
+<p>If the above code was executed with no errors, "MySQL Connector" is installed and 
+ready to be used.</p>
+
+<hr>
+
+<hr>
+
+<h2>Create Connection</h2>
+<p>Start by creating a connection to the database.</p>
+<p>Use the username and password from your MySQL database:</p>
+<div class="w3-example">
+<p>demo_mysql_connection.py:</p>
+<div class="w3-code notranslate jsHigh">
+  import mysql.connector<br><br>mydb = mysql.connector.connect(<br>&nbsp; host=&quot;localhost&quot;,<br>&nbsp; user=&quot;<em>yourusername</em>&quot;,<br>&nbsp; password=&quot;<em>yourpassword</em>&quot;<br>)<br>
+  <br>print(mydb)</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="showpython3851.html?filename=demo_mysql_connection">Run example &raquo;</a>
+</div>
+
+<p>Now you can start querying the database using SQL statements.</p>
+
+<hr>

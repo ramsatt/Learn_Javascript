@@ -1,0 +1,121 @@
+<h1>HTML <span class="color_h1">Server-Sent Events API</span></h1>
+
+<hr>
+<p class="intro">The Server-Sent Events (SSE) API enables pushing 
+messages/updates from a server to the web page via HTTP connection.</p>
+<hr>
+
+<h2>Server-Sent Events - One Way Messaging</h2>
+<p>A server-sent event is when a web page automatically gets messages/updates from a server.</p>
+<p>Normally, a web page has to request data from the server, but with server-sent events, the updates 
+are pushed automatically.</p>
+<p>Examples: Facebook/Twitter updates, stock market updates, news feeds, sport results, etc.</p>
+<hr>
+
+<h2>Browser Support</h2>
+<p>The numbers in the table specify the first browser version that fully support 
+the Server-Sent Events API.</p>
+<table class="browserref notranslate">
+  <tr>
+    <th style="width:14%;font-size:16px;text-align:left;">API</th>
+    <th style="width:16%;" class="bsChrome" title="Chrome"></th>
+    <th style="width:16%;" class="bsEdge" title="Internet Explorer / Edge"></th>
+    <th style="width:16%;" class="bsFirefox" title="Firefox"></th>
+    <th style="width:16%;" class="bsSafari" title="Safari"></th>
+    <th style="width:16%;" class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td style="text-align:left;">SSE</td>
+    <td>6.0</td>
+    <td>79.0</td>
+    <td>6.0</td>
+    <td>5.0</td>
+    <td>11.5</td>
+  </tr>
+</table>
+<hr>
+
+<h2>Receive Server-Sent Event Notifications</h2>
+<p>The <code class="w3-codespan">EventSource</code> object is used to receive server-sent event notifications:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+  &lt;script&gt;<br>const x = document.getElementById(&quot;result&quot;);<br>
+  // Check browser support for SSE<br>if(typeof(EventSource) 
+  !== &quot;undefined&quot;) {<br>&nbsp; var source = new EventSource(&quot;demo_sse.php&quot;);<br>&nbsp; 
+  source.onmessage = function(event) {<br>&nbsp;&nbsp;&nbsp; x.innerHTML += 
+  event.data + &quot;&lt;br&gt;&quot;;<br>&nbsp; };<br>} else {<br>&nbsp; x.innerHTML = &quot;Sorry, 
+  no support for server-sent events.&quot;;<br>}<br>&lt;/script&gt;</div>
+
+</div>
+<p>Example explained:</p>
+<ul>
+  <li>Create a new <code class="w3-codespan">EventSource</code> object, and specify the URL of the page sending the updates (in this example &quot;demo_sse.php&quot;)</li>
+  <li>Each time an update is received, the <code class="w3-codespan">onmessage</code> event occurs</li>
+  <li>When an <code class="w3-codespan">onmessage</code> event occurs, put the received data into the element with id=&quot;result&quot;</li>
+</ul>
+<hr>
+
+<h2>Check Browser Support</h2>
+<p>In the tryit example above there were some extra lines of code to check browser support for server-sent events:</p>
+<div class="w3-code w3-border notranslate jsHigh"><div>
+if(typeof(EventSource) !== &quot;undefined&quot;) {<br>
+  &nbsp; // Yes! Server-sent events support!<br>
+  &nbsp; // <i>Some code.....</i><br>
+ }
+ else {<br>
+  &nbsp; // Sorry! No server-sent events support..<br>
+ }
+</div>
+</div>
+<hr>
+
+<hr>
+
+<h2>Server-Side Code Example</h2>
+<p>For the example above to work, you need a server capable of sending data updates (like PHP or ASP).</p>
+<p>The server-side event stream syntax is simple. Set the &quot;Content-Type&quot; header to 
+&quot;text/event-stream&quot;. Now you can start sending event streams.</p>
+<p>Code in PHP (demo_sse.php):</p>
+<div class="w3-code w3-border notranslate htmlHigh"><div>
+ &lt;?php<br>header('Content-Type: text/event-stream');<br>
+ header('Cache-Control: no-cache');<br><br>$time = date('r');<br>echo &quot;data: The server time is: {$time}\n\n&quot;;<br>flush();<br>?&gt;
+</div></div>
+
+<p>Code in ASP (VB) (demo_sse.asp):</p>
+<div class="w3-code w3-border notranslate spes_asp"><div>
+ &lt;%<br>Response.ContentType = &quot;text/event-stream&quot;<br>Response.Expires = -1<br>
+ Response.Write(&quot;data: The server time is: &quot; &amp; now())<br>Response.Flush()<br>%&gt;
+</div></div>
+
+<p>Code explained:</p>
+<ul>
+  <li>Set the &quot;Content-Type&quot; header to 
+&quot;text/event-stream&quot;</li>
+  <li>Specify that the page should not cache</li>
+  <li>Output the data to send (<strong>Always</strong> start with &quot;data: &quot;)</li>
+  <li>Flush the output data back to the web page</li>
+</ul>
+<hr>
+
+<h2>The EventSource Object</h2>
+<p>In the examples above we used the onmessage event to get messages. But other events are also available:</p>
+<table class="ws-table-all notranslate">
+<tr>
+<th style="width:20%">Events</th>
+<th>Description</th>
+</tr>
+  <tr>
+<td>onopen</td>
+<td>When a connection to the server is opened</td>
+  </tr>
+  <tr>
+<td>onmessage</td>
+<td>When a message is received</td>
+  </tr>
+  <tr>
+<td>onerror</td>
+<td>When an error occurs</td>
+  </tr>
+ </table>
+<br>

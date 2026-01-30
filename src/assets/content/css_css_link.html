@@ -1,0 +1,150 @@
+<h1>CSS <span class="color_h1">Links</span></h1>
+
+<hr>
+<a href="javascript:void(0)" class="txtlink2">Text Link</a>
+<a href="javascript:void(0)" class="txtlink">Text Link</a>
+<a href="javascript:void(0)" class="button button1">Link Button</a> 
+<a href="javascript:void(0)" class="btn">Link Button</a>
+<hr>
+<h2>CSS Styling Links</h2>
+<p>HTML links can be styled with many CSS properties, like
+<code class="w3-codespan"><a href="../cssref/pr_text_color.html">color</a></code>, 
+<code class="w3-codespan"><a href="../cssref/pr_text_text-decoration.html">text-decoration</a></code>,
+<code class="w3-codespan"><a href="../cssref/pr_background-color.html">background-color</a></code>,
+<code class="w3-codespan"><a href="../cssref/pr_font_font-size.html">font-size</a></code>,
+<code class="w3-codespan"><a href="../cssref/pr_font_weight.html">font-weight</a></code>,
+<code class="w3-codespan"><a href="../cssref/pr_font_font-family.html">font-family</a></code>, etc.).</p>
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Style a link with a color, background-color, and a bold font-weight:</p>
+<div class="w3-code notranslate cssHigh">
+   a {<br>&nbsp; color: hotpink;<br>&nbsp; background-color: yellow;<br>&nbsp; 
+   font-weight: bold;<br>}</div>
+
+</div>
+<hr>
+<h2>Styling Links Depending on State</h2>
+<p>In addition, links can be styled differently depending on what <strong>state</strong> they are in.</p>
+<p>The four link states are: </p>
+<ul>
+<li><code class="w3-codespan"><a href="../cssref/sel_link.html">:link</a></code> - a normal, unvisited link</li>
+<li><code class="w3-codespan"><a href="../cssref/sel_visited.html">:visited</a></code> - a link the user has visited</li>
+<li><code class="w3-codespan"><a href="../cssref/sel_hover.html">:hover</a></code> - a link when the user mouses over it</li>
+<li><code class="w3-codespan"><a href="../cssref/sel_active.html">:active</a></code> - a link the moment it is clicked</li>
+</ul>
+<p>When setting the style for link states, there are some order rules:</p>
+<ul>
+<li>:hover must come after :link and :visited</li>
+<li>:active must come after :hover</li>
+</ul>
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Style links according to link state:</p>
+<div class="w3-code notranslate cssHigh">
+/* unvisited link */<br>a:link {<br>&nbsp; color: red;<br>}<br><br>/* visited 
+link */<br>a:visited {<br>&nbsp; color: green;<br>}<br><br>/* mouse over link */<br>
+a:hover {<br>&nbsp;&nbsp;color: hotpink;<br>}<br><br>/* selected link */<br>a:active {<br>
+  &nbsp;
+color: blue;<br>}</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2>CSS Links - Text Decoration</h2>
+<p>The <code class="w3-codespan"><a href="../cssref/pr_text_text-decoration.html">text-decoration</a></code> property is mostly used to remove underlines from links:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+a:link {<br>&nbsp; text-decoration: none;<br>}<br>
+<br>a:visited {<br>&nbsp; text-decoration: none;<br>}<br>
+<br>a:hover {<br>&nbsp;&nbsp;text-decoration: underline;<br>}<br>
+<br>a:active {<br>&nbsp;&nbsp;text-decoration: underline;<br>}</div>
+
+</div>
+
+<hr>
+
+<h2>CSS Links - Background Color</h2>
+<p>The <code class="w3-codespan"><a href="../cssref/pr_background-color.html">background-color</a></code> property can be used to specify a background color for links:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+a:link {<br>&nbsp;&nbsp;background-color: yellow;<br>}<br><br>
+a:visited {<br>&nbsp; background-color: cyan;<br>}<br><br>
+a:hover {<br>&nbsp;&nbsp;background-color: lightgreen;<br>}<br><br>
+a:active {<br>&nbsp;&nbsp;background-color: hotpink;<br>}&nbsp;
+</div>
+
+</div>
+
+<hr>
+
+<h2>CSS Link Buttons</h2>
+<p>CSS can be used to create HTML link buttons:</p>
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Combine several CSS properties to display links as boxes/buttons</p>
+<div class="w3-code notranslate cssHigh">
+a:link, a:visited {<br>&nbsp;&nbsp;background-color: #f44336;<br>&nbsp; 
+color: white;<br>&nbsp; padding: 14px 25px;<br>&nbsp;&nbsp;text-align: center; <br>&nbsp;&nbsp;text-decoration: none;<br>&nbsp;&nbsp;display: inline-block;<br>}<br><br>a:hover, a:active {<br>&nbsp;&nbsp;background-color: red;<br>}</div>
+
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Another example of how to create link boxes/buttons:</p>
+<div class="w3-code notranslate cssHigh">
+  a:link, a:visited {<br>&nbsp; background-color: white;<br>&nbsp; color: black;<br>&nbsp; 
+  border: 2px solid green;<br>&nbsp; padding: 10px 20px;<br>&nbsp; text-align: 
+  center;<br>&nbsp; text-decoration: none;<br>&nbsp; display: inline-block;<br>}<br><br>a:hover, a:active 
+  {<br>&nbsp; background-color: green;<br>&nbsp; color: white;<br>}</div>
+
+</div>
+
+<hr>
+
+<h2>More Examples</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<p>This example demonstrates how to add other styles to HTML links:</p>
+<div class="w3-code notranslate cssHigh">
+  a.one:link {color:red;}<br>a.one:visited {color:blue;}<br>a.one:hover 
+  {color:orange;}<br><br>a.two:link {color:red;}<br>a.two:visited {color:blue;}<br>
+  a.two:hover {font-size:150%;}<br><br>a.three:link {color:red;}<br>
+  a.three:visited {color:blue;}<br>a.three:hover {background:lightgreen;}<br>
+  <br>a.four:link {color:red;}<br>a.four:visited {color:blue;}<br>a.four:hover 
+  {font-family:monospace;}<br><br>a.five:link {color:red;text-decoration:none;}<br>
+  a.five:visited {color:blue;text-decoration:none;}<br>a.five:hover 
+  {text-decoration:underline;}</div>
+
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>This example demonstrates the different types of cursors (can be useful for links):</p>
+<div class="w3-code notranslate htmlHigh">
+  &lt;span style=&quot;cursor: auto&quot;&gt;auto&lt;/span&gt;&lt;br&gt;<br>&lt;span style=&quot;cursor: 
+  crosshair&quot;&gt;crosshair&lt;/span&gt;&lt;br&gt;<br>&lt;span style=&quot;cursor: 
+  default&quot;&gt;default&lt;/span&gt;&lt;br&gt;<br>&lt;span style=&quot;cursor: e-resize&quot;&gt;e-resize&lt;/span&gt;&lt;br&gt;<br>
+  &lt;span style=&quot;cursor: help&quot;&gt;help&lt;/span&gt;&lt;br&gt;<br>&lt;span style=&quot;cursor: 
+  move&quot;&gt;move&lt;/span&gt;&lt;br&gt;<br>&lt;span style=&quot;cursor: n-resize&quot;&gt;n-resize&lt;/span&gt;&lt;br&gt;<br>
+  &lt;span style=&quot;cursor: ne-resize&quot;&gt;ne-resize&lt;/span&gt;&lt;br&gt;<br>&lt;span style=&quot;cursor: 
+  nw-resize&quot;&gt;nw-resize&lt;/span&gt;&lt;br&gt;<br>&lt;span style=&quot;cursor: 
+  pointer&quot;&gt;pointer&lt;/span&gt;&lt;br&gt;<br>&lt;span style=&quot;cursor: progress&quot;&gt;progress&lt;/span&gt;&lt;br&gt;<br>
+  &lt;span style=&quot;cursor: s-resize&quot;&gt;s-resize&lt;/span&gt;&lt;br&gt;<br>&lt;span style=&quot;cursor: 
+  se-resize&quot;&gt;se-resize&lt;/span&gt;&lt;br&gt;<br>&lt;span style=&quot;cursor: sw-resize&quot;&gt;sw-resize&lt;/span&gt;&lt;br&gt;<br>
+  &lt;span style=&quot;cursor: text&quot;&gt;text&lt;/span&gt;&lt;br&gt;<br>&lt;span style=&quot;cursor: 
+  w-resize&quot;&gt;w-resize&lt;/span&gt;&lt;br&gt;<br>&lt;span style=&quot;cursor: wait&quot;&gt;wait&lt;/span&gt;</div>
+
+</div>
+
+<hr>
+
+<hr>
+
+<br>

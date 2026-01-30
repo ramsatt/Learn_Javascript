@@ -1,0 +1,90 @@
+<h1>MS Access <span class="color_h1">DateAdd()</span> Function</h1>
+
+<div class="w3-clear w3-center nextprev">
+<a class="w3-left w3-btn" href="func_msaccess_date.html">&#10094;<span class="w3-hide-small"> Previous</span></a>
+<a class="w3-btn" title="MS Access Functions" href="sql_ref_msaccess.html">&#10094; MS Access Functions</a>
+<a class="w3-right w3-btn" href="func_msaccess_datediff.html"><span class="w3-hide-small">Next </span>&#10095;</a>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Add two years to a specified date:</p>
+<div class="w3-code notranslate sqlHigh">
+  SELECT DateAdd("yyyy", 2, #22/11/2017#);</div>
+<a target="_blank" href="trysql84f6.html?filename=trysql_func_ms_dateadd&amp;ss=-1" class="w3-btn w3-margin-bottom">Try it Yourself &raquo;</a>
+</div>
+<hr>
+
+<h2>Definition and Usage</h2>
+<p>The DateAdd() function adds a time/date interval to a date and then returns 
+the date.</p>
+
+<h2>Syntax</h2>
+<div class="w3-code w3-border notranslate">
+DateAdd(<em>interval</em>, <em>number</em>, <em>date</em>)</div>
+
+<h2>Parameter Values</h2>
+<table class="ws-table-all notranslate"> 
+  <tr>
+    <th style="width:23%">Parameter</th>
+    <th>Description</th>  </tr>  
+  <tr>
+    <td><em>interval</em></td>
+    <td>Required. The time/date interval to add. Can be one of the following values:
+    <ul>
+      <li>yyyy = Year</li>
+      <li>q = Quarter</li>
+      <li>m = month</li>
+      <li>y = Day of the year</li>
+      <li>d = Day</li>
+      <li>w = Weekday</li>
+      <li>ww = Week</li>
+      <li>h = hour</li>
+      <li>n = Minute</li>
+      <li>s = Second</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td><em>number</em></td>
+    <td>Required. The number of <em>interval</em> to add to date. Can be 
+    positive (to get dates in the future) or negative (to get dates in the past)</td>
+  </tr>
+  <tr>
+    <td><em>date</em></td>
+    <td>Required. The date to which the interval should be added</td>
+  </tr>
+</table>
+
+<h2>Technical Details</h2>
+<table class="ws-table-all">
+<tr>
+ <th style="width:23%">Works in:</th>
+  <td>From Access 2000</td>
+</tr>
+</table>
+<hr>
+
+<h2>More Examples</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Add one year to the current system date:</p>
+<div class="w3-code notranslate sqlHigh">
+  SELECT DateAdd("yyyy", 1, Date());</div>
+<a target="_blank" href="trysql78dc.html?filename=trysql_func_ms_dateadd2&amp;ss=-1" class="w3-btn w3-margin-bottom">Try it Yourself &raquo;</a>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Add 6 months to the employees' birth date:</p>
+<div class="w3-code notranslate sqlHigh">
+  SELECT LastName, DateAdd("m", 6, BirthDate) FROM Employees;</div>
+<a target="_blank" href="trysql3da6.html?filename=trysql_func_ms_dateadd3&amp;ss=-1" class="w3-btn w3-margin-bottom">Try it Yourself &raquo;</a>
+</div>
+<br>
+
+<div class="w3-clear w3-center nextprev">
+<a class="w3-left w3-btn" href="func_msaccess_date.html">&#10094;<span class="w3-hide-small"> Previous</span></a>
+<a class="w3-btn" title="MS Access Functions" href="sql_ref_msaccess.html">&#10094; MS Access Functions</a>
+<a class="w3-right w3-btn" href="func_msaccess_datediff.html"><span class="w3-hide-small">Next </span>&#10095;</a>
+</div>

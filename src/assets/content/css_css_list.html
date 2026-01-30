@@ -1,0 +1,227 @@
+<h1>CSS <span class="color_h1">Lists</span></h1>
+
+<hr>
+
+<div class="w3-row">
+  <div class="w3-half w3-container">
+  <h3>An unordered list:</h3>
+<ul>
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Coca Cola</li>
+</ul>
+  </div>
+  <div class="w3-half w3-container">
+  <h3>An ordered list:</h3>  
+<ol>
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Coca Cola</li>
+</ol>
+  </div>
+</div> 
+<hr>
+
+<h2>CSS Styling Lists</h2>
+<p>In HTML, there are two main types of lists:</p>
+<ul>
+  <li>&lt;ul&gt; - unordered lists (list items are marked with bullets)</li>
+  <li>&lt;ol&gt; - ordered lists (list items are marked with numbers or letters)</li>
+</ul>
+<p>CSS has the following properties for styling HTML lists:</p>
+<ul>
+  <li><code class="w3-codespan"><a href="../cssref/pr_list-style-type.html">list-style-type</a></code> 
+  - Specifies the type of list-item marker</li>
+  <li><code class="w3-codespan"><a href="../cssref/pr_list-style-image.html">list-style-image</a></code> 
+  - Specifies an image as the list-item marker</li>
+  <li><code class="w3-codespan"><a href="../cssref/pr_list-style-position.html">list-style-position</a></code> 
+  - Specifies the position of the list-item markers</li>
+  <li><code class="w3-codespan"><a href="../cssref/pr_list-style.html">list-style</a></code> 
+  - A shorthand property for the properties above</li>
+</ul>
+
+<hr>
+
+<h2>CSS Style List-item Markers</h2>
+<p>The CSS <code class="w3-codespan"><a href="../cssref/pr_list-style-type.html">list-style-type</a></code> 
+  property specifies the type of list-item 
+marker in a list.</p>
+<p>The following example shows some of the available list-item markers: </p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate cssHigh">
+  ul.a {list-style-type: circle;}<br>ul.b {list-style-type: disc;}<br>ul.c 
+  {list-style-type: square;}<br><br>ol.d {list-style-type: upper-roman;}<br>ol.e 
+  {list-style-type: lower-roman;}<br>ol.f {list-style-type: lower-alpha;}<br>
+  ol.g {list-style-type: decimal;}</div>
+
+</div>
+<p><strong>Note:</strong> Some of the values are for unordered lists, and some for ordered lists.</p>
+
+<hr>
+
+<hr>
+
+<h2>CSS Replace List-item Marker with an Image</h2>
+<p>The CSS <code class="w3-codespan"><a href="../cssref/pr_list-style-image.html">list-style-image</a></code> property is used to replace the list-item marker with an image.</p>
+<p><strong>Note:</strong> Always specify a <code class="w3-codespan"><a href="../cssref/pr_list-style-type.html">list-style-type</a></code> property in addition. This property is used if the image for some reason is unavailable.</p>
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Replace the list-item markers with an image:</p>
+<div class="w3-code notranslate cssHigh">
+ul
+{<br>
+  &nbsp; list-style-image: url('sqpurple.gif');<br>&nbsp; list-style-type: 
+  square;<br>
+}</div>
+
+</div>
+
+<hr>
+
+<h2>CSS Position the List-item Markers</h2>
+<p>The CSS <code class="w3-codespan"><a href="../cssref/pr_list-style-position.html">list-style-position</a></code> 
+  property specifies the position of the list-item markers 
+(bullet points).</p>
+<p><code class="w3-codespan">list-style-position: outside;</code> means that the bullet points will be outside 
+the list item. The start of each line of a list item will be aligned vertically. 
+This is default:</p>
+<ul style="list-style-position:outside;width:25%;">
+<li style="border:1px solid #000000;">Coffee</li>
+<li style="border:1px solid #000000;border-top:0;">Tea</li>
+<li style="border:1px solid #000000;border-top:0;">Coca-cola</li>
+</ul>
+<p><code class="w3-codespan">list-style-position: inside;</code> means that the bullet points will be inside 
+the list item. As it is part of the list item, it will be part of the text and 
+push the text at the start:</p>
+<ul style="list-style-position:inside;width:25%;">
+<li style="border:1px solid #000000;">Coffee</li>
+<li style="border:1px solid #000000;border-top:0;">Tea</li>
+<li style="border:1px solid #000000;border-top:0;">Coca-cola</li>
+</ul>
+
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Position the list-item markers:</p>
+<div class="w3-code notranslate cssHigh">
+  ul.a {<br>&nbsp; list-style-position: outside;<br>}<br><br>ul.b {<br>&nbsp;&nbsp;list-style-position: inside;<br>}</div>
+
+</div>
+
+<hr>
+
+<h2>CSS Remove List-Item Markers</h2>
+<p>The <code class="w3-codespan">list-style-type:none;</code> property is 
+used to remove the list-item markers.</p>
+<p><strong>Note:</strong> A list has a default margin 
+and padding. To remove this, add <code class="w3-codespan">margin:0</code> and <code class="w3-codespan">padding:0</code> to 
+the &lt;ul&gt; or &lt;ol&gt; element:</p>
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Remove the list-item markers:</p>
+<div class="w3-code notranslate cssHigh">
+ul
+{<br>
+  &nbsp;
+list-style-type: none;<br>&nbsp; margin: 0;<br>&nbsp; 
+  padding: 0;<br>
+}</div>
+
+</div>
+
+<hr>
+
+<h2>CSS list-style Shorthand Property</h2>
+<p>The <code class="w3-codespan"><a href="../cssref/pr_list-style.html">list-style</a></code> property is a shorthand property. It is used to set all the 
+list properties in one declaration.</p>
+
+<p>When using the shorthand property, the order of the property values are:</p>
+<ul>
+  <li><code class="w3-codespan"><a href="../cssref/pr_list-style-type.html">list-style-type</a></code></li>
+  <li><code class="w3-codespan"><a href="../cssref/pr_list-style-position.html">list-style-position</a></code></li>
+  <li><code class="w3-codespan"><a href="../cssref/pr_list-style-image.html">list-style-image</a></code></li>
+</ul>
+<p>If one of the property values above is missing, the default value for the missing property will be inserted.</p>
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Use the list-style shorthand property:</p>
+<div class="w3-code notranslate cssHigh">
+ul
+{<br>
+  &nbsp;
+list-style: square inside url(&quot;sqpurple.gif&quot;);<br>
+}</div>
+
+</div>
+
+<hr>
+
+<h2>CSS Styling List With Colors</h2>
+<p>We can also style lists with colors, margins and padding, to make them look a little more 
+interesting.</p>
+<p>Anything added to the &lt;ol&gt; or &lt;ul&gt; tag, affects the entire list, while 
+properties added to the &lt;li&gt; tag will affect the individual list items:</p>
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Styling lists with colors, margins and padding:</p>
+<div class="w3-code notranslate cssHigh">
+  ol {<br>&nbsp; background: salmon;<br>&nbsp; padding: 20px;<br>}<br><br>ol li {<br>&nbsp; 
+  background: mistyrose;<br>&nbsp; color: darkred;<br>&nbsp; padding: 10px;<br>&nbsp; 
+  margin-left: 20px;<br>}<br><br>ul {<br>&nbsp; background: powderblue;<br>&nbsp; padding: 
+  20px;<br>}<br>
+  <br>ul li {<br>&nbsp; background: mistyrose;<br>&nbsp; color: darkblue;<br>&nbsp; 
+  margin: 5px;<br>}</div>
+<p>Result:</p>
+<div class="w3-padding w3-white notranslate">
+<ol id="ex4">
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Coca Cola</li>
+</ol>
+<ul id="ex5">
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Coca Cola</li>
+</ul>
+</div>
+
+</div>
+
+<hr>
+<h2>More Examples</h2>
+<p><a target="_blank" href="tryit91e9.html?filename=trycss_list-style-red-border">Customized list with a red left border</a><br>
+This example demonstrates how to create a list with a red left border.</p>
+<p><a target="_blank" href="tryit896a.html?filename=trycss_list-style-border">Full-width bordered list</a><br>
+This example demonstrates how to create a bordered list without bullets.</p>
+<p><a target="_blank" href="tryit3139.html?filename=trycss_list-style-type_all">All the different list-item markers for lists</a><br>
+This example demonstrates all the different list-item markers in CSS.</p>
+<hr>
+
+<hr>
+
+<h2>All CSS List Properties</h2>
+
+<table class="ws-table-all notranslate">
+  <tr>
+    <th style="width:30%">Property</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_list-style.html">list-style</a></td>
+    <td>Sets all the properties for a list in one declaration</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_list-style-image.html">list-style-image</a></td>
+    <td>Specifies an image as the list-item marker</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_list-style-position.html">list-style-position</a></td>
+    <td>Specifies the position of the list-item markers (bullet points)</td>
+  </tr>
+  <tr>
+    <td><a href="../cssref/pr_list-style-type.html">list-style-type</a></td>
+    <td>Specifies the type of list-item marker</td>
+  </tr>
+</table>
+
+<br>

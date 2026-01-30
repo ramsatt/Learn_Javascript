@@ -1,0 +1,294 @@
+<h1>PHP <span class="color_h1">Functions</span></h1>
+
+<hr>
+<h2>PHP Built-in Functions</h2>
+<p>PHP has over 1000 built-in functions that can be called directly, from within 
+a script, to perform 
+a specific task. Please check out our <a href="php_ref_overview.html">PHP reference</a> 
+for a complete overview.</p>
+<hr>
+
+<h2>PHP User Defined Functions</h2>
+<p>Besides the built-in PHP functions, it is possible to create your own functions.</p>
+<ul>
+  <li>A function is a block of statements that can be used repeatedly in a program.</li>
+  <li>A function is not executed automatically when a page loads.</li>
+  <li>A function is executed only when it is called.</li>
+</ul>
+<hr>
+
+<h2>Create a Function</h2>
+<p>A user-defined function declaration starts with the keyword <code class="w3-codespan">
+<a href="keyword_function.html">function</a></code>, followed by the name of the 
+function.</p>
+<p>The opening 
+curly brace <code class="w3-codespan">{</code> indicates the beginning of the function code, and the closing 
+curly brace <code class="w3-codespan">}</code> indicates the end of the function.</p>
+<p><strong>Note:</strong> A function name is not case-sensitive, and it must 
+start with a letter or an underscore.</p>
+<h3>Syntax</h3>
+<div class="w3-example">
+<pre class="language-php notranslate w3-white"><code>function <em>functionName</em>(<i>$parameter1,</i> <i>$parameter2</i>) {
+  // <i>code to be executed
+  </i>return <i>$value</i>; // optional
+}</code></pre>
+</div>
+
+<p>The following example creates a function named <code class="w3-codespan">myMessage()</code>:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-php notranslate w3-white"><code>function myMessage() {
+  echo &quot;Hello world!&quot;;
+}</code></pre>
+</div>
+
+<p><strong>Tip:</strong> Give the function a name that reflects what the function does!</p>
+<hr>
+
+<h2>Call a Function</h2>
+<p>To call a function, just write its name followed by parentheses
+<code class="w3-codespan">()</code>.</p>
+<p>The function below outputs &quot;Hello world!&quot;:</p>
+<div class="w3-example">
+<h3>Example</h3>
+  <p>Call the function myMessage()</p>
+<pre class="language-php notranslate w3-white"><code>function myMessage() {
+  echo "Hello world!";
+}
+
+myMessage();</code></pre>
+
+</div>
+<hr>
+
+<hr>
+
+<h2>PHP Function Parameters</h2>
+<p>Information can be passed to functions through parameters. A parameter is just 
+like a variable.</p>
+<p>Parameters are specified after the function name, inside the parentheses. You 
+can add as many parameters as you want, just separate them with a comma. </p>
+
+<p>The following example has a function with one parameter <code class="w3-codespan">($fname)</code>. When the 
+<code class="w3-codespan">familyName()</code> function is called,
+we also pass along a name, e.g. <code class="w3-codespan">("Jani")</code>, and the 
+name is used inside the function, which outputs several different first names, 
+but an equal last name:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-php notranslate w3-white"><code>function familyName($fname) {
+  echo "$fname Refsnes.&lt;br&gt;";
+}
+
+familyName("Jani");
+familyName("Hege");
+familyName("Stale");
+familyName("Kai Jim");
+familyName("Borge");</code></pre>
+
+</div>
+
+<p>The following example has a function with two parameters <code class="w3-codespan">($fname, $year)</code>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-php notranslate w3-white"><code>function familyName($fname, $year) {
+  echo "$fname Refsnes. Born in $year.&lt;br&gt;";
+}
+
+familyName("Hege", "1975");
+familyName("Stale", "1978");
+familyName("Kai Jim", "1983");</code></pre>
+
+</div>
+<hr>
+
+<h2>PHP Default Parameter Value</h2>
+<p>The following example shows how to use a default parameter.</p>
+<p>If we call the 
+function <code class="w3-codespan">setHeight()</code> without a parameter, it 
+will take the default value:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-php notranslate w3-white"><code>function setHeight($height = 50) {
+  echo "The height is : $height &lt;br&gt;";
+}
+
+setHeight(350);
+setHeight(); // will take the default value of 50</code></pre>
+
+</div>
+<hr>
+
+<h2>PHP Functions - Returning values</h2>
+<p>The <code class="w3-codespan">
+<a href="keyword_return.html">return</a></code> statement immediately ends the 
+execution of a function, and returns a value back to the line of code that 
+called it:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-php notranslate w3-white"><code>function sum($x, $y) {
+  $z = $x + $y;
+  return $z;
+}
+
+echo "5 + 10 = " . sum(5, 10) . "&lt;br&gt;";
+echo "7 + 13 = " . sum(7, 13) . "&lt;br&gt;";
+echo "2 + 4 = " . sum(2, 4);</code></pre>
+
+</div>
+<hr>
+
+<h2>Passing Arguments by Reference</h2>
+<p>Arguments are usually passed by value, which means that a copy of the value is
+used in the function and the variable that was passed into the function cannot be changed.</p>
+<p>When a function argument is passed by reference, changes to the argument also change
+the variable that was passed in. To turn a function argument into a reference, 
+use the <code class="w3-codespan">&</code>
+operator in front of the argument/parameter:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Use a pass-by-reference argument to update a variable:</p>
+<pre class="language-php notranslate w3-white"><code>function add_five(&amp;$value) {
+  $value += 5;
+}
+
+$num = 2;
+add_five($num);
+echo $num;</code></pre>
+
+</div>
+
+<hr>
+<h2>Variable Number of Parameters</h2>
+<p>By using the <code class="w3-codespan">...</code> operator in front of the function parameter, the function 
+accepts an unknown number of parameters. This is also called a variadic function.</p>
+<p>The variadic function argument becomes an array.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>A function that do not know how many arguments it will get:</p>
+<pre class="language-php notranslate w3-white"><code>function sumMyNumbers(...$x) {
+  $n = 0;
+  $len = count($x);
+  for($i = 0; $i &lt; $len; $i++) {
+    $n += $x[$i];
+  }
+  return $n;
+}
+
+$a = sumMyNumbers(5, 2, 6, 2, 7, 7);
+echo $a;
+</code></pre>
+
+</div>
+
+<p>You can only have one argument with variable length, and it has to be the last argument.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<p>The variadic argument must be the last argument:</p>
+<pre class="language-php notranslate w3-white"><code>function myFamily($lastname, ...$firstname) {
+  $txt = &quot;&quot;;
+  $len = count($firstname);
+  for($i = 0; $i &lt; $len; $i++) {
+    $txt = $txt.&quot;Hi, $firstname[$i] $lastname.&lt;br&gt;&quot;;
+  }
+  return $txt;
+}
+
+$a = myFamily(&quot;Doe&quot;, &quot;Jane&quot;, &quot;John&quot;, &quot;Joey&quot;);
+echo $a;
+</code></pre>
+
+</div>
+
+<p>If the variadic argument is not the last argument, you will get an error.</p>
+<div class="w3-example w3-pale-red">
+<h3>Example</h3>
+<p>Having the <code class="w3-codespan">...</code> operator on the first of two arguments, will raise an error:</p>
+<pre class="language-php notranslate w3-white"><code>function myFamily(...$firstname, $lastname) {
+  $txt = &quot;&quot;;
+  $len = count($firstname);
+  for($i = 0; $i &lt; $len; $i++) {
+    $txt = $txt.&quot;Hi, $firstname[$i] $lastname.&lt;br&gt;&quot;;
+  }
+  return $txt;
+}
+
+$a = myFamily(&quot;Doe&quot;, &quot;Jane&quot;, &quot;John&quot;, &quot;Joey&quot;);
+echo $a;
+</code></pre>
+
+</div>
+
+
+<hr>
+<h2>PHP is a Loosely Typed Language</h2>
+<p>In the examples above, notice that we did not have to tell PHP which data type the variable is.</p>
+<p>PHP automatically associates a data type to the variable, depending on its value. 
+Since the data types are not set, you can do things like 
+adding a string to an integer without causing an error.</p>
+<p>From PHP 7, type declarations were added. This gives us an option to specify 
+the expected data type when declaring a function, and by adding the <code class="w3-codespan">strict</code> 
+declaration, it will throw a &quot;Fatal 
+Error&quot; if the data type mismatches.</p>
+
+<p>To specify <code class="w3-codespan">strict</code> mode, we need to set <code class="w3-codespan">
+<a href="keyword_declare.html">declare(strict_types=1);</a></code>. 
+This must be on the very first line of the PHP file.</p>
+
+<p>In the following example we send both a number and a string to the 
+function, but here we have added the <code class="w3-codespan">strict</code> 
+declaration:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-php notranslate w3-white"><code>&lt;?php declare(strict_types=1); // strict requirement
+
+function addNumbers(int $a, int $b) {
+  return $a + $b;
+}
+echo addNumbers(5, &quot;5 days&quot;);
+// since &quot;5 days&quot; is not an integer, an error will be thrown
+?&gt;</code></pre>
+
+</div>
+
+<div class="w3-panel ws-note">
+<p>The <code class="w3-codespan">strict</code> declaration forces things to be used in the intended way.</p>
+</div>
+<hr>
+
+<h2>PHP Return Type Declarations</h2>
+<p>PHP also supports Type Declarations for the <code class="w3-codespan">
+<a href="keyword_return.html">return</a></code>  
+statement.</p>
+<p>To declare a data type for the function return, add a colon (
+<code class="w3-codespan">:</code> ) and the data type right before the opening curly 
+( <code class="w3-codespan">{</code> ) bracket when declaring the function.</p>
+<p>In the following example we specify the return type (float) for the function:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-php notranslate w3-white"><code>&lt;?php declare(strict_types=1); // strict requirement
+
+function addNumbers(float $a, float $b) : float {
+  return $a + $b;
+}
+echo addNumbers(1.2, 5.2);
+?&gt;</code></pre>
+
+</div>
+
+<p>You can also specify a different return type, than the argument types, but make 
+sure the return is the correct type:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-php notranslate w3-white"><code>&lt;?php declare(strict_types=1); // strict requirement
+
+function addNumbers(float $a, float $b) : int {
+  return (int)($a + $b);
+}
+echo addNumbers(1.2, 5.2);</code></pre>
+
+</div>
+<hr>
+
+<hr>

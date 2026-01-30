@@ -1,0 +1,132 @@
+<h1>Java <span class="color_h1">User Input (Scanner)</span></h1>
+
+<hr>
+
+<h2>Java User Input</h2>
+<p>The <code class="w3-codespan">Scanner</code> class is used to get 
+user input, and it is found in the <code class="w3-codespan">java.util</code> package.</p>
+
+<p>To use the <code class="w3-codespan">Scanner</code> class, create an object of the class and use any of the available methods found in the <code class="w3-codespan">Scanner</code> class documentation. 
+In our example, we will use the <code class="w3-codespan">nextLine()</code> method, which is used to read Strings:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>import java.util.Scanner;&nbsp; // Import the Scanner class
+
+class Main {
+&nbsp; public static void main(String[] args) {
+&nbsp;&nbsp;&nbsp; Scanner myObj = new Scanner(System.in);&nbsp; // Create a Scanner object
+&nbsp;&nbsp;&nbsp; System.out.println(&quot;Enter username&quot;);
+
+&nbsp;&nbsp;&nbsp; String userName = myObj.nextLine();&nbsp; // Read user input
+&nbsp;&nbsp;&nbsp; System.out.println(&quot;Username is: &quot; + userName);&nbsp; // Output user input
+&nbsp; }
+}
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showjava5cf6.html?filename=demo_api_scanner">Run Example &raquo;</a>
+</p>
+</div>
+<div class="ws-note w3-panel">
+<p>If you don't know what a package is, read our <a href="java_packages.html">Java Packages Tutorial</a>.</p>
+</div>
+
+<hr>
+
+<h2>Input Types</h2>
+<p>In the example above, we used the <code class="w3-codespan">nextLine()</code> method, which is used to read Strings. To read other types, look at the table below:</p>
+<div class="w3-responsive" style="margin:-16px 0;">
+<table class="ws-table-all notranslate">
+<tbody>
+<tr>
+<th style="width:26%">Method</th>
+<th style="width:74%">Description</th>
+</tr>
+<tr>
+<td><code class="w3-codespan">nextBoolean()</code></td>
+<td>Reads a <code class="w3-codespan">boolean</code> value from the user</td>
+
+</tr>
+<tr>
+<td><code class="w3-codespan">nextByte()</code></td>
+<td>Reads a <code class="w3-codespan">byte</code> value from the user</td>
+
+</tr>
+<tr>
+<td><code class="w3-codespan">nextDouble()</code></td>
+<td>Reads a <code class="w3-codespan">double</code> value from the user</td>
+
+</tr>
+<tr>
+<td><code class="w3-codespan">nextFloat()</code></td>
+<td>Reads a <code class="w3-codespan">float</code> value from the user</td>
+
+</tr>
+<tr>
+<td><code class="w3-codespan">nextInt()</code></td>
+<td>Reads a <code class="w3-codespan">int</code> value from the user</td>
+
+</tr>
+<tr>
+<td><code class="w3-codespan">nextLine()</code></td>
+<td>Reads a <code class="w3-codespan">String</code> value from the user</td>
+
+</tr>
+<tr>
+<td><code class="w3-codespan">nextLong()</code></td>
+<td>Reads a <code class="w3-codespan">long</code> value from the user</td>
+
+</tr>
+<tr>
+<td><code class="w3-codespan">nextShort()</code></td>
+<td>Reads a <code class="w3-codespan">short</code> value from the user</td>
+
+</tr>
+</tbody>
+</table>
+</div>
+<p>In the example below, we use different methods to read data of various types:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-java w3-white"><code>import java.util.Scanner;
+
+class Main {
+&nbsp; public static void main(String[] args) {
+&nbsp;&nbsp;&nbsp; Scanner myObj = new Scanner(System.in);
+
+&nbsp;&nbsp;&nbsp; System.out.println(&quot;Enter name, age and salary:&quot;);
+
+&nbsp;&nbsp;&nbsp; // String input
+&nbsp;&nbsp;&nbsp; String name = myObj.nextLine();
+
+&nbsp;&nbsp;&nbsp; // Numerical input
+&nbsp;&nbsp;&nbsp; int age = myObj.nextInt();
+&nbsp;&nbsp;&nbsp; double salary = myObj.nextDouble();
+
+&nbsp;&nbsp;&nbsp; // Output input by user
+&nbsp;&nbsp;&nbsp; System.out.println(&quot;Name: &quot; + name);
+&nbsp;&nbsp;&nbsp; System.out.println(&quot;Age: &quot; + age);
+&nbsp;&nbsp;&nbsp; System.out.println(&quot;Salary: &quot; + salary);
+&nbsp; }
+}
+</code></pre>
+<p>
+<a target="_blank" class="w3-btn" href="showjava6ac4.html?filename=demo_api_scanner2">Run Example &raquo;</a>
+</p>
+</div>
+
+<div class="ws-warning w3-panel">
+<p><strong>Note:</strong> If you enter wrong input (e.g. text in a numerical input), you will get an exception/error message (like "InputMismatchException").</p>
+<p>You can read more about exceptions and how to handle errors in the <a href="java_try_catch.html">Exceptions chapter</a>.</p>
+</div>
+<hr>
+
+<div>
+<h2>Complete Scanner Reference</h2>
+<p><strong>Tip:</strong> For a complete reference of Scanner methods, go to our <a href="java_ref_scanner.html">Java Scanner Reference</a>.</p>
+</div>
+
+<hr>
+
+<hr>
+
+<br>

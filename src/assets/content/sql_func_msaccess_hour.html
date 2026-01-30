@@ -1,0 +1,71 @@
+<h1>MS Access <span class="color_h1">Hour()</span> Function</h1>
+
+<div class="w3-clear w3-center nextprev">
+<a class="w3-left w3-btn" href="func_msaccess_format_date.html">&#10094;<span class="w3-hide-small"> Previous</span></a>
+<a class="w3-btn" title="MS Access Functions" href="sql_ref_msaccess.html">&#10094; MS Access Functions</a>
+<a class="w3-right w3-btn" href="func_msaccess_minute.html"><span class="w3-hide-small">Next </span>&#10095;</a>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Return the hour for a specified time:</p>
+<div class="w3-code notranslate sqlHigh">
+  SELECT 
+  Hour(#14:48:23#);</div>
+<a target="_blank" href="trysql05f6.html?filename=trysql_func_ms_hour&amp;ss=-1" class="w3-btn w3-margin-bottom">Try it Yourself &raquo;</a>
+</div>
+<hr>
+
+<h2>Definition and Usage</h2>
+<p>The Hour() function returns the hour part of a time/datetime.</p>
+<p>This function returns an integer between 0 and 23.</p>
+
+<h2>Syntax</h2>
+<div class="w3-code w3-border notranslate">
+  Hour(<em>time</em>)</div>
+
+<h2>Parameter Values</h2>
+<table class="ws-table-all notranslate"> 
+  <tr>
+    <th style="width:23%">Parameter</th>
+    <th>Description</th>  </tr>  
+  <tr>
+    <td><em>time</em></td>
+    <td>Required. A numeric or string expression that can represent a valid 
+    time/datetime</td>
+  </tr>
+  </table>
+
+<h2>Technical Details</h2>
+<table class="ws-table-all">
+<tr>
+ <th style="width:23%">Works in:</th>
+  <td>From Access 2000</td>
+</tr>
+</table>
+<hr>
+
+<h2>More Examples</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<p>Return the hour for the current time:</p>
+<div class="w3-code notranslate sqlHigh">
+  SELECT 
+  Hour(Now());</div>
+<a target="_blank" href="trysql8e2f.html?filename=trysql_func_ms_hour2&amp;ss=-1" class="w3-btn w3-margin-bottom">Try it Yourself &raquo;</a>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Return the hour for a specified datetime:</p>
+<div class="w3-code notranslate sqlHigh">
+  SELECT Hour(#24/10/2016 11:18:34 PM#);</div>
+<a target="_blank" href="trysqladbf.html?filename=trysql_func_ms_hour3&amp;ss=-1" class="w3-btn w3-margin-bottom">Try it Yourself &raquo;</a>
+</div>
+<br>
+
+<div class="w3-clear w3-center nextprev">
+<a class="w3-left w3-btn" href="func_msaccess_format_date.html">&#10094;<span class="w3-hide-small"> Previous</span></a>
+<a class="w3-btn" title="MS Access Functions" href="sql_ref_msaccess.html">&#10094; MS Access Functions</a>
+<a class="w3-right w3-btn" href="func_msaccess_minute.html"><span class="w3-hide-small">Next </span>&#10095;</a>
+</div>

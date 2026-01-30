@@ -1,0 +1,111 @@
+<h1>jQuery - <span class="color_h1">Get and Set CSS Classes</span></h1>
+
+<hr>
+<button id="btnEx" class="w3-btn w3-blue">Toggle class</button>
+<p id="test">With jQuery, it is easy to manipulate the style of elements.</p>
+<hr>
+<h2>jQuery Manipulating CSS</h2>
+<p>jQuery has several methods for CSS manipulation. We will look at the 
+following methods:</p>
+<ul>
+  <li><code class="w3-codespan">addClass()</code> - Adds one or more classes to the selected elements</li>
+  <li><code class="w3-codespan">removeClass()</code> - Removes one or more classes from the selected elements</li>
+  <li><code class="w3-codespan">toggleClass()</code> - Toggles between adding/removing classes from the selected elements</li>
+  <li><code class="w3-codespan">css()</code> - Sets or returns the style attribute</li>
+</ul>
+
+<hr>
+<h2>Example Stylesheet</h2>
+<p>The following stylesheet will be used for all the examples on this page:</p>
+<div class="w3-code w3-border notranslate cssHigh"><div>
+.important
+{<br>
+  &nbsp;
+font-weight: bold;<br>
+  &nbsp;
+font-size: xx-large;<br>
+}<br>
+<br>
+.blue
+{<br>
+  &nbsp;
+color: blue;<br>
+}</div></div>
+<hr>
+<h2>jQuery addClass() Method</h2>
+<p>The following example shows how to add class attributes to different 
+elements. Of course you can select multiple elements, when adding classes:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;button&quot;).click(function(){<br>
+&nbsp;&nbsp;$(&quot;h1, h2, p&quot;).addClass(&quot;blue&quot;);<br>
+  &nbsp; $(&quot;div&quot;).addClass(&quot;important&quot;);<br>
+});
+</div>
+
+</div>
+<p>You can also specify multiple classes within the <code class="w3-codespan">addClass()</code> method:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;button&quot;).click(function(){<br>
+  &nbsp; $(&quot;#div1&quot;).addClass(&quot;important blue&quot;);<br>
+});
+</div>
+
+</div>
+<hr>
+
+<hr>
+<h2>jQuery removeClass() Method</h2>
+<p>The following example shows how to remove a specific class attribute from different 
+elements:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;button&quot;).click(function(){<br>
+&nbsp;&nbsp;$(&quot;h1, h2, p&quot;).removeClass(&quot;blue&quot;);<br>
+});
+</div>
+
+</div>
+<hr>
+<h2>jQuery toggleClass() Method</h2>
+<p>The following example will show how to use the jQuery <code class="w3-codespan">toggleClass()</code> method. 
+This method toggles between adding/removing classes from the selected elements:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+$(&quot;button&quot;).click(function(){<br>
+&nbsp;&nbsp;$(&quot;h1, h2, p&quot;).toggleClass(&quot;blue&quot;);<br>
+});
+</div>
+
+</div>
+<hr>
+<h2>jQuery css() Method</h2>
+<p>The jQuery <code class="w3-codespan">css()</code> method will be explained in the next chapter.</p>
+<hr>
+
+<h2>jQuery Exercises</h2>
+<form autocomplete="off" id="w3-exerciseform" action="https://www.w3schools.com/jquery/exercise_jq.asp?filename=exercise_jq_css_classes1" method="post" target="_blank">
+<h2>Test Yourself With Exercises</h2>
+<div class="exercisewindow">
+<h2>Exercise:</h2>
+<p>Use a jQuery method to <strong>add</strong> the "important" class to a &lt;p&gt; element.</p>
+<div class="exerciseprecontainer">
+<pre style="background-color:transparent;border:none;">
+$("p").<input name="ex1" maxlength="8" style="width:85px;">("<input name="ex2" maxlength="12" style="width:95px;">");
+</pre>
+</div>
+<br>
+<button type="submit" class="w3-btn w3-margin-bottom">Submit Answer &raquo;</button>
+<p><a target="_blank" href="exercise_jqf450.html?filename=exercise_jq_css_classes1">Start the Exercise</a></p>
+</div>
+</form>
+<hr>
+
+<h2>jQuery CSS Reference</h2>
+<p>For a complete overview of all jQuery CSS methods, please go to our <a href="jquery_ref_html.html">jQuery HTML/CSS Reference</a>.</p>
+<br>
