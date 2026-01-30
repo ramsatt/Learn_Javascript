@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://codingtamilan.in/</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Home/Dashboard -->
+  <url>
+    <loc>https://codingtamilan.in/home</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- JavaScript Course -->
+  <url>
+    <loc>https://codingtamilan.in/course/javascript</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- HTML Course -->
+  <url>
+    <loc>https://codingtamilan.in/course/html</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- CSS Course -->
+  <url>
+    <loc>https://codingtamilan.in/course/css</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Java Course -->
+  <url>
+    <loc>https://codingtamilan.in/course/java</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Python Course -->
+  <url>
+    <loc>https://codingtamilan.in/course/python</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- jQuery Course -->
+  <url>
+    <loc>https://codingtamilan.in/course/jquery</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- JSON Course -->
+  <url>
+    <loc>https://codingtamilan.in/course/json</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SQL Course -->
+  <url>
+    <loc>https://codingtamilan.in/course/sql</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- PHP Course -->
+  <url>
+    <loc>https://codingtamilan.in/course/php</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- C Course -->
+  <url>
+    <loc>https://codingtamilan.in/course/c</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- C++ Course -->
+  <url>
+    <loc>https://codingtamilan.in/course/cpp</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- React Course -->
+  <url>
+    <loc>https://codingtamilan.in/course/react</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Angular Course -->
+  <url>
+    <loc>https://codingtamilan.in/course/angular</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- MySQL Course -->
+  <url>
+    <loc>https://codingtamilan.in/course/mysql</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- XML Course -->
+  <url>
+    <loc>https://codingtamilan.in/course/xml</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Node.js Course -->
+  <url>
+    <loc>https://codingtamilan.in/course/nodejs</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- TypeScript Course -->
+  <url>
+    <loc>https://codingtamilan.in/course/typescript</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Git Course -->
+  <url>
+    <loc>https://codingtamilan.in/course/git</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- MongoDB Course -->
+  <url>
+    <loc>https://codingtamilan.in/course/mongodb</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ASP.NET Course -->
+  <url>
+    <loc>https://codingtamilan.in/course/asp</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- PostgreSQL Course -->
+  <url>
+    <loc>https://codingtamilan.in/course/postgresql</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Go Course -->
+  <url>
+    <loc>https://codingtamilan.in/course/go</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Kotlin Course -->
+  <url>
+    <loc>https://codingtamilan.in/course/kotlin</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Bootstrap 5 Course -->
+  <url>
+    <loc>https://codingtamilan.in/course/bootstrap5</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>

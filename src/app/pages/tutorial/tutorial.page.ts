@@ -1,5 +1,5 @@
 
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TutorialService } from '../../services/tutorial.service';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
@@ -15,7 +15,7 @@ import 'prismjs/components/prism-markup'; // html
   styleUrls: ['./tutorial.page.scss'],
   standalone: false,
 })
-export class TutorialPage implements OnInit {
+export class TutorialPage implements OnInit, OnDestroy {
   content: SafeHtml | string = "";
   title: string = "Tutorial";
   loading = true;
@@ -54,6 +54,11 @@ export class TutorialPage implements OnInit {
             this.updateNavButtons();
         }
     });
+  }
+
+  ngOnDestroy() {
+    // Hide banner when leaving the page
+    this.admobService.hideBanner();
   }
 
   loadMenu() {
@@ -115,17 +120,21 @@ export class TutorialPage implements OnInit {
       next: (html) => {
         this.content = this.sanitizer.bypassSecurityTrustHtml(html);
         this.loading = false;
-        this.loading = false;
           
         // Trigger highlight after view update
         setTimeout(() => {
              Prism.highlightAll();
-        }, 100);
+             
+             // Show banner ad only after content is loaded and visible
+             // This ensures we comply with AdSense policy (ads only on pages with content)
+             this.admobService.showBanner();
+        }, 500);
       },
       error: (err) => {
         console.error(err);
         this.content = "<p>Error loading content.</p>";
         this.loading = false;
+        // Don't show ads on error pages
       }
     });
   }

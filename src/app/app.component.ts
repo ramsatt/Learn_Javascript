@@ -30,7 +30,6 @@ export class AppComponent {
 
   async initializeApp() {
     await this.platform.ready();
-    // Initialize Ads and Show Banner
-    this.admobService.showBanner();
+    // AdMob initialized - banner will be shown on content pages only
   }
 }
