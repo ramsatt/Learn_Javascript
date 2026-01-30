@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { AlertController, LoadingController } from '@ionic/angular';
 import { AdmobService } from '../services/admob.service';
 import { AuthService } from '../services/auth.service';
+import { SeoService } from '../services/seo.service';
 
 interface TutorialItem {
     title: string;
@@ -54,7 +55,8 @@ export class HomePage implements OnInit {
     private alertCtrl: AlertController,
     private admobService: AdmobService,
     private loadingCtrl: LoadingController,
-    public authService: AuthService
+    public authService: AuthService,
+    private seoService: SeoService
   ) {}
 
   async login() {
@@ -102,6 +104,9 @@ export class HomePage implements OnInit {
   ionViewWillEnter() {
       // Close sidebar on page enter (especially important for mobile)
       this.sidebarOpen = false;
+      
+      // Update SEO meta tags for home page
+      this.seoService.generateHomeMetaTags();
       
       // Refresh progress when returning to the page
       this.refreshGamification();

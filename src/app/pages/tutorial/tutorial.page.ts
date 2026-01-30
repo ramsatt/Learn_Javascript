@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TutorialService } from '../../services/tutorial.service';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { AdmobService } from '../../services/admob.service';
+import { SeoService } from '../../services/seo.service';
 import * as Prism from 'prismjs';
 import 'prismjs/components/prism-javascript';
 import 'prismjs/components/prism-css';
@@ -35,7 +36,8 @@ export class TutorialPage implements OnInit, OnDestroy {
     private router: Router,
     public tutorialService: TutorialService,
     private sanitizer: DomSanitizer,
-    private admobService: AdmobService
+    private admobService: AdmobService,
+    private seoService: SeoService
   ) { }
 
   ngOnInit() {
@@ -52,6 +54,9 @@ export class TutorialPage implements OnInit, OnDestroy {
             this.title = file.replace('.html', '').replace(/_/g, ' ').toUpperCase();
             this.loadContent(file);
             this.updateNavButtons();
+            
+            // Update SEO meta tags for tutorial
+            this.seoService.generateTutorialMetaTags(this.title, 'Programming Tutorial', file);
         }
     });
   }
