@@ -1055,9 +1055,39 @@ body.dark .dark-dimmer {
     top: 0;
     height: 100vh;
     z-index: 50;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     
     @media (max-width: 900px) {
-        display: none;
+        position: fixed;
+        left: 0;
+        top: 0;
+        transform: translateX(-100%);
+        box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+        
+        &.mobile-open {
+            transform: translateX(0);
+        }
+    }
+}
+
+/* Sidebar Overlay for Mobile */
+.sidebar-overlay {
+    display: none;
+    
+    @media (max-width: 900px) {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 45;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s;
+        
+        &.active {
+            opacity: 1;
+            pointer-events: all;
+        }
     }
 }
 
@@ -1193,6 +1223,10 @@ body.dark .dark-dimmer {
     overflow-y: auto;
     position: relative;
     scroll-behavior: smooth;
+    
+    @media (max-width: 900px) {
+        width: 100%;
+    }
 }
 
 /* Header */
@@ -1209,6 +1243,10 @@ body.dark .dark-dimmer {
     top: 0;
     z-index: 40;
     box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    
+    @media (max-width: 900px) {
+        padding: 16px 20px;
+    }
 }
 
 .header-title-row {
@@ -1222,6 +1260,10 @@ body.dark .dark-dimmer {
         letter-spacing: -0.05em;
         margin: 0;
         color: var(--ct-text-dark);
+        
+        @media (max-width: 768px) {
+            font-size: 1.2rem;
+        }
     }
 }
 
@@ -1229,6 +1271,10 @@ body.dark .dark-dimmer {
     display: flex;
     align-items: center;
     gap: 16px;
+    
+    @media (max-width: 768px) {
+        gap: 8px;
+    }
 }
 
 .ct-search {
@@ -1241,6 +1287,15 @@ body.dark .dark-dimmer {
     gap: 12px;
     width: 280px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    @media (max-width: 900px) {
+        width: 200px;
+        padding: 10px 16px;
+    }
+    
+    @media (max-width: 600px) {
+        display: none;
+    }
     
     &:focus-within {
         background: white;
@@ -1301,11 +1356,25 @@ body.dark .dark-dimmer {
     }
 }
 
+/* Mobile Menu Button */
+.mobile-menu-btn {
+    display: none;
+    margin-right: 12px;
+    
+    @media (max-width: 900px) {
+        display: flex;
+    }
+}
+
 /* Dashboard Content */
 .dashboard-container {
     padding: 32px 48px;
     max-width: 1400px;
     margin: 0 auto;
+    
+    @media (max-width: 900px) {
+        padding: 24px 20px;
+    }
 }
 
 /* HERO SECTION */
@@ -1320,6 +1389,13 @@ body.dark .dark-dimmer {
     align-items: center;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
     margin-bottom: 32px;
+    
+    @media (max-width: 768px) {
+        border-radius: 24px;
+        padding: 24px 28px;
+        min-height: 180px;
+        margin-bottom: 24px;
+    }
 }
 
 .hero-content {
@@ -1361,7 +1437,8 @@ body.dark .dark-dimmer {
     }
     
     @media (max-width: 768px) {
-        font-size: 2rem;
+        font-size: 1.8rem;
+        margin: 0 0 12px;
     }
 }
 
@@ -1371,6 +1448,11 @@ body.dark .dark-dimmer {
     font-weight: 500;
     line-height: 1.5;
     margin-bottom: 24px;
+    
+    @media (max-width: 768px) {
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+    }
 }
 
 .hero-btns {
@@ -1379,15 +1461,21 @@ body.dark .dark-dimmer {
     flex-wrap: wrap;
     
     button {
-        padding: 20px 40px;
-        border-radius: 16px;
-        font-weight: 800;
-        font-size: 1rem;
+        padding: 14px 28px;
+        border-radius: 100px;
+        border: none;
+        font-weight: 700;
+        font-size: 0.9rem;
         cursor: pointer;
-        transition: transform 0.2s;
+        transition: all 0.3s;
         
-        &:hover { transform: translateY(-4px); }
+        @media (max-width: 768px) {
+            padding: 12px 24px;
+            font-size: 0.85rem;
+        }
     }
+    
+    &:hover { transform: translateY(-4px); }
     
     .btn-primary {
         background: var(--ct-accent);
@@ -1497,6 +1585,11 @@ body.dark .dark-dimmer {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 40px;
+    
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
 }
 
 .bootcamp-card {

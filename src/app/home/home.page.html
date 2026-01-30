@@ -1,9 +1,12 @@
 
+<!-- Overlay for mobile sidebar -->
+<div class="sidebar-overlay" [class.active]="sidebarOpen" (click)="toggleSidebar()"></div>
+
 <!-- Main Layout Container -->
 <div class="dashboard-layout">
 
     <!-- Premium Sidebar -->
-    <div class="sidebar">
+    <div class="sidebar" [class.mobile-open]="sidebarOpen">
         <div class="ct-brand">
             <div class="ct-logo-box">CT</div>
             <div class="ct-brand-text">
@@ -14,19 +17,19 @@
 
         <div class="sidebar-menu">
             <div class="menu-label">MENU</div>
-            <button class="nav-item active" (click)="goBackToCourses()">
+            <button class="nav-item active" (click)="goBackToCourses(); closeSidebarOnMobile()">
                 <ion-icon name="compass-outline"></ion-icon>
                 <span>Dashboard</span>
             </button>
-            <button class="nav-item">
+            <button class="nav-item" (click)="closeSidebarOnMobile()">
                 <ion-icon name="terminal-outline"></ion-icon>
                 <span>Bootcamps</span>
             </button>
-            <button class="nav-item">
+            <button class="nav-item" (click)="closeSidebarOnMobile()">
                 <ion-icon name="git-branch-outline"></ion-icon>
                 <span>Projects</span>
             </button>
-            <button class="nav-item">
+            <button class="nav-item" (click)="closeSidebarOnMobile()">
                 <ion-icon name="settings-outline"></ion-icon>
                 <span>Settings</span>
             </button>
@@ -66,6 +69,11 @@
         <!-- Header -->
         <div class="ct-header">
             <div class="header-title-row">
+                <!-- Mobile Menu Button -->
+                <button class="ct-icon-btn mobile-menu-btn" (click)="toggleSidebar()">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </button>
+                
                 <button class="ct-icon-btn" *ngIf="selectedCourse" (click)="goBackToCourses()" style="width: 40px; height: 40px; margin-right: 8px;">
                     <ion-icon name="arrow-back"></ion-icon>
                 </button>

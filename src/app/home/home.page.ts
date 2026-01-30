@@ -38,6 +38,9 @@ export class HomePage implements OnInit {
   nextLevelXp = 100;
   progressToNextLevel = 0;
 
+  // Mobile sidebar state
+  sidebarOpen = false;
+
   // Continue Learning Logic
   lastModuleTitle = 'Start Learning';
   lastModuleProgress = 0;
@@ -311,5 +314,17 @@ export class HomePage implements OnInit {
      if (courseId === 'javascript') return 42;
      
      return 0; 
+  }
+
+  // Mobile sidebar methods
+  toggleSidebar() {
+    this.sidebarOpen = !this.sidebarOpen;
+  }
+
+  closeSidebarOnMobile() {
+    // Only close on mobile screens
+    if (window.innerWidth <= 900) {
+      this.sidebarOpen = false;
+    }
   }
 }
