@@ -1366,6 +1366,72 @@ body.dark .dark-dimmer {
     }
 }
 
+/* User Profile Button */
+.user-profile-btn {
+    position: relative;
+    overflow: visible;
+    
+    .user-avatar-small {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--ct-accent);
+        color: white;
+        font-weight: 700;
+        font-size: 0.85rem;
+        
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    
+    .guest-indicator {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        ion-icon {
+            font-size: 1.3rem;
+        }
+        
+        .signin-dot {
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            width: 10px;
+            height: 10px;
+            background: var(--ct-accent);
+            border-radius: 50%;
+            border: 2px solid white;
+            animation: pulse 2s infinite;
+        }
+    }
+    
+    &:hover {
+        .guest-indicator ion-icon {
+            color: var(--ct-accent);
+        }
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
 /* Dashboard Content */
 .dashboard-container {
     padding: 32px 48px;

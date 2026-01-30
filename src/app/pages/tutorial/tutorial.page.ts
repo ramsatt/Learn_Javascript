@@ -25,7 +25,7 @@ export class TutorialPage implements OnInit {
   // Two Pan Layout Data
   menuData: any[] = [];
   currentFile: string = "";
-  isSidebarOpen = true;
+  isSidebarOpen = false; // Closed by default, especially for mobile
   
   prevFile: any = null;
   nextFile: any = null;
@@ -39,6 +39,11 @@ export class TutorialPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    // Open sidebar by default only on desktop
+    if (window.innerWidth > 900) {
+      this.isSidebarOpen = true;
+    }
+    
     this.loadMenu();
     this.route.paramMap.subscribe(params => {
         const file = params.get('file');
@@ -95,6 +100,12 @@ export class TutorialPage implements OnInit {
 
   openLesson(file: string) {
       if (this.currentFile === file) return;
+      
+      // Close sidebar on mobile when navigating
+      if (window.innerWidth <= 900) {
+        this.isSidebarOpen = false;
+      }
+      
       this.router.navigate(['/tutorial', file]);
   }
 

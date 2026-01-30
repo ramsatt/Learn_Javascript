@@ -100,6 +100,9 @@ export class HomePage implements OnInit {
   }
 
   ionViewWillEnter() {
+      // Close sidebar on page enter (especially important for mobile)
+      this.sidebarOpen = false;
+      
       // Refresh progress when returning to the page
       this.refreshGamification();
       if (this.menuData.length > 0) {
@@ -241,6 +244,9 @@ export class HomePage implements OnInit {
   }
 
   openTutorial(file: string) {
+    // Close sidebar before navigating
+    this.sidebarOpen = false;
+    
     // Navigate to the tutorial page
     this.router.navigate(['/tutorial', file]);
     // Blur to remove focus highlight
@@ -325,6 +331,21 @@ export class HomePage implements OnInit {
     // Only close on mobile screens
     if (window.innerWidth <= 900) {
       this.sidebarOpen = false;
+    }
+  }
+
+  handleUserButtonClick() {
+    // On mobile, open sidebar to show profile
+    if (window.innerWidth <= 900) {
+      this.toggleSidebar();
+    } else {
+      // On desktop, directly login/logout
+      const user = this.authService.getCurrentUser();
+      if (user) {
+        this.logout();
+      } else {
+        this.login();
+      }
     }
   }
 }

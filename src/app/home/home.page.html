@@ -88,10 +88,20 @@
                 <button class="ct-icon-btn" (click)="themeService.toggleTheme()">
                     <ion-icon [name]="themeService.isDarkMode() ? 'sunny-outline' : 'moon-outline'"></ion-icon>
                 </button>
-                <div class="ct-icon-btn">
-                    <ion-icon name="notifications-outline"></ion-icon>
-                    <div class="badge"></div>
-                </div>
+                
+                <!-- User Profile Button -->
+                <button class="ct-icon-btn user-profile-btn" (click)="handleUserButtonClick()">
+                    <!-- Logged In User -->
+                    <div *ngIf="authService.user$ | async as user" class="user-avatar-small">
+                        <img *ngIf="user.photoURL" [src]="user.photoURL" alt="Profile">
+                        <span *ngIf="!user.photoURL">{{ user.displayName?.substring(0, 1) || 'U' }}</span>
+                    </div>
+                    <!-- Guest User -->
+                    <div *ngIf="!(authService.user$ | async)" class="guest-indicator">
+                        <ion-icon name="person-outline"></ion-icon>
+                        <div class="signin-dot"></div>
+                    </div>
+                </button>
             </div>
         </div>
 
