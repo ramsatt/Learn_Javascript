@@ -3,298 +3,83 @@
     "title": "Java Tutorial",
     "items": [
       {
-        "title": "Java Tutorial",
-        "file": "java_default.html"
-      },
-      {
-        "title": "Java Introduction",
-        "file": "java_java_intro.html"
-      },
-      {
-        "title": "Java Getting Started",
-        "file": "java_java_getstarted.html"
+        "title": "Java Intro",
+        "file": "java_intro.html"
       },
       {
         "title": "Java Syntax",
-        "file": "java_java_syntax.html"
+        "file": "java_syntax.html"
       },
       {
-        "title": "Java Output / Print",
-        "file": "java_java_output.html"
+        "title": "Java Output",
+        "file": "java_output.html"
       },
       {
         "title": "Java Comments",
-        "file": "java_java_comments.html"
+        "file": "java_comments.html"
       },
       {
         "title": "Java Variables",
-        "file": "java_java_variables.html"
+        "file": "java_variables.html"
       },
       {
         "title": "Java Data Types",
-        "file": "java_java_data_types.html"
+        "file": "java_data_types.html"
       },
       {
         "title": "Java Type Casting",
-        "file": "java_java_type_casting.html"
+        "file": "java_type_casting.html"
       },
       {
         "title": "Java Operators",
-        "file": "java_java_operators.html"
+        "file": "java_operators.html"
       },
       {
         "title": "Java Strings",
-        "file": "java_java_strings.html"
+        "file": "java_strings.html"
       },
       {
         "title": "Java Math",
-        "file": "java_java_math.html"
+        "file": "java_math.html"
       },
-      {
+       {
         "title": "Java Booleans",
-        "file": "java_java_booleans.html"
+        "file": "java_booleans.html"
       },
       {
-        "title": "Java If ... Else",
-        "file": "java_java_conditions.html"
+        "title": "Java If...Else",
+        "file": "java_if_else.html"
       },
       {
         "title": "Java Switch",
-        "file": "java_java_switch.html"
+        "file": "java_switch.html"
       },
       {
         "title": "Java While Loop",
-        "file": "java_java_while_loop.html"
+        "file": "java_while_loop.html"
       },
       {
         "title": "Java For Loop",
-        "file": "java_java_for_loop.html"
+        "file": "java_for_loop.html"
       },
       {
-        "title": "Java Break and Continue",
-        "file": "java_java_break.html"
+        "title": "Java Break/Continue",
+        "file": "java_break.html"
       },
       {
         "title": "Java Arrays",
-        "file": "java_java_arrays.html"
+        "file": "java_arrays.html"
       }
     ]
   },
   {
-    "title": "Java Methods",
-    "items": [
-      {
-        "title": "Java Methods",
-        "file": "java_java_methods.html"
-      },
-      {
-        "title": "Java Method Parameters",
-        "file": "java_java_methods_param.html"
-      },
-      {
-        "title": "Java Method Overloading",
-        "file": "java_java_methods_overloading.html"
-      },
-      {
-        "title": "Java Scope",
-        "file": "java_java_scope.html"
-      },
-      {
-        "title": "Java Recursion",
-        "file": "java_java_recursion.html"
-      }
-    ]
-  },
-  {
-    "title": "Java Classes",
-    "items": [
-      {
-        "title": "Java OOP",
-        "file": "java_java_oop.html"
-      },
-      {
-        "title": "Java Classes and Objects",
-        "file": "java_java_classes.html"
-      },
-      {
-        "title": "Java Class Attributes",
-        "file": "java_java_class_attributes.html"
-      },
-      {
-        "title": "Java Class Methods",
-        "file": "java_java_class_methods.html"
-      },
-      {
-        "title": "Java Constructors",
-        "file": "java_java_constructors.html"
-      },
-      {
-        "title": "Java Modifiers",
-        "file": "java_java_modifiers.html"
-      },
-      {
-        "title": "Java Encapsulation",
-        "file": "java_java_encapsulation.html"
-      },
-      {
-        "title": "Java Packages",
-        "file": "java_java_packages.html"
-      },
-      {
-        "title": "Java Inheritance",
-        "file": "java_java_inheritance.html"
-      },
-      {
-        "title": "Java Polymorphism",
-        "file": "java_java_polymorphism.html"
-      },
-      {
-        "title": "Java Inner Classes",
-        "file": "java_java_inner_classes.html"
-      },
-      {
-        "title": "Java Abstraction",
-        "file": "java_java_abstract.html"
-      },
-      {
-        "title": "Java Interface",
-        "file": "java_java_interface.html"
-      },
-      {
-        "title": "Java Enums",
-        "file": "java_java_enums.html"
-      },
-      {
-        "title": "Java User Input (Scanner)",
-        "file": "java_java_user_input.html"
-      },
-      {
-        "title": "Java Date and Time",
-        "file": "java_java_date.html"
-      },
-      {
-        "title": "Java ArrayList",
-        "file": "java_java_arraylist.html"
-      },
-      {
-        "title": "Java LinkedList",
-        "file": "java_java_linkedlist.html"
-      },
-      {
-        "title": "Java HashMap",
-        "file": "java_java_hashmap.html"
-      },
-      {
-        "title": "Java HashSet",
-        "file": "java_java_hashset.html"
-      },
-      {
-        "title": "Java Iterator",
-        "file": "java_java_iterator.html"
-      },
-      {
-        "title": "Java Wrapper Classes",
-        "file": "java_java_wrapper_classes.html"
-      },
-      {
-        "title": "Java Exceptions - Try...Catch",
-        "file": "java_java_try_catch.html"
-      },
-      {
-        "title": "Java Regular Expressions",
-        "file": "java_java_regex.html"
-      },
-      {
-        "title": "Java Threads",
-        "file": "java_java_threads.html"
-      },
-      {
-        "title": "Java Lambda Expressions",
-        "file": "java_java_lambda.html"
-      }
-    ]
-  },
-  {
-    "title": "Java File Handling",
-    "items": [
-      {
-        "title": "Java Files",
-        "file": "java_java_files.html"
-      },
-      {
-        "title": "Java Create Files",
-        "file": "java_java_files_create.html"
-      },
-      {
-        "title": "Java Read Files",
-        "file": "java_java_files_read.html"
-      },
-      {
-        "title": "Java Write To Files",
-        "file": "java_java_files_write.html"
-      },
-      {
-        "title": "Java Delete Files",
-        "file": "java_java_files_delete.html"
-      }
-    ]
-  },
-  {
-    "title": "Java How To",
-    "items": [
-      {
-        "title": "Java How To's",
-        "file": "java_java_howtos.html"
-      },
-      {
-        "title": "Java How To Add Two Numbers",
-        "file": "java_java_howto_add_two_numbers.html"
-      },
-      {
-        "title": "Java How To Count Words",
-        "file": "java_java_howto_count_words.html"
-      },
-      {
-        "title": "Java How To Reverse a String",
-        "file": "java_java_howto_reverse_string.html"
-      },
-      {
-        "title": "Java How To Calculate the Sum of Elements",
-        "file": "java_java_howto_sum_of_array_elements.html"
-      },
-      {
-        "title": "Java How To Get the Area of a Rectangle",
-        "file": "java_java_howto_area_of_rectangle.html"
-      },
-      {
-        "title": "Java How To Find Even or Odd Numbers",
-        "file": "java_java_howto_even_or_odd.html"
-      }
-    ]
-  },
-  {
-    "title": "Java References",
-    "items": [
-      {
-        "title": "Java Keywords",
-        "file": "java_java_ref_keywords.html"
-      },
-      {
-        "title": "Java String Methods",
-        "file": "java_java_ref_string.html"
-      },
-      {
-        "title": "Java Math Methods",
-        "file": "java_java_ref_math.html"
-      },
-      {
-        "title": "Java ArrayList Methods",
-        "file": "java_java_ref_arraylist.html"
-      },
-      {
-        "title": "Java HashMap Methods",
-        "file": "java_java_ref_hashmap.html"
-      }
-    ]
+      "title": "Java Classes",
+      "items": [
+          { "title": "Java Classes/Objects", "file": "java_classes.html" },
+          { "title": "Java Class Attributes", "file": "java_class_attributes.html" },
+          { "title": "Java Class Methods", "file": "java_class_methods.html" },
+          { "title": "Java Constructors", "file": "java_constructors.html" },
+          { "title": "Java Verify", "file": "java_modifiers.html" }
+      ]
   }
 ]

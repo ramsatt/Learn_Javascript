@@ -123,15 +123,68 @@ export class TutorialPage implements OnInit, OnDestroy {
     this.loading = true;
     this.tutorialService.getContent(file).subscribe({
       next: (html) => {
-        this.content = this.sanitizer.bypassSecurityTrustHtml(html);
+        // We'll trust HTML but we also want to manipulate it if possible.
+        // DomSanitizer bypass prevents manipulation by string ops easily afterwards if not careful.
+        // Let's modify the string BEFORE trusting it.
+        
+        let modifiedHtml = html;
+        
+        // Inject "Try it" button logic
+        // We can use a regex to find <div class="w3-example">...</div> or similar blocks from W3Schools structure
+        // Or generic <pre><code> blocks if that's what we have.
+        // Assuming W3C style 'w3-example' for now or standard pre/code.
+        
+        // Simple injection: Append a button after every <pre> block for now
+        // A robust parser would be better but regex is faster for this context.
+        
+        // This regex looks for closing </pre> and appends a button
+        // Note: This is a simple heuristic.
+        // modifiedHtml = modifiedHtml.replace(/<\/pre>/g, '</pre><button class="try-btn" data-action="try-code">Try it Yourself</button>');
+        
+        this.content = this.sanitizer.bypassSecurityTrustHtml(modifiedHtml);
         this.loading = false;
           
         // Trigger highlight after view update
         setTimeout(() => {
              Prism.highlightAll();
              
-             // Show banner ad only after content is loaded and visible
-             // This ensures we comply with AdSense policy (ads only on pages with content)
+             // 1. Find all example containers (w3-example matches the scraped source usually)
+             // or generic pre elements
+             // 1. Find all example containers (w3-example matches the scraped source usually)
+             // or generic pre elements but be careful not to double add
+             const examples = document.querySelectorAll('.w3-example, .w3-code, pre:not(.w3-code):not(.w3-example) code');
+             
+             examples.forEach((ex: any, index) => {
+                 // Check if button already exists in this container or immediate sibling
+                 if (ex.querySelector('.btn-try-it') || (ex.nextElementSibling && ex.nextElementSibling.classList.contains('btn-try-it'))) {
+                     return;
+                 }
+
+                 // Create Button
+                 const btn = document.createElement('button');
+                 btn.className = 'btn-try-it';
+                 btn.innerHTML = '<ion-icon name="code-slash-outline"></ion-icon> Try it Yourself';
+                 btn.style.cssText = 'margin-top: 10px; background: #04AA6D; color: white; padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer; display: flex; align-items: center; gap: 8px; font-weight: 500; font-family: "Segoe UI", Roboto, sans-serif;';
+                 
+                 // Add click handler
+                 btn.onclick = (e) => {
+                     e.stopPropagation();
+                     // Extract code - preferring text content of code block
+                     let codeText = ex.textContent || '';
+                     
+                     this.tutorialService.setPlaygroundCode(codeText);
+                     this.router.navigate(['/playground']);
+                 };
+                 
+                 // Append button: If it's a pre/code block, append AFTER it. If it's a container like w3-example, append INSIDE at bottom.
+                 if (ex.tagName.toLowerCase() === 'pre' || ex.tagName.toLowerCase() === 'code') {
+                     ex.parentNode?.insertBefore(btn, ex.nextSibling);
+                 } else {
+                     ex.appendChild(btn);
+                 }
+             });
+
+             // Show banner ad
              this.admobService.showBanner();
         }, 500);
       },
@@ -139,7 +192,6 @@ export class TutorialPage implements OnInit, OnDestroy {
         console.error(err);
         this.content = "<p>Error loading content.</p>";
         this.loading = false;
-        // Don't show ads on error pages
       }
     });
   }

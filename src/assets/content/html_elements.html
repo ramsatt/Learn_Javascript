@@ -1,185 +1,152 @@
-<h1>HTML <span class="color_h1">Elements</span></h1>
+<h1>Understanding HTML Elements</h1>
+
+<p>In the world of web development, an <strong>HTML element</strong> is the fundamental building block of a webpage. It consists of everything from the opening tag to the closing tag.</p>
 
 <hr>
-<p class="intro">An HTML element is defined by a start tag, some content, and an 
-end tag.</p>
-<hr>
 
+<h2>Anatomy of an HTML Element</h2>
 
-<h2>HTML Elements</h2>
+<p>Most HTML elements follow a specific structure: a <strong>start tag</strong>, the <strong>content</strong>, and an <strong>end tag</strong>.</p>
 
-<p>The HTML <strong>element</strong> is everything from the start tag to the end tag:</p>
-
-<div style="font-size:20px;padding:10px;margin-bottom:10px;">
-<span class="spes_tagname"><span class="spes_tag">&lt;</span>tagname<span class="spes_tag">&gt;</span></span>Content goes here...<span class="spes_tagname"><span class="spes_tag">&lt;</span>/tagname<span class="spes_tag">&gt;</span></span>
+<div class="w3-code notranslate htmlHigh">
+&lt;tagname&gt;Content goes here...&lt;/tagname&gt;
 </div>
 
-<p>Examples of some HTML elements:</p>
-
-<div style="font-size:20px;padding:10px;margin-bottom:10px;">
-<span class="spes_tagname"><span class="spes_tag">&lt;<span class="spes_tagname">h1</span>&gt;</span></span>My 
-  First Heading<span class="spes_tagname"><span class="spes_tag">&lt;</span>/h1<span class="spes_tag">&gt;</span></span>
-</div>
-
-<div style="font-size:20px;padding:10px;margin-bottom:10px;">
-<span class="spes_tagname"><span class="spes_tag">&lt;</span>p<span class="spes_tag">&gt;</span></span>My first paragraph.<span class="spes_tagname"><span class="spes_tag">&lt;</span>/p<span class="spes_tag">&gt;</span></span>
-</div>
-
+<h3>Examples</h3>
 <table class="ws-table-all notranslate">
+<thead>
 <tr>
-<th>Start tag</th>
-<th>Element content</th>
-<th>End tag</th>
+<th style="text-align:left">Start Tag</th>
+<th style="text-align:left">Element Content</th>
+<th style="text-align:left">End Tag</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>&lt;h1&gt;</code></td>
+<td style="text-align:left">My First Heading</td>
+<td style="text-align:left"><code>&lt;/h1&gt;</code></td>
 </tr>
 <tr>
-<td>&lt;h1&gt;</td>
-<td>My First Heading</td>
-<td>&lt;/h1&gt;</td>
+<td style="text-align:left"><code>&lt;p&gt;</code></td>
+<td style="text-align:left">My first paragraph.</td>
+<td style="text-align:left"><code>&lt;/p&gt;</code></td>
 </tr>
 <tr>
-<td>&lt;p&gt;</td>
-<td>My first paragraph.</td>
-<td>&lt;/p&gt;</td>
+<td style="text-align:left"><code>&lt;br&gt;</code></td>
+<td style="text-align:left"><em>None (Void Element)</em></td>
+<td style="text-align:left"><em>None</em></td>
 </tr>
-<tr>
-<td>&lt;br&gt;</td>
-<td><em>none</em></td>
-<td><em>none</em></td>
-</tr>
+</tbody>
 </table>
-
-<div class="w3-panel ws-note">
-<p><strong>Note:</strong> Some HTML elements have no content (like the &lt;br&gt; 
-element). These elements are called empty elements. Empty elements do not have an end tag!</p>
-</div>
 
 <hr>
 
 <h2>Nested HTML Elements</h2>
-<p>HTML elements can be nested (this means that elements can contain other elements).</p>
-<p>All HTML documents consist of nested HTML elements.</p>
-<p>The following example contains four HTML elements (<code class="w3-codespan">&lt;html&gt;</code>, <code class="w3-codespan">&lt;body&gt;</code>, <code class="w3-codespan">&lt;h1&gt;</code> 
-and <code class="w3-codespan">&lt;p&gt;</code>):</p>
-<div class="w3-example">
-<h3>Example</h3>
+
+<p>HTML documents are hierarchical. This means elements can be <strong>nested</strong>—placed inside other elements. Every HTML document consists of a tree-like structure of these nested elements.</p>
+
+<h3>A Typical Document Structure</h3>
+<p>In the example below, the <code>&lt;html&gt;</code> element contains the <code>&lt;body&gt;</code> element, which in turn contains a heading and a paragraph.</p>
+
 <div class="w3-code notranslate htmlHigh">
 &lt;!DOCTYPE html&gt;<br>
-&lt;html&gt;<br>&lt;body&gt;<br><br>
- &lt;h1&gt;My First Heading&lt;/h1&gt;<br>&lt;p&gt;My first paragraph.&lt;/p&gt;<br><br>
-&lt;/body&gt;<br>&lt;/html&gt;
+&lt;html&gt;<br>
+  &lt;body&gt;<br>
+    &lt;h1&gt;My First Heading&lt;/h1&gt;<br>
+    &lt;p&gt;My first paragraph.&lt;/p&gt;<br>
+  &lt;/body&gt;<br>
+&lt;/html&gt;
 </div>
 
-</div>
-<h3>Example Explained</h3>
-<p>The <code class="w3-codespan">&lt;html&gt;</code> element is the root element 
-and it defines the whole HTML document.</p>
-<p>It has a start tag <code class="w3-codespan">&lt;html&gt;</code> and an end tag <code class="w3-codespan">&lt;/html&gt;</code>.</p>
-<p>Then, inside the <code class="w3-codespan">&lt;html&gt;</code> element there is 
-a <code class="w3-codespan">&lt;body&gt;</code> 
-element:</p>
-<div class="w3-example">
+<h3>Breakdown of the Hierarchy:</h3>
+<ol>
+<li><strong><code>&lt;html&gt;</code></strong>: The root element that wraps the entire document.</li>
+<li><strong><code>&lt;body&gt;</code></strong>: Contains the visible content of the page.</li>
+<li><strong><code>&lt;h1&gt;</code></strong>: Defines a top-level heading.</li>
+<li><strong><code>&lt;p&gt;</code></strong>: Defines a paragraph of text.</li>
+</ol>
+
+<hr>
+
+<h2>Void Elements (Empty Elements)</h2>
+
+<p>Not all elements require a closing tag. Some elements do not have any content and are known as <strong>Void Elements</strong> or <strong>Empty Elements</strong>.</p>
+
+<p>The <code>&lt;br&gt;</code> tag (used for a line break) is a common example. You do not write <code>&lt;/br&gt;</code>.</p>
+
 <div class="w3-code notranslate htmlHigh">
-&lt;body&gt;<br><br>
- &lt;h1&gt;My First Heading&lt;/h1&gt;<br>&lt;p&gt;My first paragraph.&lt;/p&gt;<br><br>
-&lt;/body&gt;
-</div></div>
-
-<p>The <code class="w3-codespan">&lt;body&gt;</code> element defines the 
-document's body.</p>
-<p>It has a start tag <code class="w3-codespan">&lt;body&gt;</code> and an end tag <code class="w3-codespan">&lt;/body&gt;</code>.</p>
-<p>Then, inside the <code class="w3-codespan">&lt;body&gt;</code> element there 
-are two other elements:
-<code class="w3-codespan">&lt;h1&gt;</code> and <code class="w3-codespan">
-&lt;p&gt;</code>:</p>
-<div class="w3-example">
-<div class="w3-code notranslate htmlHigh">
- &lt;h1&gt;My First Heading&lt;/h1&gt;<br>&lt;p&gt;My first paragraph.&lt;/p&gt;</div></div>
-
-<p>The <code class="w3-codespan">&lt;h1&gt;</code> element defines a heading.</p>
-<p>It has a start tag <code class="w3-codespan">&lt;h1&gt;</code> and an end tag <code class="w3-codespan">&lt;/h1&gt;</code>:</p>
-
-<div class="w3-example">
-<div class="w3-code notranslate htmlHigh">
-&lt;h1&gt;My First Heading&lt;/h1&gt;
-</div>
-</div>
-
-<p>The <code class="w3-codespan">&lt;p&gt;</code> element defines a paragraph.</p>
-<p>It has a start tag <code class="w3-codespan">&lt;p&gt;</code> and an end tag <code class="w3-codespan">&lt;/p&gt;</code>:</p>
-
-<div class="w3-example">
-<div class="w3-code notranslate htmlHigh">
-&lt;p&gt;My first paragraph.&lt;/p&gt;
-</div>
+&lt;p&gt;This is a paragraph &lt;br&gt; with a line break.&lt;/p&gt;
 </div>
 
 <hr>
 
-<hr>
+<h2>Best Practices</h2>
 
-<h2>Never Skip the End Tag</h2>
-<p>Some HTML elements will display correctly, even if you forget the end tag:</p>
-<div class="w3-example">
-<h3>Example</h3>
+<h3>1. Never Skip the End Tag</h3>
+<p>While some browsers are "forgiving" and might render a page correctly even if you forget a closing tag (like <code>&lt;/p&gt;</code>), you should <strong>never</strong> rely on this. Missing tags can lead to layout bugs, broken styles, and accessibility issues.</p>
+
+<blockquote>
+<p>❌ <strong>Bad Practice:</strong></p>
 <div class="w3-code notranslate htmlHigh">
-&lt;html&gt;<br>&lt;body&gt;<br><br>
- &lt;p&gt;This is a paragraph<br>
- &lt;p&gt;This is a paragraph<br>
-<br>&lt;/body&gt;<br>&lt;/html&gt;</div>
-
+&lt;p&gt;This is a paragraph<br>
+&lt;p&gt;This is another paragraph
 </div>
+</blockquote>
 
-<p><strong>However, never rely on this! Unexpected results and errors may occur if you forget the end tag!</strong></p>
-
-<hr>
-
-<h2>Empty HTML Elements</h2>
-<p>HTML elements with no content are called empty elements.</p>
-<p>The <code class="w3-codespan">&lt;br&gt;</code> tag defines a line break, and 
-is an empty element without a closing tag:</p>
-<div class="w3-example">
-<h3>Example</h3>
-<div class="w3-code notranslate htmlHigh">
-  &lt;p&gt;This is a &lt;br&gt; paragraph with a line break.&lt;/p&gt;</div>
-
-</div>
+<h3>2. Use Lowercase Tags</h3>
+<p>HTML is <strong>not case-sensitive</strong>. This means <code>&lt;P&gt;</code> is the same as <code>&lt;p&gt;</code>. However, the World Wide Web Consortium (W3C) <strong>recommends</strong> lowercase tags for several reasons:</p>
+<ul>
+<li><strong>Readability:</strong> Lowercase is easier on the eyes.</li>
+<li><strong>Consistency:</strong> Most developers use lowercase.</li>
+<li><strong>Strictness:</strong> Requirements for stricter document types like XHTML demand lowercase.</li>
+</ul>
 
 <hr>
 
-<h2>HTML is Not Case Sensitive</h2>
-<p>HTML tags are not case sensitive: <code class="w3-codespan">&lt;P&gt;</code> means the same as <code class="w3-codespan">&lt;p&gt;</code>.</p>
-<p>The HTML standard does not require lowercase tags, but W3C
-<b>recommends</b> lowercase in HTML, and <b>demands</b> lowercase for stricter document types like XHTML.</p>
-<div class="w3-panel ws-note">
-<p>At W3Schools we always use lowercase tag names.</p>
-</div>
+<h2>Quick Reference: Core Elements</h2>
 
-<hr>
-
-<hr>
-
-<h2>HTML Tag Reference</h2>
-<p>W3Schools' tag reference contains additional information about these tags and their attributes.</p>
 <table class="ws-table-all notranslate">
+<thead>
 <tr>
-  <th>Tag</th>
-  <th>Description</th>
+<th style="text-align:left">Tag</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>&lt;html&gt;</code></td>
+<td style="text-align:left">The root of an HTML document.</td>
 </tr>
 <tr>
-  <td><a href="../tags/tag_html.html">&lt;html&gt;</a></td>
-  <td>Defines the root of an HTML document</td>
+<td style="text-align:left"><code>&lt;body&gt;</code></td>
+<td style="text-align:left">Defines the document's visible body content.</td>
 </tr>
 <tr>
-  <td><a href="../tags/tag_body.html">&lt;body&gt;</a></td>
-  <td>Defines the document's body</td>
+<td style="text-align:left"><code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code></td>
+<td style="text-align:left">Defines headings (level 1 is the most important).</td>
 </tr>
 <tr>
-  <td><a href="../tags/tag_hn.html">&lt;h1&gt; to &lt;h6&gt;</a></td>
-  <td>Defines HTML headings</td>
+<td style="text-align:left"><code>&lt;p&gt;</code></td>
+<td style="text-align:left">Defines a paragraph.</td>
 </tr>
+<tr>
+<td style="text-align:left"><code>&lt;br&gt;</code></td>
+<td style="text-align:left">Inserts a single line break.</td>
+</tr>
+</tbody>
 </table>
 
-<div class="ws-note w3-panel">
-  <p>For a complete list of all available HTML tags, visit our <a href="../tags/default.html">HTML Tag Reference</a>.</p>
-</div>
+<hr>
+
+<h2>Key Takeaways</h2>
+
+<ul>
+<li><strong>Definition:</strong> An element = Start Tag + Content + End Tag.</li>
+<li><strong>Void Elements:</strong> Elements like <code>&lt;br&gt;</code> and <code>&lt;img&gt;</code> do not have content or closing tags.</li>
+<li><strong>Nesting:</strong> Elements are nested within each other to create the document structure.</li>
+<li><strong>Syntax:</strong> Always use closing tags and prefer lowercase for modern, professional code.</li>
+<li><strong>Root Element:</strong> The <code>&lt;html&gt;</code> tag is the container for all other HTML elements.</li>
+</ul>
+
 <hr>

@@ -1,0 +1,24 @@
+<div class="card-body card-hover" (click)="onStart()">
+  <div class="card-header">
+    <div class="icon-box" [style.color]="'var(--ct-' + color + '-icon)'" [style.background]="'var(--ct-' + color + '-bg)'">
+      <ion-icon [name]="icon"></ion-icon>
+    </div>
+    
+    <span class="badge" [class.beginner]="level === 'Beginner'" [class.intermediate]="level === 'Intermediate'" [class.advanced]="level === 'Advanced'">
+      {{ level }}
+    </span>
+  </div>
+  
+  <h3 class="card-title">{{ title }}</h3>
+  <p class="card-desc">{{ description }}</p>
+  
+  <div class="card-footer">
+    <div class="stat-item">
+      <ion-icon name="time-outline"></ion-icon>
+      <span>{{ duration }}</span>
+    </div>
+    <div class="stat-item count">
+      <span>{{ lessonCount }} Lessons</span>
+    </div>
+  </div>
+</div>

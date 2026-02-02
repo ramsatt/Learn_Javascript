@@ -48,9 +48,28 @@ export class HomePage implements OnInit {
   lastModuleTotal = 0;
   overallProgressText = '0/0';
 
+  // Hero Section Data
+  heroCode = `<!DOCTYPE html>
+<html>
+  <head>
+    <title>Coding Tamilan</title>
+  </head>
+  <body>
+    <h1>Welcome!</h1>
+    <p>Start learning today.</p>
+  </body>
+</html>`;
+
+  technologies = [
+    { name: 'JavaScript', icon: 'logo-javascript', color: 'javascript', modules: 45, file: 'assets/data/javascript.json', route: '/tutorial/js_intro.html' },
+    { name: 'HTML', icon: 'logo-html5', color: 'html', modules: 28, file: 'assets/data/html.json', route: '/tutorial/html_intro.html' },
+    { name: 'CSS', icon: 'logo-css3', color: 'css', modules: 35, file: 'assets/data/css.json', route: '/tutorial/css_intro.html' },
+    { name: 'Python', icon: 'logo-python', color: 'python', modules: 38, file: 'assets/data/python.json', route: '/tutorial/python_intro.html' }
+  ];
+
   constructor(
     public tutorialService: TutorialService, 
-    private router: Router,
+    public router: Router,
     public themeService: ThemeService,
     private alertCtrl: AlertController,
     private admobService: AdmobService,
@@ -58,6 +77,33 @@ export class HomePage implements OnInit {
     public authService: AuthService,
     private seoService: SeoService
   ) {}
+
+  // ... (rest of methods)
+
+  selectCourse(course: any) {
+      if (course.file) {
+        this.tutorialService.setCourse(course.file);
+        
+        // Use explicit path to avoid race conditions
+        this.tutorialService.getMenu(course.file).subscribe({
+            next: (sections) => {
+                if (sections && sections.length > 0 && sections[0].items.length > 0) {
+                    const firstFile = sections[0].items[0].file;
+                    this.router.navigate(['/tutorial', firstFile]);
+                } else {
+                    console.warn('Empty course, navigating to list');
+                    this.router.navigate(['/tutorials']);
+                }
+            },
+            error: (err) => {
+                console.error('Error loading course menu', err);
+                this.router.navigate(['/tutorials']);
+            }
+        });
+      } else {
+          this.router.navigate(['/tutorials']);
+      }
+  }
 
   async login() {
     const user = await this.authService.loginWithGoogle();
@@ -89,12 +135,7 @@ export class HomePage implements OnInit {
       // already handled in ngOnInit subscription
   }
 
-  selectCourse(course: Course) {
-      this.selectedCourse = course;
-      this.coursesView = false;
-      this.tutorialService.setCourse(course.file);
-      this.loadMenuData();
-  }
+  // selectCourse is defined above
 
   goBackToCourses() {
       this.coursesView = true;

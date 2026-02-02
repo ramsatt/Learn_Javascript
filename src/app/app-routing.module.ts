@@ -24,6 +24,18 @@ const routes: Routes = [
     path: 'certificate/:course',
     loadChildren: () => import('./pages/certificate/certificate.module').then( m => m.CertificatePageModule)
   },
+  {
+    path: 'tutorials',
+    loadChildren: () => import('./pages/tutorials/tutorials.module').then( m => m.TutorialsPageModule)
+  },
+  {
+    path: 'playground',
+    loadChildren: () => import('./pages/playground/playground.module').then( m => m.PlaygroundPageModule)
+  },
+  {
+    path: 'content-analysis',
+    loadChildren: () => import('./pages/content-analysis/content-analysis.module').then( m => m.ContentAnalysisPageModule)
+  },
 
 ];
 

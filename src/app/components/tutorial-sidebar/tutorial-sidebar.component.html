@@ -1,0 +1,24 @@
+<div class="sidebar-content">
+  <div class="sidebar-header">
+    <h2>JS Tutorial</h2>
+  </div>
+  
+  <div class="sidebar-menu">
+    <div class="menu-section" *ngFor="let section of menuData">
+      <div class="section-header" (click)="toggleSection(section)">
+        <h3>{{ section.title }}</h3>
+        <ion-icon [name]="section.expanded ? 'chevron-down-outline' : 'chevron-forward-outline'"></ion-icon>
+      </div>
+      
+      <div class="section-items" *ngIf="section.expanded">
+        <div 
+          class="menu-item" 
+          *ngFor="let item of section.items"
+          [class.active]="isActive(item.file)"
+          (click)="onSelect(item.file)">
+          {{ item.title }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

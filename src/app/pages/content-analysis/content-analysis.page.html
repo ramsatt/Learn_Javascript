@@ -1,0 +1,144 @@
+<ion-content class="analysis-content">
+  <div class="container-max main-layout">
+    <div class="header-section">
+      <div class="badge">AI Powered</div>
+      <h1>Content Engineering</h1>
+      <p>Automate your content pipeline. Analyze, enhance, and export entire courses one by one.</p>
+    </div>
+
+    <!-- Mode Switcher -->
+    <div class="mode-tabs">
+      <button [class.active]="!isBatchMode" (click)="isBatchMode = false">Single Content</button>
+      <button [class.active]="isBatchMode" (click)="isBatchMode = true">Batch Processing</button>
+    </div>
+
+    <!-- API Key Configuration (Hidden if configured) -->
+    <div class="glass-card config-card" *ngIf="!isApiConfigured">
+      <div class="card-header">
+        <ion-icon name="key-outline"></ion-icon>
+        <h2>Configure Gemini API</h2>
+      </div>
+      <p>Enter your Google AI Studio API key to start using the analysis features.</p>
+      <div class="input-group">
+        <input type="password" [(ngModel)]="apiKey" placeholder="Paste your Gemini API key here..." />
+        <button class="btn-primary" (click)='saveApiKey()'>Connect</button>
+      </div>
+    </div>
+
+    <!-- SINGLE MODE -->
+    <div class="analysis-grid" *ngIf="isApiConfigured && !isBatchMode">
+      <div class="glass-card panel">
+        <div class="panel-header">
+          <span>SOURCE CONTENT</span>
+          <div class="header-actions" style="display: flex; gap: 8px;">
+            <input type="file" #fileInput (change)="onFileSelected($event)" accept=".txt,.md,.html,.js,.ts,.json" style="display: none;" />
+            <button class="text-btn" (click)="fileInput.click()">
+              <ion-icon name="document-text-outline" style="margin-right: 4px;"></ion-icon> Import File
+            </button>
+            <button class="text-btn" (click)="resetApiKey()">Change API Key</button>
+          </div>
+        </div>
+        <textarea 
+          [(ngModel)]="inputContent" 
+          placeholder="Paste the tutorial content, code examples, or draft here... Or import a file using the button above."
+          class="analysis-input"
+        ></textarea>
+        <div class="panel-footer">
+          <button class="btn-primary full-width" (click)="runAnalysis()" [disabled]="isAnalyzing">
+            <ion-icon name="sparkles-outline" slot="start" *ngIf="!isAnalyzing"></ion-icon>
+            <ion-spinner name="crescent" *ngIf="isAnalyzing"></ion-spinner>
+            {{ isAnalyzing ? 'Analyzing...' : 'Analyze & Enhance' }}
+          </button>
+        </div>
+      </div>
+
+      <div class="glass-card panel result-panel" [class.empty]="!enhancedContent">
+        <div class="panel-header">
+          <span>ENHANCED VERSION (MARKDOWN)</span>
+          <div class="header-actions" style="display: flex; gap: 8px;">
+            <button *ngIf="enhancedContent" class="icon-btn-small" (click)="downloadSingleEnhanced()" title="Download Markdown">
+              <ion-icon name="download-outline"></ion-icon>
+            </button>
+            <button *ngIf="enhancedContent" class="icon-btn-small" (click)="copyToClipboard()" title="Copy to Clipboard">
+              <ion-icon name="copy-outline"></ion-icon>
+            </button>
+          </div>
+        </div>
+        <div class="result-viewport" *ngIf="enhancedContent">
+          <pre class="markdown-preview">{{ enhancedContent }}</pre>
+        </div>
+        <div class="empty-state" *ngIf="!enhancedContent">
+          <ion-icon name="analytics-outline"></ion-icon>
+          <p>Enhanced content will appear here.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- BATCH MODE -->
+    <div class="batch-layout" *ngIf="isApiConfigured && isBatchMode">
+      <div class="glass-card batch-controls">
+        <div class="control-header">
+          <h2>Continuous Content Enhancement</h2>
+          <div class="actions">
+            <ion-select [(ngModel)]="selectedCourseId" (ionChange)="onCourseChange()" placeholder="Select Course" interface="popover">
+              <ion-select-option *ngFor="let course of courses" [value]="course.id">{{ course.title }}</ion-select-option>
+            </ion-select>
+            
+            <button class="btn-primary" (click)="runBatchAnalysis()" [disabled]="isBatchRunning || !selectedCourseId">
+              <ion-icon name="play-outline" slot="start"></ion-icon>
+              {{ isBatchRunning ? 'Processing...' : 'Start Automation' }}
+            </button>
+            <button class="btn-danger" (click)="stopBatch()" *ngIf="isBatchRunning">Stop</button>
+          </div>
+        </div>
+
+        <div class="progress-section" *ngIf="isBatchRunning || batchProgress > 0">
+          <div class="progress-info">
+            <span>Overall Progress</span>
+            <span>{{ batchProgress | number:'1.0-0' }}%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="fill" [style.width.%]="batchProgress"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="batch-grid">
+        <!-- Queue List -->
+        <div class="glass-card list-panel">
+          <div class="panel-header">PROCESSING QUEUE</div>
+          <div class="item-list">
+            <div class="chapter-item" *ngFor="let ch of chaptersToProcess" [class]="ch.status">
+              <ion-icon [name]="ch.status === 'completed' ? 'checkbox' : (ch.status === 'processing' ? 'sync' : 'ellipse-outline')"></ion-icon>
+              <span class="title">{{ ch.title }}</span>
+              <span class="status- badge">{{ ch.status }}</span>
+            </div>
+            <div class="empty-list" *ngIf="chaptersToProcess.length === 0">
+              Select a course to view available chapters.
+            </div>
+          </div>
+        </div>
+
+        <!-- Real-time Result Stream -->
+        <div class="glass-card stream-panel">
+          <div class="panel-header">
+            <span>LATEST ENHANCEMENT</span>
+            <button class="btn-outline" (click)="downloadAllEnhanced()" [disabled]="processedChapters.length === 0">
+              <ion-icon name="download-outline" slot="start"></ion-icon> Export All (.md)
+            </button>
+          </div>
+          <div class="stream-viewport">
+            <div class="processed-item" *ngFor="let item of processedChapters.slice().reverse()">
+              <div class="item-header">{{ item.title }}</div>
+              <pre class="item-content">{{ item.enhancedContent }}</pre>
+            </div>
+            <div class="empty-stream" *ngIf="processedChapters.length === 0">
+              Enhanced content will stream here during processing.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</ion-content>

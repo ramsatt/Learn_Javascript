@@ -1,0 +1,33 @@
+<ion-content>
+  <div class="container-max page-inner">
+    <div class="page-header">
+      <h1>Tutorials Library</h1>
+      <p>Browse hundreds of professional tutorials across multiple disciplines.</p>
+      
+      <div class="search-wrapper icon-inside">
+          <ion-searchbar 
+            placeholder="Search tutorials (e.g. 'React', 'Python')..." 
+            [debounce]="250"
+            (ionInput)="filterCourses($event)"
+            animated="true"
+            showClearButton="focus">
+          </ion-searchbar>
+      </div>
+    </div>
+    
+    <div class="tutorials-grid">
+      <app-tutorial-card 
+        *ngFor="let tutorial of tutorials"
+        [title]="tutorial.title"
+        [description]="tutorial.description"
+        [icon]="tutorial.icon"
+        [color]="tutorial.color"
+        [level]="tutorial.level || 'Beginner'"
+        [route]="''"
+        [duration]="tutorial.duration || ''"
+        [lessonCount]="tutorial.lessonCount || 0"
+        (start)="onCourseSelect(tutorial)">
+      </app-tutorial-card>
+    </div>
+  </div>
+</ion-content>

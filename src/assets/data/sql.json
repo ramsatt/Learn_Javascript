@@ -3,255 +3,68 @@
     "title": "SQL Tutorial",
     "items": [
       {
-        "title": "SQL Tutorial",
-        "file": "sql_default.html"
-      },
-      {
-        "title": "Introduction to SQL",
-        "file": "sql_sql_intro.html"
+        "title": "SQL Intro",
+        "file": "sql_intro.html"
       },
       {
         "title": "SQL Syntax",
-        "file": "sql_sql_syntax.html"
+        "file": "sql_syntax.html"
       },
       {
-        "title": "SQL SELECT Statement",
-        "file": "sql_sql_select.html"
+        "title": "SQL Select",
+        "file": "sql_select.html"
       },
       {
-        "title": "SQL SELECT DISTINCT Statement",
-        "file": "sql_sql_distinct.html"
+        "title": "SQL Select Distinct",
+        "file": "sql_distinct.html"
       },
       {
-        "title": "SQL WHERE Clause",
-        "file": "sql_sql_where.html"
+        "title": "SQL Where",
+        "file": "sql_where.html"
       },
       {
-        "title": "SQL AND Operator",
-        "file": "sql_sql_and.html"
+        "title": "SQL Order By",
+        "file": "sql_orderby.html"
       },
       {
-        "title": "SQL OR Operator",
-        "file": "sql_sql_or.html"
+        "title": "SQL And Or Not",
+        "file": "sql_and_or.html"
       },
       {
-        "title": "SQL NOT Operator",
-        "file": "sql_sql_not.html"
+        "title": "SQL Insert Into",
+        "file": "sql_insert.html"
       },
       {
-        "title": "SQL ORDER BY Keyword",
-        "file": "sql_sql_orderby.html"
+        "title": "SQL Null Values",
+        "file": "sql_null_values.html"
       },
       {
-        "title": "SQL INSERT INTO Statement",
-        "file": "sql_sql_insert.html"
+        "title": "SQL Update",
+        "file": "sql_update.html"
+      },
+       {
+        "title": "SQL Delete",
+        "file": "sql_delete.html"
       },
       {
-        "title": "SQL NULL Values",
-        "file": "sql_sql_null_values.html"
+        "title": "SQL Top",
+        "file": "sql_top.html"
       },
       {
-        "title": "SQL UPDATE Statement",
-        "file": "sql_sql_update.html"
-      },
-      {
-        "title": "SQL DELETE Statement",
-        "file": "sql_sql_delete.html"
-      },
-      {
-        "title": "SQL TOP, LIMIT, FETCH FIRST or ROWNUM Clause",
-        "file": "sql_sql_top.html"
-      },
-      {
-        "title": "SQL MIN() and MAX() Functions",
-        "file": "sql_sql_min_max.html"
-      },
-      {
-        "title": "SQL COUNT(), AVG() and SUM() Functions",
-        "file": "sql_sql_count_avg_sum.html"
-      },
-      {
-        "title": "SQL LIKE Operator",
-        "file": "sql_sql_like.html"
-      },
-      {
-        "title": "SQL Wildcards",
-        "file": "sql_sql_wildcards.html"
-      },
-      {
-        "title": "SQL IN Operator",
-        "file": "sql_sql_in.html"
-      },
-      {
-        "title": "SQL BETWEEN Operator",
-        "file": "sql_sql_between.html"
-      },
-      {
-        "title": "SQL Aliases",
-        "file": "sql_sql_alias.html"
-      },
-      {
-        "title": "SQL Joins",
-        "file": "sql_sql_join.html"
-      },
-      {
-        "title": "SQL INNER JOIN",
-        "file": "sql_sql_join_inner.html"
-      },
-      {
-        "title": "SQL LEFT JOIN Keyword",
-        "file": "sql_sql_join_left.html"
-      },
-      {
-        "title": "SQL RIGHT JOIN Keyword",
-        "file": "sql_sql_join_right.html"
-      },
-      {
-        "title": "SQL FULL OUTER JOIN Keyword",
-        "file": "sql_sql_join_full.html"
-      },
-      {
-        "title": "SQL Self Join",
-        "file": "sql_sql_join_self.html"
-      },
-      {
-        "title": "SQL UNION Operator",
-        "file": "sql_sql_union.html"
-      },
-      {
-        "title": "SQL GROUP BY Statement",
-        "file": "sql_sql_groupby.html"
-      },
-      {
-        "title": "SQL HAVING Clause",
-        "file": "sql_sql_having.html"
-      },
-      {
-        "title": "SQL EXISTS Operator",
-        "file": "sql_sql_exists.html"
-      },
-      {
-        "title": "SQL ANY and ALL Operators",
-        "file": "sql_sql_any_all.html"
-      },
-      {
-        "title": "SQL INSERT INTO SELECT Statement",
-        "file": "sql_sql_insert_into_select.html"
-      },
-      {
-        "title": "SQL CASE Expression",
-        "file": "sql_sql_case.html"
-      },
-      {
-        "title": "SQL NULL Functions",
-        "file": "sql_sql_isnull.html"
-      },
-      {
-        "title": "SQL Stored Procedures for SQL Server",
-        "file": "sql_sql_stored_procedures.html"
-      },
-      {
-        "title": "SQL Comments",
-        "file": "sql_sql_comments.html"
-      },
-      {
-        "title": "SQL Operators",
-        "file": "sql_sql_operators.html"
+        "title": "SQL Min and Max",
+        "file": "sql_min_max.html"
       }
     ]
   },
   {
-    "title": "SQL Database",
-    "items": [
-      {
-        "title": "SQL CREATE DATABASE Statement",
-        "file": "sql_sql_create_db.html"
-      },
-      {
-        "title": "SQL DROP DATABASE Statement",
-        "file": "sql_sql_drop_db.html"
-      },
-      {
-        "title": "SQL BACKUP DATABASE for SQL Server",
-        "file": "sql_sql_backup_db.html"
-      },
-      {
-        "title": "SQL CREATE TABLE Statement",
-        "file": "sql_sql_create_table.html"
-      },
-      {
-        "title": "SQL DROP TABLE Statement",
-        "file": "sql_sql_drop_table.html"
-      },
-      {
-        "title": "SQL ALTER TABLE Statement",
-        "file": "sql_sql_alter.html"
-      },
-      {
-        "title": "SQL Constraints",
-        "file": "sql_sql_constraints.html"
-      },
-      {
-        "title": "SQL NOT NULL Constraint",
-        "file": "sql_sql_notnull.html"
-      },
-      {
-        "title": "SQL UNIQUE Constraint",
-        "file": "sql_sql_unique.html"
-      },
-      {
-        "title": "SQL PRIMARY KEY Constraint",
-        "file": "sql_sql_primarykey.html"
-      },
-      {
-        "title": "SQL FOREIGN KEY Constraint",
-        "file": "sql_sql_foreignkey.html"
-      },
-      {
-        "title": "SQL CHECK Constraint",
-        "file": "sql_sql_check.html"
-      },
-      {
-        "title": "SQL DEFAULT Constraint",
-        "file": "sql_sql_default.html"
-      },
-      {
-        "title": "SQL CREATE INDEX Statement",
-        "file": "sql_sql_create_index.html"
-      },
-      {
-        "title": "SQL AUTO INCREMENT Field",
-        "file": "sql_sql_autoincrement.html"
-      },
-      {
-        "title": "SQL Working With Dates",
-        "file": "sql_sql_dates.html"
-      },
-      {
-        "title": "SQL Views",
-        "file": "sql_sql_view.html"
-      },
-      {
-        "title": "SQL Injection",
-        "file": "sql_sql_injection.html"
-      },
-      {
-        "title": "SQL Hosting",
-        "file": "sql_sql_hosting.html"
-      }
-    ]
-  },
-  {
-    "title": "SQL References",
-    "items": [
-      {
-        "title": "SQL Keywords Reference",
-        "file": "sql_sql_ref_keywords.html"
-      },
-      {
-        "title": "SQL Quick Reference from W3Schools",
-        "file": "sql_sql_quickref.html"
-      }
-    ]
+      "title": "SQL Database",
+      "items": [
+          { "title": "SQL Create DB", "file": "sql_create_db.html" },
+          { "title": "SQL Drop DB", "file": "sql_drop_db.html" },
+          { "title": "SQL Backup DB", "file": "sql_backup_db.html" },
+          { "title": "SQL Create Table", "file": "sql_create_table.html" },
+          { "title": "SQL Drop Table", "file": "sql_drop_table.html" },
+          { "title": "SQL Alter Table", "file": "sql_alter_table.html" }
+      ]
   }
 ]

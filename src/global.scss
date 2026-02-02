@@ -1,4 +1,6 @@
+/* Global Styles */
 
+/* 1. Ionic Core */
 @import "@ionic/angular/css/core.css";
 @import "@ionic/angular/css/normalize.css";
 @import "@ionic/angular/css/structure.css";
@@ -10,33 +12,89 @@
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 
-/* PrismJS Theme */
+/* 2. Third Party */
 @import "prismjs/themes/prism-okaidia.css";
 
-/* Override Prism Background to match our Theme */
-:not(pre) > code[class*="language-"], pre[class*="language-"] {
-    background: transparent !important;
-    text-shadow: none !important;
-}
+/* 3. Design System Utilities */
+@import "theme/utilities.scss";
 
-
-/* Global Styles */
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap');
-
+/* 4. Global Resets & Typography */
 :root {
-  --ion-font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+  --ion-font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
-/* Card & Shape Standards */
-.ion-card, ion-card {
-    border-radius: 20px !important;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05) !important;
+body {
+  font-family: var(--ion-font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+/* 5. Component Overrides */
+
+/* Clean Card Styles */
+ion-card {
+  border-radius: var(--ct-radius-xl) !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03) !important;
+  background: var(--ion-card-background);
+}
+
+/* Buttons */
 ion-button {
-    --border-radius: 12px;
-    font-weight: 600;
+  --border-radius: var(--ct-radius-md);
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+/* Tutorial Content Styling (Legacy Support & New System) */
+.tutorial-content {
+    font-family: 'Inter', sans-serif; /* Changed from Merriweather for modern tech feel */
+    color: var(--ct-slate-800);
+    line-height: 1.7;
+    font-size: 1.05rem;
+    
+    h1, h2, h3, h4 {
+        font-family: 'Inter', sans-serif;
+        color: var(--ct-slate-900);
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+    }
+
+    h1 { font-size: 2.25rem; font-weight: 800; }
+    h2 { font-size: 1.75rem; border-bottom: none; }
+    h3 { font-size: 1.5rem; }
+
+    p { margin-bottom: 1.5rem; }
+
+    /* Code Blocks */
+    pre[class*="language-"] {
+        border-radius: var(--ct-radius-lg);
+        margin: 1.5rem 0;
+        background: var(--ct-editor-bg) !important;
+        border: 1px solid rgba(255,255,255,0.05);
+        box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+    }
+    
+    code {
+        font-family: var(--ct-font-code) !important;
+        font-size: 0.9em;
+    }
+
+    /* Links */
+    a {
+        color: var(--ct-primary);
+        text-decoration: none;
+        font-weight: 500;
+        &:hover { text-decoration: underline; }
+    }
+    
+    /* Images */
+    img {
+        border-radius: var(--ct-radius-lg);
+        border: 1px solid var(--ct-slate-200);
+    }
 }
 
 /* Ionic Page Fixes */
@@ -44,411 +102,4 @@ ion-router-outlet {
   position: relative;
   width: 100%;
   height: 100%;
-}
-.ion-page {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  contain: layout size style;
-  z-index: 0;
-}
-.ion-page-hidden {
-  display: none !important;
-}
-
-/* Tutorial Content Styling - Medium.com Style */
-.tutorial-content {
-    /* Base typography for the article feel */
-    font-family: 'Merriweather', Georgia, Cambria, "Times New Roman", Times, serif;
-    color: rgba(41, 41, 41, 1); /* Dark grey like Medium */
-    
-    h1 {
-        font-family: 'Inter', system-ui, sans-serif; /* Keep headings sans-serif */
-        font-size: 2.2rem;
-        font-weight: 800;
-        letter-spacing: -0.02em;
-        color: #1a1a1a;
-        margin-bottom: 24px;
-        position: relative;
-        line-height: 1.2;
-    }
-
-    /* Navigation Buttons */
-    .nextprev {
-        font-family: 'Inter', system-ui, sans-serif;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin: 32px 0 24px;
-        padding-top: 24px;
-        border-top: 1px solid #f1f5f9;
-        width: 100%;
-
-        .w3-btn {
-            font-weight: 800 !important;
-            font-size: 0.9rem !important;
-            padding: 12px 24px !important;
-            border-radius: 14px !important; /* Squircle */
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            text-decoration: none !important;
-            float: none !important;
-            letter-spacing: 0.02em;
-        }
-
-        /* Previous Button (Ghost) */
-        .w3-btn:first-child, .w3-left {
-            background: #ffffff !important;
-            color: #64748b !important;
-            border: 1px solid #e2e8f0 !important;
-            
-            &:hover {
-                background: #f8fafc !important;
-                border-color: #cbd5e1 !important;
-                color: #0f172a !important;
-            }
-        }
-
-        /* Next Button (Solid Indigo) */
-        .w3-btn:last-child, .w3-right {
-            background: #4f46e5 !important;
-            color: #ffffff !important;
-            border: none !important;
-            box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.4) !important;
-
-            &:hover {
-                background: #4338ca !important;
-                box-shadow: 0 15px 25px -5px rgba(79, 70, 229, 0.5) !important;
-                transform: translateY(-2px);
-            }
-        }
-    }
-
-    h2 {
-        font-family: 'Inter', system-ui, sans-serif;
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: #242424;
-        margin-top: 32px; /* Reduced from 48px */
-        margin-bottom: 18px;
-        padding-bottom: 0;
-        border-bottom: none; /* Cleaner look */
-        letter-spacing: -0.02em;
-    }
-
-    h3 {
-        font-family: 'Inter', system-ui, sans-serif;
-        font-size: 1.25rem;
-        font-weight: 600;
-        color: #242424;
-        margin-top: 32px;
-        margin-bottom: 12px;
-    }
-
-    p {
-        font-size: 1.1rem; /* Slightly larger ~18px */
-        line-height: 1.8; /* Very airy */
-        margin-bottom: 24px;
-        color: rgba(41, 41, 41, 1);
-        font-weight: 400;
-    }
-
-    ul, ol {
-        padding-left: 24px;
-        margin-bottom: 24px;
-        line-height: 1.8;
-        font-size: 1.1rem;
-    }
-    
-    li {
-        margin-bottom: 10px;
-    }
-
-    /* Links */
-    a {
-        color: var(--ion-color-secondary);
-        text-decoration: none;
-        font-weight: 500;
-        transition: color 0.2s;
-        
-        &:hover {
-            text-decoration: underline;
-            color: var(--ion-color-secondary-tint);
-        }
-    }
-
-    /* Images */
-    img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 12px;
-        margin: 20px 0;
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        border: 1px solid rgba(var(--ion-text-color-rgb), 0.05);
-    }
-
-    /* Code Blocks - Mac Terminal Style */
-    .w3-example {
-        background-color: var(--ion-color-primary); /* Deep Navy */
-        border-radius: 20px; /* More rounded as per "Grocery" UI */
-        margin: 32px 0;
-        box-shadow: 0 20px 40px -5px rgba(var(--ion-color-primary-rgb), 0.4); /* Colored shadow */
-        overflow: hidden;
-        border: none; /* Clean look */
-        
-        /* Mac Window Controls Bar */
-        &::before {
-            content: '';
-            display: block;
-            background-color: var(--ion-color-primary-shade); /* Darker header */
-            height: 44px; /* Taller header */
-            width: 100%;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            /* Create the dots using box-shadow */
-            background-image: 
-                radial-gradient(circle, #ff5f56 5px, transparent 6px), 
-                radial-gradient(circle, #ffbd2e 5px, transparent 6px), 
-                radial-gradient(circle, #27c93f 5px, transparent 6px);
-            background-size: 20px 20px, 20px 20px, 20px 20px;
-            background-repeat: no-repeat;
-            background-position: 20px center, 45px center, 70px center; /* Increased spacing */
-        }
-
-        h3 {
-            display: none; /* Hide the default "Example" title to keep it clean */
-        }
-
-        .w3-code {
-            border: none;
-            background-color: transparent !important;
-            padding: 24px;
-            font-family: 'JetBrains Mono', 'Source Code Pro', monospace;
-            font-size: 0.9rem; /* Slightly smaller for professional look */
-            line-height: 1.3 !important; /* Tighter line height */
-            color: #f8fafc; /* Very light slate for text */
-            white-space: pre-wrap;
-            overflow-x: auto;
-        }
-         
-        /* Optional: Add custom scrollbar for code */
-        .w3-code::-webkit-scrollbar {
-            height: 8px;
-        }
-        .w3-code::-webkit-scrollbar-track {
-            background: #0f172a;
-        }
-        .w3-code::-webkit-scrollbar-thumb {
-            background: #334155;
-            border-radius: 4px;
-        }
-    }
-
-    /* Note Panels */
-    /* Note Panels */
-    .ws-note, .w3-panel {
-        background-color: #fdf2f0 !important; /* Very light reddish/orange tint */
-        border-left: 4px solid var(--ion-color-secondary) !important; /* Orange border */
-        padding: 24px !important;
-        border-radius: 4px;
-        margin: 32px 0;
-        
-        /* Note Styling */
-        p {
-            font-family: 'Merriweather', serif;
-            font-size: 1.05rem;
-            color: #1f2937;
-            margin-bottom: 16px; /* Restore bottom margin for paragraphs in notes */
-            line-height: 1.6;
-        }
-
-        /* If there's a strong title or 'Note:' text inside */
-        strong, b, h3, h4 {
-           display: block;
-           font-family: 'Inter', sans-serif;
-           font-weight: 700;
-           font-size: 1.1rem;
-           margin-top: 0;
-           margin-bottom: 12px;
-           color: #111827;
-        }
-
-        /* Remove margins from first and last elements to respect panel padding */
-        > *:first-child {
-            margin-top: 0 !important;
-        }
-        > *:last-child {
-            margin-bottom: 0 !important;
-        }
-
-        /* Tighter lists inside notes */
-        ul, ol {
-            padding-left: 20px; /* Slightly less indentation */
-            margin-bottom: 16px;
-        }
-        li {
-            margin-bottom: 6px;
-        }
-    }
-
-    /* Tables */
-    .table-responsive-wrapper {
-        width: 100%;
-        overflow-x: auto;
-        margin: 24px 0;
-        border-radius: 12px;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
-        border: 1px solid rgba(0,0,0,0.05);
-    }
-
-    .w3-table-all, table {
-        width: 100%;
-        border-collapse: separate; 
-        border-spacing: 0;
-        margin: 0; /* Margin moved to wrapper */
-        font-size: 0.95rem;
-        
-        /* Reset display to table for proper layout */
-        display: table; 
-        white-space: normal; /* Allow text wrapping */
-
-        th, td {
-            padding: 14px 20px;
-            text-align: left;
-            border-bottom: 1px solid #f1f5f9;
-            vertical-align: top;
-        }
-
-        th {
-            background-color: var(--ion-color-primary); /* Deep Navy Header */
-            color: #ffffff;
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 0.05em;
-            white-space: nowrap; /* Keep headers single line usually */
-        }
-
-        tr:last-child td {
-            border-bottom: none;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f8fafc; /* Very light slate */
-        }
-        
-        tr:hover {
-            background-color: rgba(var(--ion-color-secondary-rgb), 0.05);
-        }
-    }
-    
-    div:empty {
-        display: none;
-    }
-
-    hr {
-        border: none;
-        border-top: 1px solid #f1f5f9;
-        margin: 1.5rem 0 !important;
-        height: 0;
-    }
-
-    /* Hide redundant multiple hr tags */
-    hr + hr {
-        display: none !important;
-    }
-}
-
-/* Tutorial Dark Mode Overrides */
-@media (prefers-color-scheme: dark) {
-    .tutorial-content {
-        color: #cbd5e1; /* Slate 300 */
-
-        h1, h2, h3, h4, h5, h6 {
-            color: #f1f5f9; /* Slate 100 */
-        }
-        
-        h1 {
-            color: #f8fafc;
-        }
-
-        p, li {
-            color: #cbd5e1;
-        }
-
-        /* Note Panels */
-        .ws-note, .w3-panel {
-            background-color: #1e293b !important; /* Dark Slate */
-            border-left-color: var(--ion-color-secondary) !important;
-            
-            p {
-                color: #e2e8f0; /* Lighter text for contrast in note */
-            }
-            
-            strong, b, h3, h4 {
-                color: #f8fafc;
-            }
-        }
-
-        /* Tables */
-        .table-responsive-wrapper {
-             border-color: rgba(255,255,255,0.1);
-        }
-
-        .w3-table-all, table {
-            border-color: rgba(255,255,255,0.1);
-
-            th, td {
-                border-bottom-color: rgba(255,255,255,0.1);
-                color: #e2e8f0;
-            }
-
-            th {
-                /* Primary is lighter in dark mode, might need text adjustment */
-                color: #0f172a; /* Dark text on light blue primary */
-                background-color: var(--ion-color-primary); 
-            }
-
-            tr:nth-child(even) {
-                background-color: #1e293b; /* Darker stripe */
-            }
-            
-            tr:hover {
-                background-color: rgba(var(--ion-color-secondary-rgb), 0.15);
-            }
-        }
-
-        /* Images */
-        img {
-            border-color: rgba(255,255,255,0.1);
-            opacity: 0.9;
-        }
-        
-        /* Links */
-        a {
-            color: var(--ion-color-primary); /* Use the lighter blue primary for links */
-            
-             &:hover {
-                color: var(--ion-color-primary-tint);
-            }
-        }
-
-        /* Code Blocks - Dark Mode Fix */
-        .w3-example {
-            background-color: #020617 !important; /* Deepest Navy/Black for contrast */
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5); /* Stronger shadow */
-            border: 1px solid rgba(255,255,255,0.1);
-            
-            &::before {
-                background-color: #0f172a; /* Slightly lighter header */
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            }
-            
-            .w3-code {
-                color: #e2e8f0; /* Ensure code text is readable */
-            }
-        }
-    }
 }

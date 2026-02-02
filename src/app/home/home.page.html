@@ -1,239 +1,94 @@
-
-<!-- Overlay for mobile sidebar -->
-<div class="sidebar-overlay" [class.active]="sidebarOpen" (click)="toggleSidebar()"></div>
-
-<!-- Main Layout Container -->
-<div class="dashboard-layout">
-
-    <!-- Premium Sidebar -->
-    <div class="sidebar" [class.mobile-open]="sidebarOpen">
-        <div class="ct-brand">
-            <div class="ct-logo-box">CT</div>
-            <div class="ct-brand-text">
-                <span class="brand-main">Coding</span>
-                <span class="brand-sub">Tamilan</span>
-            </div>
+<ion-content [fullscreen]="true">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container-max hero-inner">
+      <div class="hero-content">
+        <div class="badge-new">
+          <span class="pulse-dot"></span>
+          NEW: Full Stack Developer Course
         </div>
-
-        <div class="sidebar-menu">
-            <div class="menu-label">MENU</div>
-            <button class="nav-item active" (click)="goBackToCourses(); closeSidebarOnMobile()">
-                <ion-icon name="compass-outline"></ion-icon>
-                <span>Dashboard</span>
-            </button>
-            <button class="nav-item" (click)="closeSidebarOnMobile()">
-                <ion-icon name="terminal-outline"></ion-icon>
-                <span>Bootcamps</span>
-            </button>
-            <button class="nav-item" (click)="closeSidebarOnMobile()">
-                <ion-icon name="git-branch-outline"></ion-icon>
-                <span>Projects</span>
-            </button>
-            <button class="nav-item" (click)="closeSidebarOnMobile()">
-                <ion-icon name="settings-outline"></ion-icon>
-                <span>Settings</span>
-            </button>
-        </div>
-
-        <div class="sidebar-profile">
-            <!-- Logged In User -->
-            <div class="profile-card" *ngIf="authService.user$ | async as user" (click)="logout()">
-                <div class="profile-avatar" *ngIf="user.photoURL">
-                    <img [src]="user.photoURL" style="width: 100%; height: 100%; border-radius: 50%;">
-                </div>
-                <div class="profile-avatar" *ngIf="!user.photoURL">{{ user.displayName?.substring(0, 2) || 'US' }}</div>
-                <div class="user-info">
-                    <h4 style="font-weight: 800; color: var(--ct-text-dark); margin:0; font-size: 0.9rem;">{{ user.displayName }}</h4>
-                    <div style="display: flex; align-items: center; gap: 6px; margin-top: 2px;">
-                        <span style="font-size: 0.6rem; font-weight: 700; color: var(--ct-accent);">SIGN OUT</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Guest User -->
-            <div class="profile-card" *ngIf="!(authService.user$ | async)" (click)="login()">
-                <div class="profile-avatar">G</div>
-                <div class="user-info">
-                    <h4 style="font-weight: 800; color: var(--ct-text-dark); margin:0;">Guest User</h4>
-                    <div style="display: flex; align-items: center; gap: 6px; margin-top: 4px;">
-                        <span style="font-size: 0.65rem; font-weight: 800; color: var(--ct-accent); letter-spacing: 0.1em; text-transform: uppercase;">SIGN IN</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Main Content Area -->
-    <div class="main-content">
         
-        <!-- Header -->
-        <div class="ct-header">
-            <div class="header-title-row">
-                <!-- Mobile Menu Button -->
-                <button class="ct-icon-btn mobile-menu-btn" (click)="toggleSidebar()">
-                    <ion-icon name="menu-outline"></ion-icon>
-                </button>
-                
-                <button class="ct-icon-btn" *ngIf="selectedCourse" (click)="goBackToCourses()" style="width: 40px; height: 40px; margin-right: 8px;">
-                    <ion-icon name="arrow-back"></ion-icon>
-                </button>
-                <h1>{{ selectedCourse ? 'Course Syllabus' : 'Learning Hub' }}</h1>
-            </div>
-            <div class="header-tools">
-                <div class="ct-search">
-                    <ion-icon name="search-outline"></ion-icon>
-                    <input type="text" placeholder="Search path...">
-                </div>
-                <!-- Theme Toggle -->
-                <button class="ct-icon-btn" (click)="themeService.toggleTheme()">
-                    <ion-icon [name]="themeService.isDarkMode() ? 'sunny-outline' : 'moon-outline'"></ion-icon>
-                </button>
-                
-                <!-- User Profile Button -->
-                <button class="ct-icon-btn user-profile-btn" (click)="handleUserButtonClick()">
-                    <!-- Logged In User -->
-                    <div *ngIf="authService.user$ | async as user" class="user-avatar-small">
-                        <img *ngIf="user.photoURL" [src]="user.photoURL" alt="Profile">
-                        <span *ngIf="!user.photoURL">{{ user.displayName?.substring(0, 1) || 'U' }}</span>
-                    </div>
-                    <!-- Guest User -->
-                    <div *ngIf="!(authService.user$ | async)" class="guest-indicator">
-                        <ion-icon name="person-outline"></ion-icon>
-                        <div class="signin-dot"></div>
-                    </div>
-                </button>
-            </div>
+        <h1 class="hero-title">
+          Master Coding in <br>
+          <span class="gradient-text">Tamil & English</span>
+        </h1>
+        
+        <p class="hero-subtitle">
+          The world's largest Tamil coding platform. Learn JavaScript, Python, and more through interactive lessons and professional certifications.
+        </p>
+        
+        <div class="hero-actions">
+          <button class="btn-primary-dark" (click)="selectCourse({title: 'JavaScript', file: 'javascript', icon: 'logo-javascript'})">
+            Start Learning
+            <ion-icon name="arrow-forward"></ion-icon>
+          </button>
+          
+          <button class="btn-secondary-outlined" routerLink="/playground">
+            Try Editor
+          </button>
         </div>
-
-        <!-- Scrollable Dashboard Content -->
-        <div class="dashboard-container">
-            
-            <!-- VIEW: DASHBOARD (Active when no course selected) -->
-            <div *ngIf="!selectedCourse">
-                
-                <!-- Hero Banner -->
-                <div class="ct-hero">
-                    <div class="hero-content">
-                        <div class="live-badge">
-                            <span>Live Now</span>
-                            <span style="color: #64748b; font-size: 0.75rem; font-weight: 700;">Coding Tamilan Academy</span>
-                        </div>
-                        <h2 class="hero-heading">Code the <br/><span class="highlight">Future.</span></h2>
-                        <p class="hero-sub">Join 20,000+ developers in Tamil Nadu mastering the world's most powerful tech stacks.</p>
-                        
-                        <div class="hero-btns">
-                            <button class="btn-primary" (click)="selectCourse(courses[0])">Continue Path</button>
-                            <button class="btn-outline">Browse Projects</button>
-                        </div>
-                    </div>
-                    
-                    <!-- Decorative Elements -->
-                    <div class="hero-bg-blur"></div>
-                    <div class="hero-icon-overlay">
-                        <ion-icon name="code-slash"></ion-icon>
-                    </div>
-                </div>
-
-
-                <!-- Active Bootcamps (Courses Grid) -->
-                <div class="section-header">
-                    <h3>Active Bootcamps</h3>
-                </div>
-
-                <div class="courses-grid-ct">
-                    <div class="bootcamp-card" *ngFor="let course of courses; let i = index" (click)="selectCourse(course)">
-                        <div class="bc-header" [style.background]="course.color">
-                            <div class="bc-header-logo">
-                                <ion-icon [name]="course.icon"></ion-icon>
-                            </div>
-                            <div class="bc-center-logo">
-                                <ion-icon [name]="course.icon"></ion-icon>
-                            </div>
-                            <div class="bc-badge">
-                                <span>{{ i % 2 === 0 ? 'BEGINNER' : 'ADVANCED' }}</span>
-                            </div>
-                        </div>
-                        <div class="bc-body">
-                            <h4 class="bc-title">{{ course.title }}</h4>
-                            
-                            <div class="bc-meta">
-                                <div class="bc-status-label">
-                                    <span>Status</span>
-                                    <span>{{ (getCourseProgress(course.id) || 0) === 100 ? 'Completed' : 'In Progress' }}</span>
-                                </div>
-                                <div class="bc-percent">{{ getCourseProgress(course.id) || (course.id === 'js' ? 42 : 0) }}%</div>
-                            </div>
-                            
-                            <div class="bc-progress-track">
-                                <div class="bc-progress-fill" [style.width.%]="getCourseProgress(course.id) || (course.id === 'js' ? 42 : 0)" [style.background]="'#4F46E5'"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- VIEW: COURSE DETAIL (Active when course selected) -->
-            <div *ngIf="selectedCourse">
-                <!-- Course Hero -->
-                <div class="ct-hero" style="background: white; border: 1px solid var(--ct-border); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.1); margin-bottom: 40px; min-height: 300px;">
-                    <div class="hero-content" style="max-width: 100%; display: flex; align-items: center; gap: 48px; width: 100%;">
-                        <!-- Left Logo Box -->
-                        <div style="width: 140px; height: 140px; border-radius: 40px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);" [style.background]="selectedCourse.color">
-                             <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; opacity: 0.1; transform: scale(2) rotate(12deg);">
-                                <ion-icon [name]="selectedCourse.icon" style="font-size: 80px; color: white;"></ion-icon>
-                             </div>
-                             <ion-icon [name]="selectedCourse.icon" style="font-size: 64px; color: white; position: relative; z-index: 10; filter: drop-shadow(0 10px 10px rgba(0,0,0,0.2));"></ion-icon>
-                        </div>
-                        
-                        <!-- Right Info -->
-                        <div style="flex: 1;">
-                            <h2 class="hero-heading" style="color: var(--ct-text-dark); font-size: 3rem; font-style: normal; margin-bottom: 16px;">{{ selectedCourse.title }}</h2>
-                            <div style="display: flex; gap: 12px; margin-bottom: 0;">
-                                <span style="background: #e0e7ff; color: #4f46e5; padding: 8px 20px; border-radius: 100px; font-weight: 800; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em;">14 Modules</span>
-                                <span style="background: #0f172a; color: white; padding: 8px 20px; border-radius: 100px; font-weight: 800; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em;">Certificate Ready</span>
-                            </div>
-                        </div>
-
-                         <button style="padding: 24px 48px; background: var(--ct-accent); color: white; border-radius: 24px; font-weight: 900; font-size: 1.1rem; border: none; box-shadow: 0 25px 50px -12px rgba(79, 70, 229, 0.5); cursor: pointer; transition: transform 0.2s;" (click)="continueToLast()">
-                            Resume Bootcamp
-                        </button>
-                    </div>
-                </div>
-
-                <div class="section-header">
-                    <h3>Bootcamp Syllabus</h3>
-                </div>
-
-                <!-- Syllabus List -->
-                <div class="syllabus-list">
-                    <div class="section-block" *ngFor="let section of menuData; let sIndex = index" style="background: white; border: 1px solid var(--ct-border); border-radius: 32px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.01); margin-bottom: 24px; overflow: hidden;">
-                         <div class="section-header-row" style="padding: 32px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; background: white;" (click)="toggleSection(sIndex)">
-                             <div style="display: flex; align-items: center; gap: 24px;">
-                                 <div style="width: 48px; height: 48px; background: #0f172a; color: white; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.2rem;">{{ sIndex + 1 }}</div>
-                                 <h4 style="margin: 0; font-size: 1.25rem; font-weight: 900; color: var(--ct-text-dark);">{{ section.title }}</h4>
-                             </div>
-                             <ion-icon name="chevron-down-outline" style="color: #cbd5e1; font-size: 1.5rem;" [style.transform]="section.expanded ? 'rotate(180deg)' : 'rotate(0)'"></ion-icon>
-                         </div>
-                         
-                         <div class="section-lessons" *ngIf="section.expanded" style="padding: 0 32px 32px; display: flex; flex-direction: column; gap: 12px;">
-                             <div class="lesson-item" *ngFor="let item of section.items" (click)="openTutorial(item.file)" style="padding: 20px; background: #f8fafc; border-radius: 24px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; transition: background 0.2s;">
-                                 <div style="display: flex; align-items: center; gap: 20px;">
-                                     <div style="width: 40px; height: 40px; background: white; border: 1px solid #e2e8f0; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
-                                         <ion-icon name="play" style="color: var(--ct-accent);"></ion-icon>
-                                     </div>
-                                     <span style="font-weight: 700; color: #475569; font-size: 1rem;">{{ item.title }}</span>
-                                 </div>
-                                 <ion-icon name="checkmark-circle" *ngIf="tutorialService.isComplete(item.file)" style="color: #10b981; font-size: 1.5rem;"></ion-icon>
-                                 <ion-icon name="lock-closed" *ngIf="!tutorialService.isComplete(item.file) && tutorialService.isModuleLocked(sIndex)" style="color: #e2e8f0; font-size: 1.5rem;"></ion-icon>
-                             </div>
-                         </div>
-                    </div>
-                </div>
-
-            </div>
-
-             <div style="height: 60px;"></div>
-        </div>
+      </div>
+      
+      <div class="hero-preview">
+        <app-code-block 
+          [code]="heroCode" 
+          language="html" 
+          [title]="'demo.html'"
+          (tryIt)="router.navigate(['/playground'])">
+        </app-code-block>
+      </div>
     </div>
-</div>
+  </section>
+
+  <!-- Features Grid -->
+  <section class="features-section">
+    <div class="container-max">
+      <div class="section-header">
+        <h2>The Developer's Toolkit</h2>
+        <p>Everything you need to build a career in software engineering.</p>
+      </div>
+      
+      <div class="grid-responsive">
+        <div class="tech-card card-hover" 
+             *ngFor="let tech of technologies" 
+             [style.--accent-color]="'var(--ct-' + tech.color + '-text)'"
+             [style.--bg-color]="'var(--ct-' + tech.color + '-bg)'"
+             (click)="selectCourse({title: tech.name, file: tech.route, icon: tech.icon})">
+          
+          <div class="card-icon" [style.color]="'var(--ct-' + tech.color + '-icon)'">
+            <ion-icon [name]="tech.icon"></ion-icon>
+          </div>
+          
+          <h3>{{ tech.name }}</h3>
+          <p class="modules-count">{{ tech.modules }} Modules</p>
+          
+          <div class="card-link" [style.color]="'var(--ct-' + tech.color + '-text)'">
+            Start Learning <ion-icon name="arrow-forward"></ion-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Stats Section -->
+  <section class="stats-section">
+    <div class="container-max stats-grid">
+      <div class="stat-item">
+        <h3>50k+</h3>
+        <p>Active Learners</p>
+      </div>
+      <div class="stat-item">
+        <h3>500+</h3>
+        <p>Tutorials</p>
+      </div>
+      <div class="stat-item">
+        <h3>1M+</h3>
+        <p>Lines Written</p>
+      </div>
+      <div class="stat-item">
+        <h3>4.8/5</h3>
+        <p>User Rating</p>
+      </div>
+    </div>
+  </section>
+</ion-content>

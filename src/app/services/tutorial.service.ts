@@ -25,6 +25,10 @@ export interface Course {
   color: string;
   file: string;
   description: string;
+  level?: string;
+  duration?: string;
+  lessonCount?: number;
+  route?: string;
 }
 
 @Injectable({
@@ -89,8 +93,8 @@ export class TutorialService {
     return this.http.get<Course[]>(this.coursesPath);
   }
 
-  getMenu(): Observable<TutorialSection[]> {
-    return this.http.get<TutorialSection[]>(this.menuPath);
+  getMenu(path?: string): Observable<TutorialSection[]> {
+    return this.http.get<TutorialSection[]>(path || this.menuPath);
   }
 
 
@@ -311,5 +315,18 @@ export class TutorialService {
   private saveLocks() {
       const key = 'unlocked_modules_' + (this.menuPath || 'default');
       localStorage.setItem(key, JSON.stringify(Array.from(this.unlockedModules)));
+  }
+
+  // --- Playground State ---
+  private playgroundCode: string = '';
+
+  setPlaygroundCode(code: string) {
+      this.playgroundCode = code;
+  }
+
+  getPlaygroundCode(): string {
+      const code = this.playgroundCode;
+      this.playgroundCode = ''; // Clear after retrieval
+      return code;
   }
 }

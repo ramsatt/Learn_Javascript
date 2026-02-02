@@ -1,0 +1,117 @@
+:host {
+  display: block;
+  height: 100%;
+  border-right: 1px solid var(--ct-slate-200);
+  background: #fdfdfd; 
+}
+
+.sidebar-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--ct-slate-100);
+  
+  h2 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--ct-slate-900);
+    margin: 0;
+  }
+}
+
+.sidebar-menu {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 0;
+  
+  /* Custom Scrollbar */
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: var(--ct-slate-300);
+    border-radius: 3px;
+  }
+}
+
+.menu-section {
+  margin-bottom: 8px;
+}
+
+.section-header {
+  padding: 10px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  
+  h3 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--ct-slate-500);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0;
+  }
+  
+  ion-icon {
+    font-size: 0.9rem;
+    color: var(--ct-slate-400);
+  }
+  
+  &:hover h3 {
+    color: var(--ct-slate-800);
+  }
+}
+
+.section-items {
+  padding-bottom: 8px;
+}
+
+.menu-item {
+  padding: 8px 24px;
+  font-size: 0.95rem;
+  color: var(--ct-slate-700);
+  cursor: pointer;
+  border-left: 3px solid transparent;
+  transition: all 0.2s;
+  
+  &:hover {
+    background: var(--ct-slate-50);
+    color: var(--ct-slate-900);
+  }
+  
+  &.active {
+    background: #EAFDF5; /* Exact green tint from W3Academy */
+    color: #10B981; /* Green Text */
+    border-left-color: #10B981;
+    font-weight: 600;
+  }
+}
+
+/* Dark Mode */
+:host-context(body.dark) {
+  :host {
+    background: var(--ct-slate-800);
+    border-right-color: var(--ct-slate-700);
+  }
+  
+  .sidebar-header {
+    border-bottom: 1px solid var(--ct-slate-700);
+    h2 { color: white; }
+  }
+  
+  .menu-item {
+    color: var(--ct-slate-300);
+    &:hover { background: rgba(255,255,255,0.05); color: white; }
+    
+    &.active {
+      background: rgba(16, 185, 129, 0.1);
+      color: #34D399;
+    }
+  }
+}

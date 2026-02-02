@@ -1,3 +1,4 @@
+
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { LoadingController, ToastController, Platform } from '@ionic/angular';
@@ -5,6 +6,7 @@ import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import { Share } from '@capacitor/share';
 import { Filesystem, Directory } from '@capacitor/filesystem';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-certificate',
@@ -15,31 +17,56 @@ import { Filesystem, Directory } from '@capacitor/filesystem';
 export class CertificatePage implements OnInit {
   @ViewChild('certificateNode', { static: false }) certificateNode!: ElementRef;
   
+  generatedImage: string | null = null;
+  generatedId: string = '';
+  
   userName: string = '';
   courseName: string = '';
   completionDate: string = '';
-  isGenerating: boolean = false;
   showInput: boolean = true;
-  generatedImage: string | null = null;
-  generatedId: string = '';
 
   constructor(
       private route: ActivatedRoute,
       private loadingCtrl: LoadingController,
       private toastCtrl: ToastController,
-      private platform: Platform
+      private platform: Platform,
+      private authService: AuthService
   ) { }
 
   ngOnInit() {
-    this.courseName = this.route.snapshot.paramMap.get('course') || 'JavaScript Course';
+    const courseId = this.route.snapshot.paramMap.get('course') || 'javascript';
+    this.courseName = this.formatCourseName(courseId);
+    
     const date = new Date();
     this.completionDate = date.toLocaleDateString('en-US', { 
         year: 'numeric', 
         month: 'long', 
         day: 'numeric' 
     });
+    
     // Random Certificate ID
     this.generatedId = Math.random().toString(36).substring(2, 10).toUpperCase();
+
+    // Auto-fill name if logged in
+    const user = this.authService.getCurrentUser();
+    if (user && user.displayName) {
+        this.userName = user.displayName;
+        this.showInput = false; // direct to certificate if we know the user
+    }
+  }
+
+  formatCourseName(id: string): string {
+      const names: {[key: string]: string} = {
+          'html': 'HTML Fundamentals',
+          'css': 'Modern CSS Design',
+          'javascript': 'JavaScript Algorithms',
+          'python': 'Python Automation',
+          'react': 'React.js Development',
+          'sql': 'Database Management',
+          'java': 'Java Programming',
+          'nodejs': 'Node.js Backend'
+      };
+      return names[id.toLowerCase()] || 'Software Engineering';
   }
 
   generatePreview() {
@@ -69,7 +96,7 @@ export class CertificatePage implements OnInit {
           clone.style.top = '-10000px';
           clone.style.left = '-10000px';
           clone.style.width = '800px';
-          clone.style.height = '566px';
+          clone.style.height = '600px'; // Adjusted height
           clone.style.zIndex = '-1000';
           clone.style.display = 'flex'; // Ensure flex layout is preserved
           document.body.appendChild(clone);
@@ -95,6 +122,7 @@ export class CertificatePage implements OnInit {
               await this.shareFile(imageData, 'certificate.png', 'image/png');
           } else {
               const imgData = canvas.toDataURL('image/png');
+              // Landscape, points, width, height
               const pdf = new jsPDF('l', 'px', [canvas.width, canvas.height]);
               pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
               const pdfOutput = pdf.output('datauristring');

@@ -1,115 +1,94 @@
-<ion-header class="ion-no-border">
-  <ion-toolbar color="primary">
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/home" icon="arrow-back-outline"></ion-back-button>
-    </ion-buttons>
-    <ion-title>Get Certificate</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content class="ion-padding">
-  
+<ion-content class="ion-padding certificate-content">
   <!-- Input Section -->
-  <div class="input-section" *ngIf="showInput">
-      <div class="congrats-text">
-        <ion-icon name="trophy" color="warning"></ion-icon>
-        <h2>Congratulations!</h2>
-        <p>You've completed the <strong>{{ courseName }}</strong>. Enter your name to generate your official certificate.</p>
-      </div>
-
-      <div class="name-input-wrapper">
-         <ion-input
-            label="Your Full Name"
-            label-placement="stacked"
-            fill="outline"
-            placeholder="e.g. John Doe"
-            [(ngModel)]="userName">
-         </ion-input>
-      </div>
-
-      <ion-button expand="block" (click)="generatePreview()" class="generate-btn">
-          Generate Certificate
-      </ion-button>
-  </div>
-
-  <!-- Certificate Preview Section -->
-  <div class="preview-section" *ngIf="!showInput">
+  <div class="input-container" *ngIf="showInput">
+    <div class="input-card">
+      <ion-icon name="ribbon-outline" class="hero-icon"></ion-icon>
+      <h2>Get Your Certificate</h2>
+      <p>Enter your full name as you want it to appear on your official certificate.</p>
       
-      <div class="cert-wrapper">
-          <!-- The Certificate DOM Structure -->
-          <div #certificateNode class="certificate-container">
-              <!-- Left Sidebar -->
-              <div class="cert-sidebar">
-                  <div class="sidebar-logo">
-                     <div class="logo-icon">{{ '{' }} JS {{ '}' }}</div>
-                     <div class="logo-text">LEARN JS</div>
-                  </div>
-                  
-                  <div class="sidebar-qr">
-                      <!-- Simulated QR Code (Grid of squares) -->
-                      <div class="qr-grid">
-                          <div *ngFor="let i of [1,2,3,4,5,6,7,8,9]" class="qr-cell"></div>
-                      </div>
-                  </div>
-              </div>
-
-              <!-- Main Content -->
-              <div class="cert-main">
-                  <div class="cert-header">
-                      <h1 class="title">CERTIFICATE</h1>
-                      <h2 class="subtitle">OF COMPLETION</h2>
-                  </div>
-
-                  <div class="cert-badge">
-                      <div class="badge-ribbon"></div>
-                      <div class="badge-circle">
-                          <span class="year">2026</span>
-                          <span class="awarded">AWARDED</span>
-                      </div>
-                  </div>
-
-                  <div class="cert-body">
-                      <p class="present-text">We proudly present this certificate to</p>
-                      <h1 class="student-name">{{ userName }}</h1>
-                      
-                      <div class="course-info">
-                          <p>honouring completion of the course:</p>
-                          <h3>"{{ courseName }}"</h3>
-                          <p class="desc">For demonstrating commitment to mastering JavaScript concepts and coding standards.</p>
-                      </div>
-                  </div>
-
-                  <div class="cert-footer">
-                      <div class="signature-block">
-                          <div class="sig-name">Coding Tamilan</div>
-                          <div class="sig-title">COURSE DIRECTOR</div>
-                          <div class="date">{{ completionDate }}</div>
-                      </div>
-                      
-                      <div class="signature-block right">
-                           <div class="sig-name">Learn JS App</div>
-                           <div class="sig-title">VERIFIED CERTIFICATION</div>
-                           <div class="cert-id">ID: {{ generatedId }}</div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-
-      <div class="action-buttons">
-          <ion-button expand="block" (click)="shareCertificate('image')" color="secondary">
-              <ion-icon name="image-outline" slot="start"></ion-icon>
-              Share as Image
-          </ion-button>
-          <ion-button expand="block" (click)="shareCertificate('pdf')" color="tertiary" class="ion-margin-top">
-              <ion-icon name="document-text-outline" slot="start"></ion-icon>
-              Share as PDF
-          </ion-button>
-          <ion-button expand="block" fill="clear" (click)="showInput = true" class="ion-margin-top">
-              Edit Name
-          </ion-button>
-      </div>
-
+      <ion-item lines="none" class="custom-input">
+        <ion-label position="stacked">Full Name</ion-label>
+        <ion-input [(ngModel)]="userName" placeholder="e.g. John Doe"></ion-input>
+      </ion-item>
+      
+      <ion-button expand="block" (click)="generatePreview()" class="generate-btn">
+        Generate Certificate
+      </ion-button>
+    </div>
   </div>
 
+  <!-- Certificate Preview -->
+  <div class="preview-container" *ngIf="!showInput">
+    
+    <!-- The Certificate Node to Capture -->
+    <div class="certificate-wrapper" #certificateNode>
+      <div class="certificate-border">
+        <div class="certificate-inner">
+          
+          <div class="header">
+            <div class="logo">
+              <ion-icon name="code-slash"></ion-icon>
+              <span>Coding Tamilan</span>
+            </div>
+            <div class="id-number">ID: {{ generatedId }}</div>
+          </div>
+          
+          <div class="title">
+            Certificate of Completion
+          </div>
+          
+          <div class="subtitle">
+            This is to certify that
+          </div>
+          
+          <div class="student-name">
+            {{ userName }}
+          </div>
+          
+          <div class="description">
+            has successfully completed the course
+          </div>
+          
+          <div class="course-name">
+            {{ courseName }}
+          </div>
+          
+          <div class="footer">
+            <div class="date-section">
+              <div class="line"></div>
+              <div class="label">Date: {{ completionDate }}</div>
+            </div>
+            
+            <div class="seal">
+              <ion-icon name="ribbon"></ion-icon>
+            </div>
+            
+            <div class="sign-section">
+              <div class="line signature">Coding Tamilan</div>
+              <div class="label">Instructor</div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <div class="actions">
+      <ion-button expand="block" fill="outline" (click)="shareCertificate('image')">
+        <ion-icon name="image-outline" slot="start"></ion-icon>
+        Download Image
+      </ion-button>
+      
+      <ion-button expand="block" (click)="shareCertificate('pdf')">
+        <ion-icon name="document-text-outline" slot="start"></ion-icon>
+        Download PDF
+      </ion-button>
+      
+      <ion-button fill="clear" (click)="showInput = true" size="small" color="medium">
+        Edit Name
+      </ion-button>
+    </div>
+    
+  </div>
 </ion-content>

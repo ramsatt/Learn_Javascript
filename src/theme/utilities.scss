@@ -1,0 +1,153 @@
+/* Coding Tamilan Design Utilities */
+
+/* =============================================================================
+   1. Glassmorphism & Backgrounds
+   ============================================================================= */
+.glass-nav {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+body.dark .glass-nav {
+  background: rgba(15, 23, 42, 0.85);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.bg-hero {
+  background: var(--ct-primary-bg);
+}
+
+.gradient-text {
+  background: linear-gradient(to right, var(--ct-primary-dark), var(--ct-primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: var(--ct-primary); /* Fallback */
+}
+
+/* =============================================================================
+   2. Interactivity & Animations
+   ============================================================================= */
+.card-hover {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, box-shadow;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+.pulse-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: currentColor;
+  animation: pulse-animation 2s infinite;
+}
+
+@keyframes pulse-animation {
+  0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
+  70% { box-shadow: 0 0 0 6px rgba(255, 255, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+}
+
+/* =============================================================================
+   3. Code Window Styling (Mac aesthetics)
+   ============================================================================= */
+.code-window {
+  background: var(--ct-editor-bg);
+  border-radius: var(--ct-radius-lg);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  font-family: var(--ct-font-code);
+}
+
+.window-controls {
+  display: flex;
+  gap: 8px;
+  padding: 12px 16px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.control-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+.control-dot.red { background-color: #EF4444; }
+.control-dot.yellow { background-color: #F59E0B; }
+.control-dot.green { background-color: #10B981; }
+
+/* =============================================================================
+   4. Buttons & Badges
+   ============================================================================= */
+.btn-primary-dark {
+  background: var(--ct-btn-primary);
+  color: white;
+  font-weight: 600;
+  border-radius: var(--ct-radius-md);
+  padding: 12px 24px;
+  transition: opacity 0.2s;
+}
+
+.btn-primary-dark:hover {
+  opacity: 0.9;
+}
+
+.btn-secondary-outlined {
+  background: transparent;
+  border: 1px solid var(--ct-slate-200);
+  color: var(--ct-slate-800);
+  font-weight: 600;
+  border-radius: var(--ct-radius-md);
+  padding: 12px 24px;
+}
+
+.badge-new {
+  background: var(--ct-primary);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* =============================================================================
+   5. Layout Helpers
+   ============================================================================= */
+.container-max {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.grid-responsive {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--ct-slate-300);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ct-slate-400);
+}

@@ -1,0 +1,75 @@
+<ion-content class="playground-content" [fullscreen]="true">
+  <!-- Sub-Toolbar (Mac Style) -->
+  <div class="playground-toolbar-custom">
+    <div class="toolbar-left">
+      <div class="mac-dots">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+      </div>
+      <button class="run-result-btn" (click)="runCode()">
+        <ion-icon name="play"></ion-icon>
+        Run Result
+      </button>
+      <button class="save-btn">
+        <ion-icon name="cloud-upload-outline"></ion-icon>
+        Save
+      </button>
+    </div>
+    <div class="toolbar-right">
+      <span class="active-file">ACTIVE: INDEX.HTML</span>
+      <button class="icon-tool"><ion-icon name="settings-outline"></ion-icon></button>
+      <button class="icon-tool"><ion-icon name="share-social-outline"></ion-icon></button>
+    </div>
+  </div>
+
+  <div class="split-pane">
+    <!-- Editor Pane -->
+    <div class="pane editor-pane" [class.hidden-mobile]="activeTab === 'result'">
+      <div class="pane-header">
+        <ion-icon name="code-slash-outline" style="margin-right: 8px;"></ion-icon>
+        SOURCE EDITOR
+      </div>
+      <div class="editor-viewport">
+          <textarea 
+            class="code-input" 
+            [(ngModel)]="code" 
+            spellcheck="false"
+            (keydown.tab)="handleTab($event)"
+            placeholder="Type your HTML/CSS code here..."
+          ></textarea>
+      </div>
+    </div>
+
+    <!-- Drag Handle (Divider) -->
+    <div class="divider ion-hide-sm-down"></div>
+
+    <!-- Result Pane -->
+    <div class="pane result-pane" [class.hidden-mobile]="activeTab === 'editor'">
+      <div class="pane-header result">
+        INTERACTIVE RESULT
+      </div>
+      <div class="iframe-container">
+        <div class="iframe-wrapper">
+          <iframe 
+            *ngIf="iframeSrc" 
+            [src]="iframeSrc" 
+            frameborder="0" 
+            sandbox="allow-scripts allow-modals"
+            title="Preview">
+          </iframe>
+          <div class="empty-state" *ngIf="!iframeSrc">
+            <ion-icon name="play-circle-outline"></ion-icon>
+            <p>Click Run Result to see the preview</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Mobile Tab Switcher -->
+  <div class="mobile-tabs ion-hide-md-up">
+    <button [class.active]="activeTab === 'editor'" (click)="activeTab = 'editor'">EDITOR</button>
+    <button [class.active]="activeTab === 'result'" (click)="activeTab = 'result'">RESULT</button>
+  </div>
+</ion-content>

@@ -1,0 +1,49 @@
+<header class="glass-nav">
+  <div class="container-max header-inner">
+    <!-- Logo Section -->
+    <div class="logo-section" [routerLink]="['/home']">
+      <div class="logo-icon-w3">
+        <span>W</span>
+      </div>
+      <span class="logo-text">W3Academy</span>
+    </div>
+
+    <!-- Desktop Navigation -->
+    <nav class="desktop-nav">
+      <ul>
+        <li *ngFor="let item of navItems">
+          <a [routerLink]="item.route" routerLinkActive="active" class="nav-link">
+            {{ item.label }}
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Header Actions -->
+    <div class="header-actions">
+      <!-- Search (Desktop) -->
+      <div class="search-bar" [class.open]="isSearchOpen">
+        <ion-icon name="search-outline"></ion-icon>
+        <input type="text" placeholder="Search topics..." />
+      </div>
+
+      <!-- Theme Toggle -->
+      <button class="icon-btn theme-toggle" (click)="toggleTheme()" aria-label="Toggle Theme">
+        <ion-icon [name]="isDarkMode ? 'sunny-outline' : 'moon-outline'"></ion-icon>
+      </button>
+
+      <!-- Search Toggle (Mobile) -->
+      <button class="icon-btn mobile-search-toggle" (click)="toggleSearch()">
+        <ion-icon name="search-outline"></ion-icon>
+      </button>
+
+      <!-- Auth Button -->
+      <button class="btn-signup">Sign Up</button>
+      
+      <!-- Mobile Menu -->
+      <button class="icon-btn mobile-menu-toggle">
+        <ion-icon name="menu-outline"></ion-icon>
+      </button>
+    </div>
+  </div>
+</header>

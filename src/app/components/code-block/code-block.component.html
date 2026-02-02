@@ -1,0 +1,31 @@
+<div class="code-container">
+  <div class="code-header" *ngIf="showHeader">
+    <div class="window-controls">
+      <span class="dot red"></span>
+      <span class="dot yellow"></span>
+      <span class="dot green"></span>
+    </div>
+    
+    <span class="code-label">{{ title }}</span>
+  </div>
+  
+  <div class="code-wrapper">
+    <div class="line-numbers">
+      <span *ngFor="let line of lines; let i = index" [class.active]="i === 0">{{ i + 1 | number:'2.0' }}</span>
+    </div>
+    <div class="code-content">
+      <pre><code [class]="'language-' + language" [innerHTML]="highlightedCode"></code></pre>
+    </div>
+    
+    <!-- Floating Copy Button inside wrapper as per modern designs -->
+    <button class="copy-btn-floating" (click)="copyCode()" title="Copy Code">
+       <ion-icon [name]="isCopied ? 'checkmark-outline' : 'copy-outline'"></ion-icon>
+    </button>
+  </div>
+  
+  <div class="code-footer" *ngIf="showFooter">
+    <button class="try-it-btn" (click)="tryItYourself()">
+      Run Code <ion-icon name="play"></ion-icon>
+    </button>
+  </div>
+</div>

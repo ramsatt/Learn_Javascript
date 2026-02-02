@@ -19,94 +19,47 @@
 </ion-header>
 
 <ion-content class="tutorial-page-content gamified-content" [class.sidebar-collapsed]="!isSidebarOpen">
-  <div class="two-pane-wrapper">
-    <!-- Left Pane: Lesson List -->
-    <aside class="sidebar-pane" [class.open]="isSidebarOpen">
-      <!-- Mobile Backdrop -->
-      <div class="sidebar-backdrop" *ngIf="isSidebarOpen" (click)="toggleSidebar()"></div>
-      
-      <div class="sidebar-inner">
-        <div class="sidebar-header">
-           <div class="course-badge">JAVASCRIPT COURSE</div>
-           <div (click)="toggleSidebar()" class="sidebar-close-btn ion-hide-lg-up">
-              <ion-icon name="close-outline"></ion-icon>
-           </div>
-        </div>
-        
-        <div class="sidebar-menu">
-          <div *ngFor="let section of menuData; let i = index" class="menu-section-ct" [class.expanded]="section.expanded">
-            <div class="section-header-ct" (click)="toggleSection(section)">
-              <div class="section-info">
-                <span class="section-count">{{ i + 1 }}</span>
-                <span class="section-name">{{ section.title }}</span>
-              </div>
-              <ion-icon [name]="section.expanded ? 'chevron-down' : 'chevron-forward'"></ion-icon>
-            </div>
-            
-            <div class="section-lessons-ct" *ngIf="section.expanded">
-              <div *ngFor="let lesson of section.items" 
-                   class="lesson-item-ct" 
-                   [class.active]="isLessonActive(lesson.file)"
-                   (click)="openLesson(lesson.file)">
-                <div class="status-dot" [class.completed]="tutorialService.isComplete(lesson.file)"></div>
-                <span class="lesson-name">{{ lesson.title }}</span>
-                <ion-icon *ngIf="tutorialService.isComplete(lesson.file)" name="checkmark-circle" class="done-icon"></ion-icon>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+  <div class="reading-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar-wrapper" [class.open]="isSidebarOpen">
+      <app-tutorial-sidebar 
+        [menuData]="menuData"
+        [currentFile]="currentFile"
+        (selectFile)="openLesson($event)">
+      </app-tutorial-sidebar>
     </aside>
 
-    <!-- Right Pane: Lesson Content -->
-    <main class="content-pane">
+    <!-- Content -->
+    <main class="content-wrapper">
       <div class="content-container">
+        <!-- Content Loading/Display Logic remains similar -->
         <div *ngIf="loading" class="loading-state">
-          <ion-spinner name="crescent" color="primary"></ion-spinner>
-          <p>Fetching excellence...</p>
+           <ion-spinner name="crescent" color="primary"></ion-spinner>
+           <p>Loading...</p>
         </div>
-        
-        <div *ngIf="!loading && content" class="lesson-view-ct">
+
+        <div *ngIf="!loading && content" class="lesson-view">
+            <!-- Breadcrumbs/Title could go here -->
             <div [innerHTML]="content" class="tutorial-content"></div>
-            
-            <!-- Navigation Footer -->
+
+            <!-- Old Footer Logic Integrated Here -->
             <div class="tutorial-footer">
-                <div class="nav-btn-wrapper">
-                    <ion-button *ngIf="prevFile" (click)="goToPrev()" fill="clear" class="nav-btn prev">
-                        <ion-icon name="arrow-back-outline" slot="start"></ion-icon>
-                        <div class="btn-label">
-                            <span class="sub">PREVIOUS</span>
-                            <span class="main">{{ prevFile.title }}</span>
-                        </div>
-                    </ion-button>
+                <div class="nav-row">
+                    <button *ngIf="prevFile" (click)="goToPrev()" class="nav-btn prev">
+                        <ion-icon name="chevron-back-outline"></ion-icon> Previous
+                    </button>
                     
-                    <div class="spacer" *ngIf="!prevFile"></div>
-
-                    <ion-button *ngIf="nextFile" (click)="goToNext()" fill="solid" color="primary" class="nav-btn next">
-                        <div class="btn-label">
-                            <span class="sub">NEXT LESSON</span>
-                            <span class="main">{{ nextFile.title }}</span>
-                        </div>
-                        <ion-icon name="arrow-forward-outline" slot="end"></ion-icon>
-                    </ion-button>
-
-                    <ion-button *ngIf="!nextFile" (click)="completeLesson()" fill="solid" color="success" class="nav-btn finish">
-                        <div class="btn-label">
-                            <span class="sub">CONGRATS</span>
-                            <span class="main">FINISH COURSE</span>
-                        </div>
-                        <ion-icon name="checkmark-done-outline" slot="end"></ion-icon>
-                    </ion-button>
+                    <button *ngIf="nextFile" (click)="goToNext()" class="nav-btn next">
+                        Next <ion-icon name="chevron-forward-outline"></ion-icon>
+                    </button>
                 </div>
-
-                <ion-button (click)="goHome()" fill="clear" color="medium" class="back-to-map-btn">
-                    <ion-icon name="grid-outline" slot="start"></ion-icon>
-                    BACK TO LEARNING HUB
-                </ion-button>
             </div>
         </div>
       </div>
     </main>
+    
+    <!-- Mobile Overlay -->
+    <div class="sidebar-overlay" *ngIf="isSidebarOpen" (click)="toggleSidebar()"></div>
   </div>
 
   <!-- Success Overlay -->

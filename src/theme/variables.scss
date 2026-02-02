@@ -1,127 +1,160 @@
-/* Blue Learning App Theme (Based on Styleguide Mockup) */
+/* Coding Tamilan Theme (Inspired by W3Academy) */
 
-/* Import Google Font */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap');
 
 :root {
-  /* Primary: Indigo Blue #4C4DDC */
-  --ion-color-primary: #4C4DDC;
-  --ion-color-primary-rgb: 76, 77, 220;
+  /* =======================================================================
+     1. Primary Brand Colors (Indigo/Purple)
+     ======================================================================= */
+  --ct-primary: #6366F1;           /* Main Brand Color */
+  --ct-primary-light: #818CF8;
+  --ct-primary-dark: #4F46E5;
+  --ct-primary-bg: #F3F4FF;        /* Light purple for backgrounds */
+
+  /* Map to Ionic primaries for compatibility */
+  --ion-color-primary: #6366F1;
+  --ion-color-primary-rgb: 99, 102, 241;
   --ion-color-primary-contrast: #ffffff;
   --ion-color-primary-contrast-rgb: 255, 255, 255;
-  --ion-color-primary-shade: #4344c2;
-  --ion-color-primary-tint: #5e5ee0;
+  --ion-color-primary-shade: #4F46E5;
+  --ion-color-primary-tint: #818CF8;
 
-  /* Secondary: Light Lavender #E4E4FA */
-  --ion-color-secondary: #E4E4FA;
-  --ion-color-secondary-rgb: 228, 228, 250;
-  --ion-color-secondary-contrast: #2E2E84; /* Dark Navy Text on light back */
-  --ion-color-secondary-contrast-rgb: 46, 46, 132;
-  --ion-color-secondary-shade: #c9c9dc;
-  --ion-color-secondary-tint: #e7e7fb;
+  /* =======================================================================
+     2. Category Colors (Pastel & Vibrant)
+     ======================================================================= */
+  /* HTML - Amber/Orange */
+  --ct-html-bg: #FEF3C7;
+  --ct-html-text: #F59E0B;
+  --ct-html-icon: #F97316;
 
-  /* Tertiary: Dark Navy #2E2E84 */
-  --ion-color-tertiary: #2E2E84;
-  --ion-color-tertiary-rgb: 46, 46, 132;
-  --ion-color-tertiary-contrast: #ffffff;
-  --ion-color-tertiary-contrast-rgb: 255, 255, 255;
-  --ion-color-tertiary-shade: #282874;
-  --ion-color-tertiary-tint: #434390;
+  /* CSS - Blue */
+  --ct-css-bg: #DBEAFE;
+  --ct-css-text: #3B82F6;
+  --ct-css-icon: #2563EB;
 
-  /* Success: Green (Standard) */
-  --ion-color-success: #2dd36f;
-  --ion-color-success-rgb: 45, 211, 111;
-  --ion-color-success-contrast: #ffffff;
-  --ion-color-success-contrast-rgb: 255, 255, 255;
-  --ion-color-success-shade: #28ba62;
-  --ion-color-success-tint: #42d77d;
+  /* JavaScript - Yellow */
+  --ct-javascript-bg: #FEF9C3;
+  --ct-javascript-text: #EAB308;
+  --ct-javascript-icon: #F59E0B;
 
-  /* Warning */
-  --ion-color-warning: #ffc409;
-  --ion-color-warning-rgb: 255, 196, 9;
-  --ion-color-warning-contrast: #000000;
-  --ion-color-warning-contrast-rgb: 0, 0, 0;
+  /* Python - Sky/Cyan */
+  --ct-python-bg: #E0F2FE;
+  --ct-python-text: #0284C7;
+  --ct-python-icon: #06B6D4;
 
-  /* Danger */
-  --ion-color-danger: #eb445a;
-  --ion-color-danger-rgb: 235, 68, 90;
-  --ion-color-danger-contrast: #ffffff;
-  --ion-color-danger-contrast-rgb: 255, 255, 255;
+  /* Java - Purple */
+  --ct-java-bg: #EDE9FE;
+  --ct-java-text: #7C3AED;
+  --ct-java-icon: #8B5CF6;
 
-  /* Dark */
-  --ion-color-dark: #101010; /* Black from mockup */
-  --ion-color-dark-rgb: 16, 16, 16;
-  --ion-color-dark-contrast: #ffffff;
-  --ion-color-dark-contrast-rgb: 255, 255, 255;
-  --ion-color-dark-shade: #0e0e0e;
-  --ion-color-dark-tint: #282828;
+  /* =======================================================================
+     3. Neutrals & Backgrounds (Slate)
+     ======================================================================= */
+  --ct-slate-50: #F8FAFC;
+  --ct-slate-100: #F1F5F9;
+  --ct-slate-200: #E2E8F0;
+  --ct-slate-300: #CBD5E1;
+  --ct-slate-400: #94A3B8;
+  --ct-slate-500: #64748B;
+  --ct-slate-600: #475569;
+  --ct-slate-700: #334155;
+  --ct-slate-800: #1E293B;
+  --ct-slate-900: #0F172A;
 
-  /* Medium */
-  --ion-color-medium: #92949c;
-  --ion-color-medium-rgb: 146, 148, 156;
-  --ion-color-medium-contrast: #ffffff;
-  --ion-color-medium-contrast-rgb: 255, 255, 255;
-
-  /* Light */
-  --ion-color-light: #ECECEC; /* Light Grey from mockup */
-  --ion-color-light-rgb: 236, 236, 236;
-  --ion-color-light-contrast: #000000;
-  --ion-color-light-contrast-rgb: 0, 0, 0;
-  --ion-color-light-shade: #d0d0d0;
-  --ion-color-light-tint: #eeeeee;
-
-  /* App Defaults */
-  --ion-font-family: 'Poppins', sans-serif;
+  /* App Backgrounds */
   --ion-background-color: #ffffff;
-  --ion-text-color: #101010;
+  --ion-text-color: #0F172A;
   
   --ion-card-background: #ffffff;
   --ion-item-background: #ffffff;
   
-  --ion-toolbar-background: #ffffff;
-  --ion-toolbar-color: #101010;
+  --ion-toolbar-background: rgba(255, 255, 255, 0.85); /* Glass base */
+  --ion-toolbar-color: #0F172A;
+
+  /* =======================================================================
+     4. Code Editor Theme (Dark Navy)
+     ======================================================================= */
+  --ct-editor-bg: #1E293B;
+  --ct-editor-text: #E2E8F0;
+  --ct-code-purple: #A78BFA;
+  --ct-code-pink: #F472B6;
+  --ct-code-green: #34D399;
+
+  /* =======================================================================
+     5. Functional Colors
+     ======================================================================= */
+  /* Buttons */
+  --ct-btn-primary: #000000;       /* Black for major CTAs */
+  --ct-btn-secondary: #FFFFFF;
+  --ct-btn-run: #10B981;           /* Green for Run actions */
+  
+  /* Success - Green */
+  --ion-color-success: #10B981;
+  --ion-color-success-rgb: 16, 185, 129;
+  --ion-color-success-contrast: #ffffff;
+  
+  /* Warning - Amber */
+  --ion-color-warning: #F59E0B;
+  --ion-color-warning-rgb: 245, 158, 11;
+  --ion-color-warning-contrast: #000000;
+  
+  /* Danger - Red */
+  --ion-color-danger: #EF4444;
+  --ion-color-danger-rgb: 239, 68, 68;
+  --ion-color-danger-contrast: #ffffff;
+
+  /* Medium - Slate 500 */
+  --ion-color-medium: #64748B;
+  --ion-color-medium-rgb: 100, 116, 139;
+  --ion-color-medium-contrast: #ffffff;
+
+  /* Light - Slate 100 */
+  --ion-color-light: #F1F5F9;
+  --ion-color-light-rgb: 241, 245, 249;
+  --ion-color-light-contrast: #0F172A;
+  
+  /* Dark - Slate 900 */
+  --ion-color-dark: #0F172A;
+  --ion-color-dark-rgb: 15, 23, 42;
+  --ion-color-dark-contrast: #ffffff;
+
+  /* =======================================================================
+     6. Border Radius & Typography
+     ======================================================================= */
+  --ion-font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --ct-font-code: 'Fira Code', monospace;
+  
+  --ct-radius-sm: 0.375rem;
+  --ct-radius-md: 0.5rem;   /* 8px */
+  --ct-radius-lg: 0.75rem;  /* 12px */
+  --ct-radius-xl: 1rem;     /* 16px */
+  --ct-radius-2xl: 1.5rem;  /* 24px */
 }
 
-/* body {
-    background-color: var(--ion-background-color);
-} */
-
-/* Dark Mode Overrides (Optional - keeping consistent with blue theme) */
-/* Dark Mode Overrides - Applied via class 'dark' on body */
+/* =======================================================================
+   7. Dark Mode
+   ======================================================================= */
 body.dark {
-  --ion-color-primary: #5e5ee0;
-  --ion-color-primary-contrast: #ffffff;
-  
-  --ion-background-color: #101010;
-  --ion-text-color: #ffffff;
-  
-  --ion-card-background: #1c1c1e;
-  --ion-item-background: #1c1c1e;
-  
-  --ion-toolbar-background: #101010;
-  --ion-toolbar-color: #ffffff;
+  /* Brand Adjustments */
+  --ct-primary: #818CF8;
+  --ct-primary-bg: #1E1B4B; /* Very dark indigo */
 
-  --ion-color-step-50: #1e1e1e;
-  --ion-color-step-100: #2a2a2a;
-  --ion-color-step-150: #363636;
-  --ion-color-step-200: #414141;
-  --ion-color-step-250: #4d4d4d;
-  --ion-color-step-300: #595959;
-  --ion-color-step-350: #656565;
-  --ion-color-step-400: #717171;
-  --ion-color-step-450: #7d7d7d;
-  --ion-color-step-500: #898989;
-  --ion-color-step-550: #949494;
-  --ion-color-step-600: #a0a0a0;
-  --ion-color-step-650: #acacac;
-  --ion-color-step-700: #b8b8b8;
-  --ion-color-step-750: #c4c4c4;
-  --ion-color-step-800: #d0d0d0;
-  --ion-color-step-850: #dbdbdb;
-  --ion-color-step-900: #e7e7e7;
-  --ion-color-step-950: #f3f3f3;
+  /* App Backgrounds */
+  --ion-background-color: #0F172A; /* Slate 900 */
+  --ion-text-color: #F8FAFC;       /* Slate 50 */
+  
+  --ion-card-background: #1E293B;  /* Slate 800 */
+  --ion-item-background: #1E293B;
+  
+  --ion-toolbar-background: rgba(15, 23, 42, 0.85);
+  --ion-toolbar-color: #F8FAFC;
+
+  /* Ionic Overrides */
+  --ion-color-step-50: #1e293b;
+  --ion-color-step-100: #334155;
+  --ion-color-step-150: #475569;
+  /* ... steps generally handled by Ionic, simplified here */
 }
-
-/* Optional: Keep system preference support by default if no preference saved? */
-/* But strictly, manual toggle usually overrides system. */
-/* If you want system preference to trigger it automatically initially, ThemeService handles that logic by adding the class. */

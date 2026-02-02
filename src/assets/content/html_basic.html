@@ -1,107 +1,133 @@
-<h1>HTML<span class="color_h1"> Basic Examples</span></h1>
+<h1>Introduction to HTML: Basic Examples</h1>
+
+<p>Welcome to your first step in web development! In this guide, we will explore the fundamental building blocks of an HTML page.</p>
+
+<p>Don't worry if some of the tags look unfamiliar right now—we will break down exactly what each one does. Think of HTML as the <strong>skeleton</strong> of a website; it provides the structure that holds everything together.</p>
 
 <hr>
-<p class="intro">In this chapter we will show some basic HTML examples.</p>
-<p class="intro">Don't worry if we use tags you have not learned about yet.</p>
-<hr>
 
-<h2>HTML Documents</h2>
-<p>All HTML documents must start with a document type declaration: <code class="w3-codespan">&lt;!DOCTYPE html&gt;</code>.</p>
-<p>The HTML document itself begins with <code class="w3-codespan">&lt;html&gt;</code> and ends with <code class="w3-codespan">&lt;/html&gt;</code>.</p>
-<p>The visible part of the HTML document is between <code class="w3-codespan">&lt;body&gt;</code> and <code class="w3-codespan">&lt;/body&gt;</code>. </p>
-<div class="w3-example">
-<h3>Example</h3>
+<h2>1. The Anatomy of an HTML Document</h2>
+
+<p>Every professional HTML document follows a specific structure. This structure tells the browser where the page starts, where the visible content resides, and what version of HTML is being used.</p>
+
+<h3>The Standard Boilerplate</h3>
 <div class="w3-code notranslate htmlHigh">
-&lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br>&lt;body&gt;<br><br>&lt;h1&gt;My First Heading&lt;/h1&gt;<br>&lt;p&gt;My first paragraph.&lt;/p&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</div>
-
-</div>
-
-<hr>
-
-<h2>The &lt;!DOCTYPE&gt; Declaration</h2>
-<p>The <code class="w3-codespan">&lt;!DOCTYPE&gt;</code> declaration represents the document type, and helps browsers to display web pages correctly.</p>
-<p>It must only appear once, at the top of the page (before any HTML tags). </p>
-<p>The <code class="w3-codespan">&lt;!DOCTYPE&gt;</code> declaration is not case sensitive.</p>
-<p>The <code class="w3-codespan">&lt;!DOCTYPE&gt;</code> declaration for HTML5 is:</p>
-<div class="w3-example">
- <div class="w3-code notranslate htmlHigh">
-&lt;!DOCTYPE html&gt;</div>
-</div>
-
-<hr>
-
-<h2>HTML Headings</h2>
-<p>HTML headings are defined with the <code class="w3-codespan">&lt;h1&gt;</code> to <code class="w3-codespan">&lt;h6&gt;</code> tags.</p>
-<p><code class="w3-codespan">&lt;h1&gt;</code> defines the most important heading. <code class="w3-codespan">&lt;h6&gt;</code> defines the least important 
-heading:&nbsp;</p>
-<div class="w3-example">
-<h3>Example</h3>
-<div class="w3-code notranslate htmlHigh">
-&lt;h1&gt;This is heading 1&lt;/h1&gt;<br>
-&lt;h2&gt;This is heading 2&lt;/h2&gt;<br>
-&lt;h3&gt;This is heading 3&lt;/h3&gt;
-</div>
-
-</div>
-
-<hr>
-
-<hr>
-
-<h2>HTML Paragraphs</h2>
-<p>HTML paragraphs are defined with the <code class="w3-codespan">&lt;p&gt;</code> tag:</p>
-<div class="w3-example">
-<h3>Example</h3>
-<div class="w3-code notranslate htmlHigh">
-&lt;p&gt;This is a paragraph.&lt;/p&gt;<br>
-&lt;p&gt;This is another paragraph.&lt;/p&gt;
-</div>
-
-</div>
-
-<hr>
-
-<h2>HTML Links</h2>
-<p>HTML links are defined with the <code class="w3-codespan">&lt;a&gt;</code> tag:</p>
-<div class="w3-example">
-<h3>Example</h3>
-<div class="w3-code notranslate htmlHigh">
-&lt;a href=&quot;https://www.w3schools.com&quot;&gt;This is a link&lt;/a&gt;
-</div>
-
-</div>
-<p>The link's destination is specified in the <code class="w3-codespan">href</code> attribute.&nbsp;</p>
-<p>Attributes are used to provide additional information about HTML elements.</p>
-<p>You will learn more about attributes in a later chapter.</p>
-
-<hr>
-
-<h2>HTML Images</h2>
-<p>HTML images are defined with the <code class="w3-codespan">&lt;img&gt;</code> tag.</p>
-<p>The source file (<code class="w3-codespan">src</code>), alternative text (<code class="w3-codespan">alt</code>), 
-<code class="w3-codespan">width</code>, and <code class="w3-codespan">height</code> are provided as attributes:</p>
-<div class="w3-example">
-<h3>Example</h3>
-<div class="w3-code notranslate htmlHigh">
-&lt;img src=&quot;w3schools.jpg&quot; alt=&quot;W3Schools.com&quot; width=&quot;104&quot; height=&quot;142&quot;&gt;
-</div>
-
-</div>
-
-<hr>
-<h2>How to View HTML Source</h2>
-<p>Have you ever seen a Web page and wondered &quot;Hey! How did they do that?&quot;</p>
-<h3>View HTML Source Code:</h3>
-<p>Click CTRL + U in an HTML page, or right-click on the page and select &quot;View Page Source&quot;. This will open a 
-new tab 
-containing the HTML source code of the page.</p>
-<h3>Inspect an HTML Element:</h3>
-<p>Right-click on an element (or a blank area), and choose &quot;Inspect&quot; to see what elements are made up of (you will see both 
-the HTML and the CSS). You can also edit the HTML or CSS on-the-fly in the 
-Elements or Styles panel that opens.</p>
-
-<hr>
-
-<hr>
-
+&lt;!DOCTYPE html&gt;<br>
+&lt;html&gt;<br>
+  &lt;head&gt;<br>
+    &lt;title&gt;Page Title&lt;/title&gt;<br>
+  &lt;/head&gt;<br>
+  &lt;body&gt;<br>
 <br>
+    &lt;h1&gt;My First Heading&lt;/h1&gt;<br>
+    &lt;p&gt;My first paragraph.&lt;/p&gt;<br>
+<br>
+  &lt;/body&gt;<br>
+&lt;/html&gt;
+</div>
+
+<h3>Breakdown of the Structure:</h3>
+<ul>
+<li><strong><code>&lt;!DOCTYPE html&gt;</code></strong>: This is a declaration that tells the browser this is an HTML5 document.</li>
+<li><strong><code>&lt;html&gt;</code></strong>: The root element that wraps all the content on the entire page.</li>
+<li><strong><code>&lt;head&gt;</code></strong>: Contains "meta-information" (data about the page) like the title, which appears in your browser tab.</li>
+<li><strong><code>&lt;body&gt;</code></strong>: This is where the magic happens. Everything written inside the body tags is what a user actually sees on their screen.</li>
+</ul>
+
+<hr>
+
+<h2>2. The <code>&lt;!DOCTYPE&gt;</code> Declaration</h2>
+
+<p>The <code>&lt;!DOCTYPE&gt;</code> is not actually an HTML tag; it is an "instruction" to the web browser about what version of HTML the page is written in.</p>
+
+<p>In modern web development, we use <strong>HTML5</strong>, which has the simplest declaration possible:</p>
+
+<div class="w3-code notranslate htmlHigh">
+&lt;!DOCTYPE html&gt;
+</div>
+
+<blockquote>
+<p><strong>Pro Tip:</strong> The declaration is <strong>not</strong> case-sensitive. <code>&lt;!doctype html&gt;</code> works just as well as <code>&lt;!DOCTYPE html&gt;</code>, but using uppercase is a common industry standard for readability.</p>
+</blockquote>
+
+<hr>
+
+<h2>3. HTML Headings</h2>
+
+<p>Headings help define the hierarchy and importance of your content. HTML offers six levels of headings, ranging from <code>&lt;h1&gt;</code> (most important) to <code>&lt;h6&gt;</code> (least important).</p>
+
+<div class="w3-code notranslate htmlHigh">
+&lt;h1&gt;This is Heading 1 (Main Title)&lt;/h1&gt;<br>
+&lt;h2&gt;This is Heading 2 (Section Title)&lt;/h2&gt;<br>
+&lt;h3&gt;This is Heading 3 (Sub-section)&lt;/h3&gt;
+</div>
+
+<p><strong>Why Headings Matter:</strong> Search engines (like Google) use headings to index the structure and content of your web pages. Always use <code>&lt;h1&gt;</code> for your main topic!</p>
+
+<hr>
+
+<h2>4. HTML Paragraphs</h2>
+
+<p>To add blocks of text, we use the <code>&lt;p&gt;</code> tag. Browsers automatically add some white space (a margin) before and after each paragraph to make the text easier to read.</p>
+
+<div class="w3-code notranslate htmlHigh">
+&lt;p&gt;This is a paragraph of text on my website.&lt;/p&gt;<br>
+&lt;p&gt;This is another paragraph, separated by a small gap.&lt;/p&gt;
+</div>
+
+<hr>
+
+<h2>5. HTML Links</h2>
+
+<p>Links allow users to navigate between pages. They are created using the <code>&lt;a&gt;</code> (anchor) tag and the <code>href</code> attribute, which specifies the destination URL.</p>
+
+<div class="w3-code notranslate htmlHigh">
+&lt;a href="https://www.google.com"&gt;Click here to visit Google&lt;/a&gt;
+</div>
+
+<ul>
+<li>The <strong><code>href</code></strong> attribute is vital—it tells the browser where to go when the link is clicked.</li>
+<li>The text between the opening <code>&lt;a&gt;</code> and closing <code>&lt;/a&gt;</code> tags is what the user will see.</li>
+</ul>
+
+<hr>
+
+<h2>6. HTML Images</h2>
+
+<p>Images are added using the <code>&lt;img&gt;</code> tag. Unlike the tags we've seen so far, <code>&lt;img&gt;</code> is an <strong>empty tag</strong> (it does not have a closing tag like <code>&lt;/img&gt;</code>).</p>
+
+<div class="w3-code notranslate htmlHigh">
+&lt;img src="landscape.jpg" alt="A beautiful mountain view" width="500" height="300"&gt;
+</div>
+
+<h3>Important Attributes:</h3>
+<ul>
+<li><strong><code>src</code></strong>: The path to the image file.</li>
+<li><strong><code>alt</code></strong>: "Alternative text." This describes the image for screen readers (for accessibility) or displays if the image fails to load.</li>
+<li><strong><code>width</code></strong> & <strong><code>height</code></strong>: Define the size of the image in pixels.</li>
+</ul>
+
+<hr>
+
+<h2>7. How to "Peek" at any Website</h2>
+
+<p>Web development is an open-source community. You can view the code of any website you visit!</p>
+
+<ul>
+<li><strong>View Source:</strong> Press <code>CTRL + U</code> (Windows/Linux) or <code>CMD + Option + U</code> (Mac) to see the raw HTML code of a page in a new tab.</li>
+<li><strong>Inspect Element:</strong> Right-click on any part of a webpage and select <strong>"Inspect"</strong>. This opens the Developer Tools, allowing you to see the HTML and CSS and even change them in real-time to see what happens!</li>
+</ul>
+
+<hr>
+
+<h2>💡 Key Takeaways</h2>
+
+<ol>
+<li><strong>Hierarchy:</strong> Use headings (<code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code>) to structure your content logically.</li>
+<li><strong>Attributes:</strong> Tags like <code>&lt;a&gt;</code> and <code>&lt;img&gt;</code> rely on <strong>attributes</strong> (<code>href</code>, <code>src</code>) to function.</li>
+<li><strong>The Body:</strong> Only content inside the <code>&lt;body&gt;</code> tags is visible to the website visitor.</li>
+<li><strong>Self-Closing:</strong> Some tags, like <code>&lt;img&gt;</code>, don't need a closing tag.</li>
+<li><strong>Standard Start:</strong> Always begin your files with <code>&lt;!DOCTYPE html&gt;</code> to ensure browsers render your site correctly in "Standards Mode."</li>
+</ol>
+
+<hr>
