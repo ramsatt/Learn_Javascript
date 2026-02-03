@@ -1,0 +1,186 @@
+
+      <div id="mainLeaderboard" style="overflow:hidden;">
+        <!-- MainLeaderboard-->
+      </div>
+    <h1>TypeScript Enums</h1>
+
+
+
+<hr>
+
+<p>An <strong>enum</strong> is a special "class" that represents a group of constants (unchangeable variables).</p>
+<p>Enums come in two flavors <code class="w3-codespan">string</code> and <code class="w3-codespan">numeric</code>.</p>
+<p>Let's start with numeric.</p>
+
+<hr>
+
+<h2>Numeric Enums - Default</h2>
+
+<p>By default, enums will initialize the first value to <code class="w3-codespan">0</code> and add 1 to each additional value:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+
+<div class="w3-code notranslate jsHigh">
+enum CardinalDirections {<br>
+&nbsp;&nbsp;North,<br>
+&nbsp;&nbsp;East,<br>
+&nbsp;&nbsp;South,<br>
+&nbsp;&nbsp;West<br>
+}<br>
+let currentDirection = CardinalDirections.North;<br>
+// logs 0<br>
+console.log(currentDirection);<br>
+// throws error as 'North' is not a valid enum<br>
+currentDirection = 'North'; // Error: "North" is not assignable to type 'CardinalDirections'.
+</div>
+
+<a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescriptd0aa.html?filename=demo_enums_numeric" target="_blank">Try it Yourself »</a>
+</div>
+
+<hr>
+
+<div id="midcontentadcontainer" style="overflow:auto;text-align:center">
+<!-- MidContent -->
+<!-- <p class="adtext">Advertisement</p> -->
+</div><hr>
+
+<h2>Numeric Enums - Initialized</h2>
+
+<p>You can set the value of the first numeric enum and have it auto increment from that:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+
+<div class="w3-code notranslate jsHigh">
+enum CardinalDirections {<br>
+&nbsp;&nbsp;North = 1,<br>
+&nbsp;&nbsp;East,<br>
+&nbsp;&nbsp;South,<br>
+&nbsp;&nbsp;West<br>
+}<br>
+// logs 1<br>
+console.log(CardinalDirections.North);<br>
+// logs 4<br>
+console.log(CardinalDirections.West);
+</div>
+<a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescript695e.html?filename=demo_enums_numeric_init" target="_blank">Try it Yourself »</a>
+</div>
+
+<hr>
+
+<h2>Numeric Enums - Fully Initialized</h2>
+
+<p>You can assign unique number values for each enum value.</p>
+<p>Then the values will not be incremented automatically:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+
+<div class="w3-code notranslate jsHigh">
+enum StatusCodes {<br>
+&nbsp;&nbsp;NotFound = 404,<br>
+&nbsp;&nbsp;Success = 200,<br>
+&nbsp;&nbsp;Accepted = 202,<br>
+&nbsp;&nbsp;BadRequest = 400<br>
+}<br>
+// logs 404<br>
+console.log(StatusCodes.NotFound);<br>
+// logs 200<br>
+console.log(StatusCodes.Success);
+</div>
+
+<a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescripta932.html?filename=demo_enums_numeric_custom" target="_blank">Try it Yourself »</a>
+</div>
+
+<hr>
+<h2>String Enums</h2>
+
+<p>Enums can also contain <code class="w3-codespan">strings</code>.</p>
+<p>This is more common than numeric enums, because of their readability and intent.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+
+<div class="w3-code notranslate jsHigh">
+enum CardinalDirections {<br>
+&nbsp;&nbsp;North = 'North',<br>
+&nbsp;&nbsp;East = "East",<br>
+&nbsp;&nbsp;South = "South",<br>
+&nbsp;&nbsp;West = "West"<br>
+};<br>
+// logs "North"<br>
+console.log(CardinalDirections.North);<br>
+// logs "West"<br>
+console.log(CardinalDirections.West);
+</div>
+
+<a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescript33f5.html?filename=demo_enums_strings" target="_blank">Try it Yourself »</a>
+</div>
+
+<div class="w3-panel ws-info">
+<p>Technically, you can mix and match string and numeric enum values, but it is recommended not to do so.</p>
+</div>
+<hr>
+<div id="exercisecontainer" src="xrcise_enums.js" data-extensions="php"></div>
+<hr>
+<br>
+
+
+<div id="user-profile-bottom-wrapper" class="user-profile-bottom-wrapper">
+  <div class="user-authenticated w3-hide">
+    <a href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fmy-learning.w3schools.com" class="user-profile-btn user-profile-bottom-btn ga-bottom ga-bottom-profile" title="Your W3Schools Profile" aria-label="Your W3Schools Profile" target="_top">
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 2048 2048" class="user-profile-icon" aria-label="Your W3Schools Profile Icon">
+        <path d="M 843.500 1148.155 C 837.450 1148.515, 823.050 1149.334, 811.500 1149.975 C 742.799 1153.788, 704.251 1162.996, 635.391 1192.044 C 517.544 1241.756, 398.992 1352.262, 337.200 1470 C 251.831 1632.658, 253.457 1816.879, 340.500 1843.982 C 351.574 1847.431, 1696.426 1847.431, 1707.500 1843.982 C 1794.543 1816.879, 1796.169 1632.658, 1710.800 1470 C 1649.008 1352.262, 1530.456 1241.756, 1412.609 1192.044 C 1344.588 1163.350, 1305.224 1153.854, 1238.500 1150.039 C 1190.330 1147.286, 1196.307 1147.328, 1097 1149.035 C 1039.984 1150.015, 1010.205 1150.008, 950 1149.003 C 851.731 1147.362, 856.213 1147.398, 843.500 1148.155" stroke="none" fill="#2a93fb" fill-rule="evenodd"></path>
+        <path d="M 1008 194.584 C 1006.075 194.809, 999.325 195.476, 993 196.064 C 927.768 202.134, 845.423 233.043, 786 273.762 C 691.987 338.184, 622.881 442.165, 601.082 552 C 588.496 615.414, 592.917 705.245, 611.329 760.230 C 643.220 855.469, 694.977 930.136, 763.195 979.321 C 810.333 1013.308, 839.747 1026.645, 913.697 1047.562 C 1010.275 1074.879, 1108.934 1065.290, 1221 1017.694 C 1259.787 1001.221, 1307.818 965.858, 1339.852 930.191 C 1460.375 795.998, 1488.781 609.032, 1412.581 451.500 C 1350.098 322.327, 1240.457 235.724, 1097.500 202.624 C 1072.356 196.802, 1025.206 192.566, 1008 194.584" stroke="none" fill="#0aaa8a" fill-rule="evenodd"></path>
+      </svg>
+
+      <svg xmlns="http://www.w3.org/2000/svg" class="user-progress" aria-label="Your W3Schools Profile Progress">
+        <path class="user-progress-circle1" fill="none" d="M 25.99650934151373 15.00000030461742 A 20 20 0 1 0 26 15"></path>
+        <path class="user-progress-circle2" fill="none" d="M 26 15 A 20 20 0 0 0 26 15"></path>
+      </svg>
+
+      <span class="user-progress-star">★</span>
+
+      <span class="user-progress-point">+1</span>
+    </a>
+  </div>
+
+  <div class="w3s-pathfinder -teaser user-anonymous w3-hide">
+  <div class="track-progress-btn-wrapper">
+    <a href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fpathfinder.w3schools.com" class="-login-btn w3-button ga-bottom ga-bottom-login track-progress-btn" title="Sign in to track your progress" aria-label="Sign in to track your progress" target="_blank">
+    Sign in to track progress
+  </a>
+    
+  </div>
+</div>
+
+<style>
+.w3s-pathfinder.-teaser {
+  background-color: transparent!important;
+}
+.track-progress-btn-wrapper {
+  display: flex;
+  justify-content: center;
+}
+a.track-progress-btn {
+  position: absolute;
+  padding: 8px 20px;
+  border: 1px solid #ddd;
+  top:-65px;
+  background-color: #fff;
+  color: #333;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+}
+@media screen and (max-width: 600px) {
+  a.track-progress-btn {
+    top: 6px;
+    width: 100%;
+  }
+}
+</style>
+
+</div>
+

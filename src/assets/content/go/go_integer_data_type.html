@@ -1,0 +1,214 @@
+
+      <div id="mainLeaderboard" style="overflow:hidden;">
+        <!-- MainLeaderboard-->
+      </div>
+    
+<h1>Go Integer Data Types</h1>
+
+<hr>
+
+<h2>Go Integer Data Types</h2>
+<p>Integer data types are used to store a whole number without 
+decimals, like 35, -50, or 1345000.</p>
+<p>The integer data type has two categories:</p>
+<ul>
+  <li><strong>Signed integers</strong> - can store both positive and negative values</li>
+  <li><strong>Unsigned integers</strong> - can only store non-negative values</li>
+</ul>
+<div class="w3-panel ws-note">
+<p><strong>Tip:</strong> The default type for integer is <code class="w3-codespan">int</code>. If you 
+do not specify a type, the type will be <code class="w3-codespan">int</code>.</p>
+</div>
+<hr>
+
+<h2>Signed Integers</h2>
+<p>Signed integers, declared with one of the <code class="w3-codespan">int</code> 
+keywords, can store both positive and negative values:</p>
+<div class="w3-example">
+  <h3>Example</h3>
+  <div class="w3-code notranslate javaHigh">
+    package main<br>
+    import ("fmt")<br><br>
+    func main() {<br>
+    &nbsp;&nbsp;var x int = 500<br>&nbsp; var y int = -4500<br>
+    &nbsp;&nbsp;fmt.Printf("Type: %T, value: %v", x, x)<br>&nbsp;&nbsp;fmt.Printf("Type: %T, value: %v", 
+    y, y)<br>
+    }
+  </div>
+  <a class="w3-btn w3-margin-bottom" href="#/tutorial/trygo8702.html?filename=demo_data_types_integer2" target="_blank">Try it Yourself »</a>
+</div>
+
+<p>Go has five keywords/types of signed integers:</p>
+<table class="ws-table-all notranslate">
+    <tbody><tr>
+        <th>Type</th>
+        <th>Size</th>
+        <th>Range</th>
+    </tr>
+    <tr>
+        <td> <code class="w3-codespan">int</code></td>
+        <td>Depends on platform:<br>32 bits in 32 bit systems and<br>64 bit in 
+        64 bit systems</td>
+        <td>-2147483648 to 2147483647 in 32 bit systems and<br>
+        -9223372036854775808 to 9223372036854775807 in 64 bit systems</td>
+    </tr>
+    <tr>
+        <td> <code class="w3-codespan">int8</code></td>
+        <td>8 bits/1 byte</td>
+        <td>-128 to 127</td>
+    </tr>
+    <tr>
+        <td> <code class="w3-codespan">int16</code></td>
+        <td>16 bits/2 byte</td>
+        <td>-32768 to 32767</td>
+    </tr>
+    <tr>
+        <td> <code class="w3-codespan">int32</code></td>
+        <td>32 bits/4 byte</td>
+        <td>-2147483648 to 2147483647</td>
+    </tr>
+    <tr>
+        <td> <code class="w3-codespan">int64</code></td>
+        <td>64 bits/8 byte</td>
+        <td>-9223372036854775808 to 9223372036854775807</td>
+    </tr>
+</tbody></table>
+<hr>
+<div id="midcontentadcontainer" style="overflow:auto;text-align:center">
+<!-- MidContent -->
+<!-- <p class="adtext">Advertisement</p> -->
+</div><hr>
+<h2>Unsigned Integers</h2>
+<p>Unsigned integers, declared with one of the <code class="w3-codespan">uint</code> 
+keywords, can only store non-negative values:</p>
+<div class="w3-example">
+    <h3>Example</h3>
+    <div class="w3-code notranslate javaHigh">
+        package main<br>
+        import ("fmt")<br><br>
+    func main() {<br>
+    &nbsp;&nbsp;var x uint = 500<br>&nbsp; var y uint = 4500<br>
+    &nbsp;&nbsp;fmt.Printf("Type: %T, value: %v", x, x)<br>&nbsp;&nbsp;fmt.Printf("Type: %T, value: %v", 
+        y, y)<br>
+    }
+        <br>       
+    </div>
+    <a class="w3-btn w3-margin-bottom" href="#/tutorial/trygocc7b.html?filename=demo_data_types_integer1" target="_blank">Try it Yourself »</a>
+</div>
+
+<p>Go has five keywords/types of unsigned integers:</p>
+<table class="ws-table-all notranslate">
+    <tbody><tr>
+        <th>Type</th>
+        <th>Size</th>
+        <th>Range</th>
+    </tr>
+    <tr>
+        <td> <code class="w3-codespan">uint</code></td>
+        <td>Depends on platform:<br>32 bits in 32 bit 
+        systems and<br>64 bit in 64 bit systems</td>
+        <td>0 to 4294967295 in 32 bit systems and<br>0 to 18446744073709551615 
+        in 64 bit systems</td>
+    </tr>
+    <tr>
+        <td> <code class="w3-codespan">uint8</code></td>
+        <td>8 bits/1 byte</td>
+        <td>0 to 255</td>
+    </tr>
+    <tr>
+        <td> <code class="w3-codespan">uint16</code></td>
+        <td>16 bits/2 byte</td>
+        <td>0 to 65535</td>
+    </tr>
+    <tr>
+        <td> <code class="w3-codespan">uint32</code></td>
+        <td>32 bits/4 byte</td>
+        <td>0 to 4294967295</td>
+    </tr>
+    <tr>
+        <td> <code class="w3-codespan">uint64</code></td>
+        <td>64 bits/8 byte</td>
+        <td>0 to 18446744073709551615</td>
+    </tr>
+</tbody></table>
+<hr>
+
+<h2>Which Integer Type to Use?</h2>
+<p>The type of integer to choose, depends on the value the variable has to store.</p> 
+
+<div class="w3-example w3-pale-red">
+    <h3>Example</h3>
+    <p>This example will result in an error because 1000 is out of range for 
+    int8 (which is from -128 to 127):</p>
+    <div class="w3-code notranslate javaHigh w3-border-red">
+      package main<br>
+      import ("fmt")<br>
+      <br>func main() {<br>
+      &nbsp; var x int8 = 1000<br>
+      &nbsp; fmt.Printf("Type: %T, value: %v", x, x)<br>
+      }
+    </div>
+  <p>Result:</p>
+  <br>
+    <a class="w3-btn w3-margin-bottom" href="#/tutorial/trygof17a.html?filename=demo_data_types_integer3" target="_blank">Try it Yourself »</a>
+</div>
+
+<br>
+
+<div id="user-profile-bottom-wrapper" class="user-profile-bottom-wrapper">
+  <div class="user-authenticated w3-hide">
+    <a href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fmy-learning.w3schools.com" class="user-profile-btn user-profile-bottom-btn ga-bottom ga-bottom-profile" title="Your W3Schools Profile" aria-label="Your W3Schools Profile" target="_top">
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 2048 2048" class="user-profile-icon" aria-label="Your W3Schools Profile Icon">
+        <path d="M 843.500 1148.155 C 837.450 1148.515, 823.050 1149.334, 811.500 1149.975 C 742.799 1153.788, 704.251 1162.996, 635.391 1192.044 C 517.544 1241.756, 398.992 1352.262, 337.200 1470 C 251.831 1632.658, 253.457 1816.879, 340.500 1843.982 C 351.574 1847.431, 1696.426 1847.431, 1707.500 1843.982 C 1794.543 1816.879, 1796.169 1632.658, 1710.800 1470 C 1649.008 1352.262, 1530.456 1241.756, 1412.609 1192.044 C 1344.588 1163.350, 1305.224 1153.854, 1238.500 1150.039 C 1190.330 1147.286, 1196.307 1147.328, 1097 1149.035 C 1039.984 1150.015, 1010.205 1150.008, 950 1149.003 C 851.731 1147.362, 856.213 1147.398, 843.500 1148.155" stroke="none" fill="#2a93fb" fill-rule="evenodd"></path>
+        <path d="M 1008 194.584 C 1006.075 194.809, 999.325 195.476, 993 196.064 C 927.768 202.134, 845.423 233.043, 786 273.762 C 691.987 338.184, 622.881 442.165, 601.082 552 C 588.496 615.414, 592.917 705.245, 611.329 760.230 C 643.220 855.469, 694.977 930.136, 763.195 979.321 C 810.333 1013.308, 839.747 1026.645, 913.697 1047.562 C 1010.275 1074.879, 1108.934 1065.290, 1221 1017.694 C 1259.787 1001.221, 1307.818 965.858, 1339.852 930.191 C 1460.375 795.998, 1488.781 609.032, 1412.581 451.500 C 1350.098 322.327, 1240.457 235.724, 1097.500 202.624 C 1072.356 196.802, 1025.206 192.566, 1008 194.584" stroke="none" fill="#0aaa8a" fill-rule="evenodd"></path>
+      </svg>
+
+      <svg xmlns="http://www.w3.org/2000/svg" class="user-progress" aria-label="Your W3Schools Profile Progress">
+        <path class="user-progress-circle1" fill="none" d="M 25.99650934151373 15.00000030461742 A 20 20 0 1 0 26 15"></path>
+        <path class="user-progress-circle2" fill="none" d="M 26 15 A 20 20 0 0 0 26 15"></path>
+      </svg>
+
+      <span class="user-progress-star">★</span>
+
+      <span class="user-progress-point">+1</span>
+    </a>
+  </div>
+
+  <div class="w3s-pathfinder -teaser user-anonymous w3-hide">
+  <div class="track-progress-btn-wrapper">
+    <a href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fpathfinder.w3schools.com" class="-login-btn w3-button ga-bottom ga-bottom-login track-progress-btn" title="Sign in to track your progress" aria-label="Sign in to track your progress" target="_blank">
+    Sign in to track progress
+  </a>
+    
+  </div>
+</div>
+
+<style>
+.w3s-pathfinder.-teaser {
+  background-color: transparent!important;
+}
+.track-progress-btn-wrapper {
+  display: flex;
+  justify-content: center;
+}
+a.track-progress-btn {
+  position: absolute;
+  padding: 8px 20px;
+  border: 1px solid #ddd;
+  top:-65px;
+  background-color: #fff;
+  color: #333;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+}
+@media screen and (max-width: 600px) {
+  a.track-progress-btn {
+    top: 6px;
+    width: 100%;
+  }
+}
+</style>
+
+</div>
+

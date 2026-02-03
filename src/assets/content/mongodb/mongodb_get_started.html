@@ -1,0 +1,185 @@
+
+      <div id="mainLeaderboard" style="overflow:hidden;">
+        <!-- MainLeaderboard-->
+      </div>
+    
+<h1>MongoDB Getting Started</h1>
+
+
+<hr>
+
+<h2>MongoDB</h2>
+
+<p>MongoDB is a document database and can be installed locally or hosted in the cloud.</p>
+
+<hr>
+
+<h2>SQL vs Document Databases</h2>
+
+<p>SQL databases are considered relational databases.
+They store related data in separate tables.
+When data is needed, it is queried from multiple tables to join the data back together.</p>
+
+<p>MongoDB is a document database which is often referred to as a non-relational database.
+This does not mean that relational data cannot be stored in document databases.
+It means that relational data is stored differently.
+A better way to refer to it is as a non-tabular database.</p>
+
+<p>MongoDB stores data in flexible documents.
+Instead of having multiple tables you can simply keep all of your related data together.
+This makes reading your data very fast.</p>
+
+<p>You can still have multiple groups of data too. In MongoDB, instead of tables these are called collections.</p>
+
+<hr>
+
+<h2>Local vs Cloud Database</h2>
+
+<p>MongoDB can be installed locally, which will allow you to host your own MongoDB server on your hardware.
+This requires you to manage your server, upgrades, and any other maintenance.</p>
+
+<p>You can download and use the MongoDB open source
+<a target="_blank" href="https://www.mongodb.com/try/download/community?utm_campaign=w3schools_mdb&amp;utm_source=w3schools&amp;utm_medium=referral">Community Server</a>
+on your hardware for free.</p>
+
+<p>However, for this course we are going to use MongoDB Atlas, a cloud database platform.
+This is much easier than hosting your own local database.</p>
+
+<p>To be able to experiment with the code examples, you will need access to a MongoDB database.</p>
+
+<p>Sign up for a free
+<a href="https://www.mongodb.com/cloud/atlas/register?utm_campaign=w3schools_mdb&amp;utm_source=w3schools&amp;utm_medium=referral">MongoDB Atlas</a>
+account to get started.</p>
+
+<hr>
+
+<h2>Creating a Cluster</h2>
+
+<p>After you have created your account, set up a free "Shared Cluster" then choose your preferred cloud provider and region.</p>
+
+<p>By default, MongoDB Atlas is completely locked down and has no external access.</p>
+
+<p>You will need to set up a user and add your IP address to the list of allowed IP addresses.</p>
+
+<p>Under "Database Access", create a new user and keep track of the username and password.</p>
+
+<p>Next, under "Network Access", add your current IP address to allow access from your computer.</p>
+
+<hr>
+
+<h2>Install MongoDB Shell (mongosh)</h2>
+
+<p>There are many ways to connect to your MongoDB database.</p>
+
+<p>We will start by using the MongoDB Shell, <code class="w3-codespan">mongosh</code>.</p>
+
+<p>Use the
+<a target="_blank" href="https://docs.mongodb.com/mongodb-shell/install/?utm_campaign=w3schools_mdb&amp;utm_source=w3schools&amp;utm_medium=referral">official instructions</a>
+to install <code class="w3-codespan">mongosh</code> on your operating system.</p>
+
+<p>To verify that it has been installed properly, open your terminal and type:</p>
+
+<div class="w3-example">
+<div class="w3-code notranslate w3-black">
+mongosh --version
+</div>
+</div>
+
+<p>You should see that the latest version is installed.</p>
+
+<p>The version used in this tutorial is v1.3.1.</p>
+
+<hr>
+
+<h2>Connect to the database</h2>
+
+<p>To connect to your database, you will need your database specific connection string.</p>
+
+<p>In the MongoDB Atlas dashboard, under "Databases", click the "Connect" button for your Cluster.</p>
+
+<p>Next, choose "Connect with the MongoDB Shell".</p>
+
+<p>Copy your connection string.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<p>Your connection string should look similar to this:</p>
+<div class="w3-code notranslate w3-black">
+mongosh "mongodb+srv://cluster0.ex4ht.mongodb.net/myFirstDatabase" --apiVersion 1 --username YOUR_USER_NAME
+</div>
+<a class="w3-btn w3-margin-bottom" href="#/tutorial/showmongodba2f5.html?filename=demo_get_started" target="_blank">Try it Yourself »</a>
+</div>
+
+<p>Paste your connection string into your terminal and press enter.</p>
+
+<p>You will be prompted to enter your database user password that you created earlier.</p>
+
+<p>You are now connected to the database!</p>
+
+<hr>
+
+<h2>What Next?</h2>
+
+<p>In the following sections we will use 'mongosh' to create, read, update, and delete (CRUD) items in your database.</p>
+
+<p>After getting the basics down, we will move on to using MongoDB with other backend technologies like Node.js.</p>
+
+<hr>
+
+<div id="user-profile-bottom-wrapper" class="user-profile-bottom-wrapper">
+  <div class="user-authenticated w3-hide">
+    <a href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fmy-learning.w3schools.com" class="user-profile-btn user-profile-bottom-btn ga-bottom ga-bottom-profile" title="Your W3Schools Profile" aria-label="Your W3Schools Profile" target="_top">
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 2048 2048" class="user-profile-icon" aria-label="Your W3Schools Profile Icon">
+        <path d="M 843.500 1148.155 C 837.450 1148.515, 823.050 1149.334, 811.500 1149.975 C 742.799 1153.788, 704.251 1162.996, 635.391 1192.044 C 517.544 1241.756, 398.992 1352.262, 337.200 1470 C 251.831 1632.658, 253.457 1816.879, 340.500 1843.982 C 351.574 1847.431, 1696.426 1847.431, 1707.500 1843.982 C 1794.543 1816.879, 1796.169 1632.658, 1710.800 1470 C 1649.008 1352.262, 1530.456 1241.756, 1412.609 1192.044 C 1344.588 1163.350, 1305.224 1153.854, 1238.500 1150.039 C 1190.330 1147.286, 1196.307 1147.328, 1097 1149.035 C 1039.984 1150.015, 1010.205 1150.008, 950 1149.003 C 851.731 1147.362, 856.213 1147.398, 843.500 1148.155" stroke="none" fill="#2a93fb" fill-rule="evenodd"></path>
+        <path d="M 1008 194.584 C 1006.075 194.809, 999.325 195.476, 993 196.064 C 927.768 202.134, 845.423 233.043, 786 273.762 C 691.987 338.184, 622.881 442.165, 601.082 552 C 588.496 615.414, 592.917 705.245, 611.329 760.230 C 643.220 855.469, 694.977 930.136, 763.195 979.321 C 810.333 1013.308, 839.747 1026.645, 913.697 1047.562 C 1010.275 1074.879, 1108.934 1065.290, 1221 1017.694 C 1259.787 1001.221, 1307.818 965.858, 1339.852 930.191 C 1460.375 795.998, 1488.781 609.032, 1412.581 451.500 C 1350.098 322.327, 1240.457 235.724, 1097.500 202.624 C 1072.356 196.802, 1025.206 192.566, 1008 194.584" stroke="none" fill="#0aaa8a" fill-rule="evenodd"></path>
+      </svg>
+
+      <svg xmlns="http://www.w3.org/2000/svg" class="user-progress" aria-label="Your W3Schools Profile Progress">
+        <path class="user-progress-circle1" fill="none" d="M 25.99650934151373 15.00000030461742 A 20 20 0 1 0 26 15"></path>
+        <path class="user-progress-circle2" fill="none" d="M 26 15 A 20 20 0 0 0 26 15"></path>
+      </svg>
+
+      <span class="user-progress-star">★</span>
+
+      <span class="user-progress-point">+1</span>
+    </a>
+  </div>
+
+  <div class="w3s-pathfinder -teaser user-anonymous w3-hide">
+  <div class="track-progress-btn-wrapper">
+    <a href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fpathfinder.w3schools.com" class="-login-btn w3-button ga-bottom ga-bottom-login track-progress-btn" title="Sign in to track your progress" aria-label="Sign in to track your progress" target="_blank">
+    Sign in to track progress
+  </a>
+    
+  </div>
+</div>
+
+<style>
+.w3s-pathfinder.-teaser {
+  background-color: transparent!important;
+}
+.track-progress-btn-wrapper {
+  display: flex;
+  justify-content: center;
+}
+a.track-progress-btn {
+  position: absolute;
+  padding: 8px 20px;
+  border: 1px solid #ddd;
+  top:-65px;
+  background-color: #fff;
+  color: #333;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+}
+@media screen and (max-width: 600px) {
+  a.track-progress-btn {
+    top: 6px;
+    width: 100%;
+  }
+}
+</style>
+
+</div>
+

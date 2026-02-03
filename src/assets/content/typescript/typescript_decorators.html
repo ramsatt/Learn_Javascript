@@ -1,0 +1,824 @@
+
+      <div id="mainLeaderboard" style="overflow:hidden;">
+        <!-- MainLeaderboard-->
+      </div>
+    <h1>TypeScript Decorators</h1>
+
+<hr>
+
+<div class="w3-panel">
+  <p>Decorators are a powerful TypeScript feature that allow you to add metadata and modify classes and their members at design time.</p>
+  <p>They are widely used in frameworks like Angular and NestJS for dependency injection, routing, and more.</p>
+</div>
+
+<hr>
+
+<h2 id="enabling">Enabling Decorators</h2>
+<p>To use decorators in TypeScript, you need to enable them in your <code class="w3-codespan">tsconfig.json</code>:</p>
+
+<div class="w3-example">
+  <h3>tsconfig.json</h3>
+  <div class="w3-code notranslate jsHigh">
+    {<br>
+    &nbsp;&nbsp;"compilerOptions": {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;"target": "ES2020",<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;"module": "commonjs",<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;"experimentalDecorators": true,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;"emitDecoratorMetadata": true,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;"strictPropertyInitialization": false<br>
+    &nbsp;&nbsp;},<br>
+    &nbsp;&nbsp;"include": ["src/**/*.ts"]<br>
+    }
+  </div>
+</div>
+
+<div class="w3-panel ws-note">
+  <p><strong>Note:</strong> The <code class="w3-codespan">emitDecoratorMetadata</code> option enables experimental support for emitting type metadata for decorators, which is used by libraries like TypeORM and class-validator.</p>
+</div>
+
+<hr>
+<h2 id="types">Types of Decorators</h2>
+<p>TypeScript supports several types of decorators that can be applied to different declarations:</p>
+
+<div class="w3-responsive">
+  <table class="w3-table-all notranslate">
+    <tbody><tr>
+      <th>Decorator Type</th>
+      <th>Applies To</th>
+      <th>Signature</th>
+    </tr>
+    <tr>
+      <td>Class Decorator</td>
+      <td>Class declarations</td>
+      <td><code class="w3-codespan">(constructor: Function) =&gt; void</code></td>
+    </tr>
+    <tr>
+      <td>Method Decorator</td>
+      <td>Class methods</td>
+      <td><code class="w3-codespan">(target: any, propertyKey: string, descriptor: PropertyDescriptor) =&gt; void</code></td>
+    </tr>
+    <tr>
+      <td>Property Decorator</td>
+      <td>Class properties</td>
+      <td><code class="w3-codespan">(target: any, propertyKey: string) =&gt; void</code></td>
+    </tr>
+    <tr>
+      <td>Parameter Decorator</td>
+      <td>Method parameters</td>
+      <td><code class="w3-codespan">(target: any, propertyKey: string, parameterIndex: number) =&gt; void</code></td>
+    </tr>
+  </tbody></table>
+</div>
+<hr>
+<h2 id="class-decorators">Class Decorators</h2>
+<p>Class decorators are applied to the constructor of a class and can be used to observe, modify, or replace a class definition.</p>
+<p>They are called when the class is declared, not when instances are created.</p>
+
+<h3>Basic Class Decorator</h3>
+<p>This simple decorator logs when a class is defined:</p>
+<div class="w3-example">
+  <div class="w3-code notranslate jsHigh">
+    <span class="code-comment">// A simple class decorator that logs class definition</span><br>
+    function logClass(constructor: Function) {<br>
+    &nbsp;&nbsp;console.log(`Class ${constructor.name} was defined at ${new Date().toISOString()}`);<br>
+    }<br><br>
+    
+    <span class="code-comment">// Applying the decorator</span><br>
+    @logClass<br>
+    class UserService {<br>
+    &nbsp;&nbsp;getUsers() {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;return ['Alice', 'Bob', 'Charlie'];<br>
+    &nbsp;&nbsp;}<br>
+    }<br><br>
+    
+    <span class="code-comment">// Output when the file is loaded: "Class UserService was defined at [timestamp]"</span>
+  </div>
+  <a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescript9883.html?filename=demo_class_decorator" target="_blank">Try it Yourself »</a>
+</div>
+
+<hr>
+<div id="midcontentadcontainer" style="overflow:auto;text-align:center">
+<!-- MidContent -->
+<!-- <p class="adtext">Advertisement</p> -->
+</div><hr>
+
+<div class="w3-example">
+  <h3>Class Decorator with Constructor Modification</h3>
+  <p>This example shows how to modify a class by adding properties and methods:</p>
+  <div class="w3-code notranslate jsHigh">
+    <span class="code-comment">// A decorator that adds a version property and logs instantiation</span><br>
+    function versioned(version: string) {<br>
+    &nbsp;&nbsp;return function (constructor: Function) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// Add a static property</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;constructor.prototype.version = version;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// Store the original constructor</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;const original = constructor;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// Create a new constructor that wraps the original</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;const newConstructor: any = function (...args: any[]) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(`Creating instance of ${original.name} v${version}`);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return new original(...args);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;};<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// Copy prototype so instanceof works</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;newConstructor.prototype = original.prototype;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;return newConstructor;<br>
+    &nbsp;&nbsp;};<br>
+    }<br><br>
+    
+    <span class="code-comment">// Applying the decorator with a version</span><br>
+    @versioned('1.0.0')<br>
+    class ApiClient {<br>
+    &nbsp;&nbsp;fetchData() {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;console.log('Fetching data...');<br>
+    &nbsp;&nbsp;}<br>
+    }<br><br>
+    const client = new ApiClient();<br>
+    console.log((client as any).version); <span class="code-comment">// Outputs: 1.0.0</span><br>
+    client.fetchData();<br>
+  </div>
+  <a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescript0d0a.html?filename=demo_class_decorator_versioned" target="_blank">Try it Yourself »</a>
+</div>
+
+<div class="w3-example">
+  <h3>Sealed Class Decorator</h3>
+  <p>This decorator prevents new properties from being added to a class and marks all existing properties as non-configurable:</p>
+  <div class="w3-code notranslate jsHigh">
+    function sealed(constructor: Function) {<br>
+    &nbsp;&nbsp;console.log(`Sealing ${constructor.name}...`);<br>
+    &nbsp;&nbsp;Object.seal(constructor);<br>
+    &nbsp;&nbsp;Object.seal(constructor.prototype);<br>
+    }<br><br>
+    @sealed<br>
+    class Greeter {<br>
+    &nbsp;&nbsp;greeting: string;<br>
+    &nbsp;&nbsp;constructor(message: string) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;this.greeting = message;<br>
+    &nbsp;&nbsp;}<br>
+    &nbsp;&nbsp;greet() {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;return `Hello, ${this.greeting}`;<br>
+    &nbsp;&nbsp;}<br>
+    }<br><br>
+    <span class="code-comment">// This will throw an error in strict mode</span><br>
+    // Greeter.prototype.newMethod = function() {}; <span class="code-comment">// Error: Cannot add property newMethod</span>
+  </div>
+  <a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescript6eec.html?filename=demo_class_decorator_sealed" target="_blank">Try it Yourself »</a>
+</div>
+
+<div class="w3-panel">
+  <h4>Key Points About Class Decorators</h4>
+  <ul>
+    <li>Class decorators are called when the class is declared, not when instances are created</li>
+    <li>They receive the class constructor as their only parameter</li>
+    <li>They can return a new constructor function to replace the original class</li>
+    <li>They are executed bottom-up (the innermost decorator runs first)</li>
+    <li>They can be used for logging, sealing, freezing, or adding metadata</li>
+  </ul>
+</div>
+<hr>
+<h2 id="method-decorators">Method Decorators</h2>
+<p>Method decorators are applied to method definitions and can be used to observe, modify, or replace method definitions.</p>
+<p>They receive three parameters:</p>
+<ol>
+  <li><code class="w3-codespan">target</code>: The prototype of the class (for instance methods) or the constructor function (for static methods)</li>
+  <li><code class="w3-codespan">propertyKey</code>: The name of the method</li>
+  <li><code class="w3-codespan">descriptor</code>: The property descriptor for the method</li>
+</ol>
+
+<div class="w3-example">
+  <h3>Method Timing Decorator</h3>
+  <p>This decorator measures and logs the execution time of a method:</p>
+  <div class="w3-code notranslate jsHigh">
+    <span class="code-comment">// Method decorator to measure execution time</span><br>
+    function measureTime(
+    &nbsp;&nbsp;target: any,
+    &nbsp;&nbsp;propertyKey: string,
+    &nbsp;&nbsp;descriptor: PropertyDescriptor
+    ) {<br>
+    &nbsp;&nbsp;const originalMethod = descriptor.value;<br>
+    &nbsp;&nbsp;descriptor.value = function (...args: any[]) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;const start = performance.now();<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;const result = originalMethod.apply(this, args);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;const end = performance.now();<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;console.log(`${propertyKey} executed in ${(end - start).toFixed(2)}ms`);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;return result;<br>
+    &nbsp;&nbsp;};<br>
+    &nbsp;&nbsp;return descriptor;<br>
+    }<br><br>
+
+    <span class="code-comment">// Using the decorator</span><br>
+    class DataProcessor {<br>
+    &nbsp;&nbsp;@measureTime<br>
+    &nbsp;&nbsp;processData(data: number[]): number[] {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// Simulate processing time</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;for (let i = 0; i &lt; 100000000; i++) { /* processing */ }<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;return data.map(x =&gt; x * 2);<br>
+    &nbsp;&nbsp;}<br>
+    }<br><br>
+
+    <span class="code-comment">// When called, it will log the execution time</span><br>
+    const processor = new DataProcessor();<br>
+    processor.processData([1, 2, 3, 4, 5]);<br>
+  </div>
+  <a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescript5aa5.html?filename=demo_method_timing" target="_blank">Try it Yourself »</a>
+</div>
+
+<div class="w3-example">
+  <h3>Method Authorization Decorator</h3>
+  <p>This example shows how to implement role-based access control using method decorators:</p>
+  <div class="w3-code notranslate jsHigh">
+    <span class="code-comment">// User roles</span><br>
+    type UserRole = 'admin' | 'editor' | 'viewer';<br><br>
+
+    <span class="code-comment">// Current user context (simplified)</span><br>
+    const currentUser = {
+    &nbsp;&nbsp;id: 1,
+    &nbsp;&nbsp;name: 'John Doe',
+    &nbsp;&nbsp;roles: ['viewer'] as UserRole[]
+    };<br><br>
+
+    <span class="code-comment">// Decorator factory for role-based access control</span><br>
+    function AllowedRoles(...allowedRoles: UserRole[]) {<br>
+    &nbsp;&nbsp;return function (<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;target: any,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;propertyKey: string,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;descriptor: PropertyDescriptor<br>
+    &nbsp;&nbsp;) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;const originalMethod = descriptor.value;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;descriptor.value = function (...args: any[]) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const hasPermission = allowedRoles.some(role =&gt; <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;currentUser.roles.includes(role)
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (!hasPermission) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw new Error(<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`User ${currentUser.name} is not authorized to call ${propertyKey}`<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return originalMethod.apply(this, args);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;};<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;return descriptor;<br>
+    &nbsp;&nbsp;};<br>
+    }<br><br>
+
+    <span class="code-comment">// Using the decorator</span><br>
+    class DocumentService {<br>
+    &nbsp;&nbsp;@AllowedRoles('admin', 'editor')<br>
+    &nbsp;&nbsp;deleteDocument(id: string) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;console.log(`Document ${id} deleted`);<br>
+    &nbsp;&nbsp;}<br>
+    &nbsp;&nbsp;@AllowedRoles('admin', 'editor', 'viewer')<br>
+    &nbsp;&nbsp;viewDocument(id: string) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;console.log(`Viewing document ${id}`);<br>
+    &nbsp;&nbsp;}<br>
+    }<br><br>
+
+    <span class="code-comment">// Usage</span><br>
+    const docService = new DocumentService();<br>
+    try {<br>
+    &nbsp;&nbsp;docService.viewDocument('doc123'); <span class="code-comment">// Works - viewer role is allowed</span><br>
+    &nbsp;&nbsp;docService.deleteDocument('doc123'); <span class="code-comment">// Throws error - viewer cannot delete</span><br>
+    } catch (error) {<br>
+    &nbsp;&nbsp;console.error(error.message);<br>
+    }<br>
+    <span class="code-comment">// Change user role to admin</span><br>
+    currentUser.roles = ['admin'];<br>
+    docService.deleteDocument('doc123'); <span class="code-comment">// Now works - admin can delete</span><br>
+  </div>
+  <a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescript5932.html?filename=demo_method_authorization" target="_blank">Try it Yourself »</a>
+</div>
+
+<div class="w3-example">
+  <h3>Deprecation Warning Decorator</h3>
+  <p>This decorator adds a deprecation warning to a method that will be removed in a future version:</p>
+  <div class="w3-code notranslate jsHigh">
+    function deprecated(message: string) {
+    &nbsp;&nbsp;return function (
+    &nbsp;&nbsp;&nbsp;&nbsp;target: any,
+    &nbsp;&nbsp;&nbsp;&nbsp;propertyKey: string,
+    &nbsp;&nbsp;&nbsp;&nbsp;descriptor: PropertyDescriptor
+    &nbsp;&nbsp;) {
+    &nbsp;&nbsp;&nbsp;&nbsp;const originalMethod = descriptor.value;
+    &nbsp;&nbsp;&nbsp;&nbsp;descriptor.value = function (...args: any[]) {
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.warn(`Warning: ${propertyKey} is deprecated. ${message}`);
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return originalMethod.apply(this, args);
+    &nbsp;&nbsp;&nbsp;&nbsp;};
+    &nbsp;&nbsp;&nbsp;&nbsp;return descriptor;
+    &nbsp;&nbsp;};
+    }<br><br>
+
+    class PaymentService {
+    &nbsp;&nbsp;@deprecated('Use processPaymentV2 instead')
+    &nbsp;&nbsp;processPayment(amount: number, currency: string) {
+    &nbsp;&nbsp;&nbsp;&nbsp;console.log(`Processing payment of ${amount} ${currency}`);
+    &nbsp;&nbsp;}
+    
+    &nbsp;&nbsp;processPaymentV2(amount: number, currency: string) {
+    &nbsp;&nbsp;&nbsp;&nbsp;console.log(`Processing payment v2 of ${amount} ${currency}`);
+    &nbsp;&nbsp;}
+    }<br><br>
+
+    const payment = new PaymentService();<br>
+    payment.processPayment(100, 'USD'); <span class="code-comment">// Shows deprecation warning</span><br>
+    payment.processPaymentV2(100, 'USD'); <span class="code-comment">// No warning</span>
+  </div>
+  <a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescript308e.html?filename=demo_method_deprecated" target="_blank">Try it Yourself »</a>
+</div>
+
+<div class="w3-panel">
+  <h4>Key Points About Method Decorators</h4>
+  <ul>
+    <li>Method decorators are called when the method is defined, not when it's called</li>
+    <li>They can modify the method's behavior by wrapping it with additional logic</li>
+    <li>They can be used for cross-cutting concerns like logging, validation, and authorization</li>
+    <li>They receive the method's property descriptor which allows modifying the method's behavior</li>
+    <li>They must return a property descriptor or undefined (if not modifying the descriptor)</li>
+  </ul>
+</div>
+
+<hr>
+<h2 id="property-decorators">Property Decorators</h2>
+<p>Property decorators are applied to property declarations and can be used to observe, modify, or replace property definitions.</p>
+<p>They receive two parameters:</p>
+<ol>
+  <li><code class="w3-codespan">target</code>: The prototype of the class (for instance properties) or the constructor function (for static properties)</li>
+  <li><code class="w3-codespan">propertyKey</code>: The name of the property</li>
+</ol>
+
+<div class="w3-example">
+  <h3>Formatted Property Decorator</h3>
+  <p>This decorator automatically formats a property when it's set:</p>
+  <div class="w3-code notranslate jsHigh">
+    <span class="code-comment">// Property decorator to format a string property</span><br>
+    function format(formatString: string) {<br>
+    &nbsp;&nbsp;return function (target: any, propertyKey: string) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;let value: string;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;const getter = () =&gt; value;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;const setter = (newVal: string) =&gt; {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value = formatString.replace('{}', newVal);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;};<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;Object.defineProperty(target, propertyKey, {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;get: getter,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set: setter,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;enumerable: true,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;configurable: true<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;});<br>
+    &nbsp;&nbsp;};<br>
+    }<br><br>
+
+    class Greeter {<br>
+    &nbsp;&nbsp;@format('Hello, {}!')<br>
+    &nbsp;&nbsp;greeting: string;<br>
+    }<br><br>
+
+    const greeter = new Greeter();<br>
+    greeter.greeting = 'World';<br>
+    console.log(greeter.greeting); <span class="code-comment">// Outputs: Hello, World!</span>
+  </div>
+  <a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescript49bd.html?filename=demo_property_format" target="_blank">Try it Yourself »</a>
+</div>
+
+<div class="w3-example">
+  <h3>Logging Property Decorator</h3>
+  <p>This decorator logs property access and changes:</p>
+  <div class="w3-code notranslate jsHigh">
+    function logProperty(target: any, propertyKey: string) {<br>
+    &nbsp;&nbsp;let value: any;<br>
+    &nbsp;&nbsp;const getter = function() {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;console.log(`Getting ${propertyKey}: ${value}`);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;return value;<br>
+    &nbsp;&nbsp;};<br><br>
+    &nbsp;&nbsp;const setter = function(newVal: any) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;console.log(`Setting ${propertyKey} from ${value} to ${newVal}`);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;value = newVal;<br>
+    &nbsp;&nbsp;};<br><br>
+    &nbsp;&nbsp;Object.defineProperty(target, propertyKey, {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;get: getter,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;set: setter,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;enumerable: true,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;configurable: true<br>
+    &nbsp;&nbsp;});<br>
+    }<br><br>
+
+    class Product {<br>
+    &nbsp;&nbsp;@logProperty<br>
+    &nbsp;&nbsp;name: string;<br>
+    &nbsp;&nbsp;@logProperty<br>
+    &nbsp;&nbsp;price: number;<br><br>
+    &nbsp;&nbsp;constructor(name: string, price: number) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;this.name = name;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;this.price = price;<br>
+    &nbsp;&nbsp;}<br>
+    }<br><br>
+    const product = new Product('Laptop', 999.99);<br>
+    product.price = 899.99; <span class="code-comment">// Logs: Setting price from 999.99 to 899.99</span><br>
+    console.log(product.name); <span class="code-comment">// Logs: Getting name: Laptop</span>
+  </div>
+  <a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescript7837.html?filename=demo_property_logging" target="_blank">Try it Yourself »</a>
+</div>
+
+<div class="w3-example">
+  <h3>Required Property Decorator</h3>
+  <p>This decorator enforces that a property must be set:</p>
+  <div class="w3-code notranslate jsHigh">
+    function required(target: any, propertyKey: string) {<br>
+    &nbsp;&nbsp;let value: any;<br><br>
+    &nbsp;&nbsp;const getter = function() {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;if (value === undefined) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw new Error(`Property ${propertyKey} is required`);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;return value;<br>
+    &nbsp;&nbsp;};<br><br>
+    &nbsp;&nbsp;const setter = function(newVal: any) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;value = newVal;<br>
+    &nbsp;&nbsp;};<br><br>
+    &nbsp;&nbsp;Object.defineProperty(target, propertyKey, {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;get: getter,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;set: setter,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;enumerable: true,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;configurable: true<br>
+    &nbsp;&nbsp;});<br>
+    }<br><br>
+
+    class User {<br>
+    &nbsp;&nbsp;@required<br>
+    &nbsp;&nbsp;username: string;<br>
+    &nbsp;&nbsp;@required<br>
+    &nbsp;&nbsp;email: string;<br>
+    &nbsp;&nbsp;age?: number;<br><br>
+    &nbsp;&nbsp;constructor(username: string, email: string) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;this.username = username;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;this.email = email;<br>
+    &nbsp;&nbsp;}<br>
+    }<br><br>
+    const user1 = new User('johndoe', 'john@example.com'); <span class="code-comment">// Works</span><br>
+    // const user2 = new User(undefined, 'test@example.com'); <span class="code-comment">// Throws error: Property username is required</span><br>
+    // const user2 = new User('johndoe', undefined); <span class="code-comment">// Throws error: Property email is required</span>
+  </div>
+  <a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescript1d05.html?filename=demo_property_required" target="_blank">Try it Yourself »</a>
+</div>
+
+<div class="w3-panel">
+  <h4>Key Points About Property Decorators</h4>
+  <ul>
+    <li>Property decorators are called when the property is defined, not when it's accessed</li>
+    <li>They don't receive a property descriptor like method decorators do</li>
+    <li>To modify property behavior, you need to use <code class="w3-codespan">Object.defineProperty</code></li>
+    <li>They're often used for metadata reflection or to modify property access</li>
+    <li>They can be combined with other decorators for more complex behaviors</li>
+  </ul>
+</div>
+
+<hr>
+<h2 id="parameter-decorators">Parameter Decorators</h2>
+<p>Parameter decorators are applied to parameter declarations in a constructor or method.</p>
+<p>They receive three parameters:</p>
+<ol>
+  <li><code class="w3-codespan">target</code>: The prototype of the class (for instance methods) or the constructor function (for static methods)</li>
+  <li><code class="w3-codespan">propertyKey</code>: The name of the method (or undefined for constructor parameters)</li>
+  <li><code class="w3-codespan">parameterIndex</code>: The ordinal index of the parameter in the function's parameter list</li>
+</ol>
+
+<div class="w3-example">
+  <h3>Parameter Validation Decorator</h3>
+  <p>This decorator validates method parameters:</p>
+  <div class="w3-code notranslate jsHigh">
+    function validateParam(type: 'string' | 'number' | 'boolean') {<br>
+    &nbsp;&nbsp;return function (target: any, propertyKey: string | symbol, parameterIndex: number) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;const existingValidations: any[] = Reflect.getOwnMetadata('validations', target, propertyKey) || [];<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;existingValidations.push({ index: parameterIndex, type });<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;Reflect.defineMetadata('validations', existingValidations, target, propertyKey);<br>
+    &nbsp;&nbsp;};<br>
+    }<br><br>
+
+    function validate(target: any, propertyKey: string, descriptor: PropertyDescriptor) {<br>
+    &nbsp;&nbsp;const originalMethod = descriptor.value;<br>
+    &nbsp;&nbsp;descriptor.value = function (...args: any[]) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;const validations: Array&lt;{index: number, type: string}&gt; = <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Reflect.getOwnMetadata('validations', target, propertyKey) || [];<br><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;for (const validation of validations) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const { index, type } = validation;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const param = args[index];<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let isValid = false;<br><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;switch (type) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 'string':<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;isValid = typeof param === 'string' &amp;&amp; param.length &gt; 0;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 'number':<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;isValid = typeof param === 'number' &amp;&amp; !isNaN(param);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 'boolean':<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;isValid = typeof param === 'boolean';<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (!isValid) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw new Error(`Parameter at index ${index} failed ${type} validation`);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;return originalMethod.apply(this, args);<br>
+    &nbsp;&nbsp;};<br>
+    &nbsp;&nbsp;return descriptor;<br>
+    }<br><br>
+
+    class UserService {<br>
+    &nbsp;&nbsp;@validate<br>
+    &nbsp;&nbsp;createUser(<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;@validateParam('string') name: string,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;@validateParam('number') age: number,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;@validateParam('boolean') isActive: boolean<br>
+    &nbsp;&nbsp;) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;console.log(`Creating user: ${name}, ${age}, ${isActive}`);<br>
+    &nbsp;&nbsp;}<br>
+    }<br><br>
+    const service = new UserService();<br>
+    service.createUser('John', 30, true); <span class="code-comment">// Works</span><br>
+    // service.createUser('', 30, true); <span class="code-comment">// Throws error: Parameter at index 0 failed string validation</span><br>
+    // service.createUser('John', 'thirty', true); <span class="code-comment">// Throws error: Parameter at index 1 failed number validation</span>
+  </div>
+  <a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescript47b1.html?filename=demo_parameter_validation" target="_blank">Try it Yourself »</a>
+</div>
+
+<div class="w3-panel">
+  <h4>Key Points About Parameter Decorators</h4>
+  <ul>
+    <li>Parameter decorators are called when the method is defined, not when it's called</li>
+    <li>They're often used with method decorators to implement cross-cutting concerns</li>
+    <li>They can be used with the <code class="w3-codespan">reflect-metadata</code> library to store and retrieve metadata</li>
+    <li>They're commonly used in dependency injection frameworks</li>
+    <li>They receive the parameter index, which can be used to access the parameter value at runtime</li>
+  </ul>
+</div>
+
+<hr>
+<h2 id="decorator-factories">Decorator Factories</h2>
+<p>Decorator factories are functions that return a decorator function.</p>
+<p>They allow you to configure decorators by passing parameters.</p>
+<p>This makes your decorators more flexible and reusable.</p>
+
+<div class="w3-example">
+  <h3>Configurable Logging Decorator</h3>
+  <p>This example shows how to create a configurable logging decorator that can be customized with different log levels:</p>
+  <div class="w3-code notranslate jsHigh">
+    <span class="code-comment">// Decorator factory that accepts configuration</span><br>
+    function logWithConfig(config: { level: 'log' | 'warn' | 'error', message?: string }) {<br>
+    &nbsp;&nbsp;return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;const originalMethod = descriptor.value;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;descriptor.value = function (...args: any[]) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const { level = 'log', message = 'Executing method' } = config;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console[level](`${message}: ${propertyKey}`, { arguments: args });<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const result = originalMethod.apply(this, args);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console[level](`${propertyKey} completed`);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return result;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;};<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;return descriptor;<br>
+    &nbsp;&nbsp;};<br>
+    }<br><br>
+
+    class PaymentService {<br>
+    &nbsp;&nbsp;@logWithConfig({ level: 'log', message: 'Processing payment' })<br>
+    &nbsp;&nbsp;processPayment(amount: number) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;console.log(`Processing payment of $${amount}`);<br>
+    &nbsp;&nbsp;}<br>
+    }<br>
+  </div>
+  <a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescript8c18.html?filename=demo_decorator_factory" target="_blank">Try it Yourself »</a>
+</div>
+
+<div class="w3-example">
+  <h3>Order of Evaluation</h3>
+  <p>This example shows the order of evaluation for multiple decorators:</p>
+  <p>When multiple decorators are applied to a declaration, they are evaluated in the following order:</p>
+  <ol>
+    <li>Parameter Decorators, followed by Method, Accessor, or Property Decorators are applied for each instance member.</li>
+    <li>Parameter Decorators, followed by Method, Accessor, or Property Decorators are applied for each static member.</li>
+    <li>Parameter Decorators are applied for the constructor.</li>
+    <li>Class Decorators are applied for the class.</li>
+  </ol>
+  <div class="w3-code notranslate jsHigh">
+    function first() {<br>
+    &nbsp;&nbsp;console.log('first(): factory evaluated');<br>
+    &nbsp;&nbsp;return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;console.log('first(): called');<br>
+    &nbsp;&nbsp;};<br>
+    }<br>
+    <br>
+    function second() {<br>
+    &nbsp;&nbsp;console.log('second(): factory evaluated');<br>
+    &nbsp;&nbsp;return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;console.log('second(): called');<br>
+    &nbsp;&nbsp;};<br>
+    }<br>
+    <br>
+    class ExampleClass {<br>
+    &nbsp;&nbsp;@first()<br>
+    &nbsp;&nbsp;@second()<br>
+    &nbsp;&nbsp;method() {}<br>
+    }<br>
+    <br>
+    // Output:<br>
+    // second(): factory evaluated<br>
+    // first(): factory evaluated<br>
+    // first(): called<br>
+    // second(): called<br>
+  </div>
+  <a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescript9167.html?filename=demo_decorator_order" target="_blank">Try it Yourself »</a>
+</div>
+
+<hr>
+<h2 id="real-world">Real-World Examples</h2>
+
+<div class="w3-example">
+  <h3>API Controller with Decorators</h3>
+  <p>This example shows how decorators can be used to create a simple API controller similar to those in NestJS or Express:</p>
+  <div class="w3-code notranslate jsHigh">
+    <span class="code-comment">// Simple decorator implementations (simplified for example)</span><br>
+    const ROUTES: any[] = [];<br>
+    <br>
+    function Controller(prefix: string = '') {<br>
+    &nbsp;&nbsp;return function (constructor: Function) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;constructor.prototype.prefix = prefix;<br>
+    &nbsp;&nbsp;};<br>
+    }<br>
+    <br>
+    function Get(path: string = '') {<br>
+    &nbsp;&nbsp;return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;ROUTES.push({<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;method: 'get',<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;path,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;handler: descriptor.value,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target: target.constructor<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;});<br>
+    &nbsp;&nbsp;};<br>
+    }<br>
+    <br>
+    <span class="code-comment">// Using the decorators</span><br>
+    @Controller('/users')<br>
+    class UserController {<br>
+    &nbsp;&nbsp;@Get('/')<br>
+    &nbsp;&nbsp;getAllUsers() {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;return { users: [{ id: 1, name: 'John' }] };<br>
+    &nbsp;&nbsp;}<br>
+    <br>
+    &nbsp;&nbsp;@Get('/:id')<br>
+    &nbsp;&nbsp;getUserById(id: string) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;return { id, name: 'John' };<br>
+    &nbsp;&nbsp;}<br>
+    }<br>
+    <br>
+    <span class="code-comment">// Simulate route registration</span><br>
+    function registerRoutes() {<br>
+    &nbsp;&nbsp;ROUTES.forEach(route =&gt; {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;const prefix = route.target.prototype.prefix || '';<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;console.log(`Registered ${route.method.toUpperCase()} ${prefix}${route.path}`);<br>
+    &nbsp;&nbsp;});<br>
+    }<br>
+    <br>
+    registerRoutes();<br>
+    // Output:<br>
+    // Registered GET /users<br>
+    // Registered GET /users/:id<br>
+  </div>
+  <a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescriptee7c.html?filename=demo_api_controller" target="_blank">Try it Yourself »</a>
+</div>
+
+<hr>
+<h2 id="best-practices">Best Practices</h2>
+
+<div class="w3-panel">
+  <h4>Decorator Best Practices</h4>
+  <div class="w3-panel">
+    <p>Follow these best practices when working with decorators:</p>
+    <ol>
+      <li><strong>Keep decorators focused</strong>: Each decorator should have a single responsibility.</li>
+      <li><strong>Document behavior</strong>: Clearly document what your decorators do and any side effects they might have.</li>
+      <li><strong>Use decorator factories</strong>: Make decorators configurable using factories for better reusability.</li>
+      <li><strong>Consider performance</strong>: Be mindful of performance implications, especially with decorators that add runtime overhead.</li>
+      <li><strong>Type safety</strong>: Use TypeScript's type system to make decorators type-safe when possible.</li>
+      <li><strong>Error handling</strong>: Implement proper error handling within decorators.</li>
+      <li><strong>Testing</strong>: Write unit tests for your decorators to ensure they work as expected.</li>
+      <li><strong>Metadata</strong>: Use <code class="w3-codespan">reflect-metadata</code> for more advanced scenarios requiring runtime type information.</li>
+    </ol>
+  </div>
+</div>
+<hr>
+<h2 id="common-pitfalls">Common Pitfalls</h2>
+
+<div class="w3-panel">
+  <h4>Common Decorator Pitfalls</h4>
+  <div class="w3-panel">
+    <p>Avoid these common mistakes when working with decorators:</p>
+    <ul>
+      <li><strong>Forgetting to enable decorators</strong>: Ensure <code class="w3-codespan">experimentalDecorators</code> is enabled in <code class="w3-codespan">tsconfig.json</code>.</li>
+      <li><strong>Incorrect decorator signature</strong>: Each decorator type has a specific signature. Using the wrong parameters can lead to runtime errors.</li>
+      <li><strong>Decorator evaluation order</strong>: Decorators are evaluated from bottom to top for each declaration.</li>
+      <li><strong>Property initialization</strong>: Property decorators run before instance properties are initialized.</li>
+      <li><strong>Metadata reflection</strong>: Forgetting to import <code class="w3-codespan">reflect-metadata</code> when using decorator metadata.</li>
+      <li><strong>Performance overhead</strong>: Be cautious with decorators that add significant runtime overhead in performance-critical code.</li>
+      <li><strong>Browser compatibility</strong>: Decorators are a stage 3 proposal and may require transpilation for older browsers.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="w3-example">
+<h3>Example: Property Decorator</h3>
+<div class="w3-code notranslate jsHigh">
+function readonly(target: any, propertyKey: string) {<br>
+&nbsp;&nbsp;Object.defineProperty(target, propertyKey, {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;writable: false<br>
+&nbsp;&nbsp;});<br>
+}<br>
+<br>
+class Person {<br>
+&nbsp;&nbsp;@readonly<br>
+&nbsp;&nbsp;name = "John";<br>
+}</div>
+</div>
+<div class="w3-example">
+<h3>Example: Parameter Decorator</h3>
+<div class="w3-code notranslate jsHigh">
+function logParameter(target: any, propertyKey: string, parameterIndex: number) {<br>
+&nbsp;&nbsp;console.log(`Parameter in ${propertyKey} at index ${parameterIndex}`);<br>
+}<br>
+<br>
+class Demo {<br>
+&nbsp;&nbsp;greet(@logParameter message: string) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return message;<br>
+&nbsp;&nbsp;}<br>
+}</div>
+</div>
+<p>Enable decorators by adding this to your <code class="w3-codespan">tsconfig.json</code>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+{<br>
+  &nbsp;&nbsp;"compilerOptions": {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;"experimentalDecorators": true<br>
+  &nbsp;&nbsp;}<br>
+}
+</div>
+</div>
+<p><b>Where are decorators used?</b></p>
+<ul>
+  <li><b>Angular:</b> For components, services, modules, etc.</li>
+  <li><b>NestJS:</b> For controllers, providers, routes, etc.</li>
+</ul>
+<hr>
+<div id="exercisecontainer" src="xrcise_decorators.js" data-extensions="php"></div>
+<hr>
+<br>
+
+<div id="user-profile-bottom-wrapper" class="user-profile-bottom-wrapper">
+  <div class="user-authenticated w3-hide">
+    <a href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fmy-learning.w3schools.com" class="user-profile-btn user-profile-bottom-btn ga-bottom ga-bottom-profile" title="Your W3Schools Profile" aria-label="Your W3Schools Profile" target="_top">
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 2048 2048" class="user-profile-icon" aria-label="Your W3Schools Profile Icon">
+        <path d="M 843.500 1148.155 C 837.450 1148.515, 823.050 1149.334, 811.500 1149.975 C 742.799 1153.788, 704.251 1162.996, 635.391 1192.044 C 517.544 1241.756, 398.992 1352.262, 337.200 1470 C 251.831 1632.658, 253.457 1816.879, 340.500 1843.982 C 351.574 1847.431, 1696.426 1847.431, 1707.500 1843.982 C 1794.543 1816.879, 1796.169 1632.658, 1710.800 1470 C 1649.008 1352.262, 1530.456 1241.756, 1412.609 1192.044 C 1344.588 1163.350, 1305.224 1153.854, 1238.500 1150.039 C 1190.330 1147.286, 1196.307 1147.328, 1097 1149.035 C 1039.984 1150.015, 1010.205 1150.008, 950 1149.003 C 851.731 1147.362, 856.213 1147.398, 843.500 1148.155" stroke="none" fill="#2a93fb" fill-rule="evenodd"></path>
+        <path d="M 1008 194.584 C 1006.075 194.809, 999.325 195.476, 993 196.064 C 927.768 202.134, 845.423 233.043, 786 273.762 C 691.987 338.184, 622.881 442.165, 601.082 552 C 588.496 615.414, 592.917 705.245, 611.329 760.230 C 643.220 855.469, 694.977 930.136, 763.195 979.321 C 810.333 1013.308, 839.747 1026.645, 913.697 1047.562 C 1010.275 1074.879, 1108.934 1065.290, 1221 1017.694 C 1259.787 1001.221, 1307.818 965.858, 1339.852 930.191 C 1460.375 795.998, 1488.781 609.032, 1412.581 451.500 C 1350.098 322.327, 1240.457 235.724, 1097.500 202.624 C 1072.356 196.802, 1025.206 192.566, 1008 194.584" stroke="none" fill="#0aaa8a" fill-rule="evenodd"></path>
+      </svg>
+
+      <svg xmlns="http://www.w3.org/2000/svg" class="user-progress" aria-label="Your W3Schools Profile Progress">
+        <path class="user-progress-circle1" fill="none" d="M 25.99650934151373 15.00000030461742 A 20 20 0 1 0 26 15"></path>
+        <path class="user-progress-circle2" fill="none" d="M 26 15 A 20 20 0 0 0 26 15"></path>
+      </svg>
+
+      <span class="user-progress-star">★</span>
+
+      <span class="user-progress-point">+1</span>
+    </a>
+  </div>
+
+  <div class="w3s-pathfinder -teaser user-anonymous w3-hide">
+  <div class="track-progress-btn-wrapper">
+    <a href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fpathfinder.w3schools.com" class="-login-btn w3-button ga-bottom ga-bottom-login track-progress-btn" title="Sign in to track your progress" aria-label="Sign in to track your progress" target="_blank">
+    Sign in to track progress
+  </a>
+    
+  </div>
+</div>
+
+<style>
+.w3s-pathfinder.-teaser {
+  background-color: transparent!important;
+}
+.track-progress-btn-wrapper {
+  display: flex;
+  justify-content: center;
+}
+a.track-progress-btn {
+  position: absolute;
+  padding: 8px 20px;
+  border: 1px solid #ddd;
+  top:-65px;
+  background-color: #fff;
+  color: #333;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+}
+@media screen and (max-width: 600px) {
+  a.track-progress-btn {
+    top: 6px;
+    width: 100%;
+  }
+}
+</style>
+
+</div>
+

@@ -4,82 +4,82 @@
     "items": [
       {
         "title": "Java Intro",
-        "file": "java_intro.html"
+        "file": "java_java_intro.html"
       },
       {
         "title": "Java Syntax",
-        "file": "java_syntax.html"
+        "file": "java_java_syntax.html"
       },
       {
         "title": "Java Output",
-        "file": "java_output.html"
+        "file": "java_java_output.html"
       },
       {
         "title": "Java Comments",
-        "file": "java_comments.html"
+        "file": "java_java_comments.html"
       },
       {
         "title": "Java Variables",
-        "file": "java_variables.html"
+        "file": "java_java_variables.html"
       },
       {
         "title": "Java Data Types",
-        "file": "java_data_types.html"
+        "file": "java_java_data_types.html"
       },
       {
         "title": "Java Type Casting",
-        "file": "java_type_casting.html"
+        "file": "java_java_type_casting.html"
       },
       {
         "title": "Java Operators",
-        "file": "java_operators.html"
+        "file": "java_java_operators.html"
       },
       {
         "title": "Java Strings",
-        "file": "java_strings.html"
+        "file": "java_java_strings.html"
       },
       {
         "title": "Java Math",
-        "file": "java_math.html"
+        "file": "java_java_math.html"
       },
        {
         "title": "Java Booleans",
-        "file": "java_booleans.html"
+        "file": "java_java_booleans.html"
       },
       {
         "title": "Java If...Else",
-        "file": "java_if_else.html"
+        "file": "java_java_if_else.html"
       },
       {
         "title": "Java Switch",
-        "file": "java_switch.html"
+        "file": "java_java_switch.html"
       },
       {
         "title": "Java While Loop",
-        "file": "java_while_loop.html"
+        "file": "java_java_while_loop.html"
       },
       {
         "title": "Java For Loop",
-        "file": "java_for_loop.html"
+        "file": "java_java_for_loop.html"
       },
       {
         "title": "Java Break/Continue",
-        "file": "java_break.html"
+        "file": "java_java_break.html"
       },
       {
         "title": "Java Arrays",
-        "file": "java_arrays.html"
+        "file": "java_java_arrays.html"
       }
     ]
   },
   {
       "title": "Java Classes",
       "items": [
-          { "title": "Java Classes/Objects", "file": "java_classes.html" },
-          { "title": "Java Class Attributes", "file": "java_class_attributes.html" },
-          { "title": "Java Class Methods", "file": "java_class_methods.html" },
-          { "title": "Java Constructors", "file": "java_constructors.html" },
-          { "title": "Java Verify", "file": "java_modifiers.html" }
+          { "title": "Java Classes/Objects", "file": "java_java_classes.html" },
+          { "title": "Java Class Attributes", "file": "java_java_class_attributes.html" },
+          { "title": "Java Class Methods", "file": "java_java_class_methods.html" },
+          { "title": "Java Constructors", "file": "java_java_constructors.html" },
+          { "title": "Java Verify", "file": "java_java_modifiers.html" }
       ]
   }
 ]

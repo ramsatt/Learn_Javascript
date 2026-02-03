@@ -1,0 +1,155 @@
+
+      <div id="mainLeaderboard" style="overflow:hidden;">
+        <!-- MainLeaderboard-->
+      </div>
+    <h1>PostgreSQL Get Started</h1>
+
+
+<hr>
+
+<h2>Connect to the Database</h2>
+
+<p>If you have followed the steps from the <a href="#/tutorial/postgresql_install.html">Install PostgreSQL</a> page,
+you now have a PostgreSQL database on you computer.</p>
+
+<p>There are several ways to connect to the database, we will look at two ways in this tutorial:</p>
+<ul>
+<li>SQL Shell (psql)</li>
+<li>pgAdmin 4</li>
+</ul>
+<p>Both of them comes with the installation of PostgreSQL</p>
+<hr>
+
+<h2>SQL Shell (psql)</h2>
+
+<p>SQL Shell (psql) is a terminal based program where you can write and execute SQL syntax in the command-line terminal.</p>
+
+<h3>Open SQL Shell (psql)</h3>
+
+<p>You will find the SQL Shell (psql) tool in the start menu under PostgreSQL:</p>
+
+<p><img src="assets/content/postgresql/images/screenshot_postgresql_psql.png" class="postgresql_screenshot"></p>
+
+<p><strong>Tip:</strong> If you cannot find it, try searching for "SQL Shell" on your computer.</p>
+
+<p>Once the program is open, you should see a window like the one below.</p>
+<p>Insert the name of the server.</p>
+<p>The suggested choice is [localhost], which is correct, press [Enter] to accept:</p>
+<p><img src="assets/content/postgresql/images/screenshot_postgresql_shell1.png" class="postgresql_screenshot"></p>
+<hr>
+<h2>Database</h2>
+<p>The suggested database is [postgres], which is correct, press [Enter] to accept:</p>
+<p><img src="assets/content/postgresql/images/screenshot_postgresql_shell2.png" class="postgresql_screenshot"></p>
+<hr>
+<h2>Port</h2>
+<p>The suggested port is [5432], which is correct, at least in my case, press [Enter] to accept:</p>
+<p><img src="assets/content/postgresql/images/screenshot_postgresql_shell3.png" class="postgresql_screenshot"></p>
+<hr>
+<h2>Username</h2>
+<p>The suggested username is [postgres], which is correct, at least for me, press [Enter] to accept:</p>
+<p><img src="assets/content/postgresql/images/screenshot_postgresql_shell4.png" class="postgresql_screenshot"></p>
+<hr>
+<h2>Password</h2>
+<p>Enter the password you chose when you installed the PostgreSQL database, my password is 12345678:</p>
+<p><img src="assets/content/postgresql/images/screenshot_postgresql_shell5.png" class="postgresql_screenshot"></p>
+<hr>
+<h2>Result</h2>
+<p>The result might look like an error, but if it shows
+<code class="w3-codespan">psql (15.2)</code> or any other version, and in the end 
+you see the <code class="w3-codespan">postgres=#</code> command (and maybe a warning in between), then you have 
+successfully
+connected to the database!</p>
+<p><img src="assets/content/postgresql/images/screenshot_postgresql_shell6.png" class="postgresql_screenshot"></p>
+<hr>
+<h2>Execute SQL Statements</h2>
+<p>Once you have connected to the database, you can start executing SQL statements.</p>
+<p>Our database is empty, so we cannot query any tables yet, but we can check the version with this SQL statement:</p>
+<div class="w3-example">
+<pre class="notranslate w3-white language-sql"><code class="language-sql">SELECT version();
+</code></pre>
+</div>
+<p>To insert SQL statements in the SQL Shell command, just write them after the
+<code class="w3-codespan">postgres=#</code> command like this: </p>
+<p><img src="assets/content/postgresql/images/screenshot_postgresql_shell7.png" class="postgresql_screenshot"></p>
+<p>Press [Enter] and the result should look like this:</p>
+<p><img src="assets/content/postgresql/images/screenshot_postgresql_shell8.png" class="postgresql_screenshot"></p>
+<hr>
+<h2>Remember the Semicolon</h2>
+<div class="w3-panel ws-note">
+<p><strong>Note:</strong> Always end SQL statements with a semicolon
+<code class="w3-codespan">;</code></p>
+</div>
+<p>SQL Shell waits for the semicolon and executes all lines as one SQL statement.</p>
+<p>A multiple lines SQL statement is not executed before we include a semicolon 
+at the end.</p>
+
+<div class="w3-example" style="max-width:592px;">
+<h3>Example</h3>
+<p>Same statement, but in two lines:</p>
+<p><img src="assets/content/postgresql/images/screenshot_postgresql_shell9.png" class="postgresql_screenshot"></p>
+</div>
+
+<p>Now we are ready to create tables and fill them with data, but first we want to take a look at 
+an application called pgAdmin 4.</p>
+<p>Learn more about pgAdmin 4 in the <a href="#/tutorial/postgresql_pgadmin4.html">next 
+chapter</a>.</p>
+
+<hr>
+
+<div id="user-profile-bottom-wrapper" class="user-profile-bottom-wrapper">
+  <div class="user-authenticated w3-hide">
+    <a href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fmy-learning.w3schools.com" class="user-profile-btn user-profile-bottom-btn ga-bottom ga-bottom-profile" title="Your W3Schools Profile" aria-label="Your W3Schools Profile" target="_top">
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 2048 2048" class="user-profile-icon" aria-label="Your W3Schools Profile Icon">
+        <path d="M 843.500 1148.155 C 837.450 1148.515, 823.050 1149.334, 811.500 1149.975 C 742.799 1153.788, 704.251 1162.996, 635.391 1192.044 C 517.544 1241.756, 398.992 1352.262, 337.200 1470 C 251.831 1632.658, 253.457 1816.879, 340.500 1843.982 C 351.574 1847.431, 1696.426 1847.431, 1707.500 1843.982 C 1794.543 1816.879, 1796.169 1632.658, 1710.800 1470 C 1649.008 1352.262, 1530.456 1241.756, 1412.609 1192.044 C 1344.588 1163.350, 1305.224 1153.854, 1238.500 1150.039 C 1190.330 1147.286, 1196.307 1147.328, 1097 1149.035 C 1039.984 1150.015, 1010.205 1150.008, 950 1149.003 C 851.731 1147.362, 856.213 1147.398, 843.500 1148.155" stroke="none" fill="#2a93fb" fill-rule="evenodd"></path>
+        <path d="M 1008 194.584 C 1006.075 194.809, 999.325 195.476, 993 196.064 C 927.768 202.134, 845.423 233.043, 786 273.762 C 691.987 338.184, 622.881 442.165, 601.082 552 C 588.496 615.414, 592.917 705.245, 611.329 760.230 C 643.220 855.469, 694.977 930.136, 763.195 979.321 C 810.333 1013.308, 839.747 1026.645, 913.697 1047.562 C 1010.275 1074.879, 1108.934 1065.290, 1221 1017.694 C 1259.787 1001.221, 1307.818 965.858, 1339.852 930.191 C 1460.375 795.998, 1488.781 609.032, 1412.581 451.500 C 1350.098 322.327, 1240.457 235.724, 1097.500 202.624 C 1072.356 196.802, 1025.206 192.566, 1008 194.584" stroke="none" fill="#0aaa8a" fill-rule="evenodd"></path>
+      </svg>
+
+      <svg xmlns="http://www.w3.org/2000/svg" class="user-progress" aria-label="Your W3Schools Profile Progress">
+        <path class="user-progress-circle1" fill="none" d="M 25.99650934151373 15.00000030461742 A 20 20 0 1 0 26 15"></path>
+        <path class="user-progress-circle2" fill="none" d="M 26 15 A 20 20 0 0 0 26 15"></path>
+      </svg>
+
+      <span class="user-progress-star">★</span>
+
+      <span class="user-progress-point">+1</span>
+    </a>
+  </div>
+
+  <div class="w3s-pathfinder -teaser user-anonymous w3-hide">
+  <div class="track-progress-btn-wrapper">
+    <a href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fpathfinder.w3schools.com" class="-login-btn w3-button ga-bottom ga-bottom-login track-progress-btn" title="Sign in to track your progress" aria-label="Sign in to track your progress" target="_blank">
+    Sign in to track progress
+  </a>
+    
+  </div>
+</div>
+
+<style>
+.w3s-pathfinder.-teaser {
+  background-color: transparent!important;
+}
+.track-progress-btn-wrapper {
+  display: flex;
+  justify-content: center;
+}
+a.track-progress-btn {
+  position: absolute;
+  padding: 8px 20px;
+  border: 1px solid #ddd;
+  top:-65px;
+  background-color: #fff;
+  color: #333;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+}
+@media screen and (max-width: 600px) {
+  a.track-progress-btn {
+    top: 6px;
+    width: 100%;
+  }
+}
+</style>
+
+</div>
+

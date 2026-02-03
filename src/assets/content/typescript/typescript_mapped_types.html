@@ -1,0 +1,347 @@
+
+      <div id="mainLeaderboard" style="overflow:hidden;">
+        <!-- MainLeaderboard-->
+      </div>
+    <h1>TypeScript Mapped Types</h1>
+
+
+
+<hr>
+
+<p>Mapped types in TypeScript allow you to create new types by transforming properties of existing types.</p>
+
+  <ul>
+    <li><b>Mapped types</b> = transform every property of a type</li>
+    <li>Common ones: <code class="w3-codespan">Partial</code>, <code class="w3-codespan">Readonly</code>, <code class="w3-codespan">Pick</code>, <code class="w3-codespan">Omit</code>, <code class="w3-codespan">Record</code></li>
+  </ul>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+// Small example<br>
+type Person = { name: string; age: number };<br>
+type PartialPerson = { [P in keyof Person]?: Person[P] };<br>
+type ReadonlyPerson = { readonly [P in keyof Person]: Person[P] };<br>
+</div>
+</div>
+
+<hr>
+<div id="midcontentadcontainer" style="overflow:auto;text-align:center">
+<!-- MidContent -->
+<!-- <p class="adtext">Advertisement</p> -->
+</div><hr>
+
+<h2>Basic Mapped Type Syntax</h2>
+
+<h3>Core Syntax</h3>
+
+<p>Mapped types use the syntax <code class="w3-codespan">{ [P in K]: T }</code> where:</p>
+<ul>
+  <li><code class="w3-codespan">P</code> is the property name being iterated</li>
+  <li><code class="w3-codespan">K</code> is a union of property names to iterate over</li>
+  <li><code class="w3-codespan">T</code> is the resulting type for each property</li>
+</ul>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+// Define an object type<br>
+interface Person {<br>
+&nbsp;&nbsp;name: string;<br>
+&nbsp;&nbsp;age: number;<br>
+&nbsp;&nbsp;email: string;<br>
+}<br>
+<br>
+// Create a mapped type that makes all properties optional<br>
+type PartialPerson = {<br>
+&nbsp;&nbsp;[P in keyof Person]?: Person[P];<br>
+};<br>
+<br>
+// Usage<br>
+const partialPerson: PartialPerson = {<br>
+&nbsp;&nbsp;name: "John"<br>
+&nbsp;&nbsp;// age and email are optional<br>
+};<br>
+<br>
+// Create a mapped type that makes all properties readonly<br>
+type ReadonlyPerson = {<br>
+&nbsp;&nbsp;readonly [P in keyof Person]: Person[P];<br>
+};<br>
+<br>
+// Usage<br>
+const readonlyPerson: ReadonlyPerson = {<br>
+&nbsp;&nbsp;name: "Alice",<br>
+&nbsp;&nbsp;age: 30,<br>
+&nbsp;&nbsp;email: "alice@example.com"<br>
+};<br>
+<br>
+// readonlyPerson.age = 31; // Error: Cannot assign to 'age' because it is a read-only property
+</div>
+<a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescript8746.html?filename=demo_mapped_types_basic" target="_blank">Try it Yourself »</a>
+</div>
+
+<hr>
+
+<h2>Built-in Mapped Types</h2>
+
+<h3>Standard Library Utilities</h3>
+
+<p>TypeScript includes several useful built-in mapped types:</p>
+
+<ul>
+  <li><code class="w3-codespan">Partial&lt;T&gt;</code>: make all props optional</li>
+  <li><code class="w3-codespan">Readonly&lt;T&gt;</code>: make all props readonly</li>
+  <li><code class="w3-codespan">Pick&lt;T, K&gt;</code>: select a subset of keys</li>
+  <li><code class="w3-codespan">Omit&lt;T, K&gt;</code>: remove keys</li>
+  <li><code class="w3-codespan">Record&lt;K, V&gt;</code>: map keys to a value type</li>
+</ul>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+interface User {<br>
+&nbsp;&nbsp;id: number;<br>
+&nbsp;&nbsp;name: string;<br>
+&nbsp;&nbsp;email: string;<br>
+&nbsp;&nbsp;isAdmin: boolean;<br>
+}<br>
+<br>
+// Partial&lt;T&gt; - Makes all properties optional<br>
+type PartialUser = Partial&lt;User&gt;;<br>
+// Equivalent to: { id?: number; name?: string; email?: string; isAdmin?: boolean; }<br>
+<br>
+// Required&lt;T&gt; - Makes all properties required<br>
+type RequiredUser = Required&lt;Partial&lt;User&gt;&gt;;<br>
+// Equivalent to: { id: number; name: string; email: string; isAdmin: boolean; }<br>
+<br>
+// Readonly&lt;T&gt; - Makes all properties readonly<br>
+type ReadonlyUser = Readonly&lt;User&gt;;<br>
+// Equivalent to: { readonly id: number; readonly name: string; ... }<br>
+<br>
+// Pick&lt;T, K&gt; - Creates a type with a subset of properties from T<br>
+type UserCredentials = Pick&lt;User, "email" | "id"&gt;;<br>
+// Equivalent to: { email: string; id: number; }<br>
+<br>
+// Omit&lt;T, K&gt; - Creates a type by removing specified properties from T<br>
+type PublicUser = Omit&lt;User, "id" | "isAdmin"&gt;;<br>
+// Equivalent to: { name: string; email: string; }<br>
+<br>
+// Record&lt;K, T&gt; - Creates a type with specified keys and value types<br>
+type UserRoles = Record&lt;"admin" | "user" | "guest", string&gt;;<br>
+// Equivalent to: { admin: string; user: string; guest: string; }
+</div>
+<a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescript06fd.html?filename=demo_mapped_types_builtin" target="_blank">Try it Yourself »</a>
+</div>
+
+<hr>
+
+<h2>Creating Custom Mapped Types</h2>
+<h3>Basic Custom Mappers</h3>
+
+<p>You can create your own mapped types to transform types in specific ways:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+// Base interface<br>
+interface Product {<br>
+&nbsp;&nbsp;id: number;<br>
+&nbsp;&nbsp;name: string;<br>
+&nbsp;&nbsp;price: number;<br>
+&nbsp;&nbsp;inStock: boolean;<br>
+}<br>
+<br>
+// Create a mapped type to convert all properties to string type<br>
+type StringifyProperties&lt;T&gt; = {<br>
+&nbsp;&nbsp;[P in keyof T]: string;<br>
+};<br>
+<br>
+// Usage<br>
+type StringProduct = StringifyProperties&lt;Product&gt;;<br>
+// Equivalent to: { id: string; name: string; price: string; inStock: string; }<br>
+<br>
+// Create a mapped type that adds validation functions for each property<br>
+type Validator&lt;T&gt; = {<br>
+&nbsp;&nbsp;[P in keyof T]: (value: T[P]) =&gt; boolean;<br>
+};<br>
+<br>
+// Usage<br>
+const productValidator: Validator&lt;Product&gt; = {<br>
+&nbsp;&nbsp;id: (id) =&gt; id &gt; 0,<br>
+&nbsp;&nbsp;name: (name) =&gt; name.length &gt; 0,<br>
+&nbsp;&nbsp;price: (price) =&gt; price &gt;= 0,<br>
+&nbsp;&nbsp;inStock: (inStock) =&gt; typeof inStock === "boolean"<br>
+};
+</div>
+<a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescript3af9.html?filename=demo_mapped_types_custom" target="_blank">Try it Yourself »</a>
+</div>
+
+<hr>
+
+<h2>Modifying Property Modifiers</h2>
+<h3>Adding and Removing Modifiers</h3>
+
+<p>Mapped types also allow you to add or remove property modifiers like <code class="w3-codespan">readonly</code> and <code class="w3-codespan">?</code> (optional):</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+// Base interface with some readonly and optional properties<br>
+interface Configuration {<br>
+&nbsp;&nbsp;readonly apiKey: string;<br>
+&nbsp;&nbsp;readonly apiUrl: string;<br>
+&nbsp;&nbsp;timeout?: number;<br>
+&nbsp;&nbsp;retries?: number;<br>
+}<br>
+<br>
+// Remove readonly modifier from all properties<br>
+type Mutable&lt;T&gt; = {<br>
+&nbsp;&nbsp;-readonly [P in keyof T]: T[P];<br>
+};<br>
+<br>
+// Usage<br>
+type MutableConfig = Mutable&lt;Configuration&gt;;<br>
+// Equivalent to: { apiKey: string; apiUrl: string; timeout?: number; retries?: number; }<br>
+<br>
+// Make all optional properties required<br>
+type RequiredProps&lt;T&gt; = {<br>
+&nbsp;&nbsp;[P in keyof T]-?: T[P];<br>
+};<br>
+<br>
+// Usage<br>
+type RequiredConfig = RequiredProps&lt;Configuration&gt;;<br>
+// Equivalent to: { readonly apiKey: string; readonly apiUrl: string; timeout: number; retries: number; }
+</div>
+<a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescript94c1.html?filename=demo_mapped_types_modifiers" target="_blank">Try it Yourself »</a>
+</div>
+
+<hr>
+
+<h2>Advanced Mapped Types</h2>
+<h3>Combining with Conditional Types</h3>
+
+<p>Mapped types become even more powerful when combined with conditional types:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+// Base interface<br>
+interface ApiResponse {<br>
+&nbsp;&nbsp;data: unknown;<br>
+&nbsp;&nbsp;status: number;<br>
+&nbsp;&nbsp;message: string;<br>
+&nbsp;&nbsp;timestamp: number;<br>
+}<br>
+<br>
+// Conditional mapped type: Convert each numeric property to a formatted string<br>
+type FormattedResponse&lt;T&gt; = {<br>
+&nbsp;&nbsp;[P in keyof T]: T[P] extends number ? string : T[P];<br>
+};<br>
+<br>
+// Usage<br>
+type FormattedApiResponse = FormattedResponse&lt;ApiResponse&gt;;<br>
+// Equivalent to: { data: unknown; status: string; message: string; timestamp: string; }<br>
+<br>
+// Another example: Filter for only string properties<br>
+type StringPropsOnly&lt;T&gt; = {<br>
+&nbsp;&nbsp;[P in keyof T as T[P] extends string ? P : never]: T[P];<br>
+};<br>
+<br>
+// Usage<br>
+type ApiResponseStringProps = StringPropsOnly&lt;ApiResponse&gt;;<br>
+// Equivalent to: { message: string; }
+</div>
+<a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescriptff1f.html?filename=demo_mapped_types_conditional" target="_blank">Try it Yourself »</a>
+</div>
+
+<hr>
+
+<h2>Key Takeaways</h2>
+
+<p>Mapped types let you transform every property of a type in a consistent way.</p>
+
+<div class="w3-panel">
+  <h3>Key Concepts</h3>
+  <ul>
+    <li><b>Type Transformation</b>: Modify property types in bulk</li>
+    <li><b>Property Modifiers</b>: Add or remove <code class="w3-codespan">readonly</code> and <code class="w3-codespan">?</code> modifiers</li>
+    <li><b>Key Remapping</b>: Rename or filter properties using <code class="w3-codespan">as</code> clauses</li>
+    <li><b>Composition</b>: Combine with other TypeScript features</li>
+  </ul>
+</div>
+
+<div class="w3-panel">
+  <h3>Common Use Cases</h3>
+  <ul>
+    <li>Creating read-only versions of types</li>
+    <li>Making all properties optional or required</li>
+    <li>Transforming property types (e.g., to nullable or readonly)</li>
+    <li>Filtering properties based on their types</li>
+    <li>Creating type-safe utility functions</li>
+  </ul>
+</div>
+
+<hr>
+<div id="exercisecontainer" src="xrcise_mapped_types.js" data-extensions="php"></div>
+<hr>
+<br>
+
+
+
+<div id="user-profile-bottom-wrapper" class="user-profile-bottom-wrapper">
+  <div class="user-authenticated w3-hide">
+    <a href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fmy-learning.w3schools.com" class="user-profile-btn user-profile-bottom-btn ga-bottom ga-bottom-profile" title="Your W3Schools Profile" aria-label="Your W3Schools Profile" target="_top">
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 2048 2048" class="user-profile-icon" aria-label="Your W3Schools Profile Icon">
+        <path d="M 843.500 1148.155 C 837.450 1148.515, 823.050 1149.334, 811.500 1149.975 C 742.799 1153.788, 704.251 1162.996, 635.391 1192.044 C 517.544 1241.756, 398.992 1352.262, 337.200 1470 C 251.831 1632.658, 253.457 1816.879, 340.500 1843.982 C 351.574 1847.431, 1696.426 1847.431, 1707.500 1843.982 C 1794.543 1816.879, 1796.169 1632.658, 1710.800 1470 C 1649.008 1352.262, 1530.456 1241.756, 1412.609 1192.044 C 1344.588 1163.350, 1305.224 1153.854, 1238.500 1150.039 C 1190.330 1147.286, 1196.307 1147.328, 1097 1149.035 C 1039.984 1150.015, 1010.205 1150.008, 950 1149.003 C 851.731 1147.362, 856.213 1147.398, 843.500 1148.155" stroke="none" fill="#2a93fb" fill-rule="evenodd"></path>
+        <path d="M 1008 194.584 C 1006.075 194.809, 999.325 195.476, 993 196.064 C 927.768 202.134, 845.423 233.043, 786 273.762 C 691.987 338.184, 622.881 442.165, 601.082 552 C 588.496 615.414, 592.917 705.245, 611.329 760.230 C 643.220 855.469, 694.977 930.136, 763.195 979.321 C 810.333 1013.308, 839.747 1026.645, 913.697 1047.562 C 1010.275 1074.879, 1108.934 1065.290, 1221 1017.694 C 1259.787 1001.221, 1307.818 965.858, 1339.852 930.191 C 1460.375 795.998, 1488.781 609.032, 1412.581 451.500 C 1350.098 322.327, 1240.457 235.724, 1097.500 202.624 C 1072.356 196.802, 1025.206 192.566, 1008 194.584" stroke="none" fill="#0aaa8a" fill-rule="evenodd"></path>
+      </svg>
+
+      <svg xmlns="http://www.w3.org/2000/svg" class="user-progress" aria-label="Your W3Schools Profile Progress">
+        <path class="user-progress-circle1" fill="none" d="M 25.99650934151373 15.00000030461742 A 20 20 0 1 0 26 15"></path>
+        <path class="user-progress-circle2" fill="none" d="M 26 15 A 20 20 0 0 0 26 15"></path>
+      </svg>
+
+      <span class="user-progress-star">★</span>
+
+      <span class="user-progress-point">+1</span>
+    </a>
+  </div>
+
+  <div class="w3s-pathfinder -teaser user-anonymous w3-hide">
+  <div class="track-progress-btn-wrapper">
+    <a href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fpathfinder.w3schools.com" class="-login-btn w3-button ga-bottom ga-bottom-login track-progress-btn" title="Sign in to track your progress" aria-label="Sign in to track your progress" target="_blank">
+    Sign in to track progress
+  </a>
+    
+  </div>
+</div>
+
+<style>
+.w3s-pathfinder.-teaser {
+  background-color: transparent!important;
+}
+.track-progress-btn-wrapper {
+  display: flex;
+  justify-content: center;
+}
+a.track-progress-btn {
+  position: absolute;
+  padding: 8px 20px;
+  border: 1px solid #ddd;
+  top:-65px;
+  background-color: #fff;
+  color: #333;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+}
+@media screen and (max-width: 600px) {
+  a.track-progress-btn {
+    top: 6px;
+    width: 100%;
+  }
+}
+</style>
+
+</div>
+

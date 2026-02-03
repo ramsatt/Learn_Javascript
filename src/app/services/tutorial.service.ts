@@ -1,10 +1,10 @@
 
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AuthService } from './auth.service';
-import { Firestore, doc, getDoc, setDoc } from '@angular/fire/firestore';
+import { Firestore, doc, getDoc, setDoc, collection, collectionData, docData } from '@angular/fire/firestore';
 import { User } from '@angular/fire/auth';
 
 export interface TutorialItem {
@@ -16,6 +16,7 @@ export interface TutorialSection {
   title: string;
   items: TutorialItem[];
   progress?: number; // Add progress to section interface
+  expanded?: boolean; // UI state
 }
 
 export interface Course {
@@ -35,10 +36,8 @@ export interface Course {
   providedIn: 'root'
 })
 export class TutorialService {
-  private coursesPath = 'assets/courses.json';
   private menuPath = 'assets/data/javascript.json'; // Default
   private currentCoursePathKey = 'current_course_path';
-  private contentPath = 'assets/content/';
   private completedKey = 'js_mastery_progress';
   private gamificationKey = 'js_mastery_gamification';
   private completedTutorials: Set<string> = new Set();
@@ -51,7 +50,6 @@ export class TutorialService {
   gems = 0;
 
   constructor(
-    private http: HttpClient,
     private authService: AuthService,
     private firestore: Firestore
   ) {
@@ -72,7 +70,7 @@ export class TutorialService {
       const saved = localStorage.getItem(this.currentCoursePathKey);
       if (saved) {
           this.menuPath = saved;
-          const courseId = saved.split('/').pop()?.replace('.json', '') || 'default';
+          const courseId = this.getCourseId(saved);
           this.completedKey = `${courseId}_mastery_progress`;
       }
   }
@@ -81,25 +79,55 @@ export class TutorialService {
       this.menuPath = path;
       localStorage.setItem(this.currentCoursePathKey, path);
       
-      const courseId = path.split('/').pop()?.replace('.json', '') || 'default';
+      const courseId = this.getCourseId(path);
       this.completedKey = `${courseId}_mastery_progress`;
       
       this.loadProgress();
       this.initLocks();
   }
+  
+  private getCourseId(path: string): string {
+      return path.split('/').pop()?.replace('.json', '') || 'default';
+  }
 
 
   getCourses(): Observable<Course[]> {
-    return this.http.get<Course[]>(this.coursesPath);
+    const coursesRef = collection(this.firestore, 'courses');
+    // Using collectionData to get a stream of data; idField adds the document ID as 'id' property
+    return collectionData(coursesRef, { idField: 'id' }) as Observable<Course[]>;
   }
 
   getMenu(path?: string): Observable<TutorialSection[]> {
-    return this.http.get<TutorialSection[]>(path || this.menuPath);
+    const targetPath = path || this.menuPath;
+    const courseId = this.getCourseId(targetPath);
+    
+    // Firestore Path: curriculum/{courseId}
+    const docRef = doc(this.firestore, `curriculum/${courseId}`);
+    
+    return docData(docRef).pipe(
+        map((data: any) => {
+            if (data && data.sections) {
+                return data.sections;
+            }
+            // Fallback or empty if not found yet (could be migration timing)
+            console.warn(`Curriculum for ${courseId} not found in Firestore.`);
+            return [];
+        })
+    );
   }
 
 
   getContent(fileName: string): Observable<string> {
-    return this.http.get(this.contentPath + fileName, { responseType: 'text' });
+    // Slug generation must match what Migration tool did:
+    // const slug = fileName.replace('.md', '').replace(/[/\\?%*:|"<>]/g, '-');
+    const slug = fileName.replace('.md', '').replace(/[/\\?%*:|"<>]/g, '-');
+    
+    const docRef = doc(this.firestore, `content/${slug}`);
+    return docData(docRef).pipe(
+        map((data: any) => {
+           return data ? data.body : ''; 
+        })       
+    );
   }
   
   // Progress Logic

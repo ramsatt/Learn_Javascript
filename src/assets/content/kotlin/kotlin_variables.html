@@ -1,0 +1,227 @@
+
+      <div id="mainLeaderboard" style="overflow:hidden;">
+        <!-- MainLeaderboard-->
+      </div>
+    
+<h1>Kotlin <span class="color_h1">Variables</span></h1>
+
+
+<hr>
+
+<h2>Kotlin Variables</h2>
+<p>Variables are containers for storing data values.</p>
+<p>To create a variable, use <code class="w3-codespan">var</code> or <code class="w3-codespan">val</code>, and assign a value to it with the equal sign (<code class="w3-codespan">=</code>):</p>
+<div class="w3-example">
+<h3>Syntax</h3>
+<pre class="language-kotlin notranslate w3-white"><code>var <em>variableName</em> = <em>value</em>
+val <em>variableName</em> = <em>value</em></code></pre>
+</div>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-kotlin notranslate w3-white"><code>var name = "John"
+val birthyear = 1975
+
+println(name)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Print the value of name
+println(birthyear)&nbsp;&nbsp;&nbsp;&nbsp; // Print the value of birthyear</code></pre>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="#/tutorial/trykotlin34f4.html?filename=demo_variables1">Try it Yourself »</a>
+</div>
+<p>The difference between <code class="w3-codespan">var</code> and <code class="w3-codespan">val</code> is that variables declared 
+with the <code class="w3-codespan">var</code> keyword 
+<strong>can be changed/modified</strong>, while <code class="w3-codespan">val</code> variables 
+<strong>cannot</strong>.</p>
+<hr>
+
+<h2>Variable Type</h2>
+<p>Unlike many other programming languages, variables in Kotlin do not need to be declared with a specified 
+<em>type</em> (like "String" for text or "Int" for numbers, if you are familiar with those).</p>
+<p>To create a variable in Kotlin that should store text and another that should store a number, look at the following example:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-kotlin notranslate w3-white"><code>var name = "John"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // String (text)
+val birthyear = 1975&nbsp;&nbsp; // Int (number)
+
+println(name)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Print the value of name
+println(birthyear)&nbsp;&nbsp;&nbsp;&nbsp; // Print the value of birthyear</code></pre>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="#/tutorial/trykotlinc04f.html?filename=demo_variables">Try it Yourself »</a>
+</div>
+<p>Kotlin is smart enough to understand that <b>"John"</b> is a <code class="w3-codespan">String</code> (text), and that <b>1975</b> is an <code class="w3-codespan">Int</code> 
+(number) variable.</p>
+<p>However, it is possible to specify the type if you insist:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-kotlin notranslate w3-white"><code>var name: String = "John" // String
+val birthyear: Int = 1975 // Int
+
+println(name)
+println(birthyear)</code></pre>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="#/tutorial/trykotlin27d8.html?filename=demo_variables2">Try it Yourself »</a>
+</div>
+
+<p>You can also declare a variable without assigning the value, and assign the 
+value later. <strong>However</strong>, this is only possible when you specify the type:</p>
+
+
+
+<div class="ws-note w3-panel">
+<p><strong>Note:</strong> You will learn more about <a href="#/tutorial/kotlin_data_types.html">Data Types in the next chapter</a>.</p>
+</div>
+<hr>
+<div id="midcontentadcontainer" style="overflow:auto;text-align:center">
+<!-- MidContent -->
+<!-- <p class="adtext">Advertisement</p> -->
+</div><hr>
+<h2>Notes on <code class="w3-codespan">val</code></h2>
+  <p>When you create a variable with the <code class="w3-codespan">val</code> keyword, the value 
+  <strong>cannot</strong> be changed/reassigned.</p>
+  <p>The following example will generate an error:</p>
+<div class="w3-example w3-pale-red">
+  <h3>Example</h3>
+<pre class="language-kotlin notranslate w3-white w3-border-red"><code>val name = "John"
+name = "Robert"&nbsp; // Error (Val cannot be reassigned)
+println(name)</code></pre>
+  <a target="_blank" class="w3-btn w3-margin-bottom" href="#/tutorial/trykotlinf80d.html?filename=demo_variables5">Try it Yourself »</a>
+  </div>
+  
+<p>When using <code class="w3-codespan">var</code>, you can change the value whenever you want:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-kotlin notranslate w3-white"><code>var name = "John"
+name = "Robert"
+println(name)</code></pre>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="#/tutorial/trykotlin2ed9.html?filename=demo_variables_change">Try it Yourself »</a>
+</div>
+
+<div class="ws-note w3-panel">
+ <h4>So When To Use <code class="w3-codespan">val</code>?</h4>
+ <p>The <code class="w3-codespan">val</code> keyword is useful when you want a variable to always store the same value, like PI (3.14159...):</p>
+ <div class="w3-example">
+<h3>Example</h3>
+<pre class="language-kotlin notranslate w3-white"><code>val pi = 3.14159265359
+println(pi)</code></pre>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="#/tutorial/trykotlinf6bd.html?filename=demo_variables_pi">Try it Yourself »</a>
+</div>
+<!--
+<p><strong>Tip:</strong> Keep in mind that it is much safer to create variables that can't be changed, as they can't be overwritten by other programs or people.</p>
+-->
+</div>
+<hr>
+
+<h2>Display Variables</h2>
+<p>Like you have seen with the examples above, the <code class="w3-codespan">println()</code> method is often used to display variables.</p>
+<p>To combine both text and a variable, use the <code class="w3-codespan">+</code> character:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-kotlin notranslate w3-white"><code>val name = "John"
+println("Hello " + name)</code></pre>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="#/tutorial/trykotlin06e2.html?filename=demo_variables_println">Try it Yourself »</a>
+</div>
+
+<p>You can also use the <code class="w3-codespan">+</code> character to add a variable to another variable:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-kotlin notranslate w3-white"><code>val firstName = "John "
+val lastName = "Doe"
+val fullName = firstName + lastName
+println(fullName)</code></pre>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="#/tutorial/trykotlin3ead.html?filename=demo_variables_println2">Try it Yourself »</a>
+</div>
+
+<p>For numeric values, the <code class="w3-codespan">+</code> character works as 
+a mathematical operator:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-kotlin notranslate w3-white"><code>val x = 5
+val y = 6
+println(x + y) // Print the value of x + y </code></pre>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="#/tutorial/trykotline6d4.html?filename=demo_variables_println3">Try it Yourself »</a>
+</div>
+<p>From the example above, you can expect:</p>
+
+<ul>
+ <li>x stores the value 5</li>
+ <li>y stores the value 6</li>
+ <li>Then we use the <code class="w3-codespan">println()</code> method to display the value of x + y, 
+ which is <strong>11</strong></li>
+</ul>
+<hr>
+
+<h2>Variable Names</h2>
+<p>A variable can have a short name (like x and y) or more descriptive names (age, sum, totalVolume).</p>
+<p>The general rule for Kotlin variables are:</p>
+<ul>
+  <li>Names can contain letters, digits, underscores, and dollar signs</li>
+  <li>Names should start with a letter</li>
+  <li>Names can also begin with $ and _ (but we will not use it in this tutorial)</li>
+  <li>Names are case sensitive ("myVar" and "myvar" are different variables)</li>
+  <li>Names should start with a lowercase letter and it cannot contain whitespace</li>
+  <li>Reserved words (like Kotlin keywords, such as <code class="w3-codespan">
+  var</code> or 
+  <code class="w3-codespan">String</code>) cannot be used as names</li>
+</ul>
+
+<div class="ws-note w3-panel">
+<h3>camelCase variables</h3>
+<p>You might notice that we used <strong>firstName</strong> and <strong>lastName</strong> as variable names in the example above, instead of firstname and lastname. This is called "camelCase", and it is considered as good practice as it makes it easier to read when you have a variable name with different words in it, for example "myFavoriteFood", "rateActionMovies" etc.</p>
+</div>
+<hr>
+
+<br>
+
+<div id="user-profile-bottom-wrapper" class="user-profile-bottom-wrapper">
+  <div class="user-authenticated w3-hide">
+    <a href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fmy-learning.w3schools.com" class="user-profile-btn user-profile-bottom-btn ga-bottom ga-bottom-profile" title="Your W3Schools Profile" aria-label="Your W3Schools Profile" target="_top">
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 2048 2048" class="user-profile-icon" aria-label="Your W3Schools Profile Icon">
+        <path d="M 843.500 1148.155 C 837.450 1148.515, 823.050 1149.334, 811.500 1149.975 C 742.799 1153.788, 704.251 1162.996, 635.391 1192.044 C 517.544 1241.756, 398.992 1352.262, 337.200 1470 C 251.831 1632.658, 253.457 1816.879, 340.500 1843.982 C 351.574 1847.431, 1696.426 1847.431, 1707.500 1843.982 C 1794.543 1816.879, 1796.169 1632.658, 1710.800 1470 C 1649.008 1352.262, 1530.456 1241.756, 1412.609 1192.044 C 1344.588 1163.350, 1305.224 1153.854, 1238.500 1150.039 C 1190.330 1147.286, 1196.307 1147.328, 1097 1149.035 C 1039.984 1150.015, 1010.205 1150.008, 950 1149.003 C 851.731 1147.362, 856.213 1147.398, 843.500 1148.155" stroke="none" fill="#2a93fb" fill-rule="evenodd"></path>
+        <path d="M 1008 194.584 C 1006.075 194.809, 999.325 195.476, 993 196.064 C 927.768 202.134, 845.423 233.043, 786 273.762 C 691.987 338.184, 622.881 442.165, 601.082 552 C 588.496 615.414, 592.917 705.245, 611.329 760.230 C 643.220 855.469, 694.977 930.136, 763.195 979.321 C 810.333 1013.308, 839.747 1026.645, 913.697 1047.562 C 1010.275 1074.879, 1108.934 1065.290, 1221 1017.694 C 1259.787 1001.221, 1307.818 965.858, 1339.852 930.191 C 1460.375 795.998, 1488.781 609.032, 1412.581 451.500 C 1350.098 322.327, 1240.457 235.724, 1097.500 202.624 C 1072.356 196.802, 1025.206 192.566, 1008 194.584" stroke="none" fill="#0aaa8a" fill-rule="evenodd"></path>
+      </svg>
+
+      <svg xmlns="http://www.w3.org/2000/svg" class="user-progress" aria-label="Your W3Schools Profile Progress">
+        <path class="user-progress-circle1" fill="none" d="M 25.99650934151373 15.00000030461742 A 20 20 0 1 0 26 15"></path>
+        <path class="user-progress-circle2" fill="none" d="M 26 15 A 20 20 0 0 0 26 15"></path>
+      </svg>
+
+      <span class="user-progress-star">★</span>
+
+      <span class="user-progress-point">+1</span>
+    </a>
+  </div>
+
+  <div class="w3s-pathfinder -teaser user-anonymous w3-hide">
+  <div class="track-progress-btn-wrapper">
+    <a href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fpathfinder.w3schools.com" class="-login-btn w3-button ga-bottom ga-bottom-login track-progress-btn" title="Sign in to track your progress" aria-label="Sign in to track your progress" target="_blank">
+    Sign in to track progress
+  </a>
+    
+  </div>
+</div>
+
+<style>
+.w3s-pathfinder.-teaser {
+  background-color: transparent!important;
+}
+.track-progress-btn-wrapper {
+  display: flex;
+  justify-content: center;
+}
+a.track-progress-btn {
+  position: absolute;
+  padding: 8px 20px;
+  border: 1px solid #ddd;
+  top:-65px;
+  background-color: #fff;
+  color: #333;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+}
+@media screen and (max-width: 600px) {
+  a.track-progress-btn {
+    top: 6px;
+    width: 100%;
+  }
+}
+</style>
+
+</div>
+

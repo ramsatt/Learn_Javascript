@@ -1,0 +1,447 @@
+
+      <div id="mainLeaderboard" style="overflow:hidden;">
+        <!-- MainLeaderboard-->
+      </div>
+    
+<h1>TypeScript in JavaScript Projects (JSDoc)</h1>
+
+<hr>
+
+<div class="w3-panel ws-info">
+  <p>JSDoc with TypeScript allows you to add type checking to JavaScript files without converting them to <code class="w3-codespan">.ts</code>.</p>
+  <p>This is perfect for gradual migration or when you want type safety in JavaScript projects.</p>
+</div>
+
+<hr>
+
+<h2 id="getting-started">Getting Started</h2>
+
+<p>To enable TypeScript checking in JavaScript files, you need to:</p>
+
+<ol>
+  <li>Create a <code class="w3-codespan">tsconfig.json</code> file (if you don't have one)</li>
+  <li>Enable <code class="w3-codespan">checkJs</code> or use <code class="w3-codespan">// @ts-check</code> in individual files</li>
+</ol>
+<div class="w3-example">
+<h3>Example: JSDoc for Type Safety</h3>
+<div class="w3-code notranslate jsHigh">
+// @ts-check<br>
+<br>
+/**<br>
+ * Adds two numbers.<br>
+ * @param {number} a<br>
+ * @param {number} b<br>
+ * @returns {number}<br>
+ */<br>
+function add(a, b) {<br>
+&nbsp;&nbsp;return a + b;<br>
+}<br>
+</div>
+<a target="_blank" href="#/tutorial/trytypescript6c5c.html?filename=demo_jsdoc_getting_started" class="w3-btn w3-margin-bottom">Try it Yourself »</a>
+</div>
+
+<hr>
+<div id="midcontentadcontainer" style="overflow:auto;text-align:center">
+<!-- MidContent -->
+<!-- <p class="adtext">Advertisement</p> -->
+</div><hr>
+
+<h2 id="objects-interfaces">Objects and Interfaces</h2>
+
+<div class="w3-example">
+<h3>Inline Object Types</h3>
+<div class="w3-code notranslate jsHigh">
+// @ts-check<br>
+<br>
+/**<br>
+ * @param {{ firstName: string, lastName: string, age?: number }} person<br>
+ */<br>
+function greet(person) {<br>
+&nbsp;&nbsp;return `Hello, ${person.firstName} ${person.lastName}`;<br>
+}<br>
+<br>
+greet({ firstName: 'John', lastName: 'Doe' }); // OK<br>
+greet({ firstName: 'Jane' }); // Error: Property 'lastName' is missing<br>
+</div>
+<a target="_blank" href="#/tutorial/trytypescript6ca7.html?filename=demo_jsdoc_objects" class="w3-btn w3-margin-bottom">Try it Yourself »</a>
+</div>
+
+<div class="w3-example">
+<h3>Using @typedef for Complex Types</h3>
+<div class="w3-code notranslate jsHigh">
+// @ts-check<br>
+<br>
+/**<br>
+ * @typedef {Object} User<br>
+ * @property {number} id - The user ID<br>
+ * @property {string} username - The username<br>
+ * @property {string} [email] - Optional email address<br>
+ * @property {('admin'|'user'|'guest')} role - User role<br>
+ * @property {() =&gt; string} getFullName - Method that returns full name<br>
+ */<br>
+<br>
+/** @type {User} */<br>
+const currentUser = {<br>
+&nbsp;&nbsp;id: 1,<br>
+&nbsp;&nbsp;username: 'johndoe',<br>
+&nbsp;&nbsp;role: 'admin',<br>
+&nbsp;&nbsp;getFullName() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return 'John Doe';<br>
+&nbsp;&nbsp;}<br>
+};<br>
+<br>
+// TypeScript will provide autocomplete for User properties<br>
+console.log(currentUser.role);<br>
+</div>
+<a target="_blank" href="#/tutorial/trytypescripta86d.html?filename=demo_jsdoc_typedef" class="w3-btn w3-margin-bottom">Try it Yourself »</a>
+</div>
+
+<div class="w3-example">
+<h3>Extending Types</h3>
+<div class="w3-code notranslate jsHigh">
+// @ts-check<br>
+<br>
+/** @typedef {{ x: number, y: number }} Point */<br>
+<br>
+/**<br>
+ * @typedef {Point &amp; { z: number }} Point3D<br>
+ */<br>
+<br>
+/** @type {Point3D} */<br>
+const point3d = { x: 1, y: 2, z: 3 };<br>
+<br>
+// @ts-expect-error - missing z property<br>
+const point2d = { x: 1, y: 2 };<br>
+</div>
+<a target="_blank" href="#/tutorial/trytypescripta693.html?filename=demo_jsdoc_extend" class="w3-btn w3-margin-bottom">Try it Yourself »</a>
+</div>
+
+<hr>
+<h2 id="functions">Function Types</h2>
+
+<div class="w3-example">
+<h3>Function Declarations</h3>
+<div class="w3-code notranslate jsHigh">
+// @ts-check<br>
+<br>
+/**<br>
+ * Calculates the area of a rectangle<br>
+ * @param {number} width - The width of the rectangle<br>
+ * @param {number} height - The height of the rectangle<br>
+ * @returns {number} The calculated area<br>
+ */<br>
+function calculateArea(width, height) {<br>
+&nbsp;&nbsp;return width * height;<br>
+}<br>
+<br>
+// TypeScript knows the parameter and return types<br>
+const area = calculateArea(10, 20);<br>
+</div>
+<a target="_blank" href="#/tutorial/trytypescript40f3.html?filename=demo_jsdoc_functions_decl" class="w3-btn w3-margin-bottom">Try it Yourself »</a>
+</div>
+
+<div class="w3-example">
+<h3>Function Expressions and Callbacks</h3>
+<div class="w3-code notranslate jsHigh">
+// @ts-check<br>
+<br>
+/**<br>
+ * @callback StringProcessor<br>
+ * @param {string} input<br>
+ * @returns {string}<br>
+ */<br>
+<br>
+/**<br>
+ * @type {StringProcessor}<br>
+ */<br>
+const toUpperCase = (str) =&gt; str.toUpperCase();<br>
+<br>
+/**<br>
+ * @param {string[]} strings<br>
+ * @param {StringProcessor} processor<br>
+ * @returns {string[]}<br>
+ */<br>
+function processStrings(strings, processor) {<br>
+&nbsp;&nbsp;return strings.map(processor);<br>
+}<br>
+<br>
+const result = processStrings(['hello', 'world'], toUpperCase);<br>
+// result will be ['HELLO', 'WORLD']<br>
+</div>
+<a target="_blank" href="#/tutorial/trytypescript4ef2.html?filename=demo_jsdoc_callbacks" class="w3-btn w3-margin-bottom">Try it Yourself »</a>
+</div>
+
+<div class="w3-example">
+<h3>Function Overloads</h3>
+<div class="w3-code notranslate jsHigh">
+// @ts-check<br>
+<br>
+/**<br>
+ * @overload<br>
+ * @param {string} a<br>
+ * @param {string} b<br>
+ * @returns {string}<br>
+ */<br>
+/**<br>
+ * @overload<br>
+ * @param {number} a<br>
+ * @param {number} b<br>
+ * @returns {number}<br>
+ */<br>
+/**<br>
+ * @param {string | number} a<br>
+ * @param {string | number} b<br>
+ * @returns {string | number}<br>
+ */<br>
+function add(a, b) {<br>
+&nbsp;&nbsp;if (typeof a === 'string' || typeof b === 'string') {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return String(a) + String(b);<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;return a + b;<br>
+}<br>
+<br>
+const strResult = add('Hello, ', 'World!'); // string<br>
+const numResult = add(10, 20);             // number<br>
+</div>
+<a target="_blank" href="#/tutorial/trytypescriptb6d2.html?filename=demo_jsdoc_overloads" class="w3-btn w3-margin-bottom">Try it Yourself »</a>
+</div>
+
+<hr>
+<h2 id="advanced-types">Advanced Types</h2>
+
+<div class="w3-example">
+<h3>Union and Intersection Types</h3>
+<div class="w3-code notranslate jsHigh">
+// @ts-check<br>
+<br>
+/** @typedef {{ name: string, age: number }} Person */<br>
+/** @typedef {Person &amp; { employeeId: string }} Employee */<br>
+/** @typedef {Person | { guestId: string, visitDate: Date }} Visitor */<br>
+<br>
+/** @type {Employee} */<br>
+const employee = {<br>
+&nbsp;&nbsp;name: 'Alice',<br>
+&nbsp;&nbsp;age: 30,<br>
+&nbsp;&nbsp;employeeId: 'E123'<br>
+};<br>
+<br>
+/** @type {Visitor} */<br>
+const guest = {<br>
+&nbsp;&nbsp;guestId: 'G456',<br>
+&nbsp;&nbsp;visitDate: new Date()<br>
+};<br>
+<br>
+/**<br>
+ * @param {Visitor} visitor<br>
+ * @returns {string}<br>
+ */<br>
+function getVisitorId(visitor) {<br>
+&nbsp;&nbsp;if ('guestId' in visitor) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return visitor.guestId;  // TypeScript knows this is a guest<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;return visitor.name;      // TypeScript knows this is a Person<br>
+}<br>
+</div>
+<a target="_blank" href="#/tutorial/trytypescript4584.html?filename=demo_jsdoc_union_intersection" class="w3-btn w3-margin-bottom">Try it Yourself »</a>
+</div>
+
+<div class="w3-example">
+<h3>Mapped and Conditional Types</h3>
+<div class="w3-code notranslate jsHigh">
+// @ts-check<br>
+<br>
+/**
+ * @template T
+ * @typedef {[K in keyof T]: T[K] extends Function ? K : never}[keyof T] MethodNames
+ */<br>
+<br>
+/**
+ * @template T
+ * @typedef {{ 
+ * &nbsp;&nbsp;[K in keyof T as `get${'&lt;' }Capitalize&lt;string &amp; K&gt;{'&gt;'}`]: () =&gt; T[K] 
+ * }} Getters
+ */<br>
+<br>
+/** @type {Getters&lt;{ name: string, age: number }&gt; } */<br>
+const userGetters = {<br>
+&nbsp;&nbsp;getName: () =&gt; 'John',<br>
+&nbsp;&nbsp;getAge: () =&gt; 30<br>
+};<br>
+<br>
+// TypeScript enforces the return types<br>
+const name = userGetters.getName(); // string<br>
+const age = userGetters.getAge();   // number<br>
+</div>
+<a target="_blank" href="#/tutorial/trytypescript926c.html?filename=demo_jsdoc_mapped" class="w3-btn w3-margin-bottom">Try it Yourself »</a>
+</div>
+
+<hr>
+<h2 id="type-imports">Type Imports</h2>
+
+<div class="w3-example">
+<h3>Importing Types from Other Files</h3>
+<div class="w3-code notranslate jsHigh">
+// @ts-check<br>
+<br>
+// Importing types from TypeScript files<br>
+/** @typedef {import('./types').User} User */<br>
+<br>
+// Importing types from node_modules<br>
+/** @typedef {import('express').Request} ExpressRequest */<br>
+<br>
+// Importing with renaming<br>
+/** @typedef {import('./api').default as ApiClient} ApiClient */<br>
+</div>
+</div>
+
+<div class="w3-example">
+<h3>Creating Declaration Files</h3>
+<p>Create a <code class="w3-codespan">types.d.ts</code> file in your project:</p>
+<div class="w3-code notranslate jsHigh">
+// types.d.ts<br>
+declare module 'my-module' {<br>
+&nbsp;&nbsp;export interface Config {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;apiKey: string;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;timeout?: number;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;retries?: number;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;export function initialize(config: Config): void;<br>
+&nbsp;&nbsp;export function fetchData&lt;T = any&gt;(url: string): Promise&lt;T&gt;;<br>
+}<br>
+</div>
+
+<p>Then use it in your JavaScript files:</p>
+<div class="w3-code notranslate jsHigh">
+// @ts-check<br>
+<br>
+/** @type {import('my-module').Config} */<br>
+const config = {<br>
+&nbsp;&nbsp;apiKey: '12345',<br>
+&nbsp;&nbsp;timeout: 5000<br>
+};<br>
+<br>
+// TypeScript will provide autocomplete and type checking<br>
+import { initialize } from 'my-module';<br>
+initialize(config);<br>
+</div>
+</div>
+
+<hr>
+<h2 id="best-practices">Best Practices</h2>
+
+<div class="w3-panel">
+  <p>Follow these best practices when using JSDoc with TypeScript:</p>
+  <ul>
+    <li>Enable <code class="w3-codespan">// @ts-check</code> at the top of files where you want type checking</li>
+    <li>Use <code class="w3-codespan">@typedef</code> for complex types that are used in multiple places</li>
+    <li>Document all function parameters and return types</li>
+    <li>Use <code class="w3-codespan">@template</code> for generic functions and types</li>
+    <li>Create declaration files (<code class="w3-codespan">.d.ts</code>) for third-party libraries without types</li>
+    <li>Use <code class="w3-codespan">@ts-expect-error</code> instead of <code class="w3-codespan">@ts-ignore</code> when you expect an error</li>
+  </ul>
+</div>
+
+<hr>
+<h2 id="common-pitfalls">Common Pitfalls</h2>
+
+<div class="w3-panel ws-warning">
+  <p>Watch out for these common issues:</p>
+  <ul>
+    <li><strong>Missing <code class="w3-codespan">// @ts-check</code>:</strong> Type checking won't work without it</li>
+    <li><strong>Incorrect JSDoc syntax:</strong> A single typo can disable type checking</li>
+    <li><strong>Type conflicts:</strong> When types from different sources don't match</li>
+    <li><strong>Inference issues:</strong> Sometimes TypeScript can't infer types correctly</li>
+    <li><strong>Performance:</strong> Large JavaScript files with complex types can be slow to check</li>
+  </ul>
+</div>
+
+<hr>
+<h2>Conclusion</h2>
+
+<p>Using JSDoc with TypeScript provides a powerful way to add type safety to your JavaScript projects without the need to convert files to TypeScript.</p>
+<p>This approach is particularly useful for:</p>
+
+<ul>
+  <li>Gradually migrating JavaScript codebases to TypeScript</li>
+  <li>Adding type checking to existing JavaScript projects</li>
+  <li>Working in environments where <code class="w3-codespan">.ts</code> files aren't supported</li>
+  <li>Documenting JavaScript code with type information</li>
+</ul>
+
+<p>By following the patterns and best practices outlined in this tutorial, you can enjoy many of the benefits of TypeScript while continuing to work with JavaScript.</p>
+
+<div class="w3-panel ws-note">
+  <p><strong>Remember:</strong> While JSDoc provides excellent type checking, for new projects or complete migrations, consider using <code class="w3-codespan">.ts</code> files for the best TypeScript experience.</p>
+</div>
+
+<hr>
+<div class="w3-panel ws-info">
+  <h3>Ready to try TypeScript with JSDoc?</h3>
+  <p>Start by adding <code class="w3-codespan">// @ts-check</code> to your JavaScript files and gradually add type annotations using JSDoc.</p>
+  <p>The TypeScript compiler will help you catch errors before they reach production!</p>
+</div>
+
+<hr>
+<div id="exercisecontainer" src="xrcise_jsdoc.js" data-extensions="php"></div>
+<hr>
+<br>
+
+
+<div id="user-profile-bottom-wrapper" class="user-profile-bottom-wrapper">
+  <div class="user-authenticated w3-hide">
+    <a href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fmy-learning.w3schools.com" class="user-profile-btn user-profile-bottom-btn ga-bottom ga-bottom-profile" title="Your W3Schools Profile" aria-label="Your W3Schools Profile" target="_top">
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 2048 2048" class="user-profile-icon" aria-label="Your W3Schools Profile Icon">
+        <path d="M 843.500 1148.155 C 837.450 1148.515, 823.050 1149.334, 811.500 1149.975 C 742.799 1153.788, 704.251 1162.996, 635.391 1192.044 C 517.544 1241.756, 398.992 1352.262, 337.200 1470 C 251.831 1632.658, 253.457 1816.879, 340.500 1843.982 C 351.574 1847.431, 1696.426 1847.431, 1707.500 1843.982 C 1794.543 1816.879, 1796.169 1632.658, 1710.800 1470 C 1649.008 1352.262, 1530.456 1241.756, 1412.609 1192.044 C 1344.588 1163.350, 1305.224 1153.854, 1238.500 1150.039 C 1190.330 1147.286, 1196.307 1147.328, 1097 1149.035 C 1039.984 1150.015, 1010.205 1150.008, 950 1149.003 C 851.731 1147.362, 856.213 1147.398, 843.500 1148.155" stroke="none" fill="#2a93fb" fill-rule="evenodd"></path>
+        <path d="M 1008 194.584 C 1006.075 194.809, 999.325 195.476, 993 196.064 C 927.768 202.134, 845.423 233.043, 786 273.762 C 691.987 338.184, 622.881 442.165, 601.082 552 C 588.496 615.414, 592.917 705.245, 611.329 760.230 C 643.220 855.469, 694.977 930.136, 763.195 979.321 C 810.333 1013.308, 839.747 1026.645, 913.697 1047.562 C 1010.275 1074.879, 1108.934 1065.290, 1221 1017.694 C 1259.787 1001.221, 1307.818 965.858, 1339.852 930.191 C 1460.375 795.998, 1488.781 609.032, 1412.581 451.500 C 1350.098 322.327, 1240.457 235.724, 1097.500 202.624 C 1072.356 196.802, 1025.206 192.566, 1008 194.584" stroke="none" fill="#0aaa8a" fill-rule="evenodd"></path>
+      </svg>
+
+      <svg xmlns="http://www.w3.org/2000/svg" class="user-progress" aria-label="Your W3Schools Profile Progress">
+        <path class="user-progress-circle1" fill="none" d="M 25.99650934151373 15.00000030461742 A 20 20 0 1 0 26 15"></path>
+        <path class="user-progress-circle2" fill="none" d="M 26 15 A 20 20 0 0 0 26 15"></path>
+      </svg>
+
+      <span class="user-progress-star">★</span>
+
+      <span class="user-progress-point">+1</span>
+    </a>
+  </div>
+
+  <div class="w3s-pathfinder -teaser user-anonymous w3-hide">
+  <div class="track-progress-btn-wrapper">
+    <a href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fpathfinder.w3schools.com" class="-login-btn w3-button ga-bottom ga-bottom-login track-progress-btn" title="Sign in to track your progress" aria-label="Sign in to track your progress" target="_blank">
+    Sign in to track progress
+  </a>
+    
+  </div>
+</div>
+
+<style>
+.w3s-pathfinder.-teaser {
+  background-color: transparent!important;
+}
+.track-progress-btn-wrapper {
+  display: flex;
+  justify-content: center;
+}
+a.track-progress-btn {
+  position: absolute;
+  padding: 8px 20px;
+  border: 1px solid #ddd;
+  top:-65px;
+  background-color: #fff;
+  color: #333;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+}
+@media screen and (max-width: 600px) {
+  a.track-progress-btn {
+    top: 6px;
+    width: 100%;
+  }
+}
+</style>
+
+</div>
+

@@ -1,0 +1,123 @@
+[
+  {
+    "title": "Tutorial",
+    "items": [
+      {
+        "title": "Rust Tutorial",
+        "file": "index.html"
+      },
+      {
+        "title": "Rust Introduction",
+        "file": "rust_intro.html"
+      },
+      {
+        "title": "Rust Get Started",
+        "file": "rust_getstarted.html"
+      },
+      {
+        "title": "Rust Syntax",
+        "file": "rust_syntax.html"
+      },
+      {
+        "title": "Rust Output (Print Text)",
+        "file": "rust_output.html"
+      },
+      {
+        "title": "Rust Comments",
+        "file": "rust_comments.html"
+      },
+      {
+        "title": "Rust Variables",
+        "file": "rust_variables.html"
+      },
+      {
+        "title": "Rust Data Types",
+        "file": "rust_data_types.html"
+      },
+      {
+        "title": "Rust Constants",
+        "file": "rust_constants.html"
+      },
+      {
+        "title": "Rust Operators",
+        "file": "rust_operators.html"
+      },
+      {
+        "title": "Rust Booleans",
+        "file": "rust_booleans.html"
+      },
+      {
+        "title": "Rust If .. Else Conditions",
+        "file": "rust_if_else.html"
+      },
+      {
+        "title": "Rust Match",
+        "file": "rust_match.html"
+      },
+      {
+        "title": "Rust Loops",
+        "file": "rust_loops.html"
+      },
+      {
+        "title": "Rust While Loops",
+        "file": "rust_loops_while.html"
+      },
+      {
+        "title": "Rust For Loop",
+        "file": "rust_loops_for.html"
+      },
+      {
+        "title": "Rust Functions",
+        "file": "rust_functions.html"
+      },
+      {
+        "title": "Rust Scope",
+        "file": "rust_scope.html"
+      },
+      {
+        "title": "Rust Strings",
+        "file": "rust_strings.html"
+      },
+      {
+        "title": "Rust Ownership",
+        "file": "rust_ownership.html"
+      },
+      {
+        "title": "Rust Borrowing and References",
+        "file": "rust_borrowing_references.html"
+      },
+      {
+        "title": "Rust Data Structures",
+        "file": "rust_data_structures.html"
+      },
+      {
+        "title": "Rust Arrays",
+        "file": "rust_arrays.html"
+      },
+      {
+        "title": "Rust Vectors",
+        "file": "rust_vectors.html"
+      },
+      {
+        "title": "Rust Tuples",
+        "file": "rust_tuples.html"
+      },
+      {
+        "title": "Rust HashMap",
+        "file": "rust_hashmap.html"
+      },
+      {
+        "title": "Rust Structs",
+        "file": "rust_structs.html"
+      },
+      {
+        "title": "Rust Enums",
+        "file": "rust_enums.html"
+      },
+      {
+        "title": "W3Schools Rust Certificate",
+        "file": "rust_exam.html"
+      }
+    ]
+  }
+]

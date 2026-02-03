@@ -1,0 +1,486 @@
+
+      <div id="mainLeaderboard" style="overflow:hidden;">
+        <!-- MainLeaderboard-->
+      </div>
+    <h1>TypeScript Tooling</h1>
+
+<hr>
+<h2>TypeScript Development Ecosystem</h2>
+
+<p>TypeScript's tooling ecosystem is one of its greatest strengths, providing developers with powerful tools for every stage of development:</p>
+
+
+<hr>
+<h2>Linting with ESLint</h2>
+
+<h3>Installation</h3>
+<p>Install ESLint and the official TypeScript plugin/parser so ESLint can understand TypeScript syntax and rules.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate bash">
+# Install ESLint with TypeScript support<br>
+npm install --save-dev eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
+</div>
+</div>
+
+<h3>Configuration</h3>
+<p>This configuration enables recommended ESLint rules for TypeScript, connects ESLint to your tsconfig for type-aware linting, and tweaks a few common rules.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+// .eslintrc.json<br>
+{<br>
+&nbsp;&nbsp;"root": true,<br>
+&nbsp;&nbsp;"parser": "@typescript-eslint/parser",<br>
+&nbsp;&nbsp;"plugins": ["@typescript-eslint"],<br>
+&nbsp;&nbsp;"extends": [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"eslint:recommended",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"plugin:@typescript-eslint/recommended",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"plugin:@typescript-eslint/recommended-requiring-type-checking"<br>
+&nbsp;&nbsp;],<br>
+&nbsp;&nbsp;"parserOptions": {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"project": "./tsconfig.json",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"ecmaVersion": 2020,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"sourceType": "module"<br>
+&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;"rules": {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"@typescript-eslint/explicit-function-return-type": "warn",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"@typescript-eslint/no-explicit-any": "warn",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }]<br>
+&nbsp;&nbsp;}<br>
+}<br>
+</div>
+</div>
+
+<h3>NPM Scripts</h3>
+<p>Add scripts to run linting and a type-only check.</p>
+<p>Use <code class="w3-codespan">lint:fix</code> to auto-fix simple issues.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+// package.json<br>
+{<br>
+&nbsp;&nbsp;"scripts": {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"lint": "eslint . --ext .ts,.tsx",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"lint:fix": "eslint . --ext .ts,.tsx --fix",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"type-check": "tsc --noEmit"<br>
+&nbsp;&nbsp;}<br>
+}<br>
+</div>
+</div>
+
+<hr>
+<div id="midcontentadcontainer" style="overflow:auto;text-align:center">
+<!-- MidContent -->
+<!-- <p class="adtext">Advertisement</p> -->
+</div><hr>
+<h2>Code Formatting with Prettier</h2>
+<p>Prettier enforces a consistent code style across your team.</p>
+<p>Combine it with ESLint to avoid formatting-related lint errors.</p>
+
+<h3>Installation</h3>
+<p>Install Prettier plus ESLint plugins that disable conflicting rules and surface formatting issues via ESLint.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate bash">
+# Install Prettier and related packages<br>
+npm install --save-dev prettier eslint-config-prettier eslint-plugin-prettier
+</div>
+</div>
+
+<h3>Configuration</h3>
+<p>Define your Prettier preferences in <code class="w3-codespan">.prettierrc</code> and ignore generated folders in <code class="w3-codespan">.prettierignore</code>.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+// .prettierrc<br>
+{<br>
+&nbsp;&nbsp;"semi": true,<br>
+&nbsp;&nbsp;"singleQuote": true,<br>
+&nbsp;&nbsp;"tabWidth": 2,<br>
+&nbsp;&nbsp;"printWidth": 100,<br>
+&nbsp;&nbsp;"trailingComma": "es5",<br>
+&nbsp;&nbsp;"bracketSpacing": true,<br>
+&nbsp;&nbsp;"arrowParens": "avoid"<br>
+}<br>
+<br>
+// .prettierignore<br>
+node_modules<br>
+build<br>
+dist<br>
+.next<br>
+.vscode<br>
+</div>
+</div>
+
+<h3>Integrate with ESLint</h3>
+<p>Extend <code class="w3-codespan">plugin:prettier/recommended</code> so formatting problems are reported as ESLint issues.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+// .eslintrc.json<br>
+{<br>
+&nbsp;&nbsp;"extends": [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// ... other configs<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"plugin:prettier/recommended" // Must be last in the array<br>
+&nbsp;&nbsp;]<br>
+}<br>
+</div>
+</div>
+<div class="w3-example">
+<h3>Example: Integrate Prettier with ESLint</h3>
+<div class="w3-code notranslate jsHigh">
+npm install --save-dev eslint-config-prettier eslint-plugin-prettier<br>
+# In your .eslintrc.js or .eslintrc.json, add:<br>
+{<br>
+&nbsp;&nbsp;"extends": ["plugin:prettier/recommended"]<br>
+}
+</div>
+</div>
+<hr>
+<h2>Modern Build Tools</h2>
+<p>Vite is the recommended choice for fast dev server and modern builds.</p>
+<p>Webpack remains common and highly configurable.</p>
+
+<h3>Vite (Recommended)</h3>
+<p>Create a new React + TypeScript project using Vite.</p>
+<p>It starts a dev server with HMR for rapid feedback.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate bash">
+# Create a new project with React + TypeScript<br>
+npm create vite@latest my-app -- --template react-ts<br>
+<br>
+# Navigate to project directory<br>
+cd my-app<br>
+<br>
+# Install dependencies<br>
+npm install<br>
+<br>
+# Start development server<br>
+npm run dev
+</div>
+</div>
+
+<h3>Webpack Configuration</h3>
+<p>If you choose Webpack, this minimal setup transpiles TypeScript, handles CSS, and serves your app with <code class="w3-codespan">webpack-dev-server</code>.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+// webpack.config.js<br>
+const path = require('path');<br>
+const HtmlWebpackPlugin = require('html-webpack-plugin');<br>
+<br>
+module.exports = {<br>
+&nbsp;&nbsp;entry: './src/index.tsx',<br>
+&nbsp;&nbsp;module: {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;rules: [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;test: /\.(ts|tsx)$/,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;use: 'ts-loader',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exclude: /node_modules/,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;test: /\.css$/,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;use: ['style-loader', 'css-loader'],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;],<br>
+&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;resolve: {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;extensions: ['.tsx', '.ts', '.js'],<br>
+&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;output: {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;filename: 'bundle.js',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;path: path.resolve(__dirname, 'dist'),<br>
+&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;plugins: [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;new HtmlWebpackPlugin({<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;template: './public/index.html',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}),<br>
+&nbsp;&nbsp;],<br>
+&nbsp;&nbsp;devServer: {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;static: path.join(__dirname, 'dist'),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;compress: true,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;port: 3000,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;hot: true,<br>
+&nbsp;&nbsp;},<br>
+};<br>
+</div>
+</div>
+
+<h3>TypeScript Configuration</h3>
+<p>A strict <code class="w3-codespan">tsconfig.json</code> that targets modern browsers.</p>
+<p>The optional <code class="w3-codespan">baseUrl</code> and <code class="w3-codespan">paths</code> help with absolute imports like <code class="w3-codespan">@/components/Button</code>.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+// tsconfig.json<br>
+{<br>
+&nbsp;&nbsp;"compilerOptions": {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"target": "es2020",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"module": "esnext",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"lib": ["dom", "dom.iterable", "esnext"],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"allowJs": true,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"skipLibCheck": true,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"esModuleInterop": true,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"allowSyntheticDefaultImports": true,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"strict": true,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"forceConsistentCasingInFileNames": true,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"moduleResolution": "node",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"resolveJsonModule": true,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"isolatedModules": true,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"noEmit": true,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"jsx": "react-jsx",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"baseUrl": ".",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"paths": {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"@/*": ["src/*"]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;"include": ["src"],<br>
+&nbsp;&nbsp;"exclude": ["node_modules"]<br>
+}<br>
+</div>
+</div>
+<hr>
+<h2>Development Environment Setup</h2>
+<p>Configure your editor to surface lint errors, format on save, and debug efficiently.</p>
+
+<h3>VS Code Extensions</h3>
+<div class="w3-panel w3-light-gray">
+  <p>Recommended extensions for VS Code:</p>
+  <ul>
+    <li><b>TypeScript + Webpack Problem Matchers</b> - For better error reporting</li>
+    <li><b>ESLint</b> - Integrates ESLint into VS Code</li>
+    <li><b>Prettier - Code formatter</b> - For consistent code formatting</li>
+    <li><b>Path IntelliSense</b> - Autocomplete filenames</li>
+    <li><b>Error Lens</b> - Show errors inline</li>
+  </ul>
+</div>
+
+<h3>VS Code Settings</h3>
+<p>Use Prettier as the default formatter, fix ESLint issues on save, and prefer non-relative import paths.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+// .vscode/settings.json<br>
+{<br>
+&nbsp;&nbsp;"editor.defaultFormatter": "esbenp.prettier-vscode",<br>
+&nbsp;&nbsp;"editor.formatOnSave": true,<br>
+&nbsp;&nbsp;"editor.codeActionsOnSave": {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"source.fixAll.eslint": true,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"source.organizeImports": true<br>
+&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;"eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],<br>
+&nbsp;&nbsp;"typescript.tsdk": "node_modules/typescript/lib",<br>
+&nbsp;&nbsp;"typescript.preferences.importModuleSpecifier": "non-relative"<br>
+}<br>
+</div>
+</div>
+
+<h3>Debugging Configuration</h3>
+<p>Launch Chrome against your dev server and run Node-based test debugging directly from VS Code.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+// .vscode/launch.json<br>
+{<br>
+&nbsp;&nbsp;"version": "0.2.0",<br>
+&nbsp;&nbsp;"configurations": [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type": "chrome",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"request": "launch",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "Launch Chrome against localhost",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"url": "http://localhost:3000",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"webRoot": "${workspaceFolder}",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"sourceMaps": true,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"sourceMapPathOverrides": {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"webpack:///./~/*": "${workspaceFolder}/node_modules/*",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"webpack:///./*": "${workspaceFolder}/src/*"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type": "node",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"request": "launch",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "Debug Tests",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"runtimeExecutable": "${workspaceRoot}/node_modules/.bin/jest",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"args": ["--runInBand", "--watchAll=false"],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"console": "integratedTerminal",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"internalConsoleOptions": "neverOpen",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"sourceMaps": true<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;]<br>
+}<br>
+</div>
+</div>
+
+<hr>
+<h2>Testing Setup</h2>
+<p>Jest with Testing Library is a popular setup for testing React + TypeScript apps.</p>
+
+<h3>Jest + Testing Library</h3>
+<p>Install Jest, TypeScript support, and React Testing Library utilities for DOM assertions and user interactions.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate bash">
+# Install testing dependencies<br>
+npm install --save-dev jest @types/jest ts-jest @testing-library/react @testing-library/jest-dom @testing-library/user-event
+</div>
+</div>
+
+<h3>Jest Configuration</h3>
+<p>Configure Jest to use <code class="w3-codespan">ts-jest</code>, map CSS modules, and resolve alias paths like <code class="w3-codespan">@/</code>.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+// jest.config.js<br>
+module.exports = {<br>
+&nbsp;&nbsp;preset: 'ts-jest',<br>
+&nbsp;&nbsp;testEnvironment: 'jsdom',<br>
+&nbsp;&nbsp;setupFilesAfterEnv: ['@testing-library/jest-dom'],<br>
+&nbsp;&nbsp;moduleNameMapper: {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'^@/(.*)$': '<rootdir>/src/$1',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'\\\.(css|less|scss|sass)$': 'identity-obj-proxy',<br>
+&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;transform: {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'^.+\\\.tsx?$': 'ts-jest',<br>
+&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;testMatch: ['**/__tests__/**/*.test.(ts|tsx)'],<br>
+};<br>
+</rootdir></div>
+</div>
+
+<h3>Example Test</h3>
+<p>A simple component test that verifies rendering and click behavior using Testing Library.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+// src/__tests__/Button.test.tsx<br>
+import React from 'react';<br>
+import { render, screen, fireEvent } from '@testing-library/react';<br>
+import '@testing-library/jest-dom';<br>
+import Button from '../components/Button';<br>
+<br>
+describe('Button', () =&gt; {<br>
+&nbsp;&nbsp;it('renders button with correct text', () =&gt; {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;render(&lt;Button&gt;Click me&lt;/Button&gt;);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;expect(screen.getByRole('button', { name: /click me/i })).toBeInTheDocument();<br>
+&nbsp;&nbsp;});<br>
+<br>
+&nbsp;&nbsp;it('calls onClick when clicked', () =&gt; {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;const handleClick = jest.fn();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;render(&lt;Button onClick={handleClick}&gt;Click me&lt;/Button&gt;);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;fireEvent.click(screen.getByRole('button'));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;expect(handleClick).toHaveBeenCalledTimes(1);<br>
+&nbsp;&nbsp;});<br>
+});<br>
+</div>
+</div>
+
+<hr>
+<h2>Best Practices</h2>
+
+<div class="w3-panel">
+  <h3>Development Workflow</h3>
+  <ul>
+    <li>Use <code class="w3-codespan">npm run dev</code> for development with hot reloading</li>
+    <li>Run <code class="w3-codespan">npm run type-check</code> to verify TypeScript types</li>
+    <li>Use <code class="w3-codespan">npm run lint</code> to check for linting errors</li>
+    <li>Run <code class="w3-codespan">npm run build</code> to create production build</li>
+  </ul>
+
+  <h3>Performance Optimization</h3>
+  <ul>
+    <li>Use code splitting with dynamic imports</li>
+    <li>Enable tree-shaking in production builds</li>
+    <li>Use <code class="w3-codespan">React.memo</code> and <code class="w3-codespan">useMemo</code> for expensive computations</li>
+    <li>Lazy load non-critical components</li>
+  </ul>
+</div>
+
+<hr>
+<h2>Common Pitfalls</h2>
+
+<div class="w3-panel">
+  <ul>
+    <li><strong>TypeScript configuration:</strong> Ensure <code class="w3-codespan">strict</code> mode is enabled</li>
+    <li><strong>ESLint + Prettier conflicts:</strong> Use <code class="w3-codespan">eslint-config-prettier</code> to disable conflicting rules</li>
+    <li><strong>Slow builds:</strong> Consider using Vite or esbuild for faster development</li>
+    <li><strong>Missing type definitions:</strong> Install <code class="w3-codespan">@types</code> packages for all dependencies</li>
+    <li><strong>Debugging issues:</strong> Ensure source maps are properly configured</li>
+  </ul>
+</div>
+
+<hr>
+<h2>Recommended Tools</h2>
+
+<div class="w3-panel">
+  <ul>
+    <li><strong>Bundlers:</strong> Vite, Webpack, Parcel</li>
+    <li><strong>Testing:</strong> Jest, React Testing Library, Cypress</li>
+    <li><strong>Linting/Formatting:</strong> ESLint, Prettier, Stylelint</li>
+    <li><strong>Documentation:</strong> TypeDoc, Storybook</li>
+    <li><strong>Performance:</strong> Web Vitals, Lighthouse</li>
+  </ul>
+</div>
+<hr>
+<div id="exercisecontainer" src="xrcise_tooling.js" data-extensions="php"></div>
+<hr>
+
+<div id="user-profile-bottom-wrapper" class="user-profile-bottom-wrapper">
+  <div class="user-authenticated w3-hide">
+    <a href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fmy-learning.w3schools.com" class="user-profile-btn user-profile-bottom-btn ga-bottom ga-bottom-profile" title="Your W3Schools Profile" aria-label="Your W3Schools Profile" target="_top">
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 2048 2048" class="user-profile-icon" aria-label="Your W3Schools Profile Icon">
+        <path d="M 843.500 1148.155 C 837.450 1148.515, 823.050 1149.334, 811.500 1149.975 C 742.799 1153.788, 704.251 1162.996, 635.391 1192.044 C 517.544 1241.756, 398.992 1352.262, 337.200 1470 C 251.831 1632.658, 253.457 1816.879, 340.500 1843.982 C 351.574 1847.431, 1696.426 1847.431, 1707.500 1843.982 C 1794.543 1816.879, 1796.169 1632.658, 1710.800 1470 C 1649.008 1352.262, 1530.456 1241.756, 1412.609 1192.044 C 1344.588 1163.350, 1305.224 1153.854, 1238.500 1150.039 C 1190.330 1147.286, 1196.307 1147.328, 1097 1149.035 C 1039.984 1150.015, 1010.205 1150.008, 950 1149.003 C 851.731 1147.362, 856.213 1147.398, 843.500 1148.155" stroke="none" fill="#2a93fb" fill-rule="evenodd"></path>
+        <path d="M 1008 194.584 C 1006.075 194.809, 999.325 195.476, 993 196.064 C 927.768 202.134, 845.423 233.043, 786 273.762 C 691.987 338.184, 622.881 442.165, 601.082 552 C 588.496 615.414, 592.917 705.245, 611.329 760.230 C 643.220 855.469, 694.977 930.136, 763.195 979.321 C 810.333 1013.308, 839.747 1026.645, 913.697 1047.562 C 1010.275 1074.879, 1108.934 1065.290, 1221 1017.694 C 1259.787 1001.221, 1307.818 965.858, 1339.852 930.191 C 1460.375 795.998, 1488.781 609.032, 1412.581 451.500 C 1350.098 322.327, 1240.457 235.724, 1097.500 202.624 C 1072.356 196.802, 1025.206 192.566, 1008 194.584" stroke="none" fill="#0aaa8a" fill-rule="evenodd"></path>
+      </svg>
+
+      <svg xmlns="http://www.w3.org/2000/svg" class="user-progress" aria-label="Your W3Schools Profile Progress">
+        <path class="user-progress-circle1" fill="none" d="M 25.99650934151373 15.00000030461742 A 20 20 0 1 0 26 15"></path>
+        <path class="user-progress-circle2" fill="none" d="M 26 15 A 20 20 0 0 0 26 15"></path>
+      </svg>
+
+      <span class="user-progress-star">★</span>
+
+      <span class="user-progress-point">+1</span>
+    </a>
+  </div>
+
+  <div class="w3s-pathfinder -teaser user-anonymous w3-hide">
+  <div class="track-progress-btn-wrapper">
+    <a href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fpathfinder.w3schools.com" class="-login-btn w3-button ga-bottom ga-bottom-login track-progress-btn" title="Sign in to track your progress" aria-label="Sign in to track your progress" target="_blank">
+    Sign in to track progress
+  </a>
+    
+  </div>
+</div>
+
+<style>
+.w3s-pathfinder.-teaser {
+  background-color: transparent!important;
+}
+.track-progress-btn-wrapper {
+  display: flex;
+  justify-content: center;
+}
+a.track-progress-btn {
+  position: absolute;
+  padding: 8px 20px;
+  border: 1px solid #ddd;
+  top:-65px;
+  background-color: #fff;
+  color: #333;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+}
+@media screen and (max-width: 600px) {
+  a.track-progress-btn {
+    top: 6px;
+    width: 100%;
+  }
+}
+</style>
+
+</div>
+

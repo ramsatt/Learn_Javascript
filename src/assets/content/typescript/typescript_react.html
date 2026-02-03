@@ -1,0 +1,309 @@
+
+      <div id="mainLeaderboard" style="overflow:hidden;">
+        <!-- MainLeaderboard-->
+      </div>
+    <h1>TypeScript with React</h1>
+
+<hr>
+
+<h2>Why Use TypeScript with React?</h2>
+<p>TypeScript enhances React with:</p>
+<ul>
+  <li>Type safety for props, state, and context</li>
+  <li>Better IDE autocompletion and refactoring</li>
+  <li>Early error detection during development</li>
+</ul>
+
+<div class="w3-panel ws-note">
+  <p><strong>Note:</strong> This tutorial assumes basic knowledge of React.</p>
+  <p>If you're new to React, consider checking out our <a href="#/tutorial/../react/react_intro.html">React Tutorial</a> first.</p>
+</div>
+
+<hr>
+
+<h2>Getting Started</h2>
+<p>Create a new React + TypeScript app with Vite:</p>
+<div class="w3-example">
+  <h3>Example</h3>
+  <div class="w3-code notranslate">
+npm create vite@latest my-app -- --template react-ts<br>
+cd my-app<br>
+npm install<br>
+npm run dev
+  </div>
+</div>
+
+
+<p>Your <code class="w3-codespan">tsconfig.json</code> should include these recommended compiler options:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+{<br>
+  &nbsp;&nbsp;"compilerOptions": {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;"target": "ES2020",<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;"lib": ["ES2020", "DOM", "DOM.Iterable"],<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;"module": "ESNext",<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;"moduleResolution": "Node",<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;"jsx": "react-jsx",<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;"strict": true,<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;"skipLibCheck": true,<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;"noEmit": true,<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;"resolveJsonModule": true,<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;"allowSyntheticDefaultImports": true,<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;"esModuleInterop": true,<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;"forceConsistentCasingInFileNames": true<br>
+  &nbsp;&nbsp;},<br>
+  &nbsp;&nbsp;"include": ["src"]<br>
+}
+</div>
+</div>
+
+<div class="w3-panel ws-note">
+  <p><strong>Note:</strong> Keep <code class="w3-codespan">strict</code> enabled for best type safety.</p>
+<p>The shown options work well with Vite and Create React App.</p>
+</div>
+<hr>
+<h2>Component Typing</h2>
+<p>Define props with TypeScript and use them in a functional component:</p>
+<div class="w3-example">
+  <h3>Example</h3>
+  <div class="w3-code notranslate jsHigh">
+// Greeting.tsx<br>
+ type GreetingProps = {<br>
+ &nbsp;&nbsp;name: string;<br>
+ &nbsp;&nbsp;age?: number;<br>
+ };<br>
+ <br>
+ export function Greeting({ name, age }: GreetingProps) {<br>
+ &nbsp;&nbsp;return (<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;Hello, {name}!&lt;/h2&gt;<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{age !== undefined &amp;&amp; &lt;p&gt;You are {age} years old&lt;/p&gt;}<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
+ &nbsp;&nbsp;);<br>
+ }<br>
+  </div>
+</div>
+<hr>
+<div id="midcontentadcontainer" style="overflow:auto;text-align:center">
+<!-- MidContent -->
+<!-- <p class="adtext">Advertisement</p> -->
+</div><hr>
+
+<h2>Common Patterns</h2>
+
+<h3>Type-Safe Events</h3>
+<p>Type event handlers for inputs and buttons:</p>
+<div class="w3-example">
+  <h3>Example</h3>
+  <div class="w3-code notranslate jsHigh">
+// Input change<br>
+ function NameInput() {<br>
+ &nbsp;&nbsp;function handleChange(e: React.ChangeEvent&lt;HTMLInputElement&gt;) {<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;console.log(e.target.value);<br>
+ &nbsp;&nbsp;}<br>
+ &nbsp;&nbsp;return &lt;input onChange={handleChange} /&gt;;<br>
+ }<br>
+ <br>
+ // Button click<br>
+ function SaveButton() {<br>
+ &nbsp;&nbsp;function handleClick(e: React.MouseEvent&lt;HTMLButtonElement&gt;) {<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;e.preventDefault();<br>
+ &nbsp;&nbsp;}<br>
+ &nbsp;&nbsp;return &lt;button onClick={handleClick}&gt;Save&lt;/button&gt;;<br>
+ }<br>
+  </div>
+</div>
+
+<h3>Typing State with useState</h3>
+<p>Use explicit types for numbers, unions, and nullable values:</p>
+<div class="w3-example">
+<h3>Example</h3>
+  <div class="w3-code notranslate jsHigh">
+const [count, setCount] = React.useState&lt;number&gt;(0);<br>
+ const [status, setStatus] = React.useState&lt;'idle' | 'loading' | 'error'&gt;('idle');<br>
+ <br>
+ type User = { id: string; name: string };<br>
+ const [user, setUser] = React.useState&lt;User | null&gt;(null);<br>
+  </div>
+</div>
+
+<h3>useRef with DOM Elements</h3>
+<p>Type refs to DOM nodes to access properties safely:</p>
+<div class="w3-example">
+<h3>Example</h3>
+  <div class="w3-code notranslate jsHigh">
+function FocusInput() {<br>
+ &nbsp;&nbsp;const inputRef = React.useRef&lt;HTMLInputElement&gt;(null);<br>
+ &nbsp;&nbsp;return &lt;input ref={inputRef} onFocus={() =&gt; inputRef.current?.select()} /&gt;;<br>
+ }<br>
+  </div>
+</div>
+
+<h3>Children Typing</h3>
+<p>Accept children with the <code class="w3-codespan">React.ReactNode</code> type:</p>
+<div class="w3-example">
+<h3>Example</h3>
+  <div class="w3-code notranslate jsHigh">
+ type CardProps = { title: string; children?: React.ReactNode };<br>
+ function Card({ title, children }: CardProps) {<br>
+ &nbsp;&nbsp;return (<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;{title}&lt;/h2&gt;<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{children}<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
+ &nbsp;&nbsp;);<br>
+ }<br>
+  </div>
+</div>
+
+<h3>Fetch Helpers with Generics</h3>
+<p>Use generics to type API responses:</p>
+<div class="w3-example">
+<h3>Example</h3>
+  <div class="w3-code notranslate jsHigh">
+async function fetchJson&lt;T&gt;(url: string): Promise&lt;T&gt; {<br>
+ &nbsp;&nbsp;const res = await fetch(url);<br>
+ &nbsp;&nbsp;if (!res.ok) throw new Error('Network error');<br>
+ &nbsp;&nbsp;return res.json() as Promise&lt;T&gt;;<br>
+ }<br>
+ <br>
+ // Usage inside an async function/component effect<br>
+ async function loadPosts() {<br>
+ &nbsp;&nbsp;type Post = { id: number; title: string };<br>
+ &nbsp;&nbsp;const posts = await fetchJson&lt;Post[]&gt;("/api/posts");<br>
+ &nbsp;&nbsp;console.log(posts);<br>
+ }<br>
+  </div>
+</div>
+
+<h3>Minimal Context and Custom Hook</h3>
+<p>Provide a small, typed context and a helper hook:</p>
+<div class="w3-example">
+<h3>Example</h3>
+  <div class="w3-code notranslate jsHigh">
+ type Theme = 'light' | 'dark';<br>
+ const ThemeContext = React.createContext&lt;{ theme: Theme; toggle(): void } | null&gt;(null);<br>
+ <br>
+ function ThemeProvider({ children }: { children: React.ReactNode }) {<br>
+ &nbsp;&nbsp;const [theme, setTheme] = React.useState&lt;Theme&gt;('light');<br>
+ &nbsp;&nbsp;const value = { theme, toggle: () =&gt; setTheme(t =&gt; (t === 'light' ? 'dark' : 'light')) };<br>
+ &nbsp;&nbsp;return &lt;ThemeContext.Provider value={value}&gt;{children}&lt;/ThemeContext.Provider&gt;;<br>
+ }<br>
+ <br>
+ function useTheme() {<br>
+ &nbsp;&nbsp;const ctx = React.useContext(ThemeContext);<br>
+ &nbsp;&nbsp;if (!ctx) throw new Error('useTheme must be used within ThemeProvider');<br>
+ &nbsp;&nbsp;return ctx;<br>
+ }<br>
+  </div>
+</div>
+
+<div class="w3-panel ws-note">
+<p><strong>Vite TypeScript types:</strong> Add Vite's ambient types to avoid missing definitions.</p>
+  <div class="w3-example">
+  <h3>Example</h3>
+  <div class="w3-code notranslate jsHigh">
+// src/vite-env.d.ts<br>
+/// &lt;reference types="vite/client" /&gt;<br>
+  </div>
+  </div>
+  <p>Alternatively, add to <code class="w3-codespan">tsconfig.json</code>:</p>
+  <div class="w3-example">
+  <h3>Example</h3>
+  <div class="w3-code notranslate jsHigh">
+{<br>
+  &nbsp;&nbsp;"compilerOptions": {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;"types": ["vite/client"]<br>
+  &nbsp;&nbsp;}<br>
+}
+  </div>
+  </div>
+</div>
+
+<div class="w3-panel ws-note">
+  <p><strong>About React.FC:</strong> Prefer directly typed function components.</p>
+<p><code class="w3-codespan">React.FC</code> is optional; it implicitly adds <code class="w3-codespan">children</code> but isn't required.</p>
+</div>
+
+  <div class="w3-panel ws-note">
+<p><strong>Optional <code class="w3-codespan">baseUrl</code> and <code class="w3-codespan">paths</code>:</strong> These can simplify imports if supported by your bundler.</p>
+  <div class="w3-example">
+  <h3>Example</h3>
+  <div class="w3-code notranslate jsHigh">
+{<br>
+  &nbsp;&nbsp;"compilerOptions": {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;"baseUrl": ".",<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;"paths": {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"@/*": ["src/*"]<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;}<br>
+}
+</div>
+</div>
+<p>Configure only if your tooling (e.g., Vite, tsconfig-paths) is set up for path aliases.</p>
+</div>
+
+<div id="exercisecontainer" src="xrcise_react.js" data-extensions="php"></div>
+
+<hr>
+
+<div id="user-profile-bottom-wrapper" class="user-profile-bottom-wrapper">
+  <div class="user-authenticated w3-hide">
+    <a href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fmy-learning.w3schools.com" class="user-profile-btn user-profile-bottom-btn ga-bottom ga-bottom-profile" title="Your W3Schools Profile" aria-label="Your W3Schools Profile" target="_top">
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 2048 2048" class="user-profile-icon" aria-label="Your W3Schools Profile Icon">
+        <path d="M 843.500 1148.155 C 837.450 1148.515, 823.050 1149.334, 811.500 1149.975 C 742.799 1153.788, 704.251 1162.996, 635.391 1192.044 C 517.544 1241.756, 398.992 1352.262, 337.200 1470 C 251.831 1632.658, 253.457 1816.879, 340.500 1843.982 C 351.574 1847.431, 1696.426 1847.431, 1707.500 1843.982 C 1794.543 1816.879, 1796.169 1632.658, 1710.800 1470 C 1649.008 1352.262, 1530.456 1241.756, 1412.609 1192.044 C 1344.588 1163.350, 1305.224 1153.854, 1238.500 1150.039 C 1190.330 1147.286, 1196.307 1147.328, 1097 1149.035 C 1039.984 1150.015, 1010.205 1150.008, 950 1149.003 C 851.731 1147.362, 856.213 1147.398, 843.500 1148.155" stroke="none" fill="#2a93fb" fill-rule="evenodd"></path>
+        <path d="M 1008 194.584 C 1006.075 194.809, 999.325 195.476, 993 196.064 C 927.768 202.134, 845.423 233.043, 786 273.762 C 691.987 338.184, 622.881 442.165, 601.082 552 C 588.496 615.414, 592.917 705.245, 611.329 760.230 C 643.220 855.469, 694.977 930.136, 763.195 979.321 C 810.333 1013.308, 839.747 1026.645, 913.697 1047.562 C 1010.275 1074.879, 1108.934 1065.290, 1221 1017.694 C 1259.787 1001.221, 1307.818 965.858, 1339.852 930.191 C 1460.375 795.998, 1488.781 609.032, 1412.581 451.500 C 1350.098 322.327, 1240.457 235.724, 1097.500 202.624 C 1072.356 196.802, 1025.206 192.566, 1008 194.584" stroke="none" fill="#0aaa8a" fill-rule="evenodd"></path>
+      </svg>
+
+      <svg xmlns="http://www.w3.org/2000/svg" class="user-progress" aria-label="Your W3Schools Profile Progress">
+        <path class="user-progress-circle1" fill="none" d="M 25.99650934151373 15.00000030461742 A 20 20 0 1 0 26 15"></path>
+        <path class="user-progress-circle2" fill="none" d="M 26 15 A 20 20 0 0 0 26 15"></path>
+      </svg>
+
+      <span class="user-progress-star">★</span>
+
+      <span class="user-progress-point">+1</span>
+    </a>
+  </div>
+
+  <div class="w3s-pathfinder -teaser user-anonymous w3-hide">
+  <div class="track-progress-btn-wrapper">
+    <a href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fpathfinder.w3schools.com" class="-login-btn w3-button ga-bottom ga-bottom-login track-progress-btn" title="Sign in to track your progress" aria-label="Sign in to track your progress" target="_blank">
+    Sign in to track progress
+  </a>
+    
+  </div>
+</div>
+
+<style>
+.w3s-pathfinder.-teaser {
+  background-color: transparent!important;
+}
+.track-progress-btn-wrapper {
+  display: flex;
+  justify-content: center;
+}
+a.track-progress-btn {
+  position: absolute;
+  padding: 8px 20px;
+  border: 1px solid #ddd;
+  top:-65px;
+  background-color: #fff;
+  color: #333;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+}
+@media screen and (max-width: 600px) {
+  a.track-progress-btn {
+    top: 6px;
+    width: 100%;
+  }
+}
+</style>
+
+</div>
+

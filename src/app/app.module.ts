@@ -16,6 +16,8 @@ import { provideAuth, getAuth } from '@angular/fire/auth';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { provideRemoteConfig, getRemoteConfig } from '@angular/fire/remote-config';
 
+import { MigrationComponent } from './pages/admin/migration/migration.component';
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -23,7 +25,8 @@ import { provideRemoteConfig, getRemoteConfig } from '@angular/fire/remote-confi
     IonicModule.forRoot(), 
     AppRoutingModule, 
     HttpClientModule,
-    HeaderComponent
+    HeaderComponent,
+    MigrationComponent
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },

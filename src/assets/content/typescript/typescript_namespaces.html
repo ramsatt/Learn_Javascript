@@ -1,0 +1,595 @@
+
+      <div id="mainLeaderboard" style="overflow:hidden;">
+        <!-- MainLeaderboard-->
+      </div>
+    <h1>TypeScript Namespaces</h1>
+
+
+
+<hr>
+
+<h2>Understanding TypeScript Namespaces</h2>
+
+<p>TypeScript namespaces (previously known as "internal modules") provide a powerful way to organize code and prevent naming conflicts by creating a container for related functionality.</p>
+<p>They help in structuring large codebases and managing scope in a clean, maintainable way.</p>
+<hr>
+<div class="w3-panel">
+  <h3>Key Concepts</h3>
+  <ul>
+    <li><b>Logical Grouping</b>: Organize related code into named containers</li>
+    <li><b>Scope Management</b>: Control the visibility of code elements</li>
+    <li><b>Name Collision Prevention</b>: Avoid conflicts between similarly named components</li>
+    <li><b>Code Organization</b>: Structure large applications in a hierarchical manner</li>
+  </ul>
+</div>
+
+<div class="w3-panel">
+  <h3>When to Use Namespaces</h3>
+  <ul>
+    <li>Organizing code in large legacy applications</li>
+    <li>Working with global libraries</li>
+    <li>When migrating from older JavaScript codebases</li>
+    <li>When working with code that needs to be available globally</li>
+  </ul>
+</div>
+
+<div class="w3-panel ws-note">
+  <p><strong>Note:</strong> While namespaces are still fully supported in TypeScript, modern applications typically use ES modules (import/export) for better modularity and tree-shaking support.</p>
+<p>However, understanding namespaces is valuable for maintaining legacy codebases and certain library development scenarios.</p>
+</div>
+
+<hr>
+
+<h2>Basic Namespace Syntax</h2>
+<h3>Creating and Using Namespaces</h3>
+
+<p>A namespace is defined using the <code class="w3-codespan">namespace</code> keyword:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+namespace Validation {<br>
+&nbsp;&nbsp;// Everything inside this block belongs to the Validation namespace<br>
+<br>
+&nbsp;&nbsp;// Export things you want to make available outside the namespace<br>
+&nbsp;&nbsp;export interface StringValidator {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;isValid(s: string): boolean;<br>
+&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;// This is private to the namespace (not exported)<br>
+&nbsp;&nbsp;const lettersRegexp = /^[A-Za-z]+$/;<br>
+<br>
+&nbsp;&nbsp;// Exported class - available outside the namespace<br>
+&nbsp;&nbsp;export class LettersValidator implements StringValidator {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;isValid(s: string): boolean {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return lettersRegexp.test(s);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;// Another exported class<br>
+&nbsp;&nbsp;export class ZipCodeValidator implements StringValidator {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;isValid(s: string): boolean {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return /^[0-9]+$/.test(s) &amp;&amp; s.length === 5;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;}<br>
+}<br>
+<br>
+// Using the namespace members<br>
+let letterValidator = new Validation.LettersValidator();<br>
+let zipCodeValidator = new Validation.ZipCodeValidator();<br>
+<br>
+console.log(letterValidator.isValid("Hello")); // true<br>
+console.log(letterValidator.isValid("Hello123")); // false<br>
+<br>
+console.log(zipCodeValidator.isValid("12345")); // true<br>
+console.log(zipCodeValidator.isValid("1234")); // false - wrong length
+</div>
+<a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescript1a3d.html?filename=demo_namespaces_basic" target="_blank">Try it Yourself »</a>
+</div>
+
+<hr>
+<div id="midcontentadcontainer" style="overflow:auto;text-align:center">
+<!-- MidContent -->
+<!-- <p class="adtext">Advertisement</p> -->
+</div><hr>
+
+<h2>Advanced Namespace Features</h2>
+<h3>Nested Namespaces</h3>
+
+<p>Namespaces can be nested to create hierarchical organization:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+namespace App {<br>
+&nbsp;&nbsp;export namespace Utils {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;export function log(msg: string): void {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(`[LOG]: ${msg}`);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;export function error(msg: string): void {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.error(`[ERROR]: ${msg}`);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;export namespace Models {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;export interface User {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: number;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name: string;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email: string;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;export class UserService {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;getUser(id: number): User {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return { id, name: "John Doe", email: "john@example.com" };<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;}<br>
+}<br>
+<br>
+// Using nested namespaces<br>
+App.Utils.log("Application starting");<br>
+<br>
+const userService = new App.Models.UserService();<br>
+const user = userService.getUser(1);<br>
+<br>
+App.Utils.log(`User loaded: ${user.name}`);<br>
+<br>
+// This would be a type error in TypeScript<br>
+// App.log("directly accessing log"); // Error - log is not a direct member of App
+</div>
+<a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescript6c81.html?filename=demo_namespaces_nested" target="_blank">Try it Yourself »</a>
+</div>
+
+<hr>
+
+<h3>Namespace Aliases</h3>
+
+<p>You can create aliases for namespaces or their members to make long names more manageable:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+namespace VeryLongNamespace {<br>
+&nbsp;&nbsp;export namespace DeeplyNested {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;export namespace Components {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;export class Button {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;display(): void {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log("Button displayed");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;export class TextField {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;display(): void {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log("TextField displayed");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;}<br>
+}<br>
+<br>
+// Without alias - very verbose<br>
+const button1 = new VeryLongNamespace.DeeplyNested.Components.Button();<br>
+button1.display();<br>
+<br>
+// With namespace alias<br>
+import Components = VeryLongNamespace.DeeplyNested.Components;<br>
+const button2 = new Components.Button();<br>
+button2.display();<br>
+<br>
+// With specific member alias<br>
+import Button = VeryLongNamespace.DeeplyNested.Components.Button;<br>
+const button3 = new Button();<br>
+button3.display();
+</div>
+<a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescript5303.html?filename=demo_namespaces_alias" target="_blank">Try it Yourself »</a>
+</div>
+
+<hr>
+
+<h2>Working with Multi-file Namespaces</h2>
+<h3>Splitting Namespaces Across Files</h3>
+
+<p>Large applications often require splitting code across multiple files.</p>
+<p>TypeScript namespaces can be split across files and combined at compile time using reference comments:</p>
+
+<h3>Using Reference Comments</h3>
+<p>Reference comments help TypeScript understand the relationship between files:</p>
+
+<p><strong>validators.ts</strong> file:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+namespace Validation {<br>
+&nbsp;&nbsp;export interface StringValidator {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;isValid(s: string): boolean;<br>
+&nbsp;&nbsp;}<br>
+}<br>
+</div>
+</div>
+
+<p><strong>letters-validator.ts</strong> file (extends Validation namespace):</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+/// &lt;reference path="validators.ts" /&gt;<br>
+namespace Validation {<br>
+&nbsp;&nbsp;const lettersRegexp = /^[A-Za-z]+$/;<br>
+<br>
+&nbsp;&nbsp;export class LettersValidator implements StringValidator {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;isValid(s: string): boolean {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return lettersRegexp.test(s);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;}<br>
+}
+</div>
+</div>
+
+<p><strong>zipcode-validator.ts</strong> file:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+/// &lt;reference path="validators.ts" /&gt;<br>
+namespace Validation {<br>
+&nbsp;&nbsp;const zipCodeRegexp = /^[0-9]+$/;<br>
+<br>
+&nbsp;&nbsp;export class ZipCodeValidator implements StringValidator {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;isValid(s: string): boolean {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return zipCodeRegexp.test(s) &amp;&amp; s.length === 5;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;}<br>
+}
+</div>
+</div>
+
+<p><strong>main.ts</strong> file:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+/// &lt;reference path="validators.ts" /&gt;<br>
+/// &lt;reference path="letters-validator.ts" /&gt;<br>
+/// &lt;reference path="zipcode-validator.ts" /&gt;<br>
+<br>
+// Now you can use the validators from multiple files<br>
+let validators: { [s: string]: Validation.StringValidator } = {};<br>
+validators["letters"] = new Validation.LettersValidator();<br>
+validators["zipcode"] = new Validation.ZipCodeValidator();<br>
+<br>
+// Some samples to validate<br>
+let strings = ["Hello", "98052", "101"];<br>
+<br>
+// Validate each<br>
+strings.forEach(s =&gt; {<br>
+&nbsp;&nbsp;for (let name in validators) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;console.log(`"${s}" - ${validators[name].isValid(s) ? "matches" : "does not match"} ${name}`);<br>
+&nbsp;&nbsp;}<br>
+});
+</div>
+</div>
+
+<p>To compile these files into a single JavaScript file, use:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+tsc --outFile sample.js main.ts
+</div>
+</div>
+
+<hr>
+
+<h2>Namespaces vs. Modules</h2>
+
+<div class="w3-panel">
+  <h3>Key Differences</h3>
+  <p>Understanding when to use namespaces versus modules is crucial for TypeScript development:</p>
+  <ul>
+    <li><b>Modules</b> are the preferred way to organize code in modern TypeScript applications</li>
+    <li><b>Namespaces</b> are still useful for specific scenarios like declaration merging or working with legacy code</li>
+    <li><b>Modules</b> have better tooling support and tree-shaking capabilities</li>
+    <li><b>Namespaces</b> can be useful for creating global libraries</li>
+  </ul>
+</div>
+
+<p>Here's a comparison of when to use namespaces versus ES modules:</p>
+
+  <h3>Comparison Table</h3>
+  <table class="w3-table-all">
+    <tbody><tr>
+      <th>Feature</th>
+      <th>Namespaces</th>
+      <th>ES Modules (import/export)</th>
+    </tr>
+    <tr>
+      <td>Recommended scope/scale</td>
+      <td>Simpler setups, small apps, legacy codebases</td>
+      <td>Modern apps of any size; preferred for new projects</td>
+    </tr>
+    <tr>
+      <td>Syntax and usage</td>
+      <td>Global access via dot notation (e.g., <code class="w3-codespan">MyNS.Member</code>)</td>
+      <td>Explicit <code class="w3-codespan">import</code>/<code class="w3-codespan">export</code> with file paths</td>
+    </tr>
+    <tr>
+      <td>Loading/bundling</td>
+      <td>No loader required; can emit single file via <code class="w3-codespan">--outFile</code></td>
+      <td>Typically uses a bundler/loader (Vite, webpack, etc.)</td>
+    </tr>
+    <tr>
+      <td>Splitting across files</td>
+      <td>Possible via <code class="w3-codespan">/// &lt;reference /&gt;</code> comments</td>
+      <td>Natural; each file is a module with explicit exports/imports</td>
+    </tr>
+    <tr>
+      <td>Tree-shaking</td>
+      <td>Limited; harder for bundlers to eliminate unused code</td>
+      <td>Excellent; designed for dead-code elimination</td>
+    </tr>
+    <tr>
+      <td>Global scope</td>
+      <td>Encourages globals (namespaced)</td>
+      <td>Avoids globals; explicit dependencies</td>
+    </tr>
+    <tr>
+      <td>Augmentation/merging</td>
+      <td>Strong support via declaration merging</td>
+      <td>Module augmentation possible, but more constrained</td>
+    </tr>
+    <tr>
+      <td>Tooling and ecosystem</td>
+      <td>Works, but less aligned with modern tooling</td>
+      <td>Best support across modern tooling and platforms</td>
+    </tr>
+    <tr>
+      <td>Best used for</td>
+      <td>Legacy libraries, global scripts, ambient types</td>
+      <td>All new development, libraries, and applications</td>
+    </tr>
+  </tbody></table>
+
+<hr>
+
+<h2>Advanced Namespace Patterns</h2>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+// Original namespace<br>
+declare namespace Express {<br>
+&nbsp;&nbsp;interface Request {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;user?: { id: number; name: string };<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;interface Response {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;json(data: any): void;<br>
+&nbsp;&nbsp;}<br>
+}<br>
+<br>
+// Later in your application (e.g., in a .d.ts file)<br>
+declare namespace Express {<br>
+&nbsp;&nbsp;// Augment the Request interface<br>
+&nbsp;&nbsp;interface Request {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// Add custom properties<br>
+&nbsp;&nbsp;&nbsp;&nbsp;requestTime?: number;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// Add methods<br>
+&nbsp;&nbsp;&nbsp;&nbsp;log(message: string): void;<br>
+&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;// Add new types<br>
+&nbsp;&nbsp;interface UserSession {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;userId: number;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;expires: Date;<br>
+&nbsp;&nbsp;}<br>
+}<br>
+<br>
+// Usage in your application<br>
+const app = express();<br>
+<br>
+app.use((req: Express.Request, res: Express.Response, next) =&gt; {<br>
+&nbsp;&nbsp;// Augmented properties and methods are available<br>
+&nbsp;&nbsp;req.requestTime = Date.now();<br>
+&nbsp;&nbsp;req.log('Request started');<br>
+&nbsp;&nbsp;next();<br>
+});
+</div>
+</div>
+
+<h3>Namespaces with Generics</h3>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+// Generic namespace example<br>
+namespace DataStorage {<br>
+&nbsp;&nbsp;export interface Repository&lt;T&gt; {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;getAll(): T[];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;getById(id: number): T | undefined;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;add(item: T): void;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;update(id: number, item: T): boolean;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;delete(id: number): boolean;<br>
+&nbsp;&nbsp;}<br>
+  <br>
+&nbsp;&nbsp;// Concrete implementation<br>
+&nbsp;&nbsp;export class InMemoryRepository&lt;T&gt; implements Repository&lt;T&gt; {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;private items: T[] = [];<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;getAll(): T[] {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return [...this.items];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;getById(id: number): T | undefined {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return this.items[id];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;add(item: T): void {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.items.push(item);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;update(id: number, item: T): boolean {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (id &gt;= 0 &amp;&amp; id &lt; this.items.length) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.items[id] = item;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return true;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return false;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;delete(id: number): boolean {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (id &gt;= 0 &amp;&amp; id &lt; this.items.length) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.items.splice(id, 1);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return true;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return false;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;}<br>
+}<br>
+<br>
+// Usage<br>
+interface User {<br>
+&nbsp;&nbsp;id: number;<br>
+&nbsp;&nbsp;name: string;<br>
+&nbsp;&nbsp;email: string;<br>
+}<br>
+<br>
+const userRepo = new DataStorage.InMemoryRepository&lt;User&gt;();<br>
+userRepo.add({ id: 1, name: 'John Doe', email: 'john@example.com' });<br>
+const allUsers = userRepo.getAll();
+</div>
+</div>
+<hr>
+<h2>Best Practices</h2>
+
+<div class="w3-panel">
+  <h3>Namespace Best Practices</h3>
+  
+  <h4>Do:</h4>
+  <ul>
+    <li>Use meaningful, hierarchical namespace names</li>
+    <li>Export only what's needed from namespaces</li>
+    <li>Use <code class="w3-codespan">/// &lt;reference /&gt;</code> for ordering in multi-file namespaces</li>
+    <li>Consider using modules for new projects</li>
+    <li>Use const enums within namespaces for better performance</li>
+    <li>Document your namespaces with JSDoc comments</li>
+  </ul>
+
+  <h4>Don't:</h4>
+  <ul>
+    <li>Create overly deep namespace hierarchies (more than 2-3 levels)</li>
+    <li>Pollute the global scope unnecessarily</li>
+    <li>Mix namespaces and modules in the same project without a clear strategy</li>
+    <li>Use namespaces for small applications - prefer modules</li>
+  </ul>
+  
+  <h3>Performance Considerations</h3>
+  <ul>
+    <li>Large namespaces can increase bundle size</li>
+    <li>Consider code splitting for large applications</li>
+    <li>Be mindful of circular dependencies in complex namespace structures</li>
+    <li>Use <code class="w3-codespan">const enum</code> for better performance with constant values</li>
+  </ul>
+</div>
+<hr>
+<h2>Migrating from Namespaces to Modules</h2>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+// Before: Using namespaces<br>
+namespace MyApp {<br>
+&nbsp;&nbsp;export namespace Services {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;export class UserService {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;getUser(id: number) { /* ... */ }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;}<br>
+}<br>
+<br>
+// After: Using ES modules<br>
+// services/UserService.ts<br>
+export class UserService {<br>
+&nbsp;&nbsp;getUser(id: number) { /* ... */ }<br>
+}<br>
+<br>
+// app.ts<br>
+import { UserService } from './services/UserService';<br>
+const userService = new UserService();
+</div>
+</div>
+
+<div class="w3-panel">
+  <h3>Migration Steps</h3>
+  <ol>
+    <li>Convert each namespace to a module file</li>
+    <li>Replace <code class="w3-codespan">export</code> with ES module exports</li>
+    <li>Update imports to use ES module syntax</li>
+    <li>Configure your build system to handle modules</li>
+    <li>Update tests to work with the new module structure</li>
+    <li>Consider using a bundler like webpack or Rollup</li>
+    <li>Update your <code class="w3-codespan">tsconfig.json</code> to use <code class="w3-codespan">"module": "ESNext"</code></li>
+  </ol>
+  
+  <h3>Migration Tools</h3>
+  <ul>
+    <li><code class="w3-codespan">ts-migrate</code> - Automated migration tool from Facebook</li>
+    <li><code class="w3-codespan">tslint</code> with <code class="w3-codespan">no-namespace</code> rule to detect namespaces</li>
+    <li>TypeScript's built-in refactoring tools</li>
+  </ul>
+</div>
+
+<hr>
+<div id="exercisecontainer" src="xrcise_namespaces.js" data-extensions="php"></div>
+<hr>
+<br>
+
+
+
+<div id="user-profile-bottom-wrapper" class="user-profile-bottom-wrapper">
+  <div class="user-authenticated w3-hide">
+    <a href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fmy-learning.w3schools.com" class="user-profile-btn user-profile-bottom-btn ga-bottom ga-bottom-profile" title="Your W3Schools Profile" aria-label="Your W3Schools Profile" target="_top">
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 2048 2048" class="user-profile-icon" aria-label="Your W3Schools Profile Icon">
+        <path d="M 843.500 1148.155 C 837.450 1148.515, 823.050 1149.334, 811.500 1149.975 C 742.799 1153.788, 704.251 1162.996, 635.391 1192.044 C 517.544 1241.756, 398.992 1352.262, 337.200 1470 C 251.831 1632.658, 253.457 1816.879, 340.500 1843.982 C 351.574 1847.431, 1696.426 1847.431, 1707.500 1843.982 C 1794.543 1816.879, 1796.169 1632.658, 1710.800 1470 C 1649.008 1352.262, 1530.456 1241.756, 1412.609 1192.044 C 1344.588 1163.350, 1305.224 1153.854, 1238.500 1150.039 C 1190.330 1147.286, 1196.307 1147.328, 1097 1149.035 C 1039.984 1150.015, 1010.205 1150.008, 950 1149.003 C 851.731 1147.362, 856.213 1147.398, 843.500 1148.155" stroke="none" fill="#2a93fb" fill-rule="evenodd"></path>
+        <path d="M 1008 194.584 C 1006.075 194.809, 999.325 195.476, 993 196.064 C 927.768 202.134, 845.423 233.043, 786 273.762 C 691.987 338.184, 622.881 442.165, 601.082 552 C 588.496 615.414, 592.917 705.245, 611.329 760.230 C 643.220 855.469, 694.977 930.136, 763.195 979.321 C 810.333 1013.308, 839.747 1026.645, 913.697 1047.562 C 1010.275 1074.879, 1108.934 1065.290, 1221 1017.694 C 1259.787 1001.221, 1307.818 965.858, 1339.852 930.191 C 1460.375 795.998, 1488.781 609.032, 1412.581 451.500 C 1350.098 322.327, 1240.457 235.724, 1097.500 202.624 C 1072.356 196.802, 1025.206 192.566, 1008 194.584" stroke="none" fill="#0aaa8a" fill-rule="evenodd"></path>
+      </svg>
+
+      <svg xmlns="http://www.w3.org/2000/svg" class="user-progress" aria-label="Your W3Schools Profile Progress">
+        <path class="user-progress-circle1" fill="none" d="M 25.99650934151373 15.00000030461742 A 20 20 0 1 0 26 15"></path>
+        <path class="user-progress-circle2" fill="none" d="M 26 15 A 20 20 0 0 0 26 15"></path>
+      </svg>
+
+      <span class="user-progress-star">★</span>
+
+      <span class="user-progress-point">+1</span>
+    </a>
+  </div>
+
+  <div class="w3s-pathfinder -teaser user-anonymous w3-hide">
+  <div class="track-progress-btn-wrapper">
+    <a href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fpathfinder.w3schools.com" class="-login-btn w3-button ga-bottom ga-bottom-login track-progress-btn" title="Sign in to track your progress" aria-label="Sign in to track your progress" target="_blank">
+    Sign in to track progress
+  </a>
+    
+  </div>
+</div>
+
+<style>
+.w3s-pathfinder.-teaser {
+  background-color: transparent!important;
+}
+.track-progress-btn-wrapper {
+  display: flex;
+  justify-content: center;
+}
+a.track-progress-btn {
+  position: absolute;
+  padding: 8px 20px;
+  border: 1px solid #ddd;
+  top:-65px;
+  background-color: #fff;
+  color: #333;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+}
+@media screen and (max-width: 600px) {
+  a.track-progress-btn {
+    top: 6px;
+    width: 100%;
+  }
+}
+</style>
+
+</div>
+

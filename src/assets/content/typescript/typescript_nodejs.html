@@ -1,0 +1,502 @@
+
+      <div id="mainLeaderboard" style="overflow:hidden;">
+        <!-- MainLeaderboard-->
+      </div>
+    <h1>TypeScript with Node.js</h1>
+
+<hr>
+<h2>Why Use TypeScript with Node.js?</h2>
+<p>TypeScript brings static typing to Node.js development, providing better tooling, improved code quality, and enhanced developer experience.</p>
+<p>Key benefits include:</p>
+
+<ul>
+  <li>Type safety for JavaScript code</li>
+  <li>Better IDE support with autocompletion</li>
+  <li>Early error detection during development</li>
+  <li>Improved code maintainability and documentation</li>
+  <li>Easier refactoring</li>
+</ul>
+
+<div class="w3-panel ws-note">
+  <p><strong>Prerequisites:</strong> Install a recent Node.js LTS (v18+ recommended) and npm.</p>
+  <p>Verify with <code class="w3-codespan">node -v</code> and <code class="w3-codespan">npm -v</code>.</p>
+</div>
+
+<hr>
+<h2>Setting Up a TypeScript Node.js Project</h2>
+<p>This section walks through creating a new Node.js project configured for TypeScript.</p>
+<div class="w3-panel ws-note">
+  <p><strong>Note:</strong> You write TypeScript (<code class="w3-codespan">.ts</code>) during development and compile it to JavaScript (<code class="w3-codespan">.js</code>) for Node.js to run in production.</p>
+</div>
+
+<h3>1. Initialize a New Project</h3>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate">
+mkdir my-ts-node-app<br>
+cd my-ts-node-app<br>
+npm init -y<br>
+npm install typescript @types/node --save-dev<br>
+npx tsc --init
+</div>
+</div>
+
+<div class="w3-panel ws-info">
+  <p><strong>What these do:</strong></p>
+  <ul>
+    <li><code class="w3-codespan">typescript</code> adds the TypeScript compiler (<code class="w3-codespan">tsc</code>)</li>
+    <li><code class="w3-codespan">@types/node</code> provides Node.js type definitions</li>
+    <li><code class="w3-codespan">npx tsc --init</code> creates a <code class="w3-codespan">tsconfig.json</code> config file</li>
+  </ul>
+</div>
+
+
+<h3>2. Create a Source Folder</h3>
+<p>Keep source code in <code class="w3-codespan">src/</code> and compiled output in <code class="w3-codespan">dist/</code>.</p>
+<div class="w3-example">
+  <div class="w3-code notranslate">
+mkdir src<br>
+# later add files like: src/server.ts, src/middleware/auth.ts
+  </div>
+</div>
+
+<h3>3. Configure TypeScript</h3>
+<p>Edit the generated <code class="w3-codespan">tsconfig.json</code>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+{<br>
+&nbsp; &nbsp; "compilerOptions": {<br>
+&nbsp; &nbsp; "target": "ES2020",<br>
+&nbsp; &nbsp; "module": "commonjs",<br>
+&nbsp; &nbsp; "outDir": "./dist",<br>
+&nbsp; &nbsp; "rootDir": "./src",<br>
+&nbsp; &nbsp; "strict": true,<br>
+&nbsp; &nbsp; "esModuleInterop": true,<br>
+&nbsp; &nbsp; "skipLibCheck": true,<br>
+&nbsp; &nbsp; "forceConsistentCasingInFileNames": true,<br>
+&nbsp; &nbsp; "moduleResolution": "node",<br>
+&nbsp; &nbsp; "resolveJsonModule": true,<br>
+&nbsp; &nbsp; "sourceMap": true<br>
+&nbsp; },<br>
+&nbsp; "include": ["src/**/*"],<br>
+&nbsp; "exclude": ["node_modules"]<br>
+}
+</div>
+</div>
+
+<div class="w3-panel ws-info">
+  <p><strong>Option highlights:</strong></p>
+  <ul>
+    <li><code class="w3-codespan">rootDir</code>/<code class="w3-codespan">outDir</code>: keeps source (<code class="w3-codespan">src</code>) separate from build output (<code class="w3-codespan">dist</code>).</li>
+    <li><code class="w3-codespan">strict</code>: enables the safest type checking.</li>
+    <li><code class="w3-codespan">esModuleInterop</code>: smoother interop with CommonJS/ES modules.</li>
+    <li><code class="w3-codespan">sourceMap</code>: generate maps for debugging compiled code.</li>
+  </ul>
+</div>
+
+<div class="w3-panel ws-note">
+  <p><strong>CommonJS vs ESM:</strong> This guide uses <code class="w3-codespan">module: "commonjs"</code>.</p>
+  <p>If you use ESM (<code class="w3-codespan">type: "module"</code> in <code class="w3-codespan">package.json</code>), set <code class="w3-codespan">module: "nodenext"</code> or <code class="w3-codespan">node16</code>, and use <code class="w3-codespan">import</code>/<code class="w3-codespan">export</code> consistently.</p>
+</div>
+
+<h3>4. Install Runtime and Dev Dependencies</h3>
+<p>Install Express for HTTP handling and helpful dev tools:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+npm install express body-parser<br>
+npm install --save-dev ts-node nodemon @types/express
+</div>
+</div>
+
+<div class="w3-panel ws-warning">
+  <p><strong>Warning:</strong> Use <code class="w3-codespan">ts-node</code> and <code class="w3-codespan">nodemon</code> only for development.</p>
+  <p>For production, compile with <code class="w3-codespan">tsc</code> and run Node on the JS output.</p>
+</div>
+
+<h3>Project Structure</h3>
+<p>Keep your project organized:</p>
+<div class="w3-example">
+  <div class="w3-code notranslate">
+my-ts-node-app/<br>
+&nbsp; src/<br>
+&nbsp; &nbsp; server.ts<br>
+&nbsp; &nbsp; middleware/<br>
+&nbsp; &nbsp; &nbsp; auth.ts<br>
+&nbsp; &nbsp; entity/<br>
+&nbsp; &nbsp; &nbsp; User.ts<br>
+&nbsp; &nbsp; config/<br>
+&nbsp; &nbsp; &nbsp; database.ts<br>
+&nbsp; dist/<br>
+&nbsp; node_modules/<br>
+&nbsp; package.json<br>
+&nbsp; tsconfig.json
+  </div>
+</div>
+
+<hr>
+<div id="midcontentadcontainer" style="overflow:auto;text-align:center">
+<!-- MidContent -->
+<!-- <p class="adtext">Advertisement</p> -->
+</div><hr>
+<h2>Basic TypeScript Server Example</h2>
+<p>This example shows a minimal Express server written in TypeScript, including a typed <code class="w3-codespan">User</code> model and a few routes.</p>
+
+<div class="w3-example">
+<h3>src/server.ts</h3>
+<div class="w3-code notranslate jsHigh">
+import express, { Request, Response, NextFunction } from 'express';<br>
+import { json } from 'body-parser';<br>
+<br>
+interface User {<br>
+&nbsp; id: number;<br>
+&nbsp; username: string;<br>
+&nbsp; email: string;<br>
+}<br>
+<br>
+// Initialize Express app<br>
+const app = express();<br>
+const PORT = process.env.PORT || 3000;<br>
+<br>
+// Middleware<br>
+app.use(json());<br>
+<br>
+// In-memory database<br>
+const users: User[] = [<br>
+&nbsp; { id: 1, username: 'user1', email: 'user1@example.com' },<br>
+&nbsp; { id: 2, username: 'user2', email: 'user2@example.com' }<br>
+];<br>
+<br>
+// Routes<br>
+app.get('/api/users', (req: Request, res: Response) =&gt; {<br>
+&nbsp; res.json(users);<br>
+});<br>
+<br>
+app.get('/api/users/:id', (req: Request, res: Response) =&gt; {<br>
+&nbsp; const user = users.find(u =&gt; u.id === parseInt(req.params.id));<br>
+&nbsp; if (!user) return res.status(404).json({ message: 'User not found' });<br>
+&nbsp; res.json(user);<br>
+});<br>
+<br>
+app.post('/api/users', (req: Request, res: Response) =&gt; {<br>
+&nbsp; const { username, email } = req.body;<br>
+&nbsp; <br>
+&nbsp; if (!username || !email) {<br>
+&nbsp; &nbsp; return res.status(400).json({ message: 'Username and email are required' });<br>
+&nbsp; }<br>
+&nbsp; <br>
+&nbsp; const newUser: User = {<br>
+&nbsp; &nbsp; id: users.length + 1,<br>
+&nbsp; &nbsp; username,<br>
+&nbsp; &nbsp; email<br>
+&nbsp; };<br>
+&nbsp; <br>
+&nbsp; users.push(newUser);<br>
+&nbsp; res.status(201).json(newUser);<br>
+});<br>
+<br>
+// Error handling middleware<br>
+app.use((err: Error, req: Request, res: Response, next: NextFunction) =&gt; {<br>
+&nbsp; console.error(err.stack);<br>
+&nbsp; res.status(500).json({ message: 'Something went wrong!' });<br>
+});<br>
+<br>
+// Start server<br>
+app.listen(PORT, () =&gt; {<br>
+&nbsp; console.log(`Server is running on http://localhost:${PORT}`);<br>
+});
+</div>
+</div>
+
+<div class="w3-panel ws-info">
+  <p><strong>What TypeScript adds here:</strong></p>
+  <ul>
+    <li>Typed <code class="w3-codespan">Request</code>, <code class="w3-codespan">Response</code>, and <code class="w3-codespan">NextFunction</code> for Express handlers.</li>
+    <li>A <code class="w3-codespan">User</code> interface to guarantee the shape of user data.</li>
+    <li>Safer refactoring and better autocompletion with typed route params and bodies.</li>
+  </ul>
+</div>
+<hr>
+<h2>Using TypeScript with Express Middleware</h2>
+<p>Middleware can be strongly typed.</p>
+<p>You can also extend Express types via declaration merging to store authenticated user data on the request.</p>
+
+<div class="w3-example">
+<h3>src/middleware/auth.ts</h3>
+<div class="w3-code notranslate jsHigh">
+import { Request, Response, NextFunction } from 'express';<br>
+<br>
+// Extend the Express Request type to include custom properties<br>
+declare global {<br>
+&nbsp; namespace Express {<br>
+&nbsp; &nbsp; interface Request {<br>
+&nbsp; &nbsp; &nbsp; user?: { id: number; role: string };<br>
+&nbsp; &nbsp; }<br>
+&nbsp; }<br>
+}<br>
+<br>
+export const authenticate = (req: Request, res: Response, next: NextFunction) =&gt; {<br>
+&nbsp; const token = req.header('Authorization')?.replace('Bearer ', '');<br>
+&nbsp; <br>
+&nbsp; if (!token) {<br>
+&nbsp; &nbsp; return res.status(401).json({ message: 'No token provided' });<br>
+&nbsp; }<br>
+&nbsp; <br>
+&nbsp; try {<br>
+&nbsp; &nbsp; // In a real app, verify the JWT token here<br>
+&nbsp; &nbsp; const decoded = { id: 1, role: 'admin' }; // Mock decoded token<br>
+&nbsp; &nbsp; req.user = decoded;<br>
+&nbsp; &nbsp; next();<br>
+&nbsp; } catch (error) {<br>
+&nbsp; &nbsp; res.status(401).json({ message: 'Invalid token' });<br>
+&nbsp; }<br>
+};<br>
+<br>
+export const authorize = (roles: string[]) =&gt; {<br>
+&nbsp; return (req: Request, res: Response, next: NextFunction) =&gt; {<br>
+&nbsp; &nbsp; if (!req.user) {<br>
+&nbsp; &nbsp; &nbsp; return res.status(401).json({ message: 'Not authenticated' });<br>
+&nbsp; &nbsp; }<br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; if (!roles.includes(req.user.role)) {<br>
+&nbsp; &nbsp; &nbsp; return res.status(403).json({ message: 'Not authorized' });<br>
+&nbsp; &nbsp; }<br>
+&nbsp; &nbsp; <br>
+&nbsp; &nbsp; next();<br>
+&nbsp; };<br>
+};
+</div>
+</div>
+
+<div class="w3-example">
+  <h3>Use the middleware in routes</h3>
+  <div class="w3-code notranslate jsHigh">
+// src/server.ts<br>
+import { authenticate, authorize } from './middleware/auth';<br>
+<br>
+app.get('/api/admin', authenticate, authorize(['admin']), (req, res) =&gt; {<br>
+&nbsp; res.json({ message: `Hello admin ${req.user?.id}` });<br>
+});
+  </div>
+</div>
+<hr>
+<h2>TypeScript with Database (TypeORM Example)</h2>
+<p>You can use ORMs like TypeORM with TypeScript decorators to map classes to tables.</p>
+
+<div class="w3-panel ws-info">
+  <p><strong>Before you start:</strong></p>
+  <ul>
+    <li>Install packages: <code class="w3-codespan">npm install typeorm reflect-metadata pg</code> (use <code class="w3-codespan">pg</code> for PostgreSQL).</li>
+    <li>Enable in <code class="w3-codespan">tsconfig.json</code> when using decorators:<br>
+      <span class="w3-code notranslate jsHigh" style="display:block;">{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  }
+}</span>
+    </li>
+    <li>Import <code class="w3-codespan">reflect-metadata</code> once at app startup.</li>
+  </ul>
+</div>
+
+<div class="w3-example">
+<h3>src/entity/User.ts</h3>
+<div class="w3-code notranslate jsHigh">
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from 'typeorm';<br>
+<br>
+@Entity('users')<br>
+export class User {<br>
+&nbsp; @PrimaryGeneratedColumn()<br>
+&nbsp; id: number;<br>
+<br>
+&nbsp; @Column({ unique: true })<br>
+&nbsp; username: string;<br>
+<br>
+&nbsp; @Column({ unique: true })<br>
+&nbsp; email: string;<br>
+<br>
+&nbsp; @Column({ select: false })<br>
+&nbsp; password: string;<br>
+<br>
+&nbsp; @Column({ default: 'user' })<br>
+&nbsp; role: string;<br>
+<br>
+&nbsp; @CreateDateColumn()<br>
+&nbsp; createdAt: Date;<br>
+<br>
+&nbsp; @UpdateDateColumn()<br>
+&nbsp; updatedAt: Date;<br>
+}
+</div>
+</div>
+
+<div class="w3-example">
+<h3>src/config/database.ts</h3>
+<div class="w3-code notranslate jsHigh">
+import 'reflect-metadata';<br>
+import { DataSource } from 'typeorm';<br>
+import { User } from '../entity/User';<br>
+<br>
+export const AppDataSource = new DataSource({<br>
+&nbsp; type: 'postgres',<br>
+&nbsp; host: process.env.DB_HOST || 'localhost',<br>
+&nbsp; port: parseInt(process.env.DB_PORT || '5432'),<br>
+&nbsp; username: process.env.DB_USERNAME || 'postgres',<br>
+&nbsp; password: process.env.DB_PASSWORD || 'postgres',<br>
+&nbsp; database: process.env.DB_NAME || 'mydb',<br>
+&nbsp; synchronize: process.env.NODE_ENV !== 'production',<br>
+&nbsp; logging: false,<br>
+&nbsp; entities: [User],<br>
+&nbsp; migrations: [],<br>
+&nbsp; subscribers: [],<br>
+});
+</div>
+</div>
+
+<div class="w3-example">
+  <h3>Initialize the Data Source before starting the server</h3>
+  <div class="w3-code notranslate jsHigh">
+// src/server.ts<br>
+import { AppDataSource } from './config/database';<br>
+<br>
+AppDataSource.initialize()<br>
+&nbsp;&nbsp;.then(() =&gt; {<br>
+&nbsp;&nbsp;&nbsp;app.listen(PORT, () =&gt; console.log(`Server running on http://localhost:${PORT}`));<br>
+&nbsp;&nbsp;})<br>
+&nbsp;&nbsp;.catch((err) =&gt; {<br>
+&nbsp;&nbsp;&nbsp;console.error('DB init error', err);<br>
+&nbsp;&nbsp;&nbsp;process.exit(1);<br>
+&nbsp;&nbsp;});
+  </div>
+</div>
+<hr>
+<h2>Development Workflow</h2>
+
+<h3>1. Add scripts to package.json</h3>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+{<br>
+&nbsp; "scripts": {<br>
+&nbsp; &nbsp; "build": "tsc",<br>
+&nbsp; &nbsp; "start": "node dist/server.js",<br>
+&nbsp; &nbsp; "dev": "nodemon --exec ts-node src/server.ts",<br>
+&nbsp; &nbsp; "watch": "tsc -w",<br>
+&nbsp; &nbsp; "test": "jest --config jest.config.js"<br>
+&nbsp; }<br>
+}
+</div>
+</div>
+
+<div class="w3-panel ws-note">
+  <p><strong>Note:</strong> The <code class="w3-codespan">test</code> script is optional and assumes Jest is set up.</p>
+<p>If you are not using Jest, you can omit it.</p>
+</div>
+
+<h3>2. Run in development mode</h3>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate">
+npm run dev
+</div>
+</div>
+
+<h3>3. Build for production</h3>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate">
+npm run build<br>
+npm start
+</div>
+</div>
+
+<h3>Debugging with Source Maps</h3>
+<p>With <code class="w3-codespan">sourceMap</code> enabled in <code class="w3-codespan">tsconfig.json</code>, you can debug compiled code and map back to your <code class="w3-codespan">.ts</code> files.</p>
+<div class="w3-example">
+  <div class="w3-code notranslate">
+node --enable-source-maps dist/server.js
+  </div>
+</div>
+
+<div class="w3-panel ws-info">
+  <p><strong>Tip:</strong> Most IDEs (including VS Code) support TypeScript debugging with breakpoints when source maps are enabled.</p>
+</div>
+<hr>
+<h2>Best Practices</h2>
+
+<ul>
+  <li>Always define types for function parameters and return values</li>
+  <li>Use interfaces for object shapes</li>
+  <li>Enable strict mode in tsconfig.json</li>
+  <li>Use type guards for runtime type checking</li>
+  <li>Leverage TypeScript's utility types (Partial, Pick, Omit, etc.)</li>
+  <li>Keep your type definitions in .d.ts files</li>
+  <li>Use enums or const assertions for fixed sets of values</li>
+  <li>Document complex types with JSDoc comments</li>
+  <li>Prefer environment variables for secrets and config; validate them at startup.</li>
+  <li>Use <code class="w3-codespan">ts-node</code>/<code class="w3-codespan">nodemon</code> only in dev; compile for prod.</li>
+  <li>Consider ESLint + Prettier with <code class="w3-codespan">@typescript-eslint</code> for consistent code quality.</li>
+</ul>
+<hr>
+<div id="exercisecontainer" src="xrcise_nodejs.js" data-extensions="php"></div>
+<hr>
+<br>
+
+<div id="user-profile-bottom-wrapper" class="user-profile-bottom-wrapper">
+  <div class="user-authenticated w3-hide">
+    <a href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fmy-learning.w3schools.com" class="user-profile-btn user-profile-bottom-btn ga-bottom ga-bottom-profile" title="Your W3Schools Profile" aria-label="Your W3Schools Profile" target="_top">
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 2048 2048" class="user-profile-icon" aria-label="Your W3Schools Profile Icon">
+        <path d="M 843.500 1148.155 C 837.450 1148.515, 823.050 1149.334, 811.500 1149.975 C 742.799 1153.788, 704.251 1162.996, 635.391 1192.044 C 517.544 1241.756, 398.992 1352.262, 337.200 1470 C 251.831 1632.658, 253.457 1816.879, 340.500 1843.982 C 351.574 1847.431, 1696.426 1847.431, 1707.500 1843.982 C 1794.543 1816.879, 1796.169 1632.658, 1710.800 1470 C 1649.008 1352.262, 1530.456 1241.756, 1412.609 1192.044 C 1344.588 1163.350, 1305.224 1153.854, 1238.500 1150.039 C 1190.330 1147.286, 1196.307 1147.328, 1097 1149.035 C 1039.984 1150.015, 1010.205 1150.008, 950 1149.003 C 851.731 1147.362, 856.213 1147.398, 843.500 1148.155" stroke="none" fill="#2a93fb" fill-rule="evenodd"></path>
+        <path d="M 1008 194.584 C 1006.075 194.809, 999.325 195.476, 993 196.064 C 927.768 202.134, 845.423 233.043, 786 273.762 C 691.987 338.184, 622.881 442.165, 601.082 552 C 588.496 615.414, 592.917 705.245, 611.329 760.230 C 643.220 855.469, 694.977 930.136, 763.195 979.321 C 810.333 1013.308, 839.747 1026.645, 913.697 1047.562 C 1010.275 1074.879, 1108.934 1065.290, 1221 1017.694 C 1259.787 1001.221, 1307.818 965.858, 1339.852 930.191 C 1460.375 795.998, 1488.781 609.032, 1412.581 451.500 C 1350.098 322.327, 1240.457 235.724, 1097.500 202.624 C 1072.356 196.802, 1025.206 192.566, 1008 194.584" stroke="none" fill="#0aaa8a" fill-rule="evenodd"></path>
+      </svg>
+
+      <svg xmlns="http://www.w3.org/2000/svg" class="user-progress" aria-label="Your W3Schools Profile Progress">
+        <path class="user-progress-circle1" fill="none" d="M 25.99650934151373 15.00000030461742 A 20 20 0 1 0 26 15"></path>
+        <path class="user-progress-circle2" fill="none" d="M 26 15 A 20 20 0 0 0 26 15"></path>
+      </svg>
+
+      <span class="user-progress-star">★</span>
+
+      <span class="user-progress-point">+1</span>
+    </a>
+  </div>
+
+  <div class="w3s-pathfinder -teaser user-anonymous w3-hide">
+  <div class="track-progress-btn-wrapper">
+    <a href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fpathfinder.w3schools.com" class="-login-btn w3-button ga-bottom ga-bottom-login track-progress-btn" title="Sign in to track your progress" aria-label="Sign in to track your progress" target="_blank">
+    Sign in to track progress
+  </a>
+    
+  </div>
+</div>
+
+<style>
+.w3s-pathfinder.-teaser {
+  background-color: transparent!important;
+}
+.track-progress-btn-wrapper {
+  display: flex;
+  justify-content: center;
+}
+a.track-progress-btn {
+  position: absolute;
+  padding: 8px 20px;
+  border: 1px solid #ddd;
+  top:-65px;
+  background-color: #fff;
+  color: #333;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+}
+@media screen and (max-width: 600px) {
+  a.track-progress-btn {
+    top: 6px;
+    width: 100%;
+  }
+}
+</style>
+
+</div>
+

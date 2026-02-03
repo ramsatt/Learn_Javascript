@@ -1,0 +1,288 @@
+
+      <div id="mainLeaderboard" style="overflow:hidden;">
+        <!-- MainLeaderboard-->
+      </div>
+    
+<h1>Kotlin <span class="color_h1">Data Types</span></h1>
+
+
+<hr>
+
+<h2>Kotlin Data Types</h2>
+<p>In Kotlin, the <em>type</em> of a variable is decided by its value:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-kotlin notranslate w3-white"><code>val myNum = 5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Int
+val myDoubleNum = 5.99&nbsp;&nbsp;&nbsp;&nbsp;// Double
+val myLetter = 'D' &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;// Char
+val myBoolean = true&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Boolean
+val myText = "Hello" &nbsp;&nbsp;&nbsp;&nbsp; // String</code></pre>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="#/tutorial/trykotlin1575.html?filename=demo_data_types">Try it Yourself »</a>
+</div>
+<p>However, you learned from the previous chapter that it is possible to specify the type if you want:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-kotlin notranslate w3-white"><code>val myNum: Int = 5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; // Int
+val myDoubleNum: Double = 5.99&nbsp;&nbsp;&nbsp;&nbsp;// Double
+val myLetter: Char = 'D' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;// Char
+val myBoolean: Boolean = true&nbsp; &nbsp;&nbsp; // Boolean
+val myText: String = "Hello" &nbsp;&nbsp;&nbsp;&nbsp; // String</code></pre>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="#/tutorial/trykotlin1e9e.html?filename=demo_data_types2">Try it Yourself »</a>
+</div>
+
+<p>Sometimes you have to specify the type, and often you don't. Anyhow, it is 
+good to know what the different types represent.
+</p><p>You will learn more about <strong>when you need </strong>to specify the type later.</p>
+
+<p>Data types are divided into different groups:</p>
+
+<ul>
+ <li>Numbers</li>
+  <li>Characters</li>
+  <li>Booleans</li>
+  <li>Strings</li>
+  <li>Arrays</li>
+</ul>
+
+<hr>
+
+<h2>Numbers</h2>
+<p>Number types are divided into two groups:</p>
+<p><strong>Integer types</strong> store whole numbers, positive or negative (such as 123 or -456), without decimals. 
+Valid types are <code class="w3-codespan">Byte</code>, <code class="w3-codespan">
+Short</code>, <code class="w3-codespan">Int</code> 
+and <code class="w3-codespan">Long</code>.</p>
+<p><strong>Floating point types</strong> represent numbers with a fractional part, 
+containing one or more decimals. There are two types: <code class="w3-codespan">
+Float</code> and <code class="w3-codespan">Double</code>.</p>
+<div class="ws-note w3-panel">
+<p>If you don't specify the type for a numeric variable, it is most often 
+returned as <code class="w3-codespan">Int</code> for whole numbers and <code class="w3-codespan">Double</code> for floating point numbers.</p>
+</div>
+<hr>
+<h2>Integer Types</h2>
+
+<h3>Byte</h3>
+<p>The <code class="w3-codespan">Byte</code> data type can store whole numbers 
+from -128 to 127. This can be used instead of <code class="w3-codespan">Int</code> or other integer types to 
+save memory when you are certain that the value will be within -128 and 127:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-kotlin notranslate w3-white"><code>val myNum: Byte = 100
+println(myNum)</code></pre>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="#/tutorial/trykotlinf6fd.html?filename=demo_type_byte">Try it Yourself »</a>
+</div>
+
+<h3>Short</h3>
+<p>The <code class="w3-codespan">Short</code> data type can store whole numbers from -32768 to 32767:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-kotlin notranslate w3-white"><code>val myNum: Short = 5000
+println(myNum)</code></pre>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="#/tutorial/trykotlin5992.html?filename=demo_type_short">Try it Yourself »</a>
+</div>
+
+<h3>Int</h3>
+<p>The <code class="w3-codespan">Int</code> data type can store whole numbers 
+from -2147483648 to 2147483647:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-kotlin notranslate w3-white"><code>val myNum: Int = 100000
+println(myNum)</code></pre>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="#/tutorial/trykotline374.html?filename=demo_type_int">Try it Yourself »</a>
+</div>
+
+<h3>Long</h3>
+<p>The <code class="w3-codespan">Long</code> data type can store whole numbers from -9223372036854775808 to 9223372036854775807. This is used when 
+<code class="w3-codespan">Int</code> is not large enough to store the value. 
+Optionally, you can end the value with an "L":</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-kotlin notranslate w3-white"><code>val myNum: Long = 15000000000L
+println(myNum)</code></pre>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="#/tutorial/trykotlin6072.html?filename=demo_type_long">Try it Yourself »</a>
+</div>
+<hr>
+
+<h2>Difference Between Int and Long</h2>
+<p>A whole number is an <code class="w3-codespan">Int</code> as long as it is up to 2147483647. If it goes beyond 
+that, it is defined as <code class="w3-codespan">Long</code>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-kotlin notranslate w3-white"><code>val myNum1 = 2147483647&nbsp; // Int
+val myNum2 = 2147483648&nbsp; // Long</code></pre>
+</div>
+<hr>
+<div id="midcontentadcontainer" style="overflow:auto;text-align:center">
+<!-- MidContent -->
+<!-- <p class="adtext">Advertisement</p> -->
+</div><hr>
+<h2>Floating Point Types</h2>
+<p>Floating point types represent numbers with a decimal, such as 9.99 or 3.14515.</p>
+<p>The <code class="w3-codespan">Float</code> and <code class="w3-codespan">Double</code> data types can store fractional numbers:</p>
+<div class="w3-example">
+<h3>Float Example</h3>
+<pre class="language-kotlin notranslate w3-white"><code>val myNum: Float = 5.75F
+println(myNum)</code></pre>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="#/tutorial/trykotlin0f78.html?filename=demo_type_float">Try it Yourself »</a>
+</div>
+
+<div class="w3-example">
+<h3>Double Example</h3>
+<pre class="language-kotlin notranslate w3-white"><code>val myNum: Double = 19.99
+println(myNum)</code></pre>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="#/tutorial/trykotlin53c0.html?filename=demo_type_double">Try it Yourself »</a>
+</div>
+
+<div class="ws-note w3-panel">
+<p>Use <code class="w3-codespan">Float</code> or <code class="w3-codespan">Double</code>?</p>
+<p>The <strong>precision</strong> of a floating point value indicates how many digits the value can have 
+after the decimal point.
+The precision of <code class="w3-codespan">Float</code> is only six or seven 
+decimal digits, while <code class="w3-codespan">Double</code> variables have a precision 
+of about 15 digits. Therefore it is safer to use <code class="w3-codespan">Double</code> for most calculations.</p>
+<p>Also note that you should end the value of a <code class="w3-codespan">Float</code> type with an "F".</p>
+</div>
+
+<h3>Scientific Numbers</h3>
+<p>A floating point number can also be a scientific number with an "e" or "E" to indicate the power of 10:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-kotlin notranslate w3-white"><code>val myNum1: Float = 35E3F
+val myNum2: Double = 12E4
+println(myNum1)
+println(myNum2)</code></pre>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="#/tutorial/trykotlinf51e.html?filename=demo_type_scientific">Try it Yourself »</a>
+</div>
+<hr>
+
+<h2>Booleans</h2>
+<p>The <code class="w3-codespan">Boolean</code> data type can only take the values <code class="w3-codespan">true</code> or <code class="w3-codespan">false</code>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-kotlin notranslate w3-white"><code>val isKotlinFun: Boolean = true
+val isFishTasty: Boolean = false
+println(isKotlinFun)&nbsp;&nbsp;&nbsp;// Outputs true
+println(isFishTasty)&nbsp;&nbsp; // Outputs false </code></pre>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="#/tutorial/trykotlin0a00.html?filename=demo_booleans">Try it Yourself »</a>
+</div>
+<p>Boolean values are mostly used for conditional testing, which you will learn more about in a later chapter.</p>
+<hr>
+
+<h2>Characters</h2>
+<p>The <code class="w3-codespan">Char</code> data type is used to store a 
+<strong>single</strong> character. A char value must be 
+surrounded by <strong>single</strong> quotes, like 'A' or 'c':</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-kotlin notranslate w3-white"><code>val myGrade: Char = 'B'
+println(myGrade)</code></pre>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="#/tutorial/trykotlin88ae.html?filename=demo_type_char">Try it Yourself »</a>
+</div>
+<p>Unlike Java, you cannot use ASCII values to display certain characters. The 
+value 66 would output a "B" in Java, but will generate an error in Kotlin:</p>
+
+<div class="w3-example w3-pale-red">
+<h3>Example</h3>
+<pre class="language-kotlin notranslate w3-white w3-border-red"><code>val myLetter: Char = 66
+println(myLetter) // Error</code></pre>
+</div>
+<hr>
+
+<h2>Strings</h2>
+<p>The <code class="w3-codespan">String</code> data type is used to store a sequence of characters (text). String values must be surrounded by 
+<strong>double</strong> quotes:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-kotlin notranslate w3-white"><code>val myText: String = "Hello World"
+println(myText)</code></pre>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="#/tutorial/trykotlin0595.html?filename=demo_type_string">Try it Yourself »</a>
+</div>
+<p>You will learn more about strings in <a href="#/tutorial/kotlin_strings.html">the Strings chapter</a>.</p>
+<hr>
+
+<h2>Arrays</h2>
+<p>Arrays are used to store multiple values in a single variable, instead of declaring separate variables for each value.</p>
+<p>You will learn more about arrays in <a href="#/tutorial/kotlin_arrays.html">the Arrays chapter</a>.</p>
+<hr>
+
+<h2>Type Conversion</h2>
+<p>Type conversion is when you convert the value of one data type to another type.</p>
+<p>In Kotlin, numeric type conversion is different from <a href="#/tutorial/../java/default.html">Java</a>. For example, it is not possible to convert an <code class="w3-codespan">Int</code> type to a <code class="w3-codespan">Long</code> type with the following code:</p>
+<div class="w3-example w3-pale-red">
+<h3>Example</h3>
+<pre class="language-kotlin notranslate w3-white w3-border-red"><code>val x: Int = 5
+val y: Long = x
+println(y) // Error: Type mismatch </code></pre>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="#/tutorial/trykotlin7698.html?filename=demo_type_conv">Try it Yourself »</a>
+</div>
+<p>To convert a numeric data type to another type, you must use one of the following functions: <code class="w3-codespan">toByte()</code>, <code class="w3-codespan">toShort()</code>, <code class="w3-codespan">toInt()</code>, <code class="w3-codespan">toLong()</code>, <code class="w3-codespan">toFloat()</code>, <code class="w3-codespan">toDouble()</code> or <code class="w3-codespan">toChar()</code>:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-kotlin notranslate w3-white"><code>val x: Int = 5
+val y: Long = x.toLong()
+println(y)</code></pre>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="#/tutorial/trykotlin2af5.html?filename=demo_type_conv2">Try it Yourself »</a>
+</div>
+<hr>
+
+<br>
+
+
+<div id="user-profile-bottom-wrapper" class="user-profile-bottom-wrapper">
+  <div class="user-authenticated w3-hide">
+    <a href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fmy-learning.w3schools.com" class="user-profile-btn user-profile-bottom-btn ga-bottom ga-bottom-profile" title="Your W3Schools Profile" aria-label="Your W3Schools Profile" target="_top">
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 2048 2048" class="user-profile-icon" aria-label="Your W3Schools Profile Icon">
+        <path d="M 843.500 1148.155 C 837.450 1148.515, 823.050 1149.334, 811.500 1149.975 C 742.799 1153.788, 704.251 1162.996, 635.391 1192.044 C 517.544 1241.756, 398.992 1352.262, 337.200 1470 C 251.831 1632.658, 253.457 1816.879, 340.500 1843.982 C 351.574 1847.431, 1696.426 1847.431, 1707.500 1843.982 C 1794.543 1816.879, 1796.169 1632.658, 1710.800 1470 C 1649.008 1352.262, 1530.456 1241.756, 1412.609 1192.044 C 1344.588 1163.350, 1305.224 1153.854, 1238.500 1150.039 C 1190.330 1147.286, 1196.307 1147.328, 1097 1149.035 C 1039.984 1150.015, 1010.205 1150.008, 950 1149.003 C 851.731 1147.362, 856.213 1147.398, 843.500 1148.155" stroke="none" fill="#2a93fb" fill-rule="evenodd"></path>
+        <path d="M 1008 194.584 C 1006.075 194.809, 999.325 195.476, 993 196.064 C 927.768 202.134, 845.423 233.043, 786 273.762 C 691.987 338.184, 622.881 442.165, 601.082 552 C 588.496 615.414, 592.917 705.245, 611.329 760.230 C 643.220 855.469, 694.977 930.136, 763.195 979.321 C 810.333 1013.308, 839.747 1026.645, 913.697 1047.562 C 1010.275 1074.879, 1108.934 1065.290, 1221 1017.694 C 1259.787 1001.221, 1307.818 965.858, 1339.852 930.191 C 1460.375 795.998, 1488.781 609.032, 1412.581 451.500 C 1350.098 322.327, 1240.457 235.724, 1097.500 202.624 C 1072.356 196.802, 1025.206 192.566, 1008 194.584" stroke="none" fill="#0aaa8a" fill-rule="evenodd"></path>
+      </svg>
+
+      <svg xmlns="http://www.w3.org/2000/svg" class="user-progress" aria-label="Your W3Schools Profile Progress">
+        <path class="user-progress-circle1" fill="none" d="M 25.99650934151373 15.00000030461742 A 20 20 0 1 0 26 15"></path>
+        <path class="user-progress-circle2" fill="none" d="M 26 15 A 20 20 0 0 0 26 15"></path>
+      </svg>
+
+      <span class="user-progress-star">★</span>
+
+      <span class="user-progress-point">+1</span>
+    </a>
+  </div>
+
+  <div class="w3s-pathfinder -teaser user-anonymous w3-hide">
+  <div class="track-progress-btn-wrapper">
+    <a href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fpathfinder.w3schools.com" class="-login-btn w3-button ga-bottom ga-bottom-login track-progress-btn" title="Sign in to track your progress" aria-label="Sign in to track your progress" target="_blank">
+    Sign in to track progress
+  </a>
+    
+  </div>
+</div>
+
+<style>
+.w3s-pathfinder.-teaser {
+  background-color: transparent!important;
+}
+.track-progress-btn-wrapper {
+  display: flex;
+  justify-content: center;
+}
+a.track-progress-btn {
+  position: absolute;
+  padding: 8px 20px;
+  border: 1px solid #ddd;
+  top:-65px;
+  background-color: #fff;
+  color: #333;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+}
+@media screen and (max-width: 600px) {
+  a.track-progress-btn {
+    top: 6px;
+    width: 100%;
+  }
+}
+</style>
+
+</div>
+

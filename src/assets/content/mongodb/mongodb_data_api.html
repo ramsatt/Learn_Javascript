@@ -1,0 +1,360 @@
+
+      <div id="mainLeaderboard" style="overflow:hidden;">
+        <!-- MainLeaderboard-->
+      </div>
+    
+<h1>MongoDB Data API</h1>
+
+
+<hr>
+
+<h2>MongoDB Data API</h2>
+
+<p>The <a href="https://www.mongodb.com/docs/atlas/api/data-api?utm_campaign=w3schools_mdb&amp;utm_source=w3schools&amp;utm_medium=referral" target="_blank">MongoDB Data API</a> can be used to query and update data in a MongoDB database without the need for language specific drivers.</p>
+
+<div class="w3-panel ws-note">
+<p>Language drivers should be used when possible,
+but the MongoDB Data API comes in handy when drivers are not available or drivers are overkill for the application.
+</p>
+</div>
+
+<hr>
+
+<h2>Read &amp; Write with the MongoDB Data API</h2>
+
+<p>The MongoDB Data API is a pre-configured set of HTTPS endpoints that can be used to read and write data to a MongoDB Atlas database.</p>
+
+<p>With the MongoDB Data API, you can create, read, update, delete, or aggregate documents in a MongoDB Atlas database.</p>
+
+<hr>
+
+<h2>Cluster Configuration</h2>
+
+<p>In order to use the Data API, you must first enable the functionality from the Atlas UI.</p>
+
+<p>From the MongoDB Atlas dashboard, navigate to <strong>Data API</strong> in the left menu.</p>
+
+<p>Select the data source(s) you would like to enable the API on and click <strong>Enable the Data API</strong>.</p>
+
+<hr>
+
+<h2>Access Level</h2>
+
+<p>By default, no access is granted. Select the access level you'd like to grant the Data API. The choices are: No Access, Read Only, Read and Write, or Custom Access.</p>
+
+<hr>
+
+<h2>Data API Key</h2>
+
+<p>In order to authenticate with the Data API, you must first create a Data API key.</p>
+
+<p>Click <strong>Create API Key</strong>, enter a name for the key, then click <strong>Generate API Key</strong>.</p>
+
+<p>Be sure to copy the API key and save it somewhere safe. <em>You will not get another chance to see this key again.</em></p>
+
+<hr>
+
+<h2>Sending a Data API Request</h2>
+
+<p>We can now use the Data API to send a request to the database.</p>
+
+<p>In the next example, we'll use curl to find the first document in the 
+<code class="w3-codespan">movies</code> collection of our <code class="w3-codespan">sample_mflix</code> database.
+We loaded this sample data in the
+<a href="#/tutorial/mongodb_aggregations_intro.html">Intro to Aggregations</a> section.</p>
+
+<p>To run this example, you'll need your App Id, API Key, and Cluster name. </p>
+
+<p>You can find your App Id in the <strong>URL Endpoint</strong> field of the Data API page in the MongoDB Atlas UI.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-jsx notranslate w3-white"><code>curl --location --request POST 'https://data.mongodb-api.com/app/&lt;DATA API APP ID&gt;/endpoint/data/v1/action/findOne' \
+--header 'Content-Type: application/json' \
+--header 'Access-Control-Request-Headers: *' \
+--header 'api-key: &lt;DATA API KEY&gt;' \
+--data-raw '{
+    "dataSource":"&lt;CLUSTER NAME&gt;",
+    "database":"sample_mflix",
+    "collection":"movies",
+    "projection": {"title": 1}
+}'
+</code></pre>
+<a class="w3-btn w3-margin-bottom" href="#/tutorial/showmongodb228d.html?filename=demo_data_api" target="_blank">Try it Yourself »</a>
+</div>
+
+<hr>
+
+<h2>Data API Endpoints</h2>
+
+<p>In the previous example, we used the <code class="w3-codespan">findOne</code> endpoint in our URL.</p>
+
+<p>There are several endpoints available for use with the Data API.</p>
+
+<p>All endpoints start with the Base URL:
+<code class="w3-codespan">https://data.mongodb-api.com/app/&lt;Data API App ID&gt;/endpoint/data/v1/action/</code></p>
+
+<hr>
+
+<h2>Find a Single Document</h2>
+
+<h3>Endpoint</h3>
+
+<code class="w3-codespan">POST Base_URL/findOne</code>
+
+<p>The <code class="w3-codespan">findOne</code> endpoint is used to find a single document in a collection.</p>
+
+<h3>Request Body</h3>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-json notranslate w3-white"><code>{
+  "dataSource": "&lt;data source name&gt;",
+  "database": "&lt;database name&gt;",
+  "collection": "&lt;collection name&gt;",
+  "filter": &lt;query filter&gt;,
+  "projection": &lt;projection&gt;
+}
+</code></pre>
+</div>
+
+<hr>
+<h2>Find Multiple Documents</h2>
+
+<h3>Endpoint</h3>
+
+<code class="w3-codespan">POST Base_URL/find</code>
+
+<p>The <code class="w3-codespan">find</code> endpoint is used to find multiple documents in a collection.</p>
+
+<h3>Request Body</h3>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-json notranslate w3-white"><code>{
+  "dataSource": "&lt;data source name&gt;",
+  "database": "&lt;database name&gt;",
+  "collection": "&lt;collection name&gt;",
+  "filter": &lt;query filter&gt;,
+  "projection": &lt;projection&gt;,
+  "sort": &lt;sort expression&gt;,
+  "limit": &lt;number&gt;,
+  "skip": &lt;number&gt;
+}
+</code></pre>
+</div>
+
+<h2>Insert a Single Document</h2>
+
+<h3>Endpoint</h3>
+
+<code class="w3-codespan">POST Base_URL/insertOne</code>
+
+<p>The <code class="w3-codespan">insertOne</code> endpoint is used to insert a single document into a collection.</p>
+
+<h3>Request Body</h3>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-json notranslate w3-white"><code>{
+  "dataSource": "&lt;data source name&gt;",
+  "database": "&lt;database name&gt;",
+  "collection": "&lt;collection name&gt;",
+  "document": &lt;document&gt;
+}
+</code></pre>
+</div>
+
+<hr>
+
+<h2>Insert Multiple Documents</h2>
+
+<h3>Endpoint</h3>
+
+<code class="w3-codespan">POST Base_URL/insertMany</code>
+
+<p>The <code class="w3-codespan">insertMany</code> endpoint is used to insert multiple documents into a collection.</p>
+
+<h3>Request Body</h3>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-json notranslate w3-white"><code>{
+  "dataSource": "&lt;data source name&gt;",
+  "database": "&lt;database name&gt;",
+  "collection": "&lt;collection name&gt;",
+  "documents": [&lt;document&gt;, &lt;document&gt;, ...]
+}
+</code></pre>
+</div>
+
+<hr>
+
+<h2>Update a Single Document</h2>
+
+<h3>Endpoint</h3>
+
+<code class="w3-codespan">POST Base_URL/updateOne</code>
+
+<h3>Request Body</h3>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-json notranslate w3-white"><code>{
+  "dataSource": "&lt;data source name&gt;",
+  "database": "&lt;database name&gt;",
+  "collection": "&lt;collection name&gt;",
+  "filter": &lt;query filter&gt;,
+  "update": &lt;update expression&gt;,
+  "upsert": true|false
+}
+</code></pre>
+</div>
+
+<hr>
+
+<h2>Update Multiple Documents</h2>
+
+<h3>Endpoint</h3>
+
+<code class="w3-codespan">POST Base_URL/updateMany</code>
+
+<h3>Request Body</h3>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-json notranslate w3-white"><code>{
+  "dataSource": "&lt;data source name&gt;",
+  "database": "&lt;database name&gt;",
+  "collection": "&lt;collection name&gt;",
+  "filter": &lt;query filter&gt;,
+  "update": &lt;update expression&gt;,
+  "upsert": true|false
+}
+</code></pre>
+</div>
+
+<hr>
+
+<h2>Delete a Single Document</h2>
+
+<h3>Endpoint</h3>
+
+<code class="w3-codespan">POST Base_URL/deleteOne</code>
+
+<h3>Request Body</h3>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-json notranslate w3-white"><code>{
+  "dataSource": "&lt;data source name&gt;",
+  "database": "&lt;database name&gt;",
+  "collection": "&lt;collection name&gt;",
+  "filter": &lt;query filter&gt;
+}
+</code></pre>
+</div>
+
+<hr>
+
+<h2>Delete Multiple Documents</h2>
+
+<h3>Endpoint</h3>
+
+<code class="w3-codespan">POST Base_URL/deleteMany</code>
+
+<h3>Request Body</h3>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-json notranslate w3-white"><code>{
+  "dataSource": "&lt;data source name&gt;",
+  "database": "&lt;database name&gt;",
+  "collection": "&lt;collection name&gt;",
+  "filter": &lt;query filter&gt;
+}
+</code></pre>
+</div>
+
+<hr>
+
+<h2>Aggregate Documents</h2>
+
+<h3>Endpoint</h3>
+
+<code class="w3-codespan">POST Base_URL/aggregate</code>
+
+<h3>Request Body</h3>
+
+<div class="w3-example">
+<h3>Example</h3>
+<pre class="language-json notranslate w3-white"><code>{
+  "dataSource": "&lt;data source name&gt;",
+  "database": "&lt;database name&gt;",
+  "collection": "&lt;collection name&gt;",
+  "pipeline": [&lt;pipeline expression&gt;, ...]
+}
+</code></pre>
+</div>
+
+<hr>
+
+
+
+<div id="user-profile-bottom-wrapper" class="user-profile-bottom-wrapper">
+  <div class="user-authenticated w3-hide">
+    <a href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fmy-learning.w3schools.com" class="user-profile-btn user-profile-bottom-btn ga-bottom ga-bottom-profile" title="Your W3Schools Profile" aria-label="Your W3Schools Profile" target="_top">
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 2048 2048" class="user-profile-icon" aria-label="Your W3Schools Profile Icon">
+        <path d="M 843.500 1148.155 C 837.450 1148.515, 823.050 1149.334, 811.500 1149.975 C 742.799 1153.788, 704.251 1162.996, 635.391 1192.044 C 517.544 1241.756, 398.992 1352.262, 337.200 1470 C 251.831 1632.658, 253.457 1816.879, 340.500 1843.982 C 351.574 1847.431, 1696.426 1847.431, 1707.500 1843.982 C 1794.543 1816.879, 1796.169 1632.658, 1710.800 1470 C 1649.008 1352.262, 1530.456 1241.756, 1412.609 1192.044 C 1344.588 1163.350, 1305.224 1153.854, 1238.500 1150.039 C 1190.330 1147.286, 1196.307 1147.328, 1097 1149.035 C 1039.984 1150.015, 1010.205 1150.008, 950 1149.003 C 851.731 1147.362, 856.213 1147.398, 843.500 1148.155" stroke="none" fill="#2a93fb" fill-rule="evenodd"></path>
+        <path d="M 1008 194.584 C 1006.075 194.809, 999.325 195.476, 993 196.064 C 927.768 202.134, 845.423 233.043, 786 273.762 C 691.987 338.184, 622.881 442.165, 601.082 552 C 588.496 615.414, 592.917 705.245, 611.329 760.230 C 643.220 855.469, 694.977 930.136, 763.195 979.321 C 810.333 1013.308, 839.747 1026.645, 913.697 1047.562 C 1010.275 1074.879, 1108.934 1065.290, 1221 1017.694 C 1259.787 1001.221, 1307.818 965.858, 1339.852 930.191 C 1460.375 795.998, 1488.781 609.032, 1412.581 451.500 C 1350.098 322.327, 1240.457 235.724, 1097.500 202.624 C 1072.356 196.802, 1025.206 192.566, 1008 194.584" stroke="none" fill="#0aaa8a" fill-rule="evenodd"></path>
+      </svg>
+
+      <svg xmlns="http://www.w3.org/2000/svg" class="user-progress" aria-label="Your W3Schools Profile Progress">
+        <path class="user-progress-circle1" fill="none" d="M 25.99650934151373 15.00000030461742 A 20 20 0 1 0 26 15"></path>
+        <path class="user-progress-circle2" fill="none" d="M 26 15 A 20 20 0 0 0 26 15"></path>
+      </svg>
+
+      <span class="user-progress-star">★</span>
+
+      <span class="user-progress-point">+1</span>
+    </a>
+  </div>
+
+  <div class="w3s-pathfinder -teaser user-anonymous w3-hide">
+  <div class="track-progress-btn-wrapper">
+    <a href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fpathfinder.w3schools.com" class="-login-btn w3-button ga-bottom ga-bottom-login track-progress-btn" title="Sign in to track your progress" aria-label="Sign in to track your progress" target="_blank">
+    Sign in to track progress
+  </a>
+    
+  </div>
+</div>
+
+<style>
+.w3s-pathfinder.-teaser {
+  background-color: transparent!important;
+}
+.track-progress-btn-wrapper {
+  display: flex;
+  justify-content: center;
+}
+a.track-progress-btn {
+  position: absolute;
+  padding: 8px 20px;
+  border: 1px solid #ddd;
+  top:-65px;
+  background-color: #fff;
+  color: #333;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+}
+@media screen and (max-width: 600px) {
+  a.track-progress-btn {
+    top: 6px;
+    width: 100%;
+  }
+}
+</style>
+
+</div>
+

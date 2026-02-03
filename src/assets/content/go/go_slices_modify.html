@@ -1,0 +1,245 @@
+
+      <div id="mainLeaderboard" style="overflow:hidden;">
+        <!-- MainLeaderboard-->
+      </div>
+    
+<h1>Go Access, Change, Append and Copy Slices</h1>
+
+<hr>
+
+<h2>Access Elements of a Slice</h2>
+<p>You can access a specific slice element by referring to the index number.</p>
+<p>In Go, indexes start at 0. That means that [0] is the first element, [1] is the second element, etc.</p>
+<div class="w3-example">
+  <h3>Example</h3>
+  <p>This example shows how to access the first and third elements in the prices slice:</p>
+  <div class="w3-code notranslate javaHigh">
+    package main<br>
+    import ("fmt")<br><br>
+    func main() {<br>
+    &nbsp;&nbsp;prices := []int{10,20,30}<br>
+    <br>
+    &nbsp;&nbsp;fmt.Println(prices[0])<br>
+    &nbsp;&nbsp;fmt.Println(prices[2])<br>
+    }
+  </div>
+  <p>Result:</p>
+  
+  <a class="w3-btn w3-margin-bottom w3-margin-top" href="#/tutorial/trygo3454.html?filename=demo_slices4" target="_blank">Try it Yourself »</a>
+</div>
+<hr>
+
+<h2>Change Elements of a Slice</h2>
+<p>You can also change a specific slice element by referring to the index number.</p>
+<div class="w3-example">
+  <h3>Example</h3>
+  <p>This example shows how to change the third element in the prices slice:</p>
+  <div class="w3-code notranslate javaHigh">
+    package main<br>
+    import ("fmt")<br><br>
+    func main() {<br>
+    &nbsp;&nbsp;prices := []int{10,20,30}<br>
+    &nbsp; prices[2] = 50<br>
+    &nbsp;&nbsp;fmt.Println(prices[0])<br>
+    &nbsp;&nbsp;fmt.Println(prices[2])<br>
+    }
+  </div>
+  <p>Result:</p>
+  
+  <a class="w3-btn w3-margin-bottom w3-margin-top" href="#/tutorial/trygo5e6e.html?filename=demo_slices4_2" target="_blank">Try it Yourself »</a>
+</div>
+<hr>
+
+<h2>Append Elements To a Slice</h2>
+<p>You can append elements to the end of a slice using the <code class="w3-codespan">append()</code>function:</p>
+<div class="w3-example">
+  <h3>Syntax</h3>
+      <div class="w3-code notranslate javaHigh">
+        <em>slice_name</em> = append(<em>slice_name</em>, <em>element1</em>, <em>element2</em>, ...)<br>
+      </div>
+</div>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <p>This example shows how to append elements to the end of a slice:</p>
+  <div class="w3-code notranslate javaHigh">
+    package main<br>
+    import ("fmt")<br><br>
+    func main() {<br>
+    &nbsp; myslice1 := []int{1, 2, 3, 4, 5, 6}<br>&nbsp; fmt.Printf("myslice1 = 
+    %v\n", myslice1)<br>&nbsp; fmt.Printf("length = %d\n", len(myslice1))<br>&nbsp; 
+    fmt.Printf("capacity = %d\n", cap(myslice1))<br><br>&nbsp; myslice1 = 
+    append(myslice1, 20, 21)<br>&nbsp; fmt.Printf("myslice1 = %v\n", myslice1)<br>&nbsp; 
+    fmt.Printf("length = %d\n", len(myslice1))<br>&nbsp; fmt.Printf("capacity = 
+    %d\n", cap(myslice1))<br>}
+  </div>
+  <p>Result:</p>
+  
+  <a class="w3-btn w3-margin-bottom w3-margin-top" href="#/tutorial/trygoda16.html?filename=demo_slices5" target="_blank">Try it Yourself »</a>
+</div>
+<hr>
+<div id="midcontentadcontainer" style="overflow:auto;text-align:center">
+<!-- MidContent -->
+<!-- <p class="adtext">Advertisement</p> -->
+</div><hr>
+<h2>Append One Slice To Another Slice</h2>
+<p>To append all the elements of one slice to another slice, use the <code class="w3-codespan">append()</code>function:</p>
+<div class="w3-example">
+  <h3>Syntax</h3>
+      <div class="w3-code notranslate javaHigh">
+        <em>slice3</em> = append(<em>slice1</em>, <em>slice2</em>...)<br>
+      </div>
+</div>
+
+<div class="w3-panel ws-note">
+  <p><strong>Note:</strong> The <strong>'...'</strong> after <em>slice2</em> is <strong>necessary</strong> 
+  when appending the elements of one slice to another.</p>
+</div>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <p>This example shows how to append one slice to another slice:</p>
+  <div class="w3-code notranslate javaHigh">
+    package main<br>
+    import ("fmt")<br><br>
+    func main() {<br>
+    &nbsp;&nbsp;myslice1 := []int{1,2,3}<br>
+    &nbsp;&nbsp;myslice2 := []int{4,5,6}<br>
+    &nbsp; myslice3 := append(myslice1, myslice2...)<br><br>&nbsp; fmt.Printf("myslice3=%v\n", 
+    myslice3)<br>&nbsp; fmt.Printf("length=%d\n", len(myslice3))<br>&nbsp; 
+    fmt.Printf("capacity=%d\n", cap(myslice3))<br>
+    }
+  </div>
+  <p>Result:</p>
+  
+  <a class="w3-btn w3-margin-bottom w3-margin-top" href="#/tutorial/trygo7a78.html?filename=demo_slices6" target="_blank">Try it Yourself »</a>
+</div>
+<hr>
+
+<h2>Change The Length of a Slice</h2>
+<p>Unlike arrays, it is possible to change the length of a slice.</p>
+<div class="w3-example">
+  <h3>Example</h3>
+  <p>This example shows how to change the length of a slice:</p>
+  <div class="w3-code notranslate javaHigh">
+    package main<br>
+    import ("fmt")<br><br>
+    func main() {<br>
+    &nbsp; arr1 := [6]int{9, 10, 11, 12, 13, 14} // An array<br>&nbsp; myslice1 
+    := arr1[1:5] // Slice array<br>&nbsp; fmt.Printf("myslice1 = %v\n", 
+    myslice1)<br>&nbsp; fmt.Printf("length = %d\n", len(myslice1))<br>&nbsp; 
+    fmt.Printf("capacity = %d\n", cap(myslice1))<br><br>&nbsp; myslice1 = 
+    arr1[1:3] // Change length by re-slicing the array<br>&nbsp; fmt.Printf("myslice1 
+    = %v\n", myslice1)<br>&nbsp; fmt.Printf("length = %d\n", len(myslice1))<br>&nbsp; 
+    fmt.Printf("capacity = %d\n", cap(myslice1))<br><br>&nbsp; myslice1 = 
+    append(myslice1, 20, 21, 22, 23) // Change length by appending items<br>&nbsp; 
+    fmt.Printf("myslice1 = %v\n", myslice1)<br>&nbsp; fmt.Printf("length = 
+    %d\n", len(myslice1))<br>&nbsp; fmt.Printf("capacity = %d\n", cap(myslice1))<br>
+    }
+  </div>
+  <p>Result:</p>
+  
+  <a class="w3-btn w3-margin-bottom w3-margin-top" href="#/tutorial/trygo3a2b.html?filename=demo_slices7" target="_blank">Try it Yourself »</a>
+</div>
+<hr>
+
+
+
+<h2>Memory Efficiency</h2>
+<p>&nbsp;When using slices, Go loads all the underlying elements 
+into the memory.</p>
+<p>If the array is large and you need only a few elements, it is better to copy those elements using the <code class="w3-codespan">copy()</code> 
+function.</p>
+<p>The <code class="w3-codespan">copy()</code> function creates a new underlying array with only the required elements for the slice. This will reduce the memory used for the program.&nbsp;</p>
+<div class="w3-example">
+  <h3>Syntax</h3>
+      <div class="w3-code notranslate javaHigh">
+        copy(<em>dest</em>, <em>src</em>)</div>
+</div>
+<p>The <code class="w3-codespan">copy()</code> function takes in two slices <em>
+dest</em> and <em>src</em>, and copies data from <em>src</em> to <em>dest</em>. 
+It returns the number of elements copied.</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <p>This example shows how to use the <code class="w3-codespan">copy()</code> function:</p>
+  <div class="w3-code notranslate javaHigh">
+    package main<br>
+    import ("fmt")<br><br>
+    func main() {<br>
+    &nbsp; numbers := []int{1,2,3,4,5,6,7,8,9,10,11,12,13,14,15}<br>&nbsp; 
+    // Original slice<br>&nbsp; fmt.Printf("numbers = %v\n", numbers)<br>&nbsp; 
+    fmt.Printf("length = %d\n", len(numbers))<br>&nbsp; fmt.Printf("capacity = 
+    %d\n", cap(numbers))<br><br>&nbsp; // Create copy with only needed numbers<br>&nbsp; 
+    neededNumbers := numbers[:len(numbers)-10]<br>&nbsp; numbersCopy := make([]int, 
+    len(neededNumbers))<br>&nbsp; copy(numbersCopy, neededNumbers) <br><br>&nbsp; 
+    fmt.Printf("numbersCopy = %v\n", numbersCopy)<br>&nbsp; fmt.Printf("length = 
+    %d\n", len(numbersCopy))<br>&nbsp; fmt.Printf("capacity = %d\n", cap(numbersCopy))<br>}
+  </div>
+  <p>Result:</p>
+  
+  <a class="w3-btn w3-margin-bottom w3-margin-top" href="#/tutorial/trygoe70b.html?filename=demo_slices8" target="_blank">Try it Yourself »</a>
+</div>
+
+<p>The capacity of the new slice is now less than the capacity of the original slice because the new underlying array is smaller.</p>
+
+<br>
+
+
+<div id="user-profile-bottom-wrapper" class="user-profile-bottom-wrapper">
+  <div class="user-authenticated w3-hide">
+    <a href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fmy-learning.w3schools.com" class="user-profile-btn user-profile-bottom-btn ga-bottom ga-bottom-profile" title="Your W3Schools Profile" aria-label="Your W3Schools Profile" target="_top">
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 2048 2048" class="user-profile-icon" aria-label="Your W3Schools Profile Icon">
+        <path d="M 843.500 1148.155 C 837.450 1148.515, 823.050 1149.334, 811.500 1149.975 C 742.799 1153.788, 704.251 1162.996, 635.391 1192.044 C 517.544 1241.756, 398.992 1352.262, 337.200 1470 C 251.831 1632.658, 253.457 1816.879, 340.500 1843.982 C 351.574 1847.431, 1696.426 1847.431, 1707.500 1843.982 C 1794.543 1816.879, 1796.169 1632.658, 1710.800 1470 C 1649.008 1352.262, 1530.456 1241.756, 1412.609 1192.044 C 1344.588 1163.350, 1305.224 1153.854, 1238.500 1150.039 C 1190.330 1147.286, 1196.307 1147.328, 1097 1149.035 C 1039.984 1150.015, 1010.205 1150.008, 950 1149.003 C 851.731 1147.362, 856.213 1147.398, 843.500 1148.155" stroke="none" fill="#2a93fb" fill-rule="evenodd"></path>
+        <path d="M 1008 194.584 C 1006.075 194.809, 999.325 195.476, 993 196.064 C 927.768 202.134, 845.423 233.043, 786 273.762 C 691.987 338.184, 622.881 442.165, 601.082 552 C 588.496 615.414, 592.917 705.245, 611.329 760.230 C 643.220 855.469, 694.977 930.136, 763.195 979.321 C 810.333 1013.308, 839.747 1026.645, 913.697 1047.562 C 1010.275 1074.879, 1108.934 1065.290, 1221 1017.694 C 1259.787 1001.221, 1307.818 965.858, 1339.852 930.191 C 1460.375 795.998, 1488.781 609.032, 1412.581 451.500 C 1350.098 322.327, 1240.457 235.724, 1097.500 202.624 C 1072.356 196.802, 1025.206 192.566, 1008 194.584" stroke="none" fill="#0aaa8a" fill-rule="evenodd"></path>
+      </svg>
+
+      <svg xmlns="http://www.w3.org/2000/svg" class="user-progress" aria-label="Your W3Schools Profile Progress">
+        <path class="user-progress-circle1" fill="none" d="M 25.99650934151373 15.00000030461742 A 20 20 0 1 0 26 15"></path>
+        <path class="user-progress-circle2" fill="none" d="M 26 15 A 20 20 0 0 0 26 15"></path>
+      </svg>
+
+      <span class="user-progress-star">★</span>
+
+      <span class="user-progress-point">+1</span>
+    </a>
+  </div>
+
+  <div class="w3s-pathfinder -teaser user-anonymous w3-hide">
+  <div class="track-progress-btn-wrapper">
+    <a href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fpathfinder.w3schools.com" class="-login-btn w3-button ga-bottom ga-bottom-login track-progress-btn" title="Sign in to track your progress" aria-label="Sign in to track your progress" target="_blank">
+    Sign in to track progress
+  </a>
+    
+  </div>
+</div>
+
+<style>
+.w3s-pathfinder.-teaser {
+  background-color: transparent!important;
+}
+.track-progress-btn-wrapper {
+  display: flex;
+  justify-content: center;
+}
+a.track-progress-btn {
+  position: absolute;
+  padding: 8px 20px;
+  border: 1px solid #ddd;
+  top:-65px;
+  background-color: #fff;
+  color: #333;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+}
+@media screen and (max-width: 600px) {
+  a.track-progress-btn {
+    top: 6px;
+    width: 100%;
+  }
+}
+</style>
+
+</div>
+

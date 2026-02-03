@@ -4,67 +4,67 @@
     "items": [
       {
         "title": "SQL Intro",
-        "file": "sql_intro.html"
+        "file": "sql_sql_intro.html"
       },
       {
         "title": "SQL Syntax",
-        "file": "sql_syntax.html"
+        "file": "sql_sql_syntax.html"
       },
       {
         "title": "SQL Select",
-        "file": "sql_select.html"
+        "file": "sql_sql_select.html"
       },
       {
         "title": "SQL Select Distinct",
-        "file": "sql_distinct.html"
+        "file": "sql_sql_distinct.html"
       },
       {
         "title": "SQL Where",
-        "file": "sql_where.html"
+        "file": "sql_sql_where.html"
       },
       {
         "title": "SQL Order By",
-        "file": "sql_orderby.html"
+        "file": "sql_sql_orderby.html"
       },
       {
         "title": "SQL And Or Not",
-        "file": "sql_and_or.html"
+        "file": "sql_sql_and.html"
       },
       {
         "title": "SQL Insert Into",
-        "file": "sql_insert.html"
+        "file": "sql_sql_insert.html"
       },
       {
         "title": "SQL Null Values",
-        "file": "sql_null_values.html"
+        "file": "sql_sql_null_values.html"
       },
       {
         "title": "SQL Update",
-        "file": "sql_update.html"
+        "file": "sql_sql_update.html"
       },
        {
         "title": "SQL Delete",
-        "file": "sql_delete.html"
+        "file": "sql_sql_delete.html"
       },
       {
         "title": "SQL Top",
-        "file": "sql_top.html"
+        "file": "sql_sql_top.html"
       },
       {
         "title": "SQL Min and Max",
-        "file": "sql_min_max.html"
+        "file": "sql_sql_min_max.html"
       }
     ]
   },
   {
       "title": "SQL Database",
       "items": [
-          { "title": "SQL Create DB", "file": "sql_create_db.html" },
-          { "title": "SQL Drop DB", "file": "sql_drop_db.html" },
-          { "title": "SQL Backup DB", "file": "sql_backup_db.html" },
-          { "title": "SQL Create Table", "file": "sql_create_table.html" },
-          { "title": "SQL Drop Table", "file": "sql_drop_table.html" },
-          { "title": "SQL Alter Table", "file": "sql_alter_table.html" }
+          { "title": "SQL Create DB", "file": "sql_sql_create_db.html" },
+          { "title": "SQL Drop DB", "file": "sql_sql_drop_db.html" },
+          { "title": "SQL Backup DB", "file": "sql_sql_backup_db.html" },
+          { "title": "SQL Create Table", "file": "sql_sql_create_table.html" },
+          { "title": "SQL Drop Table", "file": "sql_sql_drop_table.html" },
+          { "title": "SQL Alter Table", "file": "sql_sql_alter.html" }
       ]
   }
 ]

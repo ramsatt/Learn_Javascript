@@ -1,0 +1,179 @@
+
+      <div id="mainLeaderboard" style="overflow:hidden;">
+        <!-- MainLeaderboard-->
+      </div>
+    <h1>Rust <span class="color_h1">HashMap</span></h1>
+
+<hr>
+
+<h2>HashMap</h2>
+
+<p>A <strong>HashMap</strong> is a collection of key/value pairs.</p>
+
+<p>HashMaps are great when you want to store values and find them by a key.</p>
+
+<p>To use HashMap, you must import it from Rust's standard library:</p>
+<div class="w3-example">
+
+<div class="w3-code notranslate javaHigh">
+use std::collections::HashMap;
+</div>
+</div>
+
+<hr>
+
+<h2>Create a HashMap</h2>
+
+<p>You can create a new, empty HashMap and add items to it:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  // Import HashMap<br>use std::collections::HashMap;<br><br>fn main() {<br>&nbsp; // Create a 
+  HashMap called capitalCities<br>&nbsp; let mut capitalCities = HashMap::new();<br>
+  <br>&nbsp; // Add keys and values (Country, City)<br>&nbsp; 
+  capitalCities.insert("England", "London");<br>&nbsp; 
+  capitalCities.insert("Germany", "Berlin");<br>&nbsp; 
+  capitalCities.insert("Norway", "Oslo");<br><br>&nbsp; println!("{:?}", 
+  capitalCities);<br>}</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="#/tutorial/tryruste017.html?filename=demo_hashmap">Try it Yourself »</a>
+</div>
+
+<hr>
+
+<h2>Access Values</h2>
+
+<p>You can use the <code class="w3-codespan">.get()</code> method to access a value in a HashMap by its key:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  let mut capitalCities = HashMap::new();<br><br>capitalCities.insert("England", 
+  "London");<br>capitalCities.insert("Germany", "Berlin");<br>
+  capitalCities.insert("Norway", "Oslo");<br><br>if let Some(city) = 
+  capitalCities.get("England") {<br>&nbsp; println!("The capital of 
+  England is {}.", city);<br>} else {<br>&nbsp; println!("England is not in the 
+  map.");<br>}</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="#/tutorial/tryrustb0e0.html?filename=demo_hashmap_access">Try it Yourself »</a>
+</div>
+
+<hr>
+
+<h2>Update Values</h2>
+
+<p>If you insert a new value using a key that already exists, the old value is replaced with the new one:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  let mut 
+  capitalCities = HashMap::new();<br><br>capitalCities.insert("England", 
+  "London");<br>capitalCities.insert("England", "Berlin");<br><br>println!("{:?}", capitalCities);</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="#/tutorial/tryrust9913.html?filename=demo_hashmap_update">Try it Yourself »</a>
+</div>
+<hr>
+
+<h2>Remove Values</h2>
+
+<p>To remove a key from a HashMap, use the <code class="w3-codespan">.remove()</code> method:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  let mut capitalCities = HashMap::new();<br><br>// Add keys and values 
+  (Country, City)<br>
+  capitalCities.insert("England", "London");<br>capitalCities.insert("Germany", 
+  "Berlin");<br>capitalCities.insert("Norway", "Oslo");<br>
+  <br>// Remove the key "England"<br>
+  capitalCities.remove("England");<br><br>println!("{:?}", capitalCities);</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="#/tutorial/tryrustf35d.html?filename=demo_hashmap_remove">Try it Yourself »</a>
+</div>
+<hr>
+
+<h2>Loop Through a HashMap</h2>
+
+<p>You can use a <code class="w3-codespan">for</code> loop to go through all key/value pairs:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  let mut capitalCities = HashMap::new();<br><br>// Add keys and values 
+  (Country, City)<br>capitalCities.insert("England", "London");<br>
+  capitalCities.insert("Germany", "Berlin");<br>capitalCities.insert("Norway", 
+  "Oslo");<br><br>// Loop through the HashMap<br>for (country, city) in 
+  &amp;capitalCities {<br>&nbsp; println!("The capital of {} is {}.", country, 
+  city);<br>}</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="#/tutorial/tryrust9e5e.html?filename=demo_hashmap_loop">Try it Yourself »</a>
+</div>
+
+<hr>
+
+<h3>Why Use HashMaps?</h3>
+
+<ul>
+  <li>To store data by key</li>
+  <li>To quickly look up values</li>
+  <li>To group related data (like names and scores)</li>
+</ul>
+
+<p><strong>Note:</strong> HashMaps require keys to be unique. Inserting the same key again will overwrite the old value.</p>
+
+<br>
+
+<div id="user-profile-bottom-wrapper" class="user-profile-bottom-wrapper">
+  <div class="user-authenticated w3-hide">
+    <a href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fmy-learning.w3schools.com" class="user-profile-btn user-profile-bottom-btn ga-bottom ga-bottom-profile" title="Your W3Schools Profile" aria-label="Your W3Schools Profile" target="_top">
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 2048 2048" class="user-profile-icon" aria-label="Your W3Schools Profile Icon">
+        <path d="M 843.500 1148.155 C 837.450 1148.515, 823.050 1149.334, 811.500 1149.975 C 742.799 1153.788, 704.251 1162.996, 635.391 1192.044 C 517.544 1241.756, 398.992 1352.262, 337.200 1470 C 251.831 1632.658, 253.457 1816.879, 340.500 1843.982 C 351.574 1847.431, 1696.426 1847.431, 1707.500 1843.982 C 1794.543 1816.879, 1796.169 1632.658, 1710.800 1470 C 1649.008 1352.262, 1530.456 1241.756, 1412.609 1192.044 C 1344.588 1163.350, 1305.224 1153.854, 1238.500 1150.039 C 1190.330 1147.286, 1196.307 1147.328, 1097 1149.035 C 1039.984 1150.015, 1010.205 1150.008, 950 1149.003 C 851.731 1147.362, 856.213 1147.398, 843.500 1148.155" stroke="none" fill="#2a93fb" fill-rule="evenodd"></path>
+        <path d="M 1008 194.584 C 1006.075 194.809, 999.325 195.476, 993 196.064 C 927.768 202.134, 845.423 233.043, 786 273.762 C 691.987 338.184, 622.881 442.165, 601.082 552 C 588.496 615.414, 592.917 705.245, 611.329 760.230 C 643.220 855.469, 694.977 930.136, 763.195 979.321 C 810.333 1013.308, 839.747 1026.645, 913.697 1047.562 C 1010.275 1074.879, 1108.934 1065.290, 1221 1017.694 C 1259.787 1001.221, 1307.818 965.858, 1339.852 930.191 C 1460.375 795.998, 1488.781 609.032, 1412.581 451.500 C 1350.098 322.327, 1240.457 235.724, 1097.500 202.624 C 1072.356 196.802, 1025.206 192.566, 1008 194.584" stroke="none" fill="#0aaa8a" fill-rule="evenodd"></path>
+      </svg>
+
+      <svg xmlns="http://www.w3.org/2000/svg" class="user-progress" aria-label="Your W3Schools Profile Progress">
+        <path class="user-progress-circle1" fill="none" d="M 25.99650934151373 15.00000030461742 A 20 20 0 1 0 26 15"></path>
+        <path class="user-progress-circle2" fill="none" d="M 26 15 A 20 20 0 0 0 26 15"></path>
+      </svg>
+
+      <span class="user-progress-star">★</span>
+
+      <span class="user-progress-point">+1</span>
+    </a>
+  </div>
+
+  <div class="w3s-pathfinder -teaser user-anonymous w3-hide">
+  <div class="track-progress-btn-wrapper">
+    <a href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fpathfinder.w3schools.com" class="-login-btn w3-button ga-bottom ga-bottom-login track-progress-btn" title="Sign in to track your progress" aria-label="Sign in to track your progress" target="_blank">
+    Sign in to track progress
+  </a>
+    
+  </div>
+</div>
+
+<style>
+.w3s-pathfinder.-teaser {
+  background-color: transparent!important;
+}
+.track-progress-btn-wrapper {
+  display: flex;
+  justify-content: center;
+}
+a.track-progress-btn {
+  position: absolute;
+  padding: 8px 20px;
+  border: 1px solid #ddd;
+  top:-65px;
+  background-color: #fff;
+  color: #333;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+}
+@media screen and (max-width: 600px) {
+  a.track-progress-btn {
+    top: 6px;
+    width: 100%;
+  }
+}
+</style>
+
+</div>
+

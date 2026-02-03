@@ -1,0 +1,355 @@
+[
+  {
+    "title": "Tutorial",
+    "items": [
+      {
+        "title": "AWS Cloud Practitioner Tutorial",
+        "file": "index.html"
+      },
+      {
+        "title": "AWS Cloud Intro",
+        "file": "aws_cloudessentials_intro.html"
+      },
+      {
+        "title": "AWS Cloud Practitioner Certification",
+        "file": "aws_cloudessentials_awscert.html"
+      },
+      {
+        "title": "AWS Cloud Get Started",
+        "file": "aws_cloudessentials_getstarted.html"
+      },
+      {
+        "title": "AWS Cloud Computing",
+        "file": "aws_cloudessentials_cloudcomputing.html"
+      },
+      {
+        "title": "AWS Cloud Benefits",
+        "file": "aws_cloudessentials_benefits.html"
+      },
+      {
+        "title": "AWS Cloud EC2",
+        "file": "aws_cloudessentials_ec2intro.html"
+      },
+      {
+        "title": "AWS Cloud EC2 Instance Types",
+        "file": "aws_cloudessentials_ec2instancetypes.html"
+      },
+      {
+        "title": "AWS Cloud EC2 Pricing",
+        "file": "aws_cloudessentials_ec2pricing.html"
+      },
+      {
+        "title": "AWS Cloud EC2 Scaling",
+        "file": "aws_cloudessentials_ec2scaling.html"
+      },
+      {
+        "title": "AWS Cloud Auto Scaling",
+        "file": "aws_cloudessentials_ec2autoscaling.html"
+      },
+      {
+        "title": "AWS Cloud Elastic Load Balancing",
+        "file": "aws_cloudessentials_ec2elasticloadbalancing.html"
+      },
+      {
+        "title": "AWS Cloud Messaging and Queuing",
+        "file": "aws_cloudessentials_messagingandqueuing.html"
+      },
+      {
+        "title": "AWS SNS - Simple Notification Service",
+        "file": "aws_cloudessentials_awssns.html"
+      },
+      {
+        "title": "AWS SQS - Simple Queue Service",
+        "file": "aws_cloudessentials_awssqs.html"
+      },
+      {
+        "title": "AWS Cloud Serverless",
+        "file": "aws_cloudessentials_awsserverless.html"
+      },
+      {
+        "title": "AWS Cloud Lambda",
+        "file": "aws_cloudessentials_awslambda.html"
+      },
+      {
+        "title": "AWS Cloud Containers",
+        "file": "aws_cloudessentials_awscontainers.html"
+      },
+      {
+        "title": "AWS ECS - Elastic Container Service",
+        "file": "aws_cloudessentials_awsecs.html"
+      },
+      {
+        "title": "AWS EKS - Elastic Kubernetes Service",
+        "file": "aws_cloudessentials_awseks.html"
+      },
+      {
+        "title": "AWS Cloud Fargate",
+        "file": "aws_cloudessentials_awsfargate.html"
+      },
+      {
+        "title": "AWS Cloud First Recap",
+        "file": "aws_cloudessentials_awsfirstrecap.html"
+      },
+      {
+        "title": "AWS Cloud Infrastructure",
+        "file": "aws_cloudessentials_awsinfrastructure.html"
+      },
+      {
+        "title": "AWS Cloud Regions",
+        "file": "aws_cloudessentials_awsregions.html"
+      },
+      {
+        "title": "AWS Cloud Availability Zones",
+        "file": "aws_cloudessentials_awsavailabilityzones.html"
+      },
+      {
+        "title": "AWS Cloud Edge Locations",
+        "file": "aws_cloudessentials_awsedgelocations.html"
+      },
+      {
+        "title": "AWS Cloud Resource Provisioning",
+        "file": "aws_cloudessentials_awsprovision.html"
+      },
+      {
+        "title": "AWS Cloud Provision Services",
+        "file": "aws_cloudessentials_awsprovisionservices.html"
+      },
+      {
+        "title": "AWS Cloud Elastic Beanstalk",
+        "file": "aws_cloudessentials_awsbeanstalk.html"
+      },
+      {
+        "title": "AWS CloudFormation",
+        "file": "aws_cloudessentials_awscloudformation.html"
+      },
+      {
+        "title": "AWS Second Recap",
+        "file": "aws_cloudessentials_awssecondrecap.html"
+      },
+      {
+        "title": "AWS Cloud Networking",
+        "file": "aws_cloudessentials_awsnetworking.html"
+      },
+      {
+        "title": "AWS Cloud Connectivity",
+        "file": "aws_cloudessentials_awsconnectivity.html"
+      },
+      {
+        "title": "AWS Cloud Subnet and Access",
+        "file": "aws_cloudessentials_awssubnetandaccess.html"
+      },
+      {
+        "title": "AWS Cloud Global Networking",
+        "file": "aws_cloudessentials_awsglobalnetworking.html"
+      },
+      {
+        "title": "AWS Third Recap",
+        "file": "aws_cloudessentials_awsthirdrecap.html"
+      },
+      {
+        "title": "AWS Storage and Databases",
+        "file": "aws_cloudessentials_storageanddatabases_introduction.html"
+      },
+      {
+        "title": "AWS Instance Stores",
+        "file": "aws_cloudessentials_instancestores.html"
+      },
+      {
+        "title": "AWS EBS - Elastic Block Store",
+        "file": "aws_cloudessentials_awsebs.html"
+      },
+      {
+        "title": "AWS S3 - Simple Storage Service",
+        "file": "aws_cloudessentials_amazonsimplestorageservice.html"
+      },
+      {
+        "title": "Comparing AWS EBS and AWS S3",
+        "file": "aws_cloudessentials_comparingamazonebsandamazons3.html"
+      },
+      {
+        "title": "AWS EFS - Elastic File System",
+        "file": "aws_cloudessentials_amazonelasticfilesystem.html"
+      },
+      {
+        "title": "AWS RDS - Relational Database Service",
+        "file": "aws_cloudessentials_amazonrds.html"
+      },
+      {
+        "title": "AWS Cloud DynamoDB",
+        "file": "aws_cloudessentials_amazondynamodb.html"
+      },
+      {
+        "title": "Comparing AWS RDS and AWS DynamoDB",
+        "file": "aws_cloudessentials_comparingamazonrdsandamazondynamodb.html"
+      },
+      {
+        "title": "AWS Cloud Redshift",
+        "file": "aws_cloudessentials_amazonredshift.html"
+      },
+      {
+        "title": "AWS DMS - Database Migration Service",
+        "file": "aws_cloudessentials_awsdms.html"
+      },
+      {
+        "title": "AWS Additional Database Services",
+        "file": "aws_cloudessentials_additionaldatabaseservices.html"
+      },
+      {
+        "title": "AWS Cloud Fourth Recap",
+        "file": "aws_cloudessentials_storageanddatabases_recap.html"
+      },
+      {
+        "title": "AWS Cloud Security",
+        "file": "aws_cloudessentials_sec_securityintroduction.html"
+      },
+      {
+        "title": "Shared Responsibility Model",
+        "file": "aws_cloudessentials_sec_sharedresponsibilitymodel.html"
+      },
+      {
+        "title": "User Permissions and Access",
+        "file": "aws_cloudessentials_sec_userpermissionsandaccess.html"
+      },
+      {
+        "title": "AWS Organizations",
+        "file": "aws_cloudessentials_sec_awsorganizations.html"
+      },
+      {
+        "title": "AWS Cloud Compliance",
+        "file": "aws_cloudessentials_sec_compliance.html"
+      },
+      {
+        "title": "Denial-of-Service Attacks - DDoS",
+        "file": "aws_cloudessentials_sec_denialofserviceattacks.html"
+      },
+      {
+        "title": "Additional Security Services",
+        "file": "aws_cloudessentials_sec_additionalsecurityservices.html"
+      },
+      {
+        "title": "AWS Fifth Recap",
+        "file": "aws_cloudessentials_sec_awssixthrecap.html"
+      },
+      {
+        "title": "AWS Monitoring and Analytics",
+        "file": "aws_cloudessentials_ma_intro.html"
+      },
+      {
+        "title": "AWS CloudWatch",
+        "file": "aws_cloudessentials_ma_cloudwatch.html"
+      },
+      {
+        "title": "AWS CloudTrail",
+        "file": "aws_cloudessentials_ma_cloudtrail.html"
+      },
+      {
+        "title": "AWS TrustedAdvisor",
+        "file": "aws_cloudessentials_ma_trustedadvisor.html"
+      },
+      {
+        "title": "AWS Cloud Sixth Recap",
+        "file": "aws_cloudessentials_ma_recap.html"
+      },
+      {
+        "title": "AWS Pricing and Support",
+        "file": "aws_cloudessentials_ps_intro.html"
+      },
+      {
+        "title": "AWS Free tier",
+        "file": "aws_cloudessentials_ps_freetier.html"
+      },
+      {
+        "title": "AWS Pricing Models",
+        "file": "aws_cloudessentials_ps_pricemodels.html"
+      },
+      {
+        "title": "AWS Billing Dashboard",
+        "file": "aws_cloudessentials_ps_billingdashboard.html"
+      },
+      {
+        "title": "AWS Consolidated Billing",
+        "file": "aws_cloudessentials_ps_consolidatedbilling.html"
+      },
+      {
+        "title": "AWS Budgets",
+        "file": "aws_cloudessentials_ps_budgets.html"
+      },
+      {
+        "title": "AWS Cost Explorer",
+        "file": "aws_cloudessentials_ps_costexplorer.html"
+      },
+      {
+        "title": "AWS Support Plans",
+        "file": "aws_cloudessentials_ps_supportplans.html"
+      },
+      {
+        "title": "AWS Marketplace",
+        "file": "aws_cloudessentials_ps_marketplace.html"
+      },
+      {
+        "title": "AWS Cloud Seventh Recap",
+        "file": "aws_cloudessentials_ps_recap.html"
+      },
+      {
+        "title": "Cloud Migration and Innovation",
+        "file": "aws_cloudessentials_mig_migrationandinnovationintroduction.html"
+      },
+      {
+        "title": "AWS CAF - Cloud Adoption Framework",
+        "file": "aws_cloudessentials_mig_awscaf.html"
+      },
+      {
+        "title": "Cloud Migration Strategies",
+        "file": "aws_cloudessentials_mig_migrationstrategies.html"
+      },
+      {
+        "title": "AWS Snow Family",
+        "file": "aws_cloudessentials_mig_awssnowfamily.html"
+      },
+      {
+        "title": "Innovation With AWS Cloud",
+        "file": "aws_cloudessentials_mig_innovationwithaws.html"
+      },
+      {
+        "title": "AWS Cloud Eighth Recap",
+        "file": "aws_cloudessentials_mig_eightrecap.html"
+      },
+      {
+        "title": "AWS Cloud Journey",
+        "file": "aws_cloudessentials_clo_thecloudjourney.html"
+      },
+      {
+        "title": "AWS Well-Architected Framework",
+        "file": "aws_cloudessentials_clo_awswellarchitectedframework.html"
+      },
+      {
+        "title": "Benefits of the AWS Cloud",
+        "file": "aws_cloudessentials_clo_benefitsoftheawscloud.html"
+      },
+      {
+        "title": "AWS Cloud Ninth Recap",
+        "file": "aws_cloudessentials_clo_ninthrecap.html"
+      },
+      {
+        "title": "AWS Cloud Practitioner Exam Preparation Course",
+        "file": "aws_cloudessentials_examprep.html"
+      },
+      {
+        "title": "AWS Cloud Exercises",
+        "file": "aws_exercises.html"
+      },
+      {
+        "title": "AWS Cloud Practitioner Preparation Quiz",
+        "file": "aws_quiz.html"
+      },
+      {
+        "title": "W3Schools AWS Cloud Certificate",
+        "file": "aws_exam.html"
+      },
+      {
+        "title": "Math for Machine Learning Tutorial",
+        "file": "ml/index.html"
+      }
+    ]
+  }
+]

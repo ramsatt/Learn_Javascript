@@ -6,7 +6,7 @@
     "color": "html",
     "file": "assets/data/html.json",
     "description": "Master the standard markup language for the web with modern best practices.",
-    "level": "Beginner", 
+    "level": "Beginner",
     "duration": "4h 20m",
     "lessonCount": 62,
     "route": "/tutorial/html_intro.html"
@@ -30,7 +30,7 @@
     "color": "javascript",
     "file": "assets/data/javascript.json",
     "description": "Closures, Promises, and ES6+ features. Everything you need for modern dev.",
-    "level": "Intermediate", 
+    "level": "Intermediate",
     "duration": "12h 45m",
     "lessonCount": 104,
     "route": "/tutorial/js_intro.html"
@@ -106,5 +106,101 @@
     "duration": "9h 30m",
     "lessonCount": 48,
     "route": "/home"
+  },
+  {
+    "id": "rust",
+    "title": "Rust Programming",
+    "icon": "code-slash-outline",
+    "color": "#555555",
+    "file": "assets/data/rust.json",
+    "description": "Learn Rust Programming from W3Schools.",
+    "level": "Beginner",
+    "duration": "10h",
+    "lessonCount": 29,
+    "route": "/tutorial/index.html"
+  },
+  {
+    "id": "aws",
+    "title": "AWS Cloud",
+    "icon": "code-slash-outline",
+    "color": "#555555",
+    "file": "assets/data/aws.json",
+    "description": "Learn AWS Cloud from W3Schools.",
+    "level": "Beginner",
+    "duration": "10h",
+    "lessonCount": 87,
+    "route": "/tutorial/index.html"
+  },
+  {
+    "id": "typescript",
+    "title": "TypeScript",
+    "icon": "code-slash-outline",
+    "color": "#555555",
+    "file": "assets/data/typescript.json",
+    "description": "Learn TypeScript from W3Schools.",
+    "level": "Beginner",
+    "duration": "10h",
+    "lessonCount": 41,
+    "route": "/tutorial/index.html"
+  },
+  {
+    "id": "mongodb",
+    "title": "MongoDB",
+    "icon": "code-slash-outline",
+    "color": "#555555",
+    "file": "assets/data/mongodb.json",
+    "description": "Learn MongoDB from W3Schools.",
+    "level": "Beginner",
+    "duration": "10h",
+    "lessonCount": 31,
+    "route": "/tutorial/index.html"
+  },
+  {
+    "id": "postgresql",
+    "title": "PostgreSQL",
+    "icon": "code-slash-outline",
+    "color": "#555555",
+    "file": "assets/data/postgresql.json",
+    "description": "Learn PostgreSQL from W3Schools.",
+    "level": "Beginner",
+    "duration": "10h",
+    "lessonCount": 42,
+    "route": "/tutorial/index.html"
+  },
+  {
+    "id": "kotlin",
+    "title": "Kotlin",
+    "icon": "code-slash-outline",
+    "color": "#555555",
+    "file": "assets/data/kotlin.json",
+    "description": "Learn Kotlin from W3Schools.",
+    "level": "Beginner",
+    "duration": "10h",
+    "lessonCount": 31,
+    "route": "/tutorial/index.html"
+  },
+  {
+    "id": "git",
+    "title": "Git Version Control",
+    "icon": "code-slash-outline",
+    "color": "#555555",
+    "file": "assets/data/git.json",
+    "description": "Learn Git Version Control from W3Schools.",
+    "level": "Beginner",
+    "duration": "10h",
+    "lessonCount": 1,
+    "route": "/tutorial/index.html"
+  },
+  {
+    "id": "go",
+    "title": "Go (Golang)",
+    "icon": "code-slash-outline",
+    "color": "#555555",
+    "file": "assets/data/go.json",
+    "description": "Learn Go (Golang) from W3Schools.",
+    "level": "Beginner",
+    "duration": "10h",
+    "lessonCount": 44,
+    "route": "/tutorial/index.html"
   }
 ]

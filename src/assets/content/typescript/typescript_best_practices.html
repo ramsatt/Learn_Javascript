@@ -1,0 +1,810 @@
+
+      <div id="mainLeaderboard" style="overflow:hidden;">
+        <!-- MainLeaderboard-->
+      </div>
+    
+<h1>TypeScript Best Practices</h1>
+
+<hr>
+
+<div class="w3-panel">
+  <p>This guide covers essential TypeScript best practices to help you write clean, maintainable, and type-safe code. Following these practices will improve code quality and developer experience.</p>
+</div>
+
+<hr>
+
+<h2 id="configuration">Project Configuration</h2>
+
+<div class="w3-example">
+  <h3>Enable Strict Mode</h3>
+  <p>Always enable <code class="w3-codespan">strict</code> mode in your <code class="w3-codespan">tsconfig.json</code> for maximum type safety:</p>
+  <div class="w3-code notranslate jsHigh">
+// tsconfig.json<br>
+{<br>
+&nbsp;&nbsp;"compilerOptions": {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;/* Enable all strict type-checking options */<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"strict": true,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;/* Additional recommended settings */<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"target": "ES2020",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"module": "commonjs",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"moduleResolution": "node",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"esModuleInterop": true,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"skipLibCheck": true,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"forceConsistentCasingInFileNames": true<br>
+&nbsp;&nbsp;}<br>
+}<br>
+  </div>
+</div>
+
+<div class="w3-example">
+  <h4>Enable Strict Checks</h4>
+  <p>Consider enabling these additional strict checks for better code quality:</p>
+  <div class="w3-code notranslate jsHigh">
+{<br>
+&nbsp;&nbsp;"compilerOptions": {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;/* Additional strict checks */<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"noImplicitAny": true,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"strictNullChecks": true,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"strictFunctionTypes": true,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"strictBindCallApply": true,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"strictPropertyInitialization": true,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"noImplicitThis": true,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"alwaysStrict": true<br>
+&nbsp;&nbsp;}<br>
+}<br>
+  </div>
+</div>
+
+<hr>
+
+<h2 id="type-system">Type System Best Practices</h2>
+
+<div class="w3-example">
+  <h3>Use Type Inference Where Possible</h3>
+  <p>Let TypeScript infer types when the type is obvious from the assignment:</p>
+  <div class="w3-code notranslate jsHigh">
+  // Bad: Redundant type annotation<br>
+  const name: string = 'John';<br>
+  <br>
+  // Good: Let TypeScript infer the type<br>
+  const name = 'John';<br>
+  <br>
+  // Bad: Redundant return type<br>
+  function add(a: number, b: number): number {<br>
+  &nbsp;&nbsp;return a + b;<br>
+  }<br>
+  <br>
+  // Good: Let TypeScript infer return type<br>
+  function add(a: number, b: number) {<br>
+  &nbsp;&nbsp;return a + b;<br>
+  }<br>
+  </div>
+  <a target="_blank" href="#/tutorial/trytypescriptc76a.html?filename=demo_precise_types" class="w3-btn w3-margin-bottom">Try it Yourself »</a>
+</div>
+
+<div class="w3-example">
+  <h3>Precise Type Annotations</h3>
+  <p>Be explicit with types for public APIs and function parameters:</p>
+  <div class="w3-code notranslate jsHigh">
+  // Bad: No type information<br>
+  function processUser(user) {<br>
+  &nbsp;&nbsp;return user.name.toUpperCase();<br>
+  }<br>
+  <br>
+  // Good: Explicit parameter and return types<br>
+  interface User {<br>
+  &nbsp;&nbsp;id: number;<br>
+  &nbsp;&nbsp;name: string;<br>
+  &nbsp;&nbsp;email?: string;  // Optional property<br>
+  }<br>
+  <br>
+  function processUser(user: User): string {<br>
+  &nbsp;&nbsp;return user.name.toUpperCase();<br>
+  }<br>
+  </div>
+</div>
+
+<div class="w3-example">
+  <h3>Interfaces vs. Type Aliases</h3>
+  <p>Know when to use <code class="w3-codespan">interface</code> vs <code class="w3-codespan">type</code>:</p>
+  <div class="w3-code notranslate jsHigh">
+  // Use interface for object shapes that can be extended/implemented<br>
+  interface User {<br>
+  &nbsp;&nbsp;id: number;<br>
+  &nbsp;&nbsp;name: string;<br>
+  }<br>
+  <br>
+  // Extending an interface<br>
+  interface AdminUser extends User {<br>
+  &nbsp;&nbsp;permissions: string[];<br>
+  }<br>
+  <br>
+  // Use type for unions, tuples, or mapped types<br>
+  type UserRole = 'admin' | 'editor' | 'viewer';<br>
+  <br>
+  // Union types<br>
+  type UserId = number | string;<br>
+  <br>
+  // Mapped types<br>
+  type ReadonlyUser = Readonly&lt;User&gt;;<br>
+  <br>
+  // Tuple types<br>
+  type Point = [number, number];<br>
+  </div>
+  <a target="_blank" href="#/tutorial/trytypescriptc236.html?filename=demo_interfaces_types" class="w3-btn w3-margin-bottom">Try it Yourself »</a>
+</div>
+
+<div class="w3-example">
+  <h4>Avoid <code class="w3-codespan">any</code> Type</h4>
+  <p>Prefer more specific types over <code class="w3-codespan">any</code>:</p>
+  <div class="w3-code notranslate jsHigh">
+  // Bad: Loses type safety<br>
+  function logValue(value: any) {<br>
+  &nbsp;&nbsp;console.log(value.toUpperCase()); // No error until runtime<br>
+  }<br>
+  <br>
+  // Better: Use generic type parameter<br>
+  function logValue&lt;T&gt;(value: T) {<br>
+  &nbsp;&nbsp;console.log(String(value)); // Safer, but still not ideal<br>
+  }<br>
+  <br>
+  // Best: Be specific about expected types<br>
+  function logString(value: string) {<br>
+  &nbsp;&nbsp;console.log(value.toUpperCase()); // Type-safe<br>
+  }<br>
+  <br>
+  // When you need to accept any value but still be type-safe<br>
+  function logUnknown(value: unknown) {<br>
+  &nbsp;&nbsp;if (typeof value === 'string') {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;console.log(value.toUpperCase());<br>
+  &nbsp;&nbsp;} else {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;console.log(String(value));<br>
+  &nbsp;&nbsp;}<br>
+  }<br>
+  </div>
+</div>
+
+<hr>
+
+<h2 id="code-organization">Code Organization</h2>
+
+<div class="w3-example">
+  <h3>Module Organization</h3>
+  <p>Organize code into logical modules with clear responsibilities:</p>
+  <div class="w3-code notranslate jsHigh">
+  // user/user.model.ts<br>
+  export interface User {<br>
+  &nbsp;&nbsp;id: string;<br>
+  &nbsp;&nbsp;name: string;<br>
+  &nbsp;&nbsp;email: string;<br>
+  }<br>
+  <br>
+  // user/user.service.ts<br>
+  import { User } from './user.model';<br>
+  <br>
+  export class UserService {<br>
+  &nbsp;&nbsp;private users: User[] = [];<br>
+  <br>
+  &nbsp;&nbsp;addUser(user: User) {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;this.users.push(user);<br>
+  &nbsp;&nbsp;}<br>
+  <br>
+  &nbsp;&nbsp;getUser(id: string): User | undefined {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;return this.users.find(user =&gt; user.id === id);<br>
+  &nbsp;&nbsp;}<br>
+  }<br>
+  <br>
+  // user/index.ts (barrel file)<br>
+  export * from './user.model';<br>
+  export * from './user.service';<br>
+  </div>
+ </div>
+
+<div class="w3-example">
+  <h3>File Naming Conventions</h3>
+  <p>Follow consistent file naming patterns:</p>
+  <div class="w3-code notranslate jsHigh">
+  // Good<br>
+  user.service.ts      // Service classes<br>
+  user.model.ts        // Type definitions<br>
+  user.controller.ts   // Controllers<br>
+  user.component.ts    // Components<br>
+  user.utils.ts        // Utility functions<br>
+  user.test.ts         // Test files<br>
+  <br>
+  // Bad<br>
+  UserService.ts       // Avoid PascalCase for file names<br>
+  user_service.ts      // Avoid snake_case<br>
+  userService.ts       // Avoid camelCase for file names<br>
+  </div>
+</div>
+<hr>
+<h2>Best Practices</h2>
+<ul>
+  <li>Document your types and interfaces.</li>
+  <li>Prefer composition over inheritance for types.</li>
+  <li>Keep <code class="w3-codespan">tsconfig.json</code> strict and up-to-date.</li>
+  <li>Refactor code to use more specific types as the codebase evolves.</li>
+</ul>
+<hr>
+
+<h2 id="functions">Functions and Methods</h2>
+
+<div class="w3-example">
+  <h3>Function Parameters and Return Types</h3>
+  <p>Write clear and type-safe functions with proper parameter and return types:</p>
+  <div class="w3-code notranslate jsHigh">
+  // Bad: No type information<br>
+  function process(user, notify) {<br>
+  &nbsp;&nbsp;notify(user.name);<br>
+  }<br>
+  <br>
+  // Good: Explicit parameter and return types<br>
+  function processUser(<br>
+  &nbsp;&nbsp;user: User,<br>
+  &nbsp;&nbsp;notify: (message: string) =&gt; void<br>
+  ): void {<br>
+  &nbsp;&nbsp;notify(`Processing user: ${user.name}`);<br>
+  }<br>
+  <br>
+  // Use default parameters instead of conditionals<br>
+  function createUser(<br>
+  &nbsp;&nbsp;name: string,<br>
+  &nbsp;&nbsp;role: UserRole = 'viewer',<br>
+  &nbsp;&nbsp;isActive: boolean = true<br>
+  ): User {<br>
+  &nbsp;&nbsp;return { name, role, isActive };<br>
+  }<br>
+  <br>
+  // Use rest parameters for variable arguments<br>
+  function sum(...numbers: number[]): number {<br>
+  &nbsp;&nbsp;return numbers.reduce((total, num) =&gt; total + num, 0);<br>
+  }<br>
+  </div>
+  <a target="_blank" href="#/tutorial/trytypescriptb248.html?filename=demo_functions" class="w3-btn w3-margin-bottom">Try it Yourself »</a>
+</div>
+
+<div class="w3-example">
+  <h4>Avoid Function Overuse</h4>
+  <p>Be mindful of function complexity and responsibilities:</p>
+  <div class="w3-code notranslate jsHigh">
+  // Bad: Too many responsibilities<br>
+  function processUserData(userData: any) {<br>
+  &nbsp;&nbsp;// Validation<br>
+  &nbsp;&nbsp;if (!userData || !userData.name) throw new Error('Invalid user data');<br>
+  <br>
+  &nbsp;&nbsp;// Data transformation<br>
+  &nbsp;&nbsp;const processedData = {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;...userData,<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;name: userData.name.trim(),<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;createdAt: new Date()<br>
+  &nbsp;&nbsp;};<br>
+  <br>
+  &nbsp;&nbsp;// Side effect<br>
+  &nbsp;&nbsp;saveToDatabase(processedData);<br>
+  <br>
+  &nbsp;&nbsp;// Notification<br>
+  &nbsp;&nbsp;sendNotification(processedData.email, 'Profile updated');<br>
+  <br>
+  &nbsp;&nbsp;return processedData;<br>
+  }<br>
+  <br>
+  // Better: Split into smaller, focused functions<br>
+  function validateUserData(data: unknown): UserData {<br>
+  &nbsp;&nbsp;if (!data || typeof data !== 'object') {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;throw new Error('Invalid user data');<br>
+  &nbsp;&nbsp;}<br>
+  &nbsp;&nbsp;return data as UserData;<br>
+  }<br>
+  <br>
+  function processUserData(userData: UserData): ProcessedUserData {<br>
+  &nbsp;&nbsp;return {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;...userData,<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;name: userData.name.trim(),<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;createdAt: new Date()<br>
+  &nbsp;&nbsp;};<br>
+  }<br>
+  </div>
+</div>
+
+<hr>
+
+<h2 id="async">Async/Await Patterns</h2>
+
+<div class="w3-example">
+  <h3>Proper Async/Await Usage</h3>
+  <p>Handle asynchronous operations effectively with proper error handling:</p>
+  <div class="w3-code notranslate jsHigh">
+  // Bad: Not handling errors<br>
+  async function fetchData() {<br>
+  &nbsp;&nbsp;const response = await fetch('/api/data');<br>
+  &nbsp;&nbsp;return response.json();<br>
+  }<br>
+  <br>
+  // Good: Proper error handling<br>
+  async function fetchData&lt;T&gt;(url: string): Promise&lt;T&gt; {<br>
+  &nbsp;&nbsp;try {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;const response = await fetch(url);<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;if (!response.ok) {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw new Error(`HTTP error! status: ${response.status}`);<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;return await response.json() as T;<br>
+  &nbsp;&nbsp;} catch (error) {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;console.error('Failed to fetch data:', error);<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;throw error; // Re-throw to allow caller to handle<br>
+  &nbsp;&nbsp;}<br>
+  }<br>
+  <br>
+  // Better: Use Promise.all for parallel operations<br>
+  async function fetchMultipleData&lt;T&gt;(urls: string[]): Promise&lt;T[]&gt; {<br>
+  &nbsp;&nbsp;try {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;const promises = urls.map(url =&gt; fetchData&lt;T&gt;(url));<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;return await Promise.all(promises);<br>
+  &nbsp;&nbsp;} catch (error) {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;console.error('One or more requests failed:', error);<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;throw error;<br>
+  &nbsp;&nbsp;}<br>
+  }<br>
+  <br>
+  // Example usage<br>
+  interface User {<br>
+  &nbsp;&nbsp;id: string;<br>
+  &nbsp;&nbsp;name: string;<br>
+  &nbsp;&nbsp;email: string;<br>
+  }<br>
+  <br>
+  // Fetch user data with proper typing<br>
+  async function getUserData(userId: string): Promise&lt;User&gt; {<br>
+  &nbsp;&nbsp;return fetchData&lt;User&gt;(`/api/users/${userId}`);<br>
+  }<br>
+  </div>
+</div>
+
+<div class="w3-example">
+  <h4>Avoid Nested Async/Await</h4>
+  <p>Flatten your async/await code to avoid callback hell:</p>
+  <div class="w3-code notranslate jsHigh">
+  // Bad: Nested async/await (callback hell)<br>
+  async function processUser(userId: string) {<br>
+  &nbsp;&nbsp;const user = await getUser(userId);<br>
+  &nbsp;&nbsp;if (user) {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;const orders = await getOrders(user.id);<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;if (orders.length &gt; 0) {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const latestOrder = orders[0];<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const items = await getOrderItems(latestOrder.id);<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return { user, latestOrder, items };<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+  &nbsp;&nbsp;}<br>
+  &nbsp;&nbsp;return null;<br>
+  }<br>
+  <br>
+  // Better: Flatten the async/await chain<br>
+  async function processUser(userId: string) {<br>
+  &nbsp;&nbsp;const user = await getUser(userId);<br>
+  &nbsp;&nbsp;if (!user) return null;<br>
+  <br>
+  &nbsp;&nbsp;const orders = await getOrders(user.id);<br>
+  &nbsp;&nbsp;if (orders.length === 0) return { user, latestOrder: null, items: [] };<br>
+  <br>
+  &nbsp;&nbsp;const latestOrder = orders[0];<br>
+  &nbsp;&nbsp;const items = await getOrderItems(latestOrder.id);<br>
+  <br>
+  &nbsp;&nbsp;return { user, latestOrder, items };<br>
+  }<br>
+  <br>
+  // Best: Use Promise.all for independent async operations<br>
+  async function processUser(userId: string) {<br>
+  &nbsp;&nbsp;const [user, orders] = await Promise.all([<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;getUser(userId),<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;getOrders(userId)<br>
+  &nbsp;&nbsp;]);<br>
+  <br>
+  &nbsp;&nbsp;if (!user) return null;<br>
+  &nbsp;&nbsp;if (orders.length === 0) return { user, latestOrder: null, items: [] };<br>
+  <br>
+  &nbsp;&nbsp;const latestOrder = orders[0];<br>
+  &nbsp;&nbsp;const items = await getOrderItems(latestOrder.id);<br>
+  <br>
+  &nbsp;&nbsp;return { user, latestOrder, items };<br>
+  }<br>
+  </div>
+</div>
+
+<hr>
+
+<h2 id="testing">Testing and Quality</h2>
+
+
+<div class="w3-example">
+  <h3>Writing Testable Code</h3>
+  <p>Design your code with testability in mind by using dependency injection and pure functions:</p>
+  <div class="w3-code notranslate jsHigh">
+  // Bad: Hard to test due to direct dependencies<br>
+  class PaymentProcessor {<br>
+  &nbsp;&nbsp;async processPayment(amount: number) {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;const paymentGateway = new PaymentGateway();<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;return paymentGateway.charge(amount);<br>
+  &nbsp;&nbsp;}<br>
+  }<br>
+  <br>
+  // Better: Use dependency injection<br>
+  interface PaymentGateway {<br>
+  &nbsp;&nbsp;charge(amount: number): Promise&lt;boolean&gt;;<br>
+  }<br>
+  <br>
+  class PaymentProcessor {<br>
+  &nbsp;&nbsp;constructor(private paymentGateway: PaymentGateway) {}<br>
+  <br>
+  &nbsp;&nbsp;async processPayment(amount: number): Promise&lt;boolean&gt; {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;if (amount &lt;= 0) {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw new Error('Amount must be greater than zero');<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;return this.paymentGateway.charge(amount);<br>
+  &nbsp;&nbsp;}<br>
+  }<br>
+  <br>
+  // Test example with Jest<br>
+  describe('PaymentProcessor', () =&gt; {<br>
+  &nbsp;&nbsp;let processor: PaymentProcessor;<br>
+  &nbsp;&nbsp;let mockGateway: jest.Mocked&lt;PaymentGateway&gt;;<br>
+  <br>
+  &nbsp;&nbsp;beforeEach(() =&gt; {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;mockGateway = {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;charge: jest.fn()<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;};<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;processor = new PaymentProcessor(mockGateway);<br>
+  &nbsp;&nbsp;});<br>
+  <br>
+  &nbsp;&nbsp;it('should process a valid payment', async () =&gt; {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;mockGateway.charge.mockResolvedValue(true);<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;const result = await processor.processPayment(100);<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;expect(result).toBe(true);<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;expect(mockGateway.charge).toHaveBeenCalledWith(100);<br>
+  &nbsp;&nbsp;});<br>
+  <br>
+  &nbsp;&nbsp;it('should throw for invalid amount', async () =&gt; {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;await expect(processor.processPayment(-50))<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.rejects<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;toThrow('Amount must be greater than zero');<br>
+  &nbsp;&nbsp;});<br>
+  });<br>
+  </div>
+</div>
+
+<div class="w3-example">
+  <h4>Type Testing</h4>
+  <p>Test your types to ensure they work as expected using type assertions and utilities:</p>
+  <div class="w3-code notranslate jsHigh">
+  // Using @ts-expect-error to test for type errors<br>
+  // @ts-expect-error - Should not allow negative values<br>
+  const invalidUser: User = { id: -1, name: 'Test' };<br>
+  <br>
+  // Using type assertions in tests<br>
+  function assertIsString(value: unknown): asserts value is string {<br>
+  &nbsp;&nbsp;if (typeof value !== 'string') {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;throw new Error('Not a string');<br>
+  &nbsp;&nbsp;}<br>
+  }<br>
+  <br>
+  // Using utility types for testing<br>
+  type IsString&lt;T&gt; = T extends string ? true : false;<br>
+  type Test1 = IsString&lt;string&gt;;  // true<br>
+  type Test2 = IsString&lt;number&gt;;  // false<br>
+  <br>
+  // Using tsd for type testing (install with: npm install --save-dev tsd)<br>
+  /*<br>
+  import { expectType } from 'tsd';<br>
+  <br>
+  const user = { id: 1, name: 'John' };<br>
+  expectType&lt;{ id: number; name: string }&gt;(user);<br>
+  expectType&lt;string&gt;(user.name);<br>
+  */<br>
+  </div>
+</div>
+
+<hr>
+
+<h2 id="performance">Performance Considerations</h2>
+
+<div class="w3-example">
+  <h3>Type-Only Imports and Exports</h3>
+  <p>Use type-only imports and exports to reduce bundle size and improve tree-shaking:</p>
+  <div class="w3-code notranslate jsHigh">
+  // Bad: Imports both type and value<br>
+  import { User, fetchUser } from './api';<br>
+  <br>
+  // Good: Separate type and value imports<br>
+  import type { User } from './api';<br>
+  import { fetchUser } from './api';<br>
+  <br>
+  // Even better: Use type-only imports when possible<br>
+  import type { User, UserSettings } from './types';<br>
+  <br>
+  // Type-only export<br>
+  export type { User };<br>
+  <br>
+  // Runtime export<br>
+  export { fetchUser };<br>
+  <br>
+  // In tsconfig.json, enable "isolatedModules": true<br>
+  // to ensure type-only imports are properly handled<br>
+  </div>
+</div>
+
+<div class="w3-example">
+  <h4>Avoid Excessive Type Complexity</h4>
+  <p>Be mindful of complex types that can impact compilation time:</p>
+  <div class="w3-code notranslate jsHigh">
+  // Bad: Deeply nested mapped types can be slow<br>
+  type DeepPartial&lt;T&gt; = {<br>
+  &nbsp;&nbsp;[P in keyof T]?: T[P] extends object ? DeepPartial&lt;T[P]&gt; : T[P];<br>
+  };<br>
+  <br>
+  // Better: Use built-in utility types when possible<br>
+  type User = {<br>
+  &nbsp;&nbsp;id: string;<br>
+  &nbsp;&nbsp;profile: {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;name: string;<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;email: string;<br>
+  &nbsp;&nbsp;};<br>
+  &nbsp;&nbsp;preferences?: {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;notifications: boolean;<br>
+  &nbsp;&nbsp;};<br>
+  };<br>
+  <br>
+  // Instead of DeepPartial&lt;User&gt;, use Partial with type assertions<br>
+  const updateUser = (updates: Partial&lt;User&gt;) =&gt; {<br>
+  &nbsp;&nbsp;// Implementation<br>
+  };<br>
+  <br>
+  // For complex types, consider using interfaces<br>
+  interface UserProfile {<br>
+  &nbsp;&nbsp;name: string;<br>
+  &nbsp;&nbsp;email: string;<br>
+  }<br>
+  <br>
+  interface UserPreferences {<br>
+  &nbsp;&nbsp;notifications: boolean;<br>
+  }<br>
+  <br>
+  interface User {<br>
+  &nbsp;&nbsp;id: string;<br>
+  &nbsp;&nbsp;profile: UserProfile;<br>
+  &nbsp;&nbsp;preferences?: UserPreferences;<br>
+  }<br>
+  </div>
+</div>
+
+<div class="w3-example">
+  <h3>Use const Assertions for Literal Types</h3>
+  <p>Improve type inference and performance with const assertions:</p>
+  <div class="w3-code notranslate jsHigh">
+  // Without const assertion (wider type)<br>
+  const colors = ['red', 'green', 'blue'];<br>
+  // Type: string[]<br>
+  <br>
+  // With const assertion (narrower, more precise type)<br>
+  const colors = ['red', 'green', 'blue'] as const;<br>
+  // Type: readonly ["red", "green", "blue"]<br>
+  <br>
+  // Extract union type from const array<br>
+  type Color = typeof colors[number];  // "red" | "green" | "blue"<br>
+  <br>
+  // Objects with const assertions<br>
+  const config = {<br>
+  &nbsp;&nbsp;apiUrl: 'https://api.example.com',<br>
+  &nbsp;&nbsp;timeout: 5000,<br>
+  &nbsp;&nbsp;features: ['auth', 'notifications'],<br>
+  } as const;<br>
+  <br>
+  // Type is:<br>
+  // {<br>
+  //   readonly apiUrl: "https://api.example.com";<br>
+  //   readonly timeout: 5000;<br>
+  //   readonly features: readonly ["auth", "notifications"];<br>
+  // }<br>
+  </div>
+  <a target="_blank" href="#/tutorial/trytypescript4980.html?filename=demo_const_assertions" class="w3-btn w3-margin-bottom">Try it Yourself »</a>
+</div>
+
+<hr>
+
+<h2 id="common-mistakes">Common Mistakes to Avoid</h2>
+
+<div class="w3-example">
+  <h3>Overusing the <code class="w3-codespan">any</code> Type</h3>
+  <p>Avoid using `any` as it defeats TypeScript's type checking:</p>
+  <div class="w3-code notranslate jsHigh">
+  // Bad: Loses all type safety<br>
+  function process(data: any) {<br>
+  &nbsp;&nbsp;return data.map(item =&gt; item.name);<br>
+  }<br>
+  <br>
+  // Better: Use generics for type safety<br>
+  function process&lt;T extends { name: string }&gt;(items: T[]) {<br>
+  &nbsp;&nbsp;return items.map(item =&gt; item.name);<br>
+  }<br>
+  <br>
+  // Best: Use specific types when possible<br>
+  interface User {<br>
+  &nbsp;&nbsp;name: string;<br>
+  &nbsp;&nbsp;age: number;<br>
+  }<br>
+  <br>
+  function processUsers(users: User[]) {<br>
+  &nbsp;&nbsp;return users.map(user =&gt; user.name);<br>
+  }<br>
+  </div>
+</div>
+
+<div class="w3-example">
+  <h3>Not Using Strict Mode</h3>
+  <p>Always enable strict mode in your `tsconfig.json`:</p>
+  <div class="w3-code notranslate jsHigh">
+  // tsconfig.json<br>
+  {<br>
+  &nbsp;&nbsp;"compilerOptions": {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;"strict": true,<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;/* Additional strictness flags */<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;"noImplicitAny": true,<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;"strictNullChecks": true,<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;"strictFunctionTypes": true,<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;"strictBindCallApply": true,<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;"strictPropertyInitialization": true,<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;"noImplicitThis": true,<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;"alwaysStrict": true<br>
+  &nbsp;&nbsp;}<br>
+  }<br>
+  </div>
+</div>
+
+<div class="w3-example">
+  <h3>Ignoring Type Inference</h3>
+  <p>Let TypeScript infer types when possible:</p>
+  <div class="w3-code notranslate jsHigh">
+  // Redundant type annotation<br>
+  const name: string = 'John';<br>
+  <br>
+  // Let TypeScript infer the type<br>
+  const name = 'John';  // TypeScript knows it's a string<br>
+  <br>
+  // Redundant return type<br>
+  function add(a: number, b: number): number {<br>
+  &nbsp;&nbsp;return a + b;<br>
+  }<br>
+  <br>
+  // Let TypeScript infer the return type<br>
+  function add(a: number, b: number) {<br>
+  &nbsp;&nbsp;return a + b;  // TypeScript infers number<br>
+  }<br>
+  </div>
+</div>
+
+<div class="w3-example">
+  <h3>Not Using Type Guards</h3>
+  <p>Use type guards to narrow types safely:</p>
+  <div class="w3-code notranslate jsHigh">
+  // Without type guard<br>
+  function process(input: string | number) {<br>
+  &nbsp;&nbsp;return input.toUpperCase();  // Error: toUpperCase doesn't exist on number<br>
+  }<br>
+  <br>
+  // With type guard<br>
+  function isString(value: unknown): value is string {<br>
+  &nbsp;&nbsp;return typeof value === 'string';<br>
+  }<br>
+  <br>
+  function process(input: string | number) {<br>
+  &nbsp;&nbsp;if (isString(input)) {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;return input.toUpperCase();  // TypeScript knows input is string here<br>
+  &nbsp;&nbsp;} else {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;return input.toFixed(2);  // TypeScript knows input is number here<br>
+  &nbsp;&nbsp;}<br>
+  }<br>
+  <br>
+  // Built-in type guards<br>
+  if (typeof value === 'string') { /* value is string */ }<br>
+  if (value instanceof Date) { /* value is Date */ }<br>
+  if ('id' in user) { /* user has id property */ }<br>
+  </div>
+  <a target="_blank" href="#/tutorial/trytypescriptd484.html?filename=demo_type_guards" class="w3-btn w3-margin-bottom">Try it Yourself »</a>
+</div>
+
+<div class="w3-example">
+  <h3>Not Handling <code class="w3-codespan">null</code> and <code class="w3-codespan">undefined</code></h3>
+  <p>Always handle potential `null` or `undefined` values:</p>
+  <div class="w3-code notranslate jsHigh">
+  // Bad: Potential runtime error<br>
+  function getLength(str: string | null) {<br>
+  &nbsp;&nbsp;return str.length;  // Error: Object is possibly 'null'<br>
+  }<br>
+  <br>
+  // Good: Null check<br>
+  function getLength(str: string | null) {<br>
+  &nbsp;&nbsp;if (str === null) return 0;<br>
+  &nbsp;&nbsp;return str.length;<br>
+  }<br>
+  <br>
+  // Better: Use optional chaining and nullish coalescing<br>
+  function getLength(str: string | null) {<br>
+  &nbsp;&nbsp;return str?.length ?? 0;<br>
+  }<br>
+  <br>
+  // For arrays<br>
+  const names: string[] | undefined = [];<br>
+  const count = names?.length ?? 0;  // Safely handle undefined<br>
+  <br>
+  // For object properties<br>
+  interface User {<br>
+  &nbsp;&nbsp;profile?: {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;name?: string;<br>
+  &nbsp;&nbsp;};<br>
+  }<br>
+  <br>
+  const user: User = {};<br>
+  const name = user.profile?.name ?? 'Anonymous';<br>
+  </div>
+</div>
+
+<hr>
+<div id="exercisecontainer" src="xrcise_best_practices.js" data-extensions="php"></div>
+<hr>
+<br>
+
+<div id="user-profile-bottom-wrapper" class="user-profile-bottom-wrapper">
+  <div class="user-authenticated w3-hide">
+    <a href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fmy-learning.w3schools.com" class="user-profile-btn user-profile-bottom-btn ga-bottom ga-bottom-profile" title="Your W3Schools Profile" aria-label="Your W3Schools Profile" target="_top">
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 2048 2048" class="user-profile-icon" aria-label="Your W3Schools Profile Icon">
+        <path d="M 843.500 1148.155 C 837.450 1148.515, 823.050 1149.334, 811.500 1149.975 C 742.799 1153.788, 704.251 1162.996, 635.391 1192.044 C 517.544 1241.756, 398.992 1352.262, 337.200 1470 C 251.831 1632.658, 253.457 1816.879, 340.500 1843.982 C 351.574 1847.431, 1696.426 1847.431, 1707.500 1843.982 C 1794.543 1816.879, 1796.169 1632.658, 1710.800 1470 C 1649.008 1352.262, 1530.456 1241.756, 1412.609 1192.044 C 1344.588 1163.350, 1305.224 1153.854, 1238.500 1150.039 C 1190.330 1147.286, 1196.307 1147.328, 1097 1149.035 C 1039.984 1150.015, 1010.205 1150.008, 950 1149.003 C 851.731 1147.362, 856.213 1147.398, 843.500 1148.155" stroke="none" fill="#2a93fb" fill-rule="evenodd"></path>
+        <path d="M 1008 194.584 C 1006.075 194.809, 999.325 195.476, 993 196.064 C 927.768 202.134, 845.423 233.043, 786 273.762 C 691.987 338.184, 622.881 442.165, 601.082 552 C 588.496 615.414, 592.917 705.245, 611.329 760.230 C 643.220 855.469, 694.977 930.136, 763.195 979.321 C 810.333 1013.308, 839.747 1026.645, 913.697 1047.562 C 1010.275 1074.879, 1108.934 1065.290, 1221 1017.694 C 1259.787 1001.221, 1307.818 965.858, 1339.852 930.191 C 1460.375 795.998, 1488.781 609.032, 1412.581 451.500 C 1350.098 322.327, 1240.457 235.724, 1097.500 202.624 C 1072.356 196.802, 1025.206 192.566, 1008 194.584" stroke="none" fill="#0aaa8a" fill-rule="evenodd"></path>
+      </svg>
+
+      <svg xmlns="http://www.w3.org/2000/svg" class="user-progress" aria-label="Your W3Schools Profile Progress">
+        <path class="user-progress-circle1" fill="none" d="M 25.99650934151373 15.00000030461742 A 20 20 0 1 0 26 15"></path>
+        <path class="user-progress-circle2" fill="none" d="M 26 15 A 20 20 0 0 0 26 15"></path>
+      </svg>
+
+      <span class="user-progress-star">★</span>
+
+      <span class="user-progress-point">+1</span>
+    </a>
+  </div>
+
+  <div class="w3s-pathfinder -teaser user-anonymous w3-hide">
+  <div class="track-progress-btn-wrapper">
+    <a href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fpathfinder.w3schools.com" class="-login-btn w3-button ga-bottom ga-bottom-login track-progress-btn" title="Sign in to track your progress" aria-label="Sign in to track your progress" target="_blank">
+    Sign in to track progress
+  </a>
+    
+  </div>
+</div>
+
+<style>
+.w3s-pathfinder.-teaser {
+  background-color: transparent!important;
+}
+.track-progress-btn-wrapper {
+  display: flex;
+  justify-content: center;
+}
+a.track-progress-btn {
+  position: absolute;
+  padding: 8px 20px;
+  border: 1px solid #ddd;
+  top:-65px;
+  background-color: #fff;
+  color: #333;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+}
+@media screen and (max-width: 600px) {
+  a.track-progress-btn {
+    top: 6px;
+    width: 100%;
+  }
+}
+</style>
+
+</div>
+

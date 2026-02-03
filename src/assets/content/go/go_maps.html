@@ -1,0 +1,425 @@
+
+      <div id="mainLeaderboard" style="overflow:hidden;">
+        <!-- MainLeaderboard-->
+      </div>
+    
+<h1>Go Maps</h1>
+
+<hr>
+
+<h2>Go Maps</h2>
+<p>Maps are used to store data values in key:value pairs.</p>
+<p>Each element in a map is a key:value pair.</p>
+<p>A map is an unordered and changeable collection that does not allow duplicates.</p>
+<p>The length of a map is the number of its elements. You can find it using the <code class="w3-codespan">len()</code> function.</p>
+<p>The default value of a map is nil.</p>
+<p>Maps hold references to an underlying hash table.</p>
+<p>Go has multiple ways for creating maps.</p>
+<hr>
+
+<h2>Create Maps Using <code class="w3-codespan">var</code> and <code class="w3-codespan">:=</code></h2>
+<div class="w3-example">
+  <h3>Syntax</h3>
+      <div class="w3-code notranslate javaHigh">
+        var <em>a</em> = map[KeyType]ValueType{<em>key1</em>:<em>value1</em>, <em>key2</em>:<em>value2</em>,...}<br>
+        <em>b</em> := map[KeyType]ValueType{<em>key1</em>:<em>value1</em>, <em>key2</em>:<em>value2</em>,...}<br>
+      </div>
+</div> 
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <p>This example shows how to create maps in Go. Notice the order in the code and in the output</p>
+  <div class="w3-code notranslate javaHigh">
+    package main<br>
+    import ("fmt")<br><br>
+    func main() {<br>
+    &nbsp;&nbsp;var a = map[string]string{"brand": "Ford", "model": "Mustang", "year": "1964"}<br>
+    &nbsp;&nbsp;b := map[string]int{"Oslo": 1, "Bergen": 2, "Trondheim": 3, "Stavanger": 4}<br>
+    <br>
+    &nbsp;&nbsp;fmt.Printf("a\t%v\n", a)<br>
+    &nbsp;&nbsp;fmt.Printf("b\t%v\n", b)<br>
+    }
+  </div>
+  <p>Result:</p>
+  
+  <a class="w3-btn w3-margin-bottom w3-margin-top" href="#/tutorial/trygo3d36.html?filename=demo_maps1" target="_blank">Try it Yourself »</a>
+</div>
+
+<div class="w3-panel ws-note">
+  <p><strong>Note:</strong> The order of the map elements defined in the code is different from the way that they are stored. The data are stored in a way to have efficient data retrieval from the map.</p>
+</div>
+<hr>
+<div id="midcontentadcontainer" style="overflow:auto;text-align:center">
+<!-- MidContent -->
+<!-- <p class="adtext">Advertisement</p> -->
+</div><hr>
+<h2>Create Maps Using the <code class="w3-codespan">make()</code> Function:</h2>
+<div class="w3-example">
+  <h3>Syntax</h3>
+  <div class="w3-code notranslate javaHigh">
+    var <em>a</em> = make(map[KeyType]ValueType)<br>
+    <em>b</em> := make(map[KeyType]ValueType)<br>
+  </div>
+</div>  
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <p>This example shows how to create maps in Go using the <code class="w3-codespan">make()</code>function.</p>
+  <div class="w3-code notranslate javaHigh">
+    package main<br>
+    import ("fmt")<br><br>
+    func main() {<br>
+    &nbsp;&nbsp;var a = make(map[string]string) <em>// The map is empty now</em><br>
+    &nbsp;&nbsp;a["brand"] = "Ford"<br>
+	  &nbsp;&nbsp;a["model"] = "Mustang"<br>
+	  &nbsp;&nbsp;a["year"] = "1964"<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>// a is no longer empty</em><br>
+    &nbsp;&nbsp;b := make(map[string]int)<br>
+    &nbsp;&nbsp;b["Oslo"] = 1<br>
+    &nbsp;&nbsp;b["Bergen"] = 2<br>
+    &nbsp;&nbsp;b["Trondheim"] = 3<br>
+    &nbsp;&nbsp;b["Stavanger"] = 4<br>
+    <br>
+    &nbsp;&nbsp;fmt.Printf("a\t%v\n", a)<br>
+    &nbsp;&nbsp;fmt.Printf("b\t%v\n", b)<br>
+    }
+  </div>
+  <p>Result:</p>
+  
+  <a class="w3-btn w3-margin-bottom w3-margin-top" href="#/tutorial/trygob9bc.html?filename=demo_maps2" target="_blank">Try it Yourself »</a>
+</div>
+<hr>
+
+<h2>Create an Empty Map</h2>
+<p>There are two ways to create an empty map. One is by using the <code class="w3-codespan">make()</code>function and the other is by using the following syntax.</p>
+<div class="w3-example">
+  <h3>Syntax</h3>
+  <div class="w3-code notranslate javaHigh">
+    var <em>a</em> map[KeyType]ValueType<br>
+  </div>
+</div>  
+
+<div class="w3-panel ws-note">
+  <p><strong>Note:</strong> The <code class="w3-codespan">make()</code>function is the right way to create an empty map. If you make an empty map in a different way and write to it, it will causes a runtime panic.</p>
+</div>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <p>This example shows the difference between declaring an empty map using with the <code class="w3-codespan">make()</code>function and without it.</p>
+  <div class="w3-code notranslate javaHigh">
+    package main<br>
+    import ("fmt")<br><br>
+    func main() {<br>
+    &nbsp;&nbsp;var a = make(map[string]string)<br>
+    &nbsp;&nbsp;var b map[string]string <em></em><br>
+	  <br>
+	  &nbsp;&nbsp;fmt.Println(a == nil)<br>
+    &nbsp;&nbsp;fmt.Println(b == nil)<br>
+    }
+  </div>
+  <p>Result:</p>
+  
+  <a class="w3-btn w3-margin-bottom w3-margin-top" href="#/tutorial/trygo35e1.html?filename=demo_maps3" target="_blank">Try it Yourself »</a>
+</div>
+<hr>
+
+<h2>Allowed Key Types</h2>
+<p>The map key can be of any data type for which the equality operator (<code class="w3-codespan">==</code>) is defined. These include:</p>
+<ul>
+  <li>Booleans</li>
+  <li>Numbers</li>
+  <li>Strings</li>
+  <li>Arrays</li>
+  <li>Pointers</li>
+  <li>Structs</li>
+  <li>Interfaces (as long as the dynamic type supports equality)</li>
+</ul>
+
+<p>Invalid key types are:</p>
+<ul>
+  <li>Slices</li>
+  <li>Maps</li>
+  <li>Functions</li>
+</ul>
+<p>These types are invalid because the equality operator (<code class="w3-codespan">==</code>) is not defined for them.</p>
+<hr>
+
+<h2>Allowed Value Types</h2>
+<p>The map values can be <strong>any</strong> type.</p>
+<hr>
+
+<h2>Access Map Elements</h2>
+<p>You can access map elements by:</p>
+<div class="w3-example">
+  <h3>Syntax</h3>
+      <div class="w3-code notranslate javaHigh">
+        <em>value</em> = <em>map_name</em>[key]<br>
+      </div>
+</div> 
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <div class="w3-code notranslate javaHigh">
+    package main<br>
+    import ("fmt")<br><br>
+    func main() {<br>
+    &nbsp;&nbsp;var a = make(map[string]string)<br>
+    &nbsp;&nbsp;a["brand"] = "Ford"<br>
+	  &nbsp;&nbsp;a["model"] = "Mustang"<br>
+	  &nbsp;&nbsp;a["year"] = "1964"<br>
+    <br>
+    &nbsp;&nbsp;fmt.Printf(a["brand"])<br>
+    }
+  </div>
+  <p>Result:</p>
+  
+  <a class="w3-btn w3-margin-bottom w3-margin-top" href="#/tutorial/trygo151c.html?filename=demo_maps4" target="_blank">Try it Yourself »</a>
+</div>
+<hr>
+
+<h2>Update and Add Map Elements </h2>
+<p>Updating or adding an elements are done by:</p>
+<div class="w3-example">
+  <h3>Syntax</h3>
+      <div class="w3-code notranslate javaHigh">
+        <em>map_name</em>[key] = value<br>
+      </div>
+</div> 
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <p>This example shows how to update and add elements to a map.</p>
+  <div class="w3-code notranslate javaHigh">
+    package main<br>
+    import ("fmt")<br><br>
+    func main() {<br>
+    &nbsp;&nbsp;var a = make(map[string]string)<br>
+    &nbsp;&nbsp;a["brand"] = "Ford"<br>
+	  &nbsp;&nbsp;a["model"] = "Mustang"<br>
+	  &nbsp;&nbsp;a["year"] = "1964"<br>
+    <br>
+    &nbsp;&nbsp;fmt.Println(a)<br>
+    <br>
+    &nbsp;&nbsp;a["year"] = "1970" <em>// Updating an element</em><br>
+	  &nbsp;&nbsp;a["color"] = "red" <em>// Adding an element</em><br>
+    <br>
+    &nbsp;&nbsp;fmt.Println(a)<br>
+    }
+  </div>
+  <p>Result:</p>
+  
+  <a class="w3-btn w3-margin-bottom w3-margin-top" href="#/tutorial/trygoef07.html?filename=demo_maps5" target="_blank">Try it Yourself »</a>
+</div>
+<hr>
+
+<h2>Remove Element from Map</h2>
+<p>Removing elements is done using the <code class="w3-codespan">delete()</code> function.</p>
+<div class="w3-example">
+  <h3>Syntax</h3>
+      <div class="w3-code notranslate javaHigh">
+        delete(<em>map_name</em>, key)<br>
+      </div>
+</div>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <div class="w3-code notranslate javaHigh">
+    package main<br>
+    import ("fmt")<br><br>
+    func main() {<br>
+    &nbsp;&nbsp;var a = make(map[string]string)<br>
+    &nbsp;&nbsp;a["brand"] = "Ford"<br>
+	  &nbsp;&nbsp;a["model"] = "Mustang"<br>
+	  &nbsp;&nbsp;a["year"] = "1964"<br>
+    <br>
+    &nbsp;&nbsp;fmt.Println(a)<br>
+    <br>
+    &nbsp;&nbsp;delete(a,"year")<br>
+    <br>
+    &nbsp;&nbsp;fmt.Println(a)<br>
+    }
+  </div>
+  <p>Result:</p>
+  
+  <a class="w3-btn w3-margin-bottom w3-margin-top" href="#/tutorial/trygoa6f3.html?filename=demo_maps6" target="_blank">Try it Yourself »</a>
+</div>
+<hr>
+
+<h2>Check For Specific Elements in a Map</h2>
+<p>You can check if a certain key exists in a map using:</p>
+<div class="w3-example">
+  <h3>Syntax</h3>
+      <div class="w3-code notranslate javaHigh">
+        <em>val</em>, <em>ok</em> :=<em>map_name</em>[key]<br>
+      </div>
+</div>
+<p>If you only want to check the existence of a certain key, you can use the blank identifier (<code class="w3-codespan">_</code>) in place of val.</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <div class="w3-code notranslate javaHigh">
+    package main<br>
+    import ("fmt")<br><br>
+    func main() {<br>
+    &nbsp;&nbsp;var a = map[string]string{"brand": "Ford", "model": "Mustang", "year": "1964", "day":""}<br>
+    <br>
+    &nbsp;&nbsp;val1, ok1 := a["brand"]&nbsp;<em>// Checking for existing key and its value</em><br>
+    &nbsp;&nbsp;val2, ok2 := a["color"]&nbsp;<em>// Checking for non-existing key and its value</em><br>
+    &nbsp;&nbsp;val3, ok3 := a["day"]<em>&nbsp;&nbsp;&nbsp;// Checking for existing key and its value</em><br>
+    &nbsp;&nbsp;_, ok4 := a["model"]&nbsp;&nbsp;&nbsp;&nbsp;<em>// Only checking for existing key and not its value</em><br>
+    <br>
+    &nbsp;&nbsp;fmt.Println(val1, ok1)<br>
+    &nbsp;&nbsp;fmt.Println(val2, ok2)<br>
+    &nbsp;&nbsp;fmt.Println(val3, ok3)<br>
+    &nbsp;&nbsp;fmt.Println(ok4)<br>
+    }
+  </div>
+  <p>Result:</p>
+  
+  <a class="w3-btn w3-margin-bottom w3-margin-top" href="#/tutorial/trygo7220.html?filename=demo_maps7" target="_blank">Try it Yourself »</a>
+</div>
+
+<h4>Example Explained</h4>
+<p>In this example, we checked for existence of different keys in the map.</p>
+<p>The key "<em>color</em>" does not exist in the map. So the value is an empty string ('').</p>
+<p>The <em>ok2</em> variable is used to find out if the key exist or not. Because we would have got the same value if the value of the "color" key was empty. This is the case for <em>val3</em>.</p>
+<hr>
+
+<h2>Maps Are References</h2>
+<p>Maps are references to hash tables.</p>
+<p>If two map variables refer to the same hash table, changing the content of one variable affect the content of the other.</p>
+<div class="w3-example">
+  <h3>Example</h3>
+  <div class="w3-code notranslate javaHigh">
+    package main<br>
+    import ("fmt")<br><br>
+    func main() {<br>
+    &nbsp;&nbsp;var a = map[string]string{"brand": "Ford", "model": "Mustang", "year": "1964"}<br>
+    &nbsp;&nbsp;b := a <br>
+    <br>
+    &nbsp;&nbsp;fmt.Println(a)<br>
+	  &nbsp;&nbsp;fmt.Println(b)<br>
+    <br>
+    &nbsp;&nbsp;b["year"] = "1970"<br>
+    &nbsp;&nbsp;fmt.Println("After change to b:")<br>
+    <br>
+    &nbsp;&nbsp;fmt.Println(a)<br>
+    &nbsp;&nbsp;fmt.Println(b)<br>
+    }
+  </div>
+  <p>Result:</p>
+  
+  <a class="w3-btn w3-margin-bottom w3-margin-top" href="#/tutorial/trygo5e4d.html?filename=demo_maps8" target="_blank">Try it Yourself »</a>
+</div>
+<hr>
+
+<h2>Iterate Over Maps</h2>
+<p>You can use <code class="w3-codespan">range</code> to iterate over maps.</p>
+<div class="w3-example">
+  <h3>Example</h3>
+  <p>This example shows how to iterate over the elements in a map. Note the order of the elements in the output.</p>
+
+  <div class="w3-code notranslate javaHigh">
+    package main<br>
+    import ("fmt")<br><br>
+    func main() {<br>
+    &nbsp;&nbsp;a := map[string]int{"one": 1, "two": 2, "three": 3, "four": 4}<br><br>
+    &nbsp;&nbsp;for k, v := range a {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;fmt.Printf("%v : %v, ", k, v)<br>
+    &nbsp;&nbsp;}<br>
+    }
+  </div>
+  <p>Result:</p>
+  
+  <a class="w3-btn w3-margin-bottom w3-margin-top" href="#/tutorial/trygoe30a.html?filename=demo_maps10" target="_blank">Try it Yourself »</a>
+</div>
+<hr>
+
+<h2>Iterate Over Maps in a Specific Order</h2>
+<p>Maps are unordered data structures. If you need to iterate over a map in a specific order, you must have a separate data structure that specifies that order. </p>
+<div class="w3-example">
+  <h3>Example</h3>
+  <div class="w3-code notranslate javaHigh">
+    package main<br>
+    import ("fmt")<br><br>
+    func main() {<br>
+    &nbsp;&nbsp;a := map[string]int{"one": 1, "two": 2, "three": 3, "four": 4}<br><br>
+    &nbsp;&nbsp;var b []string&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>// defining the order</em><br>
+    &nbsp;&nbsp;b = append(b, "one", "two", "three", "four")<br>
+    <br>
+    &nbsp;&nbsp;for k, v := range a {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>// loop with no order</em><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;fmt.Printf("%v : %v, ", k, v)<br>
+    &nbsp;&nbsp;}<br>
+    <br>
+    &nbsp;&nbsp;fmt.Println()<br>
+    <br>
+    &nbsp;&nbsp;for _, element := range b {&nbsp;&nbsp;<em>// loop with the defined order</em><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;fmt.Printf("%v : %v, ", element, a[element])<br>
+    &nbsp;&nbsp;}<br>
+    }
+  </div>
+  <p>Result:</p>
+  
+  <a class="w3-btn w3-margin-bottom w3-margin-top" href="#/tutorial/trygoe30a.html?filename=demo_maps10" target="_blank">Try it Yourself »</a>
+</div>
+<br>
+
+
+
+<div id="user-profile-bottom-wrapper" class="user-profile-bottom-wrapper">
+  <div class="user-authenticated w3-hide">
+    <a href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fmy-learning.w3schools.com" class="user-profile-btn user-profile-bottom-btn ga-bottom ga-bottom-profile" title="Your W3Schools Profile" aria-label="Your W3Schools Profile" target="_top">
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 2048 2048" class="user-profile-icon" aria-label="Your W3Schools Profile Icon">
+        <path d="M 843.500 1148.155 C 837.450 1148.515, 823.050 1149.334, 811.500 1149.975 C 742.799 1153.788, 704.251 1162.996, 635.391 1192.044 C 517.544 1241.756, 398.992 1352.262, 337.200 1470 C 251.831 1632.658, 253.457 1816.879, 340.500 1843.982 C 351.574 1847.431, 1696.426 1847.431, 1707.500 1843.982 C 1794.543 1816.879, 1796.169 1632.658, 1710.800 1470 C 1649.008 1352.262, 1530.456 1241.756, 1412.609 1192.044 C 1344.588 1163.350, 1305.224 1153.854, 1238.500 1150.039 C 1190.330 1147.286, 1196.307 1147.328, 1097 1149.035 C 1039.984 1150.015, 1010.205 1150.008, 950 1149.003 C 851.731 1147.362, 856.213 1147.398, 843.500 1148.155" stroke="none" fill="#2a93fb" fill-rule="evenodd"></path>
+        <path d="M 1008 194.584 C 1006.075 194.809, 999.325 195.476, 993 196.064 C 927.768 202.134, 845.423 233.043, 786 273.762 C 691.987 338.184, 622.881 442.165, 601.082 552 C 588.496 615.414, 592.917 705.245, 611.329 760.230 C 643.220 855.469, 694.977 930.136, 763.195 979.321 C 810.333 1013.308, 839.747 1026.645, 913.697 1047.562 C 1010.275 1074.879, 1108.934 1065.290, 1221 1017.694 C 1259.787 1001.221, 1307.818 965.858, 1339.852 930.191 C 1460.375 795.998, 1488.781 609.032, 1412.581 451.500 C 1350.098 322.327, 1240.457 235.724, 1097.500 202.624 C 1072.356 196.802, 1025.206 192.566, 1008 194.584" stroke="none" fill="#0aaa8a" fill-rule="evenodd"></path>
+      </svg>
+
+      <svg xmlns="http://www.w3.org/2000/svg" class="user-progress" aria-label="Your W3Schools Profile Progress">
+        <path class="user-progress-circle1" fill="none" d="M 25.99650934151373 15.00000030461742 A 20 20 0 1 0 26 15"></path>
+        <path class="user-progress-circle2" fill="none" d="M 26 15 A 20 20 0 0 0 26 15"></path>
+      </svg>
+
+      <span class="user-progress-star">★</span>
+
+      <span class="user-progress-point">+1</span>
+    </a>
+  </div>
+
+  <div class="w3s-pathfinder -teaser user-anonymous w3-hide">
+  <div class="track-progress-btn-wrapper">
+    <a href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fpathfinder.w3schools.com" class="-login-btn w3-button ga-bottom ga-bottom-login track-progress-btn" title="Sign in to track your progress" aria-label="Sign in to track your progress" target="_blank">
+    Sign in to track progress
+  </a>
+    
+  </div>
+</div>
+
+<style>
+.w3s-pathfinder.-teaser {
+  background-color: transparent!important;
+}
+.track-progress-btn-wrapper {
+  display: flex;
+  justify-content: center;
+}
+a.track-progress-btn {
+  position: absolute;
+  padding: 8px 20px;
+  border: 1px solid #ddd;
+  top:-65px;
+  background-color: #fff;
+  color: #333;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+}
+@media screen and (max-width: 600px) {
+  a.track-progress-btn {
+    top: 6px;
+    width: 100%;
+  }
+}
+</style>
+
+</div>
+

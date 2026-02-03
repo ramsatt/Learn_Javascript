@@ -1,62 +1,182 @@
 [
   {
-    "title": "Go Tutorial",
+    "title": "Tutorial",
     "items": [
       {
+        "title": "Go Tutorial",
+        "file": "index.html"
+      },
+      {
+        "title": "Go Introduction",
+        "file": "go_introduction.html"
+      },
+      {
+        "title": "Go Getting Started",
+        "file": "go_getting_started.html"
+      },
+      {
         "title": "Go Syntax",
-        "file": "go_go_syntax.html"
+        "file": "go_syntax.html"
       },
       {
         "title": "Go Comments",
-        "file": "go_go_comments.html"
+        "file": "go_comments.html"
       },
       {
         "title": "Go Variables",
-        "file": "go_go_variables.html"
+        "file": "go_variables.html"
       },
       {
-        "title": "Go Data Types",
-        "file": "go_go_data_types.html"
+        "title": "Go Multiple Variable Declaration",
+        "file": "go_variable_multi.html"
+      },
+      {
+        "title": "Go Variable Naming Rules",
+        "file": "go_variable_naming_rules.html"
+      },
+      {
+        "title": "Go Constants",
+        "file": "go_constants.html"
       },
       {
         "title": "Go Output Functions",
-        "file": "go_go_output.html"
+        "file": "go_output.html"
+      },
+      {
+        "title": "Go Formatting Verbs",
+        "file": "go_formatting_verbs.html"
+      },
+      {
+        "title": "Go Data Types",
+        "file": "go_data_types.html"
+      },
+      {
+        "title": "Go Boolean Data Type",
+        "file": "go_boolean_data_type.html"
+      },
+      {
+        "title": "Go Integer Data Types",
+        "file": "go_integer_data_type.html"
+      },
+      {
+        "title": "Go Float Data Types",
+        "file": "go_float_data_type.html"
+      },
+      {
+        "title": "Go String Data Type",
+        "file": "go_string_data_type.html"
       },
       {
         "title": "Go Arrays",
-        "file": "go_go_arrays.html"
+        "file": "go_arrays.html"
       },
       {
         "title": "Go Slices",
-        "file": "go_go_slices.html"
+        "file": "go_slices.html"
+      },
+      {
+        "title": "Go Access, Change, Append and Copy Slices",
+        "file": "go_slices_modify.html"
       },
       {
         "title": "Go Operators",
-        "file": "go_go_operators.html"
+        "file": "go_operators.html"
+      },
+      {
+        "title": "Go Arithmetic Operators",
+        "file": "go_arithmetic_operators.html"
+      },
+      {
+        "title": "Go Assignment Operators",
+        "file": "go_assignment_operators.html"
+      },
+      {
+        "title": "Go Comparison Operators",
+        "file": "go_comparison_operators.html"
+      },
+      {
+        "title": "Go Logical Operators",
+        "file": "go_logical_operators.html"
+      },
+      {
+        "title": "Go Bitwise Operators",
+        "file": "go_bitwise_operators.html"
       },
       {
         "title": "Go Conditions",
-        "file": "go_go_conditions.html"
+        "file": "go_conditions.html"
+      },
+      {
+        "title": "Go if statement",
+        "file": "go_if_statement.html"
+      },
+      {
+        "title": "Go if else Statement",
+        "file": "go_else_statement.html"
+      },
+      {
+        "title": "Go else if Statement",
+        "file": "go_elseif_statement.html"
+      },
+      {
+        "title": "Go Nested if Statement",
+        "file": "go_nested_if.html"
       },
       {
         "title": "Go switch Statement",
-        "file": "go_go_switch.html"
+        "file": "go_switch.html"
+      },
+      {
+        "title": "Go Multi-case switch Statement",
+        "file": "go_switch_multi.html"
       },
       {
         "title": "Go For Loops",
-        "file": "go_go_loops.html"
+        "file": "go_loops.html"
       },
       {
         "title": "Go Functions",
-        "file": "go_go_functions.html"
+        "file": "go_functions.html"
+      },
+      {
+        "title": "Go Function Parameters and Arguments",
+        "file": "go_function_parameters.html"
+      },
+      {
+        "title": "Go Function Returns",
+        "file": "go_function_returns.html"
+      },
+      {
+        "title": "Go Recursion Functions",
+        "file": "go_function_recursion.html"
       },
       {
         "title": "Go Struct",
-        "file": "go_go_struct.html"
+        "file": "go_struct.html"
       },
       {
         "title": "Go Maps",
-        "file": "go_go_maps.html"
+        "file": "go_maps.html"
+      },
+      {
+        "title": "Go Exercises",
+        "file": "go_exercises.html"
+      },
+      {
+        "title": "Go Compiler",
+        "file": "go_compiler.html"
+      },
+      {
+        "title": "Go Exercises",
+        "file": "go_syllabus.html"
+      },
+      {
+        "title": "Go Study Plan",
+        "file": "go_study_plan.html"
+      },
+      {
+        "title": "W3Schools Go Certificate",
+        "file": "go_exam.html"
       }
     ]
   }

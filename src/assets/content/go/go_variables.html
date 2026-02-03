@@ -1,0 +1,293 @@
+
+      <div id="mainLeaderboard" style="overflow:hidden;">
+        <!-- MainLeaderboard-->
+      </div>
+    
+<h1>Go Variables</h1>
+
+<hr>
+<p class="intro">Variables are containers for storing data values.</p>
+<hr>
+
+<h2>Go Variable Types</h2>
+<p>In Go, there are different <strong>types</strong> of variables, for example:</p>
+
+<ul>
+  <li><code class="w3-codespan">int</code>- stores integers (whole numbers), such as 123 or -123</li>
+  <li><code class="w3-codespan">float32</code>- stores floating point numbers, with decimals, such as 19.99 or -19.99</li>
+  <li><code class="w3-codespan">string</code> - stores text, such as "Hello World". String values are surrounded by double quotes</li>
+  <li><code class="w3-codespan">bool</code>- stores values with two states: true or false</li>
+</ul> 
+<p>More about different variable types, will be explained in the <a href="#/tutorial/go_data_types.html">Go Data Types</a> chapter.</p>
+<hr>
+
+<h2>Declaring (Creating) Variables</h2>
+<p>In Go, there are two ways to declare a variable:</p>
+<h4>1. With the <code class="w3-codespan">var</code> keyword:</h4>
+<p>Use the <code class="w3-codespan">var</code> keyword, followed by variable name and type:</p>
+<div class="w3-example">
+  <h3>Syntax</h3>
+      <div class="w3-code notranslate javaHigh">
+        var <em>variablename type</em> = <em>value</em>
+      </div>
+</div> 
+<p><strong>Note:</strong> You always have to specify either <code class="w3-codespan">type</code> 
+or <code class="w3-codespan">value</code> (or both).</p>
+<h4>2. With the <code class="w3-codespan">:=</code> sign:</h4>
+<p>Use the <code class="w3-codespan">:=</code> sign, followed by the variable value:</p>
+<div class="w3-example">
+<h3>Syntax</h3>
+<div class="w3-code notranslate javaHigh">
+<em>variablename </em> := <em>value</em>
+</div>
+</div> 
+
+<p><strong>Note: </strong> In this case, the type of the variable is <strong>inferred</strong> from the value 
+(means that the compiler decides the type of the variable, based on the value).</p>
+  <p><strong>Note:</strong> It is not possible to declare a variable using
+  <code class="w3-codespan">:=</code>, without assigning a value to it.</p>
+<hr>
+
+<h2>Variable Declaration With Initial Value</h2>
+<p>If the value of a variable is known from the start, you can declare the variable and assign a value to it 
+on one line:</p>
+<div class="w3-example">
+  <h3>Example</h3>
+  <div class="w3-code notranslate javaHigh">
+    package main<br>
+    import ("fmt")<br><br>
+    func main() {<br>
+    &nbsp;&nbsp;var student1 string = "John" <em>//type is 
+    string</em> <br>
+    &nbsp;&nbsp;var student2 = "Jane" <em>//type is inferred</em><br>
+    &nbsp;&nbsp;x := 2 <em>//type is inferred</em><br>
+    <br>&nbsp;&nbsp;fmt.Println(student1)<br>
+    &nbsp;&nbsp;fmt.Println(student2)<br>
+    &nbsp;&nbsp;fmt.Println(x)<br>
+    }
+  </div>
+  <a class="w3-btn w3-margin-bottom" href="#/tutorial/trygo5ffb.html?filename=demo_variable_declaration1" target="_blank">Try it Yourself »</a>
+</div>
+
+<p><strong>Note:</strong> The variable types of <code class="w3-codespan">student2</code> and <code class="w3-codespan">x</code> is <strong>inferred</strong> from 
+their values.</p>
+
+<hr>
+<div id="midcontentadcontainer" style="overflow:auto;text-align:center">
+<!-- MidContent -->
+<!-- <p class="adtext">Advertisement</p> -->
+</div><hr>
+<h2>Variable Declaration Without Initial Value</h2>
+
+<p>In Go, all variables are initialized. So, if you declare a variable without an initial value, 
+its value will be set to the default value of its type: </p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <div class="w3-code notranslate javaHigh">
+    package main<br>
+    import ("fmt")<br><br>
+    func main() {<br>
+    &nbsp;&nbsp;var a string<br>
+    &nbsp;&nbsp;var b int<br>
+    &nbsp;&nbsp;var c bool<br>
+    <br>
+    &nbsp;&nbsp;fmt.Println(a)<br>
+    &nbsp;&nbsp;fmt.Println(b)<br>
+    &nbsp;&nbsp;fmt.Println(c)<br>
+    }
+  </div>
+  <a class="w3-btn w3-margin-bottom" href="#/tutorial/trygob270.html?filename=demo_variable_declaration2" target="_blank">Try it Yourself »</a>
+</div>
+
+<h4>Example explained</h4>
+
+<p>In this example there are 3 variables:</p>
+
+<ul>
+  <li><code class="w3-codespan">a</code></li>
+  <li><code class="w3-codespan">b</code></li>
+  <li><code class="w3-codespan">c</code></li>
+</ul>
+
+<p>These variables are declared but they have not been assigned initial values.</p>
+
+<p>By running the code, we can see that they already have the default values of their respective types:</p>
+
+<ul>
+  <li><code class="w3-codespan">a</code> is <code class="w3-codespan">""</code></li>
+  <li><code class="w3-codespan">b</code> is <code class="w3-codespan">0</code></li>
+  <li><code class="w3-codespan">c</code> is <code class="w3-codespan">false</code></li>
+</ul>
+
+<hr>
+
+<h2>Value Assignment After Declaration</h2>
+
+<p>It is possible to assign a value to a variable after it is declared. This is helpful for cases the value is not initially known.</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <div class="w3-code notranslate javaHigh">
+    package main<br>
+    import ("fmt")<br><br>
+    func main() {<br>
+    &nbsp;&nbsp;var student1 string<br>
+    &nbsp;&nbsp;student1 = "John"<br>
+    &nbsp;&nbsp;fmt.Println(student1)<br>
+    }
+  </div>
+  <a class="w3-btn w3-margin-bottom" href="#/tutorial/trygo6f69.html?filename=demo_variable_declaration3" target="_blank">Try it Yourself »</a>
+</div>
+
+<div class="w3-panel ws-note">
+  <p><strong>Note:</strong> It is not possible to declare a variable using "<code class="w3-codespan">:=</code>" without assigning a value to it.</p>
+</div>
+
+
+<hr>
+
+<h2>Difference Between var and :=</h2>
+
+<p>There are some small differences between the <code class="w3-codespan">var</code> var <code class="w3-codespan">:=</code>:</p>
+
+<table class="ws-table-all notranslate">
+<tbody><tr>
+    <th>var</th>
+    <th>:=</th>
+</tr>
+<tr>
+    <td>Can be used <strong>inside </strong> and <strong>outside</strong> of functions</td>
+    <td>Can only be used <strong>inside</strong> functions</td>
+</tr>
+<tr>
+    <td>Variable declaration and value assignment <strong>can be done separately</strong></td>
+    <td>Variable declaration and value assignment <strong>cannot be done separately</strong> 
+    (must be done in the same line)</td>
+</tr>
+</tbody></table>  
+
+<div class="w3-example">
+  <h3>Example</h3>
+  <p>This example shows declaring variables outside of a function, with the <code class="w3-codespan">var</code> 
+  keyword:</p>
+  <div class="w3-code notranslate javaHigh">
+    package main<br>
+    import ("fmt")<br><br>
+
+    var a int<br>
+    var b int = 2<br>
+    var c = 3<br><br>
+
+    func main() {<br>
+    &nbsp;&nbsp;a = 1<br>
+    &nbsp;&nbsp;fmt.Println(a)<br>
+    &nbsp;&nbsp;fmt.Println(b)<br>
+    &nbsp;&nbsp;fmt.Println(c)<br>
+    }
+  </div>
+  <a class="w3-btn w3-margin-bottom" href="#/tutorial/trygo2c8d.html?filename=demo_variable_declaration4" target="_blank">Try it Yourself »</a>
+</div>
+
+<div class="w3-example w3-pale-red">
+  <h3>Example</h3>
+  <p>Since <code class="w3-codespan">:=</code> is used outside of a function, running the program results in an error. </p>
+  <div class="w3-code notranslate javaHigh w3-border-red">
+    package main<br>
+    import ("fmt")<br>
+    <br>
+    a :=  1<br><br>
+
+    func main() {<br>
+    &nbsp;&nbsp;fmt.Println(a)<br>   
+  }
+  </div>
+  <p>Result:</p>
+        
+  <a class="w3-btn w3-margin-bottom w3-margin-top" href="#/tutorial/trygo8513.html?filename=demo_variable_declaration5" target="_blank">Try it Yourself »</a>
+</div>
+<hr>
+
+<div>
+<h2>Go Exercises</h2>
+<form autocomplete="off" spellcheck="false" id="w3-exerciseform" action="https://www.w3schools.com/go/exercise.php?filename=exercise_variables1" method="post" target="_blank">
+<h2>Test Yourself With Exercises</h2>
+<div class="exercisewindow">
+<h2>Exercise:</h2>
+<p>Create a variable named <code class="w3-codespan">myNum</code> and assign the value <code class="w3-codespan">50</code> to it.</p>
+<div class="exerciseprecontainer">
+<pre style="overflow: auto;">package main   
+import ("fmt") <br>
+func main() {
+  var <input name="ex1" maxlength="5" style="width:65px;"> = <input name="ex2" maxlength="2" style="width:25px;">
+  fmt.Println(<input name="ex3" maxlength="5" style="width:65px;">)
+}
+</pre>
+</div>
+<br>
+<button type="submit" class="w3-btn w3-margin-bottom">Submit Answer »</button>
+<p><a target="_blank" href="#/tutorial/exercise4829.html?filename=exercise_variables1">Start the Exercise</a></p>
+</div>
+</form>
+</div>
+
+<br>
+
+
+<div id="user-profile-bottom-wrapper" class="user-profile-bottom-wrapper">
+  <div class="user-authenticated w3-hide">
+    <a href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fmy-learning.w3schools.com" class="user-profile-btn user-profile-bottom-btn ga-bottom ga-bottom-profile" title="Your W3Schools Profile" aria-label="Your W3Schools Profile" target="_top">
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 2048 2048" class="user-profile-icon" aria-label="Your W3Schools Profile Icon">
+        <path d="M 843.500 1148.155 C 837.450 1148.515, 823.050 1149.334, 811.500 1149.975 C 742.799 1153.788, 704.251 1162.996, 635.391 1192.044 C 517.544 1241.756, 398.992 1352.262, 337.200 1470 C 251.831 1632.658, 253.457 1816.879, 340.500 1843.982 C 351.574 1847.431, 1696.426 1847.431, 1707.500 1843.982 C 1794.543 1816.879, 1796.169 1632.658, 1710.800 1470 C 1649.008 1352.262, 1530.456 1241.756, 1412.609 1192.044 C 1344.588 1163.350, 1305.224 1153.854, 1238.500 1150.039 C 1190.330 1147.286, 1196.307 1147.328, 1097 1149.035 C 1039.984 1150.015, 1010.205 1150.008, 950 1149.003 C 851.731 1147.362, 856.213 1147.398, 843.500 1148.155" stroke="none" fill="#2a93fb" fill-rule="evenodd"></path>
+        <path d="M 1008 194.584 C 1006.075 194.809, 999.325 195.476, 993 196.064 C 927.768 202.134, 845.423 233.043, 786 273.762 C 691.987 338.184, 622.881 442.165, 601.082 552 C 588.496 615.414, 592.917 705.245, 611.329 760.230 C 643.220 855.469, 694.977 930.136, 763.195 979.321 C 810.333 1013.308, 839.747 1026.645, 913.697 1047.562 C 1010.275 1074.879, 1108.934 1065.290, 1221 1017.694 C 1259.787 1001.221, 1307.818 965.858, 1339.852 930.191 C 1460.375 795.998, 1488.781 609.032, 1412.581 451.500 C 1350.098 322.327, 1240.457 235.724, 1097.500 202.624 C 1072.356 196.802, 1025.206 192.566, 1008 194.584" stroke="none" fill="#0aaa8a" fill-rule="evenodd"></path>
+      </svg>
+
+      <svg xmlns="http://www.w3.org/2000/svg" class="user-progress" aria-label="Your W3Schools Profile Progress">
+        <path class="user-progress-circle1" fill="none" d="M 25.99650934151373 15.00000030461742 A 20 20 0 1 0 26 15"></path>
+        <path class="user-progress-circle2" fill="none" d="M 26 15 A 20 20 0 0 0 26 15"></path>
+      </svg>
+
+      <span class="user-progress-star">★</span>
+
+      <span class="user-progress-point">+1</span>
+    </a>
+  </div>
+
+  <div class="w3s-pathfinder -teaser user-anonymous w3-hide">
+  <div class="track-progress-btn-wrapper">
+    <a href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fpathfinder.w3schools.com" class="-login-btn w3-button ga-bottom ga-bottom-login track-progress-btn" title="Sign in to track your progress" aria-label="Sign in to track your progress" target="_blank">
+    Sign in to track progress
+  </a>
+    
+  </div>
+</div>
+
+<style>
+.w3s-pathfinder.-teaser {
+  background-color: transparent!important;
+}
+.track-progress-btn-wrapper {
+  display: flex;
+  justify-content: center;
+}
+a.track-progress-btn {
+  position: absolute;
+  padding: 8px 20px;
+  border: 1px solid #ddd;
+  top:-65px;
+  background-color: #fff;
+  color: #333;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+}
+@media screen and (max-width: 600px) {
+  a.track-progress-btn {
+    top: 6px;
+    width: 100%;
+  }
+}
+</style>
+
+</div>
+

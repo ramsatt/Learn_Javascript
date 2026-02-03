@@ -1,126 +1,130 @@
 [
   {
-    "title": "Kotlin Tutorial",
+    "title": "Tutorial",
     "items": [
       {
         "title": "Kotlin Tutorial",
-        "file": "kotlin_index.html"
-      },
-      {
-        "title": "Kotlin Arrays",
-        "file": "kotlin_kotlin_arrays.html"
-      },
-      {
-        "title": "Kotlin Booleans",
-        "file": "kotlin_kotlin_booleans.html"
-      },
-      {
-        "title": "Kotlin Break and Continue",
-        "file": "kotlin_kotlin_break.html"
-      },
-      {
-        "title": "Kotlin Class Functions",
-        "file": "kotlin_kotlin_class_functions.html"
-      },
-      {
-        "title": "Kotlin Classes and Objects",
-        "file": "kotlin_kotlin_classes.html"
-      },
-      {
-        "title": "Kotlin Comments",
-        "file": "kotlin_kotlin_comments.html"
-      },
-      {
-        "title": "Kotlin Compiler",
-        "file": "kotlin_kotlin_compiler.html"
-      },
-      {
-        "title": "Kotlin If ... Else",
-        "file": "kotlin_kotlin_conditions.html"
-      },
-      {
-        "title": "Kotlin Constructors",
-        "file": "kotlin_kotlin_constructors.html"
-      },
-      {
-        "title": "Kotlin Data Types",
-        "file": "kotlin_kotlin_data_types.html"
-      },
-      {
-        "title": "W3Schools Kotlin Certificate",
-        "file": "kotlin_kotlin_exam.html"
-      },
-      {
-        "title": "Kotlin Examples",
-        "file": "kotlin_kotlin_examples.html"
-      },
-      {
-        "title": "Kotlin For Loop",
-        "file": "kotlin_kotlin_for_loop.html"
-      },
-      {
-        "title": "Kotlin Functions",
-        "file": "kotlin_kotlin_functions.html"
-      },
-      {
-        "title": "Kotlin Get Started",
-        "file": "kotlin_kotlin_getstarted.html"
-      },
-      {
-        "title": "Kotlin Inheritance",
-        "file": "kotlin_kotlin_inheritance.html"
+        "file": "index.html"
       },
       {
         "title": "Kotlin Introduction",
-        "file": "kotlin_kotlin_intro.html"
+        "file": "kotlin_intro.html"
       },
       {
-        "title": "Kotlin OOP",
-        "file": "kotlin_kotlin_oop.html"
-      },
-      {
-        "title": "Kotlin Operators",
-        "file": "kotlin_kotlin_operators.html"
-      },
-      {
-        "title": "Kotlin Output (Print Text)",
-        "file": "kotlin_kotlin_output.html"
-      },
-      {
-        "title": "Kotlin Ranges",
-        "file": "kotlin_kotlin_ranges.html"
-      },
-      {
-        "title": "Kotlin Strings",
-        "file": "kotlin_kotlin_strings.html"
-      },
-      {
-        "title": "Kotlin Study Plan",
-        "file": "kotlin_kotlin_study_plan.html"
-      },
-      {
-        "title": "Kotlin Syllabus",
-        "file": "kotlin_kotlin_syllabus.html"
+        "title": "Kotlin Get Started",
+        "file": "kotlin_getstarted.html"
       },
       {
         "title": "Kotlin Syntax",
-        "file": "kotlin_kotlin_syntax.html"
+        "file": "kotlin_syntax.html"
+      },
+      {
+        "title": "Kotlin Output (Print Text)",
+        "file": "kotlin_output.html"
+      },
+      {
+        "title": "Kotlin Comments",
+        "file": "kotlin_comments.html"
       },
       {
         "title": "Kotlin Variables",
-        "file": "kotlin_kotlin_variables.html"
+        "file": "kotlin_variables.html"
+      },
+      {
+        "title": "Kotlin Data Types",
+        "file": "kotlin_data_types.html"
+      },
+      {
+        "title": "Kotlin Operators",
+        "file": "kotlin_operators.html"
+      },
+      {
+        "title": "Kotlin Strings",
+        "file": "kotlin_strings.html"
+      },
+      {
+        "title": "Kotlin Booleans",
+        "file": "kotlin_booleans.html"
+      },
+      {
+        "title": "Kotlin If ... Else",
+        "file": "kotlin_conditions.html"
       },
       {
         "title": "Kotlin When",
-        "file": "kotlin_kotlin_when.html"
+        "file": "kotlin_when.html"
       },
       {
         "title": "Kotlin While Loop",
-        "file": "kotlin_kotlin_while_loop.html"
+        "file": "kotlin_while_loop.html"
       },
       {
-        "title": "Trykotlin0158",
-        "file": "kotlin_trykotlin0158.html"
+        "title": "Kotlin Break and Continue",
+        "file": "kotlin_break.html"
+      },
+      {
+        "title": "Kotlin Arrays",
+        "file": "kotlin_arrays.html"
+      },
+      {
+        "title": "Kotlin For Loop",
+        "file": "kotlin_for_loop.html"
+      },
+      {
+        "title": "Kotlin Ranges",
+        "file": "kotlin_ranges.html"
+      },
+      {
+        "title": "Kotlin Functions",
+        "file": "kotlin_functions.html"
+      },
+      {
+        "title": "Kotlin OOP",
+        "file": "kotlin_oop.html"
+      },
+      {
+        "title": "Kotlin Classes and Objects",
+        "file": "kotlin_classes.html"
+      },
+      {
+        "title": "Kotlin Constructors",
+        "file": "kotlin_constructors.html"
+      },
+      {
+        "title": "Kotlin Class Functions",
+        "file": "kotlin_class_functions.html"
+      },
+      {
+        "title": "Kotlin Inheritance",
+        "file": "kotlin_inheritance.html"
+      },
+      {
+        "title": "Kotlin Examples",
+        "file": "kotlin_examples.html"
+      },
+      {
+        "title": "Kotlin Compiler",
+        "file": "kotlin_compiler.html"
+      },
+      {
+        "title": "Kotlin Exercises",
+        "file": "kotlin_exercises.html"
+      },
+      {
+        "title": "Kotlin Quiz",
+        "file": "kotlin_quiz.html"
+      },
+      {
+        "title": "Kotlin Syllabus",
+        "file": "kotlin_syllabus.html"
+      },
+      {
+        "title": "Kotlin Study Plan",
+        "file": "kotlin_study_plan.html"
+      },
+      {
+        "title": "W3Schools Kotlin Certificate",
+        "file": "kotlin_exam.html"
       }
     ]
   }

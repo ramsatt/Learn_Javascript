@@ -1,0 +1,496 @@
+
+      <div id="mainLeaderboard" style="overflow:hidden;">
+        <!-- MainLeaderboard-->
+      </div>
+    <h1>TypeScript Advanced Types</h1>
+
+<hr>
+<h2>Advanced TypeScript Types</h2>
+
+<p>TypeScript's advanced type system allows you to model complex type relationships with precision.</p>
+<p>These features are particularly useful for building robust, maintainable applications with excellent type safety.</p>
+
+<div class="w3-panel">
+  <h3>Key Advanced Type Features</h3>
+  <ul>
+    <li><b>Mapped Types</b>: Transform properties of existing types</li>
+    <li><b>Conditional Types</b>: Create types based on conditions</li>
+    <li><b>Template Literal Types</b>: Build types using string templates</li>
+    <li><b>Utility Types</b>: Built-in type helpers for common transformations</li>
+    <li><b>Recursive Types</b>: Self-referential types for tree-like structures</li>
+    <li><b>Type Guards &amp; Type Predicates</b>: Runtime type checking</li>
+    <li><b>Type Inference</b>: Advanced pattern matching with <code class="w3-codespan">infer</code></li>
+  </ul>
+</div>
+<hr>
+<h2>Mapped Types</h2>
+
+<p>Mapped types allow you to create new types by transforming properties of existing types.</p>
+
+<h3>Basic Mapped Type</h3>
+<p>Transform every property of an object type into a new type using a single template.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+// Convert all properties to boolean<br>
+type Flags&lt;T&gt; = {<br>
+&nbsp;&nbsp;[K in keyof T]: boolean;<br>
+};<br>
+<br>
+interface User {<br>
+&nbsp;&nbsp;id: number;<br>
+&nbsp;&nbsp;name: string;<br>
+&nbsp;&nbsp;email: string;<br>
+}<br>
+<br>
+type UserFlags = Flags&lt;User&gt;;<br>
+// Equivalent to:<br>
+// {<br>
+// &nbsp;&nbsp;id: boolean;<br>
+// &nbsp;&nbsp;name: boolean;<br>
+// &nbsp;&nbsp;email: boolean;<br>
+// }<br>
+</div>
+<a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescript44ee.html?filename=demo_adv_mapped_basic" target="_blank">Try it Yourself »</a>
+</div>
+
+<hr>
+
+
+<h3>Mapped Type Modifiers</h3>
+<p>Add or remove property modifiers like <code class="w3-codespan">readonly</code> and <code class="w3-codespan">?</code> across all keys.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+// Make all properties optional<br>
+interface Todo {<br>
+&nbsp;&nbsp;title: string;<br>
+&nbsp;&nbsp;description: string;<br>
+&nbsp;&nbsp;completed: boolean;<br>
+}<br>
+<br>
+type OptionalTodo = {<br>
+&nbsp;&nbsp;[K in keyof Todo]?: Todo[K];<br>
+};<br>
+<br>
+// Remove 'readonly' and '?' modifiers<br>
+type Concrete&lt;T&gt; = {<br>
+&nbsp;&nbsp;-readonly [K in keyof T]-?: T[K];<br>
+};<br>
+<br>
+// Add 'readonly' and 'required' to all properties<br>
+type ReadonlyRequired&lt;T&gt; = {<br>
+&nbsp;&nbsp;+readonly [K in keyof T]-?: T[K];<br>
+};<br>
+</div>
+<a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescript1b71.html?filename=demo_adv_mapped_modifiers" target="_blank">Try it Yourself »</a>
+</div>
+
+<h3>Key Remapping</h3>
+<p>Rename or filter keys while mapping using <code class="w3-codespan">as</code>, string helpers, and conditional checks.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+// Add prefix to all property names<br>
+type Getters&lt;T&gt; = {<br>
+&nbsp;&nbsp;[K in keyof T as `get${Capitalize&lt;string &amp; K&gt;}`]: () =&gt; T[K];<br>
+};<br>
+<br>
+type UserGetters = Getters&lt;User&gt;;<br>
+// {<br>
+// &nbsp;&nbsp;getId: () =&gt; number;<br>
+// &nbsp;&nbsp;getName: () =&gt; string;<br>
+// &nbsp;&nbsp;getEmail: () =&gt; string;<br>
+// }<br>
+<br>
+// Filter out properties<br>
+type MethodsOnly&lt;T&gt; = {<br>
+&nbsp;&nbsp;[K in keyof T as T[K] extends Function ? K : never]: T[K];<br>
+};<br>
+</div>
+<a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescript4bcc.html?filename=demo_adv_key_remap" target="_blank">Try it Yourself »</a>
+</div>
+<hr>
+<div id="midcontentadcontainer" style="overflow:auto;text-align:center">
+<!-- MidContent -->
+<!-- <p class="adtext">Advertisement</p> -->
+</div><hr>
+<h2>Conditional Types</h2>
+
+<p>Conditional types allow you to define types that depend on a condition.</p>
+
+<h3>Basic Conditional Types</h3>
+<p>Select between types based on a condition checked at the type level.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+type IsString&lt;T&gt; = T extends string ? true : false;<br>
+<br>
+type A = IsString&lt;string&gt;;&nbsp;&nbsp;&nbsp;&nbsp;// true<br>
+type B = IsString&lt;number&gt;;&nbsp;&nbsp;&nbsp;&nbsp;// false<br>
+type C = IsString&lt;'hello'&gt;;&nbsp;&nbsp;&nbsp;&nbsp;// true<br>
+type D = IsString&lt;string | number&gt;;&nbsp;// boolean<br>
+<br>
+// Extract array element type<br>
+type ArrayElement&lt;T&gt; = T extends (infer U)[] ? U : never;<br>
+type Numbers = ArrayElement&lt;number[]&gt;;&nbsp;// number<br>
+</div>
+<a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescript35f4.html?filename=demo_adv_conditional_basic" target="_blank">Try it Yourself »</a>
+</div>
+
+<h3>Infer Keyword</h3>
+<p>Capture a part of a type within a conditional type by introducing a new type variable with <code class="w3-codespan">infer</code>.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+// Get return type of a function<br>
+type ReturnType&lt;T&gt; = T extends (...args: any[]) =&gt; infer R ? R : any;<br>
+<br>
+// Get parameter types as a tuple<br>
+type Parameters&lt;T&gt; = T extends (...args: infer P) =&gt; any ? P : never;<br>
+<br>
+// Get constructor parameter types<br>
+type ConstructorParameters&lt;T extends new (...args: any) =&gt; any&gt; =<br>
+&nbsp;&nbsp;T extends new (...args: infer P) =&gt; any ? P : never;<br>
+<br>
+// Get instance type from a constructor<br>
+type InstanceType&lt;T extends new (...args: any) =&gt; any&gt; =<br>
+&nbsp;&nbsp;T extends new (...args: any) =&gt; infer R ? R : any;<br>
+</div>
+<a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescriptc07d.html?filename=demo_adv_infer_keyword" target="_blank">Try it Yourself »</a>
+</div>
+
+<h3>Distributed Conditional Types</h3>
+<p>Understand how conditionals distribute over unions versus when they are wrapped to prevent distribution.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+// Without distribution<br>
+type ToArrayNonDist&lt;T&gt; = T extends any ? T[] : never;<br>
+type StrOrNumArr = ToArrayNonDist&lt;string | number&gt;;&nbsp;// (string | number)[]<br>
+<br>
+// With distribution<br>
+type ToArray&lt;T&gt; = [T] extends [any] ? T[] : never;<br>
+type StrOrNumArr2 = ToArray&lt;string | number&gt;;&nbsp;// string[] | number[]<br>
+<br>
+// Filter out non-string types<br>
+type FilterStrings&lt;T&gt; = T extends string ? T : never;<br>
+type Letters = FilterStrings&lt;'a' | 'b' | 1 | 2 | 'c'&gt;;&nbsp;// 'a' | 'b' | 'c'<br>
+</div>
+<a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescript4899.html?filename=demo_adv_distributed_conditionals" target="_blank">Try it Yourself »</a>
+</div>
+<hr>
+<h2>Template Literal Types</h2>
+
+<p>Template literal types allow you to build types using template literal syntax.</p>
+
+<h3>Basic Template Literal Types</h3>
+<p>Constrain strings to specific patterns using template literals and unions.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+type Greeting = `Hello, ${string}`;<br>
+<br>
+const validGreeting: Greeting = 'Hello, World!';<br>
+const invalidGreeting: Greeting = 'Hi there!'; // Error<br>
+<br>
+// With unions<br>
+type Color = 'red' | 'green' | 'blue';<br>
+type Size = 'small' | 'medium' | 'large';<br>
+<br>
+type Style = `${Color}-${Size}`;<br>
+// 'red-small' | 'red-medium' | 'red-large' |<br>
+// 'green-small' | 'green-medium' | 'green-large' |<br>
+// 'blue-small' | 'blue-medium' | 'blue-large'<br>
+</div>
+<a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescript55ce.html?filename=demo_adv_template_basic" target="_blank">Try it Yourself »</a>
+</div>
+
+<h3>String Manipulation Types</h3>
+<p>Apply built-in helpers to transform string literal types (uppercasing, capitalizing, etc.).</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+// Built-in string manipulation types<br>
+type T1 = Uppercase&lt;'hello'&gt;;&nbsp;&nbsp;// 'HELLO'<br>
+type T2 = Lowercase&lt;'WORLD'&gt;;&nbsp;&nbsp;// 'world'<br>
+type T3 = Capitalize&lt;'typescript'&gt;;&nbsp;&nbsp;// 'Typescript'<br>
+type T4 = Uncapitalize&lt;'TypeScript'&gt;;&nbsp;&nbsp;// 'typeScript'<br>
+<br>
+// Create an event handler type<br>
+type EventType = 'click' | 'change' | 'keydown';<br>
+type EventHandler = `on${Capitalize&lt;EventType&gt;}`;<br>
+// 'onClick' | 'onChange' | 'onKeydown'<br>
+</div>
+<a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescript9c65.html?filename=demo_adv_string_manipulation" target="_blank">Try it Yourself »</a>
+</div>
+
+<h3>Advanced Patterns</h3>
+<p>Compose templates with inference and key remapping to extract metadata and generate APIs.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+// Extract route parameters<br>
+type ExtractRouteParams&lt;T&gt; =<br>
+&nbsp;&nbsp;T extends `${string}:${infer Param}/${infer Rest}`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;? { [K in Param | keyof ExtractRouteParams&lt;`${Rest}`&gt;]: string }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;: T extends `${string}:${infer Param}`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;? { [K in Param]: string }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;: {};<br>
+<br>
+type Params = ExtractRouteParams&lt;'/users/:userId/posts/:postId'&gt;;<br>
+// { userId: string; postId: string; }<br>
+<br>
+// Create a type-safe event emitter<br>
+type EventMap = {<br>
+&nbsp;&nbsp;click: { x: number; y: number };<br>
+&nbsp;&nbsp;change: string;<br>
+&nbsp;&nbsp;keydown: { key: string; code: number };<br>
+};<br>
+<br>
+type EventHandlers = {<br>
+&nbsp;&nbsp;[K in keyof EventMap as `on${Capitalize&lt;K&gt;}`]: (event: EventMap[K]) =&gt; void;<br>
+};<br>
+</div>
+<a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescripteb3a.html?filename=demo_adv_template_advanced" target="_blank">Try it Yourself »</a>
+</div>
+<hr>
+<h2>Utility Types</h2>
+
+<p>TypeScript provides several built-in utility types for common type transformations.</p>
+
+<h3>Common Utility Types</h3>
+<p>Use built-ins like <code class="w3-codespan">Partial</code>, <code class="w3-codespan">Pick</code>, and <code class="w3-codespan">Omit</code> for common transformations.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+// Basic types<br>
+interface User {<br>
+&nbsp;&nbsp;id: number;<br>
+&nbsp;&nbsp;name: string;<br>
+&nbsp;&nbsp;email: string;<br>
+&nbsp;&nbsp;createdAt: Date;<br>
+}<br>
+<br>
+// Make all properties optional<br>
+type PartialUser = Partial&lt;User&gt;;<br>
+<br>
+// make all properties required<br>
+type RequiredUser = Required&lt;PartialUser&gt;;<br>
+<br>
+// make all properties read-only<br>
+type ReadonlyUser = Readonly&lt;User&gt;;<br>
+<br>
+// pick specific properties<br>
+type UserPreview = Pick&lt;User, 'id' | 'name'&gt;;<br>
+<br>
+// omit specific properties<br>
+type UserWithoutEmail = Omit&lt;User, 'email'&gt;;<br>
+<br>
+// extract property types<br>
+type UserId = User['id'];&nbsp;// number<br>
+type UserKeys = keyof User;&nbsp;// 'id' | 'name' | 'email' | 'createdAt'<br>
+</div>
+<a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescripte6d9.html?filename=demo_adv_utility_common" target="_blank">Try it Yourself »</a>
+</div>
+
+<h3>Advanced Utility Types</h3>
+<p>Exclude or extract members from unions and create custom mapped helpers.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+// Create a type that excludes null and undefined<br>
+type NonNullable&lt;T&gt; = T extends null | undefined ? never : T;<br>
+<br>
+// Exclude types from a union<br>
+type Numbers = 1 | 2 | 3 | 'a' | 'b';<br>
+type JustNumbers = Exclude&lt;Numbers, string&gt;;&nbsp;// 1 | 2 | 3<br>
+<br>
+// Extract types from a union<br>
+type JustStrings = Extract&lt;Numbers, string&gt;;&nbsp;// 'a' | 'b'<br>
+<br>
+// Get the type that is not in the second type<br>
+type A = { a: string; b: number; c: boolean };<br>
+type B = { a: string; b: number };<br>
+type C = Omit&lt;A, keyof B&gt;;&nbsp;// { c: boolean }<br>
+<br>
+// Create a type with all properties as mutable<br>
+type Mutable&lt;T&gt; = {<br>
+&nbsp;&nbsp;-readonly [K in keyof T]: T[K];<br>
+};<br>
+</div>
+<a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescripte18a.html?filename=demo_adv_utility_advanced" target="_blank">Try it Yourself »</a>
+</div>
+<hr>
+<h2>Recursive Types</h2>
+
+<p>Recursive types are useful for modeling tree-like data structures where a type can reference itself.</p>
+
+<h3>Basic Recursive Type</h3>
+<p>Model self-referential structures like trees and nested JSON.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+// Simple binary tree<br>
+type BinaryTree&lt;T&gt; = {<br>
+&nbsp;&nbsp;value: T;<br>
+&nbsp;&nbsp;left?: BinaryTree&lt;T&gt;;<br>
+&nbsp;&nbsp;right?: BinaryTree&lt;T&gt;;<br>
+};<br>
+<br>
+// JSON-like data structure<br>
+type JSONValue =<br>
+&nbsp;&nbsp;| string<br>
+&nbsp;&nbsp;| number<br>
+&nbsp;&nbsp;| boolean<br>
+&nbsp;&nbsp;| null<br>
+&nbsp;&nbsp;| JSONValue[]<br>
+&nbsp;&nbsp;| { [key: string]: JSONValue };<br>
+<br>
+// Nested comments<br>
+type Comment = {<br>
+&nbsp;&nbsp;id: number;<br>
+&nbsp;&nbsp;content: string;<br>
+&nbsp;&nbsp;replies: Comment[];<br>
+&nbsp;&nbsp;createdAt: Date;<br>
+};<br>
+</div>
+<a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescript6a96.html?filename=demo_adv_recursive_basic" target="_blank">Try it Yourself »</a>
+</div>
+
+<h3>Advanced Recursive Types</h3>
+<p>Express linked lists, directory trees, and recursive state machines.</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+// Type for a linked list<br>
+type LinkedList&lt;T&gt; = {<br>
+&nbsp;&nbsp;value: T;<br>
+&nbsp;&nbsp;next: LinkedList&lt;T&gt; | null;<br>
+};<br>
+<br>
+// Type for a directory structure<br>
+type File = {<br>
+&nbsp;&nbsp;type: 'file';<br>
+&nbsp;&nbsp;name: string;<br>
+&nbsp;&nbsp;size: number;<br>
+};<br>
+<br>
+type Directory = {<br>
+&nbsp;&nbsp;type: 'directory';<br>
+&nbsp;&nbsp;name: string;<br>
+&nbsp;&nbsp;children: (File | Directory)[];<br>
+};<br>
+<br>
+// Type for a state machine<br>
+type State = {<br>
+&nbsp;&nbsp;value: string;<br>
+&nbsp;&nbsp;transitions: {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;[event: string]: State;<br>
+&nbsp;&nbsp;};<br>
+};<br>
+<br>
+// Type for a recursive function<br>
+type RecursiveFunction&lt;T&gt; = (x: T | RecursiveFunction&lt;T&gt;) =&gt; void;<br>
+</div>
+<a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescript23de.html?filename=demo_adv_recursive_advanced" target="_blank">Try it Yourself »</a>
+</div>
+<hr>
+<h2>Best Practices</h2>
+
+<div class="w3-panel">
+  <h3>When to Use Advanced Types</h3>
+  <ul>
+    <li>Use <b>mapped types</b> when you need to transform multiple properties of an object type</li>
+    <li>Use <b>conditional types</b> when your type depends on another type</li>
+    <li>Use <b>template literal types</b> for string manipulation and pattern matching</li>
+    <li>Use <b>utility types</b> for common transformations (prefer built-in ones when possible)</li>
+    <li>Use <b>recursive types</b> for tree-like or nested data structures</li>
+  </ul>
+
+  <h3>Performance Considerations</h3>
+  <ul>
+    <li>Deeply nested recursive types can slow down the TypeScript compiler</li>
+    <li>Very large union types (100+ members) can cause performance issues</li>
+    <li>Use type aliases to break down complex types</li>
+  </ul>
+</div>
+<hr>
+<h2>Common Pitfalls</h2>
+
+<div class="w3-panel">
+  <h3>Type Inference Issues</h3>
+  <ul>
+    <li>Conditional types distribute over union types, which can be surprising</li>
+    <li>Type inference with <code class="w3-codespan">infer</code> works differently in different contexts</li>
+    <li>Some utility types don't work well with <code class="w3-codespan">any</code> or <code class="w3-codespan">unknown</code></li>
+  </ul>
+
+  <h3>Maintainability</h3>
+  <ul>
+    <li>Overusing complex types can make code hard to understand</li>
+    <li>Document complex type transformations with comments</li>
+    <li>Consider using type assertions or helper functions for very complex types</li>
+  </ul>
+</div>
+<hr>
+<div id="exercisecontainer" src="xrcise_advanced_types.js" data-extensions="php"></div>
+<br>
+
+<div id="user-profile-bottom-wrapper" class="user-profile-bottom-wrapper">
+  <div class="user-authenticated w3-hide">
+    <a href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fmy-learning.w3schools.com" class="user-profile-btn user-profile-bottom-btn ga-bottom ga-bottom-profile" title="Your W3Schools Profile" aria-label="Your W3Schools Profile" target="_top">
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 2048 2048" class="user-profile-icon" aria-label="Your W3Schools Profile Icon">
+        <path d="M 843.500 1148.155 C 837.450 1148.515, 823.050 1149.334, 811.500 1149.975 C 742.799 1153.788, 704.251 1162.996, 635.391 1192.044 C 517.544 1241.756, 398.992 1352.262, 337.200 1470 C 251.831 1632.658, 253.457 1816.879, 340.500 1843.982 C 351.574 1847.431, 1696.426 1847.431, 1707.500 1843.982 C 1794.543 1816.879, 1796.169 1632.658, 1710.800 1470 C 1649.008 1352.262, 1530.456 1241.756, 1412.609 1192.044 C 1344.588 1163.350, 1305.224 1153.854, 1238.500 1150.039 C 1190.330 1147.286, 1196.307 1147.328, 1097 1149.035 C 1039.984 1150.015, 1010.205 1150.008, 950 1149.003 C 851.731 1147.362, 856.213 1147.398, 843.500 1148.155" stroke="none" fill="#2a93fb" fill-rule="evenodd"></path>
+        <path d="M 1008 194.584 C 1006.075 194.809, 999.325 195.476, 993 196.064 C 927.768 202.134, 845.423 233.043, 786 273.762 C 691.987 338.184, 622.881 442.165, 601.082 552 C 588.496 615.414, 592.917 705.245, 611.329 760.230 C 643.220 855.469, 694.977 930.136, 763.195 979.321 C 810.333 1013.308, 839.747 1026.645, 913.697 1047.562 C 1010.275 1074.879, 1108.934 1065.290, 1221 1017.694 C 1259.787 1001.221, 1307.818 965.858, 1339.852 930.191 C 1460.375 795.998, 1488.781 609.032, 1412.581 451.500 C 1350.098 322.327, 1240.457 235.724, 1097.500 202.624 C 1072.356 196.802, 1025.206 192.566, 1008 194.584" stroke="none" fill="#0aaa8a" fill-rule="evenodd"></path>
+      </svg>
+
+      <svg xmlns="http://www.w3.org/2000/svg" class="user-progress" aria-label="Your W3Schools Profile Progress">
+        <path class="user-progress-circle1" fill="none" d="M 25.99650934151373 15.00000030461742 A 20 20 0 1 0 26 15"></path>
+        <path class="user-progress-circle2" fill="none" d="M 26 15 A 20 20 0 0 0 26 15"></path>
+      </svg>
+
+      <span class="user-progress-star">★</span>
+
+      <span class="user-progress-point">+1</span>
+    </a>
+  </div>
+
+  <div class="w3s-pathfinder -teaser user-anonymous w3-hide">
+  <div class="track-progress-btn-wrapper">
+    <a href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fpathfinder.w3schools.com" class="-login-btn w3-button ga-bottom ga-bottom-login track-progress-btn" title="Sign in to track your progress" aria-label="Sign in to track your progress" target="_blank">
+    Sign in to track progress
+  </a>
+    
+  </div>
+</div>
+
+<style>
+.w3s-pathfinder.-teaser {
+  background-color: transparent!important;
+}
+.track-progress-btn-wrapper {
+  display: flex;
+  justify-content: center;
+}
+a.track-progress-btn {
+  position: absolute;
+  padding: 8px 20px;
+  border: 1px solid #ddd;
+  top:-65px;
+  background-color: #fff;
+  color: #333;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+}
+@media screen and (max-width: 600px) {
+  a.track-progress-btn {
+    top: 6px;
+    width: 100%;
+  }
+}
+</style>
+
+</div>
+

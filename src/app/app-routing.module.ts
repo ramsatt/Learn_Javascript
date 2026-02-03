@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { MigrationComponent } from './pages/admin/migration/migration.component';
+import { AdminGuard } from './guards/admin.guard';
 
 const routes: Routes = [
 
@@ -35,6 +37,11 @@ const routes: Routes = [
   {
     path: 'content-analysis',
     loadChildren: () => import('./pages/content-analysis/content-analysis.module').then( m => m.ContentAnalysisPageModule)
+  },
+  {
+    path: 'admin',
+    loadComponent: () => import('./pages/admin/dashboard/admin-dashboard.page').then(m => m.AdminDashboardPage),
+    canActivate: [AdminGuard]
   },
 
 ];

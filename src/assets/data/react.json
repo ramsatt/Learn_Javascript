@@ -4,43 +4,43 @@
     "items": [
       {
         "title": "React Introduction",
-        "file": "react_intro.html"
+        "file": "react_react_intro.html"
       },
       {
         "title": "React Directives",
-        "file": "react_directives.html"
+        "file": "react_react_directives.html" 
       },
       {
         "title": "React Hooks",
-        "file": "react_hooks.html"
+        "file": "react_react_hooks.html"
       },
       {
         "title": "React State",
-        "file": "react_state.html"
+        "file": "react_react_state.html"
       },
        {
         "title": "React Props",
-        "file": "react_props.html"
+        "file": "react_react_props.html"
       },
       {
         "title": "React Forms",
-        "file": "react_forms.html"
+        "file": "react_react_forms.html"
       },
       {
         "title": "React Router",
-        "file": "react_router.html"
+        "file": "react_react_router.html"
       },
       {
         "title": "React Memo",
-        "file": "react_memo.html"
+        "file": "react_react_memo.html"
       },
       {
         "title": "React CSS Styling",
-        "file": "react_css.html"
+        "file": "react_react_css_styling.html"
       },
       {
         "title": "React Sass Styling",
-        "file": "react_sass.html"
+        "file": "react_react_sass_styling.html"
       }
     ]
   }

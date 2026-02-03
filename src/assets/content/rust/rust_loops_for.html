@@ -1,0 +1,219 @@
+
+      <div id="mainLeaderboard" style="overflow:hidden;">
+        <!-- MainLeaderboard-->
+      </div>
+    <h1>Rust <span class="color_h1">For Loop</span></h1>
+
+<hr>
+
+<h2>The <code class="w3-codespan">for</code> Loop</h2>
+
+<p>When you know exactly how many times you want to loop through a block of code, use the <code class="w3-codespan">for</code> loop together with the <code class="w3-codespan">in</code> keyword, instead of a <code class="w3-codespan">while</code> loop:</p>
+
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  for i in 1..6 {<br>
+&nbsp;&nbsp;println!("i is: {}", i);<br>
+  }</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="#/tutorial/tryrust6dcf.html?filename=demo_loop_for">Try it Yourself »</a>
+</div>
+
+<p>This prints numbers from 1 to 5.</p>
+
+<p><strong>Note:</strong> <code class="w3-codespan">1..6</code> means from 1 up to (but not including) 6.</p>
+<p><strong>Note:</strong> Rust handles the counter variable (<code class="w3-codespan">i</code>) automatically, 
+unlike many other programming languages. You 
+don't need to declare or increment it manually.</p>
+<hr>
+
+<h2>Inclusive Range</h2>
+
+<p>If you want to include the last number, use <code class="w3-codespan">..=</code> (two dots and an equals sign):</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  for i in 1..=6 {<br>
+&nbsp;&nbsp;println!("i is: {}", i);<br>
+  }</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="#/tutorial/tryrust0391.html?filename=demo_loop_for_range">Try it Yourself »</a>
+</div>
+
+<p>This prints numbers from 1 to 6, including 6.</p>
+
+<hr>
+
+<!--
+<h3>Loop Through an Array</h3>
+
+<p>You can also use <code class="w3-codespan">for</code> to go through each value in an array:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+fn main() {<br>
+&nbsp;&nbsp;let fruits = ["apple", "banana", "orange"];<br><br>
+&nbsp;&nbsp;for fruit in fruits {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;println!("I like {}", fruit);<br>
+&nbsp;&nbsp;}<br>
+}
+</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="#">Try it Yourself &raquo;</a>
+</div>
+
+<p>This prints each item in the array.</p>
+-->
+
+<h2>Break and Continue</h2>
+
+<p>Just like other loops, you can use <code class="w3-codespan">break</code> to stop the loop and <code class="w3-codespan">continue</code> to skip a value:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate javaHigh">
+  for i in 1..=10 {<br>
+&nbsp;&nbsp;if i == 3 {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;continue; // skip 3<br>
+  &nbsp;&nbsp;}<br>
+&nbsp;&nbsp;if i == 5 {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;break; // stop before printing 5<br>
+  &nbsp;&nbsp;}<br>
+&nbsp;&nbsp;println!("i is: {}", i);<br>
+  }</div>
+<a target="_blank" class="w3-btn w3-margin-bottom" href="#/tutorial/tryrustffb2.html?filename=demo_loop_for_break">Try it Yourself »</a>
+</div>
+
+<p>This prints 1, 2, and 4. It skips 3 and stops before 5.</p>
+
+<hr>
+
+<h2>Rust Loops Summary</h2>
+
+<p style="margin-bottom:22px">Rust has three types of loops that let you run code over and over again. Each one is used in different situations:</p>
+
+
+<h3>1. <code class="w3-codespan">loop</code></h3>
+
+<p>The simplest kind of loop. It runs forever unless you stop it with <code class="w3-codespan">break</code>.</p>
+
+<div class="w3-example">
+<div class="w3-code notranslate javaHigh">
+loop {<br>
+&nbsp;&nbsp;// do something<br>
+&nbsp;&nbsp;if condition {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;break;<br>
+&nbsp;&nbsp;}<br>
+}
+</div>
+</div>
+
+<p>Use <code class="w3-codespan">loop</code> when you don't know in advance how many times to repeat.</p>
+
+<hr>
+
+<h3>2. <code class="w3-codespan">while</code></h3>
+
+<p>Repeats code <strong>while a condition is true</strong>. It checks the condition before each loop.</p>
+
+<div class="w3-example">
+<div class="w3-code notranslate javaHigh">
+while count &lt;= 5 {<br>
+&nbsp;&nbsp;println!("{}", count);<br>
+&nbsp;&nbsp;count += 1;<br>
+}
+</div>
+</div>
+
+<p>Use <code class="w3-codespan">while</code> when you want to repeat code until something happens.</p>
+
+<hr>
+
+<h3>3. <code class="w3-codespan">for</code></h3>
+
+<p>Repeats code a fixed number of times.</p>
+
+<div class="w3-example">
+<div class="w3-code notranslate javaHigh">
+for i in 1..=5 {<br>
+&nbsp;&nbsp;println!("{}", i);<br>
+}
+</div>
+</div>
+
+<p>Use <code class="w3-codespan">for</code> when you know exactly what to loop through.</p>
+
+<hr>
+
+<h3>Extra Keywords</h3>
+
+<p>You can use these in any loop:</p>
+
+<ul>
+  <li><code class="w3-codespan">break</code> - stop the loop</li>
+  <li><code class="w3-codespan">continue</code> - skip a value in the loop</li>
+</ul>
+<hr>
+<p>Now that you know how loops work, you are ready to start working with functions and reusable code!</p>
+
+
+<br>
+
+<div id="user-profile-bottom-wrapper" class="user-profile-bottom-wrapper">
+  <div class="user-authenticated w3-hide">
+    <a href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fmy-learning.w3schools.com" class="user-profile-btn user-profile-bottom-btn ga-bottom ga-bottom-profile" title="Your W3Schools Profile" aria-label="Your W3Schools Profile" target="_top">
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 2048 2048" class="user-profile-icon" aria-label="Your W3Schools Profile Icon">
+        <path d="M 843.500 1148.155 C 837.450 1148.515, 823.050 1149.334, 811.500 1149.975 C 742.799 1153.788, 704.251 1162.996, 635.391 1192.044 C 517.544 1241.756, 398.992 1352.262, 337.200 1470 C 251.831 1632.658, 253.457 1816.879, 340.500 1843.982 C 351.574 1847.431, 1696.426 1847.431, 1707.500 1843.982 C 1794.543 1816.879, 1796.169 1632.658, 1710.800 1470 C 1649.008 1352.262, 1530.456 1241.756, 1412.609 1192.044 C 1344.588 1163.350, 1305.224 1153.854, 1238.500 1150.039 C 1190.330 1147.286, 1196.307 1147.328, 1097 1149.035 C 1039.984 1150.015, 1010.205 1150.008, 950 1149.003 C 851.731 1147.362, 856.213 1147.398, 843.500 1148.155" stroke="none" fill="#2a93fb" fill-rule="evenodd"></path>
+        <path d="M 1008 194.584 C 1006.075 194.809, 999.325 195.476, 993 196.064 C 927.768 202.134, 845.423 233.043, 786 273.762 C 691.987 338.184, 622.881 442.165, 601.082 552 C 588.496 615.414, 592.917 705.245, 611.329 760.230 C 643.220 855.469, 694.977 930.136, 763.195 979.321 C 810.333 1013.308, 839.747 1026.645, 913.697 1047.562 C 1010.275 1074.879, 1108.934 1065.290, 1221 1017.694 C 1259.787 1001.221, 1307.818 965.858, 1339.852 930.191 C 1460.375 795.998, 1488.781 609.032, 1412.581 451.500 C 1350.098 322.327, 1240.457 235.724, 1097.500 202.624 C 1072.356 196.802, 1025.206 192.566, 1008 194.584" stroke="none" fill="#0aaa8a" fill-rule="evenodd"></path>
+      </svg>
+
+      <svg xmlns="http://www.w3.org/2000/svg" class="user-progress" aria-label="Your W3Schools Profile Progress">
+        <path class="user-progress-circle1" fill="none" d="M 25.99650934151373 15.00000030461742 A 20 20 0 1 0 26 15"></path>
+        <path class="user-progress-circle2" fill="none" d="M 26 15 A 20 20 0 0 0 26 15"></path>
+      </svg>
+
+      <span class="user-progress-star">★</span>
+
+      <span class="user-progress-point">+1</span>
+    </a>
+  </div>
+
+  <div class="w3s-pathfinder -teaser user-anonymous w3-hide">
+  <div class="track-progress-btn-wrapper">
+    <a href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fpathfinder.w3schools.com" class="-login-btn w3-button ga-bottom ga-bottom-login track-progress-btn" title="Sign in to track your progress" aria-label="Sign in to track your progress" target="_blank">
+    Sign in to track progress
+  </a>
+    
+  </div>
+</div>
+
+<style>
+.w3s-pathfinder.-teaser {
+  background-color: transparent!important;
+}
+.track-progress-btn-wrapper {
+  display: flex;
+  justify-content: center;
+}
+a.track-progress-btn {
+  position: absolute;
+  padding: 8px 20px;
+  border: 1px solid #ddd;
+  top:-65px;
+  background-color: #fff;
+  color: #333;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+}
+@media screen and (max-width: 600px) {
+  a.track-progress-btn {
+    top: 6px;
+    width: 100%;
+  }
+}
+</style>
+
+</div>
+

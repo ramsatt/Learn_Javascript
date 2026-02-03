@@ -1,126 +1,130 @@
 [
   {
-    "title": "MongoDB Tutorial",
+    "title": "Tutorial",
     "items": [
       {
         "title": "MongoDB Tutorial",
-        "file": "mongodb_index.html"
-      },
-      {
-        "title": "MongoDB Aggregation <code class=\"w3-codespan\">$addFields</code>",
-        "file": "mongodb_mongodb_aggregations_addFields.html"
-      },
-      {
-        "title": "MongoDB Aggregation <code class=\"w3-codespan\">$count</code>",
-        "file": "mongodb_mongodb_aggregations_count.html"
-      },
-      {
-        "title": "MongoDB Aggregation $group",
-        "file": "mongodb_mongodb_aggregations_group.html"
-      },
-      {
-        "title": "MongoDB Aggregation Pipelines",
-        "file": "mongodb_mongodb_aggregations_intro.html"
-      },
-      {
-        "title": "MongoDB Aggregation $limit",
-        "file": "mongodb_mongodb_aggregations_limit.html"
-      },
-      {
-        "title": "MongoDB Aggregation <code class=\"w3-codespan\">$lookup</code>",
-        "file": "mongodb_mongodb_aggregations_lookup.html"
-      },
-      {
-        "title": "MongoDB Aggregation <code class=\"w3-codespan\">$match</code>",
-        "file": "mongodb_mongodb_aggregations_match.html"
-      },
-      {
-        "title": "MongoDB Aggregation <code class=\"w3-codespan\">$out</code>",
-        "file": "mongodb_mongodb_aggregations_out.html"
-      },
-      {
-        "title": "MongoDB Aggregation <code class=\"w3-codespan\">$project</code>",
-        "file": "mongodb_mongodb_aggregations_project.html"
-      },
-      {
-        "title": "MongoDB Aggregation <code class=\"w3-codespan\">$sort</code>",
-        "file": "mongodb_mongodb_aggregations_sort.html"
-      },
-      {
-        "title": "MongoDB Charts",
-        "file": "mongodb_mongodb_charts.html"
-      },
-      {
-        "title": "MongoDB Data API",
-        "file": "mongodb_mongodb_data_api.html"
-      },
-      {
-        "title": "MongoDB Drivers",
-        "file": "mongodb_mongodb_drivers.html"
-      },
-      {
-        "title": "W3Schools MongoDB Certificate",
-        "file": "mongodb_mongodb_exam.html"
+        "file": "index.html"
       },
       {
         "title": "MongoDB Getting Started",
-        "file": "mongodb_mongodb_get_started.html"
-      },
-      {
-        "title": "Indexing &amp; Search",
-        "file": "mongodb_mongodb_indexing_search.html"
-      },
-      {
-        "title": "MongoDB <code class=\"w3-codespan\">mongosh</code> Create Collection",
-        "file": "mongodb_mongodb_mongosh_create_collection.html"
-      },
-      {
-        "title": "MongoDB mongosh Create Database",
-        "file": "mongodb_mongodb_mongosh_create_database.html"
-      },
-      {
-        "title": "MongoDB <code class=\"w3-codespan\">mongosh</code> Delete",
-        "file": "mongodb_mongodb_mongosh_delete.html"
-      },
-      {
-        "title": "MongoDB <code class=\"w3-codespan\">mongosh</code> Find",
-        "file": "mongodb_mongodb_mongosh_find.html"
-      },
-      {
-        "title": "MongoDB <code class=\"w3-codespan\">mongosh</code> Insert",
-        "file": "mongodb_mongodb_mongosh_insert.html"
-      },
-      {
-        "title": "MongoDB <code class=\"w3-codespan\">mongosh</code> Update",
-        "file": "mongodb_mongodb_mongosh_update.html"
-      },
-      {
-        "title": "MongoDB Node.js Database Interaction",
-        "file": "mongodb_mongodb_nodejs_connect_database.html"
+        "file": "mongodb_get_started.html"
       },
       {
         "title": "MongoDB Query API",
-        "file": "mongodb_mongodb_query_api.html"
+        "file": "mongodb_query_api.html"
+      },
+      {
+        "title": "MongoDB mongosh Create Database",
+        "file": "mongodb_mongosh_create_database.html"
+      },
+      {
+        "title": "MongoDB mongosh Create Collection",
+        "file": "mongodb_mongosh_create_collection.html"
+      },
+      {
+        "title": "MongoDB mongosh Insert",
+        "file": "mongodb_mongosh_insert.html"
+      },
+      {
+        "title": "MongoDB mongosh Find",
+        "file": "mongodb_mongosh_find.html"
+      },
+      {
+        "title": "MongoDB mongosh Update",
+        "file": "mongodb_mongosh_update.html"
+      },
+      {
+        "title": "MongoDB mongosh Delete",
+        "file": "mongodb_mongosh_delete.html"
       },
       {
         "title": "MongoDB Query Operators",
-        "file": "mongodb_mongodb_query_operators.html"
-      },
-      {
-        "title": "MongoDB Schema Validation",
-        "file": "mongodb_mongodb_schema_validation.html"
-      },
-      {
-        "title": "MongoDB Study Plan",
-        "file": "mongodb_mongodb_study_plan.html"
-      },
-      {
-        "title": "MongoDB Syllabus",
-        "file": "mongodb_mongodb_syllabus.html"
+        "file": "mongodb_query_operators.html"
       },
       {
         "title": "MongoDB Update Operators",
-        "file": "mongodb_mongodb_update_operators.html"
+        "file": "mongodb_update_operators.html"
+      },
+      {
+        "title": "MongoDB Aggregation Pipelines",
+        "file": "mongodb_aggregations_intro.html"
+      },
+      {
+        "title": "MongoDB Aggregation $group",
+        "file": "mongodb_aggregations_group.html"
+      },
+      {
+        "title": "MongoDB Aggregation $limit",
+        "file": "mongodb_aggregations_limit.html"
+      },
+      {
+        "title": "MongoDB Aggregation $project",
+        "file": "mongodb_aggregations_project.html"
+      },
+      {
+        "title": "MongoDB Aggregation $sort",
+        "file": "mongodb_aggregations_sort.html"
+      },
+      {
+        "title": "MongoDB Aggregation $match",
+        "file": "mongodb_aggregations_match.html"
+      },
+      {
+        "title": "MongoDB Aggregation $addFields",
+        "file": "mongodb_aggregations_addFields.html"
+      },
+      {
+        "title": "MongoDB Aggregation $count",
+        "file": "mongodb_aggregations_count.html"
+      },
+      {
+        "title": "MongoDB Aggregation $lookup",
+        "file": "mongodb_aggregations_lookup.html"
+      },
+      {
+        "title": "MongoDB Aggregation $out",
+        "file": "mongodb_aggregations_out.html"
+      },
+      {
+        "title": "Indexing & Search",
+        "file": "mongodb_indexing_search.html"
+      },
+      {
+        "title": "MongoDB Schema Validation",
+        "file": "mongodb_schema_validation.html"
+      },
+      {
+        "title": "MongoDB Data API",
+        "file": "mongodb_data_api.html"
+      },
+      {
+        "title": "MongoDB Drivers",
+        "file": "mongodb_drivers.html"
+      },
+      {
+        "title": "MongoDB Node.js Database Interaction",
+        "file": "mongodb_nodejs_connect_database.html"
+      },
+      {
+        "title": "MongoDB Charts",
+        "file": "mongodb_charts.html"
+      },
+      {
+        "title": "MongoDB Exercises",
+        "file": "mongodb_exercises.html"
+      },
+      {
+        "title": "MongoDB Syllabus",
+        "file": "mongodb_syllabus.html"
+      },
+      {
+        "title": "MongoDB Study Plan",
+        "file": "mongodb_study_plan.html"
+      },
+      {
+        "title": "W3Schools MongoDB Certificate",
+        "file": "mongodb_exam.html"
       }
     ]
   }

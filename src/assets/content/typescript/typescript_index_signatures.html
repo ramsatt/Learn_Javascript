@@ -1,0 +1,348 @@
+
+      <div id="mainLeaderboard" style="overflow:hidden;">
+        <!-- MainLeaderboard-->
+      </div>
+    <h1>TypeScript Index Signatures</h1>
+
+
+
+<hr>
+
+<h2>Understanding Index Signatures in TypeScript</h2>
+
+<p>Index signatures in TypeScript provide a powerful way to define types for objects with dynamic property names while maintaining type safety.</p>
+<p>They allow you to specify the types of values that can be accessed via bracket notation (<code class="w3-codespan">obj[key]</code>), even when the exact property names aren't known in advance.</p>
+<hr>
+<div class="w3-panel">
+  <h3>Key Concepts</h3>
+  <ul>
+    <li><b>Dynamic Property Access</b>: Handle objects with arbitrary property names</li>
+    <li><b>Type Safety</b>: Ensure consistent value types across dynamic properties</li>
+    <li><b>Flexible Data Structures</b>: Model dictionaries, maps, and other dynamic data</li>
+    <li><b>Runtime Safety</b>: Catch type-related errors at compile time</li>
+  </ul>
+</div>
+
+
+<hr>
+
+<h2>Basic Index Signatures</h2>
+<h3>String Index Signatures</h3>
+
+<p>Index signatures in TypeScript allow you to define types for objects where you don't know the property names in advance, but you do know the shape of the values.</p>
+<p>An index signature defines the types for properties accessed via an index like <code class="w3-codespan">obj[key]</code>.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+//&nbsp;This&nbsp;interface&nbsp;represents&nbsp;an&nbsp;object&nbsp;with&nbsp;string&nbsp;keys&nbsp;and&nbsp;string&nbsp;values<br>
+interface&nbsp;StringDictionary&nbsp;{<br>
+&nbsp;&nbsp;[key:&nbsp;string]:&nbsp;string;<br>
+}<br>
+<br>
+//&nbsp;Creating&nbsp;a&nbsp;compliant&nbsp;object<br>
+const&nbsp;names:&nbsp;StringDictionary&nbsp;=&nbsp;{<br>
+&nbsp;&nbsp;firstName:&nbsp;"Alice",<br>
+&nbsp;&nbsp;lastName:&nbsp;"Smith",<br>
+&nbsp;&nbsp;"100":&nbsp;"One&nbsp;Hundred"<br>
+};<br>
+<br>
+//&nbsp;Accessing&nbsp;properties<br>
+console.log(names["firstName"]);&nbsp;//&nbsp;"Alice"<br>
+console.log(names["lastName"]);&nbsp;//&nbsp;"Smith"<br>
+console.log(names["100"]);&nbsp;//&nbsp;"One&nbsp;Hundred"<br>
+<br>
+//&nbsp;Adding&nbsp;new&nbsp;properties&nbsp;dynamically<br>
+names["age"]&nbsp;=&nbsp;"30";<br>
+<br>
+//&nbsp;This&nbsp;would&nbsp;cause&nbsp;an&nbsp;error<br>
+//&nbsp;names["age"]&nbsp;=&nbsp;30;&nbsp;//&nbsp;Error:&nbsp;Type&nbsp;'number'&nbsp;is&nbsp;not&nbsp;assignable&nbsp;to&nbsp;type&nbsp;'string'
+</div>
+<a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescriptb17e.html?filename=demo_index_signatures_basic" target="_blank">Try it Yourself »</a>
+</div>
+
+<p>The index signature syntax uses brackets <code class="w3-codespan">[key: type]</code> to describe the types of the property names (or keys) that are allowed, followed by the type of values these properties can have.</p>
+
+<hr>
+
+<div id="midcontentadcontainer" style="overflow:auto;text-align:center">
+<!-- MidContent -->
+<!-- <p class="adtext">Advertisement</p> -->
+</div>
+<hr>
+
+<h3>Number Index Signatures</h3>
+
+<p>TypeScript supports both string and number index signatures:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+//&nbsp;Object&nbsp;with&nbsp;number&nbsp;indexes<br>
+interface&nbsp;NumberDictionary&nbsp;{<br>
+&nbsp;&nbsp;[index:&nbsp;number]:&nbsp;any;<br>
+}<br>
+<br>
+const&nbsp;scores:&nbsp;NumberDictionary&nbsp;=&nbsp;{<br>
+&nbsp;&nbsp;0:&nbsp;"Zero",<br>
+&nbsp;&nbsp;1:&nbsp;100,<br>
+&nbsp;&nbsp;2:&nbsp;true<br>
+};<br>
+<br>
+console.log(scores[0]);&nbsp;//&nbsp;"Zero"<br>
+console.log(scores[1]);&nbsp;//&nbsp;100<br>
+console.log(scores[2]);&nbsp;//&nbsp;true<br>
+<br>
+//&nbsp;Adding&nbsp;a&nbsp;complex&nbsp;object<br>
+scores[3]&nbsp;=&nbsp;{&nbsp;passed:&nbsp;true&nbsp;};
+</div>
+<a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescript4ffc.html?filename=demo_index_signatures_numeric" target="_blank">Try it Yourself »</a>
+</div>
+
+<div class="w3-panel ws-note">
+  <p><strong>Note:</strong> In JavaScript, all object keys are stored as strings, even numeric ones.</p>
+<p>However, TypeScript makes a distinction to help catch logical errors when using arrays vs objects.</p>
+</div>
+
+<hr>
+
+<h2>Advanced Index Signature Patterns</h2>
+<h3>Mixed Property Types</h3>
+
+<p>You can combine index signatures with explicit property declarations:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+interface&nbsp;UserInfo&nbsp;{<br>
+&nbsp;&nbsp;name:&nbsp;string;&nbsp;//&nbsp;Required&nbsp;property&nbsp;with&nbsp;specific&nbsp;name<br>
+&nbsp;&nbsp;age:&nbsp;number;&nbsp;&nbsp;//&nbsp;Required&nbsp;property&nbsp;with&nbsp;specific&nbsp;name<br>
+&nbsp;&nbsp;[key:&nbsp;string]:&nbsp;string&nbsp;|&nbsp;number;&nbsp;//&nbsp;All&nbsp;other&nbsp;properties&nbsp;must&nbsp;be&nbsp;string&nbsp;or&nbsp;number<br>
+}<br>
+<br>
+const&nbsp;user:&nbsp;UserInfo&nbsp;=&nbsp;{<br>
+&nbsp;&nbsp;name:&nbsp;"Alice",&nbsp;//&nbsp;Required<br>
+&nbsp;&nbsp;age:&nbsp;30,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;Required<br>
+&nbsp;&nbsp;address:&nbsp;"123&nbsp;Main&nbsp;St",&nbsp;//&nbsp;Optional<br>
+&nbsp;&nbsp;zipCode:&nbsp;12345&nbsp;//&nbsp;Optional<br>
+};<br>
+<br>
+//&nbsp;This&nbsp;would&nbsp;cause&nbsp;an&nbsp;error<br>
+//&nbsp;const&nbsp;invalidUser:&nbsp;UserInfo&nbsp;=&nbsp;{<br>
+//&nbsp;&nbsp;name:&nbsp;"Bob",<br>
+//&nbsp;&nbsp;age:&nbsp;"thirty",&nbsp;//&nbsp;Error:&nbsp;Type&nbsp;'string'&nbsp;is&nbsp;not&nbsp;assignable&nbsp;to&nbsp;type&nbsp;'number'<br>
+//&nbsp;&nbsp;isAdmin:&nbsp;true&nbsp;&nbsp;//&nbsp;Error:&nbsp;Type&nbsp;'boolean'&nbsp;is&nbsp;not&nbsp;assignable&nbsp;to&nbsp;type&nbsp;'string&nbsp;|&nbsp;number'<br>
+//&nbsp;};
+</div>
+<a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescript8e25.html?filename=demo_index_signatures_mixed" target="_blank">Try it Yourself »</a>
+</div>
+
+<div class="w3-panel ws-warning">
+  <p><strong>Important:</strong> When combining explicit properties with an index signature, the types of explicit properties must be assignable to the index signature's value type.</p>
+</div>
+
+<hr>
+
+<h3>ReadOnly Index Signatures</h3>
+
+<p>You can make index signatures read-only to prevent modification after creation:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+interface&nbsp;ReadOnlyStringArray&nbsp;{<br>
+&nbsp;&nbsp;readonly&nbsp;[index:&nbsp;number]:&nbsp;string;<br>
+}<br>
+<br>
+const&nbsp;names:&nbsp;ReadOnlyStringArray&nbsp;=&nbsp;["Alice",&nbsp;"Bob",&nbsp;"Charlie"];<br>
+<br>
+console.log(names[0]);&nbsp;//&nbsp;"Alice"<br>
+<br>
+//&nbsp;This&nbsp;would&nbsp;cause&nbsp;an&nbsp;error<br>
+//&nbsp;names[0]&nbsp;=&nbsp;"Andrew";&nbsp;//&nbsp;Error:&nbsp;Index&nbsp;signature&nbsp;in&nbsp;type&nbsp;'ReadOnlyStringArray'&nbsp;only&nbsp;permits&nbsp;reading
+</div>
+<a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescript5f8b.html?filename=demo_index_signatures_readonly" target="_blank">Try it Yourself »</a>
+</div>
+
+<hr>
+
+<p>For constraining key sets and transforming shapes, see <a href="#/tutorial/typescript_mapped_types.html">Mapped Types</a>.</p>
+
+<hr>
+
+<h2>Real-World Examples</h2>
+<h3>API Response Handling</h3>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+//&nbsp;Type&nbsp;for&nbsp;API&nbsp;responses&nbsp;with&nbsp;dynamic&nbsp;keys<br>
+interface&nbsp;ApiResponse&lt;T&gt;&nbsp;{<br>
+&nbsp;&nbsp;data:&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;[resourceType:&nbsp;string]:&nbsp;T[];&nbsp;&nbsp;//&nbsp;e.g.,&nbsp;{&nbsp;"users":&nbsp;User[],&nbsp;"posts":&nbsp;Post[]&nbsp;}<br>
+&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;meta:&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;page:&nbsp;number;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;total:&nbsp;number;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;[key:&nbsp;string]:&nbsp;any;&nbsp;&nbsp;//&nbsp;Allow&nbsp;additional&nbsp;metadata<br>
+&nbsp;&nbsp;};<br>
+}<br>
+<br>
+//&nbsp;Example&nbsp;usage&nbsp;with&nbsp;a&nbsp;users&nbsp;API<br>
+interface&nbsp;User&nbsp;{<br>
+&nbsp;&nbsp;id:&nbsp;number;<br>
+&nbsp;&nbsp;name:&nbsp;string;<br>
+&nbsp;&nbsp;email:&nbsp;string;<br>
+}<br>
+<br>
+//&nbsp;Mock&nbsp;API&nbsp;response<br>
+const&nbsp;apiResponse:&nbsp;ApiResponse&lt;User&gt;&nbsp;=&nbsp;{<br>
+&nbsp;&nbsp;data:&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;users:&nbsp;[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;id:&nbsp;1,&nbsp;name:&nbsp;"Alice",&nbsp;email:&nbsp;"alice@example.com"&nbsp;},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;id:&nbsp;2,&nbsp;name:&nbsp;"Bob",&nbsp;email:&nbsp;"bob@example.com"&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;]<br>
+&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;meta:&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;page:&nbsp;1,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;total:&nbsp;2,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;timestamp:&nbsp;"2023-01-01T00:00:00Z"<br>
+&nbsp;&nbsp;}<br>
+};<br>
+<br>
+//&nbsp;Accessing&nbsp;the&nbsp;data<br>
+const&nbsp;users&nbsp;=&nbsp;apiResponse.data.users;<br>
+console.log(users[0].name);&nbsp;&nbsp;//&nbsp;"Alice"
+</div>
+<a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescriptde61.html?filename=demo_index_signatures_api" target="_blank">Try it Yourself »</a>
+</div>
+
+
+
+<hr>
+<h2>Best Practices</h2>
+
+<div class="w3-panel">
+  <h3>Do's and Don'ts</h3>
+  
+  <h4>Do:</h4>
+  <ul>
+    <li>Use index signatures for collections with dynamic keys</li>
+    <li>Combine with explicit properties for known fields</li>
+    <li>Keep value types specific (avoid <code class="w3-codespan">any</code>)</li>
+    <li>Use <code class="w3-codespan">readonly</code> when mutation isn't needed</li>
+  </ul>
+
+  <h4>Don't:</h4>
+  <ul>
+    <li>Prefer fixed interfaces when keys are known</li>
+    <li>Forget that all properties must conform to the index signature type</li>
+    <li>Reinvent mapped types—use the dedicated page for transformations</li>
+  </ul>
+</div>
+
+<hr>
+<h2>Common Pitfalls</h2>
+
+<div class="w3-example">
+  <h3>Property Name Conflicts</h3>
+  <div class="w3-code notranslate jsHigh">
+  interface&nbsp;ConflictingTypes&nbsp;{<br>
+  &nbsp;&nbsp;[key:&nbsp;string]:&nbsp;number;<br>
+  &nbsp;&nbsp;name:&nbsp;string;&nbsp;//&nbsp;Error:&nbsp;not&nbsp;assignable&nbsp;to&nbsp;string&nbsp;index&nbsp;type&nbsp;'number'<br>
+  }<br>
+  <br>
+  interface&nbsp;FixedTypes&nbsp;{<br>
+  &nbsp;&nbsp;[key:&nbsp;string]:&nbsp;number&nbsp;|&nbsp;string;<br>
+  &nbsp;&nbsp;name:&nbsp;string; &nbsp;//&nbsp;OK<br>
+  &nbsp;&nbsp;age:&nbsp;number; &nbsp;&nbsp;//&nbsp;OK<br>
+  }
+  </div>
+</div>
+
+<hr>
+<h2>Index Signatures vs. Record&lt;K, T&gt;</h2>
+
+<p>Use an index signature for flexible/dynamic keys and when mixing with other properties.</p>
+<p>Use <code class="w3-codespan">Record&lt;K, T&gt;</code> for concise simple mappings.</p>
+
+<div class="w3-code notranslate jsHigh">
+// Index signature<br>
+interface StringMap {<br>
+&nbsp;&nbsp;[key: string]: string;<br>
+}<br>
+<br>
+// Record<br>
+type StringRecord = Record&lt;string, string&gt;;
+</div>
+
+<hr>
+<h2>Conclusion</h2>
+
+<p>Use index signatures when keys are dynamic but value shapes are consistent.</p>
+<p>Combine with explicit properties where possible, and see <a href="#/tutorial/typescript_mapped_types.html">Mapped Types</a> and <a href="#/tutorial/typescript_utility_types.html">Utility Types</a> for advanced transformations.</p>
+
+<hr>
+
+<div id="exercisecontainer" src="xrcise_index_signatures.js" data-extensions="php"></div>
+<hr>
+<br>
+
+
+<div id="user-profile-bottom-wrapper" class="user-profile-bottom-wrapper">
+  <div class="user-authenticated w3-hide">
+    <a href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fmy-learning.w3schools.com" class="user-profile-btn user-profile-bottom-btn ga-bottom ga-bottom-profile" title="Your W3Schools Profile" aria-label="Your W3Schools Profile" target="_top">
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 2048 2048" class="user-profile-icon" aria-label="Your W3Schools Profile Icon">
+        <path d="M 843.500 1148.155 C 837.450 1148.515, 823.050 1149.334, 811.500 1149.975 C 742.799 1153.788, 704.251 1162.996, 635.391 1192.044 C 517.544 1241.756, 398.992 1352.262, 337.200 1470 C 251.831 1632.658, 253.457 1816.879, 340.500 1843.982 C 351.574 1847.431, 1696.426 1847.431, 1707.500 1843.982 C 1794.543 1816.879, 1796.169 1632.658, 1710.800 1470 C 1649.008 1352.262, 1530.456 1241.756, 1412.609 1192.044 C 1344.588 1163.350, 1305.224 1153.854, 1238.500 1150.039 C 1190.330 1147.286, 1196.307 1147.328, 1097 1149.035 C 1039.984 1150.015, 1010.205 1150.008, 950 1149.003 C 851.731 1147.362, 856.213 1147.398, 843.500 1148.155" stroke="none" fill="#2a93fb" fill-rule="evenodd"></path>
+        <path d="M 1008 194.584 C 1006.075 194.809, 999.325 195.476, 993 196.064 C 927.768 202.134, 845.423 233.043, 786 273.762 C 691.987 338.184, 622.881 442.165, 601.082 552 C 588.496 615.414, 592.917 705.245, 611.329 760.230 C 643.220 855.469, 694.977 930.136, 763.195 979.321 C 810.333 1013.308, 839.747 1026.645, 913.697 1047.562 C 1010.275 1074.879, 1108.934 1065.290, 1221 1017.694 C 1259.787 1001.221, 1307.818 965.858, 1339.852 930.191 C 1460.375 795.998, 1488.781 609.032, 1412.581 451.500 C 1350.098 322.327, 1240.457 235.724, 1097.500 202.624 C 1072.356 196.802, 1025.206 192.566, 1008 194.584" stroke="none" fill="#0aaa8a" fill-rule="evenodd"></path>
+      </svg>
+
+      <svg xmlns="http://www.w3.org/2000/svg" class="user-progress" aria-label="Your W3Schools Profile Progress">
+        <path class="user-progress-circle1" fill="none" d="M 25.99650934151373 15.00000030461742 A 20 20 0 1 0 26 15"></path>
+        <path class="user-progress-circle2" fill="none" d="M 26 15 A 20 20 0 0 0 26 15"></path>
+      </svg>
+
+      <span class="user-progress-star">★</span>
+
+      <span class="user-progress-point">+1</span>
+    </a>
+  </div>
+
+  <div class="w3s-pathfinder -teaser user-anonymous w3-hide">
+  <div class="track-progress-btn-wrapper">
+    <a href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fpathfinder.w3schools.com" class="-login-btn w3-button ga-bottom ga-bottom-login track-progress-btn" title="Sign in to track your progress" aria-label="Sign in to track your progress" target="_blank">
+    Sign in to track progress
+  </a>
+    
+  </div>
+</div>
+
+<style>
+.w3s-pathfinder.-teaser {
+  background-color: transparent!important;
+}
+.track-progress-btn-wrapper {
+  display: flex;
+  justify-content: center;
+}
+a.track-progress-btn {
+  position: absolute;
+  padding: 8px 20px;
+  border: 1px solid #ddd;
+  top:-65px;
+  background-color: #fff;
+  color: #333;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+}
+@media screen and (max-width: 600px) {
+  a.track-progress-btn {
+    top: 6px;
+    width: 100%;
+  }
+}
+</style>
+
+</div>
+

@@ -1,0 +1,356 @@
+
+      <div id="mainLeaderboard" style="overflow:hidden;">
+        <!-- MainLeaderboard-->
+      </div>
+    <h1>TypeScript Type Inference</h1>
+
+
+
+<hr>
+
+<h2>Understanding Type Inference in TypeScript</h2>
+
+<p>Type inference is TypeScript's ability to automatically determine and assign types to variables, function returns, and expressions based on their usage and context, without requiring explicit type annotations.</p>
+<p>This powerful feature reduces verbosity while maintaining type safety.</p>
+
+<h3>Key Concepts</h3>
+<ul>
+  <li><b>Type inference</b>: Automatic type detection from assigned values</li>
+  <li><b>Contextual typing</b>: Types inferred from surrounding context</li>
+  <li><b>Best common type</b>: Algorithm for finding a compatible type</li>
+  <li><b>Widening/Narrowing</b>: Types expand or get constrained by usage</li>
+  <li><b>When it happens</b>: variable init, returns, default params, callbacks, literals</li>
+</ul>
+
+<div class="w3-example">
+  <h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+// TypeScript infers these variable types<br>
+let name = "Alice";           // inferred as string<br>
+let age = 30;                 // inferred as number<br>
+let isActive = true;          // inferred as boolean<br>
+let numbers = [1, 2, 3];      // inferred as number[]<br>
+let mixed = [1, "two", true]; // inferred as (string | number | boolean)[]<br>
+<br>
+// Using the inferred types<br>
+name.toUpperCase();  // Works because name is inferred as string<br>
+age.toFixed(2);      // Works because age is inferred as number<br>
+// name.toFixed(2);  // Error: Property 'toFixed' does not exist on type 'string'
+</div>
+<a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescript4eeb.html?filename=demo_type_inference_basic" target="_blank">Try it Yourself »</a>
+</div>
+
+<hr>
+<div id="midcontentadcontainer" style="overflow:auto;text-align:center">
+<!-- MidContent -->
+<!-- <p class="adtext">Advertisement</p> -->
+</div><hr>
+
+
+<h2>Function Return Type Inference</h2>
+
+<p>TypeScript can infer the return type of a function based on its return statements:</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+// Return type is inferred as string<br>
+function greet(name: string) {<br>
+&nbsp;&nbsp;return `Hello, ${name}!`;<br>
+}<br>
+<br>
+// Return type is inferred as number<br>
+function add(a: number, b: number) {<br>
+&nbsp;&nbsp;return a + b;<br>
+}<br>
+<br>
+// Return type is inferred as string | number<br>
+function getValue(key: string) {<br>
+&nbsp;&nbsp; if (key === "name") {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return "Alice";<br>
+&nbsp;&nbsp; } else {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return 42;<br>
+&nbsp;&nbsp; }<br>
+}<br>
+// Using the inferred return types<br>
+let greeting = greet("Bob");     // inferred as string<br>
+let sum = add(5, 3);             // inferred as number<br>
+let value = getValue("age");     // inferred as string | number<br>
+</div>
+<a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescript3840.html?filename=demo_type_inference_functions" target="_blank">Try it Yourself »</a>
+</div>
+
+<hr>
+
+<h2>Contextual Typing</h2>
+
+<p>TypeScript can infer types based on the context in which expressions occur:</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+// The type of the callback parameter is inferred from the array method context<br>
+const names = ["Alice", "Bob", "Charlie"];<br>
+<br>
+// Parameter 'name' is inferred as string<br>
+names.forEach(name =&gt; {<br>
+&nbsp;&nbsp;console.log(name.toUpperCase());<br>
+});<br>
+<br>
+// Parameter 'name' is inferred as string, and the return type is inferred as number<br>
+const nameLengths = names.map(name =&gt; {<br>
+&nbsp;&nbsp;return name.length;<br>
+});<br>
+<br>
+// nameLengths is inferred as number[]<br>
+<br>
+// Parameter types in event handlers are also inferred<br>
+document.addEventListener("click", event =&gt; {<br>
+&nbsp;&nbsp;// 'event' is inferred as MouseEvent<br>
+&nbsp;&nbsp;console.log(event.clientX, event.clientY);<br>
+});
+</div>
+<a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescript75aa.html?filename=demo_type_inference_contextual" target="_blank">Try it Yourself »</a>
+</div>
+
+<hr>
+
+<h2>Type Inference in Object Literals</h2>
+
+<p>When working with object literals, TypeScript infers the types of properties:</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+// TypeScript infers the type of this object<br>
+const user = {<br>
+&nbsp;&nbsp;id: 1,<br>
+&nbsp;&nbsp;name: "Alice",<br>
+&nbsp;&nbsp;email: "alice@example.com",<br>
+&nbsp;&nbsp;active: true,<br>
+&nbsp;&nbsp;details: {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;age: 30,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;address: {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;city: "New York",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;country: "USA"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;}<br>
+};<br>
+<br>
+// Accessing inferred properties<br>
+console.log(user.name.toUpperCase());<br>
+console.log(user.details.age.toFixed(0));<br>
+console.log(user.details.address.city.toLowerCase());<br>
+<br>
+// Type errors would be caught<br>
+// console.log(user.age);                 // Error: Property 'age' does not exist on type '...'<br>
+// console.log(user.details.name);        // Error: Property 'name' does not exist on type '...'<br>
+// console.log(user.details.address.zip); // Error: Property 'zip' does not exist on type '...'
+</div>
+<a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescriptc721.html?filename=demo_type_inference_objects" target="_blank">Try it Yourself »</a>
+</div>
+
+<hr>
+
+<h2>Advanced Patterns</h2>
+
+<h3>Const Assertions</h3>
+<div class="w3-example">
+  <h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+// Regular type inference (widens to string)<br>
+let name = "Alice";&nbsp;&nbsp;// type: string<br>
+<br>
+// Const assertion (narrows to literal type)<br>
+const nameConst = "Alice" as const;&nbsp;&nbsp;// type: "Alice"<br>
+<br>
+// With objects<br>
+const user = {<br>
+&nbsp;&nbsp;id: 1,<br>
+&nbsp;&nbsp;name: "Alice",<br>
+&nbsp;&nbsp;roles: ["admin", "user"] as const&nbsp;&nbsp;// readonly tuple<br>
+} as const;<br>
+<br>
+// user.name = "Bob";&nbsp;&nbsp;// Error: Cannot assign to 'name' because it is a read-only property<br>
+</div>
+<a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescriptb9a6.html?filename=demo_type_inference_const_assertions" target="_blank">Try it Yourself »</a>
+</div>
+
+
+<h3>Type Guards and Control Flow Analysis</h3>
+<div class="w3-example">
+  <h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+function processValue(value: string | number) {<br>
+&nbsp;&nbsp;// Type is narrowed to string in this block<br>
+&nbsp;&nbsp;if (typeof value === "string") {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;console.log(value.toUpperCase());<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;// Type is narrowed to number here<br>
+&nbsp;&nbsp;else {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;console.log(value.toFixed(2));<br>
+&nbsp;&nbsp;}<br>
+}<br>
+<br>
+// Discriminated unions<br>
+interface Circle { kind: "circle"; radius: number; }<br>
+interface Square { kind: "square"; size: number; }<br>
+type Shape = Circle | Square;<br>
+<br>
+function area(shape: Shape) {<br>
+&nbsp;&nbsp;// Type is narrowed based on 'kind' property<br>
+&nbsp;&nbsp;switch (shape.kind) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;case "circle":<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return Math.PI * shape.radius ** 2;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;case "square":<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return shape.size ** 2;<br>
+&nbsp;&nbsp;}<br>
+}<br>
+</div>
+<a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescript76c2.html?filename=demo_type_inference_type_guards" target="_blank">Try it Yourself »</a>
+</div>
+
+
+<hr>
+<h2>Best Practices</h2>
+
+<p>Here are some best practices for working with TypeScript's type inference:</p>
+
+<div class="w3-example">
+  <h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+// 1. Let TypeScript infer simple types<br>
+let message = "Hello";  // Good: no need for explicit type here<br>
+<br>
+// 2. Provide explicit types for function parameters<br>
+function formatName(firstName: string, lastName: string) {<br>
+&nbsp;&nbsp;return `${firstName} ${lastName}`;<br>
+}<br>
+<br>
+// 3. Consider adding return type annotations for complex functions<br>
+function processData(input: string[]): { count: number; items: string[] } {<br>
+&nbsp;&nbsp;return {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;count: input.length,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;items: input.map(item =&gt; item.trim())<br>
+&nbsp;&nbsp;};<br>
+}<br>
+<br>
+// 4. Use explicit type annotations for empty arrays or objects<br>
+const emptyArray: string[] = [];  // Without annotation, inferred as any[]<br>
+const configOptions: Record&lt;string, unknown&gt; = {};  // Without annotation, inferred as {}<br>
+<br>
+// 5. Use type assertions when TypeScript cannot infer correctly<br>
+const canvas = document.getElementById("main-canvas") as HTMLCanvasElement;<br>
+</div>
+<a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescripte549.html?filename=demo_type_inference_best_practices" target="_blank">Try it Yourself »</a>
+</div>
+
+<hr>
+
+<h2>When to Use Explicit Types</h2>
+
+<p>While type inference is powerful, there are situations where explicit type annotations are recommended:</p>
+
+<div class="w3-panel">
+  <h3>Recommended for Explicit Types</h3>
+  <ul>
+    <li><b>Public API Contracts</b>: Function parameters and return types in library code</li>
+    <li><b>Complex Types</b>: When the inferred type is too broad or complex</li>
+    <li><b>Documentation</b>: To make the code more self-documenting</li>
+    <li><b>Type Safety</b>: When you need to enforce specific constraints</li>
+    <li><b>Empty Collections</b>: Empty arrays or objects that will be populated later</li>
+  </ul>
+</div>
+
+<h3>Performance Considerations</h3>
+<div class="w3-example">
+  <h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+// Good: Explicit type for complex return values<br>
+function processData(input: string[]): { results: string[]; count: number } {<br>
+&nbsp;&nbsp;return {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;results: input.map(processItem),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;count: input.length<br>
+&nbsp;&nbsp;};<br>
+}<br>
+<br>
+// Good: Explicit type for empty arrays<br>
+const items: Array&lt;{ id: number; name: string }&gt; = [];<br>
+<br>
+// Good: Explicit type for configuration objects<br>
+const config: {<br>
+&nbsp;&nbsp;apiUrl: string;<br>
+&nbsp;&nbsp;retries: number;<br>
+&nbsp;&nbsp;timeout: number;<br>
+} = {<br>
+&nbsp;&nbsp;apiUrl: "https://api.example.com",<br>
+&nbsp;&nbsp;retries: 3,<br>
+&nbsp;&nbsp;timeout: 5000<br>
+};<br>
+</div>
+</div>
+
+<hr>
+<div id="exercisecontainer" src="xrcise_type_inference.js" data-extensions="php"></div>
+<hr>
+<br>
+
+
+
+<div id="user-profile-bottom-wrapper" class="user-profile-bottom-wrapper">
+  <div class="user-authenticated w3-hide">
+    <a href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fmy-learning.w3schools.com" class="user-profile-btn user-profile-bottom-btn ga-bottom ga-bottom-profile" title="Your W3Schools Profile" aria-label="Your W3Schools Profile" target="_top">
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 2048 2048" class="user-profile-icon" aria-label="Your W3Schools Profile Icon">
+        <path d="M 843.500 1148.155 C 837.450 1148.515, 823.050 1149.334, 811.500 1149.975 C 742.799 1153.788, 704.251 1162.996, 635.391 1192.044 C 517.544 1241.756, 398.992 1352.262, 337.200 1470 C 251.831 1632.658, 253.457 1816.879, 340.500 1843.982 C 351.574 1847.431, 1696.426 1847.431, 1707.500 1843.982 C 1794.543 1816.879, 1796.169 1632.658, 1710.800 1470 C 1649.008 1352.262, 1530.456 1241.756, 1412.609 1192.044 C 1344.588 1163.350, 1305.224 1153.854, 1238.500 1150.039 C 1190.330 1147.286, 1196.307 1147.328, 1097 1149.035 C 1039.984 1150.015, 1010.205 1150.008, 950 1149.003 C 851.731 1147.362, 856.213 1147.398, 843.500 1148.155" stroke="none" fill="#2a93fb" fill-rule="evenodd"></path>
+        <path d="M 1008 194.584 C 1006.075 194.809, 999.325 195.476, 993 196.064 C 927.768 202.134, 845.423 233.043, 786 273.762 C 691.987 338.184, 622.881 442.165, 601.082 552 C 588.496 615.414, 592.917 705.245, 611.329 760.230 C 643.220 855.469, 694.977 930.136, 763.195 979.321 C 810.333 1013.308, 839.747 1026.645, 913.697 1047.562 C 1010.275 1074.879, 1108.934 1065.290, 1221 1017.694 C 1259.787 1001.221, 1307.818 965.858, 1339.852 930.191 C 1460.375 795.998, 1488.781 609.032, 1412.581 451.500 C 1350.098 322.327, 1240.457 235.724, 1097.500 202.624 C 1072.356 196.802, 1025.206 192.566, 1008 194.584" stroke="none" fill="#0aaa8a" fill-rule="evenodd"></path>
+      </svg>
+
+      <svg xmlns="http://www.w3.org/2000/svg" class="user-progress" aria-label="Your W3Schools Profile Progress">
+        <path class="user-progress-circle1" fill="none" d="M 25.99650934151373 15.00000030461742 A 20 20 0 1 0 26 15"></path>
+        <path class="user-progress-circle2" fill="none" d="M 26 15 A 20 20 0 0 0 26 15"></path>
+      </svg>
+
+      <span class="user-progress-star">★</span>
+
+      <span class="user-progress-point">+1</span>
+    </a>
+  </div>
+
+  <div class="w3s-pathfinder -teaser user-anonymous w3-hide">
+  <div class="track-progress-btn-wrapper">
+    <a href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fpathfinder.w3schools.com" class="-login-btn w3-button ga-bottom ga-bottom-login track-progress-btn" title="Sign in to track your progress" aria-label="Sign in to track your progress" target="_blank">
+    Sign in to track progress
+  </a>
+    
+  </div>
+</div>
+
+<style>
+.w3s-pathfinder.-teaser {
+  background-color: transparent!important;
+}
+.track-progress-btn-wrapper {
+  display: flex;
+  justify-content: center;
+}
+a.track-progress-btn {
+  position: absolute;
+  padding: 8px 20px;
+  border: 1px solid #ddd;
+  top:-65px;
+  background-color: #fff;
+  color: #333;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+}
+@media screen and (max-width: 600px) {
+  a.track-progress-btn {
+    top: 6px;
+    width: 100%;
+  }
+}
+</style>
+
+</div>
+

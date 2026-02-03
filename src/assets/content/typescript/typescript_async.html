@@ -1,0 +1,629 @@
+
+      <div id="mainLeaderboard" style="overflow:hidden;">
+        <!-- MainLeaderboard-->
+      </div>
+    <h1>TypeScript Async Programming</h1>
+
+
+
+<hr>
+<p>TypeScript enhances JavaScript's asynchronous capabilities with static typing, making your async code more predictable and maintainable.</p>
+<p>This guide covers everything from basic async/await to advanced patterns.</p>
+
+<div class="w3-panel ws-note">
+  <p>This tutorial assumes basic knowledge of JavaScript Promises and asynchronous programming.</p>
+<p>If you're new to these concepts, check out our <a href="#/tutorial/../js/js_async.html" target="_blank">JavaScript Async</a> tutorial first.</p>
+</div>
+
+<hr>
+
+<h2 id="promises">Promises in TypeScript</h2>
+
+<p>TypeScript enhances JavaScript Promises with type safety through generics.</p>
+<p>A <code class="w3-codespan">Promise&lt;T&gt;</code> represents an asynchronous operation that will complete with a value of type <code class="w3-codespan">T</code> or fail with a reason of type <code class="w3-codespan">any</code>.</p>
+
+<div class="w3-panel ws-note">
+  <p><strong>Key Points:</strong></p>
+  <ul>
+    <li><code class="w3-codespan">Promise&lt;T&gt;</code> - Generic type where <code class="w3-codespan">T</code> is the type of the resolved value</li>
+    <li><code class="w3-codespan">Promise&lt;void&gt;</code> - For Promises that don't return a value</li>
+    <li><code class="w3-codespan">Promise&lt;never&gt;</code> - For Promises that never resolve (rare)</li>
+  </ul>
+</div>
+
+<div class="w3-example">
+  <h3>Basic Promise Example</h3>
+  <div class="w3-code notranslate jsHigh">
+    // Create a typed Promise that resolves to a string<br>
+    const fetchGreeting = (): Promise&lt;string&gt; =&gt; {<br>
+    &nbsp;&nbsp;return new Promise((resolve, reject) =&gt; {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;setTimeout(() =&gt; {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const success = Math.random() &gt; 0.5;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (success) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;resolve("Hello, TypeScript!");<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} else {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;reject(new Error("Failed to fetch greeting"));<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;}, 1000);<br>
+    &nbsp;&nbsp;});<br>
+    };<br><br>
+
+    // Using the Promise with proper type inference<br>
+    fetchGreeting()<br>
+    &nbsp;&nbsp;.then((greeting) =&gt; {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;// TypeScript knows 'greeting' is a string<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;console.log(greeting.toUpperCase());<br>
+    &nbsp;&nbsp;})<br>
+    &nbsp;&nbsp;.catch((error: Error) =&gt; {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;console.error("Error:", error.message);<br>
+    &nbsp;&nbsp;});
+  </div>
+  <a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescript6aea.html?filename=demo_promise_basic" target="_blank">Try it Yourself »</a>
+</div>
+
+<hr>
+
+
+<div class="w3-panel ws-note">
+  <h4>Promise States and Type Flow</h4>
+  <div class="async-diagram">
+    <strong>Promise State Flow:</strong><br>
+    pending → fulfilled (with value: T)  // Success case<br>
+    pending → rejected (with reason: any)  // Error case
+  </div>
+  <p>TypeScript tracks these states through the type system, ensuring you handle both success and error cases properly.</p>
+</div>
+
+<p>The type parameter in <code class="w3-codespan">Promise&lt;T&gt;</code> tells TypeScript what type the Promise will resolve to, allowing for better type checking and IDE support.</p>
+
+<hr>
+
+<h2 id="async-await">Async/Await with TypeScript</h2>
+
+<p>TypeScript's <code class="w3-codespan">async/await</code> syntax provides a cleaner way to work with Promises, making asynchronous code look and behave more like synchronous code while maintaining type safety.</p>
+
+<div class="w3-panel ws-note">
+  <h4>Key Benefits of Async/Await</h4>
+  <ul>
+    <li><strong>Readability</strong>: Sequential code that's easier to follow</li>
+    <li><strong>Error Handling</strong>: Use try/catch for both sync and async errors</li>
+    <li><strong>Debugging</strong>: Easier to debug with synchronous-like stack traces</li>
+    <li><strong>Type Safety</strong>: Full TypeScript type inference and checking</li>
+  </ul>
+</div>
+
+<div class="w3-example">
+  <h3>Basic Async/Await Example</h3>
+  <div class="w3-code notranslate jsHigh">
+    // Define types for our API response<br>
+    interface User {<br>
+    &nbsp;&nbsp;id: number;<br>
+    &nbsp;&nbsp;name: string;<br>
+    &nbsp;&nbsp;email: string;<br>
+    &nbsp;&nbsp;role: 'admin' | 'user' | 'guest';<br>
+    }<br><br>
+
+    // Function that returns a Promise of User array<br>
+    async function fetchUsers(): Promise&lt;User[]&gt; {<br>
+    &nbsp;&nbsp;console.log('Fetching users...');<br>
+    &nbsp;&nbsp;// Simulate API call<br>
+    &nbsp;&nbsp;await new Promise(resolve =&gt; setTimeout(resolve, 1000));<br>
+    &nbsp;&nbsp;return [<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;{ id: 1, name: 'Alice', email: 'alice@example.com', role: 'admin' },<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;{ id: 2, name: 'Bob', email: 'bob@example.com', role: 'user' }<br>
+    &nbsp;&nbsp;];<br>
+    }<br><br>
+
+    // Async function to process users<br>
+    async function processUsers() {<br>
+    &nbsp;&nbsp;try {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;// TypeScript knows users is User[]<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;const users = await fetchUsers();<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;console.log(`Fetched ${users.length} users`);<br><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;// Type-safe property access<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;const adminEmails = users<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.filter(user =&gt; user.role === 'admin')<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.map(user =&gt; user.email);<br><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;console.log('Admin emails:', adminEmails);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;return users;<br>
+    &nbsp;&nbsp;} catch (error) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;if (error instanceof Error) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.error('Failed to process users:', error.message);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;} else {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.error('An unknown error occurred');<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;throw error; // Re-throw to let caller handle<br>
+    &nbsp;&nbsp;}<br>
+    }<br><br>
+
+    // Execute the async function<br>
+    processUsers()<br>
+    &nbsp;&nbsp;.then(users =&gt; console.log('Processing complete'))<br>
+    &nbsp;&nbsp;.catch(err =&gt; console.error('Processing failed:', err));
+  </div>
+  <a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescripta6f8.html?filename=demo_async_basic" target="_blank">Try it Yourself »</a>
+</div>
+
+<div class="w3-panel ws-note">
+  <h4>Async Function Return Types</h4>
+  <p>All async functions in TypeScript return a Promise.</p>
+<p>The return type is automatically wrapped in a Promise:</p>
+  <div class="w3-code">
+    async function getString(): string { }        // Error: must return Promise<br>
+    async function getString(): Promise&lt;string&gt; { } // Correct
+  </div>
+</div>
+
+<div class="w3-example">
+  <h3>Parallel Execution with Promise.all</h3>
+  <p>Run multiple async operations in parallel and wait for all to complete:</p>
+  <div class="w3-code notranslate jsHigh">
+    interface Product {<br>
+    &nbsp;&nbsp;id: number;<br>
+    &nbsp;&nbsp;name: string;<br>
+    &nbsp;&nbsp;price: number;<br>
+    }<br><br>
+
+    async function fetchProduct(id: number): Promise&lt;Product&gt; {<br>
+    &nbsp;&nbsp;console.log(`Fetching product ${id}...`);<br>
+    &nbsp;&nbsp;await new Promise(resolve =&gt; setTimeout(resolve, Math.random() * 1000));<br>
+    &nbsp;&nbsp;return { id, name: `Product ${id}`, price: Math.floor(Math.random() * 100) };<br>
+    }<br><br>
+
+    async function fetchMultipleProducts() {<br>
+    &nbsp;&nbsp;try {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;// Start all fetches in parallel<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;const [product1, product2, product3] = await Promise.all([<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fetchProduct(1),<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fetchProduct(2),<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fetchProduct(3)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;]);<br><br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;const total = [product1, product2, product3]<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.reduce((sum, product) =&gt; sum + product.price, 0);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;console.log(`Total price: $${total.toFixed(2)}`);<br>
+    &nbsp;&nbsp;} catch (error) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;console.error('Error fetching products:', error);<br>
+    &nbsp;&nbsp;}<br>
+    }<br><br>
+
+    fetchMultipleProducts();
+  </div>
+  <a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescripteb6e.html?filename=demo_async_parallel" target="_blank">Try it Yourself »</a>
+</div>
+
+<div class="w3-panel ws-note">
+  <p><strong>Note:</strong> All async functions in TypeScript return a Promise.</p>
+<p>The type parameter of the Promise corresponds to the return type you declare after the Promise keyword.</p>
+</div>
+
+<hr>
+<div id="midcontentadcontainer" style="overflow:auto;text-align:center">
+<!-- MidContent -->
+<!-- <p class="adtext">Advertisement</p> -->
+</div><hr>
+<h2>Typing Callbacks for Async Operations</h2>
+
+<p>For traditional callback-based asynchronous code, TypeScript helps ensure proper typing of the callback parameters:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+// Define a type for the callback<br>
+type FetchCallback = (error: Error | null, data?: string) =&gt; void;<br>
+<br>
+// Function that takes a typed callback<br>
+function fetchDataWithCallback(url: string, callback: FetchCallback): void {<br>
+&nbsp;&nbsp;// Simulate async operation<br>
+&nbsp;&nbsp;setTimeout(() =&gt; {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;try {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Simulate successful response<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;callback(null, "Response data");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;} catch (error) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;callback(error instanceof Error ? error : new Error('Unknown error'));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;}, 1000);<br>
+}<br>
+<br>
+// Using the callback function<br>
+fetchDataWithCallback('https://api.example.com', (error, data) =&gt; {<br>
+&nbsp;&nbsp;if (error) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;console.error('Error:', error.message);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp; <br>
+&nbsp;&nbsp;// TypeScript knows data is a string (or undefined)<br>
+&nbsp;&nbsp;if (data) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;console.log(data.toUpperCase());<br>
+&nbsp;&nbsp;}<br>
+});
+</div>
+<a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescript4c6b.html?filename=demo_async_callbacks" target="_blank">Try it Yourself »</a>
+</div>
+
+<hr>
+
+<h2 id="promise-combinations">Promise Combinations</h2>
+
+<p>TypeScript provides powerful utility types and methods for working with multiple Promises.</p>
+<p>These methods help you manage concurrent operations and handle their results in a type-safe way.</p>
+
+<div class="w3-panel ws-note">
+  <h4>Promise Combination Methods</h4>
+  <ul>
+    <li><code class="w3-codespan">Promise.all()</code> - Waits for all promises to resolve</li>
+    <li><code class="w3-codespan">Promise.race()</code> - Returns the first settled promise</li>
+    <li><code class="w3-codespan">Promise.allSettled()</code> - Waits for all to settle (success or failure)</li>
+    <li><code class="w3-codespan">Promise.any()</code> - Returns the first fulfilled promise</li>
+  </ul>
+</div>
+
+<div class="w3-example">
+  <h3>Promise.all - Parallel Execution</h3>
+  <p>Run multiple promises in parallel and wait for all to complete.</p>
+<p>Fails fast if any promise rejects.</p>
+  <div class="w3-code notranslate jsHigh">
+    // Different types of promises<br>
+    const fetchUser = (id: number): Promise&lt;{ id: number; name: string }&gt; =&gt;<br>
+    &nbsp;&nbsp;Promise.resolve({ id, name: `User ${id}` });<br>
+    <br>
+    const fetchPosts = (userId: number): Promise&lt;Array&lt;{ id: number; title: string }&gt;&gt; =&gt;<br>
+    &nbsp;&nbsp;Promise.resolve([
+    &nbsp;&nbsp;&nbsp;&nbsp;{ id: 1, title: 'Post 1' },<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;{ id: 2, title: 'Post 2' }<br>
+    &nbsp;&nbsp;]);<br>
+    <br>
+    const fetchStats = (userId: number): Promise&lt;{ views: number; likes: number }&gt; =&gt;<br>
+    &nbsp;&nbsp;Promise.resolve({ views: 100, likes: 25 });<br><br>
+    
+    // Run all in parallel<br>
+    async function loadUserDashboard(userId: number) {<br>
+    &nbsp;&nbsp;try {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;const [user, posts, stats] = await Promise.all([<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fetchUser(userId),<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fetchPosts(userId),<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fetchStats(userId)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;]);<br><br>
+    
+    &nbsp;&nbsp;&nbsp;&nbsp;// TypeScript knows the types of user, posts, and stats<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;console.log(`User: ${user.name}`);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;console.log(`Posts: ${posts.length}`);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;console.log(`Likes: ${stats.likes}`);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;return { user, posts, stats };<br>
+    &nbsp;&nbsp;} catch (error) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;console.error('Failed to load dashboard:', error);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;throw error;<br>
+    &nbsp;&nbsp;}<br>
+    }<br><br>
+    
+    // Execute with a user ID<br>
+    loadUserDashboard(1);
+  </div>
+  <a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescriptab73.html?filename=demo_promise_all" target="_blank">Try it Yourself »</a>
+</div>
+
+<div class="w3-example">
+  <h3>Promise.race - First to Settle</h3>
+  <p>Useful for timeouts or getting the first successful response from multiple sources.</p>
+  <div class="w3-code notranslate jsHigh">
+    // Helper function for timeout<br>
+    const timeout = (ms: number): Promise&lt;never&gt; =&gt;<br>
+    &nbsp;&nbsp;new Promise((_, reject) =&gt;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;setTimeout(() =&gt; reject(new Error(`Timeout after ${ms}ms`)), ms)<br>
+    &nbsp;&nbsp;);<br><br>
+    
+    // Simulate API call with timeout<br>
+    async function fetchWithTimeout&lt;T&gt;(<br>
+    &nbsp;&nbsp;promise: Promise&lt;T&gt;,<br>
+    &nbsp;&nbsp;timeoutMs: number = 5000<br>
+    ): Promise&lt;T&gt; {<br>
+    &nbsp;&nbsp;return Promise.race([<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;promise,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;timeout(timeoutMs).then(() =&gt; {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw new Error(`Request timed out after ${timeoutMs}ms`);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;}),<br>
+    &nbsp;&nbsp;]);<br>
+    }<br><br>
+    
+    // Usage example<br>
+    async function fetchUserData() {<br>
+    &nbsp;&nbsp;try {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;const response = await fetchWithTimeout(<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fetch('https://api.example.com/user/1'),<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3000 // 3 second timeout<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;const data = await response.json();<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;return data;<br>
+    &nbsp;&nbsp;} catch (error) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;console.error('Error:', (error as Error).message);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;throw error;<br>
+    &nbsp;&nbsp;}<br>
+    }
+  </div>
+  <a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescriptb7da.html?filename=demo_promise_race" target="_blank">Try it Yourself »</a>
+</div>
+
+<div class="w3-example">
+  <h3>Promise.allSettled - Handle All Results</h3>
+  <p>When you want to wait for all promises to complete, regardless of success or failure.</p>
+  <div class="w3-code notranslate jsHigh">
+    // Simulate multiple API calls with different outcomes<br>
+    const fetchData = async (id: number) =&gt; {<br>
+    &nbsp;&nbsp;// Randomly fail some requests<br>
+    &nbsp;&nbsp;if (Math.random() &gt; 0.7) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;throw new Error(`Failed to fetch data for ID ${id}`);<br>
+    &nbsp;&nbsp;}<br>
+    &nbsp;&nbsp;return { id, data: `Data for ${id}` };<br>
+    };<br><br>
+    
+    // Process multiple items with individual error handling<br>
+    async function processBatch(ids: number[]) {<br>
+    &nbsp;&nbsp;const promises = ids.map(id =&gt; <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;fetchData(id)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.then(value =&gt; ({ status: 'fulfilled' as const, value }))<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.catch(reason =&gt; ({ status: 'rejected' as const, reason }))<br>
+    &nbsp;&nbsp;);<br><br>
+    
+    &nbsp;&nbsp;// Wait for all to complete<br>
+    &nbsp;&nbsp;const results = await Promise.allSettled(promises);<br><br>
+    &nbsp;&nbsp;// Process results<br>
+    &nbsp;&nbsp;const successful = results<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;.filter((result): result is PromiseFulfilledResult&lt;{ status: 'fulfilled', value: any }&gt; =&gt; <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result.status === 'fulfilled' &amp;&amp; <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result.value.status === 'fulfilled'<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;.map(r =&gt; r.value.value);<br><br>
+    
+    &nbsp;&nbsp;const failed = results<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;.filter((result): result is PromiseRejectedResult | <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PromiseFulfilledResult&lt;{ status: 'rejected', reason: any }&gt; =&gt; {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (result.status === 'rejected') return true;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return result.value.status === 'rejected';<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;});<br><br>
+    
+    &nbsp;&nbsp;console.log(`Successfully processed: ${successful.length}`);<br>
+    &nbsp;&nbsp;console.log(`Failed: ${failed.length}`);<br><br>
+    
+    &nbsp;&nbsp;return { successful, failed };<br>
+    }<br><br>
+    
+    // Process a batch of IDs<br>
+    processBatch([1, 2, 3, 4, 5]);
+  </div>
+  <a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescript5bd6.html?filename=demo_promise_all_settled" target="_blank">Try it Yourself »</a>
+</div>
+
+<div class="w3-panel ws-warning">
+  <p><strong>Warning:</strong> When using <code class="w3-codespan">Promise.all</code> with an array of promises that have different types, TypeScript will infer the result type as an array of the union of all possible types.</p>
+<p>For more precise typing, you may need to use type assertions or define the expected structure.</p>
+</div>
+
+<hr>
+
+<h2 id="error-handling">Error Handling in Async Code</h2>
+
+<p>TypeScript provides powerful tools for type-safe error handling in asynchronous code.</p>
+<p>Let's explore different patterns and best practices.</p>
+
+<div class="w3-panel ws-note">
+  <h4>Error Handling Strategies</h4>
+  <ul>
+    <li><strong>Try/Catch Blocks</strong>: For handling errors in async/await</li>
+    <li><strong>Error Boundaries</strong>: For React components</li>
+    <li><strong>Result Types</strong>: Functional approach with success/failure</li>
+    <li><strong>Error Subclassing</strong>: For domain-specific errors</li>
+  </ul>
+</div>
+
+<div class="w3-example">
+  <h3>Custom Error Classes</h3>
+  <p>Create domain-specific error types for better error handling:</p>
+  <div class="w3-code notranslate jsHigh">
+    // Base error class for our application<br>
+    class AppError extends Error {<br>
+    &nbsp;&nbsp;constructor(<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;message: string,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;public readonly code: string,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;public readonly details?: unknown<br>
+    &nbsp;&nbsp;) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;super(message);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;this.name = this.constructor.name;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;Error.captureStackTrace?.(this, this.constructor);<br>
+    &nbsp;&nbsp;}<br>
+    }<br><br>
+
+    // Specific error types<br>
+    class NetworkError extends AppError {<br>
+    &nbsp;&nbsp;constructor(message: string, details?: unknown) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;super(message, 'NETWORK_ERROR', details);<br>
+    &nbsp;&nbsp;}<br>
+    }<br><br>
+
+    class ValidationError extends AppError {<br>
+    &nbsp;&nbsp;constructor(<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;public readonly field: string,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;message: string<br>
+    &nbsp;&nbsp;) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;super(message, 'VALIDATION_ERROR', { field });<br>
+    &nbsp;&nbsp;}<br>
+    }<br><br>
+
+    class NotFoundError extends AppError {<br>
+    &nbsp;&nbsp;constructor(resource: string, id: string | number) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;super(<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`${resource} with ID ${id} not found`,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'NOT_FOUND',<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ resource, id }<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;);<br>
+    &nbsp;&nbsp;}<br>
+    }<br><br>
+
+    // Usage example<br>
+    async function fetchUserData(userId: string): Promise&lt;{ id: string; name: string }&gt; {<br>
+    &nbsp;&nbsp;try {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;// Simulate API call<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;const response = await fetch(`/api/users/${userId}`);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;if (!response.ok) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (response.status === 404) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw new NotFoundError('User', userId);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } else if (response.status &gt;= 500) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw new NetworkError('Server error', { status: response.status });<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } else {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw new Error(`HTTP error! status: ${response.status}`);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;const data = await response.json();<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;// Validate response data<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;if (!data.name) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw new ValidationError('name', 'Name is required');<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;return data;<br>
+    &nbsp;&nbsp;} catch (error) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;if (error instanceof AppError) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Already one of our custom errors<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw error;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;// Wrap unexpected errors<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;throw new AppError(<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'Failed to fetch user data',<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'UNEXPECTED_ERROR',<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ cause: error }<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;);<br>
+    &nbsp;&nbsp;}<br>
+    }<br><br>
+
+    // Error handling in the application<br>
+    async function displayUserProfile(userId: string) {<br>
+    &nbsp;&nbsp;try {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;const user = await fetchUserData(userId);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;console.log('User profile:', user);<br>
+    &nbsp;&nbsp;} catch (error) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;if (error instanceof NetworkError) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.error('Network issue:', error.message);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Show retry UI<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;} else if (error instanceof ValidationError) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.error('Validation failed:', error.message);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Highlight the invalid field<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;} else if (error instanceof NotFoundError) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.error('Not found:', error.message);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Show 404 page<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;} else {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.error('Unexpected error:', error);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Show generic error message<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+    &nbsp;&nbsp;}<br>
+    }<br><br>
+
+    // Execute with example data<br>
+    displayUserProfile('123');
+  </div>
+  <a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescript83e7.html?filename=demo_error_handling" target="_blank">Try it Yourself »</a>
+</div>
+
+<div class="w3-panel ws-note">
+  <h4>Error Handling Patterns</h4>
+  <p>Consider these patterns for robust error handling:</p>
+  <ol>
+    <li><strong>Error Boundaries</strong> in React for component-level error handling</li>
+    <li><strong>Result Objects</strong> instead of throwing exceptions for expected cases</li>
+    <li><strong>Global Error Handler</strong> for uncaught exceptions</li>
+    <li><strong>Error Logging</strong> to capture and report errors</li>
+  </ol>
+</div>
+
+<hr>
+
+<h2>Async Iteration with TypeScript</h2>
+
+<p>TypeScript supports async iterators and async generators with proper typing:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+// Async generator function<br>
+async function* generateNumbers(): AsyncGenerator&lt;number, void, unknown&gt; {<br>
+&nbsp;&nbsp;let i = 0;<br>
+&nbsp;&nbsp;while (i &lt; 5) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// Simulate async operation<br>
+&nbsp;&nbsp;&nbsp;&nbsp;await new Promise(resolve =&gt; setTimeout(resolve, 1000));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;yield i++;<br>
+&nbsp;&nbsp;}<br>
+}<br>
+<br>
+// Using the async generator<br>
+async function consumeNumbers() {<br>
+&nbsp;&nbsp;for await (const num of generateNumbers()) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// TypeScript knows num is a number<br>
+&nbsp;&nbsp;&nbsp;&nbsp;console.log(num * 2);<br>
+&nbsp;&nbsp;}<br>
+}<br>
+</div>
+<a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescript1376.html?filename=demo_async_iteration" target="_blank">Try it Yourself »</a>
+</div>
+
+<hr>
+<br>
+
+
+<div id="user-profile-bottom-wrapper" class="user-profile-bottom-wrapper">
+  <div class="user-authenticated w3-hide">
+    <a href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fmy-learning.w3schools.com" class="user-profile-btn user-profile-bottom-btn ga-bottom ga-bottom-profile" title="Your W3Schools Profile" aria-label="Your W3Schools Profile" target="_top">
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 2048 2048" class="user-profile-icon" aria-label="Your W3Schools Profile Icon">
+        <path d="M 843.500 1148.155 C 837.450 1148.515, 823.050 1149.334, 811.500 1149.975 C 742.799 1153.788, 704.251 1162.996, 635.391 1192.044 C 517.544 1241.756, 398.992 1352.262, 337.200 1470 C 251.831 1632.658, 253.457 1816.879, 340.500 1843.982 C 351.574 1847.431, 1696.426 1847.431, 1707.500 1843.982 C 1794.543 1816.879, 1796.169 1632.658, 1710.800 1470 C 1649.008 1352.262, 1530.456 1241.756, 1412.609 1192.044 C 1344.588 1163.350, 1305.224 1153.854, 1238.500 1150.039 C 1190.330 1147.286, 1196.307 1147.328, 1097 1149.035 C 1039.984 1150.015, 1010.205 1150.008, 950 1149.003 C 851.731 1147.362, 856.213 1147.398, 843.500 1148.155" stroke="none" fill="#2a93fb" fill-rule="evenodd"></path>
+        <path d="M 1008 194.584 C 1006.075 194.809, 999.325 195.476, 993 196.064 C 927.768 202.134, 845.423 233.043, 786 273.762 C 691.987 338.184, 622.881 442.165, 601.082 552 C 588.496 615.414, 592.917 705.245, 611.329 760.230 C 643.220 855.469, 694.977 930.136, 763.195 979.321 C 810.333 1013.308, 839.747 1026.645, 913.697 1047.562 C 1010.275 1074.879, 1108.934 1065.290, 1221 1017.694 C 1259.787 1001.221, 1307.818 965.858, 1339.852 930.191 C 1460.375 795.998, 1488.781 609.032, 1412.581 451.500 C 1350.098 322.327, 1240.457 235.724, 1097.500 202.624 C 1072.356 196.802, 1025.206 192.566, 1008 194.584" stroke="none" fill="#0aaa8a" fill-rule="evenodd"></path>
+      </svg>
+
+      <svg xmlns="http://www.w3.org/2000/svg" class="user-progress" aria-label="Your W3Schools Profile Progress">
+        <path class="user-progress-circle1" fill="none" d="M 25.99650934151373 15.00000030461742 A 20 20 0 1 0 26 15"></path>
+        <path class="user-progress-circle2" fill="none" d="M 26 15 A 20 20 0 0 0 26 15"></path>
+      </svg>
+
+      <span class="user-progress-star">★</span>
+
+      <span class="user-progress-point">+1</span>
+    </a>
+  </div>
+
+  <div class="w3s-pathfinder -teaser user-anonymous w3-hide">
+  <div class="track-progress-btn-wrapper">
+    <a href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fpathfinder.w3schools.com" class="-login-btn w3-button ga-bottom ga-bottom-login track-progress-btn" title="Sign in to track your progress" aria-label="Sign in to track your progress" target="_blank">
+    Sign in to track progress
+  </a>
+    
+  </div>
+</div>
+
+<style>
+.w3s-pathfinder.-teaser {
+  background-color: transparent!important;
+}
+.track-progress-btn-wrapper {
+  display: flex;
+  justify-content: center;
+}
+a.track-progress-btn {
+  position: absolute;
+  padding: 8px 20px;
+  border: 1px solid #ddd;
+  top:-65px;
+  background-color: #fff;
+  color: #333;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+}
+@media screen and (max-width: 600px) {
+  a.track-progress-btn {
+    top: 6px;
+    width: 100%;
+  }
+}
+</style>
+
+</div>
+

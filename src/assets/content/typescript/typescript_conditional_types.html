@@ -1,0 +1,318 @@
+
+      <div id="mainLeaderboard" style="overflow:hidden;">
+        <!-- MainLeaderboard-->
+      </div>
+    <h1>TypeScript Conditional Types</h1>
+
+
+
+<hr>
+
+<h2>Understanding Conditional Types in TypeScript</h2>
+
+<p>Conditional types in TypeScript enable you to create types that depend on other types, similar to how if-else statements work in JavaScript.</p>
+<p>They're a powerful feature that allows for sophisticated type transformations and type-level programming.</p>
+<hr>
+<div class="w3-panel">
+  <h3>Key Concepts</h3>
+  <ul>
+    <li><b>Type-level logic</b>: Perform conditional checks on types</li>
+    <li><b>Type inference</b>: Extract and manipulate types using <code class="w3-codespan">infer</code></li>
+    <li><b>Composition</b>: Combine with other TypeScript features</li>
+    <li><b>Utility types</b>: Build powerful type utilities</li>
+  </ul>
+</div>
+
+<div class="w3-panel">
+  <h3>Common Use Cases</h3>
+  <ul>
+    <li>Type-safe function overloading</li>
+    <li>API response type transformations</li>
+    <li>Complex type validations</li>
+    <li>Building reusable type utilities</li>
+    <li>Advanced type inference</li>
+  </ul>
+</div>
+
+<hr>
+
+<h2>Basic Conditional Type Syntax</h2>
+
+<p>Conditional types use the form <code class="w3-codespan">T extends U ? X : Y</code>, which means:</p>
+<p>"if type <code class="w3-codespan">T</code> extends (or is assignable to) type <code class="w3-codespan">U</code>, use type <code class="w3-codespan">X</code>, otherwise use type <code class="w3-codespan">Y</code>".</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+type IsString&lt;T&gt; = T extends string ? true : false;<br>
+<br>
+// Usage examples<br>
+type Result1 = IsString&lt;string&gt;;  // true<br>
+type Result2 = IsString&lt;number&gt;;  // false<br>
+type Result3 = IsString&lt;"hello"&gt;; // true (literal types extend their base types)<br>
+<br>
+// We can use this with variables too<br>
+let a: IsString&lt;string&gt;; // a has type 'true'<br>
+let b: IsString&lt;number&gt;; // b has type 'false'
+</div>
+<a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescript4f69.html?filename=demo_conditional_types_basic" target="_blank">Try it Yourself »</a>
+</div>
+
+<hr>
+<div id="midcontentadcontainer" style="overflow:auto;text-align:center">
+<!-- MidContent -->
+<!-- <p class="adtext">Advertisement</p> -->
+</div><hr>
+
+<h2>Conditional Types with Unions</h2>
+
+<h3>Distributive Conditional Types</h3>
+
+<p>Conditional types are particularly useful with union types, where they're automatically distributed over union members:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+type ToArray&lt;T&gt; = T extends any ? T[] : never;<br>
+<br>
+// When used with a union type, it applies to each member of the union<br>
+type StringOrNumberArray = ToArray&lt;string | number&gt;;<br>
+// This becomes ToArray&lt;string&gt; | ToArray&lt;number&gt;<br>
+// Which becomes string[] | number[]<br>
+<br>
+// We can also extract specific types from a union<br>
+type ExtractString&lt;T&gt; = T extends string ? T : never;<br>
+type StringsOnly = ExtractString&lt;string | number | boolean | "hello"&gt;;<br>
+// Result: string | "hello"
+</div>
+<a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescript5722.html?filename=demo_conditional_types_unions" target="_blank">Try it Yourself »</a>
+</div>
+
+<hr>
+
+<h2>Type Inference with <code class="w3-codespan">infer</code></h2>
+
+<h3>Extracting Types from Complex Structures</h3>
+
+<p>The <code class="w3-codespan">infer</code> keyword allows you to declare a type variable within the condition part of a conditional type and then use it in the true branch of the condition:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+// Extract the return type of a function type<br>
+type ReturnType&lt;T&gt; = T extends (...args: any[]) =&gt; infer R ? R : never;<br>
+<br>
+// Examples<br>
+function greet() { return "Hello, world!"; }<br>
+function getNumber() { return 42; }<br>
+<br>
+type GreetReturnType = ReturnType&lt;typeof greet&gt;;   // string<br>
+type NumberReturnType = ReturnType&lt;typeof getNumber&gt;; // number<br>
+<br>
+// Extract element type from array<br>
+type ElementType&lt;T&gt; = T extends (infer U)[] ? U : never;<br>
+type NumberArrayElement = ElementType&lt;number[]&gt;; // number<br>
+type StringArrayElement = ElementType&lt;string[]&gt;; // string
+</div>
+<a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescript0829.html?filename=demo_conditional_types_infer" target="_blank">Try it Yourself »</a>
+</div>
+
+<hr>
+
+<h2>Built-in Conditional Types</h2>
+
+<h3>Standard Library Utilities</h3>
+
+<p>TypeScript includes several built-in conditional types in its standard library:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+// Extract&lt;T, U&gt; - Extracts types from T that are assignable to U<br>
+type OnlyStrings = Extract&lt;string | number | boolean, string&gt;; // string<br>
+<br>
+// Exclude&lt;T, U&gt; - Excludes types from T that are assignable to U<br>
+type NoStrings = Exclude&lt;string | number | boolean, string&gt;; // number | boolean<br>
+<br>
+// NonNullable&lt;T&gt; - Removes null and undefined from T<br>
+type NotNull = NonNullable&lt;string | null | undefined&gt;; // string<br>
+<br>
+// Parameters&lt;T&gt; - Extracts parameter types from a function type<br>
+type Params = Parameters&lt;(a: string, b: number) =&gt; void&gt;; // [string, number]<br>
+<br>
+// ReturnType&lt;T&gt; - Extracts the return type from a function type<br>
+type Return = ReturnType&lt;() =&gt; string&gt;; // string
+</div>
+<a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescript1495.html?filename=demo_conditional_types_predefined" target="_blank">Try it Yourself »</a>
+</div>
+
+<hr>
+<h2>Advanced Patterns and Techniques</h2>
+
+<h3>Recursive Conditional Types</h3>
+
+<p>Conditional types can be used recursively to create complex type transformations:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+// Deeply unwrap Promise types<br>
+type UnwrapPromise&lt;T&gt; = T extends Promise&lt;infer U&gt; ? UnwrapPromise&lt;U&gt; : T;<br>
+<br>
+// Examples<br>
+type A = UnwrapPromise&lt;Promise&lt;string&gt;&gt;;           // string<br>
+type B = UnwrapPromise&lt;Promise&lt;Promise&lt;number&gt;&gt;&gt;;   // number<br>
+type C = UnwrapPromise&lt;boolean&gt;;                   // boolean
+</div>
+<a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescriptc117.html?filename=demo_conditional_types_recursive" target="_blank">Try it Yourself »</a>
+</div>
+
+<h3>Type-Level If-Else Chains</h3>
+<p>Chain multiple conditions together for complex type logic:</p>
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+type TypeName&lt;T&gt; =<br>
+&nbsp;&nbsp;T extends string  ? "string" :<br>
+&nbsp;&nbsp;T extends number  ? "number" :<br>
+&nbsp;&nbsp;T extends boolean ? "boolean" :<br>
+&nbsp;&nbsp;T extends undefined ? "undefined" :<br>
+&nbsp;&nbsp;T extends Function ? "function" :<br>
+&nbsp;&nbsp;"object";<br>
+<br>
+// Usage<br>
+type T0 = TypeName&lt;string&gt;;      // "string"<br>
+type T1 = TypeName&lt;42&gt;;         // "number"<br>
+type T2 = TypeName&lt;true&gt;;       // "boolean"<br>
+type T3 = TypeName&lt;() =&gt; void&gt;; // "function"<br>
+type T4 = TypeName&lt;Date[]&gt;;     // "object"
+</div>
+<a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescripte673.html?filename=demo_conditional_types_typename" target="_blank">Try it Yourself »</a>
+</div>
+
+<p>Conditional types are powerful when creating generic utilities and type-safe libraries:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+// A function that returns different types based on input type<br>
+function processValue&lt;T&gt;(value: T): T extends string<br>
+&nbsp;&nbsp;? string<br>
+&nbsp;&nbsp;: T extends number<br>
+&nbsp;&nbsp;? number<br>
+&nbsp;&nbsp;: T extends boolean<br>
+&nbsp;&nbsp;? boolean<br>
+&nbsp;&nbsp;: never {<br>
+<br>
+&nbsp;&nbsp;if (typeof value === "string") {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return value.toUpperCase() as any; // Type assertion needed due to limitations<br>
+&nbsp;&nbsp;} else if (typeof value === "number") {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return (value * 2) as any;<br>
+&nbsp;&nbsp;} else if (typeof value === "boolean") {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return (!value) as any;<br>
+&nbsp;&nbsp;} else {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;throw new Error("Unsupported type");<br>
+&nbsp;&nbsp;}<br>
+}<br>
+<br>
+// Usage<br>
+const stringResult = processValue("hello"); // Returns "HELLO" (type is string)<br>
+const numberResult = processValue(10);      // Returns 20 (type is number)<br>
+const boolResult = processValue(true);      // Returns false (type is boolean)<br>
+</div>
+<a class="w3-btn w3-margin-bottom" href="#/tutorial/trytypescript7540.html?filename=demo_conditional_types_practical" target="_blank">Try it Yourself »</a>
+</div>
+<hr>
+
+<h2>Best Practices</h2>
+
+<div class="w3-panel">
+
+  <h3>Do:</h3>
+  <ul>
+    <li>Use conditional types for complex type transformations</li>
+    <li>Combine with <code class="w3-codespan">infer</code> for type extraction</li>
+    <li>Create reusable type utilities</li>
+    <li>Document complex conditional types</li>
+    <li>Test edge cases in your type definitions</li>
+  </ul>
+
+  <h3>Don't:</h3>
+  <ul>
+    <li>Overuse complex conditional types when simple types would suffice</li>
+    <li>Create deeply nested conditional types that are hard to understand</li>
+    <li>Forget about performance implications with very complex types</li>
+    <li>Use conditional types for runtime logic</li>
+  </ul>
+
+  <h3>Performance Considerations</h3>
+  <ul>
+    <li>Deeply nested conditional types can increase compile times</li>
+    <li>Consider using type aliases for intermediate results</li>
+    <li>Be mindful of TypeScript's recursion depth limits</li>
+  </ul>
+</div>
+<hr>
+<div id="exercisecontainer" src="xrcise_conditional_types.js" data-extensions="php"></div>
+<hr>
+<br>
+
+
+
+<div id="user-profile-bottom-wrapper" class="user-profile-bottom-wrapper">
+  <div class="user-authenticated w3-hide">
+    <a href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fmy-learning.w3schools.com" class="user-profile-btn user-profile-bottom-btn ga-bottom ga-bottom-profile" title="Your W3Schools Profile" aria-label="Your W3Schools Profile" target="_top">
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 2048 2048" class="user-profile-icon" aria-label="Your W3Schools Profile Icon">
+        <path d="M 843.500 1148.155 C 837.450 1148.515, 823.050 1149.334, 811.500 1149.975 C 742.799 1153.788, 704.251 1162.996, 635.391 1192.044 C 517.544 1241.756, 398.992 1352.262, 337.200 1470 C 251.831 1632.658, 253.457 1816.879, 340.500 1843.982 C 351.574 1847.431, 1696.426 1847.431, 1707.500 1843.982 C 1794.543 1816.879, 1796.169 1632.658, 1710.800 1470 C 1649.008 1352.262, 1530.456 1241.756, 1412.609 1192.044 C 1344.588 1163.350, 1305.224 1153.854, 1238.500 1150.039 C 1190.330 1147.286, 1196.307 1147.328, 1097 1149.035 C 1039.984 1150.015, 1010.205 1150.008, 950 1149.003 C 851.731 1147.362, 856.213 1147.398, 843.500 1148.155" stroke="none" fill="#2a93fb" fill-rule="evenodd"></path>
+        <path d="M 1008 194.584 C 1006.075 194.809, 999.325 195.476, 993 196.064 C 927.768 202.134, 845.423 233.043, 786 273.762 C 691.987 338.184, 622.881 442.165, 601.082 552 C 588.496 615.414, 592.917 705.245, 611.329 760.230 C 643.220 855.469, 694.977 930.136, 763.195 979.321 C 810.333 1013.308, 839.747 1026.645, 913.697 1047.562 C 1010.275 1074.879, 1108.934 1065.290, 1221 1017.694 C 1259.787 1001.221, 1307.818 965.858, 1339.852 930.191 C 1460.375 795.998, 1488.781 609.032, 1412.581 451.500 C 1350.098 322.327, 1240.457 235.724, 1097.500 202.624 C 1072.356 196.802, 1025.206 192.566, 1008 194.584" stroke="none" fill="#0aaa8a" fill-rule="evenodd"></path>
+      </svg>
+
+      <svg xmlns="http://www.w3.org/2000/svg" class="user-progress" aria-label="Your W3Schools Profile Progress">
+        <path class="user-progress-circle1" fill="none" d="M 25.99650934151373 15.00000030461742 A 20 20 0 1 0 26 15"></path>
+        <path class="user-progress-circle2" fill="none" d="M 26 15 A 20 20 0 0 0 26 15"></path>
+      </svg>
+
+      <span class="user-progress-star">★</span>
+
+      <span class="user-progress-point">+1</span>
+    </a>
+  </div>
+
+  <div class="w3s-pathfinder -teaser user-anonymous w3-hide">
+  <div class="track-progress-btn-wrapper">
+    <a href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fpathfinder.w3schools.com" class="-login-btn w3-button ga-bottom ga-bottom-login track-progress-btn" title="Sign in to track your progress" aria-label="Sign in to track your progress" target="_blank">
+    Sign in to track progress
+  </a>
+    
+  </div>
+</div>
+
+<style>
+.w3s-pathfinder.-teaser {
+  background-color: transparent!important;
+}
+.track-progress-btn-wrapper {
+  display: flex;
+  justify-content: center;
+}
+a.track-progress-btn {
+  position: absolute;
+  padding: 8px 20px;
+  border: 1px solid #ddd;
+  top:-65px;
+  background-color: #fff;
+  color: #333;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+}
+@media screen and (max-width: 600px) {
+  a.track-progress-btn {
+    top: 6px;
+    width: 100%;
+  }
+}
+</style>
+
+</div>
+
