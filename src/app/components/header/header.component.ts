@@ -20,12 +20,23 @@ export class HeaderComponent implements OnInit {
     { label: 'Playground', route: '/playground' }
   ];
   
+  user: any = null;
+
   constructor(private authService: AuthService) {}
 
   ngOnInit() {
     this.authService.user$.subscribe(user => {
+      this.user = user;
       this.updateNavItems(user);
     });
+  }
+
+  async login() {
+    await this.authService.loginWithGoogle();
+  }
+
+  async logout() {
+    await this.authService.logout();
   }
 
   updateNavItems(user: any) {

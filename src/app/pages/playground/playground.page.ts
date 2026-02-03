@@ -48,7 +48,7 @@ export class PlaygroundPage implements OnInit, AfterViewInit {
 </head>
 <body>
   <div class="card">
-    <h1>Hello from W3Academy!</h1>
+    <h1>Hello from Coding Tamilan!</h1>
     <p>Edit this code and click 'Run Result' to see changes live.</p>
     <button>Click Me</button>
   </div>

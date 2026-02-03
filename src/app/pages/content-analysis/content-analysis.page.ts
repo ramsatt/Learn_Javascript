@@ -3,6 +3,7 @@ import { GeminiService } from '../../services/gemini.service';
 import { ToastController, LoadingController } from '@ionic/angular';
 import { environment } from '../../../environments/environment';
 import { TutorialService, Course, TutorialSection } from '../../services/tutorial.service';
+import { Firestore, doc, setDoc, getDoc } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-content-analysis',
@@ -30,25 +31,36 @@ export class ContentAnalysisPage implements OnInit {
     private geminiService: GeminiService,
     private tutorialService: TutorialService,
     private toastCtrl: ToastController,
-    private loadingCtrl: LoadingController
+    private loadingCtrl: LoadingController,
+    private firestore: Firestore
   ) { }
 
   ngOnInit() {
     this.loadCourses();
 
-    // Priority 1: Use key from environment
+    // Priority 1: Use key from environment (dev only now mostly empty)
+    // @ts-ignore
     if (environment.geminiApiKey) {
+      // @ts-ignore
       this.apiKey = environment.geminiApiKey;
       this.geminiService.setApiKey(this.apiKey);
       this.isApiConfigured = true;
     } 
-    // Priority 2: Fallback to local storage
+    // Priority 2: Fallback to local storage (optional manual override)
     else {
       const storedKey = localStorage.getItem('GEMINI_API_KEY');
       if (storedKey) {
         this.apiKey = storedKey;
         this.geminiService.setApiKey(this.apiKey);
         this.isApiConfigured = true;
+      } else {
+        // Attempt auto-configure from Remote Config via service
+        this.geminiService.getApiKey().then(key => {
+          if (key) {
+            this.apiKey = key;
+            this.isApiConfigured = true;
+          }
+        });
       }
     }
   }
@@ -76,11 +88,40 @@ export class ContentAnalysisPage implements OnInit {
             });
           });
         });
+        
+        // Immediately load progress to show current state
+        this.loadAnalysisProgress();
       });
     }
   }
 
+  async loadAnalysisProgress() {
+    if (!this.selectedCourseId) return;
+
+    const progressDocRef = doc(this.firestore, `content_analysis_status/${this.selectedCourseId}`);
+    try {
+      const docSnap = await getDoc(progressDocRef);
+      if (docSnap.exists()) {
+        const data = docSnap.data();
+        this.chaptersToProcess.forEach(ch => {
+          if (data[ch.title] === 'completed') {
+            ch.status = 'completed';
+            ch.skipped = true; 
+          }
+        });
+        // Update batch progress for UI
+        const completedCount = this.chaptersToProcess.filter(c => c.status === 'completed').length;
+        if (this.chaptersToProcess.length > 0) {
+            this.batchProgress = (completedCount / this.chaptersToProcess.length) * 100;
+        }
+      }
+    } catch (e) {
+      console.error('Error loading progress', e);
+    }
+  }
+
   async runBatchAnalysis() {
+    if (!this.selectedCourseId) return;
     if (this.chaptersToProcess.length === 0) {
       this.showToast('No chapters found to process', 'warning');
       return;
@@ -90,7 +131,22 @@ export class ContentAnalysisPage implements OnInit {
     this.processedChapters = [];
     let count = 0;
 
-    for (let chapter of this.chaptersToProcess) {
+    // Load progress from Firestore to Resume
+    await this.loadAnalysisProgress();
+
+    const progressDocRef = doc(this.firestore, `content_analysis_status/${this.selectedCourseId}`);
+
+    // Filter only pending
+    const pendingChapters = this.chaptersToProcess.filter(c => c.status !== 'completed');
+    
+    if (pendingChapters.length === 0) {
+       this.showToast('All chapters already analyzed!', 'success');
+       this.isBatchRunning = false;
+       this.batchProgress = 100;
+       return;
+    }
+
+    for (let chapter of pendingChapters) {
       if (!this.isBatchRunning) break;
       
       chapter.status = 'processing';
@@ -104,22 +160,53 @@ export class ContentAnalysisPage implements OnInit {
           chapter.status = 'completed';
           this.processedChapters.push(chapter);
           
-          // Add a small pause between requests to be safe
-          await new Promise(res => setTimeout(res, 1500));
+          // 1. Update Firestore Status
+          await setDoc(progressDocRef, { 
+            [chapter.title]: 'completed',
+            lastUpdated: new Date()
+          }, { merge: true });
+
+          // 2. Trigger "Save" (Download)
+          this.downloadChapterFile(chapter, this.selectedCourseId);
+          
+          // Add a small pause between requests to be safe from rate limits
+          await new Promise(res => setTimeout(res, 2000));
         } else {
           chapter.status = 'error';
         }
       } catch (error) {
         console.error(`Error processing ${chapter.title}:`, error);
         chapter.status = 'error';
+        // Continue to next even if one fails? Yes.
       }
       
       count++;
-      this.batchProgress = (count / this.chaptersToProcess.length) * 100;
+      // Calculate progress based on total items
+      const completedCount = this.chaptersToProcess.filter(c => c.status === 'completed').length;
+      this.batchProgress = (completedCount / this.chaptersToProcess.length) * 100;
     }
     
     this.isBatchRunning = false;
-    this.showToast('Batch analysis completed!', 'success');
+    this.showToast('Batch analysis run completed!', 'success');
+  }
+
+  downloadChapterFile(chapter: any, courseId: string) {
+    // Construct filename: assets/contents/{course}/{topic}.md
+    // We sanitize the title for filename
+    const safeTitle = chapter.title.replace(/[^a-z0-9]/gi, '_').toLowerCase();
+    // Simulate query path structure requested
+    const filename = `assets_contents_${courseId}_${safeTitle}.md`;
+    
+    const blob = new Blob([chapter.enhancedContent], { type: 'text/markdown' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    a.style.display = 'none';
+    document.body.appendChild(a);
+    a.click();
+    window.URL.revokeObjectURL(url);
+    document.body.removeChild(a);
   }
 
   stopBatch() {

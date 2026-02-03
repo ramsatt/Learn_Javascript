@@ -2,7 +2,7 @@
   <div class="container-max header-inner">
     <!-- Logo Section -->
     <div class="logo-section" [routerLink]="['/home']">
-      <div class="logo-icon-w3">
+      <div class="logo-icon-ct">
         <span>C</span>
       </div>
       <span class="logo-text">Coding Tamilan</span>
@@ -38,7 +38,14 @@
       </button>
 
       <!-- Auth Button -->
-      <button class="btn-signup">Sign Up</button>
+      <!-- Not Logged In -->
+      <button class="btn-signup" *ngIf="!user" (click)="login()">Login</button>
+
+      <!-- Logged In -->
+      <div class="user-profile" *ngIf="user">
+        <img [src]="user.photoURL" [alt]="user.displayName" class="user-avatar" *ngIf="user.photoURL">
+         <button class="btn-signup btn-logout" (click)="logout()">Logout</button>
+      </div>
       
       <!-- Mobile Menu -->
       <button class="icon-btn mobile-menu-toggle">
