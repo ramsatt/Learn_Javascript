@@ -1,7 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -10,15 +11,34 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [CommonModule, IonicModule, RouterModule]
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   @Input() title: string = 'Coding Tamilan';
   
-  navItems = [
+  navItems: any[] = [
     { label: 'Tutorials', route: '/tutorials' },
     { label: 'Certificates', route: '/certificates' },
-    { label: 'Playground', route: '/playground' },
-    { label: 'Analysis', route: '/content-analysis' }
+    { label: 'Playground', route: '/playground' }
   ];
+  
+  constructor(private authService: AuthService) {}
+
+  ngOnInit() {
+    this.authService.user$.subscribe(user => {
+      this.updateNavItems(user);
+    });
+  }
+
+  updateNavItems(user: any) {
+    this.navItems = [
+      { label: 'Tutorials', route: '/tutorials' },
+      { label: 'Certificates', route: '/certificates' },
+      { label: 'Playground', route: '/playground' }
+    ];
+
+    if (user && user.email === 'ramsatt@gmail.com') {
+      this.navItems.push({ label: 'Analysis', route: '/content-analysis' });
+    }
+  }
 
   isSearchOpen = false;
   isDarkMode = false;
