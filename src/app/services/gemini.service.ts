@@ -1,27 +1,57 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import { environment } from '../../environments/environment';
+import { RemoteConfig, fetchAndActivate, getString } from '@angular/fire/remote-config';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GeminiService {
-  private genAI: GoogleGenerativeAI;
+  private genAI: GoogleGenerativeAI | undefined;
   private model: any;
+  private remoteConfig: RemoteConfig = inject(RemoteConfig);
+  private apiKey: string = '';
 
-  constructor() {
-    this.genAI = new GoogleGenerativeAI(environment.geminiApiKey);
-    this.model = this.genAI.getGenerativeModel({ model: "gemini-3-flash-preview" });
-  }
+  constructor() {}
 
   setApiKey(apiKey: string) {
+    this.apiKey = apiKey;
     this.genAI = new GoogleGenerativeAI(apiKey);
     this.model = this.genAI.getGenerativeModel({ model: "gemini-3-flash-preview" });
   }
 
+  async getApiKey(): Promise<string> {
+    if (this.apiKey) return this.apiKey;
+
+    try {
+      await fetchAndActivate(this.remoteConfig);
+      const remoteKey = getString(this.remoteConfig, 'gemini_api_key');
+      if (remoteKey) {
+        this.setApiKey(remoteKey);
+        return remoteKey;
+      }
+    } catch (error) {
+      console.warn('Failed to fetch remote config:', error);
+    }
+
+    // Fallback to environment if available (for dev)
+    // @ts-ignore
+    if (environment.geminiApiKey) {
+       // @ts-ignore
+      this.setApiKey(environment.geminiApiKey);
+      // @ts-ignore
+      return environment.geminiApiKey;
+    }
+
+    return '';
+  }
+
   async analyzeAndEnhanceContent(content: string, retryCount = 0): Promise<string> {
     if (!this.model) {
-      throw new Error("Gemini API Key not set. Please provide a valid API key.");
+      await this.getApiKey();
+      if (!this.model) {
+          throw new Error("Gemini API Key not set. Please configure 'gemini_api_key' in Firebase Remote Config.");
+      }
     }
 
     const cacheKey = this.generateCacheKey(content);

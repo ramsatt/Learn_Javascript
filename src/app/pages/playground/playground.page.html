@@ -31,13 +31,21 @@
         SOURCE EDITOR
       </div>
       <div class="editor-viewport">
-          <textarea 
-            class="code-input" 
-            [(ngModel)]="code" 
-            spellcheck="false"
-            (keydown.tab)="handleTab($event)"
-            placeholder="Type your HTML/CSS code here..."
-          ></textarea>
+          <div class="code-editor-wrapper">
+            <!-- Back Layer: Syntax Highlighting -->
+            <pre #preElement class="code-highlight" aria-hidden="true"><code class="language-html" [innerHTML]="highlightedCode"></code></pre>
+            
+            <!-- Front Layer: Transparent Input -->
+            <textarea 
+              class="code-input" 
+              [value]="code" 
+              (input)="onCodeInput($event)"
+              (scroll)="syncScroll($event)"
+              spellcheck="false"
+              (keydown.tab)="handleTab($event)"
+              placeholder="Type your HTML/CSS code here..."
+            ></textarea>
+          </div>
       </div>
     </div>
 

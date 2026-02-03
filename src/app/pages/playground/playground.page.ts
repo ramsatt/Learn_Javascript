@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { DomSanitizer, SafeResourceUrl, SafeHtml } from '@angular/platform-browser';
 import { ToastController } from '@ionic/angular';
 import { TutorialService } from '../../services/tutorial.service';
+import * as Prism from 'prismjs';
+import 'prismjs/components/prism-markup';
+import 'prismjs/components/prism-css';
 
 @Component({
   selector: 'app-playground',
@@ -10,9 +13,12 @@ import { TutorialService } from '../../services/tutorial.service';
   styleUrls: ['./playground.page.scss'],
   standalone: false
 })
-export class PlaygroundPage implements OnInit {
+export class PlaygroundPage implements OnInit, AfterViewInit {
+  
+  @ViewChild('preElement') preElement!: ElementRef;
   
   code: string = '';
+  highlightedCode: SafeHtml = '';
   activeTab: 'editor' | 'result' = 'editor';
   iframeSrc: SafeResourceUrl | null = null;
   
@@ -67,8 +73,32 @@ export class PlaygroundPage implements OnInit {
           this.code = this.defaultHtml;
       }
       // Run initially
+      this.updateHighlight();
       this.runCode();
     });
+  }
+
+  ngAfterViewInit() {
+    this.updateHighlight();
+  }
+
+  updateHighlight() {
+    // Escape HTML for display in the code block
+    const escaped = this.code
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+
+    // Highlight using Prism
+    const highlighted = Prism.highlight(this.code, Prism.languages['html'], 'html');
+    this.highlightedCode = this.sanitizer.bypassSecurityTrustHtml(highlighted);
+  }
+
+  onCodeInput(event: any) {
+    this.code = event.target.value;
+    this.updateHighlight();
   }
 
   runCode() {
@@ -90,10 +120,23 @@ export class PlaygroundPage implements OnInit {
     e.preventDefault();
     const start = e.target.selectionStart;
     const end = e.target.selectionEnd;
+    
+    // Insert 2 spaces
     this.code = this.code.substring(0, start) + '  ' + this.code.substring(end);
+    
+    // Update model and highlighting manually
+    this.updateHighlight();
+
     setTimeout(() => {
       e.target.selectionStart = e.target.selectionEnd = start + 2;
     });
+  }
+
+  syncScroll(event: any) {
+    if (this.preElement && this.preElement.nativeElement) {
+      this.preElement.nativeElement.scrollTop = event.target.scrollTop;
+      this.preElement.nativeElement.scrollLeft = event.target.scrollLeft;
+    }
   }
 
   copyCode() {
